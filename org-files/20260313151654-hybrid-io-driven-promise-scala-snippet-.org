@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:          32146ebb-3789-4158-be34-4568d41bdc29
+:END:
+#+title: Hybrid IO-driven Promise (Scala snippet)
+#+ROAM_REFS: https://alexn.org/blog/2026/02/17/hybrid-io-driven-promise-in-scala-snippet/
+#+filetags: :article:
+
+[[https://alexn.org/blog/2026/02/17/hybrid-io-driven-promise-in-scala-snippet/][Source link]]
+
+* Summary
+This article introduces =IOPromise=, a custom Scala implementation designed to bridge the gap between imperative libraries (like Akka/Pekko) and functional effect systems (specifically Cats-Effect). It serves as a hybrid alternative to =scala.concurrent.Promise= and =cats.effect.Deferred=. Unlike =Deferred=, which requires a Dispatcher or unsafe global context to complete from an imperative setting, =IOPromise= exposes an =unsafeTryComplete= method that can be called directly from non-=IO= contexts while maintaining a safe, =IO=-driven API for awaiting results. This approach prevents memory leaks associated with callback registration on cancellation and offers a lighter API for interoperability scenarios.
+
+* Key Takeaways
+- =IOPromise= allows completing a promise via =unsafeTryComplete= in imperative contexts without needing a Cats-Effect Dispatcher.
+- The =awaitOrGet= method returns an =IO= value that properly unregisters callbacks upon cancellation, preventing memory leaks common when wrapping standard Scala Futures.
+- The implementation uses =AtomicReference= and a state machine (=Pending= vs =Completed=) to handle concurrency safely without blocking.
+- A practical use case demonstrated is wrapping Akka/Pekko's =SharedKillSwitch= to expose an =awaitShutdown= method returning =IO[KillSwitchOutcome]=.
+- Compared to leveraging Pekko Streams' =Materializer= for similar functionality, =IOPromise= provides a significantly lighter and more direct API.
+
+* Notes
+The provided code snippet demonstrates a robust pattern for interoperability between [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]] imperative ecosystems and functional effects.
+
+** Technical Implementation
+The core of =IOPromise= relies on a state machine managed by an =AtomicReference=:
+- =State.Pending=: Holds a queue of callbacks waiting for completion.
+- =State.Completed=: Holds the final result (=Either[Throwable, A]=).
+
+Key methods include:
+- =unsafeTryComplete=: Side-effecting method to set the result. It uses a compare-and-set (CAS) loop to ensure thread safety. If successful, it triggers all enqueued callbacks.
+- =awaitOrGet=: Returns an =IO[A]=. It utilizes =IO.async= to register callbacks. Crucially, it supports cancellation by allowing the removal of callbacks from the pending queue if the =IO= fiber is canceled before completion.
+
+** Interoperability Example: BetterKillSwitch
+The article showcases a =BetterKillSwitch= trait that extends Pekko's =KillSwitch=.
+- It wraps a standard =SharedKillSwitch=.
+- It uses an internal =IOPromise= to signal shutdown events.
+- When =shutdown()= or =abort()= is called imperatively on the Pekko switch, it triggers =promise.unsafeTrySuccess= or =promise.unsafeTryFailure=.
+- Functional code can then await this event cleanly using =awaitShutdown: IO[KillSwitchOutcome]=.
+
+This pattern avoids the overhead of setting up a full =Materializer= just to observe a stream's termination status, making it ideal for embedding Pekko components within a [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]]-adjacent or purely Cats-Effect driven architecture where lightweight bridges are preferred.

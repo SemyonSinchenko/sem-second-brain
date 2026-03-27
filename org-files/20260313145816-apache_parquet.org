@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       56336898-7861-471a-8efc-f55b77cac00c
+:END:
+#+title: Apache Parquet
+#+filetags: :umbrella:data_engineering:storage_format:

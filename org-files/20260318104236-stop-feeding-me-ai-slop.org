@@ -1,0 +1,50 @@
+:PROPERTIES:
+:ID:          5ee36603-d9ef-4b44-9fa3-42737c405f0f
+:END:
+#+title: Stop Feeding Me AI Slop
+#+ROAM_REFS: https://luminousmen.substack.com/p/stop-feeding-me-ai-slop
+#+filetags: :article:
+
+[[https://luminousmen.substack.com/p/stop-feeding-me-ai-slop][Source link]]
+
+* Summary
+The article argues that while Artificial Intelligence is a powerful tool for amplifying engineering productivity, it has led to a proliferation of low-quality, verbose, and thoughtless communication termed "AI slop." The core issue is not the technology itself, but the tendency of engineers to delegate critical thinking and decision-making to models rather than using them to refine existing thoughts. This results in design documents, code reviews, and specifications that appear thorough but lack actual substance, creating significant risks when systems fail or requirements change because the human authors cannot explain the logic behind the generated output.
+
+* Key Takeaways
+- AI should be used as an amplifier for human thought, not a replacement for the thinking process itself.
+- "AI slop" is characterized by verbosity, fake structure, confident-sounding but content-free language, and a lack of specific context.
+- Delegating design decisions to AI creates dangerous scenarios where engineers merge code or approve architectures they cannot explain or defend.
+- The true value of human communication in engineering is /distillation/: providing concentrated signals based on lived experience and specific problem constraints.
+- Using AI to simulate the appearance of work without doing the actual analysis is described as a form of professional fraud.
+
+* Notes
+** The Nature of AI Slop
+The author identifies a specific aesthetic emerging in professional communication (2024-2026) where content is marinated in corporate jargon.
+- It is verbose, often taking 2,000 words to express a single idea.
+- It relies on fake structure, such as bullet points that repeat the same concept with different nouns.
+- Common phrases include "it's worth noting that" and "in order to."
+- When challenged, authors of such content often cannot clarify decisions because they did not make them; they merely prompted the model.
+
+** Impact on Engineering Artifacts
+The degradation of quality is most damaging in critical engineering documents:
+- *Design Documents*: A good design doc is an artifact of thought where the writing process forces the engineer to confront flaws. AI-generated docs skip this, offering plausible-sounding but unconsidered alternatives. This leads to implementation failures when edge cases, never actually analyzed, are encountered.
+- *Product Requirement Docs (PRDs)*: Often become rephrased feature requests with added structure but no real prioritization or judgment on edge cases.
+- *Code Reviews*: Comments become generic and technically correct but irrelevant to the specific context of the codebase, as the reviewer asked an [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] to comment rather than thinking through the logic.
+
+** The Danger of Amplified Incompetence
+The article posits that AI acts as a multiplier.
+- A competent engineer (2x) can become highly productive (10x).
+- However, an engineer with poor judgment or negative capability will have those bad decisions made faster and wrapped in "confident, well-structured bullshit."
+- This creates a scenario where code is merged and shipped without the author understanding the error handling or logic, leading to unmanageable on-call situations where runbooks are also generated and incomprehensible.
+- This compounds the "docs-that-nobody-owns" problem, making it impossible to adapt systems to changing requirements without rewriting from scratch.
+
+** Proper Usage vs. Replacement
+The distinction lies in the order of operations:
+- *Correct Approach*: Think through the architecture and key decisions first. Use AI to write the prose, refactor, or check grammar. The distillation remains human.
+- *Incorrect Approach*: Prompt the AI to solve the problem or generate the design without prior human analysis. This makes the human an "unnecessary, expensive, slow, unreliable meat-based middleman."
+- The author suggests that if one has not done the thinking, they are essentially committing fraud by simulating competence.
+
+** Connection to Broader Concepts
+- The critique aligns with concerns about [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] where autonomy might bypass human oversight if not carefully managed.
+- The reliance on [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] outputs without verification undermines the rigorous standards required in data-intensive fields involving technologies like [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]], [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]], or table formats like [[id:117f084e-2b22-49d9-a42a-fddada65b250][DeltaLake]] and [[id:91fc22f1-4cbc-4e4c-81ff-6d11e7e36c44][Apache Iceberg]], where subtle configuration errors can have massive downstream effects.
+- The call for "distillation" emphasizes the irreplaceable value of human context, which no model currently possesses.

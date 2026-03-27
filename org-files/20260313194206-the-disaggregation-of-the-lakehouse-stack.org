@@ -1,0 +1,43 @@
+:PROPERTIES:
+:ID:          f11ca7e7-b148-4255-9a18-878333636bff
+:END:
+#+title: The Disaggregation of the Lakehouse Stack
+#+ROAM_REFS: https://cdelmonte.dev/essays/the-disaggregation-of-the-lakehouse-stack/
+#+filetags: :article:
+
+[[https://cdelmonte.dev/essays/the-disaggregation-of-the-lakehouse-stack/][Source link]]
+
+* Summary
+This analysis traces the architectural shift from a monolithic data platform (Spark + Delta + Databricks) to a disaggregated, layered stack. The core trend is the separation of protocol semantics (Delta Kernel), in-memory formats (Apache Arrow), and query execution (DataFusion, Comet) from the distributed runtime. While the bottom layers are becoming modular and engine-agnostic, the distributed runtime remains the most resistant layer to disaggregation due to the tight coupling of shuffle, scheduling, and fault tolerance logic.
+
+* Key Takeaways
+- The monolithic coupling of Delta Lake to Spark internals caused connector proliferation and maintenance burdens, leading to the creation of [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]]-style independent kernels like Delta Kernel.
+- [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] and Apache Comet demonstrate that execution engines can now be swapped or embedded within existing runtimes without replacing the entire stack.
+- The distributed runtime (scheduler, shuffle, memory manager) remains the final intact monolith, making frameworks like [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] and Flink still central for large-scale distributed workloads.
+- [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]] and [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]] ecosystems benefit from the standardization of [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]] bindings and Arrow-based data exchange, allowing local validation without cluster deployment.
+
+* Notes
+** The Monolith and Its Problems
+Historically, [[id:117f084e-2b22-49d9-a42a-fddada65b250][DeltaLake]] was designed tightly coupled to [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]] and [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] internals (Catalyst, SparkSession). This pragmatism solved ACID semantics quickly but created a "connector proliferation problem" where engines like Trino, Flink, and Hive had to reimplement protocol logic, leading to divergence and bugs.
+
+** The Architectural Response: Delta Kernel
+The solution is extracting the protocol from the engine via Delta Kernel.
+- *Protocol Layer*: Handles snapshot construction, log interpretation, and schema enforcement.
+- *Execution Layer*: Host engines (Spark, Flink, [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]]) handle file reading and expression evaluation.
+- Implementations exist in Java (for JVM) and Rust (for cross-language/[[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]]).
+- The `Engine` trait in Rust defines the seam where the kernel stops and the host begins, delegating storage and JSON/Parquet handling to the caller.
+
+** Disaggregation of Layers
+The stack is modularizing into independent replaceable libraries:
+- *Protocol*: [[id:117f084e-2b22-49d9-a42a-fddada65b250][DeltaLake]] Kernel.
+- *In-memory Format*: [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]] and other languages utilize Apache Arrow for zero-copy columnar exchange.
+- *Query Planning*: Pluggable via Calcite (JVM) or native planners in [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]].
+- *Execution*: Projects like Apache Comet embed Rust-based [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] operators inside Spark's JVM runtime, replacing physical execution while keeping Catalyst planning.
+
+** The Missing Layer: Distributed Runtime
+Disaggregation stops at the distributed runtime because components (shuffle, scheduler, memory manager) are deeply entangled.
+- Single-node engines like [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] or [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] excel at local execution but cannot yet replace the fault-tolerance and shuffle capabilities of [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] or Flink at scale.
+- Emerging pressures include managed shuffle services (LinkedIn Magnet, Celeborn) and general frameworks like Ray, but SQL-oriented maturity remains lower than Spark.
+
+** Practical Consequences
+Engineers can now compose heterogeneous stacks: mixing engines against shared tables, using [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]] directly, or embedding native execution in JVM environments. The competition is shifting from "which engine" to "which distributed runtime," as protocol and format layers become commoditized.

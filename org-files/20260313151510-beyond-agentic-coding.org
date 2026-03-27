@@ -1,0 +1,37 @@
+:PROPERTIES:
+:ID:          5e6346ac-53fe-4b5b-8c75-ee1c0bdff2e4
+:END:
+#+title: Beyond Agentic Coding
+#+ROAM_REFS: https://haskellforall.com/2026/02/beyond-agentic-coding
+#+filetags: :article:
+
+[[https://haskellforall.com/2026/02/beyond-agentic-coding][Source link]]
+
+* Summary
+The article argues that current "agentic coding" tools (chat-based autonomous agents) often degrade developer productivity and disrupt the "flow state" rather than enhancing it. Evidence from studies and interview observations suggests that users of these tools perform worse on fixed outcomes compared to traditional coding. The author proposes shifting focus toward "Calm Technology" design principles for AI-assisted development, where tools minimize attention demands, act as "pass-through" interfaces, and fade into the background. Examples of calm design include inlay hints, file tree previews, and specific GitHub Copilot features like next edit suggestions, contrasting them with the intrusive nature of chat agents.
+
+* Key Takeaways
+- Agentic coding tools frequently break developer flow states by creating idle time and demanding high attention, leading to worse performance in fixed outcome metrics.
+- "Calm Technology" is a design discipline advocating for tools that minimize attention demands, operate as pass-through interfaces, and enhance calm rather than interrupting workflow.
+- Chat-based agents are inherently non-calm because they are indirect, slow, imprecise, and require constant user stimulation, whereas inline suggestions and semantic navigation better preserve flow.
+- Future AI-assisted coding should explore innovative interfaces like facet-based project navigation, automated commit refactoring, and context-focused editing ("Focus on..." / "Edit as...") instead of relying on chatbots.
+
+* Notes
+The author critiques the current hype surrounding [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]], noting that candidates using these tools during interviews often produced incorrect results or failed to verify their output, performing worse than those who did not use them. Research (Becker and Shen studies) supports this, showing that agentic coding doubles idle time and does not improve productivity when measured by fixed outcomes.
+
+The core argument rests on the "master cue" of design: a good tool must keep the user in a flow state. Chat agents violate this by:
+- Placing high demands on attention (waiting for reports or remaining interruptible).
+- Being non-pass-through (mediating the interaction indirectly through English, which is imprecise).
+- Undermining calm (requiring active stimulation rather than passive information delivery).
+
+In contrast, the article highlights existing "calm" tools:
+- *Inlay hints* (e.g., inferred types in IDEs) which exist on the periphery of attention and do not obscure code.
+- *File tree previews* which update passively and feel direct/snappy.
+- *GitHub Copilot's Next Edit Suggestions*, which present bite-sized, unobtrusive changes that users can review at leisure, maintaining close contact with the code.
+
+Proposed future directions for AI in software development include:
+- *Facet-based project navigation*: browsing code by semantic intent (e.g., "String interpolation regression") rather than file paths.
+- *Automated commit refactor*: splitting diffs into focused commits to reduce human review labor.
+- *File lens*: modes to "Focus on" specific domains (hiding unrelated code) or "Edit as" different languages/formats (e.g., editing Haskell logic via a YAML representation).
+
+The author concludes that chat is the least interesting interface for LLMs in coding and encourages the community to build tools that embody calm technology principles to truly empower developers.

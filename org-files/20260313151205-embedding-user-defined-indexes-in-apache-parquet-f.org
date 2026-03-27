@@ -1,0 +1,58 @@
+:PROPERTIES:
+:ID:          456c18f6-8c59-4bd3-85d1-68dbc7112a1f
+:END:
+#+title: Embedding User-Defined Indexes in Apache Parquet Files
+#+ROAM_REFS: https://datafusion.apache.org/blog/2025/07/14/user-defined-parquet-indexes/
+#+filetags: :article:
+
+[[https://datafusion.apache.org/blog/2025/07/14/user-defined-parquet-indexes/][Source link]]
+
+* Summary
+This article demonstrates that [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]] files can be extended with user-defined indexes without breaking compatibility or requiring new file formats. By leveraging Parquet's ability to store arbitrary bytes in the file body and key/value pairs in the footer metadata, developers can embed custom structures like distinct value lists, HyperLogLog sketches, or histograms directly within the file. The authors provide a practical example using [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] to implement a distinct value index for efficient file pruning, showing that standard readers like [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] and [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] simply ignore these custom additions, ensuring full interoperability.
+
+* Key Takeaways
+- Parquet supports embedding custom indexes by writing binary data to the file body and recording the offset in the footer's key/value metadata.
+- User-defined indexes (e.g., distinct value sets) offer superior pruning for low-cardinality columns compared to standard Min/Max statistics or Bloom filters.
+- This approach avoids the operational complexity and synchronization risks associated with maintaining external index files.
+- The implementation requires updating the query engine's =TableProvider= to read the custom metadata and apply pruning logic, as demonstrated in [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]].
+- Files containing embedded custom indexes remain fully readable by other engines like [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] and [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]], which safely ignore unknown metadata and byte ranges.
+
+* Notes
+** Motivation for Custom Indexes
+Standard [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]] statistics (Min/Max/Null Count) are often ineffective for columns with wide value ranges but low cardinality (e.g., a =Nation= column spanning "Argentina" to "Zimbabwe").
+- A query filtering for =Nation = 'Singapore'= cannot prune files using Min/Max if the range covers the target value, even if 'Singapore' is absent.
+- External indexes (like those in [[id:91fc22f1-4cbc-4e4c-81ff-6d11e7e36c44][Apache Iceberg]]) solve this but introduce synchronization risks and extra file management.
+- Embedding the index directly in the Parquet file solves these issues while maintaining a single-file workflow.
+
+** Parquet File Anatomy and Extension Mechanism
+The article explains that Parquet readers ignore unknown structures, allowing for safe extension:
+- _Standard Indexes_: Min/Max stats (in footer), Page Index, and Bloom Filters (in file body, referenced in footer).
+- _Extension Strategy_:
+  1. Serialize the custom index (e.g., a list of distinct values) into binary format.
+  2. Write these bytes into the file body (typically after data pages, before the footer).
+  3. Add a key/value pair to the Thrift-encoded footer metadata (e.g., ="my_index_offset" -> "12345"=) pointing to the custom data.
+- This method allows for indexes at any granularity: file, row group, page, or row level.
+
+** Implementation Example in Apache DataFusion
+The authors demonstrate a "Distinct Value Index" using Rust and [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]]:
+- _Index Structure_: A simple =HashSet<String>= containing unique values for a column.
+- _Serialization_: Uses a magic header (=IDX1=), length prefix, and newline-separated UTF-8 values.
+- _Writing_: Uses the =arrow-rs= buffered write API to track byte offsets accurately before appending the footer.
+- _Reading & Pruning_:
+  - A custom =TableProvider= reads the footer metadata to find the index offset.
+  - It seeks to the offset, validates the magic bytes, and deserializes the set.
+  - During the =scan= phase, it checks equality predicates against the set to skip irrelevant files entirely.
+- _Code Requirements_: Requires =arrow-rs= v55.2.0+ for the buffered write capabilities.
+
+** Compatibility Verification
+A critical feature of this approach is backward compatibility:
+- When the generated files were tested with [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]], the engine successfully read the data.
+- [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] ignored the custom binary blob and the unknown key/value metadata entry, proving that embedded indexes do not break standard readers.
+- Similarly, [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] would treat these files as standard Parquet, ignoring the enhancements unless specifically configured to use them.
+
+** Use Cases Beyond Distinct Values
+The flexibility of this mechanism supports various advanced indexing strategies:
+- _HyperLogLog Sketches_: For fast cardinality estimation without scanning data.
+- _Zone Maps_: Precomputed aggregates (e.g., =SUM=) at the row group level.
+- _Histograms_: For better predicate selectivity estimates during query planning.
+- _Bitmaps_: For high-performance filtering on specific flags or categories.

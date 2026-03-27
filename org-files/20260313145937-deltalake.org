@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       117f084e-2b22-49d9-a42a-fddada65b250
+:END:
+#+title: DeltaLake
+#+filetags: :umbrella:data_engineering:storage_format:lakehouse:

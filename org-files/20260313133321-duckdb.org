@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       db87fd03-2674-46bf-8b91-55a1923f7335
+:END:
+#+title: DuckDB
+#+filetags: :umbrella:data_engineering:

@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       54f53d1d-c06d-44d2-be03-3b618933ecbd
+:END:
+#+title: Emacs
+#+filetags: :umbrella:emacs:

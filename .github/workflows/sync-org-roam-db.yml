@@ -1,0 +1,79 @@
+name: Sync org-roam DB branch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-org-roam-db-main
+  cancel-in-progress: true
+
+jobs:
+  sync-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.DB_BRANCH_PUSH_TOKEN }}
+
+      - name: Setup Emacs
+        uses: jcs090218/setup-emacs@master
+        with:
+          version: 30.2
+
+      - name: Build org-roam DB
+        shell: bash
+        run: |
+          emacs --batch --eval "(progn
+            (require 'package)
+            (setq package-archives
+              '((\"gnu\" . \"https://elpa.gnu.org/packages/\")
+                (\"nongnu\" . \"https://elpa.nongnu.org/nongnu/\")
+                (\"melpa\" . \"https://melpa.org/packages/\")))
+            (package-initialize)
+            (unless package-archive-contents
+              (package-refresh-contents))
+            (unless (package-installed-p 'org-roam)
+              (package-install 'org-roam))
+            (require 'org-roam)
+            (setq org-roam-directory (expand-file-name \"org-files\" default-directory))
+            (setq org-roam-db-location (expand-file-name \"org-roam.db\" org-roam-directory))
+            (org-roam-db-sync)
+            (message \"org-roam DB generated at %s\" org-roam-db-location))"
+
+      - name: Update roam-db branch
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          DB_BRANCH="roam-db"
+          DB_FILE="org-files/org-roam.db"
+          TMP_DB="${RUNNER_TEMP}/org-roam.db"
+
+          cp "${DB_FILE}" "${TMP_DB}"
+
+          git fetch origin main
+          git switch --force-create "${DB_BRANCH}" "origin/main"
+
+          mkdir -p org-files
+          cp "${TMP_DB}" "${DB_FILE}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add "${DB_FILE}"
+
+          if git diff --cached --quiet; then
+            echo "No DB changes to commit; branch will still mirror main."
+          else
+            git commit -m "chore: update org-roam DB"
+          fi
+
+          git push --force-with-lease origin "${DB_BRANCH}"

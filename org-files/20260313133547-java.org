@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       2d42e3b7-125a-43b8-b6c8-0be5dc4c3d70
+:END:
+#+title: Java
+#+filetags: :umbrella:development:

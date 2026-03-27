@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:          7e7de46d-cc7b-4ab6-9473-3da408a64613
+:END:
+#+title: Emacs and Vim in the Age of AI
+#+ROAM_REFS: https://batsov.com/articles/2026/03/09/emacs-and-vim-in-the-age-of-ai/
+#+filetags: :article:
+
+[[https://batsov.com/articles/2026/03/09/emacs-and-vim-in-the-age-of-ai/][Source link]]
+
+* Summary
+The article explores the future of text editors [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] and Vim amidst the rapid rise of AI-driven development tools. While acknowledging significant risks such as the dominance of VS Code, the shift from mechanical editing speed to intent specification, and the resource disparity between volunteer-driven projects and well-funded corporations, the author argues that these editors possess unique resilience. AI offers opportunities to flatten steep learning curves, simplify configuration in languages like Elisp and Lua, and accelerate plugin development. The piece concludes that while the role of the editor is shifting from writing code to reviewing and steering AI output, the extensibility and community adaptability of Emacs and Vim position them to survive, potentially even thriving as platforms for deep AI integration and terminal-native workflows.
+
+* Key Takeaways
+- AI tools significantly lower the barrier to entry for Emacs and Vim by explaining cryptic errors and generating configuration code in Elisp, VimScript, or Lua.
+- The primary value proposition of these editors is shifting from typing efficiency to workflow control, review capabilities, and architectural judgment.
+- Terminal-native AI agents (like Claude Code) compose naturally with Emacs and Vim, avoiding the context switching required by GUI-based AI editors.
+- Ethical concerns regarding energy consumption, copyright, and job displacement are creating friction within the community, leading to forks like EVi.
+- Even in a hypothetical "post-coding" future, Emacs and Vim remain relevant for prose writing, note-taking (Org mode), and as a paradigm for text manipulation.
+
+* Notes
+** The Risks to Traditional Editors
+- *The IDE Gravity Well*: [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] and Vim face intense competition from VS Code and purpose-built AI editors like Cursor and Windsurf. These new tools offer native AI workflows (inline diffs, agent loops) that feel integrated rather than bolted on.
+- *Relevance of Mechanical Speed*: If AI writes the bulk of the code, the mechanical efficiency of keybindings and macros becomes less critical than the ability to specify intent and evaluate output.
+- *Resource Asymmetry*: Building deep AI integrations requires keeping pace with fast-moving APIs. Well-funded teams (Microsoft, venture-backed startups) have a distinct advantage over the volunteer-driven communities maintaining Emacs and Vim.
+- *Doomsday Scenario*: If AI agents fully automate software production, the need for any code editor could vanish, though this is considered unlikely in the near term.
+
+** Opportunities Enabled by AI
+- *Troubleshooting and Onboarding*: AI acts as a patient guide, explaining opaque error messages (e.g., "Wrong type argument: stringp, nil") and diagnosing configuration issues, which historically drove users away.
+- *Democratizing Extension*: The obscurity of extension languages (Elisp, VimScript, Lua) has long been a bottleneck. AI allows users to describe functionality in plain English and receive working code, removing the need to master these niche languages.
+- *Accelerating Plugin Development*: AI can generate test scaffolding, documentation, and boilerplate, helping the small core group of contributors maintain and expand the ecosystem faster.
+- *Existing Integrations*: The communities are already adapting with tools like =gptel=, =ellama=, =aider.el=, and =copilot.el= for Emacs, and =avante.nvim= and =codecompanion.nvim= for Neovim.
+
+** The Terminal-Native Advantage
+- Many powerful AI tools (Claude Code, Aider) are terminal-native. Running them inside an Emacs =vterm= buffer or Neovim terminal split allows for a seamless workflow without leaving the editor environment.
+- The Agent Client Protocol (ACP) enables editors to act as first-class clients for AI agents, providing superior editing capabilities and keybindings compared to the native interfaces of some CLI tools.
+- [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] specifically benefits from its "editor as operating system" philosophy, allowing AI to integrate across diverse domains like email (mu4e), notes (Org mode), and version control (Magit) within a single context.
+
+** Ethical Considerations
+- *Energy Consumption*: The high compute cost of LLMs conflicts with the efficiency and minimalism valued by long-time Emacs and Vim users.
+- *Copyright and Licensing*: Concerns exist regarding LLMs trained on copyrighted code without consent, a sensitive issue for open-source communities.
+- *Job Displacement*: The potential for AI to reduce the number of required developers challenges the identity of communities built around empowering human programmers.
+- These concerns have led to tangible responses, such as the creation of EVi, a Vim fork explicitly rejecting AI-assisted code contributions.
+
+** Conclusion
+- The survival of these editors depends not on stubbornness but on adaptability. The shift is from *writing* code to *reviewing, steering, and refining* AI-generated code.
+- The editors that thrive will be those whose users actively engage, build plugins, and integrate new AI tools, leveraging the inherent flexibility of the platforms.

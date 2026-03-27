@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       25182d7e-6ad5-48fc-9e5a-5e55a565234b
+:END:
+#+title: Scala
+#+filetags: :umbrella:development:

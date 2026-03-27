@@ -1,0 +1,60 @@
+:PROPERTIES:
+:ID:          c8fc8984-3d02-47b7-aeb9-12c6f3380b65
+:END:
+#+title: Hardwood: A New High-Performance Parser for Apache Parquet
+#+ROAM_REFS: https://www.morling.dev/blog/hardwood-new-parser-for-apache-parquet/
+#+filetags: :article:
+
+[[https://www.morling.dev/blog/hardwood-new-parser-for-apache-parquet/][Source link]]
+
+* Summary
+The article announces the first public release of Hardwood, a new open-source parser for the [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]] file format. Written in modern [[id:2d42e3b7-125a-43b8-b6c8-0be5dc4c3d70][Java]] (requiring Java 21+), Hardwood is designed to address the limitations of the existing =parquet-java= library, specifically its heavy dependency on Hadoop and its single-threaded nature. Hardwood offers a minimal-dependency alternative with a multi-threaded decoding pipeline that significantly improves parsing performance by utilizing all available CPU cores. It provides both row-oriented and columnar APIs to balance ease of use with peak throughput.
+
+* Key Takeaways
+- Hardwood is a lightweight, high-performance [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]] parser written in modern [[id:2d42e3b7-125a-43b8-b6c8-0be5dc4c3d70][Java]] without Hadoop dependencies.
+- It features a multi-threaded architecture using page-level parallelism and adaptive prefetching to maximize CPU utilization.
+- Two distinct APIs are available: a convenient =RowReader= for complex nested schemas and a high-throughput =ColumnReader= for flat data.
+- The project was developed extensively with AI assistance (Claude Code) but emphasizes that human oversight is critical for correctness and maintainability.
+- Future roadmap items include predicate push-down support, a compatibility layer for =parquet-java=, and eventually write capabilities.
+
+* Notes
+
+** Motivation and Design Goals
+The existing standard library, =parquet-java=, is widely used but suffers from being dependency-heavy (pulling in Hadoop) and single-threaded. Hardwood aims to solve this by:
+- Minimizing external dependencies (only optional compression libs like Snappy or Zstd).
+- Implementing a multi-threaded decoding pipeline to leverage multi-core systems.
+- Being built from the ground up based on the Parquet specification.
+
+** API Options
+Hardwood provides two ways to interact with Parquet files:
+1. *RowReader*: Ideal for complex, nested record schemas (structs, lists). It allows typed access by name or index and handles logical type conversion (e.g., dates, UUIDs) automatically.
+2. *ColumnReader*: A lower-level API optimized for peak performance. It returns batches of primitive arrays (e.g., =double[]=), enabling:
+   - Simple iteration without per-row method calls.
+   - JIT auto-vectorization.
+   - Better CPU cache utilization via sequential column access.
+   - Significantly higher throughput for flat schemas compared to the row API.
+
+** Performance Optimizations
+Hardwood employs several strategies to achieve high throughput:
+- *Page-level parallelism*: Decodes individual data pages across multiple worker threads.
+- *Adaptive page prefetching*: Allocates more resources to slower-decoding columns to maintain pace.
+- *Cross-file prefetching*: Begins mapping file N+1 while finishing file N in multi-file datasets.
+- *Memory efficiency*: Minimizes allocations and avoids auto-boxing of primitives.
+
+Benchmarks on an M3 Max MacBook showed significant speedups:
+- NYC Taxi dataset (flat schema): ~2.7s (Row API) vs ~1.2s (Column API).
+- Overture Maps dataset (nested schema): ~2.1s (Row API) vs ~1.3s (Column API).
+
+** Role of AI in Development
+The author utilized LLMs (specifically Claude Code) extensively for coding, testing, and debugging. However, the article stresses that AI is a productivity booster, not a replacement for engineering rigor. The code required deep human understanding to fix logic duplication, handle corner cases, and ensure thread safety. The author notes that "vibe-coding" is insufficient for building robust, low-level infrastructure like file parsers.
+
+** Future Roadmap
+Current version (1.0.0.Alpha1) supports all column types, projections, and key encodings/compressions. Upcoming features include:
+- *Predicate push-down*: Utilizing column statistics and Bloom filters to prune row groups, essential for efficient remote object storage access.
+- *Compatibility layer*: Implementing =parquet-java= APIs on top of Hardwood to ease migration.
+- *Write support*: Planned for post-1.0 final release.
+- *CLI tools*: For inspecting and analyzing Parquet files.
+- Potential evolution into a toolkit for table formats like [[id:91fc22f1-4cbc-4e4c-81ff-6d11e7e36c44][Apache Iceberg]] and [[id:117f084e-2b22-49d9-a42a-fddada65b250][DeltaLake]].
+
+** Ecosystem Context
+Parquet remains the lingua franca of the data ecosystem, underpinning data lakes and query engines such as [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] and Trino. Hardwood aims to provide a more efficient foundation for Java-based ETL pipelines and analytics working with these formats.

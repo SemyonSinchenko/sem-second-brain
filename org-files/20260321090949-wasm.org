@@ -1,0 +1,5 @@
+:PROPERTIES:
+:ID:       64af6fec-eab1-46bf-8ea9-f411ba2cc5ad
+:END:
+#+title: WASM
+#+filetags: :umbrella:development:compilers:

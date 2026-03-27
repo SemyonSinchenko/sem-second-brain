@@ -1,0 +1,56 @@
+:PROPERTIES:
+:ID:          ede30c51-10d0-422b-ab27-d1bdc80cf9e1
+:END:
+#+title: Rust/WASM Parser Performance: Why We Went Back to TypeScript
+#+ROAM_REFS: https://www.openui.com/blog/rust-wasm-parser
+#+filetags: :article:
+
+[[https://www.openui.com/blog/rust-wasm-parser][Source link]]
+
+* Summary
+
+This article chronicles a performance optimization journey at OpenUI where they initially built their openui-lang parser in Rust compiled to WASM, only to discover that the WASM boundary overhead was destroying performance gains. The parser converts LLM-generated DSL into React component trees and runs on every streaming chunk, making latency critical. Despite Rust's speed, the JSON serialization/deserialization overhead across the WASM-JS boundary dominated runtime. After attempting and abandoning serde-wasm-bindgen (which was 30% slower due to many fine-grained runtime crossings), they ported the entire pipeline to TypeScript, achieving 2.2-4.6x per-call speedup and 2.6-3.3x reduction in total streaming cost by implementing statement-level incremental caching.
+
+* Key Takeaways
+
+- The WASM-JS boundary overhead (JSON serialization) was the primary bottleneck, not the Rust parsing logic itself
+- Attempting to skip JSON via serde-wasm-bindgen made things worse because constructing JS objects field-by-field involves hundreds of internal boundary crossings, whereas a single JSON string transfer is one optimized memcpy operation
+- TypeScript running in V8 with incremental caching outperformed WASM by 2.2-4.6x for per-call parsing and 2.6-3.3x for full streaming scenarios
+- Algorithmic improvements (O(N²) to O(N) via statement-level incremental caching) had larger practical impact than language-level optimizations
+- WASM is appropriate for compute-bound tasks with minimal interop (image processing, cryptography, audio codecs) and for shipping native libraries (SQLite, OpenCV) to the browser
+- WASM is inappropriate for parsing structured text into JS objects or frequently-called functions on small inputs where boundary costs cannot be amortized
+
+* Notes
+
+The openui-lang parser has a six-stage pipeline: Autocloser → Lexer → Splitter → Parser → Resolver → Mapper.
+
+**WASM Boundary Tax**
+
+Every WASM call pays mandatory overhead for copying strings in, serializing to JSON, copying JSON out, and V8 deserializing back to JS objects. The Rust parsing itself was never slow—the boundary was the problem.
+
+**serde-wasm-bindgen Attempt**
+
+Direct object passing sounds appealing but fails because JS cannot read Rust struct bytes natively. The runtime must recursively materialize Rust data into real JS arrays/objects across many boundary crossings within a single call, making it slower than JSON round-trip.
+
+**Incremental Streaming Optimization**
+
+Completed statements (terminated by depth-0 newlines) are immutable—LLMs never modify past output. By caching completed statement ASTs and only re-parsing the trailing in-progress statement, they eliminated O(N²) re-parsing behavior.
+
+**Performance Results**
+
+| Approach | Per-call (µs) | Full-stream total (µs) |
+|----------|---------------|------------------------|
+| WASM + JSON | 20-61 | baseline |
+| WASM + serde-wasm-bindgen | 22-79 | +9-29% slower |
+| TypeScript naïve | 9-19 | 69-840 |
+| TypeScript incremental | 9-19 | 69-255 |
+
+**Core Insight**
+
+WASM and JS do not share a heap. WASM has linear memory with Rust's internal layout (pointers, enum discriminants, alignment padding) that is completely opaque to JS. Conversion is always required and always costs something. The fewer, larger, and more optimized operations (like a single JSON string transfer) win over many small ones.
+
+* Related Topics
+
+- [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] - The original implementation language that proved too slow due to boundary overhead
+- [[id:64af6fec-eab1-46bf-8ea9-f411ba2cc5ad][WASM]] - WebAssembly runtime with non-shared heap requiring explicit serialization
+- [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] - The source of streaming text that triggered parser calls on every chunk

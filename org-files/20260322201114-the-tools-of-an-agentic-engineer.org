@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:          52a97079-a69b-43a4-8f6e-57096a27e8d6
+:END:
+#+title: The Tools of an Agentic Engineer
+#+ROAM_REFS: https://davidvujic.blogspot.com/2026/03/the-tools-of-an-agentic-engineer.html
+#+filetags: :article:
+
+[[https://davidvujic.blogspot.com/2026/03/the-tools-of-an-agentic-engineer.html][Source link]]
+
+* Summary
+
+The article explores how the author's choice of Emacs as a primary development environment has proven to be ideal for agentic engineering workflows. Rather than abandoning traditional IDEs for AI-powered development, the author demonstrates how Emacs combined with tools like Eca (an open-source, vendor-agnostic AI tool developed in Clojure) creates a powerful agentic engineering toolkit. The piece emphasizes human-driven development with real-time review cycles, drawing parallels to the Toyota Way's stop-the-line principle.
+
+* Key Takeaways
+
+- Emacs remains relevant and powerful for agentic engineering, contrary to expectations that traditional editors would become obsolete
+- The combination of Emacs with Eca provides vendor-agnostic AI development without lock-in
+- Real-time human review during agentic workflows prevents overwhelming code accumulations at the end of development cycles
+- Tools like Magit, Org Mode, and Markdown are increasingly valuable in agentic development workflows
+- Eca supports important standards including AGENTS.md, commands, skills, hooks, and sub-agents
+
+* Notes
+
+The author's journey demonstrates that established development tools can adapt well to new paradigms like agentic engineering. The Emacs community continues to innovate and support modern development workflows despite the editor's 1970s origins.
+
+**Core Toolset:**
+
+- [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] serves as the central IDE for the agentic workflow
+- Eca provides AI capabilities with support for multiple editors (not limited to Emacs alone)
+- [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] principles of composable tooling apply to this approach
+
+**Eca Features:**
+
+- Client-server architecture similar to Language Server Protocol
+- Supports AGENTS.md, commands, skills, hooks, and sub-agents
+- Open source and actively developed
+- Vendor-agnostic approach avoiding lock-in
+- Developed in [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]]/[[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Clojure]]
+
+**Development Philosophy:**
+
+The author emphasizes human-in-the-loop development inspired by [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] principles. The stop-the-line concept from the Toyota Way enables quick course correction when agents deviate from intended directions. This lean approach prioritizes deploying production-ready code that adds value, integrating well with Agile practices.
+
+**Supported Languages:**
+
+The setup supports [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]], JavaScript, TypeScript, and various Lisp dialects including Clojure and elisp.

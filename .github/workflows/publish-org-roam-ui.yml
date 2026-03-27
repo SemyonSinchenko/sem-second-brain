@@ -1,0 +1,27 @@
+name: Publish org-roam-ui
+
+on:
+  push:
+    branches:
+      - roam-db
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: publish-org-roam-ui
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate and deploy org-roam-ui page
+        uses: ikoamu/publish-org-roam-ui@main
+        with:
+          org-roam-directory: org-files
+          org-roam-db-filename: org-roam.db
+          deploy-to-pages: true
