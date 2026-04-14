@@ -1,0 +1,40 @@
+:PROPERTIES:
+:ID:          0193525c-2474-4ed8-b4e4-11161edc22a8
+:END:
+#+title: Agentic test migration: cost of trust
+#+ROAM_REFS: https://alexocallaghan.com/you-cant-trust-agent-tests
+#+filetags: :article:
+
+* Summary
+Source: [[https://alexocallaghan.com/you-cant-trust-agent-tests][https://alexocallaghan.com/you-cant-trust-agent-tests]]
+An engineer used an agent to migrate 53 Enzyme test suites to React Testing Library. While the tests passed and the code looked clean, manual review uncovered significant flaws: tests wouldn't catch regressions, asserted on wrong things, or didn't test anything. The article explores why this happens, the challenges of enforcing validation within a single agent task, and the architectural solution of separating migration and review into two sequential prompts. This approach fixed the issues but increased cost by nearly 5x, highlighting the trade-off between productivity gains and the monetary cost of trustworthy AI-assisted work.
+
+* Key Takeaways
+- Agent-generated test code can look correct and pass, yet contain fundamental flaws (e.g., invalid assertions) that won't catch regressions.
+- The natural safeguard of TDD doesn't apply when writing tests against existing, working code; the only way to validate is to deliberately introduce a failure.
+- When a process step (like validation) is consistently dropped by an agent, the fix is often a workflow change, not a better prompt. Separating migration and review into two distinct agent tasks enforced thorough validation.
+- Achieving trustworthy results with agents can significantly increase cost (a 5x increase in this case), which organizations must balance against productivity gains.
+
+* Notes
+** Why Agent-Generated Tests Can Be Untrustworthy
+The problem isn't unique to agents; humans can write bad assertions too. However, an agent has no intuition. It pattern-matches from the implementation to produce something that looks right. Since you're writing tests against already-working code, a bad assertion never has the chance to fail naturally. The volume of code agents produce also makes it easy for such issues to slip through review.
+
+** Architectural Solution: Two-Prompt Workflow
+The author's initial attempts to fix the prompt to force validation didn't reliably work. Agents treated validation as a checkbox, especially when context filled up in a long, single-pass task (leading to "context anxiety" and early wrapping up).
+
+The successful solution was a bash script that looped through test suites and ran two sequential agent prompts:
+1. One prompt to migrate the tests.
+2. A separate, focused prompt to review and validate the migrated tests.
+
+This workflow allowed the reviewing agent to create its own to-do list and work exhaustively, catching issues and even making improvements. This aligns with the principle from [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]]: when a step can't be skipped, architect the workflow to enforce it.
+
+** Cost Implications
+All migrations were run using `claude-4.6-sonnet-medium` on a batch of 22 test suites:
+- Single-pass batch: ~$13
+- Per-suite migration: ~$32
+- Per-suite + reviewer: ~$62
+
+The trustworthy, two-prompt approach resulted in an almost *5x* cost increase compared to the simplest batch method. This underscores that time spent designing robust agent workflows is part of the work and must be factored into evaluating productivity gains. Organizations need to ensure that increased productivity leads to increased revenue, not just higher AI vendor bills.
+
+** Conceptual Link to Mutation Testing
+What the reviewing agent was doing conceptually is mutation testing: for each assertion, asking whether a change to the component would cause it to fail. Incorporating a mutation testing tool like Stryker into a testing pipeline could help catch these issues automatically and potentially reduce the need for costly agent-based manual validation.
