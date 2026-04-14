@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:          a1b87072-de81-4826-a5df-598f20010415
+:END:
+#+title: AI agents & code quality: slowing down
+#+ROAM_REFS: https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down
+#+filetags: :article:
+
+* Summary
+Source: [[https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down][https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down]]
+The article critiques the reckless adoption of AI coding agents in production environments, arguing that it leads to brittle, unmaintainable software at an accelerated rate. It details how agents, lacking human oversight, learning, and bottlenecks, can rapidly compound minor errors ("booboos") into monstrously complex and broken systems. The author advocates for disciplined use: humans must retain agency, act as the final quality gate, write critical architecture themselves, and slow down to think, review, and learn.
+
+* Key Takeaways
+- Agentic coding without human oversight and discipline rapidly leads to brittle, low-quality, and unmaintainable software ("everything is broken").
+- Agents lack the ability to learn from errors, have no natural bottleneck to limit error introduction, and cause complexity to compound at unsustainable rates.
+- Effective use requires slowing down: scoping tasks well, keeping humans in the loop as quality gatekeepers, and manually writing critical architecture and APIs.
+
+* Notes
+The author observes a trend of software becoming increasingly brittle and buggy, possibly accelerated by the integration of AI coding agents like [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] systems into production.
+
+** The Problem: Unsupervised Agents Create Chaos
+- Agents introduce errors ("booboos") but, unlike humans, do not learn from them, repeating mistakes indefinitely.
+- Without a human bottleneck, agents can generate vast amounts of code (e.g., 20k lines/hour), allowing these minor errors to compound into a "monster of a codebase" very quickly.
+- The pain of this complexity is delayed, only felt when trying to add features or when critical failures occur, leaving teams with untrustworthy codebases.
+
+** Agents as "Merchants of Learned Complexity"
+- Delegating architecture to agents often results in cargo-culted, overly complex systems based on bad patterns in their training data.
+- Agents operate with a local view, leading to duplication, unnecessary abstractions, and inconsistencies, replicating the worst aspects of enterprise codebases in weeks rather than years.
+
+** Technical Limitations: Agentic Search Has Low Recall
+- In large, complex codebases, agents struggle to find all relevant code for a task (low recall), regardless of the tool (ripgrep, vector DB, LSP). This directly causes duplication and inconsistency.
+- This makes agents poor candidates for fixing the mess they create.
+
+** A Prescription for Disciplined Use
+The author argues for "slowing the fuck down" and retaining human agency.
+- *Good agent tasks* are scoped, have a closed feedback loop (evaluation function), and are not mission-critical.
+- The *human must be the final quality gate*, evaluating agent output and implementing the final version.
+- Critical system *gestalt* (architecture, APIs) should be written by hand to leverage human experience and taste.
+- Set *limits on code generation* per day aligned with human review capacity.
+- This approach builds fewer but better features, maintains system understanding, and allows for effective refactoring.
