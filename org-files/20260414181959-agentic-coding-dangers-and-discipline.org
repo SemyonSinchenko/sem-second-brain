@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:          4c9113a6-3c3d-4174-889d-05b6384692fa
+:END:
+#+title: Agentic coding: dangers and discipline
+#+ROAM_REFS: https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down
+#+filetags: :article:
+
+* Summary
+Source: [[https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down][https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down]]
+A reflection on the negative consequences of unrestrained use of [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] over the past year. The author argues that the speed and autonomy of coding agents leads to brittle, complex, and unmaintainable software, as they introduce compounding errors ("booboos") with no learning capability and no human bottleneck. The solution proposed is for developers to "slow the fuck down," maintain discipline, keep agency over architecture and critical decisions, and use agents only for scoped, non-critical tasks where human review remains the final quality gate.
+
+* Key Takeaways
+- Unchecked agentic coding leads to brittle software, compounding errors, and unmanageable complexity due to agents' lack of learning and absence of a human bottleneck.
+- Agents are "merchants of learned complexity," cargo-culting bad practices and creating local decisions that result in duplication and abstraction layers without holistic understanding.
+- Agentic search has low recall in large codebases, failing to find existing code, which leads to duplication and inconsistencies.
+- The recommended approach is to use agents only for well-scoped, non-critical tasks where the human can close the loop and act as the final reviewer. Critical architecture and system gestalt should be written by hand.
+- Developers must maintain discipline and agency, "slow down" to think, understand the system, and learn, ensuring maintainable and joyful products.
+
+* Notes
+** The current state: "Everything is broken"
+The author observes a trend towards more brittle software with lower uptime and bizarre UI bugs, correlating with the increased adoption of coding agents in production over the last 12 months. High-profile companies boasting about AI-written code are often producing "the worst garbage" with memory leaks, glitches, and crashes. Teams are "agentically coded themselves into a corner" due to lack of code review and delegated design decisions.
+
+** How we should NOT work with agents
+The problem is an addiction to producing the largest amount of code in the shortest time, consequences be damned. This is driven by examples like Anthropic's broken C compiler or Cursor's non-working browser, with the hope that "the next generation of LLMs will fix it." This mindset leads to:
+- **Compounding booboos with zero learning**: Agents make errors (correctness, code smells) but don't learn from them. Unlike humans, they repeat errors indefinitely. There is no natural bottleneck (a human's limited output) to slow the error rate. The pain compounds unsustainably and is only felt when it's too late, resulting in an untrustworthy codebase.
+- **Merchants of learned complexity**: Agents cargo-cult "industry best practices" from their training data, creating immense, local complexity (duplication, unnecessary abstractions) because they never see the entire codebase or each other's decisions. Human enterprise codebases reach this state over years; with agents, it can happen within weeks for a small team.
+- **Agentic search has low recall**: As codebases grow, agents' ability to find all relevant code (via grep, indexes, vector DBs) decreases. Low recall means they miss existing code, leading to duplication and inconsistencies, feeding the complexity problem.
+
+** How we SHOULD work with agents (for now)
+Agents are sirens of speed; the key is to use them with discipline and human agency.
+- **Delegate appropriate tasks**: Tasks should be scoped so the agent doesn't need full system understanding. The loop should be closable (the agent can evaluate its work). The output should not be mission-critical (e.g., ad-hoc tools, internal software). Agents can also serve as "rubber ducks" for idea bouncing.
+- **The human is the final quality gate**: All agent output must be reviewed. Use agents for "the boring stuff" or to try things you wouldn't have time for, then take the reasonable ideas and finalize the implementation yourself.
+- **Slow the fuck down**: Set limits on how much code an agent generates per day, aligned with your review capacity. Write architecture, APIs, and system gestalt by hand. Being in the code introduces friction that fosters understanding, taste, and learning. This leads to maintainable systems, fewer but right features, and the ability to fix problems when they arise.
