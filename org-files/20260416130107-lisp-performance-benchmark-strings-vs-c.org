@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:          910aaa89-d343-4229-bb6c-2b47949737a0
+:END:
+#+title: Lisp performance benchmark: strings vs C
+#+ROAM_REFS: https://in-parentheses.codeberg.page/posts/lisp-as-fast-as-c/
+#+filetags: :article:
+
+* Summary
+Source: [[https://in-parentheses.codeberg.page/posts/lisp-as-fast-as-c/][https://in-parentheses.codeberg.page/posts/lisp-as-fast-as-c/]]
+A personal experiment comparing the performance of C, Emacs Lisp, and Common Lisp (SBCL) for a synthetic benchmark of string lookups, specifically checking if a word is a C23 keyword. The author explores naive approaches, hash tables, perfect hash generation via gperf, and specialized libraries like string-case, concluding that with an optimizing compiler like SBCL, Lisp can match C's speed for this task while offering greater coding convenience.
+
+* Key Takeaways
+- With an optimizing compiler (SBCL) and expert libraries (e.g., string-case), Common Lisp can achieve performance on par with C for specific, optimized string lookup tasks.
+- Emacs Lisp, while convenient and embedded in a powerful editor, shows significant performance overhead compared to SBCL, especially in FFI/module calls, due to less sophisticated compilation and type inference.
+- The overhead of frequent Foreign Function Interface (FFI) or module API calls dominates performance; the optimal strategy is to minimize cross-language calls by moving entire computations into the native layer.
+- Coding in Lisp subjectively feels like writing pseudocode, offering rapid development compared to C, especially for string manipulation.
+
+* Notes
+** Experiment Setup
+The benchmark performs 59 million lookups (1 million loops × 59 C23 keywords) to test membership in a set.
+- **C Baseline**: Uses ~gperf~ to generate a perfect hash function (~in_c23_set~). Static linking: ~0.160s~. Dynamic linking: ~0.183s~.
+- **Emacs Lisp**:
+  - List membership (~member~): too slow, cancelled.
+  - Hash table: ~0.460s~ (~4x slower than C~).
+  - Emacs module (C function calls): ~4.1s~ due to packing/unpacking overhead per call.
+  - Module with computation in C: ~0.08-0.1s~ (matches C).
+- **Common Lisp (SBCL)**:
+  - List: ~11.592s~.
+  - Hash table: ~0.895s~.
+  - ~string-case~ library (decision tree): ~0.204s~.
+  - ~string-case~ with inlining: ~0.080s~ (matches C).
+  - FFI to C (~c23-keyword-p~): ~1.305s~ after minimizing consing; overhead remains.
+
+**Critical Observations**
+- [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] Lisp's native compiler lacks the type inference and low-level optimizations of SBCL/GCC, limiting pure-Lisp performance.
+- SBCL's compiler can generate highly efficient code, rivaling C, when provided with type declarations and using expert-designed libraries (~string-case~).
+- The convenience of Lisp development is highlighted versus C's manual string handling.
+- Cross-language calls (FFI/modules) are expensive per call; best to transfer larger units of work.
+
+**Conclusion**
+The languages serve different domains: C for low-level, high-performance systems; Emacs Lisp for editor extensibility; Common Lisp (SBCL) for high-performance applications with rapid development. The experiment demonstrates that modern [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Lisp]] implementations can compete with C in optimized scenarios, debunking the myth that Lisp is inherently slow.
