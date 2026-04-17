@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:          c67ba495-99ad-4cbf-ac3f-ea99c3dfa1c9
+:END:
+#+title: AI creates jobs, simplicity destroys them
+#+ROAM_REFS: https://hexaray.com/blog/ai-creates-jobs-simplicity-destroys-jobs
+#+filetags: :article:
+
+* Summary
+Source: [[https://hexaray.com/blog/ai-creates-jobs-simplicity-destroys-jobs][https://hexaray.com/blog/ai-creates-jobs-simplicity-destroys-jobs]]
+The article argues against the prevalent fear that AI will cause widespread white-collar job losses. Instead, it posits that generative AI will create *more* jobs by amplifying complexity—generating more code, reports, and content—which requires more human understanding, management, and debugging. The real threat to employment, it suggests, is the widespread adoption of simplicity and efficiency paradigms that structurally reduce work.
+
+* Key Takeaways
+- AI increases complexity (more code, fluffier reports, more options), which creates a greater need for human oversight, understanding, and management.
+- A worker's primary value lies not in task execution but in maintaining the contextual "mental model" of their work, a form of deep understanding AI lacks.
+- Current layoffs are driven more by cultural trends (e.g., the "lean company" fad, interest rates, and AI hype as an excuse) than by a fundamental, AI-driven reduction in work.
+- The long-term structural reduction of jobs will only occur if "simplicity" and "less is more" philosophies become dominant in white-collar work.
+
+* Notes
+The core thesis is that generative [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] technology is a complexity engine. Its ability to churn out content and code rapidly leads to:
+- Bloated systems that require more people to understand and maintain them.
+- A dilution of signal-to-noise ratio, as the "effort signal" indicating something was thoughtfully considered is lost.
+
+Key arguments include:
+** The Two Outputs of Work
+Every task produces 1) the tangible output and 2) an update to the worker's internal "mental model" or context. This model is crucial for value creation and is hard to automate.
+
+** The Foundation Analogy
+Cites Isaac Asimov's /Foundation/ to illustrate how rising bureaucracy and complexity can lead to systemic collapse. In a business context, pushing features without care for reliability creates systems too complex for their teams, increasing the need for more personnel.
+
+** AI is Not "Just a Tool"
+Its capability to generate imitative content (text, code, images) means it will be used to generate vast quantities of average-quality "slop." Without humans in the loop to judge value, this creates wasteful complexity.
+
+** Job Security in Complexity
+From an employee's perspective, complexity that they are accustomed to managing equals job security. Paradigm-shifting simplicity (e.g., automatic elevators replacing clerks) is what destroys jobs structurally.
+
+** Explaining Current Layoffs
+Attributes recent job cuts to a combination of factors like the end of zero-interest-rate policy (ZIRP), the "lean company" trend started by Elon Musk at Twitter, and AI being used as a pretext for efficiency, rather than to an actual elimination of work by AI.
+
+The conclusion is that we will need "legions" of humans—developers, analysts, marketers—to handle the new complexity AI generates, at least until a cultural shift towards radical simplicity occurs.
