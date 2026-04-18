@@ -1,0 +1,37 @@
+:PROPERTIES:
+:ID:          a3ef635e-bcd4-4560-bc1e-5a0aaa53d768
+:END:
+#+title: Spice.ai: scaling with Apache Ballista & object-store HA
+#+ROAM_REFS: https://spice.ai/blog/apache-ballista-at-spice-ai
+#+filetags: :article:
+
+* Summary
+Source: [[https://spice.ai/blog/apache-ballista-at-spice-ai][https://spice.ai/blog/apache-ballista-at-spice-ai]]
+Spice.ai evolved from a single-node query engine to a distributed data platform by integrating [[id:db87fd03-2674-46bf-8b91-55a1923f7335][Apache Ballista]] for distributed query execution and its Vortex columnar format for efficient data transport. Their key innovation was extending Ballista's single-scheduler model to multi-active high availability (HA) using object store (S3/Azure Blob) as a shared state layer, eliminating the need for external coordination services like etcd. This architecture enables enterprises to scale query compute horizontally for analytical workloads while maintaining the simplicity of single-node deployment for real-time queries.
+
+* Key Takeaways
+- **Object-Store HA is a Core Innovation**: Spice.ai's multi-active scheduler HA uses conditional writes to an object store (S3, Azure Blob) for coordination, requiring no external services like etcd or ZooKeeper, significantly reducing operational complexity.
+- **Built on Rust/Arrow for Performance**: The platform leverages [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] and Apache Arrow's zero-copy transport, achieving 2-8x faster query performance than Apache Spark while using 8x less RAM in benchmarks.
+- **Incremental Scalability**: The same `spiced` binary and `spicepod.yaml` configuration work for both single-node and distributed cluster deployments, allowing teams to start simple and scale without query rewrites.
+- **Distributed Acceleration Layer**: They built a partition management system for accelerated tables, distributing data across executors and enabling queries to be planned against the nodes where data resides.
+- **Comprehensive Security & Observability**: The system features mandatory mTLS for internal cluster communication, multiple shuffle backends (disk, memory, object store), and full OpenTelemetry integration with pre-built Grafana dashboards.
+
+* Notes
+** Architecture Overview
+A distributed Spice cluster has two roles:
+- **Schedulers**: Accept SQL queries, plan distributed execution (using Ballista on top of [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]]), and coordinate tasks. Multiple schedulers run in multi-active HA mode.
+- **Executors**: Run physical query plans and exchange intermediate data via shuffle.
+
+** Key Extensions Built on Ballista
+1. **Bidirectional Control Streams**: Long-lived gRPC streams for heartbeats, task cancellation, metrics, and partition updates, reducing scheduling latency.
+2. **Remote Catalog & UDF Sync**: The scheduler is the source of truth; executors automatically receive the full catalog and UDF registry.
+3. **Vortex Shuffle Format**: Uses Spice's Vortex columnar format (instead of Arrow IPC) for smaller shuffle files, reducing network and disk I/O.
+4. **Distributed Acceleration with Partition Management**: Coordinates which executor owns which partitions of an accelerated table using the same object-store state layer. Includes write-through forwarding for DML operations.
+
+** Use Case: Distributed Embeddings
+The `embed()` UDF can be scaled across the cluster. A query on a ~100k-row dataset completed in *9.8 seconds* on a Spice cluster (48 cores, 24GB RAM), compared to *17 seconds* on an equivalent [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] cluster (using 8x more RAM). This demonstrates the efficiency of the [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] inference scaling pattern within the distributed query framework.
+
+** Business Value
+- **For Data Engineers**: No query rewrites needed. Failed stages retry from intermediate shuffle data.
+- **For Platform Teams**: HA has no external infra dependency beyond the object store. mTLS secures all internal communication.
+- **For Teams Evaluating Spark/Trino**: Benchmarks show significant performance and resource efficiency advantages due to the Rust/Arrow foundation.
