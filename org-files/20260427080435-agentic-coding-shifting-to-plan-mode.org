@@ -1,0 +1,36 @@
+:PROPERTIES:
+:ID:          ae937915-a514-409a-b2f3-c993817a4741
+:END:
+#+title: Agentic coding: shifting to plan mode
+#+ROAM_REFS: https://timsaucer.com/2026/04/21/working-with-a-llm-agent-is-good/
+#+filetags: :article:
+
+* Summary
+Source: [[https://timsaucer.com/2026/04/21/working-with-a-llm-agent-is-good/][https://timsaucer.com/2026/04/21/working-with-a-llm-agent-is-good/]]
+The author describes a mindset shift from micromanaging [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] agents to collaborating with them via a /plan mode/ workflow. Initially, directing agents to perform menial tasks resulted in excessive context switching and productivity loss, particularly when working with languages like [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] that have slower compile times. By treating the agent as a collaborator involved in high-level design and planning before execution, the author regained focus on architectural decisions while delegating implementation details effectively.
+
+* Key Takeaways
+- Avoid micromanagement: Directing every step causes context switching fatigue; instead, define the problem and let the agent propose solutions.
+- Adopt plan mode: Discuss pitfalls, goals, and intermediate checks with the agent before allowing it to execute code.
+- Critique aggressively: Treat the agent's initial plan as an "arch nemesis" proposal to find flaws before approval.
+- Use TDD with agents: Have the agent design test criteria before implementation begins.
+- Beware anchoring bias: Detailed agent plans can trick developers into accepting incorrect starting points; maintain skepticism.
+
+* Notes
+** Workflow Changes
+The transition to [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] involved stopping the practice of assigning small tasks and starting long-running planning sessions.
+- *Previous State:* Developer does heavy thinking, agent does menial tasks. Result: Constant interruption every 10-20 minutes (compile cycles).
+- *New State:* Developer and agent discuss problem space. Agent produces a plan in markdown. Developer critiques plan. Agent executes full solution.
+- *Tooling:* Uses Claude Code with a custom profile (`claude-code-base`) allowing permissions on specific folders.
+- *Command:* `nono run --allow . --profile claude-code-base -- claude --dangerously-skip-permissions`
+
+** Validation Strategy
+To ensure plan quality without session contamination:
+1. Save the agreed-upon plan to a markdown file.
+2. Open a clean agent session (no prior context).
+3. Feed the plan to the new session and ask it to evaluate the merits.
+
+** Psychological Impact
+- Increased enjoyment in software design phases.
+- Shift from "is this the right way to do the thing" to "is this the right thing to do".
+- Risk of becoming overly cynical or overly reliant on agent anchoring requires conscious mitigation.
