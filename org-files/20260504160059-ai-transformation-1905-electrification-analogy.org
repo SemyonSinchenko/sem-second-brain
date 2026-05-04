@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:          d6cfb3c6-04d1-449b-bb1c-859ee4d793d0
+:END:
+#+title: AI transformation: 1905 electrification analogy
+#+ROAM_REFS: https://joereis.substack.com/p/were-in-1905-why-electricity-not
+#+filetags: :article:
+
+* Summary
+Source: [[https://joereis.substack.com/p/were-in-1905-why-electricity-not][https://joereis.substack.com/p/were-in-1905-why-electricity-not]]
+Argues that current AI adoption parallels early electrification (1905) rather than the dot-com bubble. Productivity gains lag technology availability because organizations must redesign workflows and architecture, not just install new tools. Most enterprises are currently "bolting motors onto steam engines" by adding AI capabilities without changing underlying organizational design.
+
+* Key Takeaways
+- Paul David's research shows a 40-year lag between electric motor invention and productivity growth due to factory architecture constraints.
+- Most enterprises are "bolting motors onto steam engines" by adding [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] tools without changing organizational design.
+- Real transformation requires dismantling centralized data/BI structures in favor of embedded decision-making.
+- Timeline for full AI integration is estimated at 10-20 years, not 3-5.
+- Incumbents risk being replaced by new entrants who build native AI architectures from scratch.
+
+* Notes
+** The Dynamo and Computer Framework
+Stanford economist Paul David noted electric power appeared in 1880s factories but productivity jumped only in the 1920s.
+- Old architecture: Central steam shaft, belt-and-pulley, multi-story.
+- New architecture: Single-story, unit drive (motor per machine), workflow-centric.
+- Trend productivity growth jumped from 1.5% (1899–1914) to 5.1% (1919–1929) once architecture changed.
+
+** Data Industry Motor Swaps
+History of repeating the mistake in data infrastructure:
+- Cloud warehouses: Lift-and-shift kept same data models and bottlenecks.
+- Hadoop: Added a second central motor without changing decision patterns.
+- Modern Data Stack: Swapped ETL for ELT but kept centralized teams and pipelines.
+- Conway's Law: Organizational structure limits system design; centralized BI creates central shaft bottlenecks.
+
+** The AI Trap
+Current AI adoption often looks like superficial integration:
+- Copilot on SharePoint or similar corporate files.
+- Chatbots slapped onto existing warehouses.
+- Automated code migration (e.g., COBOL to Java) which paves the cowpath without redesigning the route.
+- 95% of enterprise GenAI pilots fail to deliver measurable P&L impact because architecture hasn't changed.
+
+** Future Outlook
+- Bottleneck is organizational design, incentives, workforce skills, and inertia, not technology.
+- Software/org charts are easier to change than brick factories, suggesting a 10-20 year transformation window.
+- Winning companies will be those who tear down the factory or build a single-story factory from scratch.
+- Core question for leadership: "Is it the tech, or is it us?"
