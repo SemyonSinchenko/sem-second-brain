@@ -1,0 +1,55 @@
+:PROPERTIES:
+:ID:          e82e2a3a-5c60-4400-9a54-9a4320a777e6
+:END:
+#+title: Wick: Type-safe API for Spark
+#+ROAM_REFS: https://matejcerny.cz/en/apache-spark-wick-type-safe-spark-api/
+#+filetags: :article:
+
+* Summary
+Source: [[https://matejcerny.cz/en/apache-spark-wick-type-safe-spark-api/][https://matejcerny.cz/en/apache-spark-wick-type-safe-spark-api/]]
+This article introduces Wick, a type-safe API for [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] developed by Netflix engineers. Wick addresses the common pain point of runtime errors caused by column name typos or type mismatches in standard Spark APIs by shifting error detection to the compilation phase using Scala 3 features.
+
+* Key Takeaways
+- Moves error detection from runtime to compile time, saving cluster resources and debugging time.
+- Utilizes Scala 3.7 Named Tuples to provide a "zero-cost" abstraction with no runtime performance penalty.
+- Enhances IDE support by enabling autocomplete for columns and data types.
+- Serves as the modern successor to the older Frameless library (designed for Scala 2).
+- Current limitation: The library does not yet support Spark 4.
+
+* Notes
+** The Problem with Standard Spark APIs
+Whether using Spark SQL or the DataFrame API, standard [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]] Spark code is untyped. Issues such as:
+- Typos in column names.
+- Type mismatches (e.g., adding a number to text).
+
+These errors compile successfully but fail at runtime. This often results in wasted wait time for build processes and allocated cluster resources before the job fails due to trivial issues.
+
+** Wick Implementation
+Wick wraps the classic untyped =DataFrame= in a =DataSeq= structure based on a case class. This brings type safety into play immediately.
+
+#+begin_src scala
+case class Livestock(
+  entity: String,
+  code: String,
+  year: Int,
+  cattle: Double,
+  sheep: Double,
+  chickens: Double
+)
+
+val df = sparkSession.read
+  .option("header", value = true)
+  .schema(summon[Encoder[Livestock]].schema)
+  .csv("data/livestock.csv")
+
+val livestock = DataSeq[Livestock](df)
+#+end_src
+
+** Usage Benefits
+Once wrapped in =DataSeq=, developers can work with functions similar to the standard DataFrame API but with compile-time guarantees.
+- IDE automatically suggests available properties (e.g., =row.entity=).
+- Operators are type-restricted (e.g., =+= works only for numeric types).
+- Aggregations enforce scalar expressions (compiler errors if attempting to divide unaggregated values).
+
+** Comparison with Spark SQL
+While Spark SQL offers similar query capabilities, it lacks guarantees before execution. A typo in a SQL string (e.g., =cattle= vs =cattel=) remains undetected until runtime. Wick ensures cleaner code and a more reliable development cycle through static analysis.
