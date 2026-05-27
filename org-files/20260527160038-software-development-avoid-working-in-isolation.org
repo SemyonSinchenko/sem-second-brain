@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:          39e790ba-914f-44e0-a9b0-e831015afcc9
+:END:
+#+title: Software development: avoid working in isolation
+#+ROAM_REFS: https://blog.codinghorror.com/dont-go-dark/
+#+filetags: :article:
+
+* Summary
+Source: [[https://blog.codinghorror.com/dont-go-dark/][https://blog.codinghorror.com/dont-go-dark/]]
+This article discusses the anti-pattern of programmers working in isolation ("going dark") until they believe their code is perfect. It argues that this behavior stems from fear of embarrassment rather than hubris and leads to unreviewable code bombs. The principle "Don't Go Dark" advocates for frequent, visible deliverables to ensure team alignment and early feedback.
+
+* Key Takeaways
+- Programmers often hide work due to fear of exposing mistakes, treating coding as personal heroics rather than a social activity.
+- Dropping large "code-bombs" forces teams to either reject work outright or accept opaque blobs that are hard to maintain.
+- Rule #30 from /Dynamics of Software Development/: Manage task granularity to surface visible deliverables over short intervals.
+- Agile methodologies inherently prevent going dark by slicing tasks into single iterations with demonstrable outcomes.
+- In open source, the burden is on the individual to share in-progress code to build trust and consensus.
+
+* Notes
+The concept applies universally across technology stacks, whether contributing to enterprise systems built on [[id:2d42e3b7-125a-43b8-b6c8-0be5dc4c3d70][Java]] or collaborating on open source projects. The risk of going dark is severe in distributed volunteer environments where no project manager enforces visibility. Sharing ongoing code invites scrutiny but results in better software and stronger team cohesion. Specialist developers who lock themselves away are anathema to shipping great software on time.
