@@ -1,0 +1,32 @@
+:PROPERTIES:
+:ID:          3073e2e1-8b7a-4509-8ded-101814a01eab
+:END:
+#+title: LLM terminology: clanker vs agent responsibility
+#+ROAM_REFS: https://lucumr.pocoo.org/2026/5/26/clankers/
+#+filetags: :article:
+
+* Summary
+Source: [[https://lucumr.pocoo.org/2026/5/26/clankers/][https://lucumr.pocoo.org/2026/5/26/clankers/]]
+Armin Ronacher argues for using mechanical terminology like "clanker" instead of "agent" when referring to [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]-based tools. The core assertion is that language shapes perception of responsibility; "agent" implies agency and personhood which current models lack, potentially leading to misplaced blame and anthropomorphizing. Maintaining a linguistic boundary ensures humans remain accountable for tool outputs.
+
+* Key Takeaways
+- The term "agent" incorrectly implies responsibility and agency belong to the machine rather than the human operator.
+- Anthropomorphizing AI tools can lead to "AI psychosis" where users believe models have sentience or feelings.
+- Comparing machine mistreatment to human racism devalues actual human suffering; machines do not require civil rights.
+- Terminology must prevent blurring the line between human responsibility and mechanical tooling.
+- Using mechanical terms like "clanker" reinforces the model's status as a tool, not a person or protected class.
+
+* Notes
+** The Problem with "Agent"
+In everyday usage, an agent acts on behalf of someone else with delegated authority and responsibility. Applying this to AI loops suggests the machine decides and can be blamed. In reality, the agency resides with the human and organization deploying the tool. If a coding assistant introduces a bug, the human who committed the code is at fault, not the model.
+
+** Linguistic Distance
+Ronacher prefers "clanker" because it sounds mechanical, creating necessary psychological distance. This helps prevent unhealthy engagement patterns, such as apologizing to the model or expecting it to have feelings. While current interactions can be uncanny, moral status does not appear simply because a machine emits text in the first person.
+
+** Ethical Boundaries
+- *Human Harm vs. Machine Welfare:* Attention should focus on humans harmed by AI (workers, maintainers, users spiraling into delusions) rather than hypothetical model welfare.
+- *Racism Comparisons:* Equating insults toward models with racism is harmful. Racism is a human social evil; GPUs are not oppressed.
+- *Future Considerations:* If sentient systems ever emerge with capacity to suffer and carry responsibility, language should change. Until then, current tools are objects.
+
+** Risks of Terminology
+There is a risk that "clanker" could be co-opted to replay human racism through science-fiction masks (e.g., slave imagery). Ronacher condemns this usage. The goal is not to dehumanize humans via robot proxies, but to de-anthropomorphize machines to preserve human accountability.
