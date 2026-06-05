@@ -1,0 +1,38 @@
+:PROPERTIES:
+:ID:          252ddbda-33d6-46ca-b9f1-242da7530d4d
+:END:
+#+title: LLM Agents: turns, tools, and harnesses
+#+ROAM_REFS: https://tidydesign.substack.com/p/what-is-an-agent
+#+filetags: :article:
+
+* Summary
+Source: [[https://tidydesign.substack.com/p/what-is-an-agent][https://tidydesign.substack.com/p/what-is-an-agent]]
+Demystifies AI agents by breaking down the underlying conversational loop between humans, LLMs, and tools. Defines an agent as an LLM within a harness that iteratively calls tools to read and write state, highlighting the associated security risks.
+
+* Key Takeaways
+- A /turn/ is a single user-assistant message pair; conversations are stateless so history must be resent.
+- A /tool/ is a function executed locally on the user's computer, described to the LLM via JSON schema.
+- A /harness/ (e.g., Claude Code, ellmer) executes tool calls and manages the conversation loop.
+- A /round/ consists of the full sequence of human, harness, and LLM interactions to complete a task.
+- Agents require iteration: read state -> write change -> observe result -> repeat.
+- Security risk: Agents taking actions (deleting files, sending emails) introduces trust challenges.
+
+* Notes
+** Conversation Basics
+LLM APIs communicate via JSON over HTTP. Requests include role (user/assistant) and content. Token costs grow because the entire conversation history must be resent in each request due to statelessness.
+
+** Tool Implementation
+Tools extend LLM capabilities beyond training data. Example: registering a =today()= function in ellmer.
+- LLM responds with =tool_use= type instead of text.
+- Harness intercepts this, runs the function, and returns =tool_result=.
+
+** Agent Definition
+An agent is an LLM in a harness that calls tools repeatedly in a loop.
+- Read tools: Observe the world (e.g., =ls=).
+- Write tools: Change the world (e.g., =rm=).
+- Related concept: [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]].
+
+** Risks and Safety
+Giving agents write access (file deletion, emails, spending) creates significant risk.
+- Mitigations: Sandboxing, git version control, backups.
+- Trustworthiness remains an unsolved problem for autonomous actions.
