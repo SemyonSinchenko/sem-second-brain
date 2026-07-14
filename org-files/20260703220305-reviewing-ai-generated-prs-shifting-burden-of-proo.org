@@ -42,4 +42,4 @@ To make reviews less subjective, code is evaluated along five points:
 Institutional memory regarding "risky" code areas is vital. Agents perform worse than humans in modules riddled with footguns.
 - AI changes the cost of leaving code in a bad state; it is now more viable to refactor "god modules" or underspecified code.
 - This approach aligns with practices in [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] where the agent's output must be constrained by strict verification harnesses.
-- The article mentions hiring for [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] backend roles, implying these strategies are being applied in systems programming contexts where correctness is critical.
+- The article mentions hiring for Rust backend roles, implying these strategies are being applied in systems programming contexts where correctness is critical.

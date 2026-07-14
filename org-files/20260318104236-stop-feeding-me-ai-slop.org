@@ -46,5 +46,5 @@ The distinction lies in the order of operations:
 
 ** Connection to Broader Concepts
 - The critique aligns with concerns about [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] where autonomy might bypass human oversight if not carefully managed.
-- The reliance on [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] outputs without verification undermines the rigorous standards required in data-intensive fields involving technologies like [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]], [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]], or table formats like [[id:117f084e-2b22-49d9-a42a-fddada65b250][DeltaLake]] and [[id:91fc22f1-4cbc-4e4c-81ff-6d11e7e36c44][Apache Iceberg]], where subtle configuration errors can have massive downstream effects.
+- The reliance on [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] outputs without verification undermines the rigorous standards required in data-intensive fields involving technologies like DuckDB, Apache Spark, or table formats like DeltaLake and Apache Iceberg, where subtle configuration errors can have massive downstream effects.
 - The call for "distillation" emphasizes the irreplaceable value of human context, which no model currently possesses.

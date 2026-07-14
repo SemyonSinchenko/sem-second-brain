@@ -54,7 +54,7 @@ Current version (1.0.0.Alpha1) supports all column types, projections, and key e
 - *Compatibility layer*: Implementing =parquet-java= APIs on top of Hardwood to ease migration.
 - *Write support*: Planned for post-1.0 final release.
 - *CLI tools*: For inspecting and analyzing Parquet files.
-- Potential evolution into a toolkit for table formats like [[id:91fc22f1-4cbc-4e4c-81ff-6d11e7e36c44][Apache Iceberg]] and [[id:117f084e-2b22-49d9-a42a-fddada65b250][DeltaLake]].
+- Potential evolution into a toolkit for table formats like Apache Iceberg and DeltaLake.
 
 ** Ecosystem Context
-Parquet remains the lingua franca of the data ecosystem, underpinning data lakes and query engines such as [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] and Trino. Hardwood aims to provide a more efficient foundation for Java-based ETL pipelines and analytics working with these formats.
+Parquet remains the lingua franca of the data ecosystem, underpinning data lakes and query engines such as DuckDB and Trino. Hardwood aims to provide a more efficient foundation for Java-based ETL pipelines and analytics working with these formats.

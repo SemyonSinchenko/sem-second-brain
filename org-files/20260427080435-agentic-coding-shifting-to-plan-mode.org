@@ -7,7 +7,7 @@
 
 * Summary
 Source: [[https://timsaucer.com/2026/04/21/working-with-a-llm-agent-is-good/][https://timsaucer.com/2026/04/21/working-with-a-llm-agent-is-good/]]
-The author describes a mindset shift from micromanaging [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] agents to collaborating with them via a /plan mode/ workflow. Initially, directing agents to perform menial tasks resulted in excessive context switching and productivity loss, particularly when working with languages like [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] that have slower compile times. By treating the agent as a collaborator involved in high-level design and planning before execution, the author regained focus on architectural decisions while delegating implementation details effectively.
+The author describes a mindset shift from micromanaging [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] agents to collaborating with them via a /plan mode/ workflow. Initially, directing agents to perform menial tasks resulted in excessive context switching and productivity loss, particularly when working with languages like Rust that have slower compile times. By treating the agent as a collaborator involved in high-level design and planning before execution, the author regained focus on architectural decisions while delegating implementation details effectively.
 
 * Key Takeaways
 - Avoid micromanagement: Directing every step causes context switching fatigue; instead, define the problem and let the agent propose solutions.
