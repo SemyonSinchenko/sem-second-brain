@@ -1,0 +1,42 @@
+:PROPERTIES:
+:ID:          24fe8023-5522-458a-91f8-949838e5e6b7
+:END:
+#+title: Tokenmaxxing: invisible AI inference costs
+#+ROAM_REFS: https://earlybird.com/perspectives/more-ai-means-worse-ai-slng
+#+filetags: :article:
+
+* Summary
+Source: [[https://earlybird.com/perspectives/more-ai-means-worse-ai-slng][https://earlybird.com/perspectives/more-ai-means-worse-ai-slng]]
+Luke Miller, co-founder of SLNG, identifies "tokenmaxxing" as a critical inefficiency where companies overspend on AI due to buried unit economics. SLNG optimizes model routing to reduce costs and latency while enabling global AI deployment under strict data sovereignty rules. The article highlights how invisible costs in voice AI and agent cascades erode profit margins without detection.
+
+* Key Takeaways
+- Tokenmaxxing leads to massive waste, exemplified by a company spending $500M on unintentional model calls.
+- Voice AI hides costs via cascading model calls where a single sentence triggers multiple models in real time.
+- SLNG reduces model cost by 53% and latency by 39% by routing requests to the appropriate model tier.
+- Efficient AI is crucial for global deployment where budget, latency, and data sovereignty are constraints.
+- Invisible costs invert incentives, causing vendors to sell compute rather than solved outcomes.
+
+* Notes
+** Background: Luke Miller
+- 20 years building systems that made spending easy (registries, deployment rails).
+- 2006: Spent a year in Ulaanbaatar, Mongolia, building low-cost tech centres (World Bank NGO).
+- Core question: "What can a system really do for the people who can't afford the expensive version of it?"
+- API Economy Veteran: 3scale (acquired by Red Hat), HitchHQ, npm (acquired by GitHub), Vercel (VP Sales).
+
+** The Problem: Tokenmaxxing
+- Default developer reaction is to reach for the largest, most powerful model for any challenge.
+- Unit economics are buried deep in modern AI stacks; cost is invisible at the moment of decision.
+- In voice AI, costs hide inside layered model calls; businesses see margin decline rather than line items.
+- Relates to [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] inference where cheaper models often yield identical outcomes for specific tasks.
+
+** The Solution: SLNG
+- Sits between orchestration and models (e.g., LiveKit, Pipecat, Deepgram, ElevenLabs).
+- Asks: "Is the expensive model even the right one here?" before routing.
+- No teardown required; contracts and keys stay put, only endpoints repoint.
+- Addresses global constraints: data sovereignty, latency requirements, and multi-language support.
+
+** Industry Implications
+- Connects to [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] patterns where agents trigger multiple model calls per task.
+- Cheap, endless compute is a local assumption (California) that fails globally.
+- Running AI cheaply and running it inside legal walls are the same engineering problem.
+- Shifts focus from compute as the end goal to compute as the means to resolve user intents (booking, debt collection).
