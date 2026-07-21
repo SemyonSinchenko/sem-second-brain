@@ -1,0 +1,56 @@
+:PROPERTIES:
+:ID:          70527276-cfa0-4155-bc58-5c7f80fe967a
+:END:
+#+title: JVM primitive hashtables: 2026 performance benchmarks
+#+ROAM_REFS: https://sooniln.github.io/posts/hashmap-benchmarks-2026/
+#+filetags: :article:
+
+* Summary
+Source: [[https://sooniln.github.io/posts/hashmap-benchmarks-2026/][https://sooniln.github.io/posts/hashmap-benchmarks-2026/]]
+This article provides a comprehensive benchmark analysis of primitive hashtable implementations within the [[id:2d42e3b7-125a-43b8-b6c8-0be5dc4c3d70][Java]] Virtual Machine ecosystem. It compares libraries such as Fastutil, AndroidX, FastCollect, and the standard JRE HashMap, focusing on performance tradeoffs regarding memory layout, probing strategies, and hash functions. The goal is to identify optimal choices for performance-critical applications where boxing overhead and GC pressure are concerns.
+
+* Key Takeaways
+- Primitive hashtables significantly reduce memory overhead and GC pressure compared to boxed JRE HashMaps.
+- Load factor impacts performance non-linearly; higher load factors increase probe sequence length drastically on misses.
+- Hash finalizers must be chosen carefully based on key distribution (e.g., lowBits vs. highBits) to avoid clustering.
+- Open addressing strategies (Robin Hood, Linear Probing) generally outperform separate chaining for primitive data.
+- Removal strategies matter: Tombstones degrade performance over time, while backwards-shift deletion maintains efficiency.
+
+* Notes
+** Hashtable Design Choices
+- *Open Addressing vs. Separate Chaining*: Most primitive libraries use open addressing (flat array) rather than the JRE's separate chaining (linked lists/trees).
+- *Probing Strategies*:
+  - *Linear Probing*: Cache-friendly but suffers from primary clustering.
+  - *Quadratic Probing*: Avoids primary clustering but incurs more cache misses.
+  - *Robin Hood Hashing*: Equalizes probe lengths, allowing higher load factors (80%+) without performance degradation.
+- *Memory Layout*: Parallel arrays (keys separate from values) vs. Interleaved storage. Interleaved is denser but requires equal key/value sizes.
+- *Empty Slots*: Handling empty slots requires special logic (e.g., metadata arrays, sentinel values) to avoid collisions with valid keys.
+
+** Benchmark Setup
+- Hardware: 6 Core AMD Ryzen 5 9600X, Windows 11.
+- JDK: Temurin 21.0.11.
+- Key Orders Tested:
+  - *random*: Uniform distribution.
+  - *lowBits*: Keys 0 → table size (tests LSB entropy).
+  - *highBits*: Bit-reversed keys (tests MSB entropy/adversarial).
+- Operations: GetHit, GetMiss, PutHit, PutMiss, RemoveAndPutMiss, ForEach, Copy.
+
+** Library Specifics
+- *JRE HashMap*: Separate chaining, boxed objects, secure against DoS, but higher overhead.
+- *FastCollect*: Uses Robin Hood hashing with backwards-shift deletion. Novel hash finalizer using byte reversal (BSWAP) to target entropy in low bits.
+- *Fastutil*: Widely adopted, linear probing, backwards-shift deletion. Uses Knuth multiplicative hashing.
+- *AndroidX*: Swiss Table design using SWAR (SIMD within a register). Metadata array stores fingerprints. Quadratic probing.
+- *Trove*: Older library, prime sizing, double hashing. No active development since ~2012.
+- *Eclipse*: Fixed 50% load factor (memory inefficient compared to others).
+
+** Hash Functions
+- *Knuth Multiplicative Hashing*: Common baseline (multiply by golden ratio constant).
+- *Avalanching*: Critical for ensuring bit changes in input spread across output.
+- *Entropy Targeting*: FastCollect's approach reverses bytes after multiplication to ensure entropy lands in the bits used for slot indexing (low bits for power-of-two sizes).
+- *Instruction Sets*: Performance varies by architecture (e.g., ARM has RBIT instruction for bit reversal, x86 uses BSWAP).
+
+** Performance Observations
+- Micro-benchmarks represent "platonic ideal" conditions; real-world performance varies with hit/miss ratios.
+- Load factor sawtooth patterns observed during growth (resize events).
+- Tombstone-heavy workloads require periodic rehashing to maintain performance.
+- JRE HashMap performance has improved significantly since 2014 benchmarks but still loses to primitive specialized libraries on raw throughput.
