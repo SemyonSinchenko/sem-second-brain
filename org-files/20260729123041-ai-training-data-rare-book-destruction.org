@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:          a09981c8-8ebb-46fc-8670-0496ee471b16
+:END:
+#+title: AI training data: rare book destruction
+#+ROAM_REFS: https://gardinerbryant.com/ai-companies-are-now-destroying-warehouses-full-of-rare-books/
+#+filetags: :article:
+
+* Summary
+Source: [[https://gardinerbryant.com/ai-companies-are-now-destroying-warehouses-full-of-rare-books/][https://gardinerbryant.com/ai-companies-are-now-destroying-warehouses-full-of-rare-books/]]
+Investigates allegations that AI companies are purchasing rare books, scanning them for [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] training datasets, and subsequently destroying the physical copies to avoid resale or detection.
+
+* Key Takeaways
+- Physical books are treated as disposable data containers rather than cultural artifacts.
+- Destruction prevents secondary market sales which could reveal the scale of data acquisition.
+- Raises significant ethical questions regarding copyright and cultural preservation.
+- The practice suggests a high demand for high-quality, non-digital text data for model training.
+
+* Notes
+This practice highlights the extreme measures taken to secure high-quality text data for model training. The destruction of source material poses a risk to historical preservation. The workflow typically involves:
+1. Bulk purchasing of rare or out-of-print books.
+2. High-speed scanning for digitization.
+3. Pulping or shredding the physical copies.
+
+This connects to broader discussions on data provenance and the environmental/ethical cost of AI development.
