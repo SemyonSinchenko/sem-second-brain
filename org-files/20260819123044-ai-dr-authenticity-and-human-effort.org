@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:          b2324405-7d4b-49db-91cd-376429d39cc9
+:END:
+#+title: AI;DR: Authenticity and Human Effort
+#+ROAM_REFS: https://yusufaytas.com/there-may-be-nobody-there
+#+filetags: :article:
+
+* Summary
+Source: [[https://yusufaytas.com/there-may-be-nobody-there][https://yusufaytas.com/there-may-be-nobody-there]]
+This article explores the emerging acronym AI;DR (Artificial Intelligence; Did Not Read) and the psychological resistance to consuming AI-generated content. The author argues that readers inherently value craftsmanship, effort, and authenticity, perceiving AI output as lacking the human mind behind it.
+
+* Key Takeaways
+- *Craftsmanship signals value:* Imperfections and visible effort act as proxies for quality and human touch.
+- *Search for authenticity:* Readers seek to relate to a specific person behind the content, not just raw information.
+- *Tool vs. Content:* Using AI for thinking is acceptable, but consuming AI output as final content feels empty.
+- *Generic supportiveness:* AI's overly supportive tone lacks the genuineness and friction of human interaction.
+
+* Notes
+The core tension lies in the perception of *effort*. When content is generated via prompts, the perceived effort drops, reducing its valued worth. This connects to the broader discussion around [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] usage in creative workflows.
+
+The author notes that /AI;DR/ is not necessarily a protest against using AI tools, but a refusal to spend energy searching for a human persona where none exists. Specific quirks, unnecessary details, and personal judgments signal humanity.
+
+- *Craftsmanship:* We value handcrafted items over perfect machine outputs.
+- *Personality:* Odd preferences and pet peeves establish connection.
+- *Professional Context:* Understanding trade-offs and thought processes is crucial in professional writing.
+- *Sameness:* Generic marketing-style responses feel weird because they lack individual stance.
