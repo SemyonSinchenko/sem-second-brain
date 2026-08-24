@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:          8b6fce91-2c22-414a-9c9d-99e025c04027
+:END:
+#+title: Lisp Type Checker implementation
+#+ROAM_REFS: https://d4shi.com/blog/lisptc/
+#+filetags: :article:
+
+* Summary
+Source: [[https://d4shi.com/blog/lisptc/][https://d4shi.com/blog/lisptc/]]
+This article explores the implementation of a type checker for a Lisp dialect, demonstrating how static typing can be introduced into a dynamically typed environment. It covers the core concepts of abstract syntax trees (AST), type inference, and the specific challenges encountered when building compilation tools within the Lisp ecosystem.
+
+* Key Takeaways
+- Building a type checker requires a robust representation of the language's Abstract Syntax Tree (AST).
+- Type inference algorithms can be implemented effectively using Lisp's homoiconic properties.
+- Understanding the trade-offs between dynamic flexibility and static safety is crucial when extending Lisp.
+- Recursive descent is a common strategy for traversing expressions during type analysis.
+
+* Notes
+The implementation details highlight the power of Lisp macros in defining type rules and manipulating code structures before evaluation. The approach discussed aligns well with modern developments in the [[id:f5cf9e74-0679-409e-82cc-4c9b5237ee67][Clojure]] ecosystem, where tools like spec or core.typed attempt to solve similar problems.
+
+Key components of the type checker likely include:
+- Environment management for variable scoping.
+- Unification algorithms for type variable resolution.
+- Error reporting mechanisms that map back to source locations.
+
+This project serves as an educational resource for understanding compiler construction principles using a high-level Lisp environment.
