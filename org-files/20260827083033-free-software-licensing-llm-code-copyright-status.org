@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:          5a4fb989-c3d5-4325-b987-1a950decf488
+:END:
+#+title: Free Software licensing: LLM code copyright status
+#+ROAM_REFS: https://fsfe.org/news/2026/news-20260825-01.html
+#+filetags: :article:
+
+* Summary
+Source: [[https://fsfe.org/news/2026/news-20260825-01.html][https://fsfe.org/news/2026/news-20260825-01.html]]
+This article examines the legal implications of using Large Language Models to generate source code within the context of Free Software. It argues that copyright law generally requires human authorship, meaning wholly AI-generated code may fall into the public domain, complicating copyleft licensing. However, code significantly modified or arranged by humans retains copyrightability. The piece highlights jurisdictional differences (US/EU vs. UK) and recommends transparent disclosure of AI usage in contributions to maintain licensing integrity.
+
+* Key Takeaways
+- Copyright requires human authorship; wholly LLM-generated code is likely public domain.
+- Prompts alone are insufficient for copyright claims as they represent ideas, not expression.
+- Hybrid works (human + LLM) are copyrightable if human creative contribution is significant.
+- Concealing AI usage risks copyright infringement and licensing violations downstream.
+- Developers should disclose AI tools used in commit logs to assist maintainers.
+
+* Notes
+** Legal Principles of Authorship
+- Copyright protects implementation and expression, not ideas (idea-expression dichotomy).
+- US Copyright Office (2025) reaffirmed that only natural persons can be authors.
+- EU courts (CJEU, Munich District Court) require work to reflect the author's personality and creative choices.
+- UK and Ireland are outliers where computer-generated works may assign authorship to the person making arrangements.
+
+** Copyrightability Scenarios
+- *Prompts:* Generally insufficient for authorship; akin to commissioning work without creative control.
+- *Machine Modification:* Human-created input modified by LLM retains copyright if original expression remains identifiable.
+- *Compilation:* Arranging non-copyrightable AI elements can be copyrightable if the selection/structure is creative (e.g., /Zarya of the Dawn/ case).
+- *Infringement:* Users bear liability if LLM output reproduces copyrighted training data (strict liability).
+
+** Recommendations for Free Software
+- The Software Freedom Conservancy (SFC) recommends recording and disclosing AI usage in contributions.
+- Commit logs should include tool version and description of assistance in machine-readable format.
+- Maintain documentation of human work extent (code writing, component selection, modification).
+- Linking to umbrella concepts like [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] usage helps categorize these legal challenges within broader technical discussions.
+
+** Jurisdictional Nuances
+- *Italy (2025):* Codified that copyright applies to works of human ingenuity created with LLM aid.
+- *Ukraine:* Introduced /sui generis/ rights for computer-generated output, granting control to program authors/users.
+- *USA:* Ongoing litigation (e.g., /Author's Guild v OpenAI/) regarding derivative works vs. replications.
