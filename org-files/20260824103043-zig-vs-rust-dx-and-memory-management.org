@@ -1,0 +1,77 @@
+:PROPERTIES:
+:ID:          349b1e10-6737-49eb-8a0e-afea8c62e0e3
+:END:
+#+title: Zig vs Rust: DX and memory management
+#+ROAM_REFS: https://besok.github.io/posts/what-zig-felt-like-coming-from-rust/
+#+filetags: :article:
+
+* Summary
+Source: [[https://besok.github.io/posts/what-zig-felt-like-coming-from-rust/][https://besok.github.io/posts/what-zig-felt-like-coming-from-rust/]]
+A developer with 7 years of [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] experience documents their journey reimplementing a JSONPath library in Zig. The article contrasts the developer experience, structural conventions, testing workflows, and memory management models between the two languages. While Zig offers simplicity and performance potential as a C successor, it requires manual memory discipline and lacks the functional paradigms and mature tooling found in Rust.
+
+* Key Takeaways
+- Zig encourages a flat file structure, whereas Rust favors nested modular hierarchies.
+- Memory management in Zig is explicit via allocators and =errdefer=, unlike Rust's automatic ownership system.
+- IDE support for Zig is minimal (CLI-focused), contrasting with robust Rust IDEs like RustRover.
+- Zig pushes imperative mutation and loops, while Rust supports functional combinators and immutability.
+- The Zig ecosystem is young, with unstable standard libraries and fewer mature packages.
+
+* Notes
+** IDE and Tooling
+- Zig lacks deep IDE integration, relying mostly on syntax highlighting and basic autocompletion.
+- The author shifted from full IDEs to a CLI-based setup (=helix + alacritty + zellij=).
+- Build configuration is handled via =build.zig=, which is straightforward for test execution.
+#+begin_src zig
+zig build test
+zig build test -Dfilter="filter match function basic"
+#+end_src
+
+** Project Structure
+- Zig nudges developers toward flat structures; nested folders introduce import friction.
+- Rust projects typically fragment files early (e.g., =src/parser/errors.rs=).
+- Zig projects can remain in few files (e.g., =root.zig=, =parser.zig=, =query.zig=) without losing readability.
+- This contrast prompted the author to reconsider file organization habits in other languages.
+
+** Testing Paradigms
+- Rust supports inline unit tests and separate integration test folders by default.
+- Zig allows inline tests but requires explicit configuration in =build.zig=.
+- Testing in Zig can become verbose due to manual memory management setup.
+- Rust testing infrastructure is generally smoother due to automatic cleanup.
+
+** Functional vs Imperative Paradigm
+- [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] leans heavily on functional concepts: iterators, pattern matching, monadic types, and closures.
+- Zig forces imperative styles: in-place mutation, explicit loops, and manual allocator handling.
+- Sum types exist in both, but Rust uses traits while Zig uses duck-typing (=@hasDecl=).
+- Recursion works well in both, but Zig's manual allocation makes pure functional approaches expensive.
+#+begin_src rust
+// Rust: Monadic transformation
+pub fn flat_map<F>(self, f: F) -> Data<'a, T> {
+    match self {
+        Data::Ref(data) => f(data), // returns a *new* Data
+        // ...
+    }
+}
+#+end_src
+#+begin_src zig
+// Zig: Mutation
+pub fn queryName(name: []const u8, iteration: *q.JsonPathIter) !void {
+    while (i < iteration.cursors.items.len) {
+        if (obj.getPtr(name)) |val| {
+            iteration.cursors.items[i] = .{ .json = val, .path = new_path }; // in-place overwrite
+        }
+    }
+}
+#+end_src
+
+** Memory Management
+- Zig requires explicit allocators passed to almost every function.
+- Developers must manually enforce =init/deinit= conventions.
+- Common pitfalls in Zig include forgotten =deinit=, skipped =deinit= on error paths, and double frees.
+- Rust's =Drop= trait and ownership model prevent many of these classes of errors at compile time.
+- Zig's =TestAllocator= helps catch leaks but requires explicit test cases for failure paths.
+- Error handling in Zig uses =errdefer= to clean up allocations if a subsequent operation fails.
+
+** Ecosystem Maturity
+- Zig libraries are scarce; even basic tools like regex engines may lack features (e.g., Unicode property escapes).
+- The Zig standard library API changes frequently between versions.
+- Despite immaturity, the language is fast, modern, and shows potential as a C successor.

@@ -50,7 +50,7 @@ This article argues against the pursuit of "Full Autonomy" in AI systems, propos
 ** Relevance to Umbrella Nodes
 - The article fundamentally discusses the evolution of [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]], moving from autonomous agents to supervised cyborg systems.
 - The reliance on human feedback loops directly impacts the training and refinement of [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] models via RLHF.
-- While the article mentions [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]] in the context of example code structures for these loops, the core concepts are language-agnostic architectural patterns.
+- While the article mentions Python in the context of example code structures for these loops, the core concepts are language-agnostic architectural patterns.
 
 #+begin_quote
 The most resilient and trustworthy systems aren't those that exclude humans, but those that integrate them as a high-level safety valve.

@@ -1,0 +1,46 @@
+:PROPERTIES:
+:ID:          04e69dfe-be28-4e59-a5dd-5b784c879189
+:END:
+#+title: Engineering management: post-code-cost-collapse
+#+ROAM_REFS: https://karimjedda.com/engineering-management-after-cost-of-code-collapse/
+#+filetags: :article:
+
+* Summary
+Source: [[https://karimjedda.com/engineering-management-after-cost-of-code-collapse/][https://karimjedda.com/engineering-management-after-cost-of-code-collapse/]]
+Argues that while LLMs have collapsed the cost of producing plausible code, core management assumptions regarding human coordination, trust, and accountability remain valid. Leaders must audit practices to distinguish between obsolete friction (coding speed) and necessary friction (verification, judgment).
+
+* Key Takeaways
+- *Code cost collapsed, coordination cost did not:* Rebuild practices only on the narrow claim that code generation is cheap, not on unproven claims about overall velocity or headcount reduction.
+- *Verification shifts to specification:* Mechanical verification (tests/types) is faster via AI, but semantic verification (business logic/policy) remains human-bound due to shared AI blind spots.
+- *Junior pipeline risk:* AI absorbs the "practice work" (boilerplate, small bugs) historically used to train judgment in senior engineers.
+- *Management evolves to editing:* Information routing is automatable; the surviving management function is judgment, ownership, and signing off on risk.
+
+* Notes
+** Auditing Assumptions
+- Practices resting on *code cost* (typing, scaffolding) are under review.
+- Practices resting on *human factors* (trust, attention allocation, correctness verification) remain valid regardless of age.
+- Danger of sorting by "feel" (modern vs old) rather than validity of underlying assumption.
+
+** Metrics and Velocity
+- Weak proxies (PR counts, tickets closed) are now actively misleading because volume is cheap.
+- AI-specific metrics (prompt counts) solve the wrong problem.
+- Durable move: Measure business outcomes and system health; treat code volume as a cost to be justified.
+
+** Verification Layers
+- *Mechanical verification:* Collapsing. Agents run test loops faster than humans. Requires machine-checkable specs (types, contracts).
+- *Semantic verification:* Remains slow. Requires human judgment on policy/regulatory exposure.
+- *AI checking AI:* Structural problem where checker shares generator's blind spots.
+- Investment in machine-checkable correctness is high-leverage infrastructure work.
+- Relevant tech: [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] and [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] enable the speedup in mechanical checks but introduce the verification bottleneck.
+
+** Old Rules Revisited
+- *Director coding:* Need calibration to avoid stale mental models, not to ship code.
+- *Shielding team:* Stop filtering context by default. Engineers prompting AI without business context produce fluent, wrong work.
+- *Consensus:* Required only for irreversible decisions. Reversible decisions should be made quickly by small groups.
+- *Headcount:* Scrutinize based on judgment vs production work. Coordination costs remain unchanged.
+
+** Future of Management
+- Information routing (status, dashboards) is automatable and losing value.
+- Judgment function (hiring, firing, risk acceptance) remains human.
+- Org charts will record *who signs* rather than *who produces*.
+- Headcount measures *how much accountability you can afford*.

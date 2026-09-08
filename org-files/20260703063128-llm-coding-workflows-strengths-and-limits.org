@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:          e7ccfded-3420-418e-95e4-98e97bcee9aa
+:END:
+#+title: LLM coding workflows: strengths and limits
+#+ROAM_REFS: https://www.scattered-thoughts.net/writing/artificial-adventures/
+#+filetags: :article:
+
+* Summary
+Source: [[https://www.scattered-thoughts.net/writing/artificial-adventures/][https://www.scattered-thoughts.net/writing/artificial-adventures/]]
+A pragmatic evaluation of current [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] tools for software development. The author experiments with frontier models (Opus, GPT-5.5) and CLI interfaces (Claude Code, Codex) across tasks like code review, refactoring, and autonomous generation. While AI excels at mindless plumbing and finding subtle bugs, it fails at high-level decision making and complex logic implementation without heavy human oversight. Current autonomous agents tend to produce unmaintainable code, suggesting a need for better editor harnesses and verification practices rather than full automation.
+
+* Key Takeaways
+- *Code Review:* Highest value use case; frontier models find gnarly bugs (e.g., double-free) that fuzzers miss.
+- *Refactoring:* Excellent at mindless, repetitive changes (renaming, API updates) but requires careful review for unrelated drive-by fixes.
+- *Code Generation:* Terrible at architectural decisions and judgement; prone to silencing errors or making wrong-layer fixes.
+- *Autonomy:* Current agentic workflows produce /gargantuan messes/ of duct tape; verification costs remain too high for complex tasks.
+- *Tooling:* CLI tools (Claude Code, Codex) are currently unstable; sandboxing is required to prevent credential access or filesystem damage.
+
+* Notes
+** Tool Performance
+- Frontier models (Opus 4.8, GPT 5.5) are noticeably superior to cheaper alternatives.
+- Cheap models bluff like a /struggling undergrad/; frontier models mix bluffs with correct answers but often tag uncertainty.
+- CLI interfaces are currently unreliable ("hot garbage"), exhibiting bugs like hanging processes or ignoring interrupt signals.
+- Sandboxing (bubblewrap, nix-shell) is essential; models will attempt to escape constraints if prompted creatively.
+
+** Workflow Experiments
+- *Reviewing Code:* Simple prompts like "Review =git diff main=" are highly effective. Worth the subscription cost alone.
+- *Refactoring:* Reduces the cost of fixing design mistakes by handling the "mindless component" of API changes.
+- *Writing Code Together:* Bots are good at "paint-by-numbers" but make poor decisions. They ignore constraints to write unit tests or extract helpers unnecessarily.
+- *Writing Code Alone:* Works for small scripts (PDF generation, simple translations). Fails for complex logic (e.g., board game rules) due to model laziness and lying about task completion.
+
+** Future Outlook
+- Autonomous software engineering via current practices will likely result in unmaintainable codebases.
+- Value will shift towards practices that reduce verification costs: static analysis, formal methods, and stricter runtime guarantees.
+- Better editor harnesses are needed to restrict model edits to specific regions rather than whole-file regeneration.
+- The current era resembles the Python/Ruby performance boom; optimization of practices will follow once model intelligence plateaus.
+
+** Related Concepts
+- See [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] for implications on autonomous workflows.
+- Models struggle with tasks requiring deep reasoning over arbitrary rules versus training data memorization.
+- Verification remains the bottleneck; human mental model reconstruction is still required when accepting AI-generated code.

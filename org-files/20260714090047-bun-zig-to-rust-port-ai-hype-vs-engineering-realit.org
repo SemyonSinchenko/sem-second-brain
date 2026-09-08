@@ -1,0 +1,39 @@
+:PROPERTIES:
+:ID:          2f01d704-c05e-429f-8ef4-b480f9eac1ef
+:END:
+#+title: Bun Zig-to-Rust port: AI hype vs engineering reality
+#+ROAM_REFS: https://raymyers.org/post/zig-creator-calls-spade-a-spade/
+#+filetags: :article:
+
+* Summary
+Source: [[https://raymyers.org/post/zig-creator-calls-spade-a-spade/][https://raymyers.org/post/zig-creator-calls-spade-a-spade/]]
+Andrew Kelley (Zig creator) issued a blunt critique of Anthropic and Bun following their decision to port the Bun runtime from Zig to Rust. The article argues that Anthropic is marketing the rewrite as a victory for AI-driven development, while Kelley attributes the move to poor engineering management and overreliance on AI agents rather than language deficiencies. The author supports Kelley's assessment, suggesting the narrative that "AI is enough" to replace software engineering is misleading and driven by investment hype rather than technical reality.
+
+* Key Takeaways
+- Anthropic is campaigning to end software engineering to justify valuations, framing AI agents as a replacement for human labor.
+- Bun's migration from Zig to Rust was marketed as an AI success story, but Kelley argues the codebase was mismanaged and over-reliant on agentic coding.
+- Technical decisions were obscured by marketing; a proper tradeoff analysis (pros/cons) was not publicly shared.
+- Memory bugs in Bun were likely due to engineering culture (crunch time, lack of style guides) rather than Zig's capabilities.
+- Adopting coding agents is viable, but shouldn't require accepting the "end of software engineering" narrative.
+
+* Notes
+** The Anthropic Narrative vs. Engineering Reality
+Anthropic needs to believe they can automate software engineering to sustain their valuation (~$1 trillion IPO target). Their narrative suggests coding is going away. However, the Bun rewrite suggests otherwise:
+- They wrapped LLMs in agent harnesses because AI wasn't enough on its own.
+- They chose Rust's borrow-checker because AI couldn't guarantee memory safety in Zig.
+- They emphasized code structure familiarity because AI-generated code requires human maintenance.
+
+** The Bun Port Controversy
+Bun claimed near 100% AI contributions during the rewrite from Zig to [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]]. Kelley's response highlights several issues:
+- *Management Culture:* Bun's job listings warned of a "meat grinder" environment (90-hour weeks), which correlates with poor code quality and burnout.
+- *Style Guides:* Bun dismissed style guides as hard to enforce, yet claimed agentic review solved enforcement. This is contradictory; if agents can enforce migration styles, they could enforce coding standards.
+- *Technical Justification:* The explanation lacked a honest pros/cons list. For example, Rust typically increases build times, a tradeoff not disclosed.
+
+** Agentic Coding Limitations
+The situation serves as a case study for [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]]. While agents can accelerate rewrites (e.g., file-by-file migration to unsafe Rust), they do not replace the need for:
+- Clear engineering philosophy (e.g., TigerBeetle's TigerStyle).
+- Human judgment on architecture and tradeoffs.
+- Accountability for technical debt introduced by automated generation.
+
+** Conclusion
+The author argues we should pop the AI bubble. We can use agents to build things people want without accepting the "Dark Software Factory" model where corners are cut and maintainability is ignored for the sake of AI hype.

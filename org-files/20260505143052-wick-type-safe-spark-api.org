@@ -1,0 +1,68 @@
+:PROPERTIES:
+:ID:          7a79b988-74e3-4f9a-b472-f41302f17b83
+:END:
+#+title: Wick: Type-safe Spark API
+#+ROAM_REFS: https://matejcerny.cz/en/apache-spark-wick-type-safe-spark-api/
+#+filetags: :article:
+
+* Summary
+Source: [[https://matejcerny.cz/en/apache-spark-wick-type-safe-spark-api/][https://matejcerny.cz/en/apache-spark-wick-type-safe-spark-api/]]
+The article introduces Wick, a library developed by Netflix engineers that provides a type-safe API for [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]]. Standard Spark APIs (SQL or DataFrame) often allow typos and type mismatches to pass compilation, causing failures only at runtime. Wick shifts error detection to the compile phase using [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]] 3.7 features, offering IDE autocomplete and zero-cost abstraction without runtime performance penalties.
+
+* Key Takeaways
+- Wick moves error detection from runtime to compilation, preventing trivial typos in column names or type mismatches.
+- It leverages Scala 3.7 Named Tuples as a modern successor to the older Frameless library (Scala 2).
+- The abstraction is "zero-cost," meaning type checking happens exclusively at compile time with no runtime overhead.
+- IDE support is enhanced, automatically suggesting existing columns and data types during development.
+- Current limitation: The library does not yet support Spark 4.
+
+* Notes
+** Usage Pattern
+To use Wick, developers define a case class representing the data structure. The standard untyped DataFrame is then wrapped in a =DataSeq= structure.
+
+#+begin_src scala
+case class Livestock(
+  entity: String,
+  code: String,
+  year: Int,
+  asses: Double,
+  cattle: Double,
+  // ... other fields
+)
+
+val df = sparkSession.read
+  .option("header", value = true)
+  .schema(summon[Encoder[Livestock]].schema)
+  .csv("data/livestock.csv")
+
+val livestock = DataSeq[Livestock](df)
+#+end_src
+
+** Type Safety in Operations
+Once wrapped, operations like filtering and selecting benefit from compile-time checks. For example, arithmetic operators are only defined for numeric types, preventing accidental addition of text to numbers.
+
+#+begin_src scala
+livestock
+  .filter(_.year === 2014)
+  .select(row => (
+    entity = row.entity,
+    total_millions = (row.cattle + row.sheep + row.chickens) / 1_000_000
+  ))
+  .orderBy(row => desc(row.total_millions))
+  .show()
+#+end_src
+
+** Aggregation Safety
+The =agg= method enforces scalar expressions. Attempting to divide an unaggregated value without a function like =sum(...)= triggers a compiler error, whereas raw Spark SQL would fail at runtime.
+
+** Comparison with Spark SQL
+Raw SQL lacks guarantees on column names or types before execution:
+
+#+begin_src scala
+sparkSession.sql("""
+  SELECT entity, (cattle + sheep + chickens) / 1000000 AS total_millions
+  FROM livestock
+  WHERE year = 2014
+  ORDER BY total_millions DESC
+""").show()
+#+end_src

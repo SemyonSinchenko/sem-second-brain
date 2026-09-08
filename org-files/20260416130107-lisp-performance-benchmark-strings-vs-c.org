@@ -38,4 +38,4 @@ The benchmark performs 59 million lookups (1 million loops × 59 C23 keywords) t
 - Cross-language calls (FFI/modules) are expensive per call; best to transfer larger units of work.
 
 **Conclusion**
-The languages serve different domains: C for low-level, high-performance systems; Emacs Lisp for editor extensibility; Common Lisp (SBCL) for high-performance applications with rapid development. The experiment demonstrates that modern [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Lisp]] implementations can compete with C in optimized scenarios, debunking the myth that Lisp is inherently slow.
+The languages serve different domains: C for low-level, high-performance systems; Emacs Lisp for editor extensibility; Common Lisp (SBCL) for high-performance applications with rapid development. The experiment demonstrates that modern Lisp implementations can compete with C in optimized scenarios, debunking the myth that Lisp is inherently slow.

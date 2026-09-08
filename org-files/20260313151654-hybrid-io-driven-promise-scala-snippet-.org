@@ -36,4 +36,4 @@ The article showcases a =BetterKillSwitch= trait that extends Pekko's =KillSwitc
 - When =shutdown()= or =abort()= is called imperatively on the Pekko switch, it triggers =promise.unsafeTrySuccess= or =promise.unsafeTryFailure=.
 - Functional code can then await this event cleanly using =awaitShutdown: IO[KillSwitchOutcome]=.
 
-This pattern avoids the overhead of setting up a full =Materializer= just to observe a stream's termination status, making it ideal for embedding Pekko components within a [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]]-adjacent or purely Cats-Effect driven architecture where lightweight bridges are preferred.
+This pattern avoids the overhead of setting up a full =Materializer= just to observe a stream's termination status, making it ideal for embedding Pekko components within a Python-adjacent or purely Cats-Effect driven architecture where lightweight bridges are preferred.

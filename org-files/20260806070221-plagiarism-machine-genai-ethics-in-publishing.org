@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:          1183f94c-216b-4e9b-95c7-22b2bfeb4891
+:END:
+#+title: Plagiarism machine: GenAI ethics in publishing
+#+ROAM_REFS: https://www.kjcharleswriter.com/all-blog-posts/the-plagiarism-machine
+#+filetags: :article:
+
+* Summary
+Source: [[https://www.kjcharleswriter.com/all-blog-posts/the-plagiarism-machine][https://www.kjcharleswriter.com/all-blog-posts/the-plagiarism-machine]]
+The author, an experienced editor, draws parallels between traditional plagiarism behaviors and the current use of Generative AI in writing. Both groups exhibit habitual denial, self-deception, and lies to stakeholders (agents, readers). The article warns that the publishing industry is increasingly rejecting works suspected of AI authorship due to copyright and reputation risks.
+
+* Key Takeaways
+- Plagiarism is rarely a one-off incident; it is a habitual behavior accompanied by persistent denial.
+- GenAI users often rationalize that prompting equals authorship, mirroring plagiarist self-justification.
+- Publishing deals are being revoked when AI use is suspected, as agents avoid uncopyrightable material.
+- Authors are advised to avoid AI use entirely if they wish to prevent accusations, or be fully transparent if they do use it.
+- Lying to agents or readers about AI usage damages professional integrity and career longevity.
+
+* Notes
+The core argument posits that the psychological mechanism behind using a "plagiarism machine" (GenAI) is identical to traditional plagiarism. Individuals convince themselves that minor modifications or prompt engineering constitute original work. This self-deception leads to fluent lying when confronted.
+
+The article highlights a specific case where a $2.4 million book deal collapsed due to AI usage rumors. The author noted that the defendant's statement ("the story... came from me") was equivocation rather than a direct denial of AI use. This pattern suggests that the industry is shifting toward strict human-authorship requirements.
+
+This situation underscores the ethical complexities surrounding [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] integration in creative workflows. While tools exist to assist, claiming full authorship over model-generated text is increasingly viewed as fraudulent by publishers. The advice is clear: truth is the only defense against unjust accusations, but avoidance of the tool is the safest path for professional authors.

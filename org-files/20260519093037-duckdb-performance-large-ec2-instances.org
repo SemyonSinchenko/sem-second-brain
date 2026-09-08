@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:          2388847a-be4f-46ff-90e9-033ec84257fd
+:END:
+#+title: DuckDB performance: large EC2 instances
+#+ROAM_REFS: https://www.robinlinacre.com/optimising_duckdb_performance_large_ec2_instances/
+#+filetags: :article:
+
+* Summary
+Source: [[https://www.robinlinacre.com/optimising_duckdb_performance_large_ec2_instances/][https://www.robinlinacre.com/optimising_duckdb_performance_large_ec2_instances/]]
+This article explores strategies for maximizing [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] query performance when running on large AWS EC2 instances. It addresses common bottlenecks encountered during vertical scaling, such as I/O throughput limits, memory allocation, and parallelism configuration. The author provides benchmarks and configuration tweaks to ensure DuckDB utilizes available hardware resources efficiently without hitting diminishing returns.
+
+* Key Takeaways
+- Larger EC2 instances do not guarantee linear performance gains without proper configuration.
+- EBS bandwidth often becomes the primary bottleneck before CPU or memory limits are reached.
+- Adjusting DuckDB's thread count and memory limits is crucial for matching instance capabilities.
+- Using local NVMe storage (instance store) can significantly outperform network-attached EBS for intermediate data.
+
+* Notes
+** Hardware Considerations
+When scaling up EC2 instance types, focus on the balance between vCPU, memory, and network bandwidth. DuckDB is highly parallelizable, but it requires sufficient I/O throughput to feed data to the cores.
+
+** Configuration Tuning
+- *Threads:* Explicitly set the number of threads to match available vCPUs, but test for optimal concurrency levels.
+- *Memory:* Ensure =memory_limit= is configured to prevent OOM errors while leaving room for the OS.
+- *Storage:* Prefer instance store volumes for temporary files and spill-to-disk operations to reduce latency.
+
+** Benchmarking Insights
+Performance testing should isolate variables such as storage type and thread count. The article suggests monitoring system metrics (iowait, network throughput) alongside query execution time to identify constraints.
+
+** Related Topics
+- [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] internal architecture
+- AWS EC2 instance family selection
+- Data engineering performance optimization

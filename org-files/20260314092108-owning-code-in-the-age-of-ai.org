@@ -27,17 +27,17 @@ Engineering culture has long equated ownership with authorship: if you wrote it,
 A single engineer can now generate 5,000 lines of code in an hour, a task that previously took days. This creates a gap where humans cannot deeply reason about every decision.
 - Relying on tests is insufficient because AI can generate both the implementation and the tests, potentially validating only the model's own assumptions.
 - Tests become just one signal in a broader reliability system rather than a guarantee of correctness.
-- Related concepts in tooling and data processing often face similar scalability challenges, seen in ecosystems like [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]] or [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]], where system architecture matters more than individual query optimization.
+- Related concepts in tooling and data processing often face similar scalability challenges, seen in ecosystems like DuckDB or Apache Spark, where system architecture matters more than individual query optimization.
 
 ** Where Reliability Lives: The SRE Playbook
 Since humans cannot verify every line of infinite code, safety must live in the system itself. This aligns with SRE principles:
 - Assume systems will fail; focus on limiting blast radius and recovering automatically.
 - *Observability* (metrics, tracing, anomaly detection) becomes more critical than reading source code.
 - Implementation of feature flags, staged rollouts, tenant isolation, and circuit breakers is essential to contain failures.
-- This approach mirrors the complexity management required in large-scale data systems involving [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]] or table formats like [[id:117f084e-2b22-49d9-a42a-fddada65b250][DeltaLake]], where data integrity relies on system guarantees rather than manual inspection of every file.
+- This approach mirrors the complexity management required in large-scale data systems involving Apache Parquet or table formats like DeltaLake, where data integrity relies on system guarantees rather than manual inspection of every file.
 
 ** Ethical Considerations and Future Engineering
 - Users should not pay the price for engineering velocity by acting as beta testers for AI-generated code.
 - The solution involves building environments that replay real usage patterns rather than guessing user behavior.
-- The future engineer is defined not by coding speed (whether in [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]], [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]], or [[id:2d42e3b7-125a-43b8-b6c8-0be5dc4c3d70][Java]]) but by the ability to design resilient systems.
+- The future engineer is defined not by coding speed (whether in Python, Scala, or Java) but by the ability to design resilient systems.
 - This shift parallels the emerging field of [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]], where the role of the human is to direct and validate autonomous agents powered by [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] rather than writing syntax manually.

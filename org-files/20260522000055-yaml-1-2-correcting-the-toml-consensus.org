@@ -1,0 +1,59 @@
+:PROPERTIES:
+:ID:          fe1648e2-0725-4c69-b8fb-ca38a4bc81e6
+:END:
+#+title: YAML 1.2: Correcting the TOML consensus
+#+ROAM_REFS: https://opensource.posit.co/blog/2026-05-21_in-defense-of-yaml/
+#+filetags: :article:
+
+* Summary
+Source: [[https://opensource.posit.co/blog/2026-05-21_in-defense-of-yaml/][https://opensource.posit.co/blog/2026-05-21_in-defense-of-yaml/]]
+This article argues that the negative consensus around YAML is outdated, stemming from YAML 1.1 specifications and legacy tooling like PyYAML. YAML 1.2 resolves critical issues regarding implicit typing and security, making it superior to TOML for deeply nested configurations. A new Python library, =py-yaml12=, built on Rust, provides safe, fast, and compliant parsing to bridge the tooling gap.
+
+* Key Takeaways
+- YAML 1.2 eliminates implicit typing errors (e.g., =NO= no longer parses as =false=) and security risks associated with tags.
+- TOML is optimal for flat configurations but becomes verbose and hard to read with deep nesting structures.
+- The =py-yaml12= library offers a modern, Rust-backed solution for [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]] developers needing YAML 1.2 compliance.
+- Configuration format debates often reflect tooling lag rather than inherent format flaws.
+
+* Notes
+** History of Configuration Formats
+- *INI (1980s):* Flat key-value pairs, no formal spec, limited nesting.
+- *XML (1990s):* Arbitrary hierarchy but overly verbose for manual editing.
+- *JSON (2000s):* Lightweight but lacks comments and multiline strings; austere for humans.
+- *YAML (2001) & TOML (2013):* Both arose to fill JSON's gaps. YAML focused on indentation and expressiveness; TOML focused on explicit typing and simplicity.
+
+** The YAML 1.1 Problem Set
+Criticism of YAML is historically valid but specific to version 1.1 and parsers like PyYAML.
+- *Implicit Typing:* Bare scalars like =no=, =yes=, =on=, =off= were interpreted as booleans.
+  - Example: Country code =NO= (Norway) parsed as =false=.
+  - Example: Port mappings =22:22= parsed as sexagesimal integers.
+- *Security:* Tag-based object deserialization allowed arbitrary code execution (e.g., =yaml.load()= vulnerabilities).
+- *Complexity:* Spec was large with ambiguous multiline string handling.
+
+** YAML 1.2 Improvements
+Published in 2009, clarified in 2021 (v1.2.2).
+- *Strict Typing:* Only =true=/=false= are booleans. =no=, =yes=, =n=, =y= are strings.
+- *JSON Subset:* Any valid JSON parses identically as YAML 1.2.
+- *Safety:* Tag resolution tightened; unhandled tags remain data unless explicitly opted-in.
+- *Specification:* Maintained openly on GitHub with clearer writing.
+
+** TOML vs YAML for Nesting
+- *TOML Strengths:* Unambiguous, explicit types, great for shallow configs (e.g., =pyproject.toml=).
+- *TOML Weaknesses:* Deep nesting requires repeating path prefixes in section headers (e.g., =[services.web.environment]=).
+  - Increases file size by ~50% compared to YAML for equivalent data.
+  - Visual structure does not match syntactic structure (indentation is non-parsed).
+- *YAML Strengths:* Indentation communicates hierarchy naturally (Pythonic style).
+  - Better for complex, nested configurations.
+
+** Tooling Landscape
+- *PyYAML:* Implements YAML 1.1. Slow to update. Root cause of most Python ecosystem complaints.
+- *ruamel.yaml:* Supports 1.2 with round-trip comment preservation. Slower pure-Python implementation.
+- *StrictYAML:* Deliberate subset, safe, but not spec-compliant.
+- *py-yaml12:* New library built on the =saphyr= [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] crate.
+  - Fast (compiled core).
+  - 100% yaml-test-suite compliant.
+  - Safe defaults (tags treated as data).
+  - Simple API (=parse_yaml=, =writeyaml=).
+
+** Conclusion
+The argument against YAML is an argument against YAML 1.1. With modern tooling like =py-yaml12=, YAML 1.2 is a strong choice for human-authored, nested configuration files.

@@ -1,0 +1,20 @@
+:PROPERTIES:
+:ID:          cabf35c5-d6b7-452f-ac42-1a4415d116fa
+:END:
+#+title: Everything is a file: data abstraction
+#+ROAM_REFS: https://crescentro.se/posts/everything-is-a-file/
+#+filetags: :article:
+
+* Summary
+Source: [[https://crescentro.se/posts/everything-is-a-file/][https://crescentro.se/posts/everything-is-a-file/]]
+Discusses the application of the Unix philosophy "everything is a file" within modern data engineering contexts. The article explores how treating diverse data sources and systems as uniform file-like objects simplifies architecture and improves interoperability.
+
+* Key Takeaways
+- Uniform interfaces reduce coupling between system components.
+- Abstracting storage and streams as files enables composable data pipelines.
+- Leveraging existing file-based tooling reduces the need for custom connectors.
+
+* Notes
+The principle is evident in tools like [[id:db87fd03-2674-46bf-8b91-55a1923f7335][DuckDB]], which treats various data sources (CSV, Parquet, HTTP endpoints) as queryable tables akin to files. This abstraction allows engineers to apply standard file manipulation logic to complex data systems, mirroring the simplicity of the original Unix design.
+
+Related concepts include virtual file systems and object storage interfaces that expose S3 buckets as mountable drives.

@@ -27,7 +27,7 @@ The author's journey demonstrates that established development tools can adapt w
 
 - [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] serves as the central IDE for the agentic workflow
 - Eca provides AI capabilities with support for multiple editors (not limited to Emacs alone)
-- [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] principles of composable tooling apply to this approach
+- Apache Datafusion principles of composable tooling apply to this approach
 
 **Eca Features:**
 
@@ -35,7 +35,7 @@ The author's journey demonstrates that established development tools can adapt w
 - Supports AGENTS.md, commands, skills, hooks, and sub-agents
 - Open source and actively developed
 - Vendor-agnostic approach avoiding lock-in
-- Developed in [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]]/[[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Clojure]]
+- Developed in [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]]/[[id:f5cf9e74-0679-409e-82cc-4c9b5237ee67][Clojure]]
 
 **Development Philosophy:**
 
@@ -43,4 +43,4 @@ The author emphasizes human-in-the-loop development inspired by [[id:d8c9bdbb-45
 
 **Supported Languages:**
 
-The setup supports [[id:dc68d0eb-a51d-4c2e-8ad3-9c2db50e7052][Python]], JavaScript, TypeScript, and various Lisp dialects including Clojure and elisp.
+The setup supports Python, JavaScript, TypeScript, and various Lisp dialects including Clojure and elisp.

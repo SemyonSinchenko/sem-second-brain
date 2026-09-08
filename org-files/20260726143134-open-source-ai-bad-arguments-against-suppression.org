@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:          fdfb7eb7-f380-4fec-9d0b-fa38b70c4b15
+:END:
+#+title: Open source AI: bad arguments against suppression
+#+ROAM_REFS: https://tombedor.dev/arguments-against-open-source-ai-are-very-bad/
+#+filetags: :article:
+
+* Summary
+Source: [[https://tombedor.dev/arguments-against-open-source-ai-are-very-bad/][https://tombedor.dev/arguments-against-open-source-ai-are-very-bad/]]
+This article critiques the prevailing discourse from journalists, business leaders, and politicians claiming open source AI is a dangerous threat. It argues that open source software is the foundation of commercial technology, historically difficult to suppress (citing encryption controls), and economically beneficial. The author refutes specific fears regarding Chinese AI dominance, propaganda, and security backdoors, concluding that open source AI adoption is inevitable.
+
+* Key Takeaways
+- Open source software is the foundation of proprietary stacks; suppressing it weakens domestic competitiveness.
+- Historical attempts to suppress encryption (PGP, SSL) failed and disadvantaged American users.
+- Open source AI development is driven by diverse incentives (chip makers, startups, enterprises), not just foreign governments.
+- Fears of "AI dumping" are misplaced; software lacks the physical supply chain constraints of goods like solar panels.
+- Open weights allow for inspection and fine-tuning, mitigating risks of propaganda or hidden backdoors.
+- Regulatory attempts to squash open source AI will likely amount to noise rather than effective control.
+
+* Notes
+** The Software Stack Reality
+Frontier labs argue models should be gated, but open source components underpin all commercial software. Companies cooperate on lower stack layers to compete on differentiation. Frontier labs want models to remain non-commodifiable to maintain moats.
+
+** Historical Precedent: Encryption
+Export controls on encryption technology in the 1990s failed.
+- **PGP:** Phil Zimmermann faced criminal investigation; software spread regardless.
+- **SSL:** Weakened international versions were used domestically because they were easier to acquire.
+- **Legal Outcome:** Courts ruled releasing source code is protected speech; controls were relaxed.
+
+** Market Incentives Beyond Geopolitics
+The debate often frames open source AI as solely a Chinese government project, ignoring commercial actors:
+- **Chip Makers:** Nvidia benefits from token demand regardless of model origin.
+- **Startups:** Betting on commoditized models with defensible auxiliary services.
+- **Enterprises:** Desire lower-cost models for low-complexity tasks and fine-grained control.
+- **BigCos:** Google and Meta may commoditize models to squash ad competition from frontier labs.
+
+** Security and Transparency
+Limiting tools for responsible actors only serves attackers. Open weights allow the community to inspect for adversarial behavior or backdoors faster than closed systems.
+
+** Relation to [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] Ecosystem
+The core tension is whether [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] technology should be treated as controlled military infrastructure or accessible public utility. The article suggests the latter is inevitable due to the nature of software distribution and economic incentives.

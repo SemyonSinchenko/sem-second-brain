@@ -1,0 +1,34 @@
+:PROPERTIES:
+:ID:          00430222-d247-438f-8459-1e76b61b80f0
+:END:
+#+title: Quarkus: Project Leyden integration
+#+ROAM_REFS: https://quarkus.io/blog/leyden-2/
+#+filetags: :article:
+
+* Summary
+Source: [[https://quarkus.io/blog/leyden-2/][https://quarkus.io/blog/leyden-2/]]
+Quarkus 3.32 introduces native support for Project Leyden, enabling Ahead-of-Time (AOT) caching to drastically improve JVM startup times while retaining full JVM dynamic capabilities and JIT optimization.
+
+* Key Takeaways
+- Project Leyden optimizes JVM startup by caching class loading and linking data without sacrificing runtime JIT performance.
+- Quarkus integration uses a dedicated =aot-jar= packaging format that delegates class loading to standard JDK class loaders.
+- Training the AOT cache is seamless using existing =@QuarkusIntegrationTest= suites to generate profiling data.
+- Trade-offs include larger container image sizes compared to GraalVM Native Image, but better compatibility and throughput.
+
+* Notes
+** Performance Metrics
+- Small REST application startup reduced to ~80ms.
+- Large CRUD application (9,000 Java files) saw a 71% reduction in startup time.
+- Memory footprint (RSS) remains comparable to standard JVM, unlike Native Image which reduces RSS significantly.
+
+** Implementation Details
+- Enabled via flag: =quarkus.package.jar.aot.enabled=true=
+- Build command: =./mvnw verify -Dquarkus.package.jar.aot.enabled=true -DskipITs=false=
+- Runtime command: =java -XX:AOTCache=app.aot -jar quarkus-run.jar=
+- The =aot-jar= packaging pre-initializes selected elements (e.g., time zone database) in parallel.
+
+** Future Outlook
+- Project Leyden is evolving toward Java 27+.
+- Expected improvements include storing JIT-compiled code in the AOT cache to reduce warmup time.
+- Potential future support for custom class loaders may allow a return to =fast-jar= packaging.
+- This integration strengthens the [[id:2d42e3b7-125a-43b8-b6c8-0be5dc4c3d70][Java]] ecosystem by offering a middle ground between standard JVM and Native Image.
