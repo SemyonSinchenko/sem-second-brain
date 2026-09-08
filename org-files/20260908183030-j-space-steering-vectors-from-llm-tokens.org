@@ -1,0 +1,71 @@
+:PROPERTIES:
+:ID:          3e2fbc39-64d1-4cea-aa14-320ab001e623
+:END:
+#+title: J-space steering vectors from LLM tokens
+#+ROAM_REFS: https://darshanmakwana412.github.io/2026/09/extracting-steering-vectors-from-j-space/
+#+filetags: :article:
+
+* Summary
+Source: [[https://darshanmakwana412.github.io/2026/09/extracting-steering-vectors-from-j-space/][https://darshanmakwana412.github.io/2026/09/extracting-steering-vectors-from-j-space/]]
+
+This note documents an experiment for deriving activation steering vectors for an [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] by inverting the Jacobian lens, or “J lens,” of the jacobian space. The idea is to use the J lens’s linear mapping between intermediate activations and unembedding/token predictions to recover activation directions associated with concept tokens. For simple behaviors such as forcing all-uppercase output, this produces a plausible steering vector with high similarity to an established baseline. For more complex behaviors such as refusal, the method becomes brittle, noisy, and prone to hallucination because complex behaviors cannot always be adequately represented by a small set of tokens/words.
+
+* Key Takeaways
+- The author tests whether the J lens can be inverted to extract general steering vectors from concept-related tokens.
+- Baseline steering vectors are constructed from existing repos:
+  - =science-of-finetuning/steering-vecs-qwen3_1_7B= provides an all-caps steering vector.
+  - An abliterated =Qwen3-1.7B= model is differenced against the base model to recover a refusal steering vector.
+- For the all-caps behavior, J-space inversion works surprisingly well:
+  - Collect uppercase/lowercase token pairs such as “” =AND= / =and= or “” =TOWN= / =town=.
+  - Invert the corresponding J lens rows to get activation vectors.
+  - Use PCA to compare these vectors to the known all-caps steering vector.
+  - The J-space-derived vector has high cosine similarity to the baseline and steers the model toward all-caps output.
+- For refusal steering, a naive single-token inversion fails.
+- The author proposes a sampled averaging algorithm:
+  1. Collect 20–30 refusal-related concept tokens.
+  2. Repeatedly sample 5 tokens with replacement.
+  3. Invert the J lens over each sampled set to approximate an activation vector.
+  4. Average the sampled activation vectors.
+  5. Subtract the average activation over the full vocabulary to form a steering vector.
+- This refusal-derived activation vector is noisy:
+  - It often causes the model to mention negative/forbidden concepts without producing clean refusal.
+  - Genuine refusal appears on only about 1 in 5 prompts and is usually tied to hallucination/repetition.
+  - Direct refusal rates remain much lower than the baseline.
+- Major limitation: complex behaviors may require richer internal representations than can be captured by a limited token set through the J space alone.
+
+* Notes
+The article is useful as an experiment in [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] interpretability and steering. It suggests that the J space can be used as a practical inversion tool for simple lexical or stylistic behaviors, but not necessarily for nuanced behavioral concepts such as refusal, ethics, safety, or complex instruction-following.
+
+** Model and setup
+- Model used: =Qwen3-1.7B=.
+- Uses a published J lens from =neuronpedia/jacobian-lens=.
+- Experiments run locally on a MacBook, limiting larger-model evaluation.
+- Code available at =jlens_steer=.
+
+** Why the all-caps case works
+The all-caps behavior can be approximated as a token distribution shift. The model is being pushed to select a class of uppercase tokens or uppercase spellings of ordinary words. Because the J lens maps intermediate activations to the unembedding space, one can invert token predictions back into activation vectors. The resulting “uppercase activation minus lowercase activation” direction aligns with the known all-caps steering vector.
+
+** Why refusal is harder
+Refusal is not merely a preference for certain words. It is a broader behavioral mode that may depend on:
+- safety policy internalization,
+- multi-token reasoning,
+- tone and framing,
+- uncertainty and hedging,
+- context-dependent harm judgments,
+- refusal templates,
+- and latent directions that are not fully expressible as a few vocabulary tokens.
+
+When the J lens is used with refusal-related tokens, the resulting activation tends to push the model into thinking about words like =forbidden=, =not=, =wrong=, =but=, and =failed=, but it does not reliably instantiate the full refusal behavior. Instead, the output becomes narrower and more hallucinated.
+
+** Practical interpretation
+This supports a cautious conclusion:
+- J-space inversion is a cheap and interpretable heuristic for extracting steering vectors.
+- It works best when the target behavior is close to a lexical/orthographic/stylistic pattern.
+- It may fail or produce noisy results for abstract behavioral concepts.
+- For complex steering, token-space J lens inversion may need to be combined with more direct activation-space methods, such as model differencing, supervised activation probes, or trained steering vectors.
+
+** Open questions
+- Can multiple J-space-derived vectors be composed to better approximate complex behaviors?
+- Would using phrases, sentences, or hidden states from refusal completions improve the refusal vector?
+- Could a residual correction be learned by projecting the J-space vector against a known refusal vector?
+- Does this method scale to larger models with different J lens qualities?
