@@ -35,7 +35,7 @@ The author's journey demonstrates that established development tools can adapt w
 - Supports AGENTS.md, commands, skills, hooks, and sub-agents
 - Open source and actively developed
 - Vendor-agnostic approach avoiding lock-in
-- Developed in [[id:25182d7e-6ad5-48fc-9e5a-5e55a565234b][Scala]]/[[id:f5cf9e74-0679-409e-82cc-4c9b5237ee67][Clojure]]
+- Developed in Scala/[[id:f5cf9e74-0679-409e-82cc-4c9b5237ee67][Clojure]]
 
 **Development Philosophy:**
 

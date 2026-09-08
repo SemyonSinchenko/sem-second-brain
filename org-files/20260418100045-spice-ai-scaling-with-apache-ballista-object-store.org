@@ -7,7 +7,7 @@
 
 * Summary
 Source: [[https://spice.ai/blog/apache-ballista-at-spice-ai][https://spice.ai/blog/apache-ballista-at-spice-ai]]
-Spice.ai evolved from a single-node query engine to a distributed data platform by integrating [[id:db87fd03-2674-46bf-8b91-55a1923f7335][Apache Ballista]] for distributed query execution and its Vortex columnar format for efficient data transport. Their key innovation was extending Ballista's single-scheduler model to multi-active high availability (HA) using object store (S3/Azure Blob) as a shared state layer, eliminating the need for external coordination services like etcd. This architecture enables enterprises to scale query compute horizontally for analytical workloads while maintaining the simplicity of single-node deployment for real-time queries.
+Spice.ai evolved from a single-node query engine to a distributed data platform by integrating Apache Ballista for distributed query execution and its Vortex columnar format for efficient data transport. Their key innovation was extending Ballista's single-scheduler model to multi-active high availability (HA) using object store (S3/Azure Blob) as a shared state layer, eliminating the need for external coordination services like etcd. This architecture enables enterprises to scale query compute horizontally for analytical workloads while maintaining the simplicity of single-node deployment for real-time queries.
 
 * Key Takeaways
 - **Object-Store HA is a Core Innovation**: Spice.ai's multi-active scheduler HA uses conditional writes to an object store (S3, Azure Blob) for coordination, requiring no external services like etcd or ZooKeeper, significantly reducing operational complexity.

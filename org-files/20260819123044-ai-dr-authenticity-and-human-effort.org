@@ -16,7 +16,7 @@ This article explores the emerging acronym AI;DR (Artificial Intelligence; Did N
 - *Generic supportiveness:* AI's overly supportive tone lacks the genuineness and friction of human interaction.
 
 * Notes
-The core tension lies in the perception of *effort*. When content is generated via prompts, the perceived effort drops, reducing its valued worth. This connects to the broader discussion around [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] usage in creative workflows.
+The core tension lies in the perception of *effort*. When content is generated via prompts, the perceived effort drops, reducing its valued worth. This connects to the broader discussion around [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] usage in creative workflows, and to [[id:d98983c1-7426-4e1d-8b94-18292e49d78f][AI Consciousness]] questions about the absent human behind the text.
 
 The author notes that /AI;DR/ is not necessarily a protest against using AI tools, but a refusal to spend energy searching for a human persona where none exists. Specific quirks, unnecessary details, and personal judgments signal humanity.
 
