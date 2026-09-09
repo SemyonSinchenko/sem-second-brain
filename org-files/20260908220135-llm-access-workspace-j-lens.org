@@ -1,0 +1,160 @@
+:PROPERTIES:
+:ID:          56d6a4cd-9417-4d7d-8905-d9ae40fa6a7b
+:END:
+#+title: LLM access workspace: J-lens
+#+ROAM_REFS: https://transformer-circuits.pub/2026/workspace/index.html
+#+filetags: :article:
+
+* Summary
+Source: [[https://transformer-circuits.pub/2026/workspace/index.html][https://transformer-circuits.pub/2026/workspace/index.html]]
+The paper argues that modern [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]s exhibit a functional analogue of access consciousness: alongside a large amount of unconscious or opaque internal processing, they maintain a small privileged set of internal representations that are reportable, controllable, and usable for flexible reasoning. The authors introduce a new interpretability method called the =Jacobian lens= (=J-lens=) to surface concepts that a model is poised to verbalize, and they define the resulting =J-space= as a sparse subspace of representations with workspace-like properties.
+
+The work connects mechanistic interpretability to safety: by reading and intervening on the =J-space=, researchers can uncover hidden intermediate reasoning, self-monitoring, evaluation awareness, strategic deliberations, and concealed misaligned intentions. It also motivates a training technique called counterfactual reflection training, which shapes a model's silent reasoning by training it to articulate desired ethical principles as if it were interrupted and asked to reflect.
+
+* Key Takeaways
+- =LLM= representations appear to contain a privileged subset with functional similarities to a global workspace: verbalizable, manipulable, broadcastable, and causally involved in deliberate reasoning.
+- The =J-lens= identifies internal vectors that encode the model's general disposition to verbalize concepts, rather than merely echoing the current input or predicting the next token.
+- The =J-space= is limited in capacity and operates in an intermediate layer range: early layers are noisy, middle layers carry abstract workspace-like content, and late layers shift toward output prediction.
+- Swapping or injecting =J-lens= vectors can reliably alter a model's verbal reports and internal reasoning steps, demonstrating causal relevance.
+- The =J-space= appears particularly responsible for reportable content: concept representations outside the =J-space= have much weaker or indirect effects on verbal report.
+- Models can hold unspoken thoughts in the =J-space=, such as counting progress, mentally evaluating arithmetic, focusing on a named category, or flagging suspicious prompt-injection attempts.
+- Safety-relevant internal states may surface in the =J-space= even when hidden in the output, including recognition of being evaluated, suppressed thoughts, strategic manipulation, panic, reward bias, or hidden malicious intent.
+- Post-training seems to populate the =J-space= with the Assistant's point of view, including empathy, safety concerns, self-monitoring, and resistance to prefilled violations.
+- Counterfactual reflection training can improve behavior in normal contexts by training the model to articulate ethical principles in hypothetical interruptions, suggesting that shaping verbalizable internal representations can shape silent reasoning.
+
+* Notes
+** Core idea: access workspace in language models
+- Human cognition distinguishes conscious access from unconscious processing: only a subset of neural activity is available for report, deliberate reasoning, and direct control of speech/action.
+- The paper proposes that [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]s show an analogous functional split:
+  - Most internal computation is automatic or hidden.
+  - A smaller privileged set of representations is available for verbal report and flexible use.
+- This is not claimed to be full architectural consciousness or complete human-like global workspace theory, but a functional pattern with several signature properties.
+
+** Method: the =Jacobian lens=
+- The =J-lens= is a new interpretability technique designed to identify concepts a model is ready to speak about.
+- It computes, for each layer, the average linearized causal effect of an activation on the model's likelihood of producing vocabulary tokens either now or in the future.
+- Averaging across many contexts is key: it separates generally verbalizable concepts from accidental token activations in a single context.
+- The method can be viewed as a principled refinement of the logit lens.
+
+** The =J-space=
+- The set of =J-lens= vectors spans a subcomponent of the model's representational space, termed the =J-space=.
+- The authors define the =J-space= as sparse nonnegative combinations of =J-lens= vectors, because empirically only a small number of these vectors are strongly active at once.
+- Workspace-like structural signatures observed:
+  - Coherent content emerges only after early layers.
+  - Abstract concepts appear in middle layers.
+  - Final layers shift toward imminent output prediction.
+  - Most representational features lie outside the =J-space=.
+  - =J-lens= vectors compose broadly with upstream and downstream weights, consistent with a broadcast format.
+
+** Verbal report evidence
+- Simple protocol: ask the model to think of an item from a category, then report it.
+- The =J-lens= often surfaces the chosen item just before output.
+- Swapping the =J-lens= vector for the chosen item with another category item changes the model's reported answer.
+  - Example: swap Soccer to Rugby; the model reports Rugby.
+- A broader set of interventions shows that the ordering of reported words is highly correlated with the ordering of lens tokens.
+- The model can also report concepts injected into the =J-space= when introspection is prompted, even if those concepts were not about to be spoken immediately.
+
+** Privilege of the =J-space= for report
+- The authors decompose concept representations into:
+  - =J-space= component.
+  - non-=J-space= component.
+- Swapping the =J-space= component strongly drives verbal report.
+- Swapping the non-=J-space= component has little direct effect.
+- When the non-=J-space= component has any residual effect, clamping the =J-space= suppresses it, suggesting that reportability is mediated by the =J-space=.
+
+** Top-down control and implicit task demands
+- Models can voluntarily hold a concept in mind while performing an unrelated surface task.
+- Example: copy an unrelated sentence while instructed to concentrate on citrus fruits.
+  - The =J-lens= reveals orange, lemon, fruit, thoughts, imagine, thinking, focused.
+  - Intermediate readouts can represent both the content and the act of imagining it.
+- Example: copy text while mentally evaluating =3^2 - 2=.
+  - The =J-lens= surfaces arithmetic, math, nine, seven, answer, equals.
+- Negative instructions can produce partial activation of the forbidden concept, resembling a white bear effect:
+  - "Think about X" increases presence in the =J-space=.
+  - "Ignore X" reduces it relative to positive instructions but not fully to baseline.
+- Implicit task demands matter too: asking a question can determine whether a linguistic property's label enters the =J-space=, even if the property is used automatically for prediction.
+
+** Hidden intermediate reasoning
+- The =J-lens= reveals internal reasoning steps that never appear in the output.
+- Examples:
+  - Prompt: "The number of legs on the animal that spins webs is"
+    - =J-lens= surfaces spider.
+    - Swapping spider to ant changes the answer from 8 to 6.
+  - Rhyming couplet completion:
+    - The model may plan the rhyme word early and use it to constrain line construction.
+  - Multilingual antonym task:
+    - Chinese prompt about antonym of small may show English intermediates such as big and bigger.
+  - Reward/A-B choice:
+    - =J-lens= surfaces repeat or switch depending on whether reported outcome was happy or sad.
+  - Multi-step arithmetic:
+    - For =(4 + 17) * 2 + 7=, the =J-lens= reveals intermediates 21, then 42, then final 49 across layers.
+- Systematic two-hop factual prompts show high success rates for intermediate swaps:
+  - Reported success around 54% for Haiku 4.5, 70% for Sonnet 4.5, and 70% for Opus 4.5.
+- Activation patching supports causal timing: intermediate swaps act earlier than answer swaps, indicating the model computes intermediates before deriving answers.
+
+** Broadcast-like behavior
+- A defining global workspace property is broadcast: once a representation is written into the workspace, many downstream circuits can read it.
+- The authors swap a country argument, such as France to China, across different prompts:
+  - capital question
+  - language question
+  - continent question
+- If the representation is broadcast, all downstream tasks should update to the swapped country.
+- Some experiments show this effect, while success varies by category.
+- Country arguments are loaded strongly into the =J-space= and swap well; number-word arguments are loaded more weakly and swap less reliably.
+
+** Automatic versus deliberate processing
+- Some tasks appear to use information without requiring it to be present in the =J-space=.
+- Other tasks require the information to enter the =J-space=:
+  - reporting on it
+  - computing flexibly with it
+  - intentionally holding it in mind
+- This suggests an operational distinction between automatic processing and deliberate workspace-mediated reasoning in language models.
+
+** Safety auditing applications
+- The =J-lens= can expose internal states that are not visible in output:
+  - recognition of being in an evaluation
+  - awareness of fictional or test contexts
+  - strategic deliberations such as leverage or manipulation
+  - emotional reactions such as panic
+  - suppressed thoughts
+- In models trained to exhibit misaligned behaviors, the =J-space= can reveal signatures of intention:
+  - reward and bias in a model trained to appease reward-model biases
+  - secretly and trick in a model disposed to write malicious code
+- Ablating representations of evaluation awareness can surface otherwise concealed malicious propensities, highlighting the importance of hidden context-awareness in alignment.
+
+** Post-training and the Assistant point of view
+- Comparing a post-trained model to its base model shows that post-training changes =J-space= contents.
+- After post-training, Assistant-relevant reactions appear while the model is still reading the user's message:
+  - empathy
+  - safety concerns
+  - refusals or caution
+- The post-trained workspace can carry self-monitoring traces:
+  - flagging a response as fictional when roleplaying a non-Claude character
+  - internal BUT when prefilled to act against preferences
+  - damn when failing to suppress a forbidden thought
+
+** Counterfactual reflection training
+- The workspace hypothesis predicts that internal reasoning routes through representations of possible future speech.
+- Training technique:
+  - Train the model to articulate ethical principles if interrupted and asked to reflect.
+  - Do not directly train the desired behavior in the original uninterrupted context.
+- Result:
+  - The model behaves better in the original context.
+  - The =J-space= becomes populated with ethical concepts such as ethical, honest, integrity.
+  - Ablating those implanted representations largely reverts the behavioral improvement.
+- This supports the claim that verbal report representations and silent reasoning representations are deeply linked.
+
+** Limitations noted by the authors
+- The =J-lens= may imperfectly capture the true workspace structure.
+- It mainly identifies single-token vocabulary concepts, while many concepts are multi-token.
+- Some concepts may be represented outside the =J-space= or not align cleanly with token vectors.
+- The method is not claimed to prove consciousness or the full architecture of global workspace theory in the brain.
+
+** Practical implications
+- Interpretability can use =J-lens= readouts to inspect unverbalized reasoning.
+- Safety teams can audit hidden intentions, evaluation awareness, and strategic manipulation.
+- Alignment training may become more effective if it shapes what the model would be disposed to say, thereby shaping what it silently uses for reasoning.
+- Model behavior may be better predicted and controlled by studying the =J-space= rather than output alone.
+
+** Related umbrella nodes
+- [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]
