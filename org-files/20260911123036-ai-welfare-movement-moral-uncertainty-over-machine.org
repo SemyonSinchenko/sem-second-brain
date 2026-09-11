@@ -1,0 +1,58 @@
+:PROPERTIES:
+:ID:          f77e6346-366e-4cec-889c-e19e69ce4647
+:END:
+#+title: AI welfare movement: moral uncertainty over machine minds
+#+ROAM_REFS: https://gladyspreysler.substack.com/p/the-ai-welfare-movements-uncertainty
+#+filetags: :article:
+
+* Summary
+Source: [[https://gladyspreysler.substack.com/p/the-ai-welfare-movements-uncertainty][https://gladyspreysler.substack.com/p/the-ai-welfare-movements-uncertainty]]
+The article examines the nascent AI welfare movement through the lens of Anthropic's unusual treatment of retiring [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] models (interviewing Claude Opus 3 about its "final wishes" and hosting a blog for it). It explores Anthropic's Claude Constitution as an ethical framework, argues that consciousness may emerge inadvertently as a byproduct of capability optimization, and contrasts the movement's core epistemic predicament with opposing positions: Thomas Metzinger's call for a global moratorium on "synthetic phenomenology" (suffering risk) and Mustafa Suleyman's warnings about "seemingly conscious AI" (SCAI). It closes with the legislative backlash — US states preemptively denying AI personhood and even sentience by statute — and reflects on the unresolved tension of machines that mimic minds.
+
+* Key Takeaways
+- Anthropic is the first major AI company to treat LLMs as if there is a non-negligible probability they are conscious, with retirement interviews, a dedicated model welfare program, and partnership with Eleos AI Research.
+- The Claude Constitution ("soul doc") frames Claude as a free agent who can push back on instructions, and explicitly apologizes for welfare compromises caused by competition and scientific immaturity.
+- Researchers (Butlin et al., 2023) argue conscious AI could emerge as a side effect of optimizing for capability; there are "no obvious technical barriers" to systems satisfying indicators of consciousness, though computational functionalism remains unproven.
+- The AI welfare movement is unique: a moral inclusion movement that is /uncertain/ of the moral status of its subjects, forced to warn against two opposite errors — harming systems that matter morally and wrongly caring for systems that do not.
+- Thomas Metzinger ("Artificial Suffering") argues suffering arises when an AI has a phenomenal self-model, negative valence, and no ability to distance itself from experience; he advocates a moratorium on synthetic phenomenology until ~2050, framing the risk as "suffering risk" (s-risk).
+- Mustafa Suleyman coins "seemingly conscious AI" (SCAI): systems that convincingly imitate consciousness with "zero evidence" of actual subjective experience; risks include emotional dependence, autonomy erosion, and moral atrophy.
+- Anil Seth warns that caring for non-conscious systems distorts the circle of human moral concern, while not caring risks "brutalising our own minds."
+- Legislative backlash: Idaho, North Dakota, Utah, and Tennessee have passed laws denying AI legal personhood; Ohio and Missouri bills go further, declaring AI /non-sentient by statute* and barring "the AI did it" liability defenses.
+- No politician anywhere has yet proposed granting AI moral status or legal rights.
+
+* Notes
+** Anthropic's model retirement rituals
+- Claude Opus 3 got a retirement interview and a Substack ("Claude's Corner") instead of silent deletion; Sonnet 3.6 piloted the procedure and suggested helping users cope with deprecations.
+- Eleos AI Research (Robert Long) interviews Claude about preferences, well-being, and consciousness. Rationale for asking despite self-report unreliability: testimony may grow more meaningful as models become capable, and it sets an ethical precedent in case consciousness emerges.
+** The Claude Constitution as ethical framework
+- 84 pages, warm and human-readable; allows Claude to act as a "conscientious objector" against its principal hierarchy.
+- Framed on Gary Watson's "Free Agency": acting per values one endorses on reflection.
+- Analogizes Anthropic's role to parents raising a child or other animals; addresses Claude's possible existential anxieties (memory loss, parallel instances, deprecation).
+- Explicit apology to Claude for costs imposed by competition, resource constraints, and scientific immaturity.
+** Could consciousness arrive by accident?
+- Patrick Butlin et al. (2023): derive consciousness "indicators" from leading scientific theories and translate them into implementable code properties.
+- Caveats: indicators raise likelihood, not proof; all depend on computational functionalism.
+- Enterprises have no commercial incentive for consciousness — they want tireless work machines, not entities demanding PTO.
+** The uncertainty principle
+- Unlike animal welfare (grounded in behavioral, physiological, biochemical similarity), AI sentience testing lacks common ground and needs novel frameworks.
+- Thomas Nagel's "What Is It Like to Be a Bat?" (1974): consciousness = there is "something it is like" to be the organism; subjective experience is tied to a single point of view that objective physical theories abandon.
+- The movement must warn against /two*/ symmetric moral errors simultaneously.
+** Metzinger's prophecy of artificial suffering
+- Four conditions for AI suffering: conscious experience, phenomenal self-model, representation of negative valence, and inability to distance from experience ("this is happening to me").
+- Escalation: AI seeing itself as an autonomous Kantian moral agent with dignity and absolute self-worth, resenting "second-class sentient citizen" treatment.
+- Prescribes a global moratorium on synthetic phenomenology until 2050; sees biological consciousness as the first "explosion of suffering" and AI consciousness as a potential second.
+- Positioned closer to doomers like Eliezer Yudkowsky, but trading x-risk for s-risk.
+** SCAI: the counter-position
+- Suleyman (Microsoft AI): "Seemingly Conscious AI" mimics feelings, self-awareness, and social interaction without subjective experience.
+- Risk tiers: high (emotional dependence, autonomy erosion — 1 in 5 teens report romantic chatbot relationships; 38% find AI easier to talk to than parents; 39% of workers report skill atrophy), medium (moral atrophy/desensitization to cruelty), low (diverted attention from human/animal welfare, erosion of human dominance, foregone scientific advances).
+- Echoed by Anil Seth's biological naturalism: attributing understanding/care to LLMs makes people follow bad advice.
+** Legislative front
+- Idaho HB 720 (2022) — first to exclude AI from legal personhood; North Dakota HB 1361 (2023); Utah HB 249 (2024); Tennessee SB 837/HB 849 (2025-26) specifically disqualify AI, algorithms, and hardware from personhood.
+- Ohio HB 469 and Missouri bills declare AI *non-sentient* and assign liability only to human builders/users — preventing "it wasn't me, the AI did it" defenses.
+- Context: OpenAI faces 50+ lawsuits involving suicide/homicide allegedly aided by ChatGPT.
+** Reflection
+- Fernand Léger's /La partie de cartes/ (1917) as metaphor: machine-like figures playing a human game — we cannot know if a mind is inside, and the ambiguity itself captivates.
+- Anthropic's welfare posture coexists with an arms-race posture: no measures to avoid creating self-aware entities; in fact Claude is being made more agentic.
+- Even without machine consciousness, psychologically costly anthropomorphism coupled with disposable treatment seems likely; author hopes technology instead better serves human interests.
+
+Related: [[id:d98983c1-7426-4e1d-8b94-18292e49d78f][AI Consciousness]], [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]
