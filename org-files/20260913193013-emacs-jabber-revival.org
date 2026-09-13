@@ -1,0 +1,24 @@
+:PROPERTIES:
+:ID:          53608e84-2bb1-4924-820a-212884a96d26
+:END:
+#+title: Emacs Jabber revival
+#+ROAM_REFS: https://thanosapollo.org/posts/emacs-jabber-revival/
+#+filetags: :article:
+
+* Summary
+Source: [[https://thanosapollo.org/posts/emacs-jabber-revival/][https://thanosapollo.org/posts/emacs-jabber-revival/]]
+
+*Note:* The automated content extraction of this article failed (empty HTML tree returned by the scraper). This note is based on the title and URL context only. The article appears to be from Thanos Apollo's blog and concerns reviving /emacs-jabber/ (jabber.el), the XMPP/Jabber client for [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] — likely covering maintenance, modernization, or renewed development of the package.
+
+* Key Takeaways
+- (Extraction failed — re-scrape or read manually at the source URL.)
+- Based on the title: the article discusses bringing new life to =emacs-jabber=, a long-standing XMPP client written in Emacs Lisp.
+- Likely relevant to the broader theme of chat/messaging within [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] (alongside ERC, Eshell-integrated tools, etc.).
+
+* Notes
+- The trafilatura extraction error (`empty HTML tree`) suggests the page may be JavaScript-rendered, blocked, or malformed for scrapers. Manual reading is recommended.
+- Context: /emacs-jabber/ (jabber.el) is an XMPP client for [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] that has seen sporadic maintenance over the years. "Revival" posts in this space typically cover:
+  - Forking or adopting an orphaned package
+  - Fixing bit-rot against modern Emacs versions (byte-compiler warnings, removed APIs)
+  - TLS/connection updates for modern XMPP servers (e.g., STARTTLS requirements)
+- TODO: Re-fetch the article content and update this note with actual details, quotes, and any links to related tooling.
