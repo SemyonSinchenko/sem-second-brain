@@ -1,0 +1,36 @@
+:PROPERTIES:
+:ID:          3a12e0fa-b987-4b67-9e9c-c87f2cff3ccb
+:END:
+#+title: Raw AI PRs: burden on OSS maintainers
+#+ROAM_REFS: https://timsaucer.com/2026/09/14/that-pure-ai-contribution-is-not-contributing-much/
+#+filetags: :article:
+
+* Summary
+Source: [[https://timsaucer.com/2026/09/14/that-pure-ai-contribution-is-not-contributing-much/][https://timsaucer.com/2026/09/14/that-pure-ai-contribution-is-not-contributing-much/]]
+Tim Saucer, a contributor to [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]], describes a growing problem in open source: inexperienced users feeding open issues into an [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] agent and posting the raw output as pull requests with no human evaluation. Since reviewer time is the scarcest resource in the project, these "AI dump" PRs multiply the maintainer workload instead of reducing it. The author, who uses agentic coding tools himself, offers concrete guidance on how to contribute responsibly in the agent era: understand the root cause yourself, verify the agent solved the right problem, preserve messy commit history as evidence of effort, and write the PR description in your own prose.
+
+* Key Takeaways
+- Reviewer time is the true bottleneck in open source projects; raw agent-authored PRs add work rather than contribute value.
+- Agents frequently hallucinate or solve the wrong problem — including when the agent itself wrote the original issue, so even AI-authored issue text cannot be trusted.
+- Evidence of human effort matters: multi-commit history, a hand-written PR description, and code-review comments signal genuine engagement and ease review.
+- Contributors who trust long-standing community members' PR descriptions differ from untrusted ones: trust is earned through prior reviewed work.
+- Understanding the problem and solution builds knowledge of the codebase, enabling more meaningful future contributions.
+
+* Notes
+The author observes that most of these fully-automated PRs come from GitHub accounts with almost no history, often self-identified students, apparently seeking to be helpful or to accrue contribution credentials. The paradox: because maintainers must now verify whether any human quality-checked the output — the same day he received *three different AI-dump PRs* for the same issue — the "contribution" creates more review load than an empty contribution would.
+
+** Practical workflow for agentic coding contributions
+- Understand the problem *before* prompting an agent: read the issue and identify not just the symptom but the root cause — the key question is *why* it fails.
+- Verify the agent solved the right problem; issues themselves may be wrong, especially agent-written follow-up issues (the author explicitly does not trust issues his own agents opened for him).
+- Do *not* squash a messy commit history — it is a strong signal to reviewers that human evaluation occurred; a single-commit PR usually suggests blind agent output.
+- Rewrite the PR description in human-readable prose; it demonstrates understanding and dramatically improves the reviewer's experience. (Exceptions granted to trusted community members with write access.)
+- Add inline code-review comments directing reviewers where to focus.
+
+** Broader context
+- The author references his earlier post on "solving the right problem," saying the difficulty has gotten "a hundred times worse" in the LLM era.
+- The core claim is not anti-agent: the author himself uses the best available models and still has to correct them regularly. The critique targets *unreviewed delegation*, not tooling.
+- Related umbrella topics: [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] norms, [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] reliability limits (hallucination on root-cause analysis), and maintainer economics in [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]].
+
+#+begin_quote
+Throwing a raw issue into an agent and posting the result is not helpful. Actually, it's hurtful because it's making *more* work for the code maintainers.
+#+end_quote
