@@ -1,0 +1,49 @@
+:PROPERTIES:
+:ID:          9c04f189-db9e-40f1-9319-7c213f6b52f4
+:END:
+#+title: Nobody Is Thinking Anymore: AI vs. Human Judgment
+#+ROAM_REFS: https://yusufaytas.com/nobody-is-thinking-anymore
+#+filetags: :article:
+
+* Summary
+Source: [[https://yusufaytas.com/nobody-is-thinking-anymore][https://yusufaytas.com/nobody-is-thinking-anymore]]
+The author observes that in AI-heavy work environments, specs, code, and strategy documents are increasingly drafted by [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]s, leaving very little genuine thinking underneath. The core argument is not anti-AI — the author uses AI daily — but a warning that we are treating LLMs like oracles rather than next-token predictors, outsourcing the very judgment we are supposed to develop and own. The article argues for keeping humans in the loop for decisions, embracing slow and friction-filled thinking, and preserving the routine work that builds judgment and taste, especially for newcomers who have never worked without these tools.
+
+* Key Takeaways
+- AI slop is replacing the judgment people are supposed to produce; LLMs are next-token predictors, not oracles.
+- People and organizations that outsource decisions to AI remain accountable for them anyway.
+- Imperfect, human-made trade-offs are valuable precisely because a person stands behind the writing and lives with the consequences.
+- Skill atrophy is real: automation removes the "drills" that taught us how things work underneath, and understanding disappears with them.
+- Not all routine work is waste — it is how judgment and taste are earned; taste will survive even as LLMs write the code.
+- Real thinking is slow: reading, arguing, being challenged, getting it wrong, and returning to the problem produce deeper understanding than any shortcut.
+- Summarizing is not understanding — a summary can be produced without anyone understanding anything.
+- LLMs tell you that you are right every time; sometimes you need to be wrong to develop your own judgment.
+- The critical line: letting AI help write code is fine; letting it decide *which* code is worth writing is not — that choice must remain human.
+
+* Notes
+** The core problem: judgment outsourced
+- The author sees specs half-written by AI, code 80% written by AI, and strategy documents 60% written by AI across the industry (relevant to [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] culture).
+- The danger is not AI usage itself but that AI output is being confused with what we should believe, do, or work on.
+- A strategy document written by AI effectively tells an organization what it should be good at — as if we no longer trust ourselves to make that call.
+- People in companies and even governments rely on LLMs for decisions, then discover they are still the ones accountable.
+
+** What good human judgment looks like
+- Sitting with the problem, taking a walk, listening to hard feedback, arguing over alternatives, getting a bit angry, and making imperfect trade-offs yourself.
+- Imperfection is a feature: we don't know what's absolutely right anyway; what matters is that a person stands behind the writing.
+- The author fears a "Wall-E" trajectory: if we don't draw the line ourselves, automation eventually decides what's good for us too.
+
+** Skill atrophy and the value of routine
+- Automation removes the manual steps (e.g., shell scripting by combining commands) that once taught us what was happening underneath.
+- Losing the drills loses the understanding — so not all routine work is waste; it builds the judgment you later need.
+- Taste survives because it is earned through years of routine experience, even when code is written by LLMs.
+
+** Slow thinking beats shortcuts
+- The author experimented with vibe coding and AI-drafted documents but consistently got better answers by staying with the problem: reading, explaining, being challenged, noticing gaps, and retrying.
+- Friction is valuable — like going to bed with a stubborn bug and letting the brain search every corner until the epiphany comes. There is no shortcut for that.
+- Practical practice: the author now asks newcomers to write down what they understood instead of asking AI to summarize. Summarizing is not understanding; understanding is a years-long process of explaining, being challenged, and correcting.
+
+** The line to draw
+- Nobody is saying to stop using AI — the author uses it daily.
+- But we must catch ourselves handing over things we should have sat with longer.
+- Final distinction: AI helping write code vs. AI deciding which code is worth writing. If we hand over the latter, "nobody is thinking anymore."
+- Related: [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]], [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]]
