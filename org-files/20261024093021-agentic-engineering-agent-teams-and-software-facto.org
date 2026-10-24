@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:          55d24e26-5f48-45cb-87b8-80f6f6c612a3
+:END:
+#+title: Agentic engineering: agent teams and software factories
+#+ROAM_REFS: https://aishippingblog.com/p/trends-in-agentic-engineering
+#+filetags: :article:
+
+* Summary
+Source: [[https://aishippingblog.com/p/trends-in-agentic-engineering][https://aishippingblog.com/p/trends-in-agentic-engineering]]
+
+This article, based on a webinar by the author and Hugo Bowne-Anderson, distinguishes between /AI engineering/ (AI is part of the product) and /agentic engineering/ (agents help you build the product). It covers practical patterns for verifying agent-generated work, organizing agents into teams and hierarchies, and the emerging concept of "dark software factories" where humans never read the code. Strongly relevant to [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]].
+
+* Key Takeaways
+- Verification scales with delegation: survey data showed that people whose workflows changed the most (59%) use another AI agent to critique agent output — the more you delegate, the more you must verify.
+- The "implementer-reviewer" pattern: one agent does the work, another validates and iterates until acceptance. Slower (hours vs. 20 minutes), but higher quality. Works for code, testing, and UI design ("adversarial design" with rubric scoring until 10/10).
+- Shared rules replace long specifications: instead of writing full criteria, point agents at books (Clean Code for coding, The Elements of Style for writing) plus a few concrete constraints (e.g., functions ≤ 30 lines, files ≤ 300 lines). Refactoring a large AI-written codebase this way made it readable again.
+- Agent teams: scale from two agents to a full team — PM plans tasks and acceptance criteria, software engineer implements, QA checks, PM runs acceptance tests via browser, on-call engineer ensures CI/CD passes.
+- Scaling is hard: the author went from one team of five agents to running 30-50 agents in parallel, but agents still fail, stall, or wait for approval. Hierarchies (chief scientist → team heads → many explorer agents) are the model for very large scales (e.g., OpenAI's 10,000-agent Navier-Stokes run).
+- Dark software factories: humans don't read generated code at all; they consume artifacts to make business decisions and verify outcomes — analogous to trusting compilers without reading machine code. Requires tests, independent checks, and clear specifications to earn that trust.
+- Humans remain the bottleneck: even "lights-out" factories (like FANUC) need monthly maintenance. Agents can run unsupervised only up to a point — otherwise they build something you don't need.
+
+* Notes
+** Key terms
+- /AI engineering/ :: AI is part of the product.
+- /Agentic engineering/ :: agents help you build the product.
+- /Implementer-reviewer/ :: two-agent loop where a reviewer agent validates an implementer's output before acceptance.
+- /Adversarial design/ :: implementer creates a UI, reviewer (senior designer persona) scores against a rubric; iterate until score is 10/10.
+- /Dark software factory/ :: inspired by lights-out manufacturing (FANUC); humans are separated from generated code entirely and work only from artifacts.
+
+** Practical rules used by the author
+- Coding: acceptance criteria + coding standards; reference "Clean Code" by Robert Martin; functions ≤ 30 lines, files ≤ 300 lines.
+- Writing: "The Elements of Style" (omit needless words, active voice); three parallel verification agents plus a final editing agent.
+- Team roles: PM (planning + acceptance criteria), software engineer (implementation), QA (checks against criteria), PM (browser acceptance tests), on-call engineer (CI/CD).
+
+** Observations on scaling
+- A single team of five agents took significant effort to make reliable; departments of teams are still not fully reliable for the author.
+- Agents with =--dangerously-skip-permissions= can still stall or produce no output for hours or days.
+- At 10,000-agent scale, human review of every line is impossible — trust must come from tests, independent checks, and specifications.
+
+** Related
+- [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] — core umbrella for agent-driven development workflows.
