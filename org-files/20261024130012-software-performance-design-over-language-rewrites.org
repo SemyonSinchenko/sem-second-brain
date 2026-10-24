@@ -1,0 +1,53 @@
+:PROPERTIES:
+:ID:          8805dd60-3796-475d-8a0a-70feb650aa2f
+:END:
+#+title: Software performance: design over language rewrites
+#+ROAM_REFS: https://www.seangoedecke.com/software-is-slow-because-of-bad-design-not-slow-languages/
+#+filetags: :article:performance:optimization:software-design:
+
+* Summary
+Source: [[https://www.seangoedecke.com/software-is-slow-because-of-bad-design-not-slow-languages/][https://www.seangoedecke.com/software-is-slow-because-of-bad-design-not-slow-languages/]]
+The article argues against the popular claim that [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]-driven rewrites in fast languages (C, Rust) will make software dramatically faster. Most real programs are I/O-bound (waiting on databases, APIs, disk, network), so language speed is irrelevant to their dominant cost. Even CPU-bound work in "slow" languages usually already delegates to optimized native libraries. Genuine, large speedups come from *redesigning* programs to do less work — caching, async processing, parallelism, fixing N+1 queries — not from translating code. The right use of AI agents for optimization is profiling, hotspot identification, and design suggestions, not wholesale rewrites.
+
+* Key Takeaways
+- Most real programs are *I/O-bound*, not CPU-bound: they spend most of their time waiting on databases, third-party APIs, network, or disk. Rewriting in C or Rust can only touch the non-I/O fraction (Amdahl's law), capping gains at ~1.5–2x, not an order of magnitude.
+- Slow languages already *delegate hot paths to fast code*: Python offloads matrix math to optimized C/assembly via NumPy/GPU libraries; wikis render markdown via cmark-gfm. Rewriting the outer layer buys almost nothing.
+- Where programs *are* CPU-bound and unoptimized, they're usually unimportant — important code has already been optimized by humans before AI arrived.
+- Even in CPU-bound work, *design beats language*: Bryan Cantrill's naive Rust rewrite of carefully optimized C was 30% *faster*, because Rust's stdlib choice of a B-tree over a binary search tree was more cache-efficient.
+- Real speedups come from redesigns that make the program *do less work*: caching, background jobs/async, parallelization, collapsing N+1 SQL queries, faster SQL, skipping unnecessary operations.
+- Higher-level languages can be *easier to optimize* because the program's intent is visible at a glance — an assembly rewrite would hide the N+1 query.
+- For [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]], prompt agents to *profile, find hotspots, and redesign* rather than "rewrite in Rust/C/assembly" — the latter only helps a narrow set of programs.
+
+* Notes
+** The core argument: performance is dominated by I/O
+- Example: a CRUD website may spend ~50% of request time on database queries (user lookup, memberships, settings, the record itself). A rewrite only accelerates the other 50%.
+- =curl= is the canonical example: speeding up its code 100x would be imperceptible because it spends all its time waiting on the network.
+- Author's empirical basis: years of staring at Ruby/Rails flamegraphs — single requests often issue tens or hundreds of queries.
+
+** Language ecosystems as performance escape hatches
+- Python is "famously slow" but competitive for ML and math because hot loops run in tightly optimized C or assembly.
+- If 80% of a Python program is GPU matrix multiplication, a C rewrite changes nothing — that work is already native.
+- Counterexample exists but is marginal: Actual Computer's assembly rewrite of tiktoken (4–23x faster, ~5x on the author's laptop) — but tokenization is a small fraction of total inference time, and the gain arguably came from redesigning away the regex dependency.
+
+** The Cantrill anecdote: design encoded in the language
+- 2018: Bryan Cantrill tried porting carefully optimized C to Rust; the design fought the borrow checker.
+- Writing it naively instead produced code 30% faster — driven by the standard library's B-tree (cache-friendly) vs. his binary search tree.
+- Lesson: even a C expert's "fast design" can lose to a different, more cache-conscious design.
+
+** Catalog of design-level speedups (language-agnostic)
+- Cache slow operations (especially external API calls)
+- Move slow work to background jobs / out of the request-response lifecycle
+- Parallelize instead of sequencing (splitting large operations if needed)
+- Collapse N+1 SQL queries into a single query
+- Replace slow SQL with fast SQL
+- Skip unnecessary slow work (e.g., paginate ancillary data fetching)
+
+** Responses to critics (post edit)
+- "DB queries are ~5ms, responses ~500ms, so it's CPU-bound" — not in the author's experience: many queries per request and large queries/API calls dominate.
+- Non-I/O-bound programs (browser layout engines, 3D renderers, word processors, neural networks) exist but are a small fraction of real software — they dominate public *discussion* though (~>50% of discourse vs. ~5% of programs, by the author's estimate).
+- Ecosystem effects on performance count as *design*: some languages make fast designs more natural, and if switching languages eases a redesign, fine — but the speedup still comes from the design change.
+
+** Practical implication for AI-era optimization
+- Asking an [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]] to "rewrite in C/Rust/assembly" is fun but not serious optimization; it will hit either already-optimized code or I/O-bound workloads.
+- Instead: ask the agent to profile, identify hotspots, and propose redesigns. Reserve fast-language rewrites for rare, truly CPU-bound hotspots that can't be refactored.
+- There remain legitimate non-speed reasons to rewrite: portability, efficiency of maintenance, etc. — just not raw speed.
