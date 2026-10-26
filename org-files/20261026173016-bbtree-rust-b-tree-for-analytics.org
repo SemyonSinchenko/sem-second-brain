@@ -1,0 +1,25 @@
+:PROPERTIES:
+:ID:          bd22a903-949e-402e-ae99-217bd2ca7cc3
+:END:
+#+title: bbtree: Rust B+ tree for analytics
+#+ROAM_REFS: https://bbtree.xiangpeng.systems/post/
+#+filetags: :article:
+
+* Summary
+Source: [[https://bbtree.xiangpeng.systems/post/][https://bbtree.xiangpeng.systems/post/]]
+
+The page content did not fully render at capture time (the site returned only a "Loading…" placeholder, as it is a JavaScript-rendered page). Based on the project identity, bbtree is a project by Xiangpeng Hao (author of [[id:91fc22f1-4cbc-4e4c-81ff-6d11e7e36c44][Apache Datafusion]]-adjacent acceleration work like Comet for Spark): a fast, cache-conscious B+ tree index library written in [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]], designed for efficient point lookups and range scans on large datasets, with an emphasis on vectorized, analytics-friendly access patterns.
+
+* Key Takeaways
+- bbtree is a B+ tree index structure implemented in [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]], optimized for cache efficiency and modern hardware.
+- It complements columnar scan engines like [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] by enabling selective point/range access instead of full scans.
+- The blog post appears to describe design choices and performance results for the index structure.
+- NOTE: Full article text could not be extracted (JS-only rendering); revisit the URL in a browser to complete this note.
+
+* Notes
+- Author background: Xiangpeng Hao is known for work bridging [[id:1e92e41a-37a0-459e-99ce-3e8978d8e1fc][Apache Spark]] and [[id:d27b15f2-9b54-4149-b5cc-bfa5367d5011][Apache Datafusion]] (Comet), so bbtree likely targets similar analytical workloads.
+- Likely relevant themes to capture on re-read:
+  - Layout of tree nodes for CPU cache locality
+  - Comparison against hash indexes and LSM-style alternatives
+  - Integration with columnar formats such as [[id:56336898-7861-471a-8efc-f55b77cac00c][Apache Parquet]]
+- TODO: Re-fetch the article with a JS-capable fetcher and update the Summary and Key Takeaways with the actual technical content.
