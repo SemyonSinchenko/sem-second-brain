@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:          c6b9f0cf-8311-4ff9-9a78-2c4eb8e98047
+:END:
+#+title: Emacs editing at the speed of thought: vanilla bindings
+#+ROAM_REFS: https://joshblais.com/blog/editing-at-the-speed-of-thought-in-emacs/
+#+filetags: :article:
+
+* Summary
+Source: [[https://joshblais.com/blog/editing-at-the-speed-of-thought-in-emacs/][https://joshblais.com/blog/editing-at-the-speed-of-thought-in-emacs/]]
+
+The author recounts a multi-year journey from vim/evil-mode editing to fully default [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] keybindings. After six years of vim-style modal editing inside Emacs (via evil mode, DOOM, then Meow), they dropped all modal editing entirely and found that the native Emacs way — combined with hardware-level ergonomics (homerow mods, QMK, kmonad) — is just as ergonomic, if not more so, than vim motions. The core argument: vim solves ergonomics with modes, while Emacs solves them with hardware and "chording" — where Control is *held* rather than pressed, like a Shift key.
+
+* Key Takeaways
+- Ergonomics can be solved with hardware instead of modes: kmonad/QMK with homerow mods (or CapsLock-as-Ctrl) eliminates the "emacs pinky" problem.
+- The "flourish" concept: Emacs chords like `C-x C-s` are *holds* of Control with quick taps, making Emacs a "chording" environment rather than a modal one.
+- You are always in "insert mode": selection, modification, macros, and editing are all reachable in a single mode, which changes how you think about editing text.
+- The point/mark model (`C-SPC` + searching) is a powerful alternative to vim's visual selection — lines, paragraphs, and functions become a few keypresses away.
+- Emacs keys transfer everywhere: Readline integration (GUI, terminal, command line), and GTK apps via `~/.config/gtk-3.0/settings.ini`.
+- Evil mode pollutes Emacs configs and obscures the native Emacs mental model; decoupling it is costly.
+
+* Notes
+- The author's journey: vim headspace (2017) → evil mode in Emacs → DOOM Emacs → Meow (helix/kakoune-inspired) → fully vanilla Emacs.
+- Key default bindings listed:
+  - `C-SPC` set mark; `C-n/C-p` line movement; `C-f/C-b` char movement (rebound to find-file/consult-buffer)
+  - `C-s/C-r` search forward/backward; `C-g` is the new "ESC"
+  - `C-x C-s` save, `C-x C-f` find file, `C-x C-c` quit
+  - `M-z` zap-to-char (vim's `dt` analog); `M-h` select paragraph; `C-S-backspace` kill line
+- Killring vocabulary: killing = cut (`C-w`), saving = copy (`M-w`), yanking = paste (`C-y`), `M-y` cycles killring entries.
+- Macros: `F3` record, `F4` save, then bind to any key — the author missed meow's inner/outer selection and reimplemented it in elisp (`M-o`/`M-i` + `",', {, (, [`).
+- Editing prose is especially pleasant in native Emacs according to the author.
+- The author uses a 34-key custom keyboard with layers, so keyboard hardware is central to the "speed of thought" claim.
+- Note: tmux default config plays nicely with Emacs keys; custom leader keys can conflict.
+- Related concepts: [[id:54f53d1d-c06d-44d2-be03-3b618933ecbd][Emacs]] extensibility via elisp, keyboard firmware customization (QMK/kmonad), and the editor-wars debate between modal and chording paradigms.
