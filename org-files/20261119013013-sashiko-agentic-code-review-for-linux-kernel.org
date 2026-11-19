@@ -1,0 +1,44 @@
+:PROPERTIES:
+:ID:          90b9db97-07de-4593-b589-e4f80b21de95
+:END:
+#+title: Sashiko: agentic code review for Linux kernel
+#+ROAM_REFS: https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system
+#+filetags: :article:
+
+* Summary
+Source: [[https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system][https://cloud.google.com/blog/products/application-development/lessons-from-building-sashiko-an-agentic-code-review-system]]
+Sashiko is an open-source, agentic code review system built by Google's AI & Infrastructure team, powered by Gemini and donated to the Linux Foundation. It tackles the real bottleneck of large open-source development: code review capacity, not code generation. As [[id:d8c9bdbb-4530-4863-bc8a-520d64105270][Agentic Coding]] floods maintainer queues with patches (some legitimate, some "AI slop"), trust in proposed changes becomes the limiting factor. Sashiko acts as a trust layer for the Linux kernel — 35M+ lines of code, 85,000+ changes per year — by separating candidate bug finding from rigorous verification. Seven months of production data show it completing ~1200 reviews/day, being cited in 2000+ mainline commits and 500+ CVEs, and correlating with a 35% drop in the 60-day post-merge fix rate. Linus Torvalds himself has endorsed it as a genuine trust-building tool rather than slop.
+
+* Key Takeaways
+- *Review is the bottleneck, not generation*: even excellent coding agents don't accelerate development if human maintainers can't build trust in the resulting patches. An "agentic trust layer" is the missing piece.
+- *LLM reviewers have unique failure modes*: they cut corners to save tokens, get biased by task framing (single-focus tasks outperform multi-concern prompts), and can be manipulated by commit log text. Counterintuitively, their *lack of persistent memory is an advantage* — they can tirelessly re-review near-identical patches across branches.
+- *Sashiko's architecture separates finding from verifying*: gather context & plan → up to 7 parallel single-focus specialist passes (commit intent, implementation match, control flow, resource lifetimes, locking, security, hardware) → triage of claims *and* dismissals → per-bug deep verification agents → human-style report matching mailing-list conventions.
+- *Symmetric proof rule*: neither a bug claim nor a dismissal is accepted without concrete code evidence across all call sites. This specifically catches "shaky self-dismissals" where a specialist spots a real bug but talks itself out of it via an unproven assumption.
+- *Measured impact*: 60-day follow-up fix rate dropped from 3.4% to 2.2% (35% reduction) after rollout; patches with a clean Sashiko review needed fixes only 0.9% of the time vs 7.6% for patches merged despite critical warnings (8x risk gap) — a clean review carries real signal.
+- *Benchmark-driven development beats intuition*: a benchmark of ~1000 real, historically merged-then-fixed kernel bugs guided every major change; Gemini 4 Carbon catches 75.8% of bugs that human expert reviewers missed.
+- *Coding agents can't reliably review their own code*: producing a working solution is only 5–10% of real engineering; agents benefit from external review just like humans.
+- *Openness builds trust*: every prompt, tool call, and ruled-out bug is public; 100+ contributors (including prominent maintainers) improved it; Google funds the service so individual developers never pay.
+- The playbook (open verification pipeline + community-owned domain guides + benchmark mined from historical bugs) is transferable to other foundational projects like GCC, LLVM, or Git.
+
+* Notes
+** The review pipeline in detail
+1. *Context gathering & planning*: pulls surrounding code (modified functions, struct definitions, direct callers) plus subsystem domain guides; a planner selects relevant specialist passes and sets a reasoning budget per pass based on patch complexity.
+2. *Parallel specialist sessions*: up to 7 sessions, each with a single class of concern, averaging ~100 git tool calls per review; each outputs two lists — believed-real concerns and investigated-and-ruled-out candidates with supporting code.
+3. *Triage*: a lead verifier audits both lists; proven bugs pass, proven dismissals drop, and everything else — including *shaky self-dismissals* — goes to deep checks.
+4. *Per-bug deep verification*: one dedicated agent per hard case, running in parallel, with the symmetric evidence rule.
+5. *Report generation*: output phrased like a human maintainer's questions, matching Linux mailing-list culture.
+
+** Data highlights
+- ~1200 reviews/day across 100+ lists; 70+ lists opted in; 1500+ developers replied on-list, and their pushback on false positives directly improved the system.
+- Cited in 2000+ mainline commits and 500+ official kernel CVEs for this year.
+- LWN.net called it an important part of the kernel development process; top bug reporter of the 7.2 release cycle.
+- Torvalds quote (lore.kernel.org): even unnecessary flags tend to have "a reason for the question," and some reports are "deep and subtle, and the AI is 100% correct."
+
+** Lessons for building LLM systems
+- For [[id:96a58b04-1f58-47c9-993f-551994939252][LLM]]-based pipelines: decompose into single-focus tasks to avoid bias; treat the model's token-frugality as an adversarial tendency to design around; demand evidence symmetrically for both positive and negative conclusions.
+- "Sashiko for Sashiko": the team runs its own reviewer on every change to its codebase and prompts — dogfooding the trust layer.
+- Engineers increasingly embed local Sashiko instances in their coding-agent loops so patches are pre-checked against community review rules before a human ever sees them.
+
+** Broader significance
+- Positions agentic review as complement to build bots/fuzzers (Syzkaller) — covering memory leaks, deadlocks, race conditions, and security bugs that only deep semantic review can catch.
+- The kernel-agnostic core engine means the approach extends beyond C/kernel rules to other critical open-source infrastructure.
