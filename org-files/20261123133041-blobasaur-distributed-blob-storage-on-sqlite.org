@@ -1,0 +1,82 @@
+:PROPERTIES:
+:ID:          f46be76b-3a0c-45cb-99ef-a79605f03c83
+:END:
+#+title: Blobasaur: distributed blob storage on SQLite
+#+ROAM_REFS: https://zerodha.tech/blog/high-performance-distributed-blob-storage/
+#+filetags: :article:
+
+* Summary
+Source: [[https://zerodha.tech/blog/high-performance-distributed-blob-storage/][https://zerodha.tech/blog/high-performance-distributed-blob-storage/]]
+
+Zerodha built *Blobasaur*, an open-source (AGPLv3), sharded, distributed blob storage server written in [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] on top of SQLite that speaks the Redis protocol. It stores millions of JSON blobs (few KBs to multi-MB) for the Kite trading platform's ~20M customers, serving thousands to tens of thousands of reads/writes per second with single-digit millisecond latency on commodity hardware. It replaced SSDB (an unmaintained, single-node C++ Redis-compatible store) in production via a phased dual-write migration. The core insight: SQLite's WAL mode plus aggressive sharding, group commit, and zstd compression beats purpose-built blob stores for overwrite-heavy, TTL-aware key-value workloads where relaxed durability is acceptable.
+
+* Key Takeaways
+- *SQLite scales further than people assume*: sharding into 16 SQLite files per node gave 3.3x write throughput (25,324 HSET ops/s at 64 KiB payloads, p99 8.3 ms vs 7,740 ops/s, p99 10.7 ms with 1 shard); reads barely changed because WAL mode already allows concurrent readers.
+- *Compression is the multiplier*: zstd compresses repetitive JSON ~11x on average (63.6 KiB → 5.5 KiB), keeping 99% of stored blobs under the ~100 KiB threshold where SQLite beats the raw filesystem — and shrinking page-cache and WAL pressure.
+- *Redis protocol compatibility de-risks migrations*: Blobasaur implements GET/SET/HGET/HSET/DEL/EXPIRE plus the Redis Cluster protocol (16384 CRC16 hash slots, gossip, MOVED redirects), so existing clients became cluster-aware clients with one config change.
+- *Relaxed durability as a deliberate trade-off*: for non-critical UI preferences, WAL + =PRAGMA synchronous = NORMAL= (no fsync per commit) and an optional =async_write= mode buy large latency wins; an OS crash may lose recent chart-layout tweaks but never trading data.
+- *Group commit amortizes overhead*: each shard has a dedicated writer draining a bounded queue into a single =BEGIN IMMEDIATE ... COMMIT= transaction, spreading transaction/WAL costs across concurrent clients.
+- *Practical SQLite lessons*: deleted rows don't shrink files (need =auto_vacuum = INCREMENTAL= plus =wal_checkpoint(TRUNCATE)=); async writes need a tombstone-aware in-memory pending map for read-your-writes consistency; background TTL cleanup must share the shard writer and be chunked (1,000 rows/pass) or it stalls client batches on SQLite's single write lock.
+- *Purpose-built stores weren't a fit*: ScyllaDB, PostgreSQL BYTEA, YugabyteDB, RocksDB, Ceph, SeaweedFS, S3/MinIO, and raw-filesystem approaches were all rejected on throughput, operational complexity, disk-growth, TTL granularity, or cost grounds.
+
+* Notes
+** Why they moved off SSDB
+- Originally on CouchDB, then SSDB (C++, Redis protocol) for years.
+- Two forcing problems: SSDB became unmaintained (C++ outside their stack, forking not viable), and it is single-node with size limits (had to cap blobs at 1 MB due to latency degradation).
+- Requirements: key-value blob store, simple API, multi-MB read/write at high throughput (bursty, market-driven), horizontally scalable, disk-efficient, economical, easy to maintain.
+
+** Why SQLite + Rust
+- SQLite is up to 35% faster than the filesystem for small blobs; raw files win only above ~100 KiB — and compressed blobs sit below that 99% of the time.
+- Inherit ACID transactions, crash recovery, and standard tooling (any shard inspectable with =sqlite3= CLI or plain SQL).
+- [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] chosen over Go because Go's SQLite driver needs CGo (complicates static builds, pins OS threads under concurrency, GC pressure on multi-MB buffers); Rust's =sqlx=/=rusqlite= + =tokio= calls SQLite's C API directly and ships a single static binary.
+
+** Architecture
+- *Two-level routing*: cluster level =CRC16(key) % 16384= picks the machine (Redis Cluster protocol, static slot assignment, no live rebalancing/failover yet); node level = multi-probe consistent hashing picks the SQLite shard (only ~20% of keys move when resharding 4→5 vs ~80% with =hash % N=).
+- *Per-shard writer + group commit* through bounded queues; concurrent read-only connection pools per shard.
+- *Schema* per shard (hashes get per-namespace tables =blobs_<namespace>=):
+#+begin_src sql
+CREATE TABLE IF NOT EXISTS blobs (
+  key TEXT PRIMARY KEY,
+  data BLOB,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL,
+  expires_at INTEGER,
+  version INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS idx_expires_at ON blobs(expires_at) WHERE expires_at IS NOT NULL;
+#+end_src
+- Expiry: read-time filtering (=expires_at IS NULL OR expires_at > ?=) plus an async background reaper; partial index so non-TTL rows cost nothing there.
+- *Compression*: zstd (also lz4, gzip, brotli); p99 payloads compress ~16x.
+- *async_write mode*: acks when the write enters the memory queue; pending map with explicit tombstones ensures DEL-then-GET correctness.
+
+** Benchmarks (64 concurrent connections, 64 KiB JSON, 100k keys, batch_size=50, tmpfs)
+| Workload              | 1 shard                     | 16 shards                    |
+|-----------------------+-----------------------------+------------------------------|
+| HSET only             | 7,740 ops/s, p99 10.7 ms    | 25,324 ops/s, p99 8.3 ms     |
+| 50% HSET / 50% HGET   | 14,227 ops/s, p99 10.5 ms   | 29,538 ops/s, p99 8.5 ms     |
+| HGET only             | 67,128 ops/s, p99 2.1 ms    | 70,884 ops/s, p99 2.3 ms     |
+
+- ~1.66 GB/s of uncompressed JSON through zstd at peak HSET throughput; both server and load generator shared one 16-core laptop.
+
+** Migration strategy (SSDB → Blobasaur)
+1. New workloads first (Kite Terminal workspaces went straight to Blobasaur).
+2. Dual-write + background backfill; reads prefer Blobasaur, fall back to SSDB.
+3. Cutover: clients only switched to a Redis Cluster client; after a month of dual-writes with zero discrepancies, SSDB was turned off.
+
+** Production numbers
+- Three-node cluster, 4 vCPU / 8 GB RAM each, full trading session (09:00–15:30): p99 ~2 ms across all commands, p50 250–550 µs; HSET p99 ~2 ms, HGET p99 ~1.4 ms, HDEL p99 <1 ms.
+
+** Lessons learned
+- Deleting rows doesn't shrink SQLite files: freed pages go to an internal freelist; fixed with =PRAGMA auto_vacuum = INCREMENTAL=, a =blobasaur shard vacuum= subcommand (128 MB default allocation), and =PRAGMA wal_checkpoint(TRUNCATE)= after vacuum (required since WAL mode needs a checkpoint to actually shrink the file).
+- Async writes must be visible to every read: all read paths (GET, HGET, EXISTS, TTL) route through the pending map first, including tombstones for queued deletes.
+- Expiry cleanup must share the writer: a separate cleanup connection running large DELETEs contended for SQLite's single write lock, causing 30–50 ms p99 spikes; routing cleanup through the shard writer and chunking deletions (1,000 rows) eliminated spikes without hurting correctness.
+
+** Evaluation of alternatives (why not X)
+- ScyllaDB: suboptimal for large blobs, higher resource usage, tombstone tuning for overwrite-heavy + TTL patterns.
+- PostgreSQL =BYTEA=: poor performance and disk efficiency for blobs.
+- YugabyteDB: not blob-optimized, too many features.
+- RocksDB: right primitives, not architected for multi-MB write throughput.
+- Ceph: operational complexity too high.
+- SeaweedFS: closest candidate, but append-before-compaction blows up disk on overwrite-heavy use, needs a separate key mapping DB, no per-blob TTL, complex setup.
+- S3/MinIO: high per-request latency for small blobs, costly at write-heavy rates, coarse lifecycle TTLs.
+- Raw filesystem: would need to hand-roll atomic writes, batching, TTL indexing, fd limits, metadata — SQLite provides all of it.
