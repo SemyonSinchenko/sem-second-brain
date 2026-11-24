@@ -1,0 +1,134 @@
+#+TITLE: Arxiv Digest: 2026-10-26
+#+FROM: [2026-10-25 Sun]
+#+TO: [2026-10-26 Mon]
+#+DATE: [2026-10-26 Mon]
+#+STARTUP: showall
+
+* Databases (cs.DB)
+
+** 🧐 Обзор
+Единственная, но заметная работа дня — OCTOPUS: семантические операторы над LLM переходят от одноразовых вызовов модели к персистентным «тегам», которые реляционный движок хранит, индексирует и переиспользует между запросами. Это зрелый шаг для semantic query processing: суждение модели оплачивается один раз и остается согласованным между запросами и аудируемым через провенанс. Практическая значимость подтверждена числами: на SemBench прототип отправляет модели на 10–108x меньше строк, чем iPDB, ThalamusDB, Palimpzest и LOTUS, а три из восьми запросов обходятся вовсе без вызова модели.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2610.32586][OCTOPUS: Towards A Tag Model for Cross-Query Reuse in Semantic Query Processing]]
+:WHAT: Тег-модель и тег-операторы: каждое семантическое суждение LLM записывается обратно в отношение как обычные данные (фильтрация, индексация, хранение силами движка), а единый tag-оператор фиксирует гранулярность переиспользования; прототип реализован как миддлварь поверх DBMS.
+:IMPACT: Кросс-запросное переиспользование: сохраненное суждение может принять, отсеять, упростить проверку или упорядочить поиск кортежей для последующих предикатов; на movie-сценарии SemBench — 10–108x меньше строк уходит модели, а схема БД «растет» из вопросов пользователей.
+
+* Artificial Intelligence (cs.AI)
+
+** 🧐 Обзор
+День смещается в системную плоскость применения больших моделей: SAKURA решает доставку переиспользуемых KV-стейтов диффузионных трансформеров на смартфоны в условиях плавающей полосы, AU-Harness стандартизует оценку аудио-LLM. Зреют методы надежного обучения — квантизация ортогональных RNN и купирование катастрофического переобучения в fast adversarial training через управление l^p-нормой. Практически знаковы первое развертывание ML-warm starts для оптимизации траекторий на борту МКС и бенчмарк мультимодальных медицинских графов знаний MEDMKG.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2610.29733][SAKURA: Serving Attention Key-Value State Under Rate Adaptation for Private Image Editing on Phones]]
+:WHAT: Облачно-краевая архитектура: токен-важностное сжатие переиспользуемого KV-кэша, адаптивный выбор представления кэша под текущую полосу и пайплайн, перекрывающий передачу/реконструкцию с on-device исполнением.
+:IMPACT: Приватный image editing с DiT на телефоне: латентность снижена в 1.82x против адаптированного CacheGen и в 3.27x против чисто on-device генерации, хранение кэша — в 3.06x меньше при сохранении качества.
+
+- [[https://arxiv.org/abs/2505.05588][Deep Learning Warm Starts for Trajectory Optimization on the International Space Station]]
+:WHAT: Нейросеть предсказывает решение задачи генерации траектории для SCP-солвера (который гарантирует safety-ограничения); первое in-space развертывание на борту МКС на роботе Astrobee.
+:IMPACT: −60% итераций солвера в задачах с вращательной динамикой и −50% на in-distribution препятствиях — шаг к real-time автономности на ограниченных flight-компьютерах.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2505.17214][MEDMKG: Benchmarking Medical Knowledge Exploitation with Multimodal Knowledge Graph]]
+:ALGO: Конвейер построения мультимодального медицинского KG, связывающий MIMIC-CXR с UMLS (правила + LLM для извлечения концептов и связей), и Neighbor-aware Filtering (NaF) — алгоритм фильтрации соседей, специализированный для мультимодальных графов знаний.
+:IMPACT: Бенчмарк на 3 задачах, 24 базлайнах и 4 vision-language бэкбонах задает воспроизводимую основу для knowledge-intensive медицинских моделей; паттерн конструирования мультимодальных KG переносим и за пределы медицины.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2402.04012][On Orthogonal Recurrent Neural Networks Quantization]] — квантово-осведомленное обучение с ортогональными проекциями дает первые fully-quantized ORNN, решающие Copy-task на 1000 шагов, с рекордами на permuted MNIST и IoT-задачах.
+- [[https://arxiv.org/abs/2412.20662][Enhancing Table Recognition with Vision LLMs: A Benchmark and Neighbor-Guided Toolchain Reasoner]] — иерархический бенчмарк распознавания таблиц для VLLM и фреймворк NGTR, переносящий опыт выбора инструментов от «похожего соседа» и компенсирующий низкое качество изображений.
+- [[https://arxiv.org/abs/2505.02360][Catastrophic Overfitting, Entropy Gap and Participation Ratio: A Noiseless l^p Norm Solution for Fast Adversarial Training]] — адаптивный l^p-FGSM, настраивающий норму обучения по концентрации градиентов (participation ratio, энтропия), купирует катастрофическое переобучение без шума и регуляризации.
+- [[https://arxiv.org/abs/2509.08031][AU-Harness: An Open-Source Toolkit for Efficient and Unified Evaluation of AUdio-LLMs]] — открытый фреймворк оценки аудио-LLM: −77% времени обработки, поддержка multi-turn диалогов и стандартизованные протоколы сравнения.
+- [[https://arxiv.org/abs/2509.12196][Dynamic Relational Priming Improves Transformer in Multivariate Time Series]] — «prime attention» динамически модулирует представления токенов под каждую пару каналов: до +6.5% точности прогноза МТС без роста асимптотической сложности.
+- [[https://arxiv.org/abs/2510.17753][Human-AI Interactions and the Psychological Triad: A Multi-Domain Survey of Cognitive, Behavioral, and Emotional Impacts]] — междоменный обзор эффектов Human-AI взаимодействия с рекурсивной рамкой TRIAD (оценка–исполнение–регуляция).
+- [[https://arxiv.org/abs/2510.18631][Expressivity Results for Structured Argumentation Frameworks with Uncertain Rules and Premises]] — сравнительная выразительность структурированной аргументации с неопределенными правилами и посылками (ASPIC+, ABA, дедуктивная аргументация).
+
+* Social Physics & Networks (physics.soc-ph)
+
+** 🧐 Обзор
+День богат эмпирикой на больших поведенческих данных: квазиэкспериментальный анализ 12 000+ работников за 13 месяцев показывает, что генеративный AI перестраивает, но не вытесняет сети сотрудничества, а сети LLM-агентов оказываются хрупкими к составу моделей и формулировкам. Зреют воспроизводимые гео-аналитические пайплайны национального масштаба — детекция экономических коридоров Нигерии на сетке из 762 751 ячеек по данным ESA, NASA, Google и Overture/OSM. Практически интересны также оптимизация маршрутов с явной неопределенностью (Z-числа) и гибридные эпидемиологические прогнозы SEIR-TFT для дашбордов поддержки решений.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2610.31675][Economic Corridor Detection from Multi-Source Earth Observation and Commercial Geospatial Data Across Nigeria's Kilometre-Scale Grid]]
+:WHAT: Воспроизводимый multi-proxy screening-фреймворк на километровой сетке: ESA WorldCover + VIIRS Black Marble + Google Open Buildings + плотность POI из Overture Places/OSM; двойной гейт (застроенность >0.1 и радианция ночного света >1 нВт·см⁻²·ср⁻¹) с кластеризацией ячеек в коридорные объекты.
+:IMPACT: Интеграция гетерогенных открытых гео-данных на 762 751 ячейке: 11 243 активных ячейки и 598 коридоров (~36.3 млн человек) — шаблон spatial planning и инфраструктурного триажа там, где нет реестров фирм и транзакций.
+
+- [[https://arxiv.org/abs/2610.29120][An Eco-Friendly Tourism Trip Planner Driven by Z-Number Uncertainty: Evidence from Baku, Dubai, Abu Dhabi, Tashkent, and Istanbul]]
+:WHAT: Планировщик однодневных маршрутов, представляющий время в пути и рейтинги как Z-числа (нечеткое значение + надежность свидетельства, построенные прямо из наблюдений routing-сервиса на шести часах отправления и из числа отзывов), с гибридным лоссом и adaptive large neighborhood search.
+:IMPACT: На 150 парных прогонах в пяти городах: −19.3% углерода и −11.5% времени в пути против crisp-базлайна с тем же оптимизатором — аргумент за явное моделирование надежности данных в routing-системах.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2610.32461][The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers]]
+:ALGO: Каузальный анализ перестройки сетей сотрудничества (staggered difference-in-differences + fixed-effects instrumental variables) на пассивных поведенческих данных 12 000+ работников в ходе поэтапного разворачивания Microsoft Copilot.
+:IMPACT: Сети пользователей AI становятся менее кластеризованными, но концентрируются на сильных связях — эмпирический ориентир для моделирования организационных сетей и прогнозирования эффектов внедрения AI.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2601.11436][An Epidemiological Modeling Take on Religion Dynamics]] — multi-strain компартментная модель религиозной динамики (пассивные верующие, миссионеры, элиты, «мутационное» появление деноминаций), воспроизводящая emergence, коexistence и rise-and-fall режимы.
+- [[https://arxiv.org/abs/2610.31673][Hybrid SEIR Temporal Fusion Transformer Framework with SHAP Analysis for Interpretable Pandemic Forecasting]] — гибрид SEIR + Temporal Fusion Transformer с SHAP-объяснениями на глобальном и локальном уровнях, оформленный как decision-support система с дашбордами.
+- [[https://arxiv.org/abs/2610.32021][Conviction versus Conformity in a Random-Field Ising Electorate: Antagonistic Ties, Network Density, and a Parameter-Free Prediction]] — Ising-модель электората на разреженных графах: точные ground states до N=180 фиксируют кроссовер «поле vs связи» и не-power-law режимы при промежуточной фрустрации.
+- [[https://arxiv.org/abs/2610.32376][Intermittency in firm bankruptcies from register data]] — бурстовая (интермиттентная) динамика банкротств фирм в Нидерландах 2009–2024: секторальные различия объясняют основную гетерогенность, input-output таблицы улучшают fit.
+- [[https://arxiv.org/abs/2610.32726][The Butterfly Defects: Tracing Cooperation in LLM Agent Networks]] — кооперация LLM-агентов в сетях Iterated Prisoner's Dilemma нестабильна: зависит от состава моделей, сетевых позиций и даже порядка меток действий.
+- [[https://arxiv.org/abs/2610.32828][Quantum Index Report 2026]] — второе издание MIT-отчета: квантифицируемый срез ландшафта квантовых технологий по research, industry, education и policy.
+
+* Data Structures & Algorithms (cs.DS)
+
+** 🧐 Обзор
+Новый пакет cs.DS — плотный блок теории расписаний: закрыт точный trade-off consistency/robustness для scheduling с предсказаниями и доказаны сильные гарантии Proportional Fairness на support-submodular полиэдрах, включая unrelated machines. В графах зреют временные графы: новый класс always S-connected графов с алгоритмами exploration и полностью динамическая (Δ+1)-раскраска с worst-case Õ(√n) и рекурсом ≤3. Практически заметно первое с 2018 сдвижение верхней границы online bin packing, сертифицированное точными рациональными вычислениями и машинно-проверяемыми сертификатами.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2602.19657][Exploration of Always S-Connected Temporal Graphs]]
+:ALGO: Введение always S-connected временных графов (≤|S| компонент на снапшот, модель «choke-points» типа железнодорожных сетей) и exploration m агентами за O(n^{3/2} m^2 Δ^{3/2} log^{3/2} n + nm^3) снапшотов; как следствие — exploration always-connected графов с treewidth ≤ k одним агентом за O(n^{4/3} k^{9/2} log^{5/2} n).
+:IMPACT: Улучшает SOTA exploration для малых treewidth и дает инструмент анализа динамических сетей с ограниченными шлюзами — транспортные, сенсорные и инфраструктурные сети.
+
+- [[https://arxiv.org/abs/2610.26182][Dynamic (Δ+1)-Coloring Against an Adaptive Adversary: Faster, Simpler, Worst-Case, and Bounded Recourse]]
+:ALGO: Полностью динамическая (Δ+1)-раскраска против адаптивного противника: worst-case Õ(√n) время обновления и рекурс ≤3 без sparse-dense декомпозиций и глобальной перекраски — только элементарные структуры данных.
+:IMPACT: Проще и предсказуемее предыдущих Õ(n^{2/3})-алгоритмов; кандидат в библиотеки динамических графовых структур, где критичны гарантированные задержки отклика.
+
+- [[https://arxiv.org/abs/2603.15176][The Price of Universal Temporal Reachability]]
+:ALGO: Network creation game на временных графах: константная цена анархии при α<2 для strict temporal shortest distance, равновесия с коммуникационной стоимостью ≳ n³/49 и доказательство отсутствия потенциала (best response cycles).
+:IMPACT: Децентрализованное формирование динамических сетей (ad-hoc, p2p) не гарантирует сходимости к равновесию или socially оптимальному исходу — важный ориентир для моделирования протоколов.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.15248][Bandits with Probing: Optimal Coverage and the Role of Feedback]] — закрыты открытые вопросы Bhaskara et al.: минимаксный regret Θ((n−k)/n · min{T, n/k}) достигается при наблюдении только максимума, а «излишек» максимума работает как exploration-капитал.
+- [[https://arxiv.org/abs/2610.32162][Beyond 3SUM-Hardness for Geometric Problems]] — после рефутации 3SUM-гипотезы квадратичные нижние оценки для геометрических задач восстанавливаются из k-AP-гипотезы почти без правок доказательств.
+- [[https://arxiv.org/abs/2610.32197][The Exact Robustness of Smith's Rule with Predicted Processing Times]] — точный worst-case ratio расписания Смита при неточных временах (√α при α≥4, константа Kawaguchi–Kyan при α=1) плюс transfer-теорема от номинального к робастному качеству.
+- [[https://arxiv.org/abs/2610.32298][Exact Algorithms and Complexity of the Smallest Grammar Problem]] — точный алгоритм O*(1.8723^n), NP-полнота на бинарном алфавите и субэкспоненциальный алгоритм для фиксированных алфавитов.
+- [[https://arxiv.org/abs/2610.32367][Tightening the Online Bin Packing Gap from Both Sides, and the Limits of the Current Methods]] — первая с 2018 сертифицированная верхняя граница 1.5782147437 и доказанная «ригидность» нижней границы 2018, с коррекцией часто цитируемых чисел.
+- [[https://arxiv.org/abs/2610.32503][Pareto-optimal Scheduling with Predictions]] — точный trade-off consistency/robustness для детерминированных алгоритмов: consistency 1+ε достижима при robustness ε^{-1/2}+O(1) вместо прежних Θ(1/ε).
+- [[https://arxiv.org/abs/2610.32545][Single-Machine Guarantees on Unrelated Machines and Beyond: Proportional Fairness for Nonclairvoyant Polytope Scheduling]] — Proportional Fairness сохраняет single-machine гарантии на unrelated машинах (опровержение убеждения из JACM'18/SODA'25), гарантия для weighted completion time улучшена с 27 до 4.
+
+* Distributed Computing (cs.DC)
+
+** 🧐 Обзор
+День прошел под знаком I/O и гетерогенных ускорителей для LLM: uGDS переносит GPU Direct Storage в user space (до 12–30x пропускной способности GDS на батчах), HAWK связывает GPU-prefill и NPU-decode через layout-aware RDMA, а FastGraph строит точные kNN-графы на GPU до 41x быстрее FAISS-GPU. Зреет и системная база доверия: SILMARILS-MV дает information-theoretically безопасные подписи для permissioned блокчейнов с 2.8x TPS в HotStuff-прототипе. Практически релевантны также энерго-осознанное планирование GPU-датацентров (PWR) и выбор клиентов для federated unlearning с −69% коммуникаций.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2610.30868][uGDS: A User-Space Development Kit for High-Performance GPU Direct Storage]]
+:WHAT: Опенсорс user-space библиотека GPU Direct Storage: полный lifecycle NVMe-команд на хосте, PCIe P2P DMA без host staging, разделение аппаратных очередей между sync/batch трафиком и cuFile-совместимые API на CUDA и HIP; минимальный kernel-модуль только для разовой привилегированной настройки.
+:IMPACT: До 12.12x/30.69x пропускной способности GDS на батч-чтении/записи и −84.1% латентности 4-КиБ sync-записи; в LMCache −62.7% медианного TTFT и 2.63x goodput — прямой выигрыш для GPU-пайплайнов данных.
+
+- [[https://arxiv.org/abs/2610.29873][HAWK: Heterogeneity-Aware KV Cache Transfer for Efficient GPU-NPU Phase-Disaggregated LLM Inference]]
+:WHAT: Механизм передачи KV-кэша GPU→NPU через RDMA с tensor-layout-aware буферами на NPU-стороне, чтобы полученные тензоры потреблялись сразу, без дополнительной перестановки layout.
+:IMPACT: Дизагрегация prefill-on-GPU / decode-on-NPU удерживается в пределах 7.88% от GPU-only системы под теми же SLO при 1.26x энерго- и 1.72x стоимостной эффективности.
+
+- [[https://arxiv.org/abs/2610.31814][SILMARILS-MV: Information-Theoretically Secure Multi-Verifier Signatures with Dealer-Free Key Issuance and Linear Aggregation for Permissioned Blockchains]]
+:WHAT: Безусловно-безопасные multi-verifier подписи: выдача ключей через perfectly secure MPC (t<n/3) без дилера и broadcast, линейная агрегация и threshold notarization с сертификатами 32(ω+1) байт и верификацией за 2.4 мкс.
+:IMPACT: В Rust-прототипе HotStuff на 100 валидаторов — 2.8x TPS против ML-DSA-44 и 67x меньше криптографического CPU; практичный пост-квантовый путь для permissioned блокчейнов без раздувания консенсусного трафика.
+
+- [[https://arxiv.org/abs/2412.17484][Power- and Fragmentation-aware Online Scheduling for GPU Datacenters]]
+:WHAT: Политика онлайн-планирования PWR: выбор энергоэффективных GPU/CPU-комбинаций через упрощенную модель энергопотребления, встроенную в Kubernetes score plugin, в комбинации с FGD против GPU-фрагментации.
+:IMPACT: Управляемый trade-off энергопотребления и фрагментации при приближении кластера к полной утилизации — прямое снижение TCO и энергоследа AI-обучения и инференса.
+
+- [[https://arxiv.org/abs/2610.31786][Not All Retained Clients Are Equal: Client Selection for Federated Unlearning]]
+:WHAT: PDF — path-dependent выбор retained-клиентов для federated unlearning на lightweight, target-agnostic CLP-взвешенных историях обновлений; retraining выполняется только на top-k клиентах за несколько раундов.
+:IMPACT: 0% forgetting с retraining-уровнем MIA AUC на non-IID CIFAR-10, до +6.91 п.п. retained accuracy на CIFAR-100 и −69% коммуникаций / −57–61% вычислений против полного Retrain.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2511.10442][FastGraph: PCA-Subspace Binned k-Nearest-Neighbor Graph Construction for GPU Geometric Deep Learning]]
+:ALGO: PCA-subspace cell list: адаптивный ортонормированный биннинг-базис (рабочий диапазон d=4–10) для пространственного прунинга с вычислением дистанций в исходном пространстве признаков; данные остаются GPU-resident, есть опциональная differentiable интеграция с GravNetOp.
+:IMPACT: Точный kNN-граф на 5 млн точек за 7.5 с (d=8, k=40): до 41x быстрее FAISS-GPU, 19x быстрее cuVS brute force и 17x быстрее аппроксимационного CAGRA — разблокирует динамическую перестройку графов в GNN-пайплайнах (point-cloud физики детекторов).
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2607.00740][A Reduced Stochastic Model of Microservice Availability: Algorithms for Identification and Formal Analysis]] — идентификация редуцированной стохастической модели доступности микросервисов из телеметрии: в 31.73–100.24x быстрее PMX/Palladio при расхождении MAE не более 0.082 п.п.
+- [[https://arxiv.org/abs/2601.06706][Resource-Aware Task Allocator Design: Insights and Recommendations for Distributed Satellite Constellations]] — RATA для LEO/Low-MEO констелляций: блокировки лимитирует доступность CPU, а не энергия; определен практический предел числа спутников для SLTN-архитектуры.
+- [[https://arxiv.org/abs/2610.30055][A Real-time tax compliance architecture for VAT split payments with Making Tax Smart and Open Banking]] — DLT-архитектура real-time VAT split payments на R3 Corda с Open Banking API и тестами масштабируемости.
+- [[https://arxiv.org/abs/2610.06352][From a Last-Week Add-On to First-Day Practice: Three Years of Integrating MPI Performance Analysis into HPC Education with EduMPI Suite]] — трехлетний опыт внедрения автоматизированного MPI-профилирования в HPC-курсы: студенты рекомендуют вводить анализ производительности с первых занятий.

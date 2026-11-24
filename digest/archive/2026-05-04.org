@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-05-04
+#+FROM: [2026-05-03 Sun]
+#+TO: [2026-05-04 Mon]
+#+DATE: [2026-05-04 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Инженеры данных активно внедряют AI-агентов в ELT-пайплайны, используя подсказки для генерации надежного кода. Отладка распределенных систем остается сложной задачей, что подтверждается свежими кейсами с «воскрешением» экзекуторов в Spark. Индустрия готовится к ключевым конференциям по инфраструктуре ИИ и графовым базам данных в США. Фокус смещается на надежность инфраструктуры и практическое применение генеративных моделей в продакшене.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-268][Data Engineering Weekly #268]] (Data Engineering Weekly) — Обзор инструментов для Data Mesh в Grab и исследование замены поискового стека AI-агентами.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-268][Data Engineering Weekly #268]]
+:SCORE: 9/10
+:WHY: Практические паттерны внедрения AI-агентов в ELT и реальный опыт масштабирования Data Mesh.
+
+** Engineers
+- [[hxxps://blog.devgenius.io/apache-spark-wtf-back-from-the-dead-970b6f61edf3?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Back From The Dead]] (DevGenius) — Глубокий анализ работы heartbeat-механизма в Spark и причин рассинхронизации состояния драйвера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://blog.devgenius.io/apache-spark-wtf-back-from-the-dead-970b6f61edf3?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Back From The Dead]]
+:SCORE: 8/10
+:WHY: Инсайды в отладку распределенных систем и понимание внутренних состояний кластера Spark.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDB Council) — Анонс встречи технического сообщества GDC в Бостоне совместно с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга для специалистов по графовым базам данных и обмена опытом.

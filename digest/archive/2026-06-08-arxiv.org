@@ -1,0 +1,135 @@
+#+TITLE: Arxiv Digest: 2026-06-08
+#+FROM: [2026-06-07 Sun]
+#+TO: [2026-06-08 Mon]
+#+DATE: [2026-06-08 Mon]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается рост интереса к обеспечению качества графов знаний и автоматическому обнаружению функциональных зависимостей в табличных данных. Значительное внимание уделяется сверхнизким задержкам в системах обработки транзакций и потоковой обработке древовидных структур. Эти работы отражают стремление к повышению целостности данных и производительности систем управления базами данных в реальном времени.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2603.02995][Graph-Native Normalization]]
+:WHAT: Предлагает нормализацию графов знаний с учетом зависимостей внутри узлов, ребер и их комбинаций.
+:IMPACT: Повышает качество и согласованность графов знаний, уменьшая избыточность и аномалии в реальных приложениях.
+- [[hxxps://arxiv.org/abs/2606.07060][Auto-Relate: A Unified Approach to Discovering Reliable Functional Relationships Leveraging Statistical Tests]]
+:WHAT: Фреймворк Auto-Relate для обнаружения надежных функциональных зависимостей между столбцами таблиц.
+:IMPACT: Улучшает понимание данных и качество downstream-задач за счет фильтрации ложных зависимостей через статистические тесты.
+- [[hxxps://arxiv.org/abs/2606.01183][The World's Fastest Matching Engine Algorithm]]
+:WHAT: Новая структура данных Priority-Indicated Node (PIN) и алгоритмы вставки для движков сопоставления ордеров.
+:IMPACT: Достигает субмикросекундных задержек и пропускной способности 32 млн сообщений в секунду на ядро, что критично для высокочастотной торговли.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.07148][Efficient $(\alpha,\beta)$-core Computation and On-the-fly Query at Billion Scale with GPUs]]
+:ALGO: Индекс-free алгоритм очистки на GPU (GCC) для вычисления $(\alpha,\beta)$-core в двудольных графах.
+:IMPACT: Позволяет выполнять запросы в реальном времени на графах миллиардного масштаба, избегая накладных расходов на поддержание индексов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.06994][Principles of Concept Representation in Sentence Encoders]] — Исследование принципов представления концепций в энкодерах предложений через призму композициональности.
+- [[hxxps://arxiv.org/abs/2606.07408][Earliest query answering over streamed trees]] — Алгоритм для earliest query answering над потоковыми XML/JSON документами с постоянным временем обновления.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В течение последнего дня выделились тренды на исследование пределов рассуждений LLM и их уязвимости к семантическим атакам. Разрабатываются специализированные бенчмарки для кода и химии, а также методы эффективного забывания информации в непрерывном обучении. Исследователи фокусируются на практической надежности агентов и оптимизации архитектуры мультимодальных моделей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2506.01850][MoDA: Modulation Adapter for Fine-Grained Visual Grounding in Instructional MLLMs]]
+:WHAT: Легковесный модуль MoDA для тонкой визуальной привязки через инструкционно-ориентированную модуляцию каналов.
+:IMPACT: Улучшает точность визуального заземления в MLLM без архитектурных изменений и с минимальными накладными расходами.
+- [[hxxps://arxiv.org/abs/2505.14289][EVA: Evolving Semantic Adversaries for Red-Teaming GUI Agents Against Environmental Injection Attacks]]
+:WHAT: Эволюционный фреймворк EVA для генерации семантических adversarial-атак на GUI-агентов.
+:IMPACT: Выявляет критические уязвимости в агентах на основе MLLM, демонстрируя высокую эффективность атак через семантическое обманывание.
+- [[hxxps://arxiv.org/abs/2505.12239][Towards Efficient and Exact Forgetting Services in Pre-Trained-Model-based Continual Learning]]
+:WHAT: Метод ACU для аналитического и точного забывания данных в непрерывном обучении без градиентов.
+:IMPACT: Обеспечивает приватность и эффективность удаления данных в системах с последовательными запросами на забывание.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2504.03635][Finding the Minimal Parameter Budget for Implicit Reasoning: A Data Complexity Driven Scaling Law for Language Models]]
+:ALGO: Закон масштабирования, связывающий параметрический бюджет модели с энтропией поиска по графу знаний.
+:IMPACT: Дает принципиальные рекомендации по выбору размера модели для задач неявного рассуждения над структурированными данными.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2502.00225][Should You Use Your Large Language Model to Explore or Exploit?]] — Оценка способности LLM решать задачи exploration-exploitation в бандитских задачах.
+- [[hxxps://arxiv.org/abs/2504.00613][LLM-Guided Search for Deletion-Correcting Codes]] — Использование LLM для эволюционного поиска кодов, исправляющих удаления.
+- [[hxxps://arxiv.org/abs/2505.05232][ChemQuests: A Curated Chemistry Question-Answer Database Extracted from ChemRxiv papers]] — Датасет вопросов и ответов по химии для обучения domain-specific моделей.
+- [[hxxps://arxiv.org/abs/2505.15998][Exploring Flow-Lenia Universes with a Curiosity-driven AI Scientist: Discovering Diverse Ecosystem Dynamics]] — Применение curiosity-driven AI для изучения динамики в клеточных автоматах Flow-Lenia.
+- [[hxxps://arxiv.org/abs/2505.23437][Bounded-Abstention Pairwise Learning to Rank]] — Метод воздержания от решения в попарном обучении ранжированию на основе порога риска.
+- [[hxxps://arxiv.org/abs/2506.11066][CoQuIR: A Comprehensive Benchmark for Code Quality-Aware Information Retrieval]] — Бенчмарк для оценки качества поиска кода с учетом безопасности и поддерживаемости.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Recent preprints highlight modeling dynamics on networks and agent-based systems, including applications in biology and social standards. There is a focus on learning effective models from network dynamics data and understanding connectivity emergence. Interdisciplinary studies bridge quantum standards with accounting and viral kinetics with network models.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.30432][Learning effective models from network dynamics data with multiple initial conditions using weak form SINDy]]
+:ALGO: Использование Weak Form SINDy для обучения эффективных ODE моделей из данных сетевой динамики.
+:IMPACT: Позволяет восстанавливать уравнения динамики социальных систем даже при высоком уровне шума и стохастичности.
+- [[hxxps://arxiv.org/abs/2606.07344][From Boundary Crossings to Global Connectivity: A Minimal Mechanism in Structured Agent-Based Landscapes]]
+:ALGO: Анализ механизма возникновения глобальной связности через гетерогенность мобильности агентов на границах аттракторов.
+:IMPACT: Раскрывает минимальные условия для глобальной реконфигурации в агентных системах без целевого поведения.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2311.11925][Quantum Computing Standards & Accounting Information Systems]] — Анализ влияния квантовых стандартов на целостность и аудит систем учетной информации.
+- [[hxxps://arxiv.org/abs/2505.12286][Modeling hepatitis D virus kinetics during bulevirtide monotherapy: challenges and solutions]] — Моделирование кинетики вируса гепатита D с учетом динамики клеток-мишеней.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+За последние сутки заметен прогресс в квантовых алгоритмах для графов и параметризованной сложности задач на деревьях. Важные результаты получены в области потокового внимания и онлайн-планирования с энергосбережением. Исследования охватывают как теоретические границы, так и практические алгоритмы выборки подграфов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.01342][Towards Optimal Robustness in Learning-Augmented Paging]]
+:WHAT: Новый фреймворк для обучения с подкреплением в задаче paging с оптимальной робастностью $H_k + O(1)$.
+:IMPACT: Гарантирует производительность worst-case даже при неточных предсказаниях, что ценно для систем управления памятью.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2202.05907][Fast and perfect sampling of subgraphs and polymer systems]]
+:ALGO: Эффективный алгоритм идеальной выборки взвешенных связных индуцированных подграфов.
+:IMPACT: Позволяет точно сэмплировать графлеты и полимерные модели за линейное время при условиях субкритичности.
+- [[hxxps://arxiv.org/abs/2602.22976][Efficient Parallel Algorithms for Hypergraph Matching]]
+:ALGO: Параллельные алгоритмы для максимального паросочетания в гиперграфах на GPU.
+:IMPACT: Дает ускорение до 76 раз по сравнению с CPU, обеспечивая эффективную обработку гиперграфовых структур.
+- [[hxxps://arxiv.org/abs/2606.06287][Quantum Algorithms for Triangle Cut Sparsification]]
+:ALGO: Квантовый алгоритм для спарсификации треугольных разрезов графа с использованием квантовых обходов.
+:IMPACT: Улучшает классические границы времени для задач кластеризации и анализа сетей на квантовых устройствах.
+- [[hxxps://arxiv.org/abs/2606.07453][Odd Cycle Transversal in $P_k$-Free Graphs]]
+:ALGO: Алгоритм аппроксимации с постоянным коэффициентом для задачи OCT на $P_k$-свободных графах.
+:IMPACT: Предоставляет первые нетривиальные аппроксимации для этого класса графов, зависящие от параметра $k$.
+- [[hxxps://arxiv.org/abs/2605.31071][Tree Containment Parameterized by Scanwidth]]
+:ALGO: Параметризованный алгоритм для задачи TREE CONTAINMENT с параметром scanwidth.
+:IMPACT: Решает ключевую задачу филогенетики с оптимальной зависимостью от ширины разреза сети.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.07205][Towards Tight Bounds for Streaming Attention]] — Почти точные границы сложности по памяти для задачи потоковой аппроксимации внимания.
+- [[hxxps://arxiv.org/abs/2606.06686][On the Hardness of Optimal Motion on Trees]] — Доказательство NP-трудности задачи Multi-Agent Path Finding на деревьях.
+- [[hxxps://arxiv.org/abs/2606.06681][Online Span Minimization for Flexible Uniform Jobs]] — Рандомизированные алгоритмы для минимизации spans в онлайн-планировании задач.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основные тренды связаны с оптимизацией распределенного обучения MoE и планирования запросов LLM в асинхронных системах. Исследуется балансировка нагрузки в реальном времени и эффективная отчетность для распределенного обучения на гетерогенных ускорителях. Также представлен прогресс в распределенной枚举ции подграфов в гиперграфах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2505.23131][DOPPLER: Dual-Policy Learning for Device Assignment in Asynchronous Dataflow Graphs]]
+:WHAT: Фреймворк Doppler с двойной политикой для назначения операций на устройства в асинхронных графах.
+:IMPACT: Снижает время выполнения ML workload за счет учета механизма планирования системы и избегания синхронизации.
+- [[hxxps://arxiv.org/abs/2606.04101][UltraEP: Unleash MoE Training and Inference on Rack-Scale Nodes with Near-Optimal Load Balancing]]
+:WHAT: Балансировщик UltraEP для точной балансировки нагрузки экспертов в MoE моделях на стойках GPU.
+:IMPACT: Достигает 94.3% от идеальной пропускной способности, устраняя узкие места all-to-all коммуникации.
+- [[hxxps://arxiv.org/abs/2606.06751][StageFrontier: Synchronization-Aware Stage Accounting for Distributed ML Training]]
+:WHAT: Легковесная система StageFrontier для учета времени стадий в распределенном обучении без синхронизации часов.
+:IMPACT: Позволяет точно локализовать узкие места в обучении с накладными расходами менее 0.2%.
+- [[hxxps://arxiv.org/abs/2606.06818][Terastal: Layer-Variant-based Scheduling for Real-Time Multi-DNN Workloads on Heterogeneous Accelerators]]
+:WHAT: Фреймворк Terastal для планирования вариантов слоев DNN на гетерогенных ускорителях.
+:IMPACT: Снижает количество пропущенных дедлайнов на 40% за счет адаптации реализации слоев под оборудование.
+- [[hxxps://arxiv.org/abs/2603.15202][Simple is Better: Multiplication May Be All You Need for LLM Request Scheduling]]
+:WHAT: Простая метрика планирования LMETRIC на основе произведения показателей KVCache и нагрузки.
+:IMPACT: Уменьшает TTFT на 92% без настройки гиперпараметров, упрощая планирование запросов LLM.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.17834][Distributed Triangle and Simplex Enumeration in Hypergraphs]]
+:ALGO: Алгоритмы распределенной枚举ции треугольников и симплексов в гиперграфах в модели CONGEST.
+:IMPACT: Инициирует систематическое изучение распределенных задач на гиперграфах с доказательствами оптимальности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.21411][General Convex Agreement with Near-Optimal Communication]] — Протоколы Byzantine Agreement с почти оптимальной коммуникационной сложностью для выпуклых пространств.
+- [[hxxps://arxiv.org/abs/2512.00711][Cross-Domain Federated Semantic Communication with Global Representation Alignment and Domain-Aware Aggregation]] — Федеративное обучение для семантической коммуникации с учетом сдвига доменов.
+- [[hxxps://arxiv.org/abs/2606.06687][Towards Serverless Semi-Decentralized Federated Learning with Heterogeneous Optimizers]] — Метод SSD-FL для кластеризации устройств в полностью децентрализованном федеративном обучении.

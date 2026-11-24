@@ -1,0 +1,185 @@
+#+TITLE: Arxiv Digest: 2026-07-16
+#+FROM: [2026-07-15 Wed]
+#+TO: [2026-07-16 Thu]
+#+DATE: [2026-07-16 Thu]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+За последние сутки наблюдается сильный тренд на интеграцию LLM в системы обработки данных с акцентом на компиляцию семантических операторов вместо интерпретации. Параллельно развиваются архитектуры распределённых OLTP-систем с активными возможностями в нескольких регионах и новые подходы к контрактам данных как типам. Особое внимание уделяется приватности в интерактивных аналитических системах с переиспользованием кэшированных результатов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.13276][Aurora DSQL: Scalable, Multi-Region OLTP]]
+:WHAT: Серверless SQL-база с disaggregated-архитектурой, разделяющая вычисления, хранение и координацию транзакций на независимые масштабируемые сервисы с MVCC и оптимистичной конкурентностью.
+:IMPACT: Позволяет эластичное масштабирование от нуля до миллионов транзакций в секунду с сильной согласованностью и доступностью при отказах зон или регионов.
+
+- [[hxxps://arxiv.org/abs/2607.13339][Not Your Usual Type(s): Data contracts as types across languages and engines]]
+:WHAT: SDK, трактующий контракты данных как типы для компонуемого multi-language lakehouse с аннотациями схем, кодирующими типы колонок, ограничения и lineage.
+:IMPACT: Решает проблемы production-сбоев на границах узлов конвейеров и позволяет детерминированное рассуждение о потоках данных across languages.
+
+- [[hxxps://arxiv.org/abs/2607.13407][From Interpretation to Compilation: Compilation-Based Execution of Semantic Operators [Vision]]]
+:WHAT: Компиляция семантических операторов на основе LLM в детерминированный исполняемый код вместо per-row LLM-вызовов в runtime.
+:IMPACT: Существенно снижает время выполнения и количество LLM-вызовов при сохранении качества вывода, открывая новые направления на стыке БД и program synthesis.
+
+- [[hxxps://arxiv.org/abs/2607.13947][PRomop: A Decision-Ready Longitudinal Patient Health Record on the OMOP Common Data Model]]]
+:WHAT: Плоская проекция PatientRecord над OMOP CDM, материализующая клиническое состояние пациента в одну строку из 286 колонок для повторного использования.
+:IMPACT: Ускорение скрининга критериев eligibility в 23.9x, устранение повторного вывода клинического состояния для аналитики и ML.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.13441][ReBound: Reuse-Aware Privacy For Interactive Decision Support]]
+:ALGO: Фреймворк переиспользования кэшированных результатов предыдущих запросов с cache graph structure для эффективного поиска и механизмом negotiation при ограничении бюджета приватности.
+:IMPACT: Ответ на новые запросы с уменьшенной или нулевой дополнительной стоимостью приватности при сохранении формальных гарантий utility для интерактивных аналитиков.
+
+- [[hxxps://arxiv.org/abs/2607.13875][Lexicographic Direct Access with Functional Dependencies]]
+:ALGO: Fine-grained нижние и верхние границы времени препроцессинга для лексикографического прямого доступа к ответам join-запросов с функциональными зависимостями через reordering и декомпозицию.
+:IMPACT: Полная характеризация лекикографического доступа с линейным препроцессингом, важна для оптимизации запросов в присутствии FD.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.13840][From Continuous Deployment to Queryable Dataset: Terabyte-Scale AIS-Aligned Passive Acoustic Labelling]] — База-ориентированный workflow для выравнивания гидрофонных записей с AIS-отчётами через масштабируемый spatiotemporal join для GeoAI.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+Наблюдается рост работ по оптимизации памяти и квантованию KV-cache для LLM, а также по защите персонализации диффузионных моделей от злонамеренного использования. Многосоставные исследования посвящены мультимодальному выравниванию без явного alignment pretraining и интерпретируемости визуальных атрибутов в MLLM. Отдельный кластер работ исследует поведение LLM в мульти-агентных дебатах и моральных суждениях.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.13157][Oracle Agent Memory as an Enterprise Memory Substrate for Long-Horizon AI Agents]]
+:WHAT: Database-native память для агентов на Oracle Database с layered architecture, разделяющей active memory core и passive memory-store с контролем scope.
+:IMPACT: 93.8% точности на LongMemEval при 10.7x меньшем использовании токенов, поддержка retention task state across sessions для long-horizon агентов.
+
+- [[hxxps://arxiv.org/abs/2505.18231][NSNQuant: A Double Normalization Approach for Calibration-Free Low-Bit Vector Quantization of KV Cache]]
+:WHAT: Calibration-free векторное квантование KV-cache через трёхшаговую трансформацию (Normalize-Shift-Normalize) с Hadamard transform для выравнивания распределения токенов.
+:IMPACT: До 3× ускорения throughput над full-precision baseline в 1-bit и 2-bit настройках без calibration datasets.
+
+- [[hxxps://arxiv.org/abs/2502.16167][PersGuard: Preventing Malicious Personalization in Text-to-Image Diffusion Models via Model Backdoors]]
+:WHAT: Backdoor-based фреймворк для защиты предобученных T2I-моделей от unauthorized personalization с backdoor retention loss для устойчивости при fine-tuning.
+:IMPACT: Превосходит perturbation-based методы в gray-box и black-box settings для защиты facial identity и multi-object.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.12466][Inverse-LLaVA: Rethinking Multimodal Alignment via Text-to-Vision Mapping]]
+:ALGO: Инверсия направления маппинга: проекция text embeddings в continuous visual representation space с fusion в intermediate transformer layers без alignment pretraining.
+:IMPACT: Эффективное мультимодальное рассуждение при reduced supervision, значительный выигрыш на reasoning-intensive задачах через decoupling representation от supervision.
+
+- [[hxxps://arxiv.org/abs/2509.22415][Evidence Recomposition and Predictive Context Residualization for Visual Attribution in Multimodal Large Language Models]]
+:ALGO: ERCR-фреймворк с Evidence Recomposition для агрегации evidence across views и Predictive Context Residualization для suppression context-token interference.
+:IMPACT: Улучшение TAM F1-IoU с 39.10 до 44.45 на COCO Caption для Qwen2-VL-2B, практическое уточнение для token-level visual evidence inspection.
+
+- [[hxxps://arxiv.org/abs/2510.11686][Representation-Based Exploration for Language Models: From Test-Time to Post-Training]]
+:ALGO: Representation-based bonus из hidden states pretrained модели для явного incentivizing discovery novel behaviors в RL и inference-time scaling.
+:IMPACT: 50% улучшение verifier efficiency на reasoning tasks, 3× улучшение test-time sample efficiency на AIME 2024 через deliberate exploration.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2409.17340][Koopman-driven grip force prediction through EMG sensing]] — Koopman operator theory для estimation и short-term prediction grip force из sEMG с wMAPE ~5.5% и execution ~30ms для real-time.
+- [[hxxps://arxiv.org/abs/2506.21306][Uniform Approximation of Functions with Asymmetric Growth and Decay by Deep Weighted Polynomials]] — Weighted deep polynomial approximants для функций с асимметричным ростом/затуханием, применение к Black-Scholes pricing.
+- [[hxxps://arxiv.org/abs/2507.16849][Post-Disaster Affected Area Segmentation with a Vision Transformer (ViT)-based EVAP Model using Sentinel-2 and Formosat-5 Imagery]] — ViT-based framework для weakly supervised segmentation disaster areas с PCA-based label expansion.
+- [[hxxps://arxiv.org/abs/2507.19593][A Survey on Hypergame Theory: Modelling Misaligned Perceptions and Nested Beliefs for Multi-Agent Systems]] — Систематический review hypergame theory для MAS с agent-compatibility criteria и classification framework.
+- [[hxxps://arxiv.org/abs/2510.10002][Interaction Protocol Shapes Moral Judgment in Multi-Agent Debate]] — Исследование deliberative dynamics и value alignment в multi-turn LLM debate на 1000 dilemmas из Reddit с synchronous и round-robin протоколами.
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+Работы последних суток охватывают higher-order network dynamics с акцентом на nested hyperedges и imitation dynamics на hypergraphs. Заметен интерес к coupled social-climate models с учётом региональной гетерогенности и к анализу web crawls через discovery curves и urn models. Также представлены исследования транспортных сетей Африки в контексте конфликтов и биофизические модели теплопереноса.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.10522][Nested hyperedges promote the onset of collective transitions but suppress explosive behavior]]
+:ALGO: Аналитически трактуемая теория контагиона на hypergraphs с явным tracking nestedness между группами разных размеров через disentangling contagion pathways.
+:IMPACT: Идентификация nestedness как general structural mechanism governing critical transitions в complex systems, применимо к Ising и Kuramoto dynamics.
+
+- [[hxxps://arxiv.org/abs/2602.09503][A unified framework for imitation dynamics on higher-order networks]]
+:ALGO: Unified framework для imitation dynamics на higher-order networks с параметризацией update rules по числу sampled groups и consulted peers, closed-form condition для cooperation success.
+:IMPACT: Сведение эффектов update rules к interpretable quantity «information diversity», систематическое представление fragmented updating mechanisms в tractable theory.
+
+- [[hxxps://arxiv.org/abs/2607.13231][Conflict, mobility and fragmentation in the African interurban network]]
+:ALGO: Hawkes-style self-exciting memory kernel для accumulated conflict intensity near roads с cascade и percolation simulations для propagation disruptions.
+:IMPACT: Идентификация дорог, где violence наиболее угрожает regional integration, 18.6% симулированных disruptions изолируют >1M людей, tipping point при удалении roads по conflict intensity.
+
+- [[hxxps://arxiv.org/abs/2607.13217][Hierarchical $\mathcal{F}$-Clustering: Approximation and Hardness of Clustering into Trees and Bounded Diameter Graphs]]
+:ALGO: LP-based framework для approximating hierarchical clustering с relaxed halting condition когда cluster принадлежит классу $\mathcal{F}$ (trees, bounded diameter graphs).
+:IMPACT: Первые polynomial time O(log n·log log n) и O(log n)-approximation алгоритмы для clustering into trees и bounded diameter graphs соответственно.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.14091][Temporal Shifts and Causal Interactions of Emotions in Social and Mass Media: A Case Study of the "Reiwa Rice Riot" in Japan]] — ML-based emotion classification по Plutchik для анализа temporal dynamics эмоций на X и в news media, emotional shifts на social media precede news.
+- [[hxxps://arxiv.org/abs/2604.14772][A convex-geometric framework for fully phase-locked states in the finite Kuramoto model]] — Конвексно-геометрическая характеризация minimal coupling strength для fully phase-locked equilibrium через stability region mapping в frequency space.
+- [[hxxps://arxiv.org/abs/2607.13171][Human population dynamics as a Bayesian inverse transport problem]] — Bayesian inverse transport framework с BNNs embedded в exact PDEs в age-time space для human cohort advection с conservation constraints.
+- [[hxxps://arxiv.org/abs/2607.13438][Impacts of social and impact heterogeneity on social-climate outcomes]] — Coupled social-climate model показывает, что heterogeneity в climate impacts увеличивает temperature anomaly на 0.2°C, social heterogeneity — ещё на 0.1°C.
+- [[hxxps://arxiv.org/abs/2607.13636][Measuring What the Crawler Sees: Discovery Curves, Core Persistence, and Shell Dynamics in Longitudinal Web Crawls]] — Formal language для crawls с discovery curve U(s,T) и two-component urn model с persistent core fraction κ для reconciliation containment и coverage fits.
+- [[hxxps://arxiv.org/abs/2607.13650][Calming traffic in unsignalized bidirectional streets by introducing one-lane bottlenecks]] — Анализ FIFO и directional priority policies для bottleneck streets с formulas для expected delay и capacity, counterintuitive finding что extra bottleneck может увеличить capacity.
+- [[hxxps://arxiv.org/abs/2607.14017][The Wulff bio-heat transfer model revisited: directional blood enthalpy transport, the biological Peclet number, and implications for laser-induced thermal therapy]] — Revisited Wulff model с directional blood enthalpy transport, biological Peclet number для quantifying directional transport vs diffusion в LITT.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+Сильный фокус на алгоритмических улучшениях для классических задач: линейное время для Erdős-Ginzburg-Ziv, smoothed analysis quadratic probing, multi-dimensional dense subset sum. Развиваются FPT-алгоритмы для private synthetic data generation и approximation algorithms для hierarchical clustering с structural constraints. Отдельное направление — оптимизация attention mechanisms для LLM через алгебраические идентичности.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.11283][Fixed-Parameter Tractability of Private Synthetic Data Generation]]
+:WHAT: FPT-алгоритмы для differential privacy synthetic data generation с параметром treewidth query family's incidence graph через LP и subsampled private multiplicative weights.
+:IMPACT: Optimal error rates across all regimes с unified dynamic programming framework over tree decomposition для privacy-preserving data release.
+
+- [[hxxps://arxiv.org/abs/2607.13051][Precomputing the Future-Offset Average in TriAttention]]
+:WHAT: Алгебраическая идентичность для collapsing 17-fold average в TriAttention в single per-band weight computed offline для pruning-score computation.
+:IMPACT: Scoring key стоит одну evaluation вместо семнадцати без изменения pruning behavior, exact complement к TriAttention методу.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2408.04118][Reducing Matroid Optimization to Basis Search]]
+:ALGO: Новая reduction от optimization к search для binary matroids с O(√n·log r) parallel rounds и O(rn·log r) independence queries через cocircuit local optimality tests.
+:IMPACT: Значительное улучшение query complexity для sparse matroids (r ≪ n), initiation finer understanding parallel matroid optimization через lattice of flats.
+
+- [[hxxps://arxiv.org/abs/2605.28333][High-Quality Multi-Constraint Hypergraph Partitioning via Greedy Rebalancing]]
+:ALGO: Multi-constraint rebalancing algorithm на greedy local search с proof что balance всегда восстанавливается для d=2 через monotonically decreasing global imbalance metric.
+:IMPACT: 11.5% geometric mean connectivity reduction над Metis при интеграции в Mt-KaHyPar, better reliability по partition balance для data distribution tasks.
+
+- [[hxxps://arxiv.org/abs/2605.21753][Finding a Solution to the Erdős-Ginzburg-Ziv Theorem in Linear Time]]
+:ALGO: Deterministic linear-time algorithm через compact arithmetic-progression representation reachable sums с merging progressions при intersection через bounded Frobenius interval.
+:IMPACT: Улучшение над O(n log log log n) до O(n) для finding subsequence длины n с sum divisible by n из 2n-1 integers.
+
+- [[hxxps://arxiv.org/abs/2607.10343][Dense Subset Sum in Multi-Dimension]]
+:ALGO: Структурный результат что S(A) содержит long generalized progression в multi-dimension при n ≫ √Φ с tilde{O}(n)-time algorithm для dense subset sum.
+:IMPACT: Significantly reduced density threshold и enlarged region где все integer points принадлежат S(A), matching 1-dimensional bound.
+
+- [[hxxps://arxiv.org/abs/2607.13218][Graph Partitioning with Demands: Generalized Conductance and its Applications]]
+:ALGO: O(log n)-approximation алгоритм для generalized conductance ψ_w(S) через two-way reduction к Generalized k-Multicut и constrained Sparsest-Cut.
+:IMPACT: O(log n)-bicriteria approximation для Graph Partitioning with Demands и Hierarchical Clustering with Demands, O(√log n) для multiplicative demands, O(1) для trees.
+
+- [[hxxps://arxiv.org/abs/2607.13247][Quadratic Probing Revisited: Smoothed Analysis and the Fall of Robin Hood]]
+:ALGO: Smoothed analysis quadratic probing с random probe sequences где k-th probe на offset Θ(k²), анализ Robin Hood vs anti-Robin Hood ordering.
+:IMPACT: Anti-Robin Hood даёт Θ(log ε⁻¹) expected query time при load 1-ε против Θ(ε⁻¹/²) для Robin Hood, proof что почти все fixed-offset degree-d схемы достигают ideal performance.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2307.01412][Sliding suffix trees revisited]] — Первый алгоритм для Task (3) label maintenance в O(1) worst-case time per node deletion/insertion через extension leaf pointers для sliding suffix tree construction.
+- [[hxxps://arxiv.org/abs/2511.04390][Free-Order Online Selection for k-Systems]] — Bipartite graph framework унифицирующий matroid secretary, bipartite matching, matroid intersection с Ω(1/k²)-competitive algorithm для k-growth systems.
+- [[hxxps://arxiv.org/abs/2607.13186][Quantum determinants in polynomial time]] — Algebraic branching program polynomial size для Cayley determinant right quantum matrices через combinatorial bijections/involutions на words.
+
+* cs.DC (Распределённые вычисления)
+** 🧐 Обзор
+Центральная тема — эффективное использование heterogeneous compute для LLM inference и training на edge и internet-scale. Выделяется Agora как первый demonstration permissionless pretraining на 330 consumer GPU через internet с 63% efficiency от H100 baseline. Параллельно развиваются hardware архитектуры для neural-hybrid compression и deterministic simulation в browser runtimes.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.13332][Agora: Collective and Permissionless Internet-Scale Pretraining of Large Language Models]]
+:WHAT: Система bandwidth-efficient pipeline-parallel model sharding over internet-grade links с multi-party fault-tolerant collective operations где каждый участник держит одну stage модели.
+:IMPACT: Первый demonstration Pluralis-8B pretraining на 500B tokens через 40 дней на 330 contributor nodes (consumer GPUs), ~170k tokens/s и 4.2 tokens/TFLOP, 63% efficiency от centralized H100.
+
+- [[hxxps://arxiv.org/abs/2507.01224][FLARE: A Dataflow-Aware and Scalable Hardware Architecture for Neural-Hybrid Scientific Lossy Compression]]
+:WHAT: Dataflow-aware hardware architecture минимизирующая off-chip data access и bubble overhead для neural-hybrid scientific lossy compression в HPC workflows.
+:IMPACT: Runtime speedups 3.50×–96.07× и energy efficiency 24.51×–520.68× across datasets и hardware platforms для petabyte-to-exabyte scientific simulation data.
+
+- [[hxxps://arxiv.org/abs/2509.11076][SmartSwap: Swap-Based Memory Optimization for LLM Training under Varying Operator Sequences]]
+:WHAT: Chameleon redesigns swap-based memory optimization с lightweight online profiler для monitoring operator sequences в Eager Mode с varying sequences.
+:IMPACT: 84.25% reduction profiling overhead, training моделей до 4x larger чем hardware memory, 38.94% performance improvement над recomputation или high-degree parallelism.
+
+- [[hxxps://arxiv.org/abs/2607.12839][HeteroMosaic: Exposing and Exploiting Heterogeneous Execution Opportunities for Energy-Efficient Edge LLM Inference]]
+:WHAT: Heterogeneity-first scheduling framework с heterogeneous roofline model, dependency-preserving micro-batches и trace-guided co-optimization scheduling и device allocation.
+:IMPACT: До 2.05× speedup над llama.cpp и 45.3% reduction energy на AMD Ryzen AI platforms, 2.35× improvement над prior heterogeneous edge AI solutions.
+
+- [[hxxps://arxiv.org/abs/2607.02529][RepliCore: Reproducible Parallel Simulation under Asynchronous Browser Runtimes]]
+:WHAT: Framework отделяющий asynchronous runtime progression от externally observable logical-state visibility через stabilization для bitwise-identical outputs.
+:IMPACT: Reproducible large-scale simulation в browser environments across varying worker configurations, scheduling conditions и rendering frequencies без execution replay.
+
+- [[hxxps://arxiv.org/abs/2607.10443][CloudMicroHaskell: Direct-Style Distributed Haskell via Runtime Graph Serialisation]]
+:WHAT: Cloud Haskell-style library на MicroHaskell где runtime представляет code и data как combinator graph с direct serialisation reachable graph при node boundary crossing.
+:IMPACT: Remote spawning в direct style с variable capture и function-containing messages без programmer-written closure conversion, evaluated на microcontrollers deployment.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.13200][Hybrid multi-objective evolutionary algorithms for service placement in the computing continuum: a comparative study with genetic traceability]]
+:ALGO: Collaborative hybrid island-model MOEA с periodic solution exchange между islands и traceability analysis через genetic load для quantifying island contribution.
+:IMPACT: Hybrid method outperforms standalone baselines across 30 runs с statistically significant improvements, non-uniform island contributions дают interpretable evidence effective cooperation.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.13119][Mixed-Timescale Differential Coding for Downlink Model Broadcast in Wireless Federated Learning]] — MTDC scheme с differential coding на двух уровнях через adjusting reference model для model reconstruction при missed updates с age-aware variant и device scheduling.

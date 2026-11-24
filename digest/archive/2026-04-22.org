@@ -1,0 +1,65 @@
+#+TITLE: Daily Digest: 2026-04-22
+#+FROM: [2026-04-21 Tue]
+#+TO: [2026-04-22 Wed]
+#+DATE: [2026-04-22 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Рынок ИИ смещается к специализированным бенчмаркам и локальным решениям для обеспечения приватности кода. Архитектура поиска эволюционирует в сторону гибридных моделей с активным использованием метаданных и векторов. Инженерные практики стабилизируются: поведенческие интервью сохраняют критический вес несмотря на автоматизацию. Вендоры интегрируют ИИ-агентов в корпоративные среды через существующие облачные платформы безопасности. MLOps фокусируется на сквозной линейке данных для аудита и воспроизводимости моделей в регулируемых отраслях.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard][QIMMA قِمّة ⛰: A Quality-First Arabic LLM Leaderboard]] (Hugging Face) — Первый специализированный бенчмарк для оценки качества арабских языковых моделей.
+- [[hxxp://softwaredoug.com/blog/2026/04/21/metadata-the-3rd-kind-of-retrieval.html][Metadata: the 3rd kind of retrieval]] (Software Doug) — Внедрение метаданных как третьего типа поиска дополняет лексический и векторный методы.
+- [[hxxps://www.kdnuggets.com/seeing-whats-possible-with-opencode-ollama-qwen3-coder][Seeing What's Possible with OpenCode + Ollama + Qwen3-Coder]] (KDnuggets) — Инструкция по развертыванию приватного ИИ-кодера локально без облачных зависимостей.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/tiiuae/qimma-arabic-leaderboard][QIMMA قِمّة ⛰: A Quality-First Arabic LLM Leaderboard]]
+:SCORE: 9/10
+:WHY: Критично для инженеров, работающих с локализацией и оценкой качества моделей на низкоресурсных языках.
+**** [[hxxp://softwaredoug.com/blog/2026/04/21/metadata-the-3rd-kind-of-retrieval.html][Metadata: the 3rd kind of retrieval]]
+:SCORE: 8/10
+:WHY: Меняет подход к проектированию поисковых систем, добавляя точность фильтрации поверх эмбеддингов.
+**** [[hxxps://www.kdnuggets.com/seeing-whats-possible-with-opencode-ollama-qwen3-coder][Seeing What's Possible with OpenCode + Ollama + Qwen3-Coder]]
+:SCORE: 7/10
+:WHY: Практическое руководство по безопасной автоматизации кодирования внутри периметра безопасности компании.
+
+** Инженерия данных
+- [[hxxps://www.kdnuggets.com/advanced-pandas-patterns-most-data-scientists-dont-use][Advanced Pandas Patterns Most Data Scientists Don't Use]] (KDnuggets) — Продвинутые техники оптимизации обработки данных через chaining и векторизацию.
+- [[hxxps://www.kdnuggets.com/5-docker-best-practices-for-faster-builds-and-smaller-images][5 Docker Best Practices for Faster Builds and Smaller Images]] (KDnuggets) — Методы уменьшения размера образов и ускорения сборки для продакшена.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/end-to-end-lineage-with-dvc-and-amazon-sagemaker-ai-mlflow-apps/][End-to-end lineage with DVC and Amazon SageMaker AI MLflow apps]] (AWS) — Схема обеспечения сквозной прослеживаемости данных и моделей для аудита.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/end-to-end-lineage-with-dvc-and-amazon-sagemaker-ai-mlflow-apps/][End-to-end lineage with DVC and Amazon SageMaker AI MLflow apps]]
+:SCORE: 9/10
+:WHY: Решает проблему комплаенса в регулируемых отраслях через точную привязку моделей к версиям данных.
+**** [[hxxps://www.kdnuggets.com/advanced-pandas-patterns-most-data-scientists-dont-use][Advanced Pandas Patterns Most Data Scientists Don't Use]]
+:SCORE: 8/10
+:WHY: Позволяет значительно ускорить пайплайны обработки данных без перехода на другие инструменты.
+**** [[hxxps://www.kdnuggets.com/5-docker-best-practices-for-faster-builds-and-smaller-images][5 Docker Best Practices for Faster Builds and Smaller Images]]
+:SCORE: 7/10
+:WHY: Базовые практики безопасности и эффективности, обязательные для поддержки контейнерной инфраструктуры.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/learnings-from-conducting-1000-interviews][Learnings from conducting ~1,000 interviews at Amazon]] (Pragmatic Engineer) — Инсайды от бывшего Bar Raiser о поведенческих интервью и уровне ожидания.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/learnings-from-conducting-1000-interviews][Learnings from conducting ~1,000 interviews at Amazon]]
+:SCORE: 10/10
+:WHY: Уникальные данные о критериях найма на высокие грейды, не меняющиеся несмотря на внедрение ИИ-инструментов.
+
+** Вендоры
+- [[hxxps://engineering.fb.com/2026/04/21/ml-applications/modernizing-the-facebook-groups-search-to-unlock-the-power-of-community-knowledge/][Modernizing the Facebook Groups Search to Unlock the Power of Community Knowledge]] (Meta) — Переход на гибридную архитектуру поиска для улучшения релевантности контента в сообществах.
+- [[hxxps://aws.amazon.com/blogs/database/rings-billion-scale-semantic-video-search-with-amazon-rds-for-postgresql-and-pgvector/][Ring's Billion-Scale Semantic Video Search with Amazon RDS for PostgreSQL and pgvector]] (AWS) — Кейс масштабирования векторного поиска видео до миллиардов записей на PostgreSQL.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-developer-desks-to-the-whole-organization-running-claude-cowork-in-amazon-bedrock/][From developer desks to the whole organization: Running Claude Cowork in Amazon Bedrock]] (AWS) — Инструкция по безопасному развертыванию ИИ-ассистентов для всех сотрудников компании.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/rings-billion-scale-semantic-video-search-with-amazon-rds-for-postgresql-and-pgvector/][Ring's Billion-Scale Semantic Video Search with Amazon RDS for PostgreSQL and pgvector]]
+:SCORE: 9/10
+:WHY: Редкий пример продакшен-архитектуры векторного поиска на реляционной БД в глобальном масштабе.
+**** [[hxxps://engineering.fb.com/2026/04/21/ml-applications/modernizing-the-facebook-groups-search-to-unlock-the-power-of-community-knowledge/][Modernizing the Facebook Groups Search to Unlock the Power of Community Knowledge]]
+:SCORE: 8/10
+:WHY: Демонстрирует решение проблем валидации и потребления контента через гибридный поиск.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/from-developer-desks-to-the-whole-organization-running-claude-cowork-in-amazon-bedrock/][From developer desks to the whole organization: Running Claude Cowork in Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Практическая модель контроля данных и доступа при массовом внедрении генеративного ИИ в энтерпрайзе.

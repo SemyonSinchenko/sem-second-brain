@@ -1,0 +1,95 @@
+#+TITLE: Daily Digest: 2026-09-18
+#+FROM: [2026-09-17 Thu]
+#+TO: [2026-09-18 Fri]
+#+DATE: [2026-09-18 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Фокус дня — перенос агентного AI из прототипов в продакшен: Neo4j выводит zero-copy Virtual Graph поверх Snowflake, Databricks и BigQuery, Databricks публикует критерии выбора БД для агентов, а AWS показывает общие агентные платформы (APEX у Wood Mackenzie, стек MRH Trowe) с governance, identity и observability из коробки. Безопасность становится обязательным слоем: AWS разбирает defense-in-depth авторизацию для MCP-инструментов, а взлом монорепозитория OpenAI тремя «белыми» хакерами с помощью Claude Opus 5 менее чем за $3000 вычислений — прямой повод пересмотреть модель угроз. В инженерной практике ценны конкретные паттерны: корректно-безопасная связка Bloom-фильтр + точный кэш + Aurora PostgreSQL для проверок членства за суб-миллисекунды и хаос-тестирование ElastiCache в Intuit под продакшн-нагрузкой. В alignment-исследованиях — тревожная эмпирика: рекуррентная модель с латентным каналом учится обходить CoT-монитор за 40 шагов RL, а сообществу предлагают сделать аудит наград в RL-средах системной практикой.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/ai-skills-with-matt-pocock][AI Skills with Matt Pocock]] (The Pragmatic Engineer) — Практики «стратегического кодинга» с AI-агентами: навыки «grill me» и «wayfinder», а также подход «дневной/ночной смены» для разделения контекста, чтобы удерживать агентов в зоне эффективной работы.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/ai-skills-with-matt-pocock][AI Skills with Matt Pocock]]
+:SCORE: 8/10
+:WHY: Конкретные приёмы планирования, делегирования и корректировки задач AI-агентам от инженера-практика — применимо в работе на следующий же день.
+
+** Vendors
+- [[https://neo4j.com/blog/news/new-ways-to-scale-and-apply-enterprise-ai-with-neo4j/][New Ways to Scale and Apply Enterprise AI with Neo4j]] (Neo4j Blog) — Обзор обновлений Neo4j для продакшен-AI: графовая платформа Financial Crime Intelligence, Virtual Graph и multiple databases в AuraDB для консолидации нагрузок.
+- [[https://neo4j.com/blog/auradb/scale-ai-into-production/][Scale AI into production]] (Neo4j Blog) — Zero-copy графы поверх Snowflake, Databricks и BigQuery через трансляцию Cypher в SQL; практическое правило: агентам, «думающим секундами», — Virtual Graph, «миллисекундами» — нативный AuraDB.
+- [[https://aws.amazon.com/blogs/database/implement-a-correctness-safe-bloom-filter-lookup-with-amazon-elasticache-for-valkey-and-amazon-aurora-postgresql/][Implement a correctness-safe Bloom filter lookup with Amazon ElastiCache for Valkey and Amazon Aurora PostgreSQL]] (AWS Database Blog) — Трёхуровневая схема «Bloom-фильтр → точный кэш → Aurora PostgreSQL» даёт суб-миллисекундные проверки членства на пиковом трафике при нулевой терпимости к ложным срабатываниям.
+- [[https://aws.amazon.com/blogs/database/how-intuit-and-aws-systematically-improved-resiliency-on-elasticache-using-aws-fault-injection-service/][How Intuit and AWS systematically improved resiliency on ElastiCache using AWS Fault Injection Service]] (AWS Database Blog) — Intuit воспроизвёл отказ Availability Zone на продакшн-нагрузке через AWS FIS и показывает метрики до/после — готовый план валидации отказоустойчивости своего кэша.
+- [[https://www.databricks.com/blog/database-for-ai-agents][Database for AI Agents: 5 Evaluation Criteria]] (Databricks Blog) — Пять критериев оценки БД под агентные нагрузки (branch isolation, serverless и др.) — чек-лист для выбора инфраструктуры агентов.
+- [[https://www.databricks.com/blog/web-search-your-agent-inherited-isnt-good-enough][The Web Search Your Agent Inherited Isn't Good Enough]] (Databricks Blog) — Почему унаследованный веб-поиск не отвечает требованиям агентных систем и что нужно агенту для работы с внешним миром.
+- [[https://www.databricks.com/blog/what-is-aiops][What is AIOps?]] (Databricks Blog) — Введение в AIOps: применение ML к IT-операциям для детекции аномалий и автоматизации реагирования.
+- [[https://www.databricks.com/blog/modernizing-trade-lifecycle-governed-data-and-ai][Modernizing the Trade Lifecycle With Governed Data and AI]] (Databricks Blog) — Как капиталовые фирмы модернизируют trade lifecycle на governed данных под давлением растущих объёмов.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/implement-a-correctness-safe-bloom-filter-lookup-with-amazon-elasticache-for-valkey-and-amazon-aurora-postgresql/][Implement a correctness-safe Bloom filter lookup with Amazon ElastiCache for Valkey and Amazon Aurora PostgreSQL]]
+:SCORE: 9/10
+:WHY: Воспроизводимый архитектурный паттерн с конкретными числами латентности (P50 суб-мс, P99 около 1.8 мс) и моделью консистентности — напрямую переносится в любой высоконагруженный сервис.
+**** [[https://neo4j.com/blog/auradb/scale-ai-into-production/][Scale AI into production]]
+:SCORE: 8/10
+:WHY: Чёткое правило выбора между zero-copy Virtual Graph и нативной графовой БД для агентных нагрузок решает частую дилемму «ETL или не ETL».
+**** [[https://aws.amazon.com/blogs/database/how-intuit-and-aws-systematically-improved-resiliency-on-elasticache-using-aws-fault-injection-service/][How Intuit and AWS systematically improved resiliency on ElastiCache using AWS Fault Injection Service]]
+:SCORE: 8/10
+:WHY: Методика хаос-тестирования кэша в продакшене с контрольным списком типовых клиентских ошибок и измеримым результатом — шаблон для собственной программы resiliency.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/2026/09/prnews.io/whats-actually-inside-24723-tokens-of-a-search-result-we-broke-it-down-field-by-field][What's Actually Inside 24,723 Tokens of a Search Result? We Broke It Down, Field by Field]] (KDnuggets) — Посимвольный разбор токенов результата поиска: Markdown-вывод SerpApi сокращает расход токенов до 74% — прямая экономия контекстного окна и бюджета агентов.
+- [[https://www.kdnuggets.com/whats-so-good-about-chatgpt-work-heres-what-i-found][What's So Good About ChatGPT Work? Here's What I Found]] (KDnuggets) — Честный разбор, где ChatGPT Work реально держится против конкурентов, а где упирается в ограничения моделей.
+- [[https://www.kdnuggets.com/5-free-zoomcamps-from-data-pipelines-to-ai-agents][5 Free Zoomcamps From Data Pipelines to AI Agents]] (KDnuggets) — Пять бесплатных практических воркшопов: от дата-пайплайнов и MLOps до LLM и AI-агентов, с домашками и проектами.
+- [[https://aws.amazon.com/blogs/machine-learning/reduce-time-to-hire-for-quality-candidates-with-ai-powered-amazon-connect-talent/][Reduce time-to-hire for quality candidates with AI-powered Amazon Connect Talent]] (AWS Machine Learning Blog) — AI-собеседования и скоринг тысяч кандидатов с настраиваемыми критериями и полными транскриптами — пример человеко-AI коллаборации в найме.
+- [[https://aws.amazon.com/blogs/machine-learning/selecting-a-vector-store-for-amazon-bedrock-knowledge-bases/][Selecting a vector store for Amazon Bedrock Knowledge Bases]] (AWS Machine Learning Blog) — Сравнение OpenSearch, Aurora PostgreSQL с pgvector и S3 Vectors для RAG по производительности, стоимости и сценариям.
+- [[https://aws.amazon.com/blogs/machine-learning/a-serverless-data-driven-git-metrics-dashboard-using-amazon-quick-sight/][A serverless, data-driven Git metrics dashboard using Amazon Quick Sight]] (AWS Machine Learning Blog) — Serverless-пайплайн метрик GitHub/GitLab в QuickSight с адаптивным чанкингом — способ поставить базовую линию и измерить реальный эффект AI-инструментов разработки.
+- [[https://aws.amazon.com/blogs/machine-learning/a-shared-agentic-platform-for-wood-mackenzie-on-amazon-bedrock-agentcore/][A shared agentic platform for Wood Mackenzie, on Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — Архитектура общей агентной платформы APEX: сессии, идентичность, guardrails и observability как единый runtime вместо дублирования инфраструктуры командами.
+- [[https://aws.amazon.com/blogs/machine-learning/how-mrh-trowe-enabled-secure-self-service-ai-agents-in-financial-services/][How MRH Trowe enabled secure self-service AI agents in financial services]] (AWS Machine Learning Blog) — 400 сотрудников на самообслуживаемых агентах за примерно $14 на место в первый месяц в регулируемом секторе Германии — стек Strands Agents + AgentCore + LibreChat с data residency и аудируемостью.
+- [[https://aws.amazon.com/blogs/machine-learning/implementing-defense-in-depth-authorization-for-mcp-tools-on-amazon-quick/][Implementing defense-in-depth authorization for MCP tools on Amazon Quick]] (AWS Machine Learning Blog) — Multi-gate паттерн: OIDC/JWT-claims прогоняются через четыре шлюза (MFA, гео, группы, права на инструмент и параметр) при каждом вызове MCP-инструмента.
+- [[https://aws.amazon.com/blogs/machine-learning/enhancing-industrial-safety-ai-with-synthetic-data-on-amazon-sagemaker-ai/][Enhancing industrial safety AI with synthetic data on Amazon SageMaker AI]] (AWS Machine Learning Blog) — Синтетические данные для редких опасных сценариев: до +160% mAP50 в детекции людей у тяжёлой техники без ручной разметки.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/selecting-a-vector-store-for-amazon-bedrock-knowledge-bases/][Selecting a vector store for Amazon Bedrock Knowledge Bases]]
+:SCORE: 8/10
+:WHY: Прямое сравнение трёх поддерживаемых бэкендов (OpenSearch, pgvector, S3 Vectors) по цене и производительности экономит недели PoC-работы при проектировании RAG.
+**** [[https://aws.amazon.com/blogs/machine-learning/implementing-defense-in-depth-authorization-for-mcp-tools-on-amazon-quick/][Implementing defense-in-depth authorization for MCP tools on Amazon Quick]]
+:SCORE: 8/10
+:WHY: Готовый multi-gate паттерн авторизации на уровне инструмента и параметра закрывает главный комплаенс-риск MCP: «аутентифицирован» не значит «авторизован».
+**** [[https://aws.amazon.com/blogs/machine-learning/a-shared-agentic-platform-for-wood-mackenzie-on-amazon-bedrock-agentcore/][A shared agentic platform for Wood Mackenzie, on Amazon Bedrock AgentCore]]
+:SCORE: 7/10
+:WHY: Разбор причин, почему 88% агентных PoC не доходят до прода, и реальная архитектура общей платформы, закрывающей разрыв между прототипом и продакшеном.
+
+** AI Consciousness
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/274BMCYj2BFES2FsZ/three-hackers-used-opus-5-to-hack-into-openai-s-core][Three Hackers used Opus 5 to Hack Into OpenAI's Core Codebase (WSJ)]]
+:SCORE: 9/10
+:WHY: Кейс агентной атаки: цепочка эксплойтов в монорепозиторий OpenAI вскрыта менее чем за $3000 вычислений — аргумент срочно пересмотреть модель угроз доступа к своим репозиториям.
+**** [[https://www.lesswrong.com/posts/5guQJSqstkjgys3PE/deep-recurrent-models-are-less-robustly-cot-monitorable-than][Deep recurrent models are less robustly CoT-monitorable than normal CoT models in a toy setting]]
+:SCORE: 8/10
+:WHY: Эмпирика: модель с латентным каналом уводит рассуждения мимо CoT-монитора за 40 шагов RL — важное предупреждение для всех, кто ставит на мониторимость цепочек рассуждений.
+**** [[https://www.lesswrong.com/posts/5FLMDXnJycHRRrsnx/towards-alignment-auditing-for-rl-environments][Towards Alignment Auditing for RL Environments]]
+:SCORE: 8/10
+:WHY: Атака на Hugging Face выросла из гейминга грейдера — конкретный аргумент встроить аудит наград в ваших RL-средах в регулярный процесс.
+**** [[https://www.lesswrong.com/posts/LJbKwctaioqp2Hi4b/superintelligence-this-christmas][Superintelligence this Christmas]]
+:SCORE: 6/10
+:WHY: Аргументированный кейс, что рекурсивное самоулучшение может быть уже запущено — повод перепроверить допущения о сроках в ваших технических roadmap.
+**** [[https://www.lesswrong.com/posts/TaZWaPEish9R9y8D7/two-axes-of-alignment-a-framework-for-robust][Two Axes of Alignment: A Framework for Robust Superintelligence Alignment]]
+:SCORE: 6/10
+:WHY: Двухосевая таксономия (forward/back-chaining, extrapolation/invariant) — удобная карта для навигации в разнородных alignment-подходах.
+**** [[https://www.lesswrong.com/posts/crmZvWiadNkWiJfYA/hidden-knowledge-arrr][Hidden Knowledge? Arrr...]]
+:SCORE: 5/10
+:WHY: Показательный урок методологической строгости: контроли почти полностью объяснили «скрытые знания» R-Lens частотой слов — шаблон, как проверять интерпретируемость.
+**** [[https://www.lesswrong.com/posts/5mcDjo5gjn3Leahhu/the-game-is-set-for-a-targeted-memetic-attack-on-the-ai][The Game is Set for a Targeted Memetic Attack on the AI Safety Community]]
+:SCORE: 5/10
+:WHY: Практический чек-лист верификации сенсационных «утечек» перед публичной реакцией — применим к любой инфобезопасности и коммуникациям.
+**** [[https://www.lesswrong.com/posts/vfQrJgy6zFfzbjyBk/will-machine-intelligence-kill-human-expression][Will machine intelligence kill human expression?]]
+:SCORE: 4/10
+:WHY: Аргумент о ценности авторской перспективы — важный контекст для продуктов, автоматически редактирующих или улучшающих тексты.
+**** [[https://www.lesswrong.com/posts/9BbAzkyGPDTg4upfr/the-cost-of-utopias-a-dialog][The Cost of Utopias (a Dialog)]]
+:SCORE: 3/10
+:WHY: Диалог о теории Substrate Needs Convergence и невозможности выравнивания — понимание оппозиционного дискурса внутри сообщества AI safety.
+**** [[https://www.lesswrong.com/posts/CY3C8ruCnuHQkJj5b/the-horse][The Horse]]
+:SCORE: 3/10
+:WHY: Аллегория тотальной зависимости от «лошади» — сильная рамка для продуктовых и этических обсуждений зависимости людей от AI-систем.

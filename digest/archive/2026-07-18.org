@@ -1,0 +1,59 @@
+#+TITLE: Daily Digest: 2026-07-18
+#+FROM: [2026-07-17 Fri]
+#+TO: [2026-07-18 Sat]
+#+DATE: [2026-07-18 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с экспериментов на продакшен-архитектуру агентного ИИ, exemplified by Smartsheet's MCP implementation. Вендоры усиливают контроль над генеративными моделями через шлюзы управления (Unity AI Gateway). Инженерам предлагаются конкретные практики для изоляции контекста разработки (Git Worktrees) и масштабирования дообучения мультимодальных моделей.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/git-worktrees-for-ai-development][Git Worktrees for AI Development]] (KDnuggets) — Использование worktrees позволяет изолировать эксперименты с промптами и кодом агентов в отдельных ветках без переключения контекста.
+- [[hxxps://www.kdnuggets.com/5-free-resources-on-agentic-ai][5 FREE Resources on Agentic AI]] (KDnuggets) — Подборка материалов для изучения архитектуры автономных агентов, от базовых концепций до продвинутых паттернов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/transform-your-sales-organization-with-amazon-quick-your-new-agentic-ai-teammate/][Transform your sales organization with Amazon Quick: your new agentic AI teammate]] (AWS) — Кейс внедрения агентов для автоматизации рутины в продажах с интеграцией в CRM и аналитику.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-mobile-layout-for-amazon-quick-dashboards/][Introducing Mobile Layout for Amazon Quick dashboards]] (AWS) — Адаптивная верстка дашбордов для мобильных устройств без дополнительной работы со стороны разработчика.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-smartsheet-built-a-remote-mcp-server-on-aws/][How Smartsheet built a remote MCP server on AWS]] (AWS) — Архитектурный разбор безопасного exposes enterprise data to AI agents via Model Context Protocol с оптимизацией токенов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-smartsheet-built-a-remote-mcp-server-on-aws/][How Smartsheet built a remote MCP server on AWS]]
+:SCORE: 9/10
+:WHY: Практический референс архитектуры MCP-сервера для безопасной интеграции корпоративных данных с AI-агентами.
+**** [[hxxps://www.kdnuggets.com/git-worktrees-for-ai-development][Git Worktrees for AI Development]]
+:SCORE: 8/10
+:WHY: Конкретная техника управления параллельными экспериментами в AI-разработке без загрязнения основной ветки.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/transform-your-sales-organization-with-amazon-quick-your-new-agentic-ai-teammate/][Transform your sales organization with Amazon Quick: your new agentic AI teammate]]
+:SCORE: 7/10
+:WHY: Пример реализации бизнес-логики агентного ИИ для автоматизации рабочих процессов внутри предприятия.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/tech-builds-on-ai-finance-protects-margin][Tech builds on AI. Finance protects the margin.]] (Databricks) — Анализ влияния инвестиций в ИИ на финансовую маржинальность технологических компаний.
+- [[hxxps://www.databricks.com/blog/building-soccer-coaching-app-databricks][Building a soccer coaching app on Databricks]] (Databricks) — Использование трекинг-данных в спорте для создания аналитических приложений на платформе вендора.
+- [[hxxps://www.databricks.com/blog/metas-spark-muse-11-now-available-databricks-fully-governed-unity-ai-gateway][Meta's Spark Muse 1.1 is now available on Databricks, fully governed by Unity AI Gateway]] (Databricks) — Интеграция внешних моделей Meta в корпоративный контур с централизованным управлением доступом.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/metas-spark-muse-11-now-available-databricks-fully-governed-unity-ai-gateway][Meta's Spark Muse 1.1 is now available on Databricks, fully governed by Unity AI Gateway]]
+:SCORE: 8/10
+:WHY: Демонстрирует тренд на унификацию управления сторонними моделями через единый шлюз безопасности.
+**** [[hxxps://www.databricks.com/blog/tech-builds-on-ai-finance-protects-margin][Tech builds on AI. Finance protects the margin.]]
+:SCORE: 7/10
+:WHY: Важный контекст для инженеров о том, как инфраструктурные решения влияют на финансовый результат.
+**** [[hxxps://www.databricks.com/blog/building-soccer-coaching-app-databricks][Building a soccer coaching app on Databricks]]
+:SCORE: 6/10
+:WHY: Illustrates platform versatility for real-time data applications beyond traditional BI.
+
+** Открытое ПО
+- [[hxxps://huggingface.co/blog/nvidia/scale-diffusers-finetuning-nemo-automodel][Fine-tune video and image models at scale with NVIDIA NeMo Automodel and 🤗 Diffusers]] (Hugging Face) — Инструкция по масштабированию дообучения генеративных моделей с использованием открытых библиотек.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/nvidia/scale-diffusers-finetuning-nemo-automodel][Fine-tune video and image models at scale with NVIDIA NeMo Automodel and 🤗 Diffusers]]
+:SCORE: 8/10
+:WHY: Прямое руководство по пайплайну fine-tuning для инженеров ML, сочетающее мощь NVIDIA и экосистему Hugging Face.
+
+** Инженерия данных
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи сообщества по управлению графовыми данными в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность узнать о стандартах и лучших практиках работы с графовыми базами данных от лидеров индустрии.

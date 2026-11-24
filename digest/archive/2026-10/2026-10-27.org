@@ -1,0 +1,97 @@
+#+TITLE: Daily Digest: 2026-10-27
+#+FROM: [2026-10-26 Mon]
+#+TO: [2026-10-27 Tue]
+#+DATE: [2026-10-27 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Индустрия активно «агентифицирует» инфраструктуру: Apache Airflow получил first-class поддержку LLM-операторов, а Amazon Bedrock продвигает агентный retrieval и prompt caching как стандартные паттерны продакшена. Вендоры баз данных делают ставку на AI-ориентированные миграции — NYT сжала переход с Oracle на Aurora PostgreSQL с 18 до 5 месяцев, а Vestiaire Collective довела switchover RDS до 7 секунд. Meta открывает сетевые инновации для AI-кластеров гигаваттного масштаба (IceCube, FPF, MetaRoCE) через OCP. В области безопасности и интерпретируемости растёт интерес к измерению агентных возможностей и предсказанию out-of-distribution спилловера пропенсити после файнтюнинга. Ключевой сдвиг: детерминированность, наблюдаемость и управление стоимостью контекста становятся главными инженерными проблемами агентных систем.
+
+* 📂 Категории
+
+** Data Engineering
+
+- [[https://dataengineeringcentral.substack.com/p/ai-provider-support-in-apache-airflow][AI Provider support in Apache Airflow]] (Data Engineering Central) — В Airflow появились 6 новых AI-операторов и 6 task-декораторов с first-class поддержкой; автор разбирает их на практике через Astro CLI и предупреждает о рисках недетерминированных workflow в оркестрации.
+- [[https://vutr.substack.com/p/data-pipeline-101-strategies-to-make][Data Pipeline 101: Strategies to make the data pipelines fail... reliably]] (vutr.substack.com) — Практические стратегии проектирования «надёжных отказов»: вместо попытки построить непадающий пайплайн — готовность к инцидентам и контролируемое восстановление.
+
+*** 💎 Топ-3 категории
+
+**** [[https://dataengineeringcentral.substack.com/p/ai-provider-support-in-apache-airflow][AI Provider support in Apache Airflow]]
+:SCORE: 8/10
+:WHY: Официальная интеграция LLM-операторов в Airflow меняет дизайн пайплайнов — нужно понимать разницу детерминированных и недетерминированных задач уже сейчас.
+
+** Engineers
+
+- [[https://www.kdnuggets.com/7-advanced-python-design-patterns-for-data-scientists][7 Advanced Python Design Patterns for Data Scientists]] (KDnuggets) — Семь паттернов (Strategy, Adapter, Command, Proxy и др.) с Python-реализациями и честными оговорками о том, когда каждый оправдан.
+- [[https://vutr.substack.com/p/data-pipeline-101-strategies-to-make][Data Pipeline 101: Strategies to make the data pipelines fail... reliably]] (vutr.substack.com) — Рамка мышления «fail reliably»: отказ — норма, важна управляемость восстановления, а не идеальность кода.
+- [[https://jaehyeon.me/blog/2026-10-28-desflow-0-25-0/][From dynamic-des to desflow: What Changed in Five Releases]] (jaehyeon.me) — Дискретно-событийное симулирование на YAML поверх SimPy: отказы клиентов, поломки машин, повторные прогоны и подгонка распределений под измеренные данные — без Docker.
+
+*** 💎 Топ-3 категории
+
+**** [[https://jaehyeon.me/blog/2026-10-28-desflow-0-25-0/][From dynamic-des to desflow: What Changed in Five Releases]]
+:SCORE: 7/10
+:WHY: Симулирование систем через декларативный YAML с валидацией модели перед запуском — редкий и практичный инструмент для ёмкостного планирования.
+
+** Vendors
+
+- [[https://aws.amazon.com/blogs/database/the-new-york-times-cut-oracle-migration-time-from-18-to-5-months/][The New York Times cut Oracle migration time from 18 to 5 months]] (AWS Database Blog) — Кейс миграции 110 000 элементов схемы и 6 млн строк кода на Aurora PostgreSQL через Bedrock-агентов (Aedeon + Claude) с нулевым влиянием на выручку при cutover.
+- [[https://aws.amazon.com/blogs/database/how-vestiaire-collective-achieved-near-zero-downtime-rds-for-mariadb-upgrades-with-amazon-rds-blue-green-deployments/][How Vestiaire Collective achieved near-zero downtime RDS for MariaDB upgrades with Amazon RDS Blue/Green Deployments]] (AWS Database Blog) — Двухфазный апгрейд MariaDB 10.6 → 11.4 через два мажорных 版本 с switchover за 94 и 7 секунд в пиковый сезон.
+- [[https://www.databricks.com/blog/unify-your-productivity-and-ai-data-lakeflow Connect][Unify your productivity and AI data with Lakeflow Connect]] (Databricks) — Полностью управляемые коннекторы Lakeflow Connect для объединения данных продуктивности и AI в одном платформенном слое.
+- [[https://www.databricks.com/blog/building-live-intelligence-databricks-ai-search-supports-streaming-tables-materialized-views][Building live intelligence: Databricks AI Search supports Streaming Tables, Materialized Views, and Managed tables using Iceberg]] (Databricks) — AI Search теперь нативно индексирует Streaming Tables, Materialized Views и managed-таблицы на Iceberg, убирая разрыв между «живыми» данными и поиском.
+
+*** 💎 Топ-3 категории
+
+**** [[https://aws.amazon.com/blogs/database/the-new-york-times-cut-oracle-migration-time-from-18-to-5-months/][The New York Times cut Oracle migration time from 18 to 5 months]]
+:SCORE: 9/10
+:WHY: Конкретный playbook AI-агентной миграции revenue-critical системы с Oracle: оценка ~200 CPU лицензий, чек-лист cutover и нулевой даунтайм — воспроизводимый паттерн для любой компании с legacy-Oracle.
+
+** Open Source
+
+- [[https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/][Meta Networking at the 2026 OCP Global Summit: Open Innovation for Scale-Up, Scale-Out, and Scale-Across AI Networks]] (Meta Engineering) — Meta открывает сетевой стек для AI гигаваттного масштаба: 102.4T-коммутатор IceCube, Flattened Planar Fabric, супер-spine BAG и RDMA-транспорт MetaRoCE под открытой лицензией.
+
+*** 💎 Топ-3 категории
+
+**** [[https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/][Meta Networking at the 2026 OCP Global Summit: Open Innovation for Scale-Up, Scale-Out, and Scale-Across AI Networks]]
+:SCORE: 8/10
+:WHY: Слайды и видео по реальному дизайну сети для кластеров уровня Prometheus — прямой источник архитектурных решений для любого, кто строит AI-фабрики.
+
+** Artificial Intelligence
+
+- [[https://www.kdnuggets.com/building-your-first-ai-agent-in-python-with-the-openai-agents-sdk][Building Your First AI Agent in Python with the OpenAI Agents SDK]] (KDnuggets) — Энд-ту-энд туториал по первому агенту на OpenAI Agents SDK: web search, Python-инструменты, память диалога и трейсинг.
+- [[https://www.kdnuggets.com/the-roadmap-to-becoming-a-computer-vision-engineer-in-2026][The Roadmap to Becoming a Computer Vision Engineer in 2026]] (KDnuggets) — Четырёхэтапный технический roadmap: от пространственной математики и ViT до 3D neural rendering и оптимизации под edge.
+- [[https://aws.amazon.com/blogs/machine-learning/fleet-wide-computer-vision-lifecycle-at-the-edge-with-sagemaker-sdk-v3/][Fleet-wide computer vision lifecycle at the edge with SageMaker SDK v3]] (AWS ML Blog) — Паттерн MLOps для тысяч камер: двухветвевой SageMaker Pipeline с quality gates, компиляцией через Neo и полным деплоем на CDK; полный прогон на синтетике стоит $0.07.
+- [[https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/][Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock]] (AWS ML Blog) — Разбор механики KV-кэша и паттернов явного/неявного кэширования префиксов, которые радикально снижают стоимость многоходовых агентов.
+- [[https://aws.amazon.com/blogs/machine-learning/build-agentic-retrieval-on-a-managed-amazon-bedrock-knowledge-base-with-cdk/][Build agentic retrieval on a Managed Amazon Bedrock Knowledge Base with CDK]] (AWS ML Blog) — Агентный retrieval через Managed Knowledge Base + AgentCore Gateway (MCP-инструменты) и AgenticRetrieveStream: multi-turn планирование и наблюдаемость вместо однотактного RAG.
+
+*** 💎 Топ-3 категории
+
+**** [[https://aws.amazon.com/blogs/machine-learning/groundhog-day-for-ai-agents-prompt-caching-patterns-for-using-openai-models-on-amazon-bedrock/][Groundhog Day for AI agents: Prompt caching patterns for using OpenAI models on Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Кэширование префиксов — прямое снижение затрат и латентности агентов на порядок; понимание prefill и границ кэшируемого префикса обязательно для продакшена.
+
+** AI Consciousness
+
+*** 💎 Топ-10 категории
+
+- [[https://www.lesswrong.com/posts/hSRrnDXNX4zWfN3Z2/a-dead-man-s-switch-for-scheming-ais][A dead man's switch for scheming AIs]] (LessWrong) — Предложение механизма гарантированного отключения схемящих AI после утраты человечества: трекинг весов, глобальный countdown и proof-of-life — анализ через призму folk theorem.
+- [[https://www.lesswrong.com/posts/eD84A7C5jhhXNEhCQ/a-big-case-study-of-propensity-entanglement][A big case study of propensity entanglement]] (LessWrong) — Эмпирика: 24 пропенсити, 4 метода эlicitации и прогноз спилловера после SFT; лучший предиктор — поведение других моделей, наихудший — симметричное предположение о misalignment.
+- [[https://www.lesswrong.com/posts/cTiEPgkvDRxTFwtyu/measuring-agent-capabilities-on-open-ended-ai-r-and-d-tasks-1][Measuring agent capabilities on open-ended AI R&D tasks]] (LessWrong) — Замер возможностей агентов на 4 открытых исследовательских задачах: время удвоения ~11.5 месяцев, инженерные задачи растут быстрее концептуальных.
+- [[https://www.lesswrong.com/posts/dHkE55CTpttX6hFB3/have-llms-passed-the-turing-test][Have LLMs passed the Turing test?]] (LessWrong) — Аргумент: LLM решают millennium problems, но не умеют «дуплицитную» мимику под человека — вероятно, из-за намеренного тренинга против дуплиситета в пользу «house voice».
+- [[https://www.lesswrong.com/posts/W2ACsq8XJ3FmDwNL2/are-persona-features-coherent][Are Persona Features Coherent?]] (LessWrong) — Критика концепции «persona features» в mech interp: чем «обманывающий персонаж» отличается от «обмана» и «абстрактного концепта обмана»?
+- [[https://www.lesswrong.com/posts/LFFpT5oev3jRgxZ9D/towards-an-architecture-agnostic-definition-of-attention][Towards an Architecture-Agnostic Definition of "Attention"]] (LessWrong) — Попытка определить внимание независимо от архитектуры через байесовскую пропагацию убеждений, опираясь на доказательство «MLP запоминают, трансформеры контекстуализируют».
+- [[https://www.lesswrong.com/posts/eJbyxYQSiiciudysF/emotion-is-perception-with-pull-2][Emotion is Perception with Pull]] (LessWrong) — Гипотеза об эмоции как единой репрезентации в вентромедиальной PFC и островковой коре, объясняющая кейс пациента Эллиота и соматическую теорию Дамасио.
+- [[https://www.lesswrong.com/posts/WnJaYKuMnJP5SGzEy/transcript-kevin-roose-does-a-science-communication-and-agi][[Transcript] Kevin Roose does a science communication and AGI sociology in Vox interview]] (LessWrong) — Транскрипт интервью с Кевином Рузом о его книге The AGI Chronicles и том, как мейнстрим-медиа теперь освещают AGI и AI safety.
+- [[https://www.lesswrong.com/posts/MzPDS4ZNqcLcrFeio/remote-embalming-and-shipment-for-brain-or-whole-body][Remote embalming and shipment for brain or whole body preservation with Sparks]] (LessWrong) — Практический разбор использования бальзамировщиков для удалённой структурной фиксации мозга в контексте биостазиса и крионики.
+- [[https://www.lesswrong.com/events/QWmFnGWnjfo5boeys/san-francisco-rationalist-dinner][San Francisco Rationalist Dinner]] (LessWrong) — Офлайн-встреча рационалистов в Сан-Франциско: обсуждение AI safety и рациональности, новичкам рады.
+
+** Non Engineering
+
+- [[https://www.databricks.com/blog/how-teach-databricks-free-edition][How to teach with Databricks Free Edition]] (Databricks) — Преподаватели могут вести полный курс по данным и AI на production-платформе бесплатно — готовая основа для учебных программ.
+- [[https://www.databricks.com/blog/media-industry-becoming-prediction-economy][The media industry is becoming a prediction economy]] (Databricks) — Тренд: медийная индустрия переходит от экономики внимания (impressions, клики) к экономике предсказаний с AI-персонализацией.
+
+*** 💎 Топ-3 категории
+
+**** [[https://www.databricks.com/blog/media-industry-becoming-prediction-economy][The media industry is becoming a prediction economy]]
+:SCORE: 6/10
+:WHY: Полезный контекст для инженеров, строящих рекомендательные и персонализационные системы: куда смещается монетизация медиа и что это значит для требований к данным.

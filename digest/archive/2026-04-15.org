@@ -1,0 +1,62 @@
+#+TITLE: Daily Digest: 2026-04-15
+#+FROM: [2026-04-14 Tue]
+#+TO: [2026-04-15 Wed]
+#+DATE: [2026-04-15 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последний день ключевой тренд — переход от AI как инструмента к AI как агентской системе и платформе. Dremio и Databricks выпускают решения, где CLI и платформы созданы для автономных AI-агентов, а не людей, что меняет архитектурные подходы. AWS активно продвигает фреймворк Path-to-Value для генеративного AI, помогая преодолеть барьеры между экспериментом и производственным внедрением. Наблюдается рост интереса к управляемым агентским платформам (Amazon Bedrock AgentCore, Spring AI SDK) для масштабирования сложных AI-систем. В области инженерии Pragmatic Engineer публикует важное исследование о реальном влиянии AI на роли разработчиков и рост затрат, что становится критичным для руководителей.
+
+* 📂 Категории
+** Open Source
+- [[hxxps://opensource.org/blog/clearlydefined-a-three-year-roadmap-for-sustainability-and-growth][ClearlyDefined: A Three-Year Roadmap for Sustainability and Growth]] (opensource.org) — План развития проекта ClearlyDefined с фокусом на снижение технического долга, оптимизацию вычислений и расширение использования данных о лицензиях для улучшения безопасности supply chain.
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/clearlydefined-a-three-year-roadmap-for-sustainability-and-growth][ClearlyDefined: A Three-Year Roadmap for Sustainability and Growth]]
+:SCORE: 8/10
+:WHY: Показывает стратегический подход к sustainability open-source проектов, важный для архитекторов, работающих с supply chain.
+
+** Vendors
+- [[hxxps://www.dremio.com/blog/the-first-user-of-your-cli-wont-be-a-person/][The First User of Your CLI Won’t Be a Person]] (Dremio) — CLI должен быть разработан для интроспекции машинами (AI-агентами), с поддержкой структурированного JSON описания команд, что меняет принципы дизайна инструментов.
+- [[hxxps://www.databricks.com/blog/agentic-reasoning-practice-making-sense-structured-and-unstructured-data][Agentic Reasoning in Practice: Making Sense of Structured and Unstructured Data]] (Databricks) — Практические подходы к использованию агентского reasoning для анализа смешанных данных в enterprise-контексте.
+- [[hxxps://www.databricks.com/blog/agent-bricks-governed-enterprise-agent-platform][Agent Bricks: The Governed Enterprise Agent Platform]] (Databricks) — Платформа для построения управляемых AI-агентов в корпоративной среде с соблюдением governance и безопасности.
+- [[hxxps://www.databricks.com/blog/8-ai-and-data-trends-shaping-financial-services-2026][8 AI and data trends shaping financial services in 2026]] (Databricks) — Обзор ключевых тенденций AI и данных в финансовом секторе на 2026 год, полезный для стратегического планирования.
+- [[hxxps://aws.amazon.com/blogs/database/improving-storage-with-additional-storage-volumes-in-amazon-rds-for-sql-server/][Improving storage with additional storage volumes in Amazon RDS for SQL Server]] (AWS) — Практическое руководство по использованию дополнительных storage volumes в RDS для SQL Server для решения проблем производительности и масштабирования.
+- [[hxxps://aws.amazon.com/blogs/database/accelerate-database-migration-to-amazon-aurora-dsql-with-kiro-and-amazon-bedrock-agentcore/][Accelerate database migration to Amazon Aurora DSQL with Kiro and Amazon Bedrock AgentCore]] (AWS) — Реализация агент-ориентированного помощника для миграции баз данных, использующего AI для анализа схем и автоматизации процесса.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — Анонс встречи Technical User Community для обсуждения технологий и стандартов в области данных.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/the-first-user-of-your-cli-wont-be-a-person/][The First User of Your CLI Won’t Be a Person]]
+:SCORE: 9/10
+:WHY: Предлагает фундаментальный shift в дизайне CLI для AI-агентов, что критично для архитекторов будущих data platforms.
+**** [[hxxps://aws.amazon.com/blogs/database/accelerate-database-migration-to-amazon-aurora-dsql-with-kiro-and-amazon-bedrock-agentcore/][Accelerate database migration to Amazon Aurora DSQL with Kiro and Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Конкретная реализация агентского AI для сложной задачи миграции БД, демонстрирующая практическую интеграцию AWS сервисов.
+**** [[hxxps://www.databricks.com/blog/agent-bricks-governed-enterprise-agent-platform][Agent Bricks: The Governed Enterprise Agent Platform]]
+:SCORE: 7/10
+:WHY: Показывает, как крупный vendor решает проблему governance в агентских системах, важную для production deployments.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/collaborative-ai-systems-human-ai-teaming-workflows][Collaborative AI Systems: Human-AI Teaming Workflows]] (KDnuggets) — Описывает переход от простых команд к истинным workflow совместной работы человека и AI.
+- [[hxxps://www.kdnuggets.com/top-7-docker-compose-templates-every-developer-should-use][Top 7 Docker Compose Templates Every Developer Should Use]] (KDnuggets) — Сборник практических Docker Compose templates для различных сценариев, включая локальное AI development.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/navigating-the-generative-ai-journey-the-path-to-value-framework-from-aws/][Navigating the generative AI journey: The Path-to-Value framework from AWS]] (AWS) — Фреймворк для системного преодоления барьеров при переходе генеративного AI от POC к production и созданию ценности.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/use-case-based-deployments-on-sagemaker-jumpstart/][Use-case based deployments on SageMaker JumpStart]] (AWS) — Новые оптимизированные deployment configurations в SageMaker JumpStart для конкретных use cases (генерация, суммаризация, Q&A).
+- [[hxxps://aws.amazon.com/blogs/machine-learning/best-practices-to-run-inference-on-amazon-sagemaker-hyperpod/][Best practices to run inference on Amazon SageMaker HyperPod]] (AWS) — Практические рекомендации по запуску inference на HyperPod с focus на auto-scaling, cost optimization и управлении ресурсами.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-guidesly-built-ai-generated-trip-reports-for-outdoor-guides-on-aws/][How Guidesly built AI-generated trip reports for outdoor guides on AWS]] (AWS) — Реализация вертикального AI SaaS решения на AWS для автоматической генерации контента на основе данных и медиа.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/spring-ai-sdk-for-amazon-bedrock-agentcore-is-now-generally-available/][Spring AI SDK for Amazon Bedrock AgentCore is now Generally Available]] (AWS) — GA Spring AI SDK для AgentCore, позволяющего Java разработчикам быстро создавать production-ready AI агенты с использованием знакомых Spring паттернов.
+- [[hxxps://huggingface.co/blog/Hcompany/holotab][Meet HoloTab by HCompany. Your AI browser companion.]] (Hugging Face) — Анонс AI companion для браузера, расширяющего возможности взаимодействия.
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/navigating-the-generative-ai-journey-the-path-to-value-framework-from-aws/][Navigating the generative AI journey: The Path-to-Value framework from AWS]]
+:SCORE: 9/10
+:WHY: Предлагает структурированный фреймворк для решения реальных проблем внедрения AI в enterprise, критичный для архитекторов и руководителей.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/spring-ai-sdk-for-amazon-bedrock-agentcore-is-now-generally-available/][Spring AI SDK for Amazon Bedrock AgentCore is now Generally Available]]
+:SCORE: 8/10
+:WHY: Значительное снижение barrier to entry для создания масштабируемых AI агентов в Java/Spring ecosystem.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/use-case-based-deployments-on-sagemaker-jumpstart/][Use-case based deployments on SageMaker JumpStart]]
+:SCORE: 7/10
+:WHY: Конкретные оптимизации deployment под задачи, позволяющие улучшить performance и снизить cost для inference workloads.
+
+** Data Engineering
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026][The impact of AI on software engineers in 2026: key trends]] (The Pragmatic Engineer) — Результаты исследования влияния AI на роли, затраты и профессиональную идентичность разработчиков, основанные на опросе 900+ респондентов.
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-impact-of-ai-on-software-engineers-2026][The impact of AI on software engineers in 2026: key trends]]
+:SCORE: 10/10
+:WHY: Предоставляет уникальные данные и анализ реального воздействия AI на инженеров и менеджеров, необходимый для стратегического планирования и управления.

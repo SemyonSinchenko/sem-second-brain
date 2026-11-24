@@ -1,0 +1,66 @@
+#+TITLE: Daily Digest: 2026-06-18
+#+FROM: [2026-06-17 Wed]
+#+TO: [2026-06-18 Thu]
+#+DATE: [2026-06-18 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия переходит к агентному ИИ: AWS, Dremio и Databricks представляют инфраструктуру для автономных агентов и управления контекстом. PostgreSQL 18 на AWS приносит значительные улучшения производительности (skip scan) и безопасности (депрекация MD5). Архитектура Lakehouse эволюционирует с внедрением Rust и улучшенной поддержкой полуструктурированных данных в Spark 4. Open Source Initiative фокусируется на регуляторике ИИ и кибербезопасности в своем годовом отчете.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/the-future-of-the-lakehouse-delta][The Future of the Lakehouse: Delta Lake, Rust, and Data Platforms at Scale]] (Data Engineering Central) — обсуждение архитектуры lakehouse на Rust и delta-rs вне экосистемы Spark для регулируемых отраслей.
+- [[hxxps://newsletter.pragmaticengineer.com/p/cicd-with-robert-erez][CI/CD with Robert Erez]] (The Pragmatic Engineer) — стратегия rollout без откатов (roll forward) и практические ограничения GitOps в современных пайплайнах доставки.
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/the-future-of-the-lakehouse-delta][The Future of the Lakehouse: Delta Lake, Rust, and Data Platforms at Scale]]
+:SCORE: 9/10
+:WHY: Критический взгляд на эволюцию форматов таблиц и роль Rust в построении высокопроизводительных данных платформ.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/cicd-with-robert-erez][CI/CD with Robert Erez]]
+:SCORE: 8/10
+:WHY: Практические паттерны безопасного деплоя и управления состоянием баз данных при непрерывной доставке.
+
+** Инженерия
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-%EF%B8%8F-come-fly-with-me-%EF%B8%8F-d9df21fe45fe?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? ✈️ Come Fly With Me‍✈️]] (Towards Data Engineering) — анализ нового типа VARIANT в Spark 4 для работы с полуструктурированными данными и дрейфом схем.
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-%EF%B8%8F-come-fly-with-me-%EF%B8%8F-d9df21fe45fe?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? ✈️ Come Fly With Me‍✈️]]
+:SCORE: 8/10
+:WHY: Объясняет работу с реальными хаотичными данными в Spark 4 через новый тип VARIANT и поддержку XML.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/postgresql-18-on-amazon-aurora-and-amazon-rds-performance-enhancements/][PostgreSQL 18 on Amazon Aurora and Amazon RDS: Performance enhancements]] (AWS) — оптимизация skip scan для составных индексов и улучшенный EXPLAIN без необходимости апгрейда инфраструктуры.
+- [[hxxps://www.dremio.com/blog/enterprise-agentic-analytics/][Enterprise Agentic Analytics Explained]] (Dremio) — концепция агентной аналитики для выполнения многоступенчатых запросов поверх распределенных данных с gouvernance.
+- [[hxxps://www.databricks.com/blog/whats-new-databricks-platform-security-and-compliance-data-ai-summit-2026][What's new in Databricks Platform security and compliance at Data + AI Summit 2026]] (Databricks) — обновления безопасности платформы для масштабирования ИИ и данных в.enterprise.
+- [[hxxps://gdotv.com/blog/janusgraph-visualizer-vs-gdotv/][Working with JanusGraph? Here's how gdotv compares to JanusGraph Visualizer]] (gdotv) — сравнение инструментов визуализации графов для отладки и анализа данных.
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/postgresql-18-on-amazon-aurora-and-amazon-rds-performance-enhancements/][PostgreSQL 18 on Amazon Aurora and Amazon RDS: Performance enhancements]]
+:SCORE: 9/10
+:WHY: Конкретные улучшения ядра БД, влияющие на производительность продакшн-систем на Aurora и RDS.
+**** [[hxxps://www.dremio.com/blog/enterprise-agentic-analytics/][Enterprise Agentic Analytics Explained]]
+:SCORE: 8/10
+:WHY: Разъясняет архитектуру агентной аналитики и требования к данным для автономных ИИ-агентов в энтерпрайзе.
+**** [[hxxps://www.databricks.com/blog/whats-new-databricks-platform-security-and-compliance-data-ai-summit-2026][What's new in Databricks Platform security and compliance at Data + AI Summit 2026]]
+:SCORE: 7/10
+:WHY: Важно для инженеров безопасности, масштабирующих ИИ-платформы в соответствии с регуляторными требованиями.
+
+** Open Source
+- [[hxxps://opensource.org/blog/the-osi-2025-annual-report-is-now-available][The OSI 2025 Annual Report Is Now Available]] (Open Source Initiative) — отчет о влиянии Open Source на политику в сфере ИИ, кибербезопасность и устойчивое развитие.
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/the-osi-2025-annual-report-is-now-available][The OSI 2025 Annual Report Is Now Available]]
+:SCORE: 7/10
+:WHY: Ключевой документ для понимания будущего лицензирования и регуляторики Open Source ИИ.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/context-intelligence-for-your-data-and-ai-agents-at-scale/][Context intelligence for your data and AI agents at scale]] (AWS) — анонс AWS Context для создания графов знаний и предоставления контекста агентам в масштабе организации.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/][New in Amazon Bedrock AgentCore: Build agents with broader knowledge and continuous learning]] (AWS) — возможности AgentCore для подключения агентов к организационным знаниям и непрерывного обучения.
+- [[hxxps://www.kdnuggets.com/how-and-why-i-built-an-ai-assistant][How (and Why) I Built an AI Assistant]] (KDnuggets) — честный разбор архитектуры кастомного ИИ-ассистента, проблем и преимуществ перед готовыми решениями.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-async-inference-now-supports-inline-request-payloads/][Amazon SageMaker AI Async Inference now supports inline request payloads]] (AWS) — поддержка inline payloads до 128 КБ убирает необходимость загрузки в S3 для асинхронного инференса.
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/context-intelligence-for-your-data-and-ai-agents-at-scale/][Context intelligence for your data and AI agents at scale]]
+:SCORE: 9/10
+:WHY: Фундаментальное изменение в том, как агенты получают доступ к контексту данных в энтерпрайзе через графы знаний.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/new-in-amazon-bedrock-agentcore-build-agents-with-broader-knowledge-and-continuous-learning/][New in Amazon Bedrock AgentCore: Build agents with broader knowledge and continuous learning]]
+:SCORE: 8/10
+:WHY: Решает проблему доступа агентов к внутренним знаниям и обратную связь для улучшения производительности в продакшене.
+**** [[hxxps://www.kdnuggets.com/how-and-why-i-built-an-ai-assistant][How (and Why) I Built an AI Assistant]]
+:SCORE: 7/10
+:WHY: Практический кейс сборки собственного ассистента с разбором архитектуры и подводных камней.

@@ -1,0 +1,138 @@
+#+TITLE: Arxiv Digest: 2026-08-12
+#+FROM: [2026-08-11 Tue]
+#+TO: [2026-08-12 Wed]
+#+DATE: [2026-08-12 Wed]
+#+STARTUP: showall
+
+* Базы данных (cs.DB)
+** 🧐 Обзор
+Наблюдается тренд на унификацию выполнения SQL и AI-запросов через компиляцию в единые тензорные графы для ускорения инференса. Параллельно развиваются стандарты для интеграции свойственных графов в реляционные СУБД без потерь в производительности. Также обсуждается фундаментальный пересмотр дизайна языков запросов для отказа от null-значений и пакетов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.10139][AI Query Compilation for Unified and Optimized Execution]]
+:WHAT: Предлагает архитектуру для компиляции гибридных AI-запросов (SQL + LLM) в единый тензорный граф выполнения.
+:IMPACT: Устраняет узкие места передачи данных через PCIe и ускоряет выполнение запросов до 9.8 раз на TPU.
+
+- [[hxxps://arxiv.org/abs/2608.11001][Property Graph Techniques in Relational Databases]]
+:WHAT: Исследует механизмы реализации графов свойств на основе реляционных моделей через моделирование внешних ключей.
+:IMPACT: Позволяет строить много типов графовых моделей на одной реляционной базе с поддержкой продвинутого сопоставления паттернов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.14737][Trajectory-Driven Multi-Product Influence Maximization in Billboard Advertising]]
+:ALGO: Формулирует задачу выбора рекламных слотов как задачу мульти-субмодулярного покрытия с аппроксимационными алгоритмами.
+:IMPACT: Позволяет эффективно удовлетворять спрос на влияние для нескольких продуктов одновременно на основе данных о траекториях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.10863][Time to Move on: Querying without Nulls and Bags]] — Аргументация в пользу перехода к языкам запросов без null-значений и пакетов на примере языка Rel.
+
+* Распределенные системы (cs.DC)
+** 🧐 Обзор
+Фокус смещается на дизагрегацию компонентов MoE-моделей и планирование запросов с жесткими SLO для снижения задержек в продакшене. Важным направлением остается оптимизация структур данных для GPU и коммуникационных библиотек для супернод. Также исследуются нагрузки блокчейн-сетей и робастность федеративного обучения.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.13525][Janus: Disaggregating Attention and Experts for Scalable MoE Inference]]
+:WHAT: Система инференса MoE, разделяющая уровни внимания и экспертов на разные пулы GPU с адаптивной коммуникацией.
+:IMPACT: Повышает пропускную способность на GPU до 4.7 раз при соблюдении SLO за счет независимого масштабирования ресурсов.
+
+- [[hxxps://arxiv.org/abs/2605.02329][Taming Request Imbalance: SLO-Aware Scheduling for Disaggregated LLM Inference]]
+:WHAT: Планировщик Kairos использует приоритеты срочности для префилла и адаптивную пакетную обработку для декодирования.
+:IMPACT: Улучшает выполнение SLO по задержке первого токена на 23.9% и пропускную способность декодирования на 19.3%.
+
+- [[hxxps://arxiv.org/abs/2607.26444][StrataCL: Fabric-Native Communication Library for Production Supernodes]]
+:WHAT: Коммуникационная библиотека с нулевым копированием и регистрацией буферов при выделении для супернод.
+:IMPACT: Увеличивает пропускную способность инференса LLM в 1.9 раза и снижает задержку P99 TTFT в 2.2 раза.
+
+- [[hxxps://arxiv.org/abs/2512.15595][Optimizing Bloom Filters on Modern GPUs]]
+:WHAT: Архитектурно-ориентированный фильтр Блума для GPU с настраиваемой векторизацией для производительности.
+:IMPACT: Превосходит текущие аналоги в 15.4 раза по lookup на NVIDIA B200, обеспечивая высокую точность на масштабе GPU.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2309.09359][Concurrent Deterministic Skiplist and Other Data Structures]]
+:ALGO: Предлагает конкурентный детерминированный скип-лист и хэш-таблицы для многопоточных NUMA-узлов.
+:IMPACT: Снижает промахи кэша и задержки памяти за счет иерархического использования структур данных.
+
+- [[hxxps://arxiv.org/abs/2310.15976][Convergence of Sign-based Random Reshuffling Algorithms for Nonconvex Optimization]]
+:ALGO: Анализирует сходимость signSGD с случайной перетасовкой и предлагает вариант с уменьшением дисперсии.
+:IMPACT: Дает теоретические гарантии для распределенной оптимизации без передачи полных градиентов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.19869][EVM Workloads in the Wild: Evidence for Multi-Dimensional Gas Metering, State Growth, Delayed Execution, and Parallelism]] — Эмпирический анализ нагрузок EVM показывает нестабильность затрат газа и рост состояния, требуя многомерного учета.
+- [[hxxps://arxiv.org/abs/2608.08730][Measuring and Reducing WebGPU Dispatch Overhead for LLM Inference]] — Исследование показывает, что накладные расходы на диспетчеризацию WebGPU являются瓶颈 для инференса LLM в браузере.
+- [[hxxps://arxiv.org/abs/2602.06075][MemGUI-Bench: Benchmarking Memory of Mobile GUI Agents in Dynamic Environments]] — Бенчмарк выявляет существенные дефициты памяти у мобильных GUI-агентов в долгосрочных задачах.
+- [[hxxps://arxiv.org/abs/2608.08574][Robust Reputation-Driven Crowdsourced Federated Learning]] — Предлагает框架 R2CFL для защиты федеративного обучения от скрытых атак через репутационную модель.
+- [[hxxps://arxiv.org/abs/2608.07502][An IMU Dataset for Human Activity Recognition to Support Independent Living in Smart Homes (IMU-HAR-IL)]] — Датасет с данными IMU-сенсоров для распознавания активности пожилых людей в умном доме.
+
+* Алгоритмы и структуры данных (cs.DS)
+** 🧐 Обзор
+Значительный прогресс достигнут в оптимальном перечислении эйлеровых путей и алгоритмах для модели MPC. Исследуются методы аппроксимации для метрических пространств и локальной маршрутизации на геометрических графах. Также развиваются методы минимизации дискрепантности и калибровки прогнозов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.12894][Optimal Enumeration of Eulerian Trails in Directed Graphs]]
+:ALGO: Простой алгоритм прямого перечисления эйлеровых путей за оптимальное время O(m + z_T).
+:IMPACT: Улучшает предыдущие методы перечисления остовных деревьев и применим в биоинформатике.
+
+- [[hxxps://arxiv.org/abs/2608.10135][Fixed-Threshold Peeling in Sublinear MPC: Round-Approximation Tradeoffs and Applications]]
+:ALGO: Алгоритмы на основе итеративного удаления вершин для задач ориентации ребер и k-ядер в модели MPC.
+:IMPACT: Прорывает барьер сложности раундов O(sqrt(log n)) для задач поиска плотнейшего подграфа.
+
+- [[hxxps://arxiv.org/abs/2506.16021][Local Routing on Ordered $\Theta$-graphs]]
+:ALGO: Детерминированный алгоритм локальной маршрутизации с памятью O(1) для упорядоченных тета-графов.
+:IMPACT: Гарантирует доставку сообщения за O(n) прыжков на графах, где ранее не существовало таких алгоритмов.
+
+- [[hxxps://arxiv.org/abs/2607.13284][A Fast and Simple $(1+\epsilon)$-Approximation for Minimum Spanning Trees in Doubling Metrics]]
+:ALGO: Детерминированный алгоритм аппроксимации MST для метрик с удваивающейся размерностью.
+:IMPACT: Улучшает зависимость времени выполнения от epsilon до почти линейной для ограниченной размерности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.21601][Efficient Decomposition of Forman-Ricci Curvature on Vietoris-Rips Complexes and Data Applications]] — Предлагает декомпозицию для эффективного локального вычисления кривизны Формана в комплексах Вьеториса-Рипса.
+- [[hxxps://arxiv.org/abs/2604.12036][Simpler Logarithmic Approximation Algorithms for the Optimal Decision Tree and Adaptive Set Cover]] — Упрощенный анализ алгоритма аппроксимации для оптимального дерева решений с константой менее 3.65.
+- [[hxxps://arxiv.org/abs/2608.10040][Online Discrepancy Minimization for Sub-Gaussian Inputs via Regularization and Restriction]] — Алгоритм минимизации дискрепантности в онлайн-режиме для субгауссовских входов с зависимостью от корня из размерности.
+- [[hxxps://arxiv.org/abs/2505.21460][High-Dimensional Calibration from Swap Regret]] — Связывает онлайн-калибровку прогнозов с минимизацией regret swaps для выпуклых множеств.
+- [[hxxps://arxiv.org/abs/2608.10147][A Simple Algorithm for Best Separable State]] — Упрощенный подход к округлению релаксации SoS для задачи поиска наилучшего сепарабельного состояния.
+
+* Социальная физика и сети (physics.soc-ph)
+** 🧐 Обзор
+Развиваются методы анализа геометрии сетей, включая кривизну для комплексно-взвешенных графов. Практический интерес представляют индексы стресса для финансовых рынков и модели радикализации в социальных сетях. Также публикуются новые датасеты для анализа неструктурированных социальных взаимодействий.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.10132][Ollivier's Ricci Curvature on Complex-weighted Graphs]]
+:ALGO: Расширяет определение кривизны Олливье на графы с комплексными весами, включая направленные графы.
+:IMPACT: Позволяет применять анализ кривизны к квантовым и сигнальным сетям с направленными связями.
+
+- [[hxxps://arxiv.org/abs/2608.10788][The Triadic Stress Index in Financial Markets]]
+:ALGO: Индекс сетевого стресса на основе триад, применяемый к корреляционным сетям финансовых активов.
+:IMPACT: Превосходит стандартные метрики в обнаружении кризисов и позволяет атрибутировать стресс на уровень узла.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.30291][A temporal proximity network dataset from a wedding cocktail hour with relationship category labels]] — Датасет временной сети близости с метками отношений для изучения неструктурированных социальных взаимодействий.
+- [[hxxps://arxiv.org/abs/2607.18301][Long-term Coexistence of Epidemics and Risk Awareness: Impacts of Adaptive Human Response and Fatigue]] — Модель эпидемии учитывает осведомленность и усталость, показывая возможность устойчивых циклов без задержек.
+- [[hxxps://arxiv.org/abs/2608.09987][The Impact of Cut-ins on Mixed-Autonomy Traffic Flow: Bridging Microscopic Game-Theoretic Model and Macroscopic Flow Analysis]] — Анализ показывает, что стратегическое поведение водителей дестабилизирует поток смешанного трафика.
+- [[hxxps://arxiv.org/abs/2608.10852][Universality and Heterogeneity of Stylized Facts in Cryptocurrency and Equity Markets]] — Исследование выявляет фундаментальные различия в динамике криптовалют и акций несмотря на статистическую зрелость.
+- [[hxxps://arxiv.org/abs/2608.10968][Cross-Cutting Exposure as an Engine of Radicalization: Platform Design, Attention, and Geography in a Stochastic Multiplex Model of Opinion Dynamics]] — Модель показывает, что неконтролируемое воздействие противоположных мнений может усиливать поляризацию.
+
+* Искусственный интеллект (cs.AI)
+** 🧐 Обзор
+Исследуется природа робастности диффузионных моделей и механизмы обобщения нейросетей на новые ориентации объектов. Появляются новые специализированные бенчмарки для агентом и задачи защиты авторских прав текстов от имитации ИИ. Также развиваются методы оптимизации без градиентов и квантовые нейросети.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2504.11500][TransitReID: Transit OD Data Collection with Occlusion-Resistant Dynamic Passenger Re-Identification]]
+:WHAT: Фреймворк для повторной идентификации пассажиров в транспорте, устойчивый к окклюзиям и изменениям ракурса.
+:IMPACT: Позволяет собирать данные OD в реальном времени на граничных устройствах с точностью до 90%.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2405.03728][Pretrained Optimization Model for Zero-Shot Black Box Optimization]]
+:ALGO: Предобученная модель оптимизации (POM) для решения задач черной коробки без дообучения или с малым числом шагов.
+:IMPACT: Превосходит современные методы на высокоразмерных задачах и демонстрирует робастное обобщение.
+
+- [[hxxps://arxiv.org/abs/2505.22839][Demystifying Adversarial Robustness in Diffusion Models: Compression, Randomness, and Geometry]]
+:ALGO: Анализ показывает, что робастность диффузии обусловлена сжатием пространства изображений и маскировкой градиентов.
+:IMPACT: Дает указания для разработки более эффективных систем адверсарной очистки изображений.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2109.13445][Emergent Neural Network Mechanisms for Generalization to Objects in Novel Orientations]] — Исследование механизмов обобщения DNN на объекты в новых ориентациях через нейроны, настроенные на общие признаки.
+- [[hxxps://arxiv.org/abs/2112.07752][Representation and Invariance in Reinforcement Learning]] — Формализация сохраняющих интеллект отображений между различными框架 RL.
+- [[hxxps://arxiv.org/abs/2208.11582][Graphical Models of False Information and Fact Checking Ecosystems]] — Предлагает первую комплексную графическую модель экосистемы дезинформации и факт-чекинга.
+- [[hxxps://arxiv.org/abs/2412.09486][Regression and Classification with Single-Qubit Quantum Neural Networks]] — Использует однокубитные квантовые нейросети для задач регрессии и классификации с эффективным обучением.
+- [[hxxps://arxiv.org/abs/2504.00035][Protecting Creative Writing Copyright against AI Imitation via Implicit Watermarking]] — Фреймворк WIND для защиты авторских прав текстов через неявные водяные знаки без изменения оригинала.
+- [[hxxps://arxiv.org/abs/2505.11146][X2C: A Large-Scale Benchmark for Nuanced Humanoid Facial Expression Imitation]] — Бенчмарк из 100k пар для передачи мимики человека на гуманоидных агентов.
+- [[hxxps://arxiv.org/abs/2505.11635][The Gaussian-Multinoulli Restricted Boltzmann Machine: A Potts Model Extension of the GRBM]] — Расширяет RBM дискретными скрытыми единицами для улучшения представления структурированных данных.

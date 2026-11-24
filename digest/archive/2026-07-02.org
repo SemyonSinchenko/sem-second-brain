@@ -1,0 +1,79 @@
+#+TITLE: Daily Digest: 2026-07-02
+#+FROM: [2026-07-01 Wed]
+#+TO: [2026-07-02 Thu]
+#+DATE: [2026-07-02 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия фокусируется на инфраструктуре для AI-агентов: от шлюзов A2A до оптимизации памяти и выбора моделей через Bedrock. В Data Engineering наблюдается сближение legacy-систем и AI, а также рост внимания к стоимости и атрибуции pipelines. Инженерное сообщество обсуждает надежность GPU на масштабе и фундаментальные практики разработки в эпоху автоматизации.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/5-ai-coding-platforms-to-build-apps-without-the-headache][5 AI Coding Platforms to Build Apps Without the Headache]] (KDnuggets) — Обзор платформ для no-code разработки и vibe coding, позволяющих быстро прототипировать full-stack приложения.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/run-nvidia-nemotron-and-openai-gpt-oss-models-on-amazon-bedrock-in-aws-govcloud-us/][Run NVIDIA Nemotron and OpenAI GPT OSS models on Amazon Bedrock in AWS GovCloud (US)]] (AWS) — Запуск open-weight моделей в изолированной среде GovCloud для задач с повышенными требованиями к безопасности.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-a-serverless-a2a-gateway-for-agent-discovery-routing-and-access-control/][Building a serverless A2A gateway for agent discovery, routing, and access control]] (AWS) — Архитектурный паттерн для централизованного управления коммуникацией между AI-агентами и контроля доступа.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/structured-memory-filtering-with-metadata-in-agentcore-memory/][Structured memory filtering with metadata in AgentCore Memory]] (AWS) — Использование метаданных для фильтрации контекста в долгосрочной памяти агентов, повышающее точность ответов на 24%.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/hipporag-neurobiologically-inspired-rag-using-amazon-bedrock-amazon-neptune-and-personalized-pagerank/][HippoRAG: Neurobiologically inspired RAG using Amazon Bedrock, Amazon Neptune, and personalized PageRank]] (AWS) — Реализация RAG с использованием графовых связей и алгоритма PageRank для улучшения многошагового(reasoning) вывода.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-inscribe-uses-amazon-bedrock-to-stop-document-fraud-in-seconds/][How Inscribe uses Amazon Bedrock to stop document fraud in seconds]] (AWS) — Кейс внедрения агентного AI для детекции мошенничества в документах с ускорением проверки в 20 раз.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/simplify-model-selection-in-amazon-bedrock-with-the-open-source-model-profiler/][Simplify model selection in Amazon Bedrock with the open source Model Profiler]] (AWS) — Инструмент для сравнения Foundation Models по цене, квотам и возможностям в едином интерфейсе.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-protein-design-with-boltzgen-on-amazon-sagemaker-ai/][Accelerate protein design with BoltzGen on Amazon SageMaker AI]] (AWS) — Пример использования диффузионных моделей для генерации белков с управлением жизненным циклом GPU-инстансов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/hipporag-neurobiologically-inspired-rag-using-amazon-bedrock-amazon-neptune-and-personalized-pagerank/][HippoRAG: Neurobiologically inspired RAG using Amazon Bedrock, Amazon Neptune, and personalized PageRank]]
+:SCORE: 9/10
+:WHY: Предлагает архитектурное улучшение для RAG через графовые связи, решая проблему многошагового логического вывода.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/building-a-serverless-a2a-gateway-for-agent-discovery-routing-and-access-control/][Building a serverless A2A gateway for agent discovery, routing, and access control]]
+:SCORE: 9/10
+:WHY: Дает готовое решение для масштабирования коммуникации между агентами без квадратичного роста связей.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/simplify-model-selection-in-amazon-bedrock-with-the-open-source-model-profiler/][Simplify model selection in Amazon Bedrock with the open source Model Profiler]]
+:SCORE: 8/10
+:WHY: Практический инструмент для инженеров, упрощающий выбор модели на основе метрик стоимости и производительности.
+
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/from-cobol-to-copilot-30-years-of][From COBOL to Copilot: 30 Years of Data, BI, and AI with David Langer]] (Data Engineering Central) — Анализ эволюции инструментов данных и сохранения фундаментальных проблем отрасли несмотря на смену технологий.
+- [[hxxps://www.databricks.com/blog/granular-usage-attribution-dbt-pipelines-query-tags/][Granular Usage Attribution for dbt Pipelines with Query Tags]] (Databricks) — Методика атрибуции затрат на выполнение dbt моделей через теги запросов для оптимизации бюджета.
+- [[hxxps://www.databricks.com/blog/forecasting-speed-modern-retail/][Forecasting at the speed of modern retail]] (Databricks) — Подход к прогнозированию спроса в ритейле с использованием современных платформ данных для ускорения принятия решений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/from-cobol-to-copilot-30-years-of][From COBOL to Copilot: 30 Years of Data, BI, and AI with David Langer]]
+:SCORE: 9/10
+:WHY: Глубокая перспектива от эксперта о том, какие навыки останутся ценными при внедрении AI в данные.
+**** [[hxxps://www.databricks.com/blog/granular-usage-attribution-dbt-pipelines-query-tags/][Granular Usage Attribution for dbt Pipelines with Query Tags]]
+:SCORE: 8/10
+:WHY: Конкретная техника для финOps в DE, помогающая выявить дорогие пайплайны в dbt.
+**** [[hxxps://www.databricks.com/blog/forecasting-speed-modern-retail/][Forecasting at the speed of modern retail]]
+:SCORE: 7/10
+:WHY: Демонстрирует бизнес-ценность ускорения данных через кейс прогнозирования в ритейле.
+
+** Инженеры
+- [[hxxps://jack-vanlightly.com/blog/2026/7/1/1brc-on-a-threadripper-9980x][1BRC on a Threadripper 9980X]] (Jack Vanlightly) — Бенчмарк производительности One Billion Row Challenge на новом процессоре Threadripper с анализом масштабируемости по ядрам.
+- [[hxxps://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software][How Kent Beck shapes the software engineering industry]] (The Pragmatic Engineer) — История влияния Кента Бека на индустрию и его взгляд на роль инженера в эпоху AI-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software][How Kent Beck shapes the software engineering industry]]
+:SCORE: 10/10
+:WHY: Обязательное чтение от легенды индустрии о том, как сохранять инженерную культуру при автоматизации кода.
+**** [[hxxps://jack-vanlightly.com/blog/2026/7/1/1brc-on-a-threadripper-9980x][1BRC on a Threadripper 9980X]]
+:SCORE: 8/10
+:WHY: Полезные данные о производительности нового железа для задач интенсивной обработки данных в памяти.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/cross-account-and-cross-region-monitoring-for-amazon-rds-and-aurora-with-database-insights/][Cross-account and cross-Region monitoring for Amazon RDS and Aurora with Database Insights]] (AWS) — Инструкция по настройке централизованного мониторинга баз данных across аккаунтов и регионов через CloudWatch.
+- [[hxxps://aws.amazon.com/blogs/database/amazon-rds-log-analysis-natural-language-queries-with-kiro-and-mcp/][Amazon RDS log analysis: natural language queries with Kiro and MCP]] (AWS) — Использование AI-ассистента Kiro и протокола MCP для анализа логов RDS через естественный язык.
+- [[hxxps://engineering.fb.com/2026/07/01/data-infrastructure/metas-ai-storage-blueprint-at-scale/][Meta's AI Storage Blueprint at Scale]] (Meta Engineering) — Описание архитектуры хранилища Meta для поддержки обучения больших моделей и устранения узких мест GPU.
+- [[hxxps://gdotv.com/blog/gdotv-now-supports-pggraph-graph-queries-on-postgresql/][gdotv Now Supports pgGraph, Graph Queries on PostgreSQL]] (gdotv) — Обзор поддержки графовых запросов в PostgreSQL через расширение pgGraph в IDE gdotv.
+- [[hxxps://www.databricks.com/blog/how-we-keep-gpus-reliable-across-databricks-ai/][How we keep GPUs reliable across Databricks AI]] (Databricks) — Подходы к обеспечению надежности GPU-кластеров для распределенного обучения моделей.
+- [[hxxps://www.databricks.com/blog/celebrating-winners-2026-built-databricks-startup-challenge/][Celebrating the Winners of the 2026 Built-On Databricks Startup Challenge]] (Databricks) — Итоги конкурса стартапов, демонстрирующие новые use-case платформы Databricks.
+- [[hxxps://www.databricks.com/blog/beyond-dashboards-introducing-decision-execution-platforms/][Beyond dashboards: Introducing Decision Execution Platforms]] (Databricks) — Концепция платформ исполнения решений, выходящих за рамки традиционной аналитики.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества по графовым базам данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/07/01/data-infrastructure/metas-ai-storage-blueprint-at-scale/][Meta's AI Storage Blueprint at Scale]]
+:SCORE: 9/10
+:WHY: Редкий взгляд на инфраструктуру эксабайтного уровня для AI, полезный для архитекторов высоконагруженных систем.
+**** [[hxxps://aws.amazon.com/blogs/database/cross-account-and-cross-region-monitoring-for-amazon-rds-and-aurora-with-database-insights/][Cross-account and cross-Region monitoring for Amazon RDS and Aurora with Database Insights]]
+:SCORE: 8/10
+:WHY: Решает распространенную проблему операционной видимости в мультиаккаунтных AWS окружениях.
+**** [[hxxps://www.databricks.com/blog/how-we-keep-gpus-reliable-across-databricks-ai/][How we keep GPUs reliable across Databricks AI]]
+:SCORE: 8/10
+:WHY: Практический опыт обеспечения стабильности GPU-инфраструктуры при обучении моделей.

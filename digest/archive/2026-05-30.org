@@ -1,0 +1,69 @@
+#+TITLE: Daily Digest: 2026-05-30
+#+FROM: [2026-05-29 Fri]
+#+TO: [2026-05-30 Sat]
+#+DATE: [2026-05-30 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Ключевой тренд — эволюция архитектуры данных без простоев: Apache Iceberg позволяет менять партиционирование без переписывания таблиц, а Databricks внедряет ветвление баз данных. В сфере ИИ акцент смещается на наблюдаемость LLM в продакшене и запуск моделей прямо в браузере. Вендоры укрепляют экосистемы: Dremio унифицирует семантику для BI, а AWS улучшает мониторинг SageMaker. Также важно следить за языком job-описаний для улучшения найма.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/apache-iceberg-partition-evolution-change-your-partitioning-strategy-without-rewriting-data/][Apache Iceberg Partition Evolution: Change Your Partitioning Strategy Without Rewriting Data]] (Dremio) — изменение стратегии партиционирования без полного переписывания данных и простоев pipelines.
+- [[hxxps://www.databricks.com/blog/enabling-evolutionary-database-development-database-branching-lakebase][Enabling Evolutionary Database Development: database branching with Lakebase]] (Databricks) — внедрение ветвления баз данных для поддержки эволюционной разработки схем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-iceberg-partition-evolution-change-your-partitioning-strategy-without-rewriting-data/][Apache Iceberg Partition Evolution: Change Your Partitioning Strategy Without Rewriting Data]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему производительности без дорогостоящих миграций и рисков потери данных.
+**** [[hxxps://www.databricks.com/blog/enabling-evolutionary-database-development-database-branching-lakebase][Enabling Evolutionary Database Development: database branching with Lakebase]]
+:SCORE: 8/10
+:WHY: Внедряет Git-like workflow для данных, что ускоряет тестирование схем и снижает ошибки.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/practical-nlp-in-the-browser-with-transformers-js][Practical NLP in the Browser with Transformers.js]] (KDnuggets) — запуск классификации текста и QA непосредственно на клиенте через pipeline API.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/comprehensive-observability-for-amazon-sagemaker-ai-llm-inference-from-gpu-utilization-to-llm-quality/][Comprehensive observability for Amazon SageMaker AI LLM inference: From GPU utilization to LLM quality]] (AWS) — комплексный мониторинг инфраструктуры и качества ответов LLM в продакшене.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/comprehensive-observability-for-amazon-sagemaker-ai-llm-inference-from-gpu-utilization-to-llm-quality/][Comprehensive observability for Amazon SageMaker AI LLM inference: From GPU utilization to LLM quality]]
+:SCORE: 9/10
+:WHY: Закрывает слепое пятно в мониторинге генеративного ИИ, связывая метрики GPU с качеством ответов.
+**** [[hxxps://www.kdnuggets.com/practical-nlp-in-the-browser-with-transformers-js][Practical NLP in the Browser with Transformers.js]]
+:SCORE: 8/10
+:WHY: Позволяет реализовать приватную обработку NLP задач на стороне клиента без бэкенда.
+
+** Vendors
+- [[hxxps://www.dremio.com/blog/dremio-bi-visualisation-tools/][How Dremio Keeps Every BI Tool Consistent]] (Dremio) — семантический слой гарантирует одинаковые метрики в Tableau, Power BI и Superset.
+- [[hxxps://www.databricks.com/blog/databricks-sigmod-2026][Databricks at SIGMOD 2026]] (Databricks) — демонстрация инженерных инноваций компании на ведущей академической конференции.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/dremio-bi-visualisation-tools/][How Dremio Keeps Every BI Tool Consistent]]
+:SCORE: 8/10
+:WHY: Устраняет рассинхронизацию метрик между разными инструментами визуализации через единый слой.
+**** [[hxxps://www.databricks.com/blog/databricks-sigmod-2026][Databricks at SIGMOD 2026]]
+:SCORE: 7/10
+:WHY: Показывает вектор развития платформы через призму академических исследований и инноваций.
+
+** Engineers
+- [[hxxps://www.kdnuggets.com/the-entry-level-gatekeeper-auditing-job-descriptions-with-textstat][The 'Entry-Level' Gatekeeper: Auditing Job Descriptions with Textstat]] (KDnuggets) — автоматизация поиска языковых барьеров в вакансиях с помощью Python и Textstat.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/the-entry-level-gatekeeper-auditing-job-descriptions-with-textstat][The 'Entry-Level' Gatekeeper: Auditing Job Descriptions with Textstat]]
+:SCORE: 8/10
+:WHY: Практический скрипт для улучшения DEI и доступности вакансий для начинающих специалистов.
+
+** Open Source
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — встреча технического сообщества по графовым базам данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обмена опытом в сообществе разработчиков графовых СУБД.
+
+** Non Engineering
+- [[hxxps://www.databricks.com/blog/winning-under-cms-team-building-learning-health-system-realize-success-vbc-today-and-tomorrow][Winning under CMS TEAM: Building the learning health system to realize success in VBC today and tomorrow]] (Databricks) — стратегия построения обучающейся системы здравоохранения для работы в модели VBC.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/winning-under-cms-team-building-learning-health-system-realize-success-vbc-today-and-tomorrow][Winning under CMS TEAM: Building the learning health system to realize success in VBC today and tomorrow]]
+:SCORE: 6/10
+:WHY: Пример применения data-платформ для решения регуляторных и бизнес-задач в медицине.

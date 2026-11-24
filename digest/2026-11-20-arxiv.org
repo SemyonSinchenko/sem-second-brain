@@ -1,0 +1,172 @@
+#+TITLE: Arxiv Digest: 2026-11-20
+#+FROM: [2026-11-19 Thu]
+#+TO: [2026-11-20 Fri]
+#+DATE: [2026-11-20 Fri]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+
+** 🧐 Обзор
+За последние сутки заметен устойчивый сдвиг к «ML-инфраструктуре для СУБД»: learned-индексы выходят из статичной постановки в адаптивные и обновляемые сценарии (FLAIRS/TULSI, STARR для миграции HNSW), а LLM встраиваются в потоковые пайплайны и подготовку данных (Continuous Prompts, ShapleyPipe). Отдельно зреет тема корректности агент-генерируемых data pipeline — ArrivalBench показывает, что одноразовое тестирование пропускает до 79% молча некорректных пайплайнов. Практически значимы также системы интерпретируемой автоматизации (ShapleyPipe) и ИИ-конструирование маршрутов с ограничениями (CRAFT).
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2508.03471][Learned Adaptive Indexing with Updatable Learned Index]]
+:WHAT: FLAIRS — первый learned-индекс для адаптивного индексирования, достраивающийся на лету из запросов, с обновляемым learned-индексом TULSI и предсказанием рабочей нагрузки.
+:IMPACT: Убирает главный барьер learned-индексов — необходимость полной перестройки при тяжёлых обновлениях и смене workload; даёт выигрыш по памяти и времени запросов без B+-tree.
+- [[https://arxiv.org/abs/2510.27168][ShapleyPipe: A Game-Theoretic Approach to Data Preparation Pipeline Construction]]
+:WHAT: Формулирует конструирование пайплайнов подготовки данных как кооперативную игру и вводит позиционно-зависимую метрику вклада операторов PipeShapley; иерархическая версия H-SP с MAB и ранней остановкой делает это практичным.
+:IMPACT: Даёт интерпретируемый и позиционно-осознанный выбор операторов вместо перебора; Pareto-оптимален по accuracy/runtime, масштабируется до 581K записей.
+- [[https://arxiv.org/abs/2512.03389][Continuous Prompts: LLM-Augmented Pipeline Processing over Unstructured Streams]]
+:WHAT: Первая система (VectraFlow), встраивающая LLM-рассуждение в непрерывную потоковую обработку: непрерывные семантические операторы, RAG для стримов, батчинг/фьюжн операторов и динамическая оптимизация через MOBO и shadow-исполнения.
+:IMPACT: Превращает stateless LLM-фреймворки в долгоживущие аналитические пайплайны с управляемым trade-off throughput/accuracy — ключевой шаг к семантическому мониторингу неструктурированных потоков.
+- [[https://arxiv.org/abs/2611.25416][Standardized Tolerance for Adaptive Reuse and Repair: A Method for HNSW Migration Under Embedding Model Change Scenarios]]
+:WHAT: STARR — метод миграции HNSW-индексов при смене embedding-модели: переиспользует рёбра исходного графа по корреляции стандартизованных длин рёбер и выполняет финальный ремонт достижимости.
+:IMPACT: Медианный ускоритель построения 16.7x с потерей recall всего ~1 п.п. — прямая экономия на переиндексации миллиардных векторных коллекций при смене модели.
+- [[https://arxiv.org/abs/2610.02363][ArrivalBench: Agent-Generated Data Pipelines Are Correct Once and Wrong Under Time]]
+:WHAT: Бенчмарк, оценивающий пайплайны не разовым запуском на снапшоте, а повторным исполнением при повторяемых adversarial-расписаниях доставки (дубликаты, задержки, out-of-order) с рекалькуляцией оракула.
+:IMPACT: Показывает, что 7–79% пайплайнов, «прошедших» обычный тест, молча некорректны — меняет практику CI/CD для агент-генерируемых данных и отделяет crash от тихой порчи данных.
+- [[https://arxiv.org/abs/2611.25128][CRAFT: Constrained Route planning with Adaptive Framework and Template-based code generation]]
+:WHAT: LLM-фреймворк, переводящий текстовый запрос с ограничениями (остановки, EV-зарядка, бюджеты) в генерируемые поисковые функции над графовым движком; формализация SE-RCSP с неаддитивными состояниями.
+:IMPACT: Закрывает практический разрыв «один солвер — один тип запроса»: единый движок покрывает класс реальных маршрутов на дорожных сетях.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2512.02460][UniCom: A Unified Framework for Community Search and Detection via Transfer Learning]]
+:WHAT: Единый фреймворк для community search и detection: Universal Graph Learning дистиллирует локально-глобальные знания, Domain-aware Specialization адаптирует модель к новым графам без переобучения.
+:IMPACT: Снимает необходимость переобучения на каждую задачу/датасет — прямой выигрыш для сервисов, обслуживающих разнородные графы (соцсети, кредитные сети, биологические графы).
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2611.08474][Limitations of Interpretations in Semiring Semantics]] — доказательство того, что интерпретационные семантики не выражают monus и, как следствие, не покрывают SQL-семантику; важно для provenance-моделей.
+- [[https://arxiv.org/abs/2611.24998][From Industrial Product Documentation to Automated Digital Product Passport Generation: An Experimental Study of Large Language Models]] — эксперимент с RAG-генерацией цифровых паспортов продукции (AAS) из промышленной документации; валидность только 44.9%.
+- [[https://arxiv.org/abs/2611.25218][The American Medical Directory Panel: Comparing AI-Assisted and LLM Transcription with Manual Data Entry at Scale]] — сравнение OCR/LLM-транскрипции с ручной двойной верификацией на ~290K записей; OCR-парсер дешевле ручного ввода в ~500 раз.
+
+* cs.DC (Distributed Computing)
+
+** 🧐 Обзор
+Доминирует оптимизация памяти и изоляции для LLM-сервинга: трансформации KV-кэша (Gemma 4 Global-KV, Twindex), иерархия HBM–flash, прозрачная memory oversubscription (TRANSIT) и SLO-безопасное GPU-шаринг без патчей драйверов (Berth). Параллельно зреет тема устойчивой балансировки скошенных потоков событий — CheckCo из production-системы даёт imbalance 1.10 против 8.03 у key-based routing. В HPC-сегменте трёхпоточное перекрытие в pipelined Krylov-методах даёт до 1.33x на 64 GPU.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2611.22476][CheckCo: Checkpoint-Coordinated Load Balancing for Skewed Event Streams at Scale]]
+:WHAT: Алгоритм балансировки с координацией через checkpoint-барьеры: динамический оракул оценивает частоты ключей из живого потока, делит «горячие» ключи на сплиты и пакует их на воркеров на следующем окне.
+:IMPACT: В production-пайплайне на 100+ млрд событий/день сжимает дисбаланс до 1.10 при вдвое меньшем fan-out — решает типичную проблему hot-key skew в стриминговых системах (Flink/Spark-класса).
+- [[https://arxiv.org/abs/2611.25091][Berth: SLO-Preserving GPU Sharing Without New Preemption]]
+:WHAT: User-space система, добивающаяся приоритизации latency-чувствительных запросов над best-effort задачами через feed control и укороченные time slices встроенного планировщика GPU — без изменения приложений, ядер и драйверов.
+:IMPACT: Позволяет заполнять простой GPU-ресурса обучением при сохранении SLO; 2.7–3.5x throughput best-effort — прямая экономия на закрытых GPU-стеках, куда оператор не может залезть.
+- [[https://arxiv.org/abs/2611.25078][Twindex: Index Cache Offloading with Coarse-to-Fine Selection for Long-Context Sparse-Attention Serving]]
+:WHAT: Выгружает кэш индексатора sparse-attention моделей в host-память, оставляя в HBM компактную копию (shared компонент + сжатые остатки) для грубой фильтрации кандидатов; работает внутри CUDA graphs.
+:IMPACT: Устраняет неожиданный узкий кэш-бутылочное горлышко (63–75% HBM на 1M токенов) и вмещает до 3x больше запросов на GPU — критично для долгоконтекстного инференса.
+- [[https://arxiv.org/abs/2611.23035][Storing the Gemma 4 K=V Cache Once: Exact Global-KV Memory Savings in a Paged Serving Engine with Unchanged Attention Kernels]]
+:WHAT: Хранит один 640-значный ряд вместо полного key+value (1024 значения) для global-attention слоёв Gemma 4, читая кэш через два перекрывающихся strided views без изменения attention-кернелов.
+:IMPACT: Сжатие KV-памяти decode в 1.34–1.40x и рост decode throughput до 1.38x при побитовой идентичности выхода — готовое к интеграции в vLLM-класс движков.
+- [[https://arxiv.org/abs/2610.07593][TRANSIT: Transparent Scale-in for Multi-Node LLM Training]]
+:WHAT: Система прозрачной memory oversubscription для distributed LLM-тренировки: координация page residency драйвера с zero-copy доступом по паттернам итераций.
+:IMPACT: Тренировка на до 50% меньше GPU с сохранением >90% throughput и снижением межузлового трафика до 33% — прямой капекс-выигрыш для кластеров.
+- [[https://arxiv.org/abs/2609.39131][Characterizing High Bandwidth Flash for LLM Serving]]
+:WHAT: Иерархическая система HBM–HBF (high-bandwidth flash) с buffered cache-aware планированием для agentic-сервинга, с анализом энергии и write lifetime.
+:IMPACT: Сокращение completion time на 21–87% и продление срока жизни flash с 0.99 до 13.6 лет — задаёт инженерную рамку для использования HBF как активного яруса памяти.
+- [[https://arxiv.org/abs/2610.24830][HEL: A Heterogeneous Extensible Layer for GPU-Resident Runtime Orchestration]]
+:WHAT: GPU-resident рантайм с персистентными сервисами, корутиноподобными задачами, зависимостями и автоматическими retry; приложение и задачи работают на пространственно разделённом GPU.
+:IMPACT: Обобщает исполнение задач на GPU как на ЦП — выигрыш на недоутилизированных GPU и скрытие латентности задач.
+- [[https://arxiv.org/abs/2610.25058][Triple Overlap in Pipelined Krylov Methods on Multi-GPU Systems]]
+:WHAT: Трёхпоточная реализация Pipe-PCG/Pipe-BiCGStab: одновременное исполнение коллективов, P2P-связи и вычислений на нескольких GPU.
+:IMPACT: Геом. ускорение 1.23–1.33x против two-stream на 64 GPU и до 3.27x над PETSc — прямой эффект для масштабируемых научных вычислений.
+- [[https://arxiv.org/abs/2608.11770][Achieving Near-Zero-Overhead Multi-Model Hierarchical Classification in Real-Time Detection Pipelines]]
+:WHAT: Методика INT8-деплоя классификационных backbone на NVIDIA Jetson DLA (включая workaround для implicit quantization, ONNX graph surgery) и конкурентный GPU-детекция / DLA-классификация пайплайн.
+:IMPACT: Near-zero overhead (12.5 vs 13.3 FPS) для иерархических детекция+классификация конвейеров на edge — обобщается на любые detection-classification пайплайны.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2611.21943][Beyond 4: Improved Competitive Traveling Repairperson]] — детерминированный 3.877-competitive алгоритм для online traveling repairperson на произвольной метрике, улучшая 4-competitive границу.
+
+* cs.DS (Data Structures & Algorithms)
+
+** 🧐 Обзор
+Ядро дня — robust и fair-варианты классических задач: оптимальный по времени robust community detection в блочной модели с adversarial-коррупцией рёбер и заметный прогресс в fair rank aggregation ((2+ε)-аппроксимация против прежней 3-аппроксимации). В фундаментальных структурах — новые практически применимые результаты: near-optimal DP PCA с адаптацией к coherence, online bin packing с per-bin задержкой и стабильный quicksort с настраиваемым буфером (SotSort), ориентированный на реальные системы сортировки.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2611.24786][SotSort: a stable quicksort with a tunable buffer]]
+:WHAT: Стабильный quicksort с единым кодовым путём, работающим от 16 KB буфера до полного n-элементного; блочное партиционирование через буфер и ротации.
+:IMPACT: Закрывает постоянную боль систем сортировки — выбор между скоростью и стабильностью при ограниченной памяти; на 17 из 22 классов входов быстрее blitsort в константной памяти.
+- [[https://arxiv.org/abs/2610.36691][Differentially Private Preconditioned Power Iteration Method for PCA that Adapts to the Coherence]]
+:WHAT: (ε,δ)-DP алгоритм для top-k PCA, чья точность улучшается с низкой coherence матрицы, через preconditioned power iteration, снижающую добавляемый шум.
+:IMPACT: Обобщает DP-PCA с k=1 на произвольный k и даёт практичный компромисс приватность/точность для аналитики приватных данных.
+- [[https://arxiv.org/abs/2609.29589][Online Bin Packing with Per-Bin Maximum Delay]]
+:WHAT: Рандомизированный online-алгоритм со строгим competitive ratio 2 для bin packing, где задержка бина определяется самым старым элементом; offline-версия — сильная NP-трудность и 2-аппроксимация.
+:IMPACT: Моделирует реальные сценарии пакетирования (batching в системах обслуживания, планирование задач с SLA), где нельзя ждать бесконечно.
+- [[https://arxiv.org/abs/2505.10006][Improved Rank Aggregation under Fairness Constraint]]
+:WHAT: (2+ε)-аппроксимация для fair rank aggregation по Kendall tau, улучшающая прежнюю 3-аппроксимацию, плюс 2.881-аппроксимация, не зависящая от конкретной метрики справедливости.
+:IMPACT: Напрямую применимо к поиску, подбору персонала и БД-ранжированию, где нужна гарантированная репрезентативность групп в top-k.
+- [[https://arxiv.org/abs/2601.04423][Learning Multinomial Logits in O(n log n) time]]
+:WHAT: Адаптивные и неадаптивные алгоритмы обучения MNL/Plackett–Luce моделей с доказанно оптимальными O(n log n / ε²) запросами и почти совпадающими нижними границами.
+:IMPACT: Фундамент для рекомендательных систем с slate-интерфейсами: оптимальное число запросов для обучения модели выбора на ограниченном трафике.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2611.25157][Optimal Robust Community Detection]]
+:WHAT: Почти линейный алгоритм для community detection в sparse SBM, устойчивый к коррупции константной доли рёбер: инициализация belief propagation вторым собственным вектором nonbacktracking-матрицы через SDP.
+:IMPACT: Первое сочетание оптимальной точности и робастности выше KS-порога — критично для реальных графов с аномальными рёбрами (спам, манипуляции ссылками).
+- [[https://arxiv.org/abs/2603.02825][A simple Path-based LP Relaxation for Directed Steiner Tree]]
+:WHAT: Path-based LP-релаксация для DST на слоистых графах с integrality gap O(l log k), совпадающим с лучшим известным, но без lift-and-project иерархий.
+:IMPACT: Более прозрачный путь к SOTA-границе, полезный для построения аппроксимационных алгоритмов над сетями с терминалами (VLSI, сетевое проектирование).
+- [[https://arxiv.org/abs/2609.15677][Beyond 1/3-Approximation: Random Greedy for Constrained k-Submodular Maximization]]
+:WHAT: Пропорциональный Top-2 рандомизированный фреймворк для немонотонной k-субмодульной максимизации: 0.4142-аппроксимация под matroid/knapsack и 1/2 (асимптотически оптимально) под cardinality/knapsack.
+:IMPACT: k-субмодульность возникает в задачах с несколькими метками (распределение по кластерам/серверам/типам) — практичные гарантии для структурного оптимизационного планирования.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2302.14834][Properties of Concurrent Algorithms that Allow Asynchrony]] — классификация PO-inducing/не-PO-inducing задач, задающая границу толерантности к асинхронности в распределённых алгоритмах.
+- [[https://arxiv.org/abs/2504.10399][Unique Decoding of Reed-Solomon and Related Codes for Semi-Adversarial Errors]] — near-linear unique decoding для полупротивниковой модели ошибок, применимая к распределённому хранению и компиляции.
+- [[https://arxiv.org/abs/2611.21943][Beyond 4: Improved Competitive Traveling Repairperson]] — (см. cs.DC) улучшение competitive ratio до 3.877 для online traveling repairperson.
+
+* physics.soc-ph (Social Physics & Networks)
+
+** 🧐 Обзор
+Тренд — переход от бинарных к взвешенным и higher-order сетевым моделям: multiscale renormalization и reconstruction распространены на взвешенные сети, а higher-order функциональные зависимости выводятся как гиперрёбра из event time series. Параллельно зреет tooling для геометрии сетей: персистентная A-гомотопия и Ricci flow с хирургией на финансовых корреляционных графах. Практически релевантно: восстановление крупноузловых сетей (международная торговля, производственные сети) на уровнях агрегации без переобучения параметров.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2611.25411][AI-Native Industrial Control Systems: An Agent Architecture for the Control System Lifecycle]]
+:WHAT: Архитектура AI-native промышленных систем управления, где координирующие агенты сами определяют требуемые функции, конструируют управляющее приложение и готовят исполнительную среду под ресурсные/привилегированные ограничения.
+:IMPACT: Демонстрация task-driven построения и эволюции control-приложений на реальном сортировочном стенде — шаг к самоорганизующимся edge-системам управления с открыто задокументированными ограничениями (traceability, верификация).
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2506.00508][Higher-Order Functional Networks from Event Time Series]]
+:WHAT: Метод извлечения функциональных зависимостей произвольного порядка из многомерных event-рядов: символическое кодирование + Bayesian-фреймворк для статистически значимых мотивов, образующих гиперрёбра гиперграфа.
+:IMPACT: Дает общую схему higher-order сетевого анализа напрямую из сырых событий (нейронные, социальные данные) — расширяет инструментарий graph-систем за пределы парных сетей.
+- [[https://arxiv.org/abs/2609.37957][Multiscale Reconstruction of Weighted Networks from Coarse-Grained Data]]
+:WHAT: Вероятностный фреймворк реконструкции взвешенных сетей на произвольных уровнях агрегации, сохраняющий форму модели при coarse-graining, что позволяет калибровать параметры на агрегированном слое и переносить их на более мелкие.
+:IMPACT: Решает реальную проблему «данные доступны только агрегированно, а процесс идёт на мелком уровне» — проверено на международной торговле и производственных сетях с точностью, сравнимой с моделями, обученными на целевом масштабе.
+- [[https://arxiv.org/abs/2609.38283][Multiscale Renormalization of Weighted Networks]]
+:WHAT: Ренормализационный формализм для взвешенных случайных графов: через производящие функции найдена модель с compound-Poisson инвариантным законом при произвольной агрегации узлов.
+:IMPACT: Теоретическая база для resolution-invariant моделирования и реконструкции взвешенных сетей — foundation для межмасштабной аналитики в графовых системах.
+- [[https://arxiv.org/abs/2611.09967][Persistent A-homotopy of Networks: free groups and periodic structures]]
+:WHAT: Конструкция, отслеживающая эволюцию классов циклов при объявлении циклов до заданной длины стягиваемыми; barcode мод-2 абелианизации со scales минимального циклового базиса.
+:IMPACT: Дает вычислимый мост между persistent A-гомотопией и persistent homology — новый сигнал для сравнения сетей (проверено на power grid, Watts–Strogatz, ego-сетях).
+- [[https://arxiv.org/abs/2611.25860][Neckpinches in a Positively Curved Market: Ricci Flow with Surgery on the Nikkei-225]]
+:WHAT: Применение дискретной Ollivier-Ricci кривизны и Ricci flow с хирургией (ARCUS) к корреляционному графу индекса: 29 терминальных кластеров, соответствующих отраслям.
+:IMPACT: Показывает, как геометрические методы на графах выделяют кластеры активов без разметки — полезный шаблон для unsupervised кластеризации графов в финансовых системах.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2606.28318][Drift Behavior in a Bounded-Confidence Opinion Model with Media Influence]] — аналитико-численное расширение модели Deffuant–Weisbuch двумя медиа-источниками, объясняющее дрейф мнений к поляризованным агентам.
+- [[https://arxiv.org/abs/2611.26337][How Should Candidates Be Weighted under Open-List Proportional Representation?]] — вывод гармонических весов (k H_n)^{-1} как ожидаемых долей голосов через Dirichlet order statistics; теория с прямыми приложениями к агрегации предпочтений.
+
+* cs.AI (Artificial Intelligence)
+
+** 🧐 Обзор
+В сутки тренд смещается от чистых LLM-бенчмарков к системной интеграции ИИ в критические контуры: защита collaborative perception (CP-Guard+), LLM-обнаружение угроз в IoT, устойчивое планирование траекторий при дисбалансе данных (FlowDrive) и forecasting для нерегулярных временных рядов (FlexTSF). Развивается и методологический слой — TELEVAL показывает, что высокие метрики задач не гарантируют надёжность spoken-взаимодействия, а работа про mechanistic interpretability призывает к философскому контролю понятий MI.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2502.07807][CP-Guard+: A New Paradigm for Malicious Agent Detection and Defense in Collaborative Perception]]
+:WHAT: Обнаружение вредоносных агентов на уровне признаков (без проверки финальных результатов восприятия), бенчмарк CP-GuardBench и защита через Dual-Centered Contrastive Loss.
+:IMPACT: Снижает вычислительные издержки детекции атак и закрывает ключевую уязвимость V2X/коллаборативного восприятия для автономного вождения.
+- [[https://arxiv.org/abs/2505.00240][LLM-Based Threat Detection and Prevention Framework for IoT Ecosystems]]
+:WHAT: Двухкомпонентная архитектура: дообученный детектор аномалий (BERT Small, 99.75% F1) + LLM Prevention-компонент, генерирующий адаптивные стратегии реагирования.
+:IMPACT: Практичный шаблон edge-cloud защиты IoT с объяснимыми и адаптивными мерами противодействия.
+- [[https://arxiv.org/abs/2410.23160][FlexTSF: A Flexible Forecasting Model for Time Series with Variable Regularities]]
+:WHAT: Декодер-трансформер для прогнозирования с IVP Patcher — непрерывно-временным патчингом, обрабатывающим неравномерные интервалы, переменную длину и пропуски без импутации.
+:IMPACT: Прямо применим к мониторингу систем и telemetry с гетерогенной частотой сэмплирования — типичная ситуация для observability-пайплайнов.
+- [[https://arxiv.org/abs/2509.21961][FlowDrive: moderated flow matching with data balancing for trajectory planning]]
+:WHAT: Flow-matching планировщик траекторий с перебалансировкой данных по паттернам движения и moderated in-the-loop guidance для разнообразия траекторий.
+:IMPACT: SOTA на nuPlan/interPlan среди learning-based планировщиков — практический прогресс в робастности к long-tail сценариям автономного вождения.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2507.23377][LLM4Rail: An LLM-Augmented Personalized Railway Services Platform]] — LLM-платформа железнодорожных сервисов с фреймворком ER-QTAO и zero-shot рекомендателем бортового питания.
+- [[https://arxiv.org/abs/2507.18061][TELEVAL: A Benchmark Designed for Spoken Language Models in Chinese Interactive Scenarios]] — бенчмарк разговорной уместности и надёжности spoken-моделей; документирует паттерн «Caption Trap».
+- [[https://arxiv.org/abs/2505.22106][AudioTurbo: Fast Text-to-Audio Generation with Rectified Diffusion]] — ускорение диффузионной text-to-audio генерации через first-order ODE-пути поверх предобученной модели.
+- [[https://arxiv.org/abs/2506.18852][Mechanistic Interpretability Needs Philosophy]] — аргумент о необходимости философского партнёрства для уточнения понятий и методов mechanistic interpretability.
+- [[https://arxiv.org/abs/2408.14443][Ensemble Logic]] — семейство модальных логик с количественными параметрами; основная теорема — резкая граница неразрешимости выполнимости на натуральных числах.

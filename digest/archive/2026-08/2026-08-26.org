@@ -1,0 +1,71 @@
+#+TITLE: Daily Digest: 2026-08-26
+#+FROM: [2026-08-25 Tue]
+#+TO: [2026-08-26 Wed]
+#+DATE: [2026-08-26 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+AI-агенты переходят от экспериментов к внутренней инфраструктуре: компании вроде Ramp строят собственные инструменты вместо использования готовых решений. Вендоры фокусируются на управлении данными и безопасности: Databricks и AWS предлагают новые уровни контроля над расходами и доступом. Архитектурные абстракции эволюционируют: LogDrive предлагает RAID-подобную композицию для логов, а квантование моделей достигает новой эффективности. Наблюдаемость становится агентной: интеграция визуализаций прямо в чат сокращает время на верификацию инцидентов.
+
+* 📂 Категории
+** Engineers
+- [[hxxps://jack-vanlightly.com/blog/2026/8/25/the-logdrive-flexible-compose-through-abstraction-in-shared-logs][The LogDrive: Flexible Composition Through Abstraction in Shared Logs]] (jack-vanlightly.com) — новая абстракция LogDrive позволяет строить отказоустойчивые логи с семантикой RAID поверх разнообразных хранилищ без переписывания стека.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (clojurecivitas.org) — практическое руководство по методу наименьших квадратов на Clojure для углубления понимания статистической регрессии.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/8/25/the-logdrive-flexible-compose-through-abstraction-in-shared-logs][The LogDrive: Flexible Composition Through Abstraction in Shared Logs]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов распределенных систем: предлагает способ декоуплинга durability и sequencing.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Полезно для инженеров, работающих с данными, чтобы освежить фундаментальные математические концепции на практике.
+
+** Data Engineering
+- [[hxxps://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect][Why Ramp built its own in-house coding agent, Inspect]] (newsletter.pragmaticengineer.com) — кейс создания внутреннего AI-агента для разработки: песочницы, доступ к внутренним API и ускорение онбординга инструментов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect][Why Ramp built its own in-house coding agent, Inspect]]
+:SCORE: 9/10
+:WHY: Показывает экономическую и техническую целесообразность build-vs-buy для AI-инструментов в энтерпрайзе.
+
+** Vendors
+- [[hxxps://aws.amazon.com/blogs/database/how-channel-corporation-modernized-their-architecture-with-amazon-dynamodb-part-3-user-and-badge/][How Channel Corporation modernized their architecture with Amazon DynamoDB, Part 3: User and Badge]] (aws.amazon.com) — опыт разделения таблиц DynamoDB для изоляции горячих путей обновления бейджей от основных профилей пользователей.
+- [[hxxps://www.databricks.com/blog/data-mesh-vs-data-fabric][Data Mesh vs. Data Fabric: Key Differences and How the Lakehouse Resolves the Debate]] (databricks.com) — сравнительный анализ организационного подхода Data Mesh и технологического Data Fabric в контексте Lakehouse.
+- [[hxxps://www.databricks.com/blog/open-table-formats][Open Table Formats Explained: Iceberg vs. Delta vs. Hudi]] (databricks.com) — обзор метаданных слоев для объектных хранилищ с поддержкой ACID-транзакций и выбором формата.
+- [[hxxps://www.databricks.com/blog/introducing-governance-hub-intelligent-account-level-governance-over-your-databricks-estate][Introducing Governance Hub: Intelligent, account-level governance over your Databricks estate]] (databricks.com) — новый инструмент для мониторинга расходов и управления доступом на уровне аккаунта Databricks.
+- [[hxxps://www.databricks.com/blog/leveraging-databricks-support-fisc-security-guidelines][Leveraging Databricks to Support FISC Security Guidelines]] (databricks.com) — руководство по настройке безопасности в Databricks согласно стандартам финансового сектора Сингапура.
+- [[hxxps://www.databricks.com/blog/how-capital-markets-finance-protects-balance-sheet-returns][How Capital Markets Finance Protects Balance Sheet Returns]] (databricks.com) — использование аналитики данных для защиты доходности баланса в страховых и инвестиционных компаниях.
+- [[hxxps://www.databricks.com/blog/data-governance-tools][Choosing Data Governance Tools for Enterprise Data Governance]] (databricks.com) — критерии выбора платформ для каталогизации и безопасности корпоративных данных.
+- [[hxxps://www.databricks.com/blog/modernizing-sql-etl-lakehouse-declarative-patterns][Modernizing SQL ETL in Lakehouse with Declarative Patterns]] (databricks.com) — внедрение декларативных паттернов в ETL-процессы внутри Lakehouse архитектуры.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — анонс встречи сообщества Graph Data Council с обсуждением стандарта GQL и графовых ускорителей.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/how-channel-corporation-modernized-their-architecture-with-amazon-dynamodb-part-3-user-and-badge/][How Channel Corporation modernized their architecture with Amazon DynamoDB, Part 3: User and Badge]]
+:SCORE: 9/10
+:WHY: Реальный кейс оптимизации DynamoDB при высокой нагрузке: разделение таблиц и борьба с конфликтами транзакций.
+**** [[hxxps://www.databricks.com/blog/data-mesh-vs-data-fabric][Data Mesh vs. Data Fabric: Key Differences and How the Lakehouse Resolves the Debate]]
+:SCORE: 8/10
+:WHY: Помогает принять стратегическое решение между организационными и технологическими подходами к данным.
+**** [[hxxps://www.databricks.com/blog/open-table-formats][Open Table Formats Explained: Iceberg vs. Delta vs. Hudi]]
+:SCORE: 8/10
+:WHY: Фундаментальный обзор стандартов, определяющих будущее хранения данных в облачных лакхаусах.
+
+** Artificial Intelligence
+- [[hxxps://huggingface.co/blog/ibm-granite/granite-4-2][Granite 4.2 LLMs: How They're Built]] (huggingface.co) — подробности архитектуры и обучения новой серии моделей IBM Granite для энтерпрайз задач.
+- [[hxxps://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing][Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original]] (huggingface.co) — методика восстановления точности сжатых 4-битных моделей, превышающая оригинальные полноформатные версии.
+- [[hxxps://www.kdnuggets.com/2026/08/corinium/the-data-ai-leadership-questions-that-will-define-the-next-stage-of-enterprise-ai][The Data & AI Leadership Questions That Will Define the Next Stage of Enterprise AI]] (kdnuggets.com) — стратегические вопросы для лидеров, внедряющих AI в корпоративную инфраструктуру.
+- [[hxxps://www.kdnuggets.com/python-dataclasses-beyond-the-boilerplate][Python Data Classes Beyond the Boilerplate]] (kdnuggets.com) — продвинутые техники использования dataclasses: валидация, вычисляемые атрибуты и оптимизация памяти.
+- [[hxxps://www.kdnuggets.com/i-tried-kimi-agent-and-heres-what-i-found][I Tried Kimi Agent and Here's What I Found]] (kdnuggets.com) — обзор возможностей и ограничений семейства агентов Kimi для автоматизации задач.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-observability-with-amazon-opensearch-service-mcp-apps/][Agentic observability with Amazon OpenSearch Service MCP Apps]] (aws.amazon.com) — внедрение визуализаций трассировок прямо в чат AI-агента для ускорения верификации инцидентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/governed-reports-with-amazon-quick-desktop-and-amazon-fsx-for-netapp-ontap/][Governed reports with Amazon Quick Desktop and Amazon FSx for NetApp ONTAP]] (aws.amazon.com) — автоматизация еженедельной отчетности с контролем доступа к файлам через AI-ассистента.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing][Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original]]
+:SCORE: 10/10
+:WHY: Прорыв в эффективном инференсе: сжатые модели работают лучше полных, что меняет экономику развертывания.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-observability-with-amazon-opensearch-service-mcp-apps/][Agentic observability with Amazon OpenSearch Service MCP Apps]]
+:SCORE: 9/10
+:WHY: Устраняет основное узкое место агентной наблюдаемости — ручную верификацию через переключение контекста.
+**** [[hxxps://huggingface.co/blog/ibm-granite/granite-4-2][Granite 4.2 LLMs: How They're Built]]
+:SCORE: 8/10
+:WHY: Важно для понимания трендов в создании специализированных энтерпрайз-моделей от крупных вендоров.

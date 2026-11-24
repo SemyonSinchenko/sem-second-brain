@@ -1,0 +1,80 @@
+#+TITLE: Daily Digest: 2026-08-25
+#+FROM: [2026-08-24 Mon]
+#+TO: [2026-08-25 Tue]
+#+DATE: [2026-08-25 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Meta открывает спецификации MetaRoCE и чип MTIA 300, задавая новые стандарты сетевого взаимодействия для ИИ-кластеров масштаба миллионов GPU. AWS демонстрирует зрелость инструментов для агентов (ARD, Connect, Bedrock), упрощая внедрение генеративного ИИ в enterprise-секторе. В инженерии данных акцент смещается на практические миграции (Apache Iceberg) и честные бенчмарки инструментов обработки (DuckDB vs Polars). Растет интерес к локальным LLM для приватности и контролю над инфраструктурой обучения через интеграцию Ray и HyperPod. Наблюдается культурный сдвиг в сообществе: обсуждение ценности кода против массовых дешевых решений на базе ИИ.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/how-to-leverage-local-small-language-models-for-your-projects][How to Leverage Local Small Language Models for Your Projects]] (KDnuggets) — Практическое руководство по запуску компактных языковых моделей на локальном железе для приватности и контроля затрат.
+- [[hxxps://www.kdnuggets.com/build-an-end-to-end-data-science-project-with-grok-build-and-grok-4-6][Build an End-to-End Data Science Project with Grok Build and Grok 4.6]] (KDnuggets) — Пример построения production-пайплайна data science с использованием инструментов Grok для EDA и деплоя.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-new-ray-capabilities-on-sagemaker-hyperpod/][Introducing new Ray capabilities on SageMaker HyperPod]] (AWS) — Интеграция Ray с инфраструктурой HyperPod упрощает оркестрацию распределенного обучения и мониторинг через SageMaker Studio.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/democratizing-institutional-knowledge-building-an-ai-powered-knowledge-management-system-with-aws/][Democratizing institutional knowledge: Building an AI-powered knowledge management system with AWS]] (AWS) — Архитектурный шаблон для сохранения институциональных знаний организации с использованием RAG и аватаров на базе AWS.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-resource-discovery-ard-an-open-specification-for-agent-discovery/][Agentic Resource Discovery (ARD): An open specification for agent discovery]] (AWS) — Спецификация ARD и AWS Agent Registry решают проблему обнаружения и каталогизации агентом ресурсов в гибридных средах.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-a-restaurant-telephony-ai-host-with-amazon-connect][Building a restaurant telephony AI host with Amazon Connect]] (AWS) — Руководство по созданию голосового ИИ-агента для приема заказов через телефонию без использования веб-интерфейсов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/ai-powered-metadata-correction-and-harmonization/][AI-powered metadata correction and harmonization]] (AWS) — Использование LLM для автоматической гармонизации и исправления метаданных в масштабируемых потоках данных.
+- [[hxxps://huggingface.co/blog/gradio-workflow-guide][Wire It, Run It, Deploy It: AI Workflows in Gradio]] (Hugging Face) — Обзор возможностей Gradio для быстрого прототипирования и развертывания рабочих потоков ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/how-to-leverage-local-small-language-models-for-your-projects][How to Leverage Local Small Language Models for Your Projects]]
+:SCORE: 9/10
+:WHY: Критически важно для seniors, оценивающих баланс между стоимостью токенов, приватностью данных и задержками в продакшене.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-resource-discovery-ard-an-open-specification-for-agent-discovery/][Agentic Resource Discovery (ARD): An open specification for agent discovery]]
+:SCORE: 8/10
+:WHY: Решает реальную проблему масштабирования агентных систем — обнаружение ресурсов в распределенной enterprise-среде.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-new-ray-capabilities-on-sagemaker-hyperpod/][Introducing new Ray capabilities on SageMaker HyperPod]]
+:SCORE: 8/10
+:WHY: Существенно снижает операционную нагрузку при управлении кластерами Ray для обучения фундаментальных моделей.
+
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/migrating-to-apache-iceberg-strategies-for-every-source-system/][Migrating to Apache Iceberg: Strategies for Every Source System]] (Dremio) — Подробный разбор трех стратегий миграции на Iceberg (in-place, rewrite, shadow) с оценкой рисков и простоев.
+- [[hxxps://dataengineeringcentral.substack.com/p/the-polemic-against-cheap-code][The Polemic Against Cheap Code.]] (Data Engineering Central) — Манифест о ценности качественной инженерии в эпоху дешевых генеративных решений и влияния на техническое лидерство.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/migrating-to-apache-iceberg-strategies-for-every-source-system/][Migrating to Apache Iceberg: Strategies for Every Source System]]
+:SCORE: 9/10
+:WHY: Исчерпывающее руководство по миграции табличных форматов, необходимое для планирования эволюции Data Lakehouse.
+**** [[hxxps://dataengineeringcentral.substack.com/p/the-polemic-against-cheap-code][The Polemic Against Cheap Code.]]
+:SCORE: 7/10
+:WHY: Важно для техлидов, чтобы аргументированно отстаивать качество кода перед бизнесом в условиях хайпа вокруг ИИ.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/run-debug-and-scale-databricks-workloads-your-local-ide][Run, debug, and scale Databricks workloads from your local IDE]] (Databricks) — Возможность запуска и отладки ворклоадов Databricks локально ускоряет цикл разработки для инженеров.
+- [[hxxps://www.databricks.com/blog/how-databricks-uses-ai-accelerate-incident-investigation][How Databricks Uses AI to Accelerate Incident Investigation]] (Databricks) — Кейс использования ИИ для ускорения расследования инцидентов внутри платформы Databricks.
+- [[hxxps://engineering.fb.com/2026/08/24/networking-traffic/mtia-300-meta-training-chip-built-in-nics/][MTIA 300: Meta's First Training Chip with Built-in NICs and Communication-Offloading Engines]] (Meta) — Архитектура чипа MTIA 300 оптимизирована для коммуникационных паттернов моделей рекомендаций, а не только для FP-вычислений.
+- [[hxxps://aws.amazon.com/blogs/database/cross-database-access-using-module-signing-on-amazon-rds-for-sql-server/][Cross-database access using module signing on Amazon RDS for SQL Server]] (AWS) — Безопасный подход к кросс-базовому доступу в managed RDS без использования свойства TRUSTWORTHY.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества Graph Data Council с повесткой по стандартам GQL и графовым бенчмаркам.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/08/24/networking-traffic/mtia-300-meta-training-chip-built-in-nics/][MTIA 300: Meta's First Training Chip with Built-in NICs and Communication-Offloading Engines]]
+:SCORE: 9/10
+:WHY: Демонстрирует тренд на ко-дизайн железа и софта для специфических AI-ворклоадов, выходящий за рамки универсальных GPU.
+**** [[hxxps://aws.amazon.com/blogs/database/cross-database-access-using-module-signing-on-amazon-rds-for-sql-server/][Cross-database access using module signing on Amazon RDS for SQL Server]]
+:SCORE: 8/10
+:WHY: Решает конкретную боль миграции legacy SQL Server_workloads в managed-среду с соблюдением security-_best practices.
+**** [[hxxps://www.databricks.com/blog/run-debug-and-scale-databricks-workloads-your-local-ide][Run, debug, and scale Databricks workloads from your local IDE]]
+:SCORE: 7/10
+:WHY: Улучшает developer experience для команд, работающих в экосистеме Databricks, сокращая время на отладку.
+
+** Open Source
+- [[hxxps://engineering.fb.com/2026/08/24/networking-traffic/metaroce-rdma-transport-ai-ethernet/][MetaRoCE: A New RDMA Transport Built for AI-Scale Ethernet]] (Meta) — Meta открывает спецификацию транспорта MetaRoCE для обеспечения масштабируемости Ethernet-сетей в ИИ-кластерах через OCP.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/08/24/networking-traffic/metaroce-rdma-transport-ai-ethernet/][MetaRoCE: A New RDMA Transport Built for AI-Scale Ethernet]]
+:SCORE: 10/10
+:WHY: Фундаментальное изменение в сетевых протоколах для ИИ, влияющее на архитектуру будущих дата-центров и стоимость инфраструктуры.
+
+** Engineers
+- [[hxxps://vutr.substack.com/p/benchmarking-duckdb-and-polars-on][Benchmarking DuckDB and Polars on 10GB, 50GB, 100GB, 200GB, and 465GB datasets.]] (Vu Tran) — Сравнительный бенчмарк производительности и надежности DuckDB и Polars на наборах данных разного объема вплоть до 465 ГБ.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Образовательный материал по линейному методу наименьших квадратов с реализацией на Clojure.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/benchmarking-duckdb-and-polars-on][Benchmarking DuckDB and Polars on 10GB, 50GB, 100GB, 200GB, and 465GB datasets.]]
+:SCORE: 9/10
+:WHY: Эмпирические данные о поведении популярных single-node инструментов при нехватке памяти критичны для выбора стека.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 6/10
+:WHY: Полезно для инженеров, желающих углубить понимание математических основ алгоритмов, используемых в ML-пайплайнах.

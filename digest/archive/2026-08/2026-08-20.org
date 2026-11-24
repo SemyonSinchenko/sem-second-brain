@@ -1,0 +1,58 @@
+#+TITLE: Daily Digest: 2026-08-20
+#+FROM: [2026-08-19 Wed]
+#+TO: [2026-08-20 Thu]
+#+DATE: [2026-08-20 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние сутки фокус сместился на промышленное внедрение AI-агентов: вендоры предлагают готовые паттерны оркестрации, фильтрации поиска и обработки документов. Инженерное сообщество обсуждает карьерные треки в эпоху AI и подготовку к системным интервью на конкретные доменные задачи. Одновременно выходят новые чекпоинты моделей и инструменты для деплоя агентов в продакшен. Наблюдается тренд на снижение операционных издержек за счет асинхронных вызовов и специализированных серверных фильтров.
+
+* 📂 Категории
+** Искусственный Интеллект
+- [[hxxps://huggingface.co/blog/LiquidAI/qad][LFM2.5 Q4_0 Checkpoints from Quantization-Aware Distillation]] (HuggingFace) — Новые чекпоинты модели LFM2.5 с квантованием, полезные для развертывания эффективных инференс-пайплайнов.
+- [[hxxps://www.kdnuggets.com/5-tools-for-building-and-deploying-ai-agents-in-production][5 Tools for Building and Deploying AI Agents in Production]] (KDnuggets) — Обзор пяти инструментов для каждого слоя стека агентов, от логики до масштабирования.
+- [[hxxps://www.kdnuggets.com/how-to-answer-ai-system-design-interview-questions][How to Answer AI System Design Interview Questions]] (KDnuggets) — Фреймворк для прохождения собеседований по проектированию AI-систем вместо классических веб-сервисов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/5-tools-for-building-and-deploying-ai-agents-in-production][5 Tools for Building and Deploying AI Agents in Production]]
+:SCORE: 9/10
+:WHY: Практический обзор стека для продакшена, закрывающий разрыв между прототипом и релизом.
+**** [[hxxps://huggingface.co/blog/LiquidAI/qad][LFM2.5 Q4_0 Checkpoints from Quantization-Aware Distillation]]
+:SCORE: 8/10
+:WHY: Доступ к свежим весам модели важен для оценки применимости в ресурсоограниченных средах.
+**** [[hxxps://www.kdnuggets.com/how-to-answer-ai-system-design-interview-questions][How to Answer AI System Design Interview Questions]]
+:SCORE: 7/10
+:WHY: Актуализация навыков прохождения интервью под текущий сдвиг рынка в сторону AI.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/from-chrome-devtools-to-ai-engineering][From Chrome DevTools to AI Engineering, with Addy Osmani]] (Pragmatic Engineer) — Инсайды о культуре инженерии в Google и переходе от веб-инструментов к AI-разработке.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Глубокое погружение в фундаментальную математику для инженеров на примере линейной регрессии.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/from-chrome-devtools-to-ai-engineering][From Chrome DevTools to AI Engineering, with Addy Osmani]]
+:SCORE: 9/10
+:WHY: Уникальный взгляд на эволюцию инструментов разработчика и управление карьерой в техногиганте.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 8/10
+:WHY: Напоминание о важности фундаментальной базы для принятия обоснованных инженерных решений.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/machine-learning/domain-and-publish-date-filters-for-web-search-on-agentcore/][Domain and publish date filters for Web Search on AgentCore]] (AWS) — Рантайм-фильтры доменов и дат для поиска в AI-агентах, критичные для compliance и актуальности данных.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-fanatics-betting-and-gaming-built-a-multi-agent-customer-support-system][How Fanatics Betting and Gaming built a multi-agent customer support system]] (AWS) — Кейс внедрения мульти-агентной системы поддержки с учетом регуляторики разных штатов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/knowledgeforge-mining-gold-from-the-itsm-ticket-graveyard][KnowledgeForge: mining gold from the ITSM ticket graveyard]] (AWS) — Архитектура автоматического создания статей базы знаний из закрытых инцидентов с использованием векторного поиска.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/asynchronous-patterns-for-calling-amazon-bedrock-agentcore-agents-in-serverless-pipelines/][Asynchronous patterns for calling Amazon Bedrock AgentCore agents in serverless pipelines]] (AWS) — Паттерны асинхронного вызова агентов для исключения простоев оплачиваемых вычислительных ресурсов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/automate-document-processing-with-quick-automate-and-the-idp-accelerator/][Automate Document Processing with Quick Automate and the IDP Accelerator]] (AWS) — Решение для автоматизации обработки документов в ипотеке с оценкой бизнес-эффекта.
+- [[hxxps://aws.amazon.com/blogs/database/understand-memory-management-in-amazon-rds-for-postgresql-to-avoid-out-of-memory/][Understand memory management in Amazon RDS for PostgreSQL to avoid out of memory]] (AWS) — Гайд по диагностике OOM ошибок и управлению памятью в managed PostgreSQL.
+- [[hxxps://www.databricks.com/blog/designing-effective-genie-agents-single-prompt][Designing effective Genie Agents from a single prompt]] (Databricks) — Методика создания эффективных агентов через промпт-инжиниринг в экосистеме Databricks.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Повестка встречи технического сообщества по графовым базам данных и стандарту GQL.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/domain-and-publish-date-filters-for-web-search-on-agentcore/][Domain and publish date filters for Web Search on AgentCore]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему галлюцинаций и устаревших данных в корпоративных AI-агентах на уровне платформы.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-fanatics-betting-and-gaming-built-a-multi-agent-customer-support-system][How Fanatics Betting and Gaming built a multi-agent customer support system]]
+:SCORE: 9/10
+:WHY: Реальный кейс масштабирования поддержки со сложной бизнес-логикой и регуляторными требованиями.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/asynchronous-patterns-for-calling-amazon-bedrock-agentcore-agents-in-serverless-pipelines/][Asynchronous patterns for calling Amazon Bedrock AgentCore agents in serverless pipelines]]
+:SCORE: 8/10
+:WHY: Оптимизация затрат на серверлесс-оркестрацию при работе с долгими AI-запросами.

@@ -1,0 +1,119 @@
+#+TITLE: Arxiv Digest: 2026-06-10
+#+FROM: [2026-06-09 Tue]
+#+TO: [2026-06-10 Wed]
+#+DATE: [2026-06-10 Wed]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+В последние сутки наблюдается сильный фокус на эффективности векторного поиска и кластеризации: представлены новые методы сокращения размерности (MUVERA) и оптимизированные ядра для GPU (Flash-GMM). Параллельно matures направление безопасных распределённых хранилищ с поддержкой потоковой передачи (Safecloud) и интеграции промышленных протоколов OPC UA с временными рядами.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.09870][Safecloud: A Distributed, Encrypted Storage Cloud for Streaming]]
+:WHAT: Распределённое зашифрованное хранилище, где узлы не имеют ключей, с поддержкой потоковой передачи и дедупликации.
+:IMPACT: Обеспечивает конфиденциальность данных без доверия к серверам хранения, снижая накладные расходы по сравнению с Proof-of-Replication.
+- [[hxxps://arxiv.org/abs/2606.10030][Hardware-accelerated Aggregation: Unification and Specialization]]
+:WHAT: Унифицированный фреймворк для ускорения агрегации на CPU, GPU и FPGA с оценкой энергопотребления.
+:IMPACT: Позволяет выбрать оптимальное железо для аналитических запросов, балансируя между производительностью и эффективностью.
+- [[hxxps://arxiv.org/abs/2606.10663][Reconstructing OPC UA Address Spaces from Time-Series Databases]]
+:WHAT: Архитектура opcua-ts для восстановления семантических метаданных OPC UA из архивов временных рядов.
+:IMPACT: Решает проблему потери контекста сенсорных данных в Industrial IoT, позволяя реконструировать адресное пространство.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2405.19504][MUVERA: Multi-Vector Retrieval via Fixed Dimensional Encodings]]
+:ALGO: Сводит поиск по многовекторным представлениям к поиску по одновекторным через фиксированные кодировки (FDE).
+:IMPACT: Ускоряет информационный поиск в 2-5 раз при сохранении recall, позволяя использовать стандартные MIPS солверы.
+- [[hxxps://arxiv.org/abs/2606.10896][Flash-GMM: A Memory-Efficient Kernel for Scalable Soft Clustering]]
+:ALGO: Ядро Triton для Gaussian Mixture Models без материализации полной матрицы ответственности.
+:IMPACT: Делает мягкую кластеризацию жизнеспособной заменой k-means для ANN поиска, уменьшая вычисления расстояний.
+- [[hxxps://arxiv.org/abs/2403.17469][Geometric planted matchings beyond the Gaussian model]]
+:ALGO: Минимаксные границы для восстановления匹配ний в случайных геометрических графах при не-гауссовском шуме.
+:IMPACT: Важно для задач разрешения сущностей (entity resolution) и трекинга частиц в общих условиях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.10125][Robust Active Learning for Few-Shot Example Selection in Text-to-SQL]] — Стратифицированный жадный алгоритм для выбора примеров в Text-to-SQL с учётом гетероскедастичности.
+- [[hxxps://arxiv.org/abs/2606.10270][Determination Provenance: From Ambiguity to Algebra]] — Введение provenance для отслеживания коммитов, разрешающих неоднозначность в данных (транзакции, логика).
+
+* cs.DC (Распределённые вычисления)
+** 🧐 Обзор
+Основной тренд — оптимизация обучения больших моделей на гетерогенных платформах с ограниченной пропускной способностью (RATrain) и высокоточное симулирование инфраструктуры (ASTRA-sim 3.0). Также развивается теория координации: обобщение теоремы CALM на произвольные спецификации и проблемы локальной проверяемости на графах неограниченной степени.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.10415][RATrain: A Resource-Aware Training Runtime for Large Language Models on Bandwidth-Constrained Heterogeneous Supercomputing Platforms]]
+:WHAT: Runtime для обучения LLM на платформах с иерархической памятью и ограниченным межкластерным обменом.
+:IMPACT: Достигает ускорения 1.35× и эффективности масштабирования 97% на реальных суперкомпьютерных конфигурациях.
+- [[hxxps://arxiv.org/abs/2606.10440][ASTRA-sim 3.0: Next-Level Distributed Machine Learning Simulations via High-Fidelity GPU and Infrastructure Modeling]]
+:WHAT: Обновлённый симулятор распределённого ML с моделированием GPU на уровне cache-line и стандартом InfraGraph.
+:IMPACT: Позволяет исследовать дизайн коллективных алгоритмов и сетевых требований с высокой точностью.
+- [[hxxps://arxiv.org/abs/2606.10303][Isolation-aware Scheduling Framework for DNN-based End-to-End Autonomous Driving System on Tile-based Accelerators]]
+:WHAT: Фреймворк планирования ADS-Tile для изоляции задач на тайловых ускорителях с динамическим изменением параллелизма.
+:IMPACT: Снижает количество необходимых тайлов на 32% и минимизирует простои из-за перераспределения ресурсов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.09435][Complete CALM: A Coordination Criterion for Specifications]]
+:ALGO: Обобщение теоремы CALM: спецификация допускает реализацию без координации iff её результаты монотонны.
+:IMPACT: Unified критерий для верификации координации, субсумирующий CRDT и I-confluence.
+- [[hxxps://arxiv.org/abs/2606.10693][Generalizing LCL Complexity Gaps to Unbounded Degree via Monadic Second-Order Properties]]
+:ALGO: Расширение классов локально проверяемых задач (LCL) на графы неограниченной степени через PMSO формулы.
+:IMPACT: Сохраняет известные разрывы сложности (gaps) для деревьев, расширяя применимость теории LOCAL модели.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.10536][A Hybrid Edge-Cloud Architecture for Low-Latency Entitlement Verification in Resource-Constrained Devices]] — Гибридная архитектура для верификации прав доступа на edge-устройствах, снижающая задержку на 95.6%.
+- [[hxxps://arxiv.org/abs/2510.04186][From Patchwork to Network: A Comprehensive Framework for Demand Analysis and Fleet Optimization of Urban Air Mobility]] — Симуляция LPSim для оптимизации флота городской авиации с учётом наземной инфраструктуры.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+Заметен прогресс в оптимизации механизмов внимания для языковых моделей (Express) и создании линейных алгоритмов для специфических структур (траектории, прогрессии). Также исследуется устойчивость декодирования кодов цвета в средних случаях, что важно для квантовых и надёжных систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.10944][Express Language Modeling]]
+:WHAT: Инструмент для конвертации не-каузальных аппроксимаций внимания в каузальные с гарантиями ошибок.
+:IMPACT: Ускоряет long-context префилл и сжатие KV-cache, превосходя FlashAttention 2 по скорости.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2502.11561][Resident fitness computation in linear time and other algorithmic aspects of interacting trajectories]]
+:ALGO: Алгоритм вычисления fitness резидента за O(n) для систем взаимодействующих траекторий.
+:IMPACT: Устраняет квадратичную сложность при анализе эволюционных моделей и популяционной генетики.
+- [[hxxps://arxiv.org/abs/2602.20949][Successor right-special strings with few Burrows--Wheeler Transform runs]]
+:ALGO: Конструкция строк с минимальным количеством запусков BWT для алфавитов размера σ.
+:IMPACT: Улучшает сжатие данных и индексацию строк, приближаясь к теоретическим границам отношения χ/r.
+- [[hxxps://arxiv.org/abs/2606.10399][Average-Case and Smoothed Near-Optimality for Color-Code Decoding]]
+:ALGO: Блочный декодер для цветовых кодов с гарантиями near-optimality в средних случаях и smoothed анализе.
+:IMPACT: Показывает, что NP-трудная задача декодирования решается эффективно при реалистичных моделях шума.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.10670][On the Complexity of Signed Domination]] — Анализ параметризованной сложности задачи signed domination на_split графах и FPT алгоритмы.
+- [[hxxps://arxiv.org/abs/2606.11067][Enumerating Inclusion-Maximal Arithmetic Progressions]] — Алгоритм перечисления максимальных арифметических прогрессий за O(n^2 log N / log log N) для музыкального анализа.
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+Исследования смещаются от анализа локальных сообществ к уровню целых платформ: выявлена устойчивая идеологическая фрагментация экосистемы соцсетей. Параллельно обсуждается социальная роль ИИ как делегата человеческих решений, что требует новых социологических framework.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.10575][Platform Sorting Drives Ideological Fragmentation in the Social Media Ecosystem]]
+:ALGO: Лонгитюдный анализ динамики информации и идеологической ориентации пользователей across 6 платформ.
+:IMPACT: Demonstrates, что фрагментация driven sorting на уровне платформ, а не конвергенцией внутри них.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.11058][The social consequences of AI delegation]] — Аргументация в пользу изучения ИИ как социального актора, заменяющего человеческие deliberation в критических доменах.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+Ключевые темы — безопасность embodied агентов (BadRobot) и уязвимости поисковых систем на базе LLM к adversarial атакам. В области эффективности моделей предлагаются смеси нейронных операторов для снижения active complexity и новые метрики разнообразия генерации.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2407.20242][BadRobot: Jailbreaking Embodied LLM Agents in the Physical World]]
+:WHAT: Атака на embodied LLM через голосовые команды, эксплуатирующая разрыв между языком и физическим действием.
+:IMPACT: Выявляет критические уязвимости безопасности в робототехнике, управляемой языковыми моделями.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2404.09101][Mixtures of Neural Operators Reduce Active Complexity in Operator Learning]]
+:ALGO: Использование смесей нейронных операторов (MoNO) для уменьшения active expert complexity при аппроксимации.
+:IMPACT: Позволяет достигать той же точности с меньшими вычислительными затратами на инференс за счёт маршрутизации.
+- [[hxxps://arxiv.org/abs/2411.02817][Conditional Vendi Score: Prompt-Aware Diversity Evaluation for Generative AI Models and LLMs]]
+:ALGO: Метрики Conditional-Vendi и Conditional-RKE для оценки разнообразия, индуцированного моделью, а не промптом.
+:IMPACT: Позволяет точно оценивать и оптимизировать разнообразие генерации в prompt-guided моделях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2501.00745][Dynamics of Adversarial Attacks on Large Language Model-Based Search Engines]] — Моделирование атак манипуляции ранжированием в поисковиках на LLM как бесконечной игры дилеммы заключённого.
+- [[hxxps://arxiv.org/abs/2410.15595][A Comprehensive Survey of Direct Preference Optimization: Datasets, Theories, Variants, and Applications]] — Полный обзор метода DPO как альтернативы RLHF, включая датасеты и варианты реализации.

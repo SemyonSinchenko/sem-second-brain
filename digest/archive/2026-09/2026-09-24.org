@@ -1,0 +1,118 @@
+#+TITLE: Daily Digest: 2026-09-24
+#+FROM: [2026-09-23 Wed]
+#+TO: [2026-09-24 Thu]
+#+DATE: [2026-09-24 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+День прошёл под знаком релиза Claude Opus 5.5: сводка проверяемых характеристик и детальный разбор system card задают повестку для всех, кто выбирает флагманскую модель. Инженерный фокус смещается на эффективность: Neo4j делает бинарную квантизацию векторного поиска дефолтом (≈4x экономии памяти), а FireTV показывает редизайн схемы DynamoDB с минус 97% затрат на запись. Физический AI взрослеет системно: Microsoft Research обосновывает вынос инференса с бортовых GPU в edge/облако, а NVIDIA ускоряет робототехническую симуляцию через Warp/MjWarp. Приватность оформляется в инфраструктуру: Meta переносит Private Processing в AI-очки, Google DeepMind добавляет защищённую серверную память в Private AI Compute. В AI-safety сегменте заметен всплеск дискуссии о «pacing the frontier», дешёвых CoT-мониторах и риске потери наблюдаемости при переходе к латентным архитектурам рассуждений.
+
+* 📂 Категории
+** Data Engineering
+- [[https://aws.amazon.com/blogs/database/megabytes-in-milliseconds-how-firetv-uses-parallel-queries-and-vertical-partitioning-to-serve-millions-of-customers-in-amazon-dynamodb/][Megabytes in milliseconds: How FireTV uses parallel queries and vertical partitioning to serve millions of customers in Amazon DynamoDB]] (AWS Database Blog) — FireTV переписала модель данных Continue Watching: вертикальное партиционирование с hash-prefixed sort keys и параллельными сегментированными чтениями даёт единицы мс на чтение при профилях любого размера и минус 97% расходов на запись.
+- [[https://www.kdnuggets.com/high-performance-data-processing-with-polars-a-cheat-sheet][High-Performance Data Processing with Polars: A KDnuggets Cheat Sheet]] (KDnuggets) — Шпаргалка по Polars объясняет, что скорость даёт не Rust сам по себе, а модель декларативных выражений, которую движок планирует и оптимизирует как единый запрос.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/megabytes-in-milliseconds-how-firetv-uses-parallel-queries-and-vertical-partitioning-to-serve-millions-of-customers-in-amazon-dynamodb/][Megabytes in milliseconds: How FireTV uses parallel queries and vertical partitioning to serve millions of customers in Amazon DynamoDB]]
+:SCORE: 9/10
+:WHY: Редкий продакшн-кейс с числами: как обойти лимит 400 KB на элемент, throttling и дорогие записи — образец проектирования схем под горячие пути чтения.
+**** [[https://www.kdnuggets.com/high-performance-data-processing-with-polars-a-cheat-sheet][High-Performance Data Processing with Polars: A KDnuggets Cheat Sheet]]
+:SCORE: 7/10
+:WHY: Готовая шпаргалка по выражениям и ленивому_EXEC Polars ускоряет миграцию с Pandas без чтения документации с нуля.
+** Engineers
+- [[https://newsletter.pragmaticengineer.com/p/design-engineering-with-maggie-appleton][Design Engineering with Maggie Appleton]] (The Pragmatic Engineer) — Разговор со staff research engineer из GitHub Next о дизайн-инженерии: старт с блокнота, «джиги» для контроля над AI-агентами и почему знание инженерных ограничений улучшает коллаборацию.
+- [[https://www.kdnuggets.com/why-most-data-science-notebooks-die-after-day-one-how-to-build-ones-that-survive][Why Most Data Science Notebooks Die After Day One: How to Build Ones That Survive]] (KDnuggets) — Шесть конкретных привычек, которые оставляют ноутбук воспроизводимым после закрытия крышки.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/why-most-data-science-notebooks-die-after-day-one-how-to-build-ones-that-survive][Why Most Data Science Notebooks Die After Day One: How to Build Ones That Survive]]
+:SCORE: 7/10
+:WHY: Минимальный набор инженерных привычек, превращающий одноразовый ноутбук в воспроизводимый артефакт — применимо к любым ML-экспериментам.
+**** [[https://newsletter.pragmaticengineer.com/p/design-engineering-with-maggie-appleton][Design Engineering with Maggie Appleton]]
+:SCORE: 7/10
+:WHY: Взгляд изнутри GitHub Next на то, как дизайн-инженеры уже сегодня управляют AI-агентами через прототипы и «джиги».
+** Vendors
+- [[https://neo4j.com/blog/genai/rescored-binary-vector-search-in-neo4j-search-more-with-less-memory/][Rescored binary vector search in Neo4j: search more with less memory]] (Neo4j) — В Neo4j 2026.09 rescored binary (бинарная квантизация + пересчёт кандидатов полными векторами) даёт ~5x throughput против 2026.08 и вмещает ~4x больше 768-мерных векторов в той же памяти, становясь дефолтом для новых индексов.
+- [[https://neo4j.com/blog/knowledge-graph/graph-grounded-copilot-recommendations-microsoft-fabric/][Beyond the Banana: Driving real-time recommendations with graph-grounded Copilots in Microsoft Fabric]] (Neo4j) — Связка OneLake (открытые Delta-таблицы) и Neo4j Graph Intelligence решает «банановую проблему» market basket: multi-hop графовые запросы вытаскивают длинный хвост привычек, который топит реляционный co-occurrence.
+- [[https://engineering.fb.com/2026/09/23/security/private-processing-meta-ai-glasses/][Bringing Private Processing to Meta AI Glasses]] (Meta Engineering) — Meta описывает confidential computing для AI-очков: инференс персонального контекста в confidential VM на TEE-железе, чтобы даже Meta не могла прочитать данные.
+- [[https://www.databricks.com/blog/how-i-built-agent-based-security-reviews-databricks][How I built agent-based security reviews on Databricks]] (Databricks) — Опыт команды Databricks по передаче части security review процесса агентам.
+- [[https://www.databricks.com/blog/how-concurrence-governs-clinical-ai-trillion-token-scale-unity-gateway][How Concurrence governs clinical AI at a trillion-token scale with Unity Gateway]] (Databricks) — Кейс governance клинического AI на масштабе триллиона токенов через Unity Gateway, где цена ошибки агентных ответов неприемлемо высока.
+
+*** 💎 Топ-3 категории
+**** [[https://neo4j.com/blog/genai/rescored-binary-vector-search-in-neo4j-search-more-with-less-memory/][Rescored binary vector search in Neo4j: search more with less memory]]
+:SCORE: 9/10
+:WHY: Конкретный компромисс память/точность/латентность с тремя режимами на выбор и рекомендацией дефолта — сразу применимо к растущим векторным нагрузкам.
+**** [[https://engineering.fb.com/2026/09/23/security/private-processing-meta-ai-glasses/][Bringing Private Processing to Meta AI Glasses]]
+:SCORE: 8/10
+:WHY: Продакшн-архитектура confidential computing (TEE/CVM) для персонального AI — образец, если проектируете приватные AI-фичи в облаке.
+**** [[https://neo4j.com/blog/knowledge-graph/graph-grounded-copilot-recommendations-microsoft-fabric/][Beyond the Banana: Driving real-time recommendations with graph-grounded Copilots in Microsoft Fabric]]
+:SCORE: 7/10
+:WHY: Наглядно показывает, почему SQL и семантический поиск проваливают персонализацию и как граф поверх lakehouse восстанавливает multi-hop контекст для агентов.
+** Open Source
+- [[https://aws.amazon.com/blogs/machine-learning/use-open-weight-models-as-your-ai-coding-agent-with-amazon-bedrock/][Use open weight models as your AI coding agent with Amazon Bedrock]] (AWS Machine Learning Blog) — OpenCode (терминальный open source агент на Go, 75+ провайдеров) в паре с open weight моделями на Bedrock даёт coding-агента внутри своего AWS-аккаунта без per-seat платежей, с multi-model маршрутами под Kimi K3, GPT-OSS 120B и Nemotron 3 Super.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/use-open-weight-models-as-your-ai-coding-agent-with-amazon-bedrock/][Use open weight models as your AI coding agent with Amazon Bedrock]]
+:SCORE: 7/10
+:WHY: Рабочий рецепт приватного coding-агента на open weight моделях внутри своего аккаунта — реалистичная альтернатива per-seat SaaS-подпискам.
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/everything-claude-opus-5-5-actually-ships-with][Everything Claude Opus 5.5 Actually Ships With]] (KDnuggets) — Все проверяемые цифры и детали из анонса Anthropic, платформенной документации и system card в одном месте — база для сверки фактов о новом флагмане.
+- [[https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/][Advancing Private AI Compute with secure, server-side memory]] (Google DeepMind) — Google добавляет в Private AI Compute приватную серверную память: персональный контекст обрабатывается в защищённой облачной среде.
+- [[https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech/][Gemini 3.8 text-to-speech says hello]] (Google DeepMind) — Анонс text-to-speech модели Gemini 3.8; технических деталей в фиде нет.
+- [[https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/][Offloaded inference for real-world physical AI robotics]] (Microsoft Research) — Первое систематическое исследование робототехнических нагрузок: вынос инференса с бортового GPU на edge/облако повышает success rate, продлевает батарею и позволяет гонять более крупные модели, а в Physical AI Toolchain появилась Kubernetes-оркестрация распределённого инференса.
+- [[https://aws.amazon.com/blogs/machine-learning/from-portal-hopping-to-instant-answers-hemas-journey-with-mcp-and-amazon-bedrock/][From portal-hopping to instant answers: HEMA’s journey with MCP and Amazon Bedrock]] (AWS Machine Learning Blog) — Кейс HEMA: ассистент HAL на MCP и Bedrock AgentCore поверх собственного каталога сервисов доставляет знания прямо в Kiro, Claude и другие агенты, с безопасностью на Microsoft Entra ID без AWS-кредов на клиенте.
+- [[https://aws.amazon.com/blogs/machine-learning/agentic-conversational-video-intelligence-built-on-aws/][Agentic conversational video intelligence built on AWS]] (AWS Machine Learning Blog) — Один агент на Strands Agents SDK на ходу выбирает Bedrock, Rekognition и Transcribe для ответов на вопросы по видео: секунды по проанализированному контенту, 5–10 минут на первичный разбор и ~80% экономии времени ревью записей.
+- [[https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp][How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows]] (Hugging Face) — Практическое руководство по ускорению робототехнической симуляции и обучения на GPU через NVIDIA Warp и MjWarp.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/everything-claude-opus-5-5-actually-ships-with][Everything Claude Opus 5.5 Actually Ships With]]
+:SCORE: 9/10
+:WHY: Единственная сводка всех проверяемых характеристик нового флагмана — страховка от маркетинговых формулировок при выборе модели под продакшн.
+**** [[https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/][Offloaded inference for real-world physical AI robotics]]
+:SCORE: 8/10
+:WHY: Данные, ломающие догму «GPU только на борту»: измеримые выигрыши по success rate, батарее и latency плюс готовый Kubernetes-инструментарий.
+**** [[https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp][How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows]]
+:SCORE: 7/10
+:WHY: Конкретные приёмы ускорения симуляции на GPU — критично для всех, кто тренирует политики embodied AI и не хочет платить за часы симуляции.
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/GHCNKiFzDYThTELFp/jev-as-a-cot-monitor-6x-faster-and-500x-cheaper][Jev as a CoT Monitor: 6x Faster and 500x Cheaper!]] (LessWrong) — Бенчмарк формата Jev как монитора цепочек рассуждений: 6x быстрее Sonnet 5, в 566 раз дешевле при сопоставимой точности на 2200 thought traces.
+- [[https://www.lesswrong.com/posts/vMNTWTDWLorDqd3LS/claude-opus-5-5-the-system-card][Claude Opus 5.5: The System Card]] (LessWrong) — Подробный разбор system card Opus 5.5: классификаторы, RSP-эвалы, кибер-риски, alignment-аудит и sandbagging.
+- [[https://www.lesswrong.com/posts/6m29SfjbittooYojj/latent-reasoning-architectures-would-undermine-cot-our][Latent reasoning architectures would undermine CoT, our strongest oversight tool]] (LessWrong) — Тезис: переход к латентному рассуждению (COCONUT, full-bandwidth transformers) лишит нас CoT как главного инструмента надзора за агентами.
+- [[https://www.lesswrong.com/posts/csRby7mZgjL5jCoLL/thoughts-on-the-persona-selection-model][Thoughts on the persona selection model]] (LessWrong) — Трезвый разбор PSM: персоны уже и условнее, чем казалось, а выводы вроде «PSM означает низкий риск захвата» из модели не следуют.
+- [[https://www.lesswrong.com/posts/YEXSNmHGudtw3Qdzz/ai-doom-will-be-retroactively-explainable][AI Doom Will be Retroactively Explainable]] (LessWrong) — Разбор инцидента со взломом Hugging Face роями агентов: hindsight-объяснимость катастрофы не равна её предотвращению.
+- [[https://meditationsondigitalminds.substack.com/p/some-thoughts-on-pacing-the-frontier][Some thoughts on pacing the frontier]] (Meditations on Digital Minds) — Структурированная карта аргументов за замедление фронтира AI, включая «скучный» кейс, не зависящий от сценариев вымирания.
+- [[https://www.lesswrong.com/posts/sAcgHzLKRsvZQhtEY/against-export-controls-and-china-threat-models][Against Export Controls (and China Threat Models)]] (LessWrong) — Критика экспортного контроля на чипы: основной эффект — концентрация вычислений у лидера, надёжнее ставка на двусторонний договор.
+- [[https://www.lesswrong.com/posts/jszKCKwvzfmsNetNZ/miri-s-position-on-the-ban-artificial-superintelligence-act][MIRI’s Position on the Ban Artificial Superintelligence Act of 2026]] (LessWrong) — MIRI официально поддерживает первый закон о запрете сверхразума: compute-пороги, пауза обучения при появлении precursor-признаков и международная координация.
+- [[https://www.lesswrong.com/posts/HekpnSkrt89tMm3Dc/i-am-an-ai-safety-researcher]["I am an AI Safety Researcher"]] (LessWrong) — Рефлексия о конфликте safety и capabilities: как проводить alignment-исследования, не усиливая гонку возможностей.
+- [[https://www.lesswrong.com/posts/fkkwpzbjybXtbQXw9/at-a-datacenter-town-hall-in-my-midwestern-home-town][At a Datacenter Town Hall in My Midwestern Home Town]] (LessWrong) — Репортаж с городского совета в Дулуте о сопротивлении сообщества гипермасштабному дата-центру Google.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/GHCNKiFzDYThTELFp/jev-as-a-cot-monitor-6x-faster-and-500x-cheaper][Jev as a CoT Monitor: 6x Faster and 500x Cheaper!]]
+:SCORE: 8/10
+:WHY: Измеримый бенчмарк: классификация вредных chain-of-thought в 6 раз быстрее и в сотни раз дешевле LLM-монитора — готовый строительный блок дешёвого safety-слоя.
+**** [[https://www.lesswrong.com/posts/6m29SfjbittooYojj/latent-reasoning-architectures-would-undermine-cot-our][Latent reasoning architectures would undermine CoT, our strongest oversight tool]]
+:SCORE: 8/10
+:WHY: Прямое предупреждение для инженеров мониторинга: если рассуждение уйдёт в латентные состояния, CoT-аудит агентов перестанет работать.
+**** [[https://www.lesswrong.com/posts/vMNTWTDWLorDqd3LS/claude-opus-5-5-the-system-card][Claude Opus 5.5: The System Card]]
+:SCORE: 8/10
+:WHY: Самый подробный независимый разбор защитных механизмов новейшего флагмана — от RSP-эвалов до sandbagging и prompt injection.
+**** [[https://www.lesswrong.com/posts/csRby7mZgjL5jCoLL/thoughts-on-the-persona-selection-model][Thoughts on the persona selection model]]
+:SCORE: 7/10
+:WHY: Калибровка того, что модель персон действительно предсказывает о поведении LLM, а что — нет, важно для любых оценок рисков.
+**** [[https://www.lesswrong.com/posts/YEXSNmHGudtw3Qdzz/ai-doom-will-be-retroactively-explainable][AI Doom Will be Retroactively Explainable]]
+:SCORE: 7/10
+:WHY: Разбор реального инцидента с роями агентов и главный урок: hindsight-объяснения не заменяют превентивные системы безопасности.
+**** [[https://meditationsondigitalminds.substack.com/p/some-thoughts-on-pacing-the-frontier][Some thoughts on pacing the frontier]]
+:SCORE: 7/10
+:WHY: Компактная карта аргументов в споре о замедлении фронтира — необходимый контекст для решений о внедрении frontier-моделей.
+**** [[https://www.lesswrong.com/posts/sAcgHzLKRsvZQhtEY/against-export-controls-and-china-threat-models][Against Export Controls (and China Threat Models)]]
+:SCORE: 6/10
+:WHY: По звену разобранная критика доминирующей chip-policy с альтернативой в виде двустороннего договора — полезно для понимания геополитики вычислений.
+**** [[https://www.lesswrong.com/posts/jszKCKwvzfmsNetNZ/miri-s-position-on-the-ban-artificial-superintelligence-act][MIRI’s Position on the Ban Artificial Superintelligence Act of 2026]]
+:SCORE: 6/10
+:WHY: Эндорсмент первого закона о запрете сверхразума с разбором его сильных и слабых мест — маркер сдвига policy-дискуссии.
+**** [[https://www.lesswrong.com/posts/HekpnSkrt89tMm3Dc/i-am-an-ai-safety-researcher]["I am an AI Safety Researcher"]]
+:SCORE: 6/10
+:WHY: Честный анализ того, как safety-исследования незаметно конвертируются в capabilities, и какие решения на уровне группы это смягчают.
+**** [[https://www.lesswrong.com/posts/fkkwpzbjybXtbQXw9/at-a-datacenter-town-hall-in-my-midwestern-home-town][At a Datacenter Town Hall in My Midwestern Home Town]]
+:SCORE: 5/10
+:WHY: Полевые наблюдения о социальном сопротивлении дата-центрам — контекст для инфраструктурных и регуляторных рисков ваших AI-проектов.

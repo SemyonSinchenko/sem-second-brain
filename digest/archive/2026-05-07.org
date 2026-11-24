@@ -1,0 +1,71 @@
+#+TITLE: Daily Digest: 2026-05-07
+#+FROM: [2026-05-06 Wed]
+#+TO: [2026-05-07 Thu]
+#+DATE: [2026-05-07 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Интеграция ИИ переходит от хайпа к оптимизации рабочих процессов: акцент смещается на UX и супервизию агентов, а не только на генерацию кода. Архитектура данных становится критическим узким местом для ИИ, где запросы к живым данным эффективнее устаревших копий в хранилищах. Инструменты для снижения затрат на инференс (AWS Inferentia2) и эволюции схем (Iceberg v3) повышают операционную эффективность. Поддержка мейнтейнеров Open Source усиливается на уровне политик, а успех корпоративного ИИ зависит от трансформации талантов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/dremio-iceberg-v3-default-column-values/][Iceberg Default Column Values: Schema Evolution Without the Backfill]] (Dremio) — Native default values in Iceberg v3 allow instant schema evolution without rewriting data files.
+- [[hxxps://www.dremio.com/blog/the-ai-data-gap-is-closing-not-for-everyone/][The AI Data Gap Is Closing. Not for Everyone.]] (Dremio) — Querying live data directly reduces latency and costs for AI agents compared to stale warehouse copies.
+- [[hxxps://www.databricks.com/blog/rethinking-distributed-systems-serverless-performance-and-reliability][Rethinking Distributed Systems for Serverless Performance and Reliability]] (Databricks) — Architectural shifts required to build truly serverless compute for Apache Spark at scale.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/dremio-iceberg-v3-default-column-values/][Iceberg Default Column Values: Schema Evolution Without the Backfill]]
+:SCORE: 9/10
+:WHY: Решает одну из самых болезненных проблем больших таблиц — миграцию схем без простоя и дорогостоящего backfill.
+**** [[hxxps://www.dremio.com/blog/the-ai-data-gap-is-closing-not-for-everyone/][The AI Data Gap Is Closing. Not for Everyone.]]
+:SCORE: 9/10
+:WHY: Критический инсайт для архитекторов: ИИ-агенты требуют доступа к живым данным, а не к ежедневным снимкам.
+**** [[hxxps://www.databricks.com/blog/rethinking-distributed-systems-serverless-performance-and-reliability][Rethinking Distributed Systems for Serverless Performance and Reliability]]
+:SCORE: 8/10
+:WHY: Глубокий разбор архитектурных компромиссов при переходе на серверless-вычисления для распределенных систем.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/][Cost effective deployment of vision-language models for pet behavior detection on AWS Inferentia2]] (AWS) — Migration to Inferentia2 instances significantly reduces costs for always-on real-time vision inference.
+- [[hxxps://www.kdnuggets.com/how-to-set-up-claude-code-channels-locally][How to Set Up Claude Code Channels Locally]] (KDnuggets) — Practical guide to connecting Claude Code to Discord locally for controlled automated coding workflows.
+- [[hxxps://www.kdnuggets.com/7-opencode-plugins-that-make-ai-coding-more-powerful][7 OpenCode Plugins That Make AI Coding More Powerful]] (KDnuggets) — Overview of plugins adding memory, search, and terminal control to strengthen AI coding loops.
+- [[hxxps://www.kdnuggets.com/2026/05/abacus/abacus-ai-review][Abacus AI Review: Features, AI Agents & Automation Explained (Honest Guide)]] (KDnuggets) — Detailed evaluation of Abacus AI capabilities for automation and app building.
+- [[hxxps://huggingface.co/blog/ServiceNow-AI/correctness-before-corrections][vLLM V0 to V1: Correctness Before Corrections in RL]] (Hugging Face) — Focus on ensuring correctness in reinforcement learning pipelines for LLM serving upgrades.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/cost-effective-deployment-of-vision-language-models-for-pet-behavior-detection-on-aws-inferentia2/][Cost effective deployment of vision-language models for pet behavior detection on AWS Inferentia2]]
+:SCORE: 9/10
+:WHY: Реальный кейс оптимизации затрат на инференс в продакшене с заменой GPU на специализированные чипы.
+**** [[hxxps://www.kdnuggets.com/how-to-set-up-claude-code-channels-locally][How to Set Up Claude Code Channels Locally]]
+:SCORE: 8/10
+:WHY: Практическая инструкция по локальной настройке автоматизации кодинга, полезная для внедрения в CI/CD.
+**** [[hxxps://www.kdnuggets.com/7-opencode-plugins-that-make-ai-coding-more-powerful][7 OpenCode Plugins That Make AI Coding More Powerful]]
+:SCORE: 8/10
+:WHY: Конкретные инструменты для расширения возможностей ИИ-ассистентов, улучшающие повседневный workflow разработчика.
+
+** Инженеры
+- [[hxxps://dataengineeringcentral.substack.com/p/ai-isnt-replacing-developers][AI Isn't Replacing Curious Developers]] (Data Engineering Central) — AI shifts the developer role towards UX and system supervision rather than replacing coding entirely.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/ai-isnt-replacing-developers][AI Isn't Replacing Curious Developers]]
+:SCORE: 9/10
+:WHY: Важное напоминание о том, что ценность инженера смещается к архитектуре и UX, а не просто к написанию кода.
+
+** Open Source
+- [[hxxps://opensource.org/blog/maintainer-month-2026-celebrating-the-people-who-keep-open-source-running][Maintainer Month 2026: Celebrating the People Who Keep Open Source Running]] (Open Source Initiative) — OSI highlights policy advocacy and support structures to sustain critical open source maintainers.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/maintainer-month-2026-celebrating-the-people-who-keep-open-source-running][Maintainer Month 2026: Celebrating the People Who Keep Open Source Running]]
+:SCORE: 7/10
+:WHY: Обзор инициатив по защите мейнтейнеров важен для понимания рисков зависимости от открытого ПО в инфраструктуре.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/why-talent-transformation-missing-focus-enterprise-ai][Why Talent Transformation Is the Missing Focus of Enterprise AI]] (Databricks) — Enterprise AI success depends more on talent adaptation than model selection or budget approval.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Upcoming community meeting for technical users of graph databases co-located with VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/why-talent-transformation-missing-focus-enterprise-ai][Why Talent Transformation Is the Missing Focus of Enterprise AI]]
+:SCORE: 8/10
+:WHY: Подчеркивает, что главным барьером внедрения ИИ является не технология, а готовность команды и процессы.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Анонс мероприятия полезен для нетворкинга в нише графовых баз данных, но не несет технической глубины.

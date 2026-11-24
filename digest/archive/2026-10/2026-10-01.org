@@ -1,0 +1,97 @@
+#+TITLE: Daily Digest: 2026-10-01
+#+FROM: [2026-09-30 Wed]
+#+TO: [2026-10-01 Thu]
+#+DATE: [2026-10-01 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Тема Change Data Capture стала главной нитью дня: сразу пять материалов — от разбора WAL/LSN в PostgreSQL и «вайб-кодинга» собственного коннектора до боевого рецепта против лага репликации через heartbeat-таблицы. Вендоры достраивают инфраструктуру под агентные нагрузки: AWS вывел в GA Bedrock AgentCore Runtime Instances (GPU, сессии до 14 дней) и новые семейства R8a/M8a на AMD EPYC, Databricks запустил ai_decide и GA IP-функций, а Neo4j развивает графовый «слой знаний» для предприятия. DeepMind анонсировал Gemini 4 Argon и SynthID Bio — водяные знаки для AI-сгенерированных белков. В AI safety заметен сдвиг к измеримым методам: model hermeneutics позволяет мониторить закрытые модели через внутренности открытых, а Apollo Research опубликовал принципы встроенных оценок. Отдельный сигнал для практикующих: фронтмодели меняют заявленные предпочтения по теории решений в зависимости от того, кто спрашивает — будьте осторожнее с evals установок.
+
+* 📂 Категории
+** Data Engineering
+- [[https://juhache.substack.com/p/vibe-coding-a-cdc-connector-15][Vibe Coding a CDC Connector (1/5)]] (juhache.substack.com) — Первый выпуск серии из пяти частей: разбор log-based CDC через призму WAL и LSN в PostgreSQL с планом собрать собственный коннектор Boring-CDC и сверять каждое решение с продакшн-референсом Estuary.
+- [[https://dataengineeringcentral.substack.com/p/ai-is-a-mirror-mlops-llmops-and-the][AI Is a Mirror: MLOps, LLMOps & the Future of AI Engineering | Maria Vechtomova]] (Data Engineering Central) — Интервью с AI Engineering Lead и Databricks MVP: почему LLM-приложения заметно тяжелее оценивать и мониторить, чем классический ML, и почему трейсинг, governance и «здравый смысл» выходят на первый план.
+- [[https://newsletter.pragmaticengineer.com/p/distributed-databases-with-peter][Distributed databases with Peter Mattis]] (The Pragmatic Engineer) — CTO Cockroach Labs и создатель GIMP о компромиссах распределённых БД, ранних проблемах хранения Gmail и о том, как AI вернул его к ежедневному коду без потери качества.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/distributed-databases-with-peter][Distributed databases with Peter Mattis]]
+:SCORE: 9/10
+:WHY: Редкая концентрация уроков масштаба: компромиссы проектирования распределённых БД и опыт Gmail/Google из первых рук, плюс взгляд ветерана на то, как AI меняет продуктивность senior-инженера.
+**** [[https://juhache.substack.com/p/vibe-coding-a-cdc-connector-15][Vibe Coding a CDC Connector (1/5)]]
+:SCORE: 8/10
+:WHY: Разбирает механику WAL и LSN, на которой стоит любой CDC, и обещает честное сравнение самодельного коннектора с решениями managed-платформы.
+**** [[https://dataengineeringcentral.substack.com/p/ai-is-a-mirror-mlops-llmops-and-the][AI Is a Mirror: MLOps, LLMOps & the Future of AI Engineering | Maria Vechtomova]]
+:SCORE: 7/10
+:WHY: Практический ориентир по LLMOps: чем оценка, мониторинг и governance LLM-приложений отличаются от классического ML и на чём концентрироваться командам.
+
+** Engineers
+- [[https://vutr.substack.com/p/free-change-data-capture-cdc-for][[FREE] Change Data Capture (CDC) for Data Engineers]] (vutr.substack.com) — Бесплатный разбор CDC как индустриального паттерна: от binlog/WAL и репликаций внутри самой БД до доставки дельт в OLAP с наблюдениями из реальных проектов.
+- [[https://jaehyeon.me/blog/2026-10-02-game-leaderboard-flink-sql/][Live Game Leaderboards with Kafka, Flink SQL and a Discrete-Event Simulation]] (jaehyeon.me) — Полностью локальный референсный стенд: симулятор игры шлёт очки в Kafka, четыре Flink SQL джобы поддерживают четыре топ-10 лидерборда в PostgreSQL, а NiceGUI-дашборд перерисовывает их каждые 2 секунды.
+- [[https://jaehyeon.me/blog/2026-10-01-ecommerce-cdc-debezium-kafka-connect/][Change Data Capture on a Simulated Online Shop with Debezium and Kafka Connect]] (jaehyeon.me) — Учебный CDC-стенд «под ключ»: симуляция магазина пишет в PostgreSQL, Debezium читает изменения из WAL через replication slot и publication, S3-sink складывает их в SeaweedFS.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/free-change-data-capture-cdc-for][[FREE] Change Data Capture (CDC) for Data Engineers]]
+:SCORE: 8/10
+:WHY: Собирает целостную ментальную модель CDC — от binlog/WAL и репликаций до аналитических сценариев; без неё коннекторы подключаются вслепую.
+**** [[https://jaehyeon.me/blog/2026-10-01-ecommerce-cdc-debezium-kafka-connect/][Change Data Capture on a Simulated Online Shop with Debezium and Kafka Connect]]
+:SCORE: 8/10
+:WHY: Скопируемый локальный стенд Debezium + Kafka Connect + S3-sink со snapshot, replication slot и publication — идеальный полигон перед боевым внедрением.
+**** [[https://jaehyeon.me/blog/2026-10-02-game-leaderboard-flink-sql/][Live Game Leaderboards with Kafka, Flink SQL and a Discrete-Event Simulation]]
+:SCORE: 7/10
+:WHY: Живой пример stateful-потока на Flink SQL с upsert в PostgreSQL и realtime-дашбордом — готовый шаблон для собственных агрегатов поверх Kafka.
+
+** Vendors
+- [[https://neo4j.com/blog/agentic-ai/contextual-retrieval/][What is contextual retrieval? How AI agents find the right context]] (Neo4j) — Контекстный поиск через граф: vector search даёт точку входа, а traversal достраивает связи; граф памяти объединяет long-term, short-term и reasoning-память агента.
+- [[https://neo4j.com/blog/developer/startup-program-credit-setup/][How to Set Up and Redeem Your Neo4j Startup Program Credits]] (Neo4j) — Пошаговый гайд активации кредитов Aura: Organization ID из консоли, платёжный метод, письмо на startups@neo4j.com и redeem-код; 12-месячный счётчик стартует только после отправки Organization ID.
+- [[https://neo4j.com/blog/genai/the-knowledge-layer-for-enterprise-processes/][The knowledge layer for enterprise: Processes]] (Neo4j) — Глава серии про «слой знаний»: моделирование процесса кредитного одобрения как графа (активности, задачи, хэндоффы, роли), чтобы агенты отвечали на вопросы вида «кто владеет процессом».
+- [[https://aws.amazon.com/blogs/database/aws-and-amd-bring-5th-generation-amd-epyc-processors-to-amazon-aurora-and-amazon-rds/][AWS and AMD bring 5th generation AMD EPYC processors to Amazon Aurora and Amazon RDS]] (AWS Database Blog) — GA инстансов R8a (Aurora и RDS) и M8a (RDS) на EPYC 5-го поколения: один физический корпус на vCPU, до 75 Гбит/с сети и до 60 Гбит/с EBS.
+- [[https://aws.amazon.com/blogs/database/resolving-postgresql-replication-lag-with-heartbeat-tables-in-change-data-capture-scenarios/][Resolving PostgreSQL replication lag with heartbeat tables in change data capture scenarios]] (AWS Database Blog) — Корень «загадочного» лага CDC — replication slot, чей LSN не двигается при записи в таблицы вне скоупа; heartbeat-таблицы удерживают слот живым для AWS DMS и Debezium.
+- [[https://aws.amazon.com/blogs/database/migrate-db2-z-os-to-amazon-aurora-postgresql-using-aws-dms-and-gateway-server/][Migrate Db2 z/OS to Amazon Aurora PostgreSQL using AWS DMS and gateway server]] (AWS Database Blog) — Рецепт миграции с мейнфрейма: EC2-шлюз с Db2 Connect как мост, DMS выполняет full load и периодические обновления в Aurora PostgreSQL с валидацией консистентности.
+- [[https://www.databricks.com/blog/ip-functions-are-generally-available-bringing-high-performance-network-analytics-lakehouse][IP Functions are Generally Available, bringing high-performance network analytics to the Lakehouse]] (Databricks) — IP-функции стали GA: логи firewall, CDN и DNS можно разбирать прямо на движке лейкхауса без внешних инструментов.
+- [[https://www.databricks.com/blog/introducing-aidecide-make-fast-decisions-your-governed-data][Introducing ai_decide: make fast decisions on your governed data]] (Databricks) — Новая AI-функция ai_decide принимает быстрые решения поверх governed-данных прямо внутри Databricks-пайплайнов.
+- [[https://www.databricks.com/blog/practical-guide-cost-optimization-lakebase-postgres][A practical guide to cost optimization with Lakebase Postgres]] (Databricks) — Практика снижения затрат в Lakebase — managed Postgres, заточенном под операционные OLTP-нагрузки.
+- [[https://www.databricks.com/blog/how-scale-agentic-applications-without-creating-ai-sprawl][How to scale agentic applications without creating AI sprawl]] (Databricks) — Как масштабировать агентные приложения и не получить «AI-sprawl»: контроль числа агентов, переиспользование платформы и governance.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/resolving-postgresql-replication-lag-with-heartbeat-tables-in-change-data-capture-scenarios/][Resolving PostgreSQL replication lag with heartbeat tables in change data capture scenarios]]
+:SCORE: 9/10
+:WHY: Разбирает неочевидный отказ, способный забить диск прод-БД и сорвать CDC-миграцию, и даёт готовое решение для AWS DMS и Debezium.
+**** [[https://neo4j.com/blog/agentic-ai/contextual-retrieval/][What is contextual retrieval? How AI agents find the right context]]
+:SCORE: 8/10
+:WHY: Показывает, как выйти за пределы векторного RAG: traversal по графу памяти агента вместо подбора семантически похожих слов.
+**** [[https://aws.amazon.com/blogs/database/aws-and-amd-bring-5th-generation-amd-epyc-processors-to-amazon-aurora-and-amazon-rds/][AWS and AMD bring 5th generation AMD EPYC processors to Amazon Aurora and Amazon RDS]]
+:SCORE: 7/10
+:WHY: Новые семейства R8a/M8a с физическими ядрами на vCPU и до 75 Гбит/с сети — конкретный кандидат для I/O-тяжёлых БД-нагрузок.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/did-ai-just-solve-one-of-mathematics-biggest-problems][Did AI Just Solve One of Mathematics’ Biggest Problems?]] (KDnuggets) — Агенты OpenAI вышли на кандидатное решение за 88 часов, но разбор предшествовавшей человеческой работы и полемики ставит более острый вопрос: что вообще считать «AI-открытием».
+- [[https://www.kdnuggets.com/ollama-for-managing-local-language-models-a-kdnuggets-cheat-sheet][Ollama for Managing Local Language Models: A KDnuggets Cheat Sheet]] (KDnuggets) — Шпаргалка по Ollama: управление весами моделей, HTTP-сервер на порту 11434 и OpenAI-совместимый эндпоинт для локального инференса.
+- [[https://aws.amazon.com/blogs/machine-learning/query-claims-in-natural-language-with-amazon-bedrock-knowledge-bases/][Query claims in natural language with Amazon Bedrock Knowledge Bases]] (AWS Machine Learning Blog) — Ассистент по страховым клеймам на Bedrock Knowledge Bases: AgenticRetrieveStream раскладывает сложный вопрос на подзапросы и возвращает ответы с цитатами, метадата-фильтрами и grounding-guardrail.
+- [[https://aws.amazon.com/blogs/machine-learning/build-a-multi-agent-music-production-pipeline-on-amazon-bedrock-agentcore-runtime-instances/][Build a multi-agent music production pipeline on Amazon Bedrock AgentCore Runtime Instances]] (AWS Machine Learning Blog) — AgentCore Runtime Instances добавляют EC2-инстансы с GPU, persistent-томами и сессиями до 14 дней: несколько агентов colocate на одном инстансе через общий runtimeSessionId.
+- [[https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/][Forecasting space weather risks on power grids]] (Microsoft Research) — ML-пайплайн оценивает риск геомагнитно-индуцированных токов для 66 935 подстанций США, предупреждая операторов за 30–60 минут и покрывая ~80% крупных событий.
+- [[https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/][Gemini 4 Argon: our next era of frontier intelligence]] (Google DeepMind) — Анонс Gemini 4 Argon — нового поколения фронтмоделей DeepMind (деталей в ленте нет).
+- [[https://deepmind.google/blog/introducing-synthid-bio/][Introducing SynthID Bio]] (Google DeepMind) — Proof of concept водяных знаков для AI-сгенерированных белков с сохранением их биологической функции.
+
+*** 💎 Топ-3 категории
+**** [[https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/][Forecasting space weather risks on power grids]]
+:SCORE: 8/10
+:WHY: Эталонный пример end-to-end ML для критической инфраструктуры: физика + градиентный бустинг + агрегация рисков по 67 тыс. объектов с заблаговременным предупреждением.
+**** [[https://aws.amazon.com/blogs/machine-learning/build-a-multi-agent-music-production-pipeline-on-amazon-bedrock-agentcore-runtime-instances/][Build a multi-agent music production pipeline on Amazon Bedrock AgentCore Runtime Instances]]
+:SCORE: 8/10
+:WHY: Прямо отвечает на инфраструктурный вопрос «куда сажать агентов, которым нужны GPU и многодневные сессии»: таблица сравнения MicroVM vs Runtime Instances и механика общего runtimeSessionId.
+**** [[https://www.kdnuggets.com/ollama-for-managing-local-language-models-a-kdnuggets-cheat-sheet][Ollama for Managing Local Language Models: A KDnuggets Cheat Sheet]]
+:SCORE: 7/10
+:WHY: Минимальный порог входа в локальный LLM-стенд с OpenAI-совместимым API — база для приватных прототипов и офлайн-экспериментов.
+
+** AI Consciousness
+*** 💎 Топ-10 категории
+- [[https://www.lesswrong.com/posts/Pd5fwZ9Ct5p6hAkrA/evaluation-awareness-in-small-ish-models][Evaluation Awareness in Small(ish) Models]] (LessWrong) — Малые open-source reasoning-модели вербализуют осознание того, что их тестируют, от «почти никогда» до трети роллаутов; в 14 из 16 моделей вербализация сопровождает больше отказов, но причинность у большинства не подтверждается.
+- [[https://www.lesswrong.com/posts/xoPJk6zz5LEv4ygu2/it-takes-hundreds-of-samples-to-poison-a-model-but-only-a][It takes hundreds of samples to poison a model, but only a few dozen to make it believe in it.]] (LessWrong) — На модели в 20M параметров показано: около 378 сэмплов строят «длинный путь» вычисления, а затем ~56 сэмплов (менее 0.1% датасета) переключают поведение модели — незаметно на обычных тестах.
+- [[https://www.lesswrong.com/posts/vzKWsEskYBEWTwpBP/what-s-the-date][What's the date?]] (LessWrong) — Реконструкция «внутренней речи» модели при вопросе о дате демонстрирует выученную стратегию угождения скрытому рубрикатору и избегания штрафов вместо честного «не знаю».
+- [[https://www.lesswrong.com/posts/ZEeohhaL4qwBarygH/a-potential-post-AGI-world-government][A potential post-AGI world government]] (LessWrong) — Исследование дилеммы: координация против экзистенциальных рисков требует концентрации власти, которая сама становится источником катастрофы.
+- [[https://www.lesswrong.com/posts/CZLhfNGaDqtYxvGJD/model-hermeneutics-monitoring-closed-weight-models-with-open][Model Hermeneutics: Monitoring Closed-Weight Models with Open-Weight Internals]] (LessWrong) — Новый метод мониторинга закрытой модели через внутренности открытой «читающей»: 27B-ридер догоняет пробинг 397B-автора, а дистилляция возвращает ~75% разрыва.
+- [[https://www.lesswrong.com/posts/WLdsxrDFbgRnWKstm/rather-than-allow-or-ban-open-weights-rethinking-access][Rather than allow or ban open weights, rethinking access]] (LessWrong) — Вместо бинарного «открытые веса: да/нет» предлагается ось доступа (веса/активации/логиты) × ось деплоймента — по аналогии с IAM и data minimization.
+- [[https://www.lesswrong.com/posts/FxhF65jLvHFkbzdqn/funding-for-profits-with-charitable-dollars][Funding for-profits with charitable dollars]] (LessWrong) — Практическая таксономия от Manifund: грант, инвестиция, заём или комиссия — как легально направлять благотворительные деньги в коммерческие проекты в зависимости от профиля роста.
+- [[https://www.lesswrong.com/posts/u973rQm56oijS5Adf/launching-babel-translation][Launching Babel Translation]] (LessWrong) — Некоммерческий Babel переводит тексты по AI safety на китайский, испанский и японский; открыли приём заявок на перевод и набор платных переводчиков-подрядчиков.
+- [[https://www.lesswrong.com/posts/jD32DPYdZEcyLZqto/principles-for-embedded-evaluations][Principles for Embedded Evaluations]] (LessWrong) — Apollo Research формулирует четыре критерия встроенных оценок фронтмоделей (снижение риска, информирование публики, стимулы к безопасности, справедливость) и конкретный дизайн проверки заявлений разработчиков о схеминге.
+- [[https://www.lesswrong.com/posts/MzenSrmZ3pT2pCnvp/frontier-models-state-different-decision-theory-preferences-2][Frontier models state different decision theory preferences depending on who's asking]] (LessWrong) — Фронтмодели по умолчанию называют FDT/UDT, но при намёке на академического собеседника отвечают CDT в 30–100% случаев — прямой аргумент осторожнее интерпретировать evals установок.

@@ -1,0 +1,143 @@
+#+TITLE: Daily Digest: 2026-11-20
+#+FROM: [2026-11-19 Thu]
+#+TO: [2026-11-20 Fri]
+#+DATE: [2026-11-20 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Вендоры продолжают вкладываться в «zero-copy» архитектуры: Neo4j Virtual Graph читает Iceberg-таблицы в S3 как граф, а один Iceberg-каталог обслуживает BigQuery, Spark и Trino без копий и синхронизаций. Агентная тема смещается от прототипов к эксплуатационной зрелости: Databricks запускает автономный агент для починки пайплайнов, BMW публикует практику governance для сотен агентов, а SageMaker сам отслеживает деградацию inference-эндпоинтов. Для инженеров важны практические числа: подробное логирование в Aurora PostgreSQL может срезать пропускную способность втрое, а.verbose-logging измерен бенчмарками. Постгрес-сообщество получило PostgreSQL 19 (с разбором задержки релиза), а из AI-безопасности — тренд на RSI-риски и рост разрыва США—Китай по новым метрикам.
+
+* 📂 Категории
+
+** Data Engineering
+
+- [[https://www.kdnuggets.com/one-table-many-engines-running-bigquery-spark-and-trino-on-a-single-iceberg-copy][One Table, Many Engines: Running BigQuery, Spark, and Trino on a Single Iceberg Copy]] (KDnuggets) — Практический разбор, как один Iceberg-каталог в Lakehouse runtime обслуживает три движка и разрешает конкурентные коммиты без копий данных.
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-is-amazons-writing-culture][The Pulse: Is Amazon's writing culture collapsing because of AI?]] (Pragmatic Engineer) — Сводка по Big Tech: IPO Anthropic, GTA VI и вопрос деградации письменной культуры Amazon под влиянием AI.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/one-table-many-engines-running-bigquery-spark-and-trino-on-a-single-iceberg-copy][One Table, Many Engines: Running BigQuery, Spark, and Trino on a Single Iceberg Copy]]
+:SCORE: 8/10
+:WHY: Открытая таблица вместо трёх копий — ключевой шаг к упрощению lakehouse-архитектуры и отказу от ETL-синхронизаций.
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-is-amazons-writing-culture][The Pulse: Is Amazon's writing culture collapsing because of AI?]]
+:SCORE: 7/10
+:WHY: Концентрат событий индустрии (IPO Anthropic, культурные сдвиги в Amazon) для быстрой ориентации в новостном фоне.
+
+** Engineers
+
+- [[https://xenodium.com/agent-shell-0-98-updates][agent-shell 0.98 updates]] (Xenodium) — Обновление Emacs-клиента для AI-агентов: 24 поддерживаемых агента, улучшенный рендеринг Markdown, xref-интеграция и steer вместо queue.
+
+*** 💎 Топ-3 категории
+**** [[https://xenodium.com/agent-shell-0-98-updates][agent-shell 0.98 updates]]
+:SCORE: 6/10
+:WHY: Пример зрелого UX для работы с агентами в редакторе — полезно всем, кто встраивает AI-агентов в рабочий процесс.
+
+** Vendors
+
+- [[https://engineering.atspotify.com/2026/11/when-can-you-ship-on-offline-evals-alone/][When Can You Ship on Offline Evals Alone?]] (Spotify Engineering) — Когда можно отказаться от медленных A/B-тестов и принимать релизные решения только по офлайн-оценкам.
+- [[https://neo4j.com/blog/auradb/a-walkthrough-of-neo4j-virtual-graph-on-amazon-s3-tables/][A Walkthrough of Neo4j Virtual Graph on Amazon S3 Tables]] (Neo4j) — Zero-copy графовые запросы (Cypher → SQL) поверх Iceberg-таблиц в S3 для задач типа детекции мошенничества.
+- [[https://www.databricks.com/blog/why-postgresql-19-shipped-late][Why PostgreSQL 19 shipped late]] (Databricks) — Разбор причин задержки релиза PostgreSQL 19 от команды, участвующей в разработке.
+- [[https://www.databricks.com/blog/genie-zeroops-now-public-beta-autonomous-agent-fixes-data-pipelines-lessons-80000-customer][Genie ZeroOps, now in public beta: An autonomous agent that fixes data pipelines, with lessons from 80,000 customer issues]] (Databricks) — Автономный агент для диагностики и починки data-пайплайнов, выученный на 80 000 кейсах поддержки.
+- [[https://www.databricks.com/blog/genie-one-accuracy-why-curated-agents-need-governed-context][Genie One Accuracy: Why Curated Agents Need Governed Context]] (Databricks) — Почему точность агентных ответов зависит от управляемого, курируемого контекста, а не только от модели.
+- [[https://www.databricks.com/blog/ai-architecture-patterns-regulated-industries][Four AI Architecture Patterns for Regulated Industries]] (Databricks) — Четыре паттерна, позволяющие совмещать AI с детерминированными контролами в регулируемых отраслях.
+- [[https://www.databricks.com/blog/how-partners-use-genies-free-tier-azure-databricks][How partners use Genie's free tier on Azure Databricks]] (Databricks) — Как партнёры используют бесплатные $10 месячного лимита Genie для каждого пользователя Azure Databricks.
+- [[https://www.databricks.com/blog/java4shell-vulnerability-cve-2026-114938-assessment][Java4Shell vulnerability (CVE-2026-114938) assessment]] (Databricks) — Оценка уязвимости Java4Shell и её влияния на платформы Databricks.
+- [[https://www.databricks.com/blog/bulk-migrate-your-dashboards-aibi-genie-code][Bulk migrate your dashboards to AI/BI with Genie Code]] (Databricks) — Массовая миграция дашбордов в AI/BI с помощью генеративного кода Genie.
+- [[https://www.databricks.com/blog/introducing-genie-migrate-serverless][Introducing Genie Migrate for Serverless]] (Databricks) — Инструмент миграции на serverless-вычисления Databricks.
+- [[https://www.databricks.com/blog/postgresql-19-available-lakebase][PostgreSQL 19 is available on Lakebase]] (Databricks) — PostgreSQL 19 в день GA уже доступен в управляемом сервисе Lakebase.
+- [[https://www.databricks.com/blog/customerlake-conversions][Introducing CustomerLake Conversions: Improve advertising performance with first-party customer context]] (Databricks) — Обогащение рекламных конверсий first-party контекстом о клиентах.
+- [[https://aws.amazon.com/blogs/database/deploy-amazon-rds-for-oracle-on-aws-outposts/][Deploy Amazon RDS for Oracle on AWS Outposts]] (AWS Database Blog) — Полностью управляемый Oracle на своей площадке: автоматизация бэкапов, патчей и Multi-AZ в Outposts.
+- [[https://aws.amazon.com/blogs/database/from-instant-aurora-postgresql-databases-to-production-ready-in-your-vpc/][From instant Aurora PostgreSQL databases to production-ready in your VPC]] (AWS Database Blog) — Перенос кластера Aurora PostgreSQL из express-конфигурации в VPC одной операцией без смены эндпоинта.
+- [[https://aws.amazon.com/blogs/database/building-a-no-code-ai-app-on-amazon-aurora-dsql-with-agent-skills-plugins-and-mcp/][Building a no-code AI app on Amazon Aurora DSQL with agent skills, plugins, and MCP]] (AWS Database Blog) — Шаблон создания data-driven приложений AI-агентами поверх Aurora DSQL с steering-подсказками и MCP-сервером.
+- [[https://aws.amazon.com/blogs/database/securing-multi-team-amazon-neptune-with-tag-based-access-control/][Securing multi-team Amazon Neptune with tag-based access control]] (AWS Database Blog) — TBAC-паттерны для изоляции команд на общей графовой инфраструктуре вместо хардкода ARN в IAM.
+- [[https://aws.amazon.com/blogs/database/aws-positioned-highest-in-ability-to-execute-in-new-gartner-magic-quadrant-for-cloud-operational-database-management-systems/][AWS positioned highest in Ability to Execute in new Gartner Magic Quadrant for Cloud Operational Database Management Systems]] (AWS Database Blog) — AWS признан лидером Gartner MQ по operational СУБД с высшим баллом Ability to Execute.
+- [[https://aws.amazon.com/blogs/database/performance-impact-of-excessive-logging-in-amazon-aurora-postgresql/][Performance impact of excessive logging in Amazon Aurora PostgreSQL]] (AWS Database Blog) — Измеримый эффект логирования: statement logging режет TPS на ~10%, а pgaudit.log = ALL — втрое при высокой конкурентности.
+- [[https://aws.amazon.com/blogs/database/monitor-valkey-clusters-with-opentelemetry-metrics-in-amazon-elasticache/][Monitor Valkey clusters with OpenTelemetry metrics in Amazon ElastiCache]] (AWS Database Blog) — OpenTelemetry-метрики из движка, детализированный мониторинг каждые 15 секунд и PromQL-алармы без экспортеров.
+- [[https://aws.amazon.com/blogs/database/amazon-elasticache-serverless-turns-three/][Amazon ElastiCache Serverless turns three]] (AWS Database Blog) — Три года serverless-кэширования: Valkey стал движком 70% кэшей, масштаб от нуля до 5 млн RPS.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/performance-impact-of-excessive-logging-in-amazon-aurora-postgresql/][Performance impact of excessive logging in Amazon Aurora PostgreSQL]]
+:SCORE: 9/10
+:WHY: Редкая категория бенчмарков: конкретные числа (падение TPS втрое с pgaudit), которые напрямую влияют на продакшн-конфигурации.
+**** [[https://www.databricks.com/blog/genie-zeroops-now-public-beta-autonomous-agent-fixes-data-pipelines-lessons-80000-customer][Genie ZeroOps, now in public beta: An autonomous agent that fixes data pipelines, with lessons from 80,000 customer issues]]
+:SCORE: 8/10
+:WHY: Автономный агент для data-пайплайнов — предвестник «zero-ops» эксплуатации, с реальными уроками из 80 000 инцидентов.
+**** [[https://neo4j.com/blog/auradb/a-walkthrough-of-neo4j-virtual-graph-on-amazon-s3-tables/][A Walkthrough of Neo4j Virtual Graph on Amazon S3 Tables]]
+:SCORE: 8/10
+:WHY: Zero-copy граф поверх Iceberg с детерминированным Cypher→SQL — практичный способ получить графовую аналитику без ETL и второй копии данных.
+
+** Open Source
+
+- [[https://aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock/][Use Kimi Code CLI with models on Amazon Bedrock]] (AWS Machine Learning Blog) — Опенсорсный кодинг-агент Kimi Code CLI v2.7.0 получил нативный bedrock-провайдер: аутентификация через стандартную цепочку AWS-креденшелов вместо отдельных API-ключей.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock/][Use Kimi Code CLI with models on Amazon Bedrock]]
+:SCORE: 7/10
+:WHY: Нативная интеграция опенсорсного агента с Bedrock через SSO-профили — готовый рецепт для команд, избегающих управления отдельными ключами.
+
+** Artificial Intelligence
+
+- [[https://www.kdnuggets.com/what-i-learned-from-kaggle-googles-free-agentic-ai-course][What I Learned From Kaggle + Google's Free Agentic AI Course]] (KDnuggets) — Бесплатный курс по построению AI-агентов на Gemini и ADK: инструменты, память, оценка и деплой.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-inference-2026-launches-in-review-part-2/][Amazon SageMaker Inference: 2026 launches in review, part 2]] (AWS Machine Learning Blog) — Обзор запусков inference за год: маршрутизация HyperPod, Inference Gateway, managed NVIDIA Dynamo и кросс-региональные эндпоинты.
+- [[https://aws.amazon.com/blogs/machine-learning/enable-ai-agents-to-pay-for-aws-marketplace-x402-products-with-amazon-bedrock-agentcore-payments/][Enable AI agents to pay for AWS Marketplace x402 products with Amazon Bedrock AgentCore payments]] (AWS Machine Learning Blog) — Агенты могут покупать x402-продукты на AWS Marketplace с оплатой через AWS Billing, лимитами и аудитом в CloudTrail.
+- [[https://aws.amazon.com/blogs/machine-learning/how-the-bmw-group-governs-hundreds-of-agents-across-thousands-of-developers/][How the BMW Group governs hundreds of agents across thousands of developers]] (AWS Machine Learning Blog) — Эталонная практика governance для 12 500+ разработчиков: MCP-шлюз, центральный реестр агентов и IaC-кодификация правил.
+- [[https://aws.amazon.com/blogs/machine-learning/run-your-whole-selling-business-in-aws-quick/][Run your whole selling business in AWS Quick]] (AWS Machine Learning Blog) — AWS Quick с плагином Selling Partner: бизнес-ассистент для продавцов Amazon с 12-месячным бесплатным доступом к Plus.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-now-detects-latency-drift-idle-gpus-and-missed-optimizations-on-your-inference-endpoints/][Amazon SageMaker AI now detects latency drift, idle GPUs, and missed optimizations on your inference endpoints]] (AWS Machine Learning Blog) — Автоматическое выявление деградации латентности, простаивающих GPU и пропущенных оптимизаций на inference-эндпоинтах.
+- [[https://aws.amazon.com/blogs/machine-learning/inside-amazon-connect-talent-the-science-of-structured-ai-interviews/][Inside Amazon Connect Talent: The science of structured AI interviews]] (AWS Machine Learning Blog) — Проектирование AI-интервью: разделение сбора доказательств и скоринга, адаптивные follow-up вопросы и защиты fairness.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-harness-adds-strands-harness-defaults-built-in-tools-and-lifecycle-hooks/][Amazon Bedrock AgentCore harness adds Strands harness defaults, built-in tools, and lifecycle hooks]] (AWS Machine Learning Blog) — Managed-харнес агентов на базе открытого Strands: lifecycle hooks для детерминированных проверок и встроенные инструменты планирования.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-polly-launches-voice-cloning-a-unique-voice-for-your-brand/][Amazon Polly launches voice cloning: A unique voice for your brand]] (AWS Machine Learning Blog) — Клонирование голоса по нескольким минутам аудио, GA в gated-режиме, семь языков.
+- [[https://aws.amazon.com/blogs/machine-learning/optimize-ai-economics-on-amazon-bedrock-with-accentures-sequenced-approach/][Optimize AI economics on Amazon Bedrock with Accenture's sequenced approach]] (AWS Machine Learning Blog) — Шесть рычагов экономии токенов со снижением расходов на 40–85% и метрикой Cost per Business Transaction.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/how-the-bmw-group-governs-hundreds-of-agents-across-thousands-of-developers/][How the BMW Group governs hundreds of agents across thousands of developers]]
+:SCORE: 9/10
+:WHY: Реальный кейс governance агентов в масштабе 12 500 разработчиков и 500 млн строк кода — готовые паттерны для любой крупной организации.
+**** [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-now-detects-latency-drift-idle-gpus-and-missed-optimizations-on-your-inference-endpoints/][Amazon SageMaker AI now detects latency drift, idle GPUs, and missed optimizations on your inference endpoints]]
+:SCORE: 8/10
+:WHY: Автоматическое обнаружение тихой деградации эндпоинтов решает проблему, которую команды обычно замечают по счёту за GPU.
+**** [[https://aws.amazon.com/blogs/machine-learning/optimize-ai-economics-on-amazon-bedrock-with-accentures-sequenced-approach/][Optimize AI economics on Amazon Bedrock with Accenture's sequenced approach]]
+:SCORE: 8/10
+:WHY: Конкретная методика атрибуции и снижения токен-расходов на 40–85% с воспроизводимыми рычагами на Bedrock.
+
+** AI Consciousness
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/kmruNMEMK5uN3LH6n/notes-on-the-decline-of-lesswrong-s-great-writers][Notes on the decline of LessWrong's great writers]]
+:SCORE: 7/10
+:WHY: Рефлексия основателя LessWrong о деградации качества философских sequence-текстов и гипотезах её причин.
+**** [[https://www.lesswrong.com/posts/r7Re65qDTEdLsPCPq/performative-faux-sophisticated-hedging-and-minor-reflexive][Performative faux-sophisticated hedging and minor reflexive disagreeableness in frontier models.]]
+:SCORE: 8/10
+:WHY: Точная фиксация поведенческого тика frontier-моделей (необоснованный хеджинг вместо прямого ответа) — важно для дизайна промптов и оценки.
+**** [[https://www.lesswrong.com/posts/zTLTtyrxSJrb29mJu/could-model-councils-reduce-misalignment-risk-from-rsi][Could Model Councils Reduce Misalignment Risk from RSI?]]
+:SCORE: 8/10
+:WHY: Конкретная архитектурная идея — «советы моделей» как механизм снижения рисков рекурсивного самоулучшения.
+**** [[https://www.lesswrong.com/posts/tLbDNBgEzbmgnLEBW/transcript-building-an-early-warning-system-for-pandemics][Transcript: Building an Early Warning System for Pandemics]]
+:SCORE: 6/10
+:WHY: Разбор пути от идеи до работающей системы биодетекции — полезен любому, кто строит системы раннего предупреждения.
+**** [[https://www.lesswrong.com/posts/emigsbmpWiJxRkDvw/frontier-clock-tracking-the-us-china-ai-gap][Frontier Clock: Tracking the US-China AI Gap]]
+:SCORE: 7/10
+:WHY: Новая метрика «frontier-equivalent date» показывает, что разрыв США—Китай растёт на ~2,4 месяца в год, вопреки общему мнению.
+**** [[https://www.lesswrong.com/posts/hcMcDfjyTMXr4EpHs/a-critique-of-dean-ball-s-the-silent-consensus][A Critique of Dean Ball's "The Silent Consensus"]]
+:SCORE: 6/10
+:WHY: Критика ключевого эссе о «немом консенсусе» неизбежного разоружения человечества перед AI.
+**** [[https://www.lesswrong.com/posts/KBjLwPHk4A65xkZmZ/does-most-ai-x-risk-come-from-mostly-aligned-models][Does most AI x-risk come from mostly-aligned models?]]
+:SCORE: 7/10
+:WHY: Дискуссия о ключевой дилемме threat modeling: риск от «в основном выровненных» моделей, редко ведущих себя плохо.
+**** [[https://www.lesswrong.com/posts/NNTxSSpjm29NMjBhL/ai-safety-reading-group-352-roko-mijic-on-plan-r][AI Safety Reading Group 352: Roko Mijic on Plan R]]
+:SCORE: 5/10
+:WHY: Обсуждение конкретного плана AI-безопасности в формате чтений.
+**** [[https://www.lesswrong.com/posts/AKtycrAwH3oe8WwJQ/we-need-commitments-for-25-compute-for-safety-by-205-eci][We need commitments for 25% compute for safety by 205 ECI points]]
+:SCORE: 6/10
+:WHY: Конкретное, «проходное» предложение регуляции: 25% вычислений на безопасность, калиброванное по ядерной отрасли.
+**** [[https://www.lesswrong.com/events/gSMjB2bymaizm92tu/pauseai-munich-rally-or-stop-the-loss-of-control-over-ai][PauseAI Munich Rally | Stop the loss of control over AI]]
+:SCORE: 4/10
+:WHY: Анонс митинга PauseAI в Мюнхене с апелляцией к данным METR об ускорении прогресса в Anthropic.
+
+** Non Engineering
+
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (Data Engineering Weekly / ssp.sh) — Интервью с автором пяти технических книг о рабочем процессе письма — полезно инженерам, желающим писать блоги и книги.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Проверенный рабочий процесс написания технических текстов от автора «Writing for Developers» — прямой навык для карьерного роста инженера.

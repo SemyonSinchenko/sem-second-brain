@@ -1,0 +1,172 @@
+#+TITLE: Arxiv Digest: 2026-10-19
+#+FROM: [2026-10-18 Sun]
+#+TO: [2026-10-19 Mon]
+#+DATE: [2026-10-19 Mon]
+#+STARTUP: showall
+
+* Базы данных (cs.DB)
+
+** 🧐 Обзор
+Главная тема дня — экстремальный масштаб и стоимость векторного поиска: ByteDance делится архитектурой продакшен-движка UBASE на триллионы векторов, а PrairieFire снимает узкое место обновлений в SSD-based ANNS. Зреет graph-RAG: AutoPrunedRetriever вводит персистентные reasoning-графы с разделяемым символьным кодбуком, FuseRAG переносит структуру графа в латентные представления — обе системы режут токены и латентность multi-hop QA. Параллельно исследуются новые субстраты аналитики (полный TPC-H на TPU) и тулинг качества: диалект-агностичное опровержение эквивалентности SQL и идентификация шаблонов запросов по provenance. Для графовых СУБД предложена первая систематическая таксономия ошибок в property graphs.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2608.30607][UBASE: An AI Search Engine for Trillion-Scale Vector Data Management at ByteDance]]
+:WHAT: Единый AI-поисковый движок ByteDance (7000+ кластеров, 300 ПБ): квантование SymRaBitQ для построения graph-индекса прямо в квантованном пространстве и гибридный storage-движок (memory/hybrid/SSD) с record-level кэшированием.
+:IMPACT: До 3x пропускной способности, −80% памяти индексации и −99.4% стоимости обслуживания на триллионном масштабе — де-факто референс векторного поиска AI-эпохи.
+
+- [[https://arxiv.org/abs/2610.23232][PrairieFire: Igniting High-Throughput Updates in Large-Scale Approximate Nearest Neighbor Search]]
+:WHAT: SSD-based ANNS с буферизованными обновлениями, батчевыми локальными перестройками, каскадной корректировкой и кооперацией CPU-GPU-SSD, устраняющая частые SSD-обращения и тяжёлые фоновые reassignment.
+:IMPACT: 3–35x throughput обновлений при 3–5x search throughput; два месяца в проде RedNote — свежесть индекса без постоянных полных перестроений.
+
+- [[https://arxiv.org/abs/2610.22673][The Case for TPU-Accelerated Analytical Query Processing]]
+:WHAT: Native TPU Accelerator (NTA): все запросы TPC-H целиком на TPU через JAX/XLA — hardware-conscious операторы на TensorCore/SparseCore и компилятор, выбирающий TPU-native реализации по каталог-статистике и локальной cost-модели.
+:IMPACT: 7.0x над DuckDB на одном устройстве (SF100) и 68.6x на 16 TPU (SF1000, 1 ТБ) — аргумент за TPU как массово-масштабируемый субстрат аналитической обработки запросов.
+
+- [[https://arxiv.org/abs/2602.04926][AutoPrunedRetriever: Persistent Reasoning Graphs for Efficient and Extensible Retrieval-Augmented Generation]]
+:WHAT: Graph-RAG система APR: факты корпуса и reasoning запросов кодируются в разделяемый символьный кодбук (одновременно индекс и персистентная память) с инкрементальной консолидацией; APL-слой заменяет retrieved-контекст в уже развёрнутых ретриверах.
+:IMPACT: +1.8–10.8 пунктов точности над сильнейшим бейзлайном при −96% входных токенов — переиспользование промежуточных рассуждений напрямую снижает стоимость LLM-инференса.
+
+- [[https://arxiv.org/abs/2610.22818][FuseRAG: Fusing Structure and Evidence into Inference for Cost-Efficient Graph-based RAG]]
+:WHAT: Перенос основной части retrieved-графа из текстового контекста в латентные представления, инжектируемые в self-attention декодера; явными остаются лишь семантические якоря.
+:IMPACT: До 2.7x/2.2x ускорения TTFT над быстрыми graph-based бейзлайнами при лучшем качестве multi-hop QA — решает деградацию структуры графа и слабый reuse KV-cache.
+
+- [[https://arxiv.org/abs/2610.22442][Efficient Dialect-Agnostic SQL Equivalence Refutation]]
+:WHAT: SQLWitness — DBMS-агностичный движок опровержения эквивалентности SQL: контрпримеры проверяются самим execution engine СУБД, генерация данных учитывает integrity constraints, остановка — по predicate-coverage со статистическим оценщиком.
+:IMPACT: Опровергает на 5.3–88.4% больше пар, чем SOTA, со средней скоростью 0.12 с на пару (2.1–16.4x) — практичный инструмент оценки Text-to-SQL и диалект-трансляторов.
+
+- [[https://arxiv.org/abs/2610.22705][Data Provenance Aggregation and Structural Descriptors for Query-Template Identification]]
+:WHAT: Профили запросов на базе агрегированной tuple-level Lineage/Why-provenance и числовых Provenance Structural Descriptors для классификации query-шаблонов.
+:IMPACT: Шаблоны TPC-DS распознаются по «provenance-отпечаткам» с высокой точностью при малой истории и низкой стоимости — основа workload-анализа, аудита и anomaly detection.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2610.23083][An Error Taxonomy for Property Graph Data]]
+:ALGO: Систематическая таксономия типов ошибок в property graphs с неявной схемой + отображение на понятия табличного data quality, показывающее, что переносится между моделями данных, а что требует структурных расширений.
+:IMPACT: Общий словарь для описания и сравнения ошибок — фундамент для будущих систем детекции и починки данных в графовых базах.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.09867][Contextual Utility of Quantization Moves in Extreme Low-Bit LLMs]] — изолированные оценки замен весов не предсказывают их совместный эффект в экстремально низкобитных LLM; парные измерения улучшают выбор конфигураций квантования.
+- [[https://arxiv.org/abs/2610.22771][Reusing Calibration Gains across Model Representations]] — калибровочные поправки переносятся между FP- и INT-представлениями модели с сохранением 77–99% выигрыша без оптимизации на стороне приёмника.
+
+* Искусственный интеллект (cs.AI)
+
+** 🧐 Обзор
+Прикладной ML тяготеет к безопасности и коду: Pluvio решает поиск клонов ассемблера для невиданных архитектур через transfer learning, а большой обзор наводит порядок в таксономии переносимых атак на AI-системы. В графовом ML зреет тема надёжности: сигналы доверия в направлениях рёбер ориентированных графов дают SOTA-робастность GNN к transfer- и adaptive-атакам. Для edge-устройств предложен stateless-подход к квантованному test-time adaptation, а масштабный полевой эксперимент количественно описывает продуктивность человеко-AI команд.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2307.10631][Pluvio: Assembly Clone Search for Out-of-domain Architectures and Libraries through Transfer Learning and Conditional Variational Information Bottleneck]]
+:WHAT: Поиск клонов ассемблерного кода для unseen архитектур: перенос знаний из предобученных языковых моделей, RL-агент для выброса избыточных токенов и conditional variational information bottleneck против привязки к тулчейну.
+:IMPACT: Первый рабочий подход к поиску уязвимого переиспользованного кода в бинарниках вне обученного набора архитектур — shift-right защита в софтверной безопасности.
+
+- [[https://arxiv.org/abs/2503.15889][LeanTTA: A Backpropagation-Free and Stateless Approach to Quantized Test-Time Adaptation on Edge Devices]]
+:WHAT: Backprop-free и stateless фреймворк квантованного TTA: обновление нормализационных статистик без обратного распространения плюс частичная адаптация с fusion квантованных модулей.
+:IMPACT: −15.7% ошибок, 11.2 МБ пиковой памяти для ResNet18 и скорость в пределах порядка обычного инференса — реалистичный TTA на мобильных платформах.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2306.02002][Harnessing Trust in Directed Graphs: Redefining Robustness of Graph Learning]]
+:ALGO: Переопределение робастности GNN на ориентированных графах: более реалистичная модель атак и plug-in слой message passing, извлекающий сигналы доверия из направлений рёбер.
+:IMPACT: SOTA-устойчивость к transfer- и adaptive-атакам при сохранении чистой точности — важно для диграфов цитирований, транзакций и веб-графов.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2311.11796][Beyond Boundaries: A Comprehensive Survey of Transferable Attacks on AI Systems]] — унифицированная таксономия переносимых атак по шести осям (instance/domain/modality/model/task/deployment) с повесткой по transfer-aware защите.
+- [[https://arxiv.org/abs/2404.05659][VietMed: A Dataset and Benchmark for Automatic Speech Recognition of Vietnamese in the Medical Domain]] — крупнейший публичный медицинский ASR-датасет вьетнамского языка (16 ч размеченной и 2200 ч неразмеченной речи) с препроученными моделями.
+- [[https://arxiv.org/abs/2411.05854][Harmful YouTube Video Detection: A Taxonomy of Online Harm and MLLMs as Alternative Annotators]] — таксономия онлайн-харма из шести категорий и проверка MLLM как альтернативных аннотаторов на 19 422 видео.
+- [[https://arxiv.org/abs/2412.00684][Paint Outside the Box: Synthesizing and Selecting Training Data for Visual Grounding]] — синтез обучающих данных для visual grounding через inpainting вне бокса и фильтрацию по hardness/overfitting (+5.8% в среднем).
+- [[https://arxiv.org/abs/2412.07658][Rethinking Negative Prompting for Concept Suppression: Unconditional Anchoring and Localized Guidance]] — TraSCE: training-free стабилизация negative prompting при «guidance collapse» под jailbreak-промптами.
+- [[https://arxiv.org/abs/2501.19335][What is causal about causal models and representations?]] — формальная рамка, разделяющая каузальную модель и интерпретации «действие→интервенция», с теоремой о невозможности нециклической интерпретации.
+- [[https://arxiv.org/abs/2503.18238][Collaborating with AI Agents: Field Experiments on Teamwork, Productivity, and Performance]] — полевой эксперимент (2234 участника, 11 024 объявления): человеко-AI команды дают +50% продуктивности, но страдают коллапсом разнообразия; task-ориентированная коммуникация снимает оба эффекта.
+
+* Социальная физика и сети (physics.soc-ph)
+
+** 🧐 Обзор
+Сетевая линия концентрируется на многослойных и динамических структурах: предсказуемость человеческой мобильности по отраслевым слоям мультиграфов и модели распространения агрессивных мутантных штаммов на host-сетях. Зреет валидация LLM-симуляций: сгенерированные политические сети проверяют против опросных данных на эго-уровне, а не только по агрегатным метрикам. Теоретические модели коллективной динамики — от аспирационных игр на графах до фазовых переходов дискриминации в мультиагентных популяциях — дополняют картину.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2502.18472][Viral mutation spread controlled by inter-host network dynamics]]
+:ALGO: Математические модели конкуренции более агрессивного мутантного штамма с исходным на host-interaction сетях, явно связывающие топологию с возникновением и пространственной диффузией мутаций.
+:IMPACT: Сетевые интервенции для сдерживания — шаблон эпидемиологического моделирования на графах контактов с реальной топологией.
+
+- [[https://arxiv.org/abs/2607.28494][Predictability of Human Movements across Industry Sectors using Multilayer Networks]]
+:ALGO: Многослойные сети мобильности между переписными участками со слоями по отраслям + ML-анализ предсказуемости степеней узлов между слоями.
+:IMPACT: Исходящие степени предсказуемы (заданы населением участков), входящие — нет; предсказуемость как разведочный инструмент структуры мультиграфов для урбанистики и эпидконтроля.
+
+- [[https://arxiv.org/abs/2610.23199][Validating LLM-generated political networks with survey-reported partisan exposure]]
+:ALGO: Валидация LLM-сгенерированных политических сетей по эго-уровню партийной экспозиции против ANES-опросов вместо одних лишь агрегатных структурных метрик.
+:IMPACT: Структурно правдоподобные сети скрывают локальные ошибки (групповые смещения экспозиции) — методологический стандарт для LLM-симуляций социальных сетей.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2610.22701][Emergent Discrimination and Polarization in Multi-Agent Systems]] — фазовая диаграмма с четырьмя коллективными состояниями (от спин-стекольной дискриминации до поляризации) в популяциях обучающихся агентов с байесовским обновлением доверия.
+- [[https://arxiv.org/abs/2610.23418][Stationary analysis of adaptive aspiration dynamics in graph-structured games]] — знак стационарного сдвига распространённости кооперации определяется условием R+S>T+P на любом конечном связном графе при слабом отборе.
+- [[https://arxiv.org/abs/2610.23022][Stochastic Shockwave Dynamics in First-Order Traffic Flow]] — генераторная формулировка LWR со случайной начальной плотностью: распределения плотности и статистика фронтов заторов без Монте-Карло на каждую реализацию.
+- [[https://arxiv.org/abs/2610.08692][Six objects reported at 480 mph in a declassified military infrared video show brightness flicker at bird wingbeat rates]] — мерцание яркости шести «неопознанных» объектов совпадает с частотой взмахов птичьих крыльев; наиболее вероятное объяснение — стая птиц.
+- [[https://arxiv.org/abs/2610.23734][Bridging the Language Gap in Scholarly Data II: Enhancing Gender Inference for Chinese Names]] — модели гендерной инференс для китайских имён на уровне ханьцзы с оценкой неоднозначности пиньинь; превосходят Namsor, GPT и Claude.
+- [[https://arxiv.org/abs/2610.23688][Two Seconds per Day: Limitations of Circadian Burden Metrics in the Permanent Daylight Saving Time Debate]] — найден баг в PNAS-исследовании циркадной нагрузки (Земля вращалась «назад»); исправленные результаты неинформативны для дебатов о часовых поясах.
+
+* Алгоритмы и структуры данных (cs.DS)
+
+** 🧐 Обзор
+Доминируют динамические графовые алгоритмы: единый рандомизированный каркас поддерживает (Δ+1)-раскраску сразу в sequential, parallel и distributed моделях с O(1) ожидаемых затрат на обновление, а рёберная связность впервые поддерживается за сублинейное по n worst-case время. В параметизированной сложности закрыт открытый вопрос о распознавании outer 2-planar графов: XP-алгоритмы при XNLP-трудности. Классическая экстремальная теория тоже движется — первое с 1962 года улучшение базы экспоненты для directed Hamiltonicity и FPRAS для перманента за Õ(n^3).
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2512.09218][Dynamic Graph Coloring: Sequential, Parallel, and Distributed]]
+:ALGO: Простой рандомизированный алгоритм поддержки (Δ+1)-раскраски при вставках/удалениях рёбер: O(1) ожидаемого worst-case времени на обновление, O(1) работы на обновление в батче с polylog-глубиной и O(1) сообщений на обновление в distributed-режиме.
+:IMPACT: Усиливает amortized-результаты Henzinger–Peng и Bhattacharya et al. до worst-case и даёт единый каркас для стриминговых, параллельных и распределённых применений раскраски.
+
+- [[https://arxiv.org/abs/2607.10689][Fully Dynamic Edge Connectivity in Õ(n^{12/13}) Time]]
+:ALGO: Рандомизированный fully dynamic алгоритм поддержки рёберной связности с worst-case update/query Õ(n^{12/13}) для всех значений λ_G — первый сублинейный по n; плюс детерминированные варианты для простых графов и мультиграфов.
+:IMPACT: Закрывает разрыв между режимами малых и больших λ; основа для мониторинга устойчивости связей в динамических сетях.
+
+- [[https://arxiv.org/abs/2412.04042][Recognizing 2-Layer and Outer k-Planar Graphs]]
+:ALGO: XP-алгоритмы распознавания 2-layer и outer k-planar графов, доказательства XNLP-трудности (W[t]-hardness для всех t, FPT вряд ли возможен) и FPT-алгоритм при фиксированном порядке вершин одного слоя.
+:IMPACT: Отвечает на открытый вопрос о outer 2-planar графах; задаёт рамки реализуемости для graph drawing и визуализации с ограничениями на пересечения.
+
+- [[https://arxiv.org/abs/2604.21877][A simple (2+ε)-approximation for knapsack interdiction]]
+:ALGO: Простой (2+ε)-приближённый алгоритм за O(n^3·ε^{-1}·log(ε^{-1}·log Σp_i)) с естественным обобщением на t-мерный knapsack interdiction.
+:IMPACT: В экспериментах в среднем 0.4% от оптимума и >20x быстрее точного метода — практичная аппроксимация для задач защиты и интердикции ресурсов.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.39062][Breaking the 2^n barrier for directed hamiltonicity]] — рандомизированный алгоритм directed Hamiltonian cycle за O*(1.9133^n): первое с 1962 года улучшение классической базы 2^n через isolation lemma и parity counting.
+- [[https://arxiv.org/abs/2609.20717][An Õ(n^3)-time FPRAS for the Permanent]] — FPRAS для перманента 0/1-матриц за Õ(n^3) (улучшение с Õ(n^6)) через multicommodity-flow оценку, вдохновлённую электрическими потоками.
+- [[https://arxiv.org/abs/2601.17832][Computing bounded solutions to linear Diophantine equations with the sum of divisors]] — эффективный метод перечисления решений aσ(n)=bn+c ≤ U с prime-wheel структурой данных и MapReduce-параллелизмом в SageMath.
+- [[https://arxiv.org/abs/2507.16209][Best-of-Both-Worlds Guarantees with Fairer Endings]] — полиномиальный алгоритм с ex-ante ≈EF и ex-post EFX + Pareto-оптимальностью для лексикографических предпочтений через новый dependent rounding; расширения на монотонные и субаддитивные оценки.
+- [[https://arxiv.org/abs/2604.24228][A Complexity Dichotomy for Edge Subdivision to H-Free Graphs]] — полная дихотомия P против NP-полноты для устранения индуцированных копий H via ≤k подразделений рёбер, с ETH-нижними оценками.
+- [[https://arxiv.org/abs/2609.06988][Almost Sharp Equivalence between Approximate Message Passing and Low-Degree Polynomials]] — почти резкая эквивалентность AMP и low-degree полиномов для rank-one матричных моделей с растущей степенью; уточняет вычислительные пороги статистических задач на сетях.
+
+* Распределённые вычисления (cs.DC)
+
+** 🧐 Обзор
+Центр тяжести — системы для LLM: планирование MoE RL-пост-тренинга (RoutePack), кодбук-сжатие коммуникации в edge-инференсе трансформеров (TRACE) и дешёвая детекция silent data corruption на ускорителях. Консенсус зреет: оптимистичный signature-free reliable broadcast даёт BFT-латентность лучших подписных протоколов без криптографических издержек, а TCDA впервые делает кодирование практичным для data availability sampling в блокчейне. Линия федеративного AI представлена первым защищённым распределённым k-core и отчётом о выводе межинституциональной федерации из пилотов в продакшен.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2505.02761][Optimistic, Signature-Free Reliable Broadcast and Its Applications]]
+:WHAT: Оптимистичный signature-free reliable broadcast с завершением за 2 шага при f<n/3, когда ≥⌈(n+2f−2)/2⌉ не-бродкастерских сторон ведут себя честно (с matching lower bound); приём обобщается на AVSS и AVID и интегрирован в Sailfish++ — post-quantum DAG-BFT консенсус с commit за 3 шага, открытая Rust-реализация.
+:IMPACT: Латентность лучших signature-based протоколов без дорогих подписей и на слабом CPU — прямой выигрыш для BFT-консенсуса и примитивов распространения данных.
+
+- [[https://arxiv.org/abs/2610.22508][TCDA: Tunable Coded Distributed Arrays for Data Availability Sampling]]
+:WHAT: Кодированный слой для data availability sampling с доказанной устойчивостью к неограниченному византийскому противнику и настраиваемым объёмом хранимого на узле (trade-off PUT/storage против GET).
+:IMPACT: На параметрах Ethereum 32-МиБ блоки укладываются в дедлайн аттестации от 868 до 40 000 добросовестных узлов, храня в 1.7–32 раза меньше на узел, чем репликация RDA.
+
+- [[https://arxiv.org/abs/2610.22435][TRACE: Transformer Residual Activation Codebook Encoding for Communication-efficient Distributed Edge Inference]]
+:WHAT: Векторный квантизатор на post-attention residual каждого слоя с предвычисленными codebook-таблицами key/value — приёмники восстанавливают K/V lookup'ом вместо проецирования; иерархический кодбук адаптирует битрейт на лету.
+:IMPACT: До 1.27x e2e ускорения и сжатие коммуникации до 22 624x — перекрытие коммуникации и вычислений снимает ключевой латентный узел распределённого edge-инференса.
+
+- [[https://arxiv.org/abs/2608.12146][RoutePack: Replay-Guided Expert Placement and Rollout Trajectory Scheduling for MoE Reinforcement Learning]]
+:WHAT: Replay-guided планировщик, координирующий placement экспертов и расписание rollout-траекторий: параллельный population annealing укладывает траектории в token-capped микробатчи при сохранении residency экспертов и логического роутинга.
+:IMPACT: +4.4–11.9% throughput в Megatron на MoE 7.9B/124B (H20-3e, контексты 8K–32K) — прямая экономия дорогого RL пост-тренинга.
+
+- [[https://arxiv.org/abs/2511.23440][Accelerated Execution of Bayesian Neural Networks using a Single Probabilistic Forward Pass and Code Generation]]
+:WHAT: End-to-end pipeline обучения и компиляции BNN с Probabilistic Forward Pass (аналитическое распространение гауссовской неопределённости вместо сэмплирования весов) на TVM для ARM CPU.
+:IMPACT: До 4200x ускорение против SVI при равном качестве uncertainty и OOD-детекции — практичная байесовская неопределённость на ресурсоограниченных устройствах.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2410.02544][Federated k-Core Decomposition: A Secure Distributed Approach]]
+:ALGO: Первый защищённый протокол распределённой k-core декомпозиции для децентрализованных онлайн-соцсетей, где каждый узел-клиент хранит свои данные локально.
+:IMPACT: Вычисление центральных/важных узлов на приватных биологических, социальных и финансовых сетях без центрального сервера и утечек.
+
+- [[https://arxiv.org/abs/2610.00558][Redundancy Meets Synergy: Dependency-aware Expert Selection for MoE via Submodular Optimization]]
+:ALGO: Выбор подмножества экспертов MoE как разность субмодулярных функций, разделяющая redundancy и synergy, с majorization-minimization алгоритмом и гарантиями монотонности.
+:IMPACT: Компактные MoE-деплои, сохраняющие критичные комбинации экспертов лучше Top-k эвристик — рычаг против высокой памяти MoE-инференса.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2610.18557][Revisiting Cauchy-Schwarz Norm Bounds for SDC Detection in LLM Inference]] — CSNB-границы сохраняют 99% детекции ABFT на dense-слоях при −87% overhead, но уступают на MoE-роутере; практичный компромисс отказоустойчивости LLM-инференса.
+- [[https://arxiv.org/abs/2510.24155][Distributed Stochastic Momentum Tracking with Local Updates: Achieving Optimal Communication Complexities]] — метод LMT объединяет локальные обновления, momentum tracking и loopless Chebyshev acceleration, достигая оптимальных communication-сложностей.
+- [[https://arxiv.org/abs/2609.39803][From Pilots to Production: Lessons in Cross-Institutional Federated Training and Artificial Intelligence for Science]] — систематизированные уроки вывода федеративного AI нацлабораторий в мультиузловой продакшен: от архитектуры данных и приватности до governance и операций.

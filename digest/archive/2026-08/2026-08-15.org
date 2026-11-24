@@ -1,0 +1,71 @@
+#+TITLE: Daily Digest: 2026-08-15
+#+FROM: [2026-08-14 Fri]
+#+TO: [2026-08-15 Sat]
+#+DATE: [2026-08-15 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Онтологии для ИИ-агентов требуют четкого разделения семантической модели и графа знаний для корректного планирования действий. AWS значительно ускоряет масштабирование Aurora Serverless, добавляя 12 ACU за секунду для поддержки пиковых нагрузок агентных workflow. Meta сталкивается с волной добровольных увольнений инженеров несмотря на попытки удержания крупными equity-пакетами. Databricks опубликовал roadmap на 2026 год, акцентируя внимание на Unity Catalog и идемпотентности пайплайнов.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dataengineeringweekly.com/p/an-ontology-for-ai-agents-is-a-system][What an Ontology for AI Agents Actually Needs]] (Data Engineering Weekly) — Разделение онтологии и графа знаний критично для планирования действий агента.
+- [[hxxps://blog.dataexpert.io/p/the-2026-mastering-databricks-roadmap][The Complete Databricks Learning Roadmap for 2026]] (DataExpert.io) — Путь от новичка до мастера через Unity Catalog и идемпотентные пайплайны.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/an-ontology-for-ai-agents-is-a-system][What an Ontology for AI Agents Actually Needs]]
+:SCORE: 9/10
+:WHY: Архитектурное различие между смыслом и фактами предотвращает ошибки в логике агентов.
+**** [[hxxps://blog.dataexpert.io/p/the-2026-mastering-databricks-roadmap][The Complete Databricks Learning Roadmap for 2026]]
+:SCORE: 8/10
+:WHY: Структурированный план изучения платформы с акцентом на Serverless и Delta Lake.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/][Custom reward functions for multi-turn reinforcement learning with Amazon Nova Forge]] (AWS) — Дизайн функции вознаграждения сложнее архитектуры модели в multi-turn RL.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-agentic-workflows-with-sagemaker-ai-and-bedrock-agentcore/][Building agentic workflows with SageMaker AI and Bedrock AgentCore]] (AWS) — Гибридная архитектура позволяет сочетать кастомные и управляемые модели.
+- [[hxxps://www.kdnuggets.com/how-to-build-a-simple-ai-web-scraper-with-python][How to Build a Simple AI Web Scraper with Python]] (KDnuggets) — Конвертация HTML в Markdown снижает токенизацию для LLM.
+- [[hxxps://www.kdnuggets.com/5-fun-agentic-ai-papers-to-read][5 Fun Agentic AI Papers to Read]] (KDnuggets) — Подборка статей для отслеживания трендов в агентном ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/custom-reward-functions-for-multi-turn-reinforcement-learning-with-amazon-nova-forge/][Custom reward functions for multi-turn reinforcement learning with Amazon Nova Forge]]
+:SCORE: 9/10
+:WHY: Практическое руководство по отладке сигналов обучения в агентных задачах.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/building-agentic-workflows-with-sagemaker-ai-and-bedrock-agentcore/][Building agentic workflows with SageMaker AI and Bedrock AgentCore]]
+:SCORE: 9/10
+:WHY: Паттерн интеграции собственных моделей в управляемые агентные workflow.
+**** [[hxxps://www.kdnuggets.com/how-to-build-a-simple-ai-web-scraper-with-python][How to Build a Simple AI Web Scraper with Python]]
+:SCORE: 7/10
+:WHY: Быстрый способ создания QA-движков поверх веб-контента с оптимизацией затрат.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/faster-scaling-for-aurora-serverless-to-support-agentic-ai-and-other-spiky-workloads/][Faster scaling for Aurora serverless to support agentic AI and other spiky workloads]] (AWS) — Мгновенное масштабирование на 12 ACU за секунду для пиковых нагрузок.
+- [[hxxps://aws.amazon.com/blogs/database/addressing-clr-assembly-deprecation-in-amazon-rds-for-sql-server/][Addressing CLR assembly deprecation in Amazon RDS for SQL Server]] (AWS) — Стратегия миграции при обновлении SQL Server 2016 из-за депрекации CLR.
+- [[hxxps://www.databricks.com/blog/using-aifunctions-your-data-warehouse-top-use-cases][Using AI_Functions in Your Data Warehouse: Top Use Cases]] (Databricks) — Применение ИИ-функций прямо в запросах хранилища данных.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Встреча сообщества по стандартам GQL и графовым ускорителям.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/faster-scaling-for-aurora-serverless-to-support-agentic-ai-and-other-spiky-workloads/][Faster scaling for Aurora serverless to support agentic AI and other spiky workloads]]
+:SCORE: 9/10
+:WHY: Критичное улучшение инфраструктуры для экономии затрат на спайковых workload'ах.
+**** [[hxxps://aws.amazon.com/blogs/database/addressing-clr-assembly-deprecation-in-amazon-rds-for-sql-server/][Addressing CLR assembly deprecation in Amazon RDS for SQL Server]]
+:SCORE: 8/10
+:WHY: Обязательное чтение для планирования апгрейда легаси SQL Server на RDS.
+**** [[hxxps://www.databricks.com/blog/using-aifunctions-your-data-warehouse-top-use-cases][Using AI_Functions in Your Data Warehouse: Top Use Cases]]
+:SCORE: 7/10
+:WHY: Обзор нативной интеграции ИИ в аналитические запросы без внешнего ETL.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-metas-self-inflicted-resignation][The Pulse: Meta's self-inflicted resignation-wave]] (Pragmatic Engineer) — Массовые увольнения провоцируют добровольный отток инженеров несмотря на бонусы.
+- [[hxxps://xenodium.com/agent-shell-0-73-updates][agent-shell 0.73 updates]] (Xenodium) — Обновление Emacs-режима для работы с ИИ-агентами через ACP.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Фундаментальный разбор метода наименьших квадратов для инженеров.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-metas-self-inflicted-resignation][The Pulse: Meta's self-inflicted resignation-wave]]
+:SCORE: 9/10
+:WHY: Инсайт о рынке труда и рисках удержания персонала в Big Tech.
+**** [[hxxps://xenodium.com/agent-shell-0-73-updates][agent-shell 0.73 updates]]
+:SCORE: 8/10
+:WHY: Улучшение инструмента для повседневной работы с ИИ-ассистентами в Emacs.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 6/10
+:WHY: Освежение базовой математики для понимания внутренностей ML-моделей.

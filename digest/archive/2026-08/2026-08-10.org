@@ -1,0 +1,57 @@
+#+TITLE: Daily Digest: 2026-08-10
+#+FROM: [2026-08-09 Sun]
+#+TO: [2026-08-10 Mon]
+#+DATE: [2026-08-10 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Инженерное сообщество обсуждает ошибочность нарративов о смерти классических технологий на фоне развития ИИ. Глубокий разбор производительности Apache Spark выявляет важные нюансы сериализации данных beyond simple configuration. Графовые базы данных движутся к стандартизации GQL и гибридным архитектурам для поддержки AI-нагрузок. Экономический анализ показывает, что стоимость образования диктуется демографическими факторами и спросом на Credentials. Для агентных систем предлагается новый подход к построению онтологий через неструктурированные данные.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-282][Data Engineering Weekly #282]] (Data Engineering Weekly) — Дайджест покрывает semantic layers, converged databases и real-time graph querying от Netflix.
+- [[hxxps://medium.com/towards-data-engineering/kryoh-spark-clustas-demise-764bc46b80db?source=rss-6e4a30cbb0e1------2][KryOh: Spark Clusta's Demise]] (Medium) — Развенчание мифов о производительности Kryo и анализ накладных расходов сериализации в Spark.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/kryoh-spark-clustas-demise-764bc46b80db?source=rss-6e4a30cbb0e1------2][KryOh: Spark Clusta's Demise]]
+:SCORE: 9/10
+:WHY: Критично для оптимизации тяжелых Spark-джобов и понимания внутренних механизмов JVM сериализации.
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-282][Data Engineering Weekly #282]]
+:SCORE: 8/10
+:WHY: Содержит ссылки на передовые практики по графам и semantic layers от лидеров индустрии.
+
+** Engineers
+- [[hxxps://joereis.substack.com/p/the-x-is-dead-fallacy][The "X is Dead" Fallacy]] (joereis.substack.com) — Анализ ошибочности нарративов о смерти технологий на примере warehousing и SQL.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (clojurecivitas.org) — Фундаментальное руководство по методу наименьших квадратов для инженеров.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/the-x-is-dead-fallacy][The "X is Dead" Fallacy]]
+:SCORE: 9/10
+:WHY: Помогает сохранить фокус на архитектурных паттернах вместо гонки за новыми хайповыми инструментами.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Напоминание о математических основах, необходимых для корректной работы с данными и ML.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Повестка встречи GDC с участием Oracle, PuppyGraph и обсуждением стандарта GQL.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 8/10
+:WHY: Прямой взгляд на roadmap графовых технологий и стандарты от ключевых вендоров рынка.
+
+** Artificial Intelligence
+- [[hxxps://medium.com/@dhilip.kumar/from-unstructured-chaos-to-queryable-knowledge-designing-ontology-backed-knowledge-graphs-for-9df031d97257][From Unstructured Chaos to Queryable Knowledge]] (Medium) — Подход к созданию онтологий для агентных систем через LLM и человеческую валидацию.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/@dhilip.kumar/from-unstructured-chaos-to-queryable-knowledge-designing-ontology-backed-knowledge-graphs-for-9df031d97257][From Unstructured Chaos to Queryable Knowledge]]
+:SCORE: 8/10
+:WHY: Практический паттерн для построения Knowledge Graphs в эпоху агентных ИИ-приложений.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/why-is-college-so-expensive][Why Is College So Expensive?]] (peterturchin.substack.com) — Структурно-демографический анализ роста стоимости высшего образования и ценности дипломов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/why-is-college-so-expensive][Why Is College So Expensive?]]
+:SCORE: 7/10
+:WHY: Дает контекст о рыночных силах, влияющих на найм и квалификацию вне технической плоскости.

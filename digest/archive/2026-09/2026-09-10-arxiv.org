@@ -1,0 +1,114 @@
+#+TITLE: Arxiv Digest: 2026-09-10
+#+FROM: [2026-09-09 Wed]
+#+TO: [2026-09-10 Thu]
+#+DATE: [2026-09-10 Thu]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За сутки в cs.DB прослеживается линия на формальную корректность инфраструктурных механизмов: CDC-механизм DBLog, лежащий в основе Debezium и Apache Flink CDC, наконец получил машинно-проверенное доказательство эквивалентности replay («виртуальный разрез») в Isabelle/HOL. Параллельно зреет теория квантованного векторного поиска — впервые даны условия, при которых low-bit квантизация сохраняет решения ranking- и graph-pruning-алгоритмов вплоть до выбора соседей в графе Vamana. Практически значимо всё: надёжность CDC-конвейеров, полные процедуры проверки эквивалентности SQL и настройка квантизации для ANN-индексов.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2605.31475][A Theoretical Study of DBLog: Certified Virtual Cuts for a Snapshot-Equivalent Replay of Live Databases]]
+  :WHAT: Формализация chunked CDC-бэкфилла как «виртуального разреза»: доказано (Isabelle/HOL), что комбинация чанковых чтений и событий коммит-лога восстанавливает состояние источника до заданной позиции лога, с сертификатом для независимой верификации исполнений и бесшовным переходом backfill → live streaming.
+  :IMPACT: Механизм уже принят Debezium и Apache Flink CDC; формальная гарантия snapshot-equivalent replay без физического снапшота и без остановки записи — фундамент корректной репликации, миграций и materialized views на живых базах.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.09854][When Does Low-Bit Quantization Preserve the Decisions of Vector Search?]]
+  :ALGO: Не зависящая от распределения декомпозиция вероятности «флипа» сравнения (масса точных margins около нуля + хвост калиброванного остатка), ковариационные tail bounds и детерминированная coupling-теорема для выбора соседей в графе Vamana (основа DiskANN).
+  :IMPACT: Единый decision-интерфейс для RaBitQ, Lucene BBQ, binary codes и product quantizers: стандартизованные exact margins предсказывают долю флипов ranking/pruning существенно лучше глобальной ранговой корреляции — прямой инструмент оценки и настройки квантованных графовых ANN-индексов.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.09978][Few Rows Tell Them Apart: Equivalence of Queries Mixing Set and Bag Semantics]] — вычислимые границы размера контрпримера (линейные по читаемой ширине запроса) превращают bounded-поиск в полную разрешающую процедуру эквивалентности SQL с мешанными set/bag-семантиками.
+- [[https://arxiv.org/abs/2609.09867][Contextual Utility of Quantization Moves in Extreme Low-Bit LLMs]] — midpoint-оценка градиента и beam search по точным endpoint'ам исправляют локальный выбор квантованных ходов в 2-битных Llama-моделях, показывая контекстность utility квантизации.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Доминанта дня — квантование как системный приём: серия «FP8 is All You Need» утверждает, что FP8-тензорные ядра GPU поколений B300/Rubin могут нести FP64-вычисления (GEMM и 3-D FFT) через CRT-схему Озаки с Roofline-расширением Tensor-Memory Equilibrium. Второй практический блок — продакшен-ML: бренд-энтити-линкинг в e-commerce поиске и персонализированная федеративная агрегация FedC²I. Концептуальные работы (архитектуры FM-агентов, RL с причинными диаграммами) остаются на уровне таксономий и case studies.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2606.06510][FP8 is All You Need (Part 1): Debunking Hardware FP64 as the HPC Holy Grail (Sep 3rd version)]]
+  :WHAT: Композиция FP8-тензорных GEMM через CRT-based Ozaki Scheme II как несущий субстрат для FP64-ядер, плюс четырёхпараметрическое Roofline-расширение (TME), задающее порог интенсивности, ниже которого эмуляция становится conversion-bound.
+  :IMPACT: Эмулируемый FP64-GEMM вырастает с ~1.3 до ~135 TFLOPS на B300 и ~473 на Rubin — меняется экономика запуска FP64-HPC-нагрузок на AI-ускорителях: нативный FP64 превращается из аппаратного требования в «производную гарантию точности».
+- [[https://arxiv.org/abs/2502.01555][Query Brand Entity Linking in E-Commerce Search]]
+  :WHAT: Два продакшен-подхода к связыванию коротких запросов с брендами: каскад (sequence labeling + дезамбугуация по KB) и one-stage extreme multiclass-классификация; мультиязычная валидация на 11 языках и контролируемый онлайн-эксперимент.
+  :IMPACT: Рост brand recall при высокой точности даёт измеримый прирост вовлечённости; полезный референс поискового пайплайна поверх каталога в сотни тысяч сущностей.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2606.23698][FP8 is All You Need (Part 2): Full-FP64 3-D FFT on FP8-Generation Tensor CoresThe Integer-Epilogue Wall and the Minimal Hardware That Would Remove It]] — полный FP64 3-D FFT без FP64-арифметики упирается в «стену» целочисленного эпилога (~5–7× от roof), с конкретным списком минорных аппаратных изменений для её снятия.
+- [[https://arxiv.org/abs/2410.03315][Influence-Oriented Personalized Federated Learning]] — персонализированная агрегация в FL через клиент- и класс-уровневые «матрицы влияния» (FedC²I), с преимуществами в non-IID-режимах.
+- [[https://arxiv.org/abs/2408.02920][A Taxonomy of Architecture Options for Foundation Model-based Agents: Analysis and Decision Model]] — таксономия архитектурных опций FM-агентов с моделью принятия design- и run-time-решений.
+- [[https://arxiv.org/abs/2301.12884][Incentives to Offer Algorithmic Recourse]] — пороговая оптимальная политика предложения recourse: часть ранее принимаемых заявителей получает платный барьер.
+- [[https://arxiv.org/abs/2306.13732][Reinforcement Learning with Temporal-Logic-Based Causal Diagrams]] — временно-логические причинные диаграммы сокращают exploration и ускоряют сходимость RL с протяжёнными целями.
+- [[https://arxiv.org/abs/2408.10608][BTBR: A Bayesian-Theory-Driven Probabilistic-Fuzzy Framework for Implicit Bias Removal in Large Language Models]] — вероятностно-нечёткое targeted editing параметров LLM для снятия персон-индуцированных перекосов.
+- [[https://arxiv.org/abs/2410.20487][Efficient Diversity-based Experience Replay for Deep Reinforcement Learning]] — experience replay на детерминантных точечных процессах с Cholesky-декомпозицией для больших state-пространств.
+- [[https://arxiv.org/abs/2502.14043][Safe Learning Under Irreversible Dynamics via Asking for Help]] — запросы помощи ментору дают сублинейные regret и число запросов в MDP с необратимой динамикой без ресетов.
+- [[https://arxiv.org/abs/2502.17017][Quantifying Logical Consistency in Transformers via Query-Key Alignment]] — лёгкий однофорвардный «QK-score» отделяет валидные логические выводы от невалидных на моделях 1.5B–70B.
+- [[https://arxiv.org/abs/2411.06429][Reinforcement learning for Quantum Tiq-Taq-Toe]] — первое применение RL к Quantum Tiq-Taq-Toe как доступному тестдому квантовых игр.
+- [[https://arxiv.org/abs/2609.09226][Adaptive Entangled Game Modules in Artificial General Intelligence]] — «нелокальные» вероятностно-волновые модули объясняют 82–94% внутридневных паттернов китайского рынка; заявка на встраивание в AGI-архитектуры.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Методы сетевой динамики заметно взрослеют: редкие катастрофические события (каскадные отказы, эпидемии) стали моделируемыми благодаря conditional-path Monte Carlo с нелокальными кластерными обновлениями, а для латентно-пространственных моделей сетей получена теория идентифицируемости на неклассических геометриях (группа Гейзенберга и др.). Прикладной блок практичен: открытая воспроизводимая карбон-интенсивность по зонам Nordics уже внесена upstream в codecarbon и критична для carbon-aware планирования нагрузок; для эмбеддингов сообществ построена систематика устойчивости к удалению узлов.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2608.29717][Open, Reproducible Per-Bidding-Zone Carbon Intensity for Nordic Power Systems]]
+  :WHAT: Открытый воспроизводимый пайплайн расчёта углеродной интенсивности по торговым зонам (данные ENTSO-E по типам генерации + IPCC AR5, duration-weighting, порог материальности для пропусков); значения отданы upstream в codecarbon.
+  :IMPACT: Единый placeholder 18.0 гCO₂экв/кВт·ч ошибается в обе стороны (занижение в ~2.2× для NO4, завышение для ядерной SE3) — для carbon-aware планирования вычислительных нагрузок необходима именно зоновая гранулярность сигнала.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2405.00636][Robustness of shallow graph embedding methods for community detection]]
+  :ALGO: Систематический стресс-тест неглубоких эмбеддингов двух семейств (матричная факторизация: LE, LLE, HOPE, M-NMF; random-walk: DeepWalk, LINE, node2vec) к удалению узлов при детекции сообществ на синтетике и реальных сетях.
+  :IMPACT: node2vec и LLE устойчивее в разных сценариях, включая гетерогенность степеней и размеров сообществ — практическое руководство по выбору эмбеддингов для «живых» графов в сетевой аналитике.
+- [[https://arxiv.org/abs/2609.09236][Identifiability of Latent Space Network Models on Anisotropic Thurston Geometries]]
+  :ALGO: Теория идентифицируемости латентных позиций в геометриях Гейзенберга, solvable и PT̄H²: два якоря снимают изометрию, направленные связи выявляют геометрию уже в первом порядке через циркуляцию предпочтений по треугольникам.
+  :IMPACT: Определяет, когда искривлённые латентные модели сетей вообще восстанавливаемы из данных, и показывает выигрыш связи «сходство + циркуляция» над аддитивным ранжированием на плотных сетях противодействий — ориентир для геометрических эмбеддингов.
+- [[https://arxiv.org/abs/2608.16171][Rare-event sampling for stochastic dynamics in network systems using cluster updates]]
+  :ALGO: Conditional-path Monte Carlo (CPMC): rejection-free нелокальные обновления пространственно-временных кластеров порождают цепь Маркова траекторий, строго удовлетворяющих макроскопическим граничным условиям (например, массовый отказ сети).
+  :IMPACT: Обходит rejection-катастрофы метода Гиллеспи и кинетические ловушки splitting-методов — делает измеримым риск редких отказов и вспышек в гетерогенных сетях (демо: риск-анализ эпидемий SIS на kinship-сетях).
+** 📄 Остальное
+- [[https://arxiv.org/abs/2601.09673][A probabilistic match classification model for low-scoring sports]] — классификация матчей по стимулам шести категорий: в новом швейцарском формате УЕФА больше содержательных матчей, но и больше потенциально сговорных.
+- [[https://arxiv.org/abs/2609.05442][Role differentiation as ignition of a collective information engine: Structuration in Agent Populations]] — «информационные двигатели» с ролевой дифференциацией: зажигание при loop gain > 1 и каскад бифуркаций как рычаг платформенного контроля координации агентов.
+- [[https://arxiv.org/abs/2609.09501][Population Ecology of Tunes]] — экологические модели отбора на 13 годах популярности ~20 000 ирландских мелодий: направленный отбор сосуществует с ростом разнообразия репертуара.
+- [[https://arxiv.org/abs/2609.09607][Energy pathway variety and the progress of the energy transition in European countries]] — сетевые методы для энергетических переходов 29 стран: пик гетерогенности путей приходится на середину перехода к ВИЭ.
+- [[https://arxiv.org/abs/2609.09228][Revisiting the Aerts-Broekaert-Smets quantum model of the liar paradox]] — педагогическая реконструкция квантовой модели парадокса лжеца с гамильтонианом и вероятностями переходов в закрытой форме.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Сильный день для сублинейной графовой обработки: скетч полного профиля стоимостей single-linkage кластеризации за ~O(d√W/ε³) с почти совпадающей нижней границей и ANN-структуры в ℓ∞ при d≫n со временем запроса, независимым от размерности. Точные экспоненциальные алгоритмы k-раскраски впервые обгоняют универсальный 2^n-метод вычисления хроматического числа для любого фиксированного k. Инженерная ветка — AVX2-ускорение генерации перестановок в 3×.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.07862][Parallelizing the Factorial Space: 3x SIMD Acceleration of the Steinhaus-Johnson-Trotter Algorithm via Dual-Lane AVX2 Execution]]
+  :WHAT: AVX2-фреймворк для генерации перестановок Штейнхауса–Джонсона–Троттера: разбиение комбинаторного пространства с предвычисленными индексными смещениями и два независимых потока перестановок в одном YMM-регистре через однотактовый vpshufb под единым execution mask.
+  :IMPACT: 3× пропускной способности против векторизованного Algorithm P Кнута и выше Ring-Cascade — горячие циклы перебора перестановок в комбинаторном поиске и генерации тестов становятся заметно дешевле.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2510.11547][Sublinear Algorithms for Estimating Single-Linkage Clustering Costs]]
+  :ALGO: Сэмплирующий алгоритм строит скетч всего SLC cost profile (стоимости k-компонентных остовных лесов) за ~O(d√W/ε³) с ℓ₁-гарантией ε·cost(G) и (1±ε)-оценкой суммарной стоимости; доказана почти совпадающая нижняя граница Ω(d√W/ε²).
+  :IMPACT: Иерархическую кластеризацию можно оценивать без построения полного MST — прямой профит для крупномасштабного графового анализа и data mining.
+- [[https://arxiv.org/abs/2609.09427][Approximate Nearest Neighbor in Ultra-High Dimensional ℓ∞]]
+  :ALGO: Subset-эмбеддинги: n^{1+1/c} координат сохраняют все попарные расстояния с фактором O(c) (с совпадающей нижней границей); структуры данных для ANN в ℓ∞ со временем запроса ~O(n^{1+1/c}), не зависящим от d, и O(1)-аппроксимацией при запросе ~n^{1.01}.
+  :IMPACT: Первые эффективные ANN-индексы для режима d≫n в ℓ∞ — важно для сверхшироких векторов, где классические индексы деградируют с размерностью.
+- [[https://arxiv.org/abs/2602.15964][Approximate Pareto Frontiers for Submodular Utility and Cost Tradeoffs]]
+  :ALGO: (α₁,α₂)-приближённые фронты Парето между монотонной субмодулярной полезностью и стоимостью + адаптивный алгоритм, резюмирующий весь фронт малым числом точек.
+  :IMPACT: Инфлюенс-максимизация, формирование команд и рекомендеры получают спектр trade-off-решений вместо одного взвешенного компромисса.
+- [[https://arxiv.org/abs/2607.25973][k-Coloring is Faster than Computing the Chromatic Number]]
+  :ALGO: Рандомизированная k-раскраска за (2−ε_k)^n для любого фиксированного k, включая k-list-coloring с неограниченной палитрой: итерируемая редукция (k+1)→k на основе hypergraph containers.
+  :IMPACT: Точные решатели раскраски получают обгон универсального 2^n-метода — практично для exact combinatorial solvers и раскрасочных эвристик с гарантиями.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.02978][SparseStack Is an Optimal Oblivious Subspace Embedding]] — оптимальные параметры oblivious subspace embedding, предположенные Nelson–Nguyen (FOCS 2013), доказаны и формально верифицированы в Lean 4.
+- [[https://arxiv.org/abs/2508.21667][Block Encoding of Sparse Matrices via Coherent Permutation]] — когерентная перестановка как единый механизм index-mapping снижает глубину схем block-encoding разреженных матриц (проверено на IBM superconducting backends).
+- [[https://arxiv.org/abs/2601.21202][Exact (n + 1) Comparison Complexity for the N-Repeated Element Problem]] — точная сложность n+1 сравнений с матчинговой нижней границей через adversary-графовые конструкции.
+- [[https://arxiv.org/abs/2609.08733][On the Power of Adaptivity in Testing Quantum States in Fidelity]] — адаптивность помогает equivalence/independence testing в фиделити, но не сертификации: доказано разделение сложности.
+- [[https://arxiv.org/abs/2609.09524][Oracle Complexity of Stochastic Fixed-Point Equations with Nonexpansive Maps]] — оракульная сложность ~O(σ²ε⁻³+ε⁻¹) для пространств типа 2 с почти совпадающей нижней границей для ℓ∞.
+- [[https://arxiv.org/abs/2112.04169][Equity Promotion in Online Resource Allocation]] — LP-сэмплирующие стратегии справедливого онлайн-распределения дефицитных ресурсов, валидированные на данных вакцинации COVID-19.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Центральная тема — знание топологии как проблема консистентности: обзор «ghost»-состояний (действия по устаревшей связности при link flapping) на продакшен-данных Meta, ByteDance, Google и Alibaba, с явным IN-DOUBT-механизмом Open Aethernet как альтернативой выводу отказа «из отсутствия». Параллельно — зрелые production-системы: персонализированное планирование времени исполнения задач на миллиардах пользователей и multi-GPU LBM-солвер LBFAST со слабой масштабируемостью до 512 GPU. Отдельный растущий блок — воспроизводимая оценка алгоритмов разбиения квантовых схем для распределённых QPU.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2603.03736][The Ghost in the Datacenter: Link Flapping, Topology Knowledge Failures, and the FITO Category Mistake]]
+  :WHAT: Фреймворк «ghosts» — расхождение связности, на которой действует наблюдатель, с реально доступной; обзор масштаба по данным Meta/ByteDance/Google/Alibaba и анализ Open Aethernet, делающего неопределённость первоклассной (IN-DOUBT-состояние с корроборацией вместо вывода отказа из отсутствия).
+  :IMPACT: При проецируемых ~48 секундах между flap'ами на фабрике из >10 млн оптических линков различение «задержка vs потеря vs партиция» — центральная проблема надёжности датацентровых сетей; критично для проектировщиков fabric-контроллеров и протоколов уровня BGP.
+- [[https://arxiv.org/abs/2203.06158][Personalized Execution Time Optimization for Billion-Scale Scheduled Jobs]]
+  :WHAT: Деплоенная multi-tenant система выбора времени исполнения запланированных задач: путь от пиковых эвристик к контекстному ensemble-обучателю с нейросетевой policy network (listwise learning-to-rank) и координацией cross-use-case каннибализации.
+  :IMPACT: Обслуживает миллиарды пользователей ежедневно с измеримыми улучшениями эффективности и продуктового эффекта — редкий четырёхлетний отчёт по эксплуатации ML-планировщика в индустрии.
+- [[https://arxiv.org/abs/2609.09160][LBFAST: A Lightweight Moment-Represented Lattice Boltzmann Solver for Multi-GPU Architectures]]
+  :WHAT: LBM-солвер с моментным представлением: пост-коллизионные функции распределения реконструируются на лету из редуцированного набора моментов вместо явного хранения, что резко снижает занимаемую память.
+  :IMPACT: Почти идеальная слабая масштабируемость до 512 GPU при стабильной энергоэффективности — практичный маршрут больших 3D-симуляций на ускорителях с ограниченной VRAM.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2608.27099][Towards Reproducible Evaluation of Distributed Quantum Circuit Partitioning Algorithms]] — открытый пайплайн показывает, что алгоритмы разбиения с равными entanglement-затратами дают резко разные физические штрафы (глубина схемы, gate density).
+- [[https://arxiv.org/abs/2602.02846][Kino-PAX+: Near-Optimal Massively Parallel Kinodynamic Sampling-based Motion Planner]] — массово-параллельный планировщик движения с гарантиями δ-робастной почти-оптимальности: решения до трёх порядков быстрее серийных методов.
+- [[https://arxiv.org/abs/2608.24480][On Scaling Coordinate-Based Neuroevolution: The Quadtree Bottleneck in ES-HyperNEAT]] — JAX-реализация вскрывает структурный quadtree-барьер, мешающий популяционной GPU-векторизации нейроэволюции.
+- [[https://arxiv.org/abs/2608.27612][Tensor-Accelerated Eager Multi-Resolution Grids for Evolving Large-Scale Substrates]] — замена адаптивного quadtree «жадной» оценкой статической многоразрешной сетки даёт 12–34× GPU-ускорение на глубоких субстратах.

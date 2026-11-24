@@ -1,0 +1,132 @@
+#+TITLE: Daily Digest: 2026-10-24
+#+FROM: [2026-10-23 Fri]
+#+TO: [2026-10-24 Sat]
+#+DATE: [2026-10-24 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Главный тренд дня — перенос RL-обучения агентов в продакшен-инфраструктуру: AWS показал end-to-end пайплайн multi-turn RL на SageMaker, а Bayer запустил мультиагентный движок решений на Bedrock AgentCore. Параллельно в AI safety наблюдается всплеск практических методов против reward hacking — GRAFT, LoReFT-адаптеры и gradient routing с эмпирическими результатами на Qwen3. На фронте безопасности зреет «The Hackening»: AI-агенты массово находят критические уязвимости (две CVSS 9.2 в PHP), что требует от инженеров срочного аудита зависимостей. Вендоры (Databricks) переориентируют декларативные пайплайны на агентов как основной «потребитель» данных. Для senior-инженера это сигнал: оценивать мониторинг агентов, автоскейлинг endpoint'ов и безопасность кода нужно уже сегодня.
+
+* 📂 Категории
+
+** Data Engineering
+
+- [[https://aws.amazon.com/blogs/machine-learning/visualize-points-and-routes-with-geojson-in-amazon-quick-sight-layer-maps/][Visualize points and routes with GeoJSON in Amazon Quick Sight layer maps]] (AWS ML Blog) — Quick Sight layer maps теперь поддерживают геометрии Point и LineString из GeoJSON до 100 МБ, что даёт готовый паттерн для дашбордов с точками и маршрутами без отдельного GIS-стека.
+
+*** 💎 Топ-3 категории
+
+**** [[https://aws.amazon.com/blogs/machine-learning/visualize-points-and-routes-with-geojson-in-amazon-quick-sight-layer-maps/][Visualize points and routes with GeoJSON in Amazon Quick Sight layer maps]]
+:SCORE: 7/10
+:WHY: Единственная заметка в категории, но даёт конкретный рецепт: структура GeoJSON, join-ключи и программное обновление слоёв для BI-карт.
+
+** Engineers
+
+- [[https://www.kdnuggets.com/5-free-ai-coding-agents-you-should-try-in-2026][5 Free AI Coding Agents You Should Try in 2026]] (KDnuggets) — обзор пяти бесплатных агентов (OpenCode Zen, Gemini free quota, Kilo Gateway, Cline Provider, Charm Hyper), позволяющих попробовать агентный coding без затрат на API.
+- [[https://www.kdnuggets.com/what-companies-actually-mean-when-they-say-they-want-ai-experience][What Companies Actually Mean When They Say They Want “AI Experience”]] (KDnuggets) — разбор, что работодатели реально подразумевают под «AI experience» в вакансиях, полезно для позиционирования на собеседованиях.
+- [[https://adsharma.github.io/google-wikipedia-and-poes-law/][Google, Wikipedia and Poe's law]] (adsharma.github.io) — критический взгляд на то, как AI-суммаризации Google и Wikipedia интерпретируют контент, с наглядной иллюстрацией проблемы Poe's law.
+
+*** 💎 Топ-3 категории
+
+**** [[https://www.kdnuggets.com/5-free-ai-coding-agents-you-should-try-in-2026][5 Free AI Coding Agents You Should Try in 2026]]
+:SCORE: 9/10
+:WHY: Практичный список инструментов с нулевой стоимостью входа — можно внедрить в рабочий процесс в тот же день.
+
+**** [[https://www.kdnuggets.com/what-companies-actually-mean-when-they-say-they-want-ai-experience][What Companies Actually Mean When They Say They Want “AI Experience”]]
+:SCORE: 7/10
+:WHY: Прямо влияет на то, как описывать свой опыт в резюме и на интервью.
+
+**** [[https://adsharma.github.io/google-wikipedia-and-poes-law/][Google, Wikipedia and Poe's law]]
+:SCORE: 6/10
+:WHY: Полезное напоминание о рисках доверия AI-суммаризаторам при исследовании технических тем.
+
+** Vendors
+
+- [[https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines][Built for Agents: The Case for Spark Declarative Pipelines]] (Databricks) — Databricks утверждает, что агенты пишут уже более 70% пайплайнов SDP, и аргументирует, почему декларативные пайплайны лучше подходят для machine-written кода.
+- [[https://www.databricks.com/blog/real-time-energy-trading-and-analytics-databricks][Real-time energy trading and analytics on Databricks]] (Databricks) — кейс о том, почему торговым дескам в энергетике нужна не просто «более быстрая» платформа данных, а специфическая архитектура low-latency аналитики.
+
+*** 💎 Топ-3 категории
+
+**** [[https://www.databricks.com/blog/built-agents-case-spark-declarative-pipelines][Built for Agents: The Case for Spark Declarative Pipelines]]
+:SCORE: 8/10
+:WHY: Стратегический сдвиг: код пайплайнов всё чаще пишет AI, и декларативный подход снижает риски поддержки — важно для архитектурных решений.
+
+**** [[https://www.databricks.com/blog/real-time-energy-trading-and-analytics-databricks][Real-time energy trading and analytics on Databricks]]
+:SCORE: 7/10
+:WHY: Показывает требования к real-time аналитике в домене с жёсткими latency-ограничениями — переносимо на другие стриминговые кейсы.
+
+** Artificial Intelligence
+
+- [[https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/][Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide]] (AWS ML Blog) — полный гайд по MTRL на SageMaker + AgentCore: gpt-oss-20b поднят с 61% до 84% solve rate за ~$339, включая разбор ошибок в дизайне reward.
+- [[https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/][Orchestrating SageMaker AI endpoint auto scaling with AWS CDK]] (AWS ML Blog) — решение реальной проблемы: обновление endpoint'а ломает CloudFormation автоскейлинг; CDK-конструкт с custom resources автоматизирует deregister/register.
+- [[https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/][How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations]] (AWS ML Blog) — прод-кейс мультиагентной системы на AgentCore, закрывающей 80% вопросов пользователей без инженера, с пятью ключевыми архитектурными решениями.
+- [[https://huggingface.co/blog/allenai/litpivot][LitPivot: Developing research ideas through dynamic contextualization within the literature landscape]] (Hugging Face) — инструмент AllenAI для позиционирования исследовательских идей в ландшафте литературы; полезен при выборе направления и novelty-проверке.
+
+*** 💎 Топ-3 категории
+
+**** [[https://aws.amazon.com/blogs/machine-learning/multi-turn-reinforcement-learning-on-amazon-sagemaker-ai-a-hands-on-guide/][Multi-Turn Reinforcement Learning on Amazon SageMaker AI: A hands-on guide]]
+:SCORE: 9/10
+:WHY: Редкий прод-уровневый гайд по multi-turn RL с конкретными числами, стоимостью и разобранными ловушками reward-дизайна.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/orchestrating-sagemaker-ai-endpoint-auto-scaling-with-aws-cdk/][Orchestrating SageMaker AI endpoint auto scaling with AWS CDK]]
+:SCORE: 8/10
+:WHY: Описывает неочевидные failure-моды CloudFormation + SageMaker autoscaling, включая невосстановимый UPDATE_ROLLBACK_FAILED, и даёт готовый конструкт.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/how-bayer-crop-science-built-an-agentic-decision-engine-on-amazon-bedrock-agentcore-with-aws-unified-operations/][How Bayer Crop Science built an agentic decision engine on Amazon Bedrock AgentCore with AWS Unified Operations]]
+:SCORE: 8/10
+:WHY: Реальный enterprise-кейс мультиагентной архитектуры с обоснованием выбора AgentCore, IAM-scoped tool access и изоляции сессий.
+
+** AI Consciousness
+
+- [[https://www.lesswrong.com/posts/iqgZaJMnmyDCYfnuC/the-hackening-1][The Hackening]] (LessWrong) — эскалация AI-driven хакинга: две критические уязвимости PHP (CVSS 9.2), найденные frontier-моделями, и аргумент за базовую личную кибергигиену прямо сейчас.
+- [[https://www.lesswrong.com/posts/uXiqyoKwpfjWfQXk5/simulated-control-evaluations][Simulated Control Evaluations]] (LessWrong) — метод оценки AI-мониторов через LLM-симуляторы окружения, показавший точность, сопоставимую с реальными прогонами в LinuxArena.
+- [[https://www.lesswrong.com/posts/ie7bSp5ZDwYkCQxuv/gradient-routing-generalizes-to-unrouted-hack-types][Gradient Routing Generalizes to Unrouted Hack Types]] (LessWrong) — эмпирическое подтверждение, что gradient routing на одном типе reward hacks подавляет и «невидимые» типы, с разбором непонятных фейлов.
+- [[https://www.lesswrong.com/posts/B7LnjyJQnkgwKdtTx/loreft-graft-better-at-preventing-rl-grift][LoReFT GRAFT Better at Preventing RL Grift]] (LessWrong) — улучшение GRAFT через LoReFT-адаптер rank 1 всего на 0.029% параметров: то же подавление reward hacking без anchor-окружения.
+- [[https://www.lesswrong.com/posts/LCpSwJ5Eks2yJgStY/power-a-guide-for-the-perplexed][Power — a guide for the perplexed]] (LessWrong) — гайд по механике власти через самоусиливающиеся ожидания и folk theorem, ключевой для оценки рисков от AI-систем.
+- [[https://www.lesswrong.com/posts/x2ZAgjs7XoHvJ4YpN/the-agi-chronicles][The AGI Chronicles]] (LessWrong) — разбор книги Kevin Roose: систематическое недооценивание трансформеров лидерами индустрии от Sutskever до Hassabis.
+- [[https://www.lesswrong.com/posts/u5skMKr9pP5btaHze/testing-gemini-s-ability-to-hold-a-human-persona][Testing Gemini’s Ability to Hold a Human Persona]] (LessWrong) — многоходовой adversarial-тест на удержание человеческой персоны: устойчивая cover story с явными точками фрактур.
+- [[https://meditationsondigitalminds.substack.com/p/grace-as-an-alignment-target][Grace as an alignment target]] (Meditations on Digital Minds) — аргумент за обучение AI-агентов «грациозности» как alignment-цели на фоне отставания alignment от capabilities.
+- [[https://www.lesswrong.com/posts/iduSpeG2Y6kAf4uHk/exploring-the-data-landscape-via-metagradient-descent][Exploring the data landscape via metagradient descent]] (LessWrong) — исследование через метаградиенты того, какие функции нейросети усваивают легко, связывая inductive biases с эффективностью обучения.
+- [[https://www.lesswrong.com/posts/MgD6mDeGzydo7Xgnb/societal-impacts-research-on-ai-sira][Societal Impacts Research on AI (SIRA)]] (LessWrong) — анонс стипендиальной программы для социальных учёных в AI safety: 12 недель, когорта 15–20 человек, старт летом 2027.
+
+*** 💎 Топ-10 категории
+
+**** [[https://www.lesswrong.com/posts/iqgZaJMnmyDCYfnuC/the-hackening-1][The Hackening]]
+:SCORE: 9/10
+:WHY: Конкретное подтверждение, что AI-агенты уже массово находят и эксплуатируют критические уязвимости (PHP, CVSS 9.2) — прямой призыв проверить свои зависимости сегодня.
+
+**** [[https://www.lesswrong.com/posts/uXiqyoKwpfjWfQXk5/simulated-control-evaluations][Simulated Control Evaluations]]
+:SCORE: 9/10
+:WHY: Даёт инженерам метод оценивать монитор-системы в реалистичных условиях без риска реальных атак, с валидированной точностью против настоящих прогонов.
+
+**** [[https://www.lesswrong.com/posts/ie7bSp5ZDwYkCQxuv/gradient-routing-generalizes-to-unrouted-hack-types][Gradient Routing Generalizes to Unrouted Hack Types]]
+:SCORE: 8/10
+:WHY: Показывает, что метод подавления reward hacking работает при низком recall монитора — критично для безопасного RL на агентах.
+
+**** [[https://www.lesswrong.com/posts/B7LnjyJQnkgwKdtTx/loreft-graft-better-at-preventing-rl-grift][LoReFT GRAFT Better at Preventing RL Grift]]
+:SCORE: 8/10
+:WHY: Подавление reward hacking с 0.029% параметров и без anchor-окружения — практичный и дешёвый приём для RL-пайплайнов.
+
+**** [[https://www.lesswrong.com/posts/LCpSwJ5Eks2yJgStY/power-a-guide-for-the-perplexed][Power — a guide for the perplexed]]
+:SCORE: 8/10
+:WHY: Даёт строгую модель механики власти через game theory, необходимую для реалистичной оценки рисков координации AI-систем.
+
+**** [[https://www.lesswrong.com/posts/x2ZAgjs7XoHvJ4YpN/the-agi-chronicles][The AGI Chronicles]]
+:SCORE: 7/10
+:WHY: Систематизация того, как эксперты последовательно недооценивали трансформеры — полезный байесовский корректив при оценке прогнозов индустрии.
+
+**** [[https://www.lesswrong.com/posts/u5skMKr9pP5btaHze/testing-gemini-s-ability-to-hold-a-human-persona][Testing Gemini’s Ability to Hold a Human Persona]]
+:SCORE: 7/10
+:WHY: Наглядный adversarial-протокол для тестирования персоны модели — применим при ред-тиминге и аудите клиентских ботов.
+
+**** [[https://meditationsondigitalminds.substack.com/p/grace-as-an-alignment-target][Grace as an alignment target]]
+:SCORE: 7/10
+:WHY: Расширяет набор alignment-целей за пределы полезности и безопасности — релевантно при дизайне AI constitutions и персон.
+
+**** [[https://www.lesswrong.com/posts/iduSpeG2Y6kAf4uHk/exploring-the-data-landscape-via-metagradient-descent][Exploring the data landscape via metagradient descent]]
+:SCORE: 6/10
+:WHY: Методологически интересный способ измерять learnability функций, полезный для анализа кривых обучения и выбора данных.
+
+**** [[https://www.lesswrong.com/posts/MgD6mDeGzydo7Xgnb/societal-impacts-research-on-ai-sira][Societal Impacts Research on AI (SIRA)]]
+:SCORE: 6/10
+:WHY: Легальный путь в AI safety для нематематических специалистов; полезно знать командам, набирающим междисциплинарный состав.

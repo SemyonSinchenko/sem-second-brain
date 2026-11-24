@@ -1,0 +1,58 @@
+#+TITLE: Daily Digest: 2026-04-28
+#+FROM: [2026-04-27 Mon]
+#+TO: [2026-04-28 Tue]
+#+DATE: [2026-04-28 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с экспериментов с ИИ на промышленную эксплуатацию агентов: ключевыми темами стали оркестрация, синхронизация знаний и управление затратами. Вендоры активно развивают спецификации lakehouse (Iceberg v3) и распределенные СУБД (Aurora DSQL), предлагая решения для проблем масштабирования. Инженерное сообщество обсуждает баланс между автоматизацией и контролем, а также готовится к новым стандартам в области графовых баз данных.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/10-python-libraries-for-building-llm-applications][10 Python Libraries for Building LLM Applications]] (kdnuggets.com) — Обзор фреймворков для fine-tuning, RAG и оценки моделей, полезный для выбора стека.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/automate-repetitive-tasks-with-amazon-quick-flows][Automate repetitive tasks with Amazon Quick Flows]] (aws.amazon.com) — Демонстрация автоматизации рутинных задач через natural language workflows без кода.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-and-deploy-an-automatic-sync-solution-for-amazon-bedrock-knowledge-bases][Build and deploy an automatic sync solution for Amazon Bedrock Knowledge Bases]] (aws.amazon.com) — Паттерн event-driven архитектуры для актуализации знаний в RAG с учетом квот API.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-strands-agents-with-sagemaker-ai-models-and-mlflow][Build Strands Agents with SageMaker AI models and MLflow]] (aws.amazon.com) — Инструкция по сборке агентов с контролем инфраструктуры и трассировкой через MLflow.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-popsa-used-amazon-nova-to-inspire-customers-with-personalised-title-suggestions][How Popsa used Amazon Nova to inspire customers with personalised title suggestions]] (aws.amazon.com) — Кейс внедрения генеративного ИИ для персонализации контента с ростомengagement.
+- [[hxxps://huggingface.co/blog/nvidia/raw2insights-adaptive-ultrasound-imaging][Adaptive Ultrasound Imaging with Physics-Informed NV-Raw2Insights-US AI]] (huggingface.co) — Пример применения physics-informed AI в медицинской визуализации от Nvidia.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-strands-agents-with-sagemaker-ai-models-and-mlflow][Build Strands Agents with SageMaker AI models and MLflow]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов, планирующих production-ready агентов с полным контролем над инфраструктурой и наблюдаемостью.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-and-deploy-an-automatic-sync-solution-for-amazon-bedrock-knowledge-bases][Build and deploy an automatic sync solution for Amazon Bedrock Knowledge Bases]]
+:SCORE: 9/10
+:WHY: Решает реальную проблему рассинхронизации данных в RAG-системах с учетом ограничений сервисных квот.
+**** [[hxxps://www.kdnuggets.com/10-python-libraries-for-building-llm-applications][10 Python Libraries for Building LLM Applications]]
+:SCORE: 8/10
+:WHY: Экономит время на выбор инструментов для разработки, покрывая весь жизненный цикл LLM-приложения.
+
+** Вендоры
+- [[hxxps://www.dremio.com/blog/dremio-iceberg-v3-deletion-vectors/][Iceberg Deletion Vectors: The Better Way to Delete Rows]] (dremio.com) — Технический разбор улучшения производительности delete операций в Iceberg v3 через deletion vectors.
+- [[hxxps://aws.amazon.com/blogs/database/dsql-sql-dialect-how-amazon-aurora-dsql-differs-from-single-instance-postgresql/][DSQL SQL Dialect: How Amazon Aurora DSQL differs from single-instance PostgreSQL]] (aws.amazon.com) — Важное предупреждение о различиях в хранении данных и влиянии первичных ключей на производительность.
+- [[hxxps://aws.amazon.com/blogs/database/how-kajabi-optimized-costs-with-amazon-aurora-upgrades][How Kajabi optimized costs with Amazon Aurora upgrades]] (aws.amazon.com) — Кейс снижения затрат на 80% при миграции больших объемов данных с минимальным даунтаймом.
+- [[hxxps://www.databricks.com/blog/how-leading-tech-companies-are-killing-builders-tax-lakebase][How leading tech companies are killing the builder's tax with Lakebase]] (databricks.com) — Обзор подхода Databricks к снижению операционных издержек при разработке AI-приложений.
+- [[hxxps://www.databricks.com/blog/inside-one-first-production-deployments-lakebase-langguards-agentic-workflow-governance-engine][Inside one of the first production deployments of Lakebase: LangGuard's agentic workflow governance engine]] (databricks.com) — Пример внедрения governance для автономных агентов в продакшене.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/dremio-iceberg-v3-deletion-vectors/][Iceberg Deletion Vectors: The Better Way to Delete Rows]]
+:SCORE: 10/10
+:WHY: Глубокое понимание изменений в спецификации Iceberg v3 необходимо для проектирования эффективных data lakehouse решений.
+**** [[hxxps://aws.amazon.com/blogs/database/dsql-sql-dialect-how-amazon-aurora-dsql-differs-from-single-instance-postgresql/][DSQL SQL Dialect: How Amazon Aurora DSQL differs from single-instance PostgreSQL]]
+:SCORE: 9/10
+:WHY: Предотвращает архитектурные ошибки при переходе на распределенную СУБД, объясняя фундаментальные различия в хранении.
+**** [[hxxps://aws.amazon.com/blogs/database/how-kajabi-optimized-costs-with-amazon-aurora-upgrades][How Kajabi optimized costs with Amazon Aurora upgrades]]
+:SCORE: 8/10
+:WHY: Практический пример стратегии zero-downtime миграции и оптимизации затрат для высоконагруженных систем.
+
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/angry-ai-rantings-of-an-old-git][Angry AI rantings of an old git]] (dataengineeringcentral.substack.com) — Рефлексия опытного разработчика о внедрении ИИ и сохранении качества кода без слепого следования трендам.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического сообщества LDBC, посвященной стандартам графовых баз данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/angry-ai-rantings-of-an-old-git][Angry AI rantings of an old git]]
+:SCORE: 8/10
+:WHY: Полезный взгляд со стороны на риски чрезмерной автоматизации и важность фундаментальных инженерных практик.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность быть в курсе развития стандартов бенчмаркинга для графовых баз данных и networking в индустрии.

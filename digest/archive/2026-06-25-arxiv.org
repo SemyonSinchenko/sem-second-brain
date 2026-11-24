@@ -1,0 +1,109 @@
+#+TITLE: Arxiv Digest: 2026-06-25
+#+FROM: [2026-06-24 Wed]
+#+TO: [2026-06-25 Thu]
+#+DATE: [2026-06-25 Thu]
+#+STARTUP: showall
+
+* Базы данных (cs.DB)
+** 🧐 Обзор
+В последние сутки наблюдается рост интереса к интеграции больших языковых моделей для задач очистки табличных данных, что снижает порог входа для пользователей. Параллельно исследуются квантовые подходы к классическим задачам аналитики, таким как поиск частых наборов элементов, предлагая потенциальное ускорение за счет квантовой суперпозиции.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.25388][TabClean: Reusable LLM-Synthesized Programs for Tabular Data Cleaning]]
+:WHAT: Система очистки данных, компилирующая рассуждения LLM в переиспользуемые guarded cleaning programs на Python.
+:IMPACT: Снижает затраты на API и время выполнения за счет замены повторных вызовов LLM на детерминированное исполнение программ.
+- [[hxxps://arxiv.org/abs/2606.09209][Quantum Computing and Data Processing for Frequent Itemset Mining]]
+:WHAT: Фреймворк QFM для квантового поиска частых наборов элементов с кодированием бит-векторов и суперпозицией кандидатов.
+:IMPACT: Демонстрирует среднее улучшение на 96% по сравнению с классическими базовыми линиями на реальных датасетах.
+
+* Искусственный интеллект (cs.AI)
+** 🧐 Обзор
+Основные тренды сосредоточены на безопасности RAG-систем, эффективности обслуживания LLM (сжатие KV-кэша) и надежности аппаратного обеспечения ИИ. Также развивается направление нейроsymbolic оркестрации рабочих процессов для сочетания гибкости LLM с аудируемостью символических систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.01708][SplitZip: Ultra Fast Lossless KV Compression for Disaggregated LLM Serving]]
+:WHAT: GPU-дружелюбный лоссless компрессор для KV-кэша, использующий избыточность в экспонентах floating-point чисел.
+:IMPACT: Ускоряет передачу KV-кэша в 1.32 раза и увеличивает пропускную способность запросов в дисагрегированных системах.
+- [[hxxps://arxiv.org/abs/2512.00804][Epistemic Bias Injection: Manipulating LLM Opinion via Selective Context Retrieval]]
+:WHAT: Исследование атак эпистемического смещения в RAG и прототип защиты BiasDef на основе геометрических метрик.
+:IMPACT: Выявляет новую угрозу манипуляции контекстом и предлагает легковесный метод фильтрации для безопасных LLM-систем.
+- [[hxxps://arxiv.org/abs/2606.22485][VADAOrchestra: Neurosymbolic Orchestration of Adaptive Reasoning Workflows]]
+:WHAT: Нейросимволический фреймворк, кодирующий workflows в Datalog+/- для адаптируемого планирования через LLM.
+:IMPACT: Обеспечивает аудируемость и масштабируемость сложных reasoning процессов над большими данными.
+- [[hxxps://arxiv.org/abs/2405.01741][PVF:Understanding AI Vulnerability Against SDCs]]
+:WHAT: Метрика Parameter Vulnerability Factor (PVF) для количественной оценки уязвимости моделей ИИ к аппаратным ошибкам.
+:IMPACT: Критична для проектирования надежных ИИ-чипов и управления ошибками в продакшене.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2206.04359][Learning Non-Vacuous Generalization Bounds from Optimization]] — теоретическая работа о границах обобщения через оптимизацию.
+- [[hxxps://arxiv.org/abs/2505.12843][Bias Fitting to Mitigate Length Bias of Reward Model in RLHF]] — метод коррекции смещения на длину ответов в моделях вознаграждения.
+- [[hxxps://arxiv.org/abs/2505.23866][Towards Understanding The Calibration Benefits of Sharpness-Aware Minimization]] — анализ калибровки моделей при использовании SAM.
+- [[hxxps://arxiv.org/abs/2507.16863][Position: Reasoning After Perception Means Reasoning Without Vision]] — позиция о необходимости рассуждений непосредственно в визуальном пространстве.
+
+* Социальная физика и сети (physics.soc-ph)
+** 🧐 Обзор
+В центре внимания анализ сетевых вмешательств для снижения неравенства, использование мобильности для прогнозирования эпидемий и динамика перестройки сетей на основе гомофилии. Исследования подчеркивают роль структуры сети в формировании коллективных исходов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2506.04435][Edge interventions can mitigate demographic and prestige disparities in the Computer Science coauthorship network]]
+:ALGO: Алгоритмы симуляции реберных вмешательств для повышения центральности целевых исследователей в сети соавторства.
+:IMPACT: Показывает возможность снижения демографического и престижного неравенства через фасилитацию коллабораций.
+- [[hxxps://arxiv.org/abs/2510.20025][When Networks Substitute for Outcome Surveillance? A Substitution-Complementarity Framework for Behavioral Signals in Predictive Monitoring]]
+:ALGO: Фреймворк подстановки-дополнения для оценки предсказательной силы сетевых топологий в эпидемиологическом прогнозировании.
+:IMPACT: Определяет условия, когда данные мобильности эффективнее локального мониторинга исходов.
+- [[hxxps://arxiv.org/abs/2606.25872][Collective variables for homophily-driven network rewiring dynamics]]
+:ALGO: Выделение низкоразмерных коллективных переменных для описания динамики перестройки сетей на основе гомофилии.
+:IMPACT: Позволяет строить редуцированные макроскопические модели эволюции социальных сетей.
+- [[hxxps://arxiv.org/abs/2606.25682][Opinion Dynamics over Migration Networks]]
+:ALGO: Стохастический фреймворк для динамики мнений,耦合ющий локальные переходы и миграцию между сообществами.
+:IMPACT: Объясняет возникновение консенсуса и поляризации через взаимодействие демографии и социальных взаимодействий.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.25283][Competitive satellite placement and the geography of orbital risk: evidence from the geostationary arc]] — модель размещения спутников и риска столкновений.
+- [[hxxps://arxiv.org/abs/2606.25303][Zipf's law before the monetary economy and written administration: volume distribution of kofun, ancient Japanese burial mounds]] — анализ распределения объемов курганов по закону Ципфа.
+- [[hxxps://arxiv.org/abs/2606.25756][Space-based Missile Defense]] — обзор технических вопросов противоракетной обороны из космоса.
+
+* Структуры данных и алгоритмы (cs.DS)
+** 🧐 Обзор
+Значительный прогресс достигнут в понимании вычислительной сложности динамических графовых алгоритмов, включая доказательства твердости для k-core. Также представлены_near-optimal решения для задачи достижимости из множества источников и новые структурные параметры графов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2509.13584][Hardness of Dynamic Core and Truss Decompositions]]
+:ALGO: Доказательство отсутствия эффективных динамических алгоритмов для k-core и k-truss при OMv и SETH гипотезах.
+:IMPACT: Объясняет фокус сообщества на ограниченных алгоритмах и устанавливает теоретические границы для динамических графов.
+- [[hxxps://arxiv.org/abs/2606.25612][Multi-Source Reachability in Near-Optimal Time]]
+:ALGO: Детерминированный алгоритм для задачи достижимости из множества источников за время ~O(n^ω(σ)).
+:IMPACT: Преодолевает супер-квадратичный барьер для плотных графов и улучшает состояние искусства.
+- [[hxxps://arxiv.org/abs/2502.18065][Merge-width and First-Order Model Checking]]
+:ALGO: Введение параметра merge-width, объединяющего treewidth и twin-width для проверки моделей первого порядка.
+:IMPACT: Расширяет классы графов, для которых задача проверки моделей разрешима за фиксированное параметрическое время.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.21700][Cutting Planarians: Planar Emulators for String Graphs]] — построение планарных эмуляторов для строковых графов.
+- [[hxxps://arxiv.org/abs/2606.25166][Scheduling with Testing: Competitive Algorithms for Minimizing the Total Weighted Completion Time in the Adversarial Model]] — конкурентные алгоритмы планирования с тестированием.
+- [[hxxps://arxiv.org/abs/2606.25816][Segment Watchman Routes]] — задача поиска маршрутов наблюдателей в полигонах.
+
+* Распределенные вычисления (cs.DC)
+** 🧐 Обзор
+Ключевые темы включают дисагрегированное обслуживание LLM, эффективное планирование задач на GPU (MIG) и демократичность лидерства в BFT-консенсусе. Также исследуются верифицируемые框架 для федеративного обучения и оптимизация линейной алгебры на GPU.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.25091][Speculation at a Distance: Where Edge-Cloud Speculative Decoding Actually Pays Off]]
+:WHAT: Анализ распределенного спекулятивного декодирования (DSD) между edge и cloud для LLM.
+:IMPACT: Показывает, что DSD выгоден прежде всего для увеличения емкости мульти-тенант серверов, а не.latency одиночного запроса.
+- [[hxxps://arxiv.org/abs/2606.23017][Nautilus: A Verifiable Hierarchical Federated Learning Framework for Vehicular-Edge-Cloud Systems]]
+:WHAT: Фреймворк федеративного обучения с ZKP для верификации справедливости планирования и выполнения в IoV.
+:IMPACT: Решает проблемы доверия и эффективности в гетерогенных системах vehicle-edge-cloud.
+- [[hxxps://arxiv.org/abs/2501.02970][Leader Rotation Is Not Enough: Scrutinizing Leadership Democracy of Chained BFT Consensus]]
+:WHAT: Фреймворк оценки демократичности лидерства в chained BFT протоколах через метрики chain quality и censorship resilience.
+:IMPACT: Предлагает контрмеры для улучшения демократичности консенсуса в блокчейнах без изменения правил.
+- [[hxxps://arxiv.org/abs/2606.25082][Energy Efficient Scheduling of AI/ML Workloads on Multi Instance GPUs with Dynamic Repartitioning]]
+:WHAT: Фреймворк динамического перераспределения ресурсов MIG для энергосберегающего планирования задач ИИ.
+:IMPACT: Снижает энергопотребление на 26-68% по сравнению со статическим партиционированием.
+- [[hxxps://arxiv.org/abs/2606.24748][A Natively Blocked, Device-Resident Algebraic Multigrid GPU Path in PETSc]]
+:WHAT: Нативная блочная реализация AMG в PETSc для GPU с прямоугольными блоками для задач упругости.
+:IMPACT: Ускоряет пересчет грубого оператора в 1.8-2.27 раза на масштабируемых GPU системах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.04652][Six Times to Spare: Characterizing GPU-Accelerated 5G LDPC Decoding for Edge-RSU Communications]] — бенчмарк GPU ускорения декодирования LDPC для 5G.
+- [[hxxps://arxiv.org/abs/2605.04335][GPU-Accelerated Simulations of Moving Boundary Problems and Fluid-Structure Interaction at Extreme Scales]] — GPU симуляции гидродинамики на масштабах до 1 млрд точек.

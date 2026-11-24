@@ -1,0 +1,149 @@
+#+TITLE: Arxiv Digest: 2026-08-26
+#+FROM: [2026-08-25 Tue]
+#+TO: [2026-08-26 Wed]
+#+DATE: [2026-08-26 Wed]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается рост интереса к интеграции LLM для автоматической генерации продуктов данных и бенчмаркингу этого процесса. Одновременно развивается тема легковесного векторного поиска внутри SQLite, что снижает порог входа для IR-систем. Также отмечается прогресс в формализации семантики языков графовых запросов (GQL) и использовании дискретных глобальных сеток для пространственных данных.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.15798][Bridging Business Intent and Data: A Benchmark for Automatic Relational Data Product Generation]]
+:WHAT: Предложен бенчмарк DP-Bench и базовые методы на основе LLM для端到端 генерации продуктов данных из бизнес-запросов.
+:IMPACT: Заполняет пробел в оценке автоматизации ELT и text-to-SQL, предоставляя стандарт для будущих исследований.
+- [[hxxps://arxiv.org/abs/2608.24060][SQLite is Enough. Lexical, Semantic, and Hybrid Search with scrydb]]
+:WHAT: Библиотека scrydb реализует гибридный поиск (лексический + векторный) внутри SQLite через расширения FTS5 и sqlite-vec.
+:IMPACT: Предлагает легковесное решение для IR и агентного поиска без развертывания тяжелых внешних векторных баз.
+- [[hxxps://arxiv.org/abs/2607.08956][Accelerating Point-in-Polygon Predicates via Algebraic Hash-Joins and Discrete Global Grids at Scale: An interactive benchmark]]
+:WHAT: Интерактивный бенчмарк оценивает производительность DGGS (H3, S2 и др.) для пространственных join-операций в DuckDB.
+:IMPACT: Демонстрирует, что пре-индексация через DGGS обеспечивает субсекундные задержки даже для массивных данных.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.24565][MGQL: An Executable, Small-Step Semantics of GQL]]
+:ALGO: Первая механизированная операционная семантика для значительного фрагмента стандарта GQL с поддержкой схем и типов.
+:IMPACT: Обеспечивает формальную основу для корректных реализаций графовых СУБД и верификации запросов.
+- [[hxxps://arxiv.org/abs/2608.23876][Degree Centrality Algorithms for Weighted Multilayer Networks (or w-MLNs)]]
+:ALGO: Фреймворк декуплинга для вычисления центральности в взвешенных многослойных сетях без агрегации слоев.
+:IMPACT: Сохраняет структурную и семантическую информацию слоев, обеспечивая масштабируемость для сложных графовых моделей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.00913][Quantification in Double-Categorical Database Schemas]] — Расширение схем баз данных кванторами через двойные категории для оптимизации запросов и логики предикатов.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основные тренды сосредоточены на обеспечении справедливости порядка сообщений в консенсусе для борьбы с MEV и оптимизации коллективных коммуникаций для гетерогенных GPU-архитектур. Внедряются архитектуры сервисных.mesh без сайдкаров для снижения задержек. Также растет внимание к робастности федеративного обучения в условиях византийских атак.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.13107][Meshlib: In-Process Policy Enforcement for Sidecar-less Service Meshes]]
+:WHAT: Расширение Meshlib для Cilium, enforcing Layer-7 политики внутри процесса приложения без sidecar-прокси.
+:IMPACT: Устраняет задержки сайдкаров при сохранении гарантий безопасности сервисной сетки.
+- [[hxxps://arxiv.org/abs/2508.13397][Optimizing Allreduce Operations for Modern Heterogeneous Architectures with Multiple Processes per GPU]]
+:WHAT: Оптимизация GPU-aware all-reduce операций с использованием нескольких CPU ядер на GPU для гетерогенных узлов.
+:IMPACT: Ускоряет коммуникации в深度学习 до 3x на суперкомпьютерах, эффективно используя простаивающие CPU ресурсы.
+- [[hxxps://arxiv.org/abs/2608.23805][Memory-Sovereign Inference: Output-Exact Execution Beyond Full Residency]]
+:WHAT: Сертифицируемый подход к инференсу LLM, гарантирующий точность вывода при управлении памятью за пределами полного резидентства.
+:IMPACT: Позволяет запускать большие модели на ограниченных ресурсах без потери точности, критично для edge-инференса.
+- [[hxxps://arxiv.org/abs/2510.07922][SketchGuard: Scaling Byzantine-Robust Decentralized Federated Learning via Sketch-Based Screening]]
+:WHAT: Механизм SketchGuard для скрининга соседей в компактном пространстве Count Sketch перед агрегацией моделей.
+:IMPACT: Снижает коммуникационные затраты в федеративном обучении, сохраняя устойчивость к византийским атакам.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2411.09981][SoK: Consensus for Fair Message Ordering]]
+:ALGO: Систематизация механизмов консенсуса для справедливого порядка сообщений и формализация $f$-Robust Median Order.
+:IMPACT: Предоставляет паттерны для защиты DeFi от MEV и анализа затрат на справедливость в BFT протоколах.
+- [[hxxps://arxiv.org/abs/2606.24250][Semantic Lock: Synchronization Based on the Analysis of the Operation Conflict Graph]]
+:ALGO: Блокировка SemanticLock на основе графа конфликтов операций, обобщающая read-write.lock.
+:IMPACT: Повышает параллелизм в конкурентных структурах данных за счет семантического анализа конфликтов.
+- [[hxxps://arxiv.org/abs/2601.21855][Adaptive Probabilistic Skyline Analytics for Mobile Edge-Cloud Systems via State-Aware Deep Reinforcement Learning]]
+:ALGO: Фреймворк SA-PSKY для адаптивной фильтрации skyline-запросов на краю сети с использованием DRL.
+:IMPACT: Балансирует вычисления и коммуникации в динамических MEC средах, снижая задержки при нестабильном трафике.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2512.20163][Efficient Stable Population Protocols for Parity and Beyond]] — Протоколы популяции для вычисления четности и конгруэнций с эффективностью по времени и памяти.
+- [[hxxps://arxiv.org/abs/2604.06920][On the Decidability of Distributed Tasks with Output Sets under Asynchrony and Any Number of Crashes]] — Исследование разрешимости задач распределенных систем с множествами выходов при асинхронности.
+- [[hxxps://arxiv.org/abs/2608.23955][Trust, but Verify: Rigorously Profiling Best-Effort High-Performance Computing for Digital Evolution]] — Фреймворк для профилирования best-effort вычислений в HPC для цифровой эволюции.
+- [[hxxps://arxiv.org/abs/2608.23649][A Survey of Timing Variability in Microservice-Based Software-Defined Vehicles]] — Обзор источников и механизмов распространения временной вариативности в микросервисных автомобилях.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Наблюдается применение глубокого обучения с подкреплением для управления ресурсами в сетевых играх и моделирования трафика электромобилей. Топологические методы используются для анализа синхронизации на гиперграфах. Также развиваются гравитационные модели для пространственно-временного анализа городских систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.05867][Exploring cooperation mechanisms via deep reinforcement learning in network common-pool resource games]]
+:WHAT: Фреймворк на основе GNN и RL для распределения ресурсов в сетевых играх с общими пулами.
+:IMPACT: Предлагает интерпретируемые механизмы_allocation, повышающие кооперацию и снижающие неравенство в сетях.
+- [[hxxps://arxiv.org/abs/2508.01938][Analytical Framework for Evaluating Traffic Capacity Impacts of Electric Vehicles' Regenerative Braking Dynamics]]
+:WHAT: Аналитическая框架 для моделирования влияния рекуперативного торможения EV на пропускную способность трафика.
+:IMPACT: Выявляет компромисс между энергоэффективностью и пропускной способностью дороги для планирования транспорта.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2512.14729][Topological Dirac cluster synchronization on directed hypergraphs]]
+:ALGO: Динамическая система для топологической кластерной синхронизации на направленных гиперграфах через гамильтониан Дирака.
+:IMPACT: Позволяет проектировать паттерны синхронизации на узлах и гиперребрах без изменения структуры сети.
+- [[hxxps://arxiv.org/abs/2608.24178][Spatiotemporal organization in bike-sharing systems using gravity model parameters]]
+:ALGO: Анализ временной и пространственной вариации параметров гравитационной модели для велошеринга.
+:IMPACT: Улучшает понимание потоков спроса и предложения в городских мобильных системах для оптимизации инфраструктуры.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2307.11040][Reconstruction of fallout deposition from U.S. atmospheric nuclear tests conducted in New Mexico and Nevada]] — Реконструкция распространения радиоактивных осадков с использованием модели атмосферного транспорта HYSPLIT.
+- [[hxxps://arxiv.org/abs/2606.03786][Conviction, persuasion, and cross-cutting exposure: a Bayesian model of deliberation in online political debates]] — Байесовская модель влияния идеологического разнообразия аудитории на voting поведение в онлайн-дебатах.
+- [[hxxps://arxiv.org/abs/2608.24554][Why fragmented parliaments stop passing legislation: Opposition discipline and representation across four democratic institutions]] — Агентная модель влияния фрагментации парламента и дисциплины оппозиции на законодательный процесс.
+- [[hxxps://arxiv.org/abs/2608.23576][Minimum-Distortion Wealth Taxation, I: Information-Theoretic versus Transport-Geometric Optimality on the Proportional Class]] — Сравнение информационно-теоретических и транспортно-геометрических критериев оптимальности налогообложения богатства.
+- [[hxxps://arxiv.org/abs/2608.20956][Identifying the structure of dynamical transitions in logistic map]] — Исследование структурных особенностей перехода от хаоса к порядку в логистическом отображении через сетевой анализ.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Развиваются стриминговые алгоритмы для геометрических задач и динамических фильтров членства с гарантиями пространства. В графовых алгоритмах акцент смещается на баланс эффективности маршрутов и их досягаемости (reachability). Онлайн кластеризация достигает константной конкурентоспособности при метрических ограничениях весов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.14128][Designing Efficient and Reachable Routes: The $k$-Step-Central Shortest Path Problem]]
+:ALGO: Алгоритм для поиска кратчайшего пути, максимизирующего число узлов в фиксированном расстоянии (reachability).
+:IMPACT: Позволяет оптимизировать транспортные маршруты для покрытия вместо простого удлинения путей.
+- [[hxxps://arxiv.org/abs/2608.06566][Online Correlation Clustering with Metric Weights]]
+:ALGO: Детерминированный онлайн алгоритм для кластеризации корреляций с метрическими весами и константной конкурентоспособностью.
+:IMPACT: Преодолевает нижние границы сложности для онлайн кластеризации за счет структуры входных данных.
+- [[hxxps://arxiv.org/abs/2602.12667][Efficient Streaming Algorithms for Two-Dimensional Congruence Testing and Congruence Hashing]]
+:ALGO: Рандомизированные стриминговые алгоритмы для проверки конгруэнтности 2D point sets с полилогарифмической памятью.
+:IMPACT: Решает задачи геометрического匹配 в условиях ограниченной памяти и потока данных.
+- [[hxxps://arxiv.org/abs/2608.22413][Beyond the Static Barrier for Ordinary Dynamic Approximate Membership]]
+:ALGO: Доказательство строгого разделения пространства между статическими и динамическими фильтрами приближенного членства.
+:IMPACT: Устанавливает новые теоретические пределы для динамических структур данных типа Bloom filter.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.01007][Tighter Bounds for Wheeler Determinization]] — Улучшение времени детерминизации Wheeler NFA до линейного для отсортированных входов.
+- [[hxxps://arxiv.org/abs/2608.11038][A 5/4 bound for graphic $s$-$t$ path TSP on subcubic graphs]] — Алгоритм для пути TSP на субкубических графах с верхней границей 5/4.
+- [[hxxps://arxiv.org/abs/2601.17425][Minimizing Completion Times of Stochastic Jobs on Parallel Machines is Hard]] — Доказательство #P-трудности планирования стохастических задач на параллельных машинах.
+- [[hxxps://arxiv.org/abs/2601.18573][Stable Matching with Deviators and Conformists]] — Анализ вычислительной сложности стабильного匹配 с учетом агентов-девиаторов и конформистов.
+- [[hxxps://arxiv.org/abs/2511.20771][Exploiting Low Scanwidth to Resolve Soft Polytomies]] — Алгоритм для задачи Soft Tree Containment в филогенетических сетях с использованием scanwidth.
+- [[hxxps://arxiv.org/abs/2510.06848][Reconquering Bell sampling on qudits: stabilizer learning and testing, quantum pseudorandomness bounds, and more]] — Обобщение Bell sampling на qudits для обучения стабилизаторных состояний и квантовых тестов.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Методы RL активно применяются для управления непрерывными системами и трафиком с учетом временных спецификаций. Появляются крупные датасеты для анализа первопричин (RCA) в IT и OT системах. Фреймворки RAG эволюционируют в сторону иерархического контекста для работы с похожими документами.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2406.05375][LEMMA-RCA: A Large Multi-modal Multi-domain Dataset for Root Cause Analysis]]
+:WHAT: Датасет LEMMA-RCA с реальными сценариями отказов в IT и OT системах для задач RCA.
+:IMPACT: Стандартизирует оценку методов RCA, способствуя развитию надежных систем мониторинга.
+- [[hxxps://arxiv.org/abs/2412.02520][Highway Congestion Reduction through Reinforcement Learning Based Eulerian Headway Control]]
+:WHAT: Система управления трафиком на основе RL, регулирующая интервалы движения (headway) через ACC.
+:IMPACT: Снижает заторы на шоссе до 10.6% по сравнению с человеческим трафиком без зависимости от намерений смены полосы.
+- [[hxxps://arxiv.org/abs/2304.10041][Topology-Guided Modular Actor-Critic Learning for Continuous Systems under Temporal Objectives]]
+:WHAT: Алгоритм Actor-Critic с модульным обучением для систем с непрерывным состоянием и спецификациями временной логики.
+:IMPACT: Ускоряет синтез политик для сложных спецификаций за счет топологического порядка бэкапов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2402.01767][HiQA: A Hierarchical Contextual Augmentation RAG for Multi-Documents QA]]
+:ALGO: Фреймворк HiQA с иерархическим обогащением контекста и мульти-маршрутным retriever для MDQA.
+:IMPACT: Повышает точность ответов в условиях множества семантически похожих документов за счет структуры документа.
+- [[hxxps://arxiv.org/abs/2407.00500][Intrinsic PAPR: Tackling Misattribution in 3D Intrinsic Decomposition via Proximity Attention Point Rendering]]
+:ALGO: Метод PAPR для прямой супервизии признаков точек в 3D рендеринге, решающий проблему misattribution.
+:IMPACT: Улучшает оценку альбедо и синтез новых видов в задачах интринсик декомпозиции сцен.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2312.17535][Olapa-MCoT: Enhancing the Chinese Mathematical Reasoning Capability of LLMs]] — Методы SimRRHF и IDRL для улучшения математических рассуждений LLM на китайском языке.
+- [[hxxps://arxiv.org/abs/2504.18346][Comparing Uncertainty Measurement and Mitigation Methods for Large Language Models: A Systematic Review]] — Систематический обзор и бенчмарк методов квантования不确定ности и калибровки для LLM.
+- [[hxxps://arxiv.org/abs/2306.14300][Screening Autism Spectrum Disorder in children using Deep Learning Approach : Evaluating the classification model of YOLOv26s by comparing with other models]] — Применение YOLOv26s для скрининга расстройств аутистического спектра по лицевым изображениям.
+- [[hxxps://arxiv.org/abs/2503.17894][Generative AI for Validating Physics Laws]] — Генеративный learner для оценки гетерогенных causal эффектов и валидации закона Стефана-Больцмана.
+- [[hxxps://arxiv.org/abs/2201.13427][Fuzzy Segmentations of a String]] — Эвристический алгоритм для нечеткой сегментации строк и сопоставления с нечеткими паттернами.

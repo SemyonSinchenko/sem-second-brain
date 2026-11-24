@@ -1,0 +1,5 @@
+* Michel Foucault
+Extend the file from here.
+** “We should admit rather that power produces knowledge (and not simply by encouraging it because it serves power or by applying it because it is useful); that power and knowledge directly imply one another; that there is no power relation without the correlative constitution of a field of knowledge, nor any knowledge that does not presuppose and constitute at the same time power relations.”
+* Karl Marx
+** "The way in which men produce their means of subsistence depends first of all on the nature of the actual means they find in existence and have to reproduce. This mode of production must not be considered simply as being the reproduction of the physical existence of the individuals. Rather, it is a definite form of activity of these individuals, a definite form of expressing their life, a definite mode of life on their part. As individuals express their life, so they are. What they are, therefore, coincides with their production, both with what they produce and with how they produce. The nature of individuals thus depends on the material conditions determining their production."

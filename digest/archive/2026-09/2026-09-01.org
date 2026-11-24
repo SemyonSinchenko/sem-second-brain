@@ -1,0 +1,73 @@
+#+TITLE: Daily Digest: 2026-09-01
+#+FROM: [2026-08-31 Mon]
+#+TO: [2026-09-01 Tue]
+#+DATE: [2026-09-01 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+- За сутки заметен сдвиг от экспериментов с агентами к их эксплуатации: появляются реестры, MCP-шлюзы, наблюдаемость и мультитенантный контроль доступа.
+- Databricks, AWS и Neo4j развивают инфраструктуру для авто-масштабирования, знаний поверх enterprise-данных и графового контекста.
+- Локальный LLM-инференс и дистиллированные foundation-модели снижают стоимость масштабных исследований, а агентские инструменты всё сильнее упираются в хаос правил, skills и интеграций.
+- Для senior-инженера критично проектировать агентов как распределённые системы: idempotency, аудит, изоляцию, pre-upgrade проверки и governed discovery.
+- Основной вектор в data-контексте — переход от пайплайнов к управляемым retrieval, registry и observability контурам вокруг агентов.
+
+* 📂 Категории
+
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/omnigent-too-afraid-to-ask-what-a][Omnigent. Too afraid to ask what a meta-harness for Agents is?]] (Data Engineering Central) — Статья фиксирует усталость от агентского зоопарка и предлагает думать о meta-harness как о слое выбора модели, правил, файлов и инструментов для конкретного репозитория.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/omnigent-too-afraid-to-ask-what-a][Omnigent. Too afraid to ask what a meta-harness for Agents is?]]
+:SCORE: 8/10
+:WHY: Senior engineers building agent workflows need a control plane for scattered prompts, skills, MCP servers, and repo rules.
+
+** Engineers
+- [[hxxps://medium.com/@angel.alvarez.pascua/agents-dogs-distributed-systems-welcome-to-the-doggy-cloud-ac52ffcbeebb?source=rss-6e4a30cbb0e1------2][Agents, Dogs & Distributed Systems: Welcome to the Doggy Cloud]] (Medium) — На примере hackathon-проекта показывает, как агентный workflow превращается в распределённую систему с Cloud Tasks, Firestore, retry, idempotency, IAM и approvals.
+- [[hxxps://vutr.substack.com/p/how-to-start-learning-data-engineering][How to start learning data engineering in 2026?]] (vutr Substack) — Советует новичкам делать end-to-end project с бизнес-ценностью и рано вкладываться в data modeling, а не бесконечно изучать отдельный skill/tool.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/@angel.alvarez.pascua/agents-dogs-distributed-systems-welcome-to-the-doggy-cloud-ac52ffcbeebb?source=rss-6e4a30cbb0e1------2][Agents, Dogs & Distributed Systems: Welcome to the Doggy Cloud]]
+:SCORE: 9/10
+:WHY: It turns agentic AI into a real distributed-systems checklist: retries, idempotency, IAM, approvals, and stale state.
+**** [[hxxps://vutr.substack.com/p/how-to-start-learning-data-engineering][How to start learning data engineering in 2026?]]
+:SCORE: 7/10
+:WHY: Useful for onboarding and mentoring: value-first projects and modeling over tool obsession.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/autoscaling-lakebase-postgres][Autoscaling Lakebase Postgres]] (Databricks) — Databricks показывает, как авто-масштабирование Lakebase Postgres снимает guesswork по размеру инстанса для неизвестных нагрузок.
+- [[hxxps://neo4j.com/blog/agentic-ai/scaling-karpathy-llm-wiki-graph/][Scaling Karpathy’s LLM wiki: Why your knowledge base needs a graph]] (Neo4j) — Neo4j объясняет, почему персональный LLM-wiki без графа деградирует на поиске, навигации и progressive disclosure.
+- [[hxxps://aws.amazon.com/blogs/database/resolve-circular-role-dependencies-during-upgrades-of-amazon-rds-for-postgresql-and-amazon-aurora/][Fix circular role dependencies before upgrading Amazon RDS and Amazon Aurora PostgreSQL]] (AWS Database Blog) — AWS даёт pre-upgrade SQL-проверку на circular role membership в RDS/Aurora PostgreSQL 14→15, чтобы апгрейд не остановился.
+- [[hxxps://aws.amazon.com/blogs/database/provision-a-secure-amazon-documentdb-cluster-with-terraform/][Provision a secure Amazon DocumentDB cluster with Terraform]] (AWS Database Blog) — Показывает готовый Terraform-паттерн для DocumentDB: private subnets, KMS, TLS, Secrets Manager, CloudWatch и отключённый default SG.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс Graph Data Council/TUC с повесткой по GQL, graph-native normalization, decoupled graph compute и GNN accelerators.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/agentic-ai/scaling-karpathy-llm-wiki-graph/][Scaling Karpathy’s LLM wiki: Why your knowledge base needs a graph]]
+:SCORE: 9/10
+:WHY: Graph context solves progressive disclosure and query/write degradation in LLM knowledge bases.
+**** [[hxxps://www.databricks.com/blog/autoscaling-lakebase-postgres][Autoscaling Lakebase Postgres]]
+:SCORE: 8/10
+:WHY: Practical DB pattern: remove instance-size guessing for Lakebase/Postgres workloads.
+**** [[hxxps://aws.amazon.com/blogs/database/resolve-circular-role-dependencies-during-upgrades-of-amazon-rds-for-postgresql-and-amazon-aurora/][Fix circular role dependencies before upgrading Amazon RDS and Amazon Aurora PostgreSQL]]
+:SCORE: 9/10
+:WHY: Prevents failed major-version upgrades in Aurora/RDS PostgreSQL with a precise pre-check query.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/speed-up-llm-inference-with-dspark-speculative-decoding][Speed Up LLM Inference with DSpark Speculative Decoding]] (KDnuggets) — Разбирает speculative decoding с DSpark, Qwen3-8B, llama.cpp и CUDA для ускорения локальной генерации без отдельного draft-GPU.
+- [[hxxps://www.kdnuggets.com/7-python-mistakes-beginners-make-and-what-to-do-instead][7 Python Mistakes Beginners Make (And What to Do Instead)]] (KDnuggets) — Фокусируется на ошибках, которые не ломают запуск программы, но портят результат, и предлагает первые проверки вместо общих советов.
+- [[hxxps://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/][GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models]] (Microsoft Research Blog) — Microsoft представляет дистиллированные pathology-модели, делающие population-scale анализ гистослайдов доступнее и дешевле.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/connect-an-agentcore-runtime-hosted-mcp-server-to-amazon-quick/][Connect an AgentCore Runtime hosted MCP server to Amazon Quick]] (AWS Machine Learning Blog) — Показывает pattern подключения MCP-сервера через AgentCore Gateway к Amazon Quick для переиспользования tools/sub-agents без кастомных коннекторов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/aws-recognized-as-a-leader-in-the-forrester-wave-ai-infrastructure-solutions-q4-2025/][AWS recognized as a Leader in The Forrester Wave: AI Infrastructure Solutions, Q4 2025]] (AWS Machine Learning Blog) — Аналитика Forrester подчёркивает важность workload-specific AI-инфраструктуры, custom silicon + NVIDIA и операционной эффективности; полезно для выбора платформы, а не только модели.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/manage-agents-tools-and-skills-at-scale-with-aws-agent-registry/][Manage agents, tools and skills at scale with AWS Agent Registry]] (AWS Machine Learning Blog) — AWS описывает governed catalog для agents/tools/skills с owner, approval, access control и semantic search, решая discovery и audit-долг.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-observable-enterprise-agentic-retrieval-using-managed-amazon-bedrock-knowledge-base-with-aws-cloudformation/][Build observable enterprise agentic retrieval using Managed Amazon Bedrock Knowledge Base with AWS CloudFormation]] (AWS Machine Learning Blog) — Разворачивает enterprise agentic retrieval с Managed Knowledge Base и AgentCore так, чтобы reason-and-act loop был виден в OpenTelemetry и оценивался из коробки.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-multi-tenant-agentic-chat-applications-on-enterprise-data-with-amazon-bedrock-managed-knowledge-base/][Build multi-tenant agentic chat applications on enterprise data with Amazon Bedrock Managed Knowledge Base]] (AWS Machine Learning Blog) — Схема multi-tenant document chat, где agentic retrieval и каждый hop проверяют tenant boundary на основе identity, а не client-supplied filter.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/manage-agents-tools-and-skills-at-scale-with-aws-agent-registry/][Manage agents, tools and skills at scale with AWS Agent Registry]]
+:SCORE: 9/10
+:WHY: Enterprise agentic scaling fails without governed discovery, ownership, and audit.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-observable-enterprise-agentic-retrieval-using-managed-amazon-bedrock-knowledge-base-with-aws-cloudformation/][Build observable enterprise agentic retrieval using Managed Amazon Bedrock Knowledge Base with AWS CloudFormation]]
+:SCORE: 9/10
+:WHY: It treats multi-hop RAG as an observable, evaluable production service.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-multi-tenant-agentic-chat-applications-on-enterprise-data-with-amazon-bedrock-managed-knowledge-base/][Build multi-tenant agentic chat applications on enterprise data with Amazon Bedrock Managed Knowledge Base]]
+:SCORE: 9/10
+:WHY: Identity-enforced tenant isolation across retrieval hops is a hard senior design requirement.

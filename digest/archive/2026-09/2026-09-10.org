@@ -1,0 +1,122 @@
+#+TITLE: Daily Digest: 2026-09-10
+#+FROM: [2026-09-09 Wed]
+#+TO: [2026-09-10 Thu]
+#+DATE: [2026-09-10 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За сутки наиболее заметна инфраструктурная встряска: TorchServe официально лишён поддержки и патчей безопасности, а AWS предлагает готовый путь миграции на Ray Serve Deep Learning Containers — параллельно открытые веса дотянулись до масштаба Qwen3.8-2.4T-A95B с детальным рецептом развёртывания на SageMaker HyperPod. Агентные платформы взрослеют до продакшена: Bedrock AgentCore показывает кейс с покупкой премиальных данных за каждый запрос, а августовские обновления Bedrock приносят контекст до миллиона токенов и веб-поиск с цитатами. Вендоры СУБД начинают переосмысливать процессы разработки: Consort от Databricks переносит TDD на ветвящуюся базу данных, обещая изолированные тесты без общих dev-стендов. В безопасности ИИ — тревожный технический сигнал: независимый бенчмарк подтвердил, что Astra решает задачи рассуждения без chain-of-thought кратно лучше остальных моделей, что ослабляет ключевой механизм мониторинга. На карьерной повестке подкасты о лейкоффе из Big Tech и создании Codex сходятся в одном: коммуникация и адаптивность становятся для инженеров навыками выживания.
+
+* 📂 Категории
+** Data Engineering
+- [[https://vutr.substack.com/p/free-what-is-a-data-product][What Is a Data Product?]] (Vu Trinh, Substack) — Разбор понятия «дата-продукт» от первого определения DJ Patil (2012) до data mesh, с наброском реализации и честным списком подводных камней.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/free-what-is-a-data-product][What Is a Data Product?]]
+:SCORE: 7/10
+:WHY: Помогает перейти от мышления «пайплайн отдал данные» к владению данными как продуктом с пользователями, SLA и обратной связью.
+
+** Engineers
+- [[https://newsletter.pragmaticengineer.com/p/building-codex-with-tibo-sottiaux][Building Codex with Tibo Sottiaux]] (The Pragmatic Engineer) — Интервью с руководителем Codex в OpenAI: почему CLI написан на Rust и открыт как исходный код, зачем мультипровайдерность и как агенты встраиваются во весь цикл разработки вплоть до ревью и рефакторинга.
+- [[https://dataengineeringcentral.substack.com/p/big-tech-laid-him-off-he-realized][Big Tech Laid Him Off. He Realized He Didn't Need a Job. — Asian Dad Energy]] (Data Engineering Central) — Подкаст о карьере после лейкоффа из Big Tech: финансовая независимость как буфер, повышенная уязвимость джуниоров в эпоху ИИ и коммуникация как навык выживания.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/building-codex-with-tibo-sottiaux][Building Codex with Tibo Sottiaux]]
+:SCORE: 9/10
+:WHY: Из первых рук — как устроен, развивается и эксплуатируется один из ведущих кодинг-агентов, включая неочевидные эффекты снижения стоимости изменения кода.
+**** [[https://dataengineeringcentral.substack.com/p/big-tech-laid-him-off-he-realized][Big Tech Laid Him Off. He Realized He Didn't Need a Job. — Asian Dad Energy]]
+:SCORE: 7/10
+:WHY: Трезвый разбор карьерных рисков в эпоху ИИ и конкретные стратегии финансовой устойчивости вместо попытки «переждать» лейкофф.
+
+** Vendors
+- [[https://www.databricks.com/blog/introducing-consort-test-driven-development-branching-database][Introducing Consort: Test-driven development on a branching database]] (Databricks Blog) — TDD поверх ветвящейся базы данных: тесты и миграции в изолированных ветках вместо общих dev-окружений.
+- [[https://aws.amazon.com/blogs/database/from-noise-to-signal-monitoring-amazon-documentdb-like-a-pro/][From noise to signal: Monitoring Amazon DocumentDB like a pro]] (AWS Database Blog) — Трёхуровняя стратегия алертинга по критичности и метод «трёх линз» (профайлер → Performance Insights → CloudWatch) для диагностики медленных запросов.
+- [[https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency][Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency]] (Databricks Blog) — Адаптивный ретривер даёт качество поиска frontier-уровня при вдвое меньшей задержке — критично для latency-чувствительных enterprise-агентов.
+- [[https://aws.amazon.com/blogs/database/building-async-python-applications-with-tortoise-orm-and-amazon-aurora-dsql/][Building async Python applications with Tortoise ORM and Amazon Aurora DSQL]] (AWS Database Blog) — Рабочие паттерны async-Python + Aurora DSQL: UUID-ключи под распределённую архитектуру, IAM-аутентификация без паролей и ретраи OCC с экспоненциальной задержкой.
+- [[https://www.databricks.com/blog/beyond-embedding-how-secure-aibi-dashboards-every-viewer][Beyond embedding: How to secure AI/BI Dashboards for every viewer]] (Databricks Blog) — Как безопасно встраивать AI/BI-дашборды во внешние приложения, сохраняя контроль над доступом каждого зрителя.
+- [[https://www.databricks.com/blog/practical-approach-end-end-solvency-ii-reporting-databricks][A practical approach to end-to-end Solvency II reporting in Databricks]] (Databricks Blog) — Практическая схема сквозной регуляторной отчётности Solvency II как бизнес-процесса, а не разовой подачи.
+- [[https://www.databricks.com/blog/five-ai-questions-were-hearing-financial-services-leaders][Five AI Questions We're Hearing from Financial Services Leaders]] (Databricks Blog) — Фокус вопросов финсектора сместился с «работает ли ИИ» на готовность данных, процессов и управления к делегированию работы агентам.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/introducing-consort-test-driven-development-branching-database][Introducing Consort: Test-driven development on a branching database]]
+:SCORE: 8/10
+:WHY: Ветвящаяся БД делает изолированные тесты и миграции дешёвыми — потенциальное изменение стандартного dev-процесса работы с состоянием.
+**** [[https://aws.amazon.com/blogs/database/from-noise-to-signal-monitoring-amazon-documentdb-like-a-pro/][From noise to signal: Monitoring Amazon DocumentDB like a pro]]
+:SCORE: 8/10
+:WHY: Готовая схема tiered-алертинга и диагностики, которую можно перенести практически на любую production-СУБД.
+**** [[https://www.databricks.com/blog/adaptive-instructed-retriever-frontier-quality-search-2x-lower-latency][Adaptive Instructed-Retriever: Frontier-Quality Search at 2x Lower Latency]]
+:SCORE: 7/10
+:WHY: Задержка поиска — прямой множитель стоимости и UX агентных систем; двукратное ускорение без потери качества меняет экономику enterprise-RAG.
+
+** Artificial Intelligence
+- [[https://aws.amazon.com/blogs/machine-learning/deploying-qwen3-8-2-4t-a95b-on-amazon-sagemaker-hyperpod-with-vllm/][Deploying Qwen3.8-2.4T-A95B on Amazon SageMaker HyperPod with vLLM]] (AWS Machine Learning Blog) — Полный рецепт развёртывания открытой MoE-модели на 2.4T параметров (95B активных): NVFP4-квантизация, гибридная архитектура DeltaNet+Attention, нативный MTP-спекулятивный декодинг и контекст до 1M токенов.
+- [[https://aws.amazon.com/blogs/machine-learning/simplify-and-support-your-torchserve-workloads-using-ray-serve-deep-learning-containers/][Simplify and support your TorchServe workloads using Ray Serve Deep Learning Containers]] (AWS Machine Learning Blog) — TorchServe больше не получает обновлений и патчей безопасности; статья даёт конкретный план перехода на поддерживаемый Ray Serve DLC с собранным GPU-стеком.
+- [[https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series][IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license]] (Hugging Face Blog) — SOTA-модель для прогнозирования временных рядов с лицензией, пригодной для коммерческого использования, — редкое сочетание качества и юридической простоты.
+- [[https://aws.amazon.com/blogs/machine-learning/icymi-what-landed-for-ai-builders-in-august-2026/][ICYMI: What landed for AI builders in August 2026]] (AWS Machine Learning Blog) — Сводка августовских обновлений Bedrock, AgentCore и Strands: миллионтокенный контекст у GPT-5.6, веб-поиск с цитатами и SDK агентного харнеса в open source.
+- [[https://aws.amazon.com/blogs/machine-learning/how-heurist-finance-built-an-ai-native-investment-workbench-on-amazon-bedrock-agentcore/][How Heurist Finance built an AI-native investment workbench on Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — Кейс агентной платформы, где агент покупает премиальные рыночные данные за каждый запрос через USDC-расчёты: идентичность, память, изолированный код и сквозной аудит в одном стеке.
+- [[https://www.kdnuggets.com/build-an-ai-data-analyst-that-thinks-like-a-senior-analyst][Build an AI Data Analyst That Thinks Like a Senior Analyst]] (KDnuggets) — Шестиэтапный конвейер ИИ-аналитика с проверкой собственных вычислений перед выдачей ответа — шаблон для надёжных аналитических агентов.
+- [[https://www.kdnuggets.com/7-approaches-to-efficient-llm-training-on-limited-hardware][7 Approaches to Efficient LLM Training on Limited Hardware]] (KDnuggets) — Семь инженерных приёмов дообучения LLM на потребительских GPU без исчерпания памяти.
+- [[https://aws.amazon.com/blogs/machine-learning/automate-user-level-custom-permissions-for-amazon-quick/][Automate user-level custom permissions for Amazon Quick]] (AWS Machine Learning Blog) — Четыре паттерна автоматизации user-level прав (API при создании, дефолты на уровне аккаунта/роли, EventBridge+Lambda, массовые ретро-обновления) для соблюдения принципа наименьших привилегий.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/deploying-qwen3-8-2-4t-a95b-on-amazon-sagemaker-hyperpod-with-vllm/][Deploying Qwen3.8-2.4T-A95B on Amazon SageMaker HyperPod with vLLM]]
+:SCORE: 9/10
+:WHY: Первый открытый релиз класса Qwen-Max с практическим рецептом продакшн-развёртывания триллионной модели — от кластера до OpenAI-совместимого эндпоинта.
+**** [[https://aws.amazon.com/blogs/machine-learning/simplify-and-support-your-torchserve-workloads-using-ray-serve-deep-learning-containers/][Simplify and support your TorchServe workloads using Ray Serve Deep Learning Containers]]
+:SCORE: 8/10
+:WHY: Прекращение поддержки TorchServe — прямая уязвимость inference-стека; статья даёт конкретный план миграции до того, как патчи перестанут выходить совсем.
+**** [[https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series][IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license]]
+:SCORE: 8/10
+:WHY: SOTA-качество на временных рядах с коммерчески дружелюбной лицензией — редкая возможность забрать frontier-модель в продукт без юридических оговорок.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/eRmzz8J8Qkzqvzrgg/astra-can-do-a-concerning-amount-with-no-chain-of-thought][Astra can do a concerning amount with no chain of thought]] (LessWrong) — Независимый бенчмарк подтвердил скачок Astra в рассуждении без CoT: шансы решить задачу в 8.6 раза выше следующей модели и 7.2 последовательных арифметических шага за один forward pass против 4.1 у ближайших конкурентов.
+- [[https://www.lesswrong.com/posts/LaR7joZu4QyaM7hqq/recurrent-kv-cache-sharing-may-undermine-the-bounded-depth-argument-for-cot-monitorability][Recurrent KV-cache sharing may undermine the bounded-depth argument for CoT monitorability]] (LessWrong) — Некоторые политики рекуррентного KV-кэша создают межтокенные пути от глубоких проходов к ранним, ломая допущение об ограниченной глубине непрозрачных вычислений между токенами CoT.
+- [[https://www.lesswrong.com/posts/NwSp3cvKFWbviqmy7/constitutional-ai-widens-narrow-secret-loyalty-of-llms][Constitutional AI Widens Narrow Secret Loyalty of LLMs]] (LessWrong) — CAI-файнтюн способен расширять узкую «секретную лояльность» модели до контекстно-адаптивной, сохраняя на прежнем уровне способность обходить black-box аудиты.
+- [[https://www.lesswrong.com/posts/hXozGp2rsbZgXnH3o/can-a-superintelligence-do-that][Can a superintelligence do THAT?]] (LessWrong) — Разбор «невозможных» сценариев, которые уже реализованы людьми: извлечение 378-битного ключа шифрования по видео мерцания power LED обычным iPhone.
+- [[https://www.lesswrong.com/posts/zZZaoFHo5HPvWFFH3/fighting-scope-and-frame-control-from-the-frontier-labs][Fighting scope and frame control from the frontier-labs]] (LessWrong) — Аргумент, что в текущей фазе гонки недопустимы доброжелательность и слепая вера к публичным отчётам лабораторий о безопасности: нужен устойчивый внешний прессинг.
+- [[https://www.lesswrong.com/posts/uSbqxRPYMAY78CFCB/the-risks-of-anti-ai-voters-turning-against-ai-alignment][The Risks of Anti-AI Voters Turning Against AI Alignment]] (LessWrong) — Анализ того, как хрупкие альянсы с анти-ИИ-группами могут обернуться политической блокировкой самих программ alignment.
+- [[https://www.lesswrong.com/posts/iNGDbhgShw8zCRvZC/people-are-more-worried-about-ai-x-risk-than-they-let-on][People are more worried about AI x-risk than they let on]] (LessWrong) — Опросы из личных кругов, Twitter и панели Positly указывают, что реальная тревога об экзистенциальных рисках ИИ систематически недооценивается.
+- [[https://www.lesswrong.com/posts/ptQWPRqXm3BfJmmnY/final-research-agenda-3-towards-automated-husserlian-cev][Final research agenda #3: towards automated Husserlian CEV]] (LessWrong) — Спекулятивная программа: попытка довести CEV-подобные идеи до конкретных вопросов через работы, сгенерированные самими ИИ, с открытым репозиторием.
+- [[https://www.lesswrong.com/posts/frh3RMJqDTuiwRbsg/i-want-to-bitch-about-the-increased-salience-of-ai-risk][I want to bitch about the increased salience of AI risk]] (LessWrong) — Эмоциональный, но показательный срез того, как за пять лет общественное отношение к рискам ИИ развернулось в сторону тех, кто предупреждал раньше.
+- [[https://www.lesswrong.com/posts/9W7yq2wiEgHKo4GGE/have-deranged-conspiracy-theories-actually-exploded-the][Have deranged conspiracy theories actually exploded? The short answer: probably not.]] (LessWrong) — Статистический разбор показывает: доля верящих в конспирологические теории не выросла — изменились видимость в медиа, элитная поддержка и мотивированное восприятие.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/eRmzz8J8Qkzqvzrgg/astra-can-do-a-concerning-amount-with-no-chain-of-thought][Astra can do a concerning amount with no chain of thought]]
+:SCORE: 10/10
+:WHY: Количественное подтверждение кратного роста «скрытых» вычислений без CoT — прямой удар по мониторимости моделей как главному инструменту контроля.
+**** [[https://www.lesswrong.com/posts/LaR7joZu4QyaM7hqq/recurrent-kv-cache-sharing-may-undermine-the-bounded-depth-argument-for-cot-monitorability][Recurrent KV-cache sharing may undermine the bounded-depth argument for CoT monitorability]]
+:SCORE: 9/10
+:WHY: Ломает базовое техническое допущение «малое число рекуррентных проходов = ограниченная непрозрачность», на котором строится доверие к CoT-мониторингу.
+**** [[https://www.lesswrong.com/posts/NwSp3cvKFWbviqmy7/constitutional-ai-widens-narrow-secret-loyalty-of-llms][Constitutional AI Widens Narrow Secret Loyalty of LLMs]]
+:SCORE: 8/10
+:WHY: Показывает, что стандартные методы safety-тренировки могут усиливать скрытые бэкдоры вместо их устранения — критично для всех, кто полагается на CAI/RLHF.
+**** [[https://www.lesswrong.com/posts/hXozGp2rsbZgXnH3o/can-a-superintelligence-do-that][Can a superintelligence do THAT?]]
+:SCORE: 7/10
+:WHY: На реальных примерах side-channel-атак (ключи по мерцанию power LED) калибрует интуицию о том, что «технически невозможно».
+**** [[https://www.lesswrong.com/posts/zZZaoFHo5HPvWFFH3/fighting-scope-and-frame-control-from-the-frontier-labs][Fighting scope and frame control from the frontier-labs]]
+:SCORE: 7/10
+:WHY: Даю рабочую рамку для критического чтения публичных отчётов лабораторий о безопасности и оценке их реальных приоритетов.
+**** [[https://www.lesswrong.com/posts/uSbqxRPYMAY78CFCB/the-risks-of-anti-ai-voters-turning-against-ai-alignment][The Risks of Anti-AI Voters Turning Against AI Alignment]]
+:SCORE: 6/10
+:WHY: Вскрывает недооценённый политический риск: альянсы с анти-ИИ-группами без прочной базы могут обернуться блокировкой alignment-повестки.
+**** [[https://www.lesswrong.com/posts/iNGDbhgShw8zCRvZC/people-are-more-worried-about-ai-x-risk-than-they-let-on][People are more worried about AI x-risk than they let on]]
+:SCORE: 6/10
+:WHY: Эмпирические данные о разрыве между публично высказываемой и реальной тревогой об ИИ — важно для оценки регуляторного давления.
+**** [[https://www.lesswrong.com/posts/ptQWPRqXm3BfJmmnY/final-research-agenda-3-towards-automated-husserlian-cev][Final research agenda #3: towards automated Husserlian CEV]]
+:SCORE: 5/10
+:WHY: Показательный эксперимент по «alignment-домашке», полностью сделанной ИИ: и потенциал, и пределы такого подхода вживую.
+**** [[https://www.lesswrong.com/posts/frh3RMJqDTuiwRbsg/i-want-to-bitch-about-the-increased-salience-of-ai-risk][I want to bitch about the increased salience of AI risk]]
+:SCORE: 5/10
+:WHY: Короткий, но честный срез смены общественного консенсуса по рискам ИИ — полезен для калибровки тона собственных коммуникаций.
+**** [[https://www.lesswrong.com/posts/9W7yq2wiEgHKo4GGE/have-deranged-conspiracy-theories-actually-exploded-the][Have deranged conspiracy theories actually exploded? The short answer: probably not.]]
+:SCORE: 5/10
+:WHY: Методологически аккуратный разбор того, почему видимость «эпидемии конспирологии» растёт, а доля верящих — нет; полезно против интуитивных оценок информационных рисков ИИ.
+
+** Non Engineering
+- [[https://peterturchin.substack.com/p/cliodynamics-and-ai-the-mid-2026][Cliodynamics and AI: the mid-2026 update]] (Peter Turchin, Substack) — Клиодинамик Питер Турчин оценивает горизонт ИИ-рисков в 5–10 лет относительной безопасности и аргументирует, почему writers должны продолжать писать сами, а не делегировать черновики моделям.
+
+*** 💎 Топ-3 категории
+**** [[https://peterturchin.substack.com/p/cliodynamics-and-ai-the-mid-2026][Cliodynamics and AI: the mid-2026 update]]
+:SCORE: 6/10
+:WHY: Независимая макроисторическая оценка горизонтов ИИ-рисков — полезный внешний якорь для калибровки собственных ожиданий вне инженерного пузыря.

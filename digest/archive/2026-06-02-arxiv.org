@@ -1,0 +1,153 @@
+#+TITLE: Arxiv Digest: 2026-06-02
+#+FROM: [2026-06-01 Mon]
+#+TO: [2026-06-02 Tue]
+#+DATE: [2026-06-02 Tue]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последней подборке преобладает интеграция больших языковых моделей (LLM) с базами знаний и векторными поисками, где ключевой проблемой становится эффективность caching и фильтрации. 동시에 наблюдается зрелость систем консенсуса на основе DAG для управления распределенными данными с акцентом на асинхронность и безопасность. Практически значимыми становятся методы очистки данных через агентские системы и объяснимая детекция аномалий на уровне схем API.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.26176][CacheRAG: A Semantic Caching System for Retrieval-Augmented Generation in Knowledge Graph Question Answering]]
+:WHAT: Система кеширования для LLM-based KGQA, превращающая stateless planners в continual learners через semantic parsing и hierarchical index.
+:IMPACT: Повышает точность и truthful на 13-17% по сравнению с baseline, решая проблему schema hallucinations и ограниченного coverage retrieval.
+
+- [[hxxps://arxiv.org/abs/2512.06906][MINES: Explainable Anomaly Detection through Web API Invariant Inference]]
+:WHAT: Инфрация объяснимых инвариантов API на уровне схемы для детекции аномалий вместо анализа raw log instances.
+:IMPACT: đạt почти нулевое число false positives при высокой recall, преодолевая噪声 в логах и缺失 crucial information.
+
+- [[hxxps://arxiv.org/abs/2501.01062][Fides: Secure and Scalable Asynchronous DAG Consensus via Trusted Components]]
+:WHAT: Асинхронный DAG-based BFT consensus протокол, использующий TEE для снижения communication overhead и latency.
+:IMPACT: achieves O(n^2) metadata complexity и минимальную latency commit, значительно превосходя Tusk и Bullshark в geo-distributed testbeds.
+
+- [[hxxps://arxiv.org/abs/2606.00734][EMA: Approximate Nearest Neighbor Search with General Attribute Filtering and Dynamic Updates]]
+:WHAT: Алгоритм filtering ANN с поддержкой multi-predicate queries через Markers на edges графа и bounded edge recovery.
+:IMPACT: дает ускорение 1.68x--12.25x над SOTA methods для vector databases в задачах recommendation и RAG.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2504.21291][Efficiency of Analysis of Transitive Relations using Query-Driven, Ground-and-Solve, and Fact-Driven Inference]]
+:ALGO: Анализ эффективности трех типов inference methods для transitive graph relations с расчетом optimal time complexities.
+:IMPACT: Первое сравнение с optimal complexities и discovery of performance bug в widely considered rule systems.
+
+- [[hxxps://arxiv.org/abs/2606.00774][SCOPE: Cost-Efficient Model Selection for Compound AI Systems under Quality Constraints]]
+:ALGO: Optimization algorithm для выбора LLM в compound AI systems через per-query results и confidence bounds.
+:IMPACT: reduces cost до 6x при соблюдении quality threshold, что критично для data management tasks at scale.
+
+- [[hxxps://arxiv.org/abs/2606.01210][Can we trust LLM Self-Explanations for Entity Resolution?]]
+:ALGO: Systematic evaluation LLM self-explanations для Entity Resolution и hybrid framework \uncerta{} для снижения cost.
+:IMPACT: Reveals gap between plausibility and causal relevance, reducing explanation cost by order of magnitude.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.24021][Extending the (Elementary) Mathematical Data Model and MatBase with two new constraint types: inexistence and anti-existence]] — Введение новых типов constraints (inexistence, anti-existence) в Mathematical Data Model с алгоритмами enforcement linear complexity.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Тренды смещаются в сторону масштабируемости training clusters для LLM через decoupling control и data, а также reliability collective communication libraries. Fault tolerance в HPC переходит от checkpoint/restart к replication-based approaches для снижения overhead. Активно развиваются domain-specific languages для distributed graph algorithms и offloading в computational memory systems.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2507.13833][DistFlow: A Fully Distributed RL Framework for Scalable and Efficient LLM Post-Training]]
+:WHAT: Fully distributed RL framework с multi-controller paradigm и DAG-based task scheduler для LLM post-training.
+:IMPACT: achieves near-linear scalability до 512 GPUs и 2.63x throughput improvement over SOTA frameworks.
+
+- [[hxxps://arxiv.org/abs/2510.00991][An Efficient, Reliable and Observable Collective Communication Library in Large-scale GPU Training Clusters]]
+:WHAT: Collective communication library (VCCL) с primary-backup QP mechanism и window-based monitor для GPU clusters.
+:IMPACT: improves training throughput by 5.28% и reduces GPU resource wastage через runtime fault tolerance.
+
+- [[hxxps://arxiv.org/abs/2512.01646][StarDist: A Code Generator for Distributed Graph Algorithms]]
+:WHAT: Domain Specific Language для генерации distributed graph algorithms с optimization graph traversal и message queues.
+:IMPACT: outperforms DRONE и D-Galois by 1.9x--19x на real-world graphs в CONGEST model.
+
+- [[hxxps://arxiv.org/abs/2512.04449][AXLE: Coordinated Offloading with Asynchronous Back-Streaming in Computational Memory Systems]]
+:WHAT: Protocol Asynchronous Back-Streaming для CXL-based Computational Memory с coordination CXL.io и CXL.mem.
+:IMPACT: reduces end-to-end runtime by 50.14% и host core stall time by 6x в disaggregated memory systems.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2505.23649][Complementary Time-Space Tradeoff for Self-Stabilizing Leader Election: Polynomial States Meet Sublinear Time]]
+:ALGO: Protocol для self-stabilizing leader election в population protocol model с tradeoff time и states.
+:IMPACT: First protocol achieving sublinear time с polynomially many states, surpassing previous bounds.
+
+- [[hxxps://arxiv.org/abs/2504.09989][FTHP-MPI: Towards Providing Replication-based Fault Tolerance in a Fault-Intolerant Native MPI Library]]
+:ALGO: Fault-tolerant MPI library augmenting checkpoint/restart с replication processes для HPC.
+:IMPACT: achieves higher efficiency than checkpoint-based approaches при failure intervals within an hour.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2601.08082][Hierarchical Recursive Precision for Accelerating Symmetric Linear Solves on MXUs]] — Portable mixed-precision solver для Cholesky factorization на MXUs с 5.07x speedup и 100x better accuracy.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В алгоритмической теории заметен прогресс в clustering non-spherical Gaussian mixtures через sum-of-squares methods и sketching trimmed statistics для robust analytics. Learning-augmented approaches ускоряют classical combinatorial optimization (assignment problem) через neural warm-starts. Также представлены новые approximation algorithms для scheduling в heterogeneous networks.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2411.12438][Dimension Reduction via Sum-of-Squares and Improved Clustering Algorithms for Non-Spherical Mixtures]]
+:ALGO: New approach для clustering non-spherical Gaussian mixture models via sum-of-squares method и low-dimensional projection.
+:IMPACT: circumvents d^{\Omega(k)} lower bounds для general class of Gaussian mixtures с poly(n) time.
+
+- [[hxxps://arxiv.org/abs/2501.09293][Non-Splitting Coflow Scheduling with Provable Guarantees in Heterogeneous Parallel Networks]]
+:ALGO: Unified polynomial-time approximation algorithm для non-splitting coflow scheduling в hybrid network architectures.
+:IMPACT: first approximation algorithm с provable guarantees для practical non-splitting problem без splitting overhead.
+
+- [[hxxps://arxiv.org/abs/2605.09382][Learning-Augmented Scalable Linear Assignment Problem Optimization via Neural Dual Warm-Starts]]
+:ALGO: Learning-augmented framework accelerating exact solvers через predicting dual variables для warm-start.
+:IMPACT: yields end-to-end speedups over 2x на synthetic data и 1.5x на transportation networks с strict optimality.
+
+- [[hxxps://arxiv.org/abs/2506.07342][On Sketching Trimmed Statistics]]
+:ALGO: Sketching trimmed statistics (F_p moment of top-k) в sublinear space setting с structural threshold analysis.
+:IMPACT: improves space bounds для computing h-index и applies to thresholded F_p estimation.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.27548][Smallest suffixient set maintenance in near-real-time]] — Algorithms для maintaining smallest suffixient set online в polyloglog worst-case time через Weiner's suffix tree algorithm.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Фокус на масштабных simulated datasets для mobility research и анализе spatial footprint urban centers через scaling laws. Network analysis исследует mechanisms polarization через recommendation strategies и evolution cooperation в multiplex networks. Traffic theory уточняет microscopic mechanisms breakdown через automated vehicles и AI.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.00430][SF-LIFE: A Large-Scale Simulated Movement Dataset for the San Francisco Bay Area]]
+:WHAT: Large-scale simulated movement dataset (3 trillion records) для 500k agents в San Francisco Bay Area.
+:IMPACT: provides robust ethically sourced resource для transit optimization и human mobility analysis overcoming privacy limitations.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.16457][Segregation Before Polarization: How Recommendation Strategies Shape Echo Chamber Pathways]]
+:ALGO: Extended dynamic Bounded Confidence Model для analysis content-based vs link-based recommendations.
+:IMPACT: shows content-based algorithms steer networks toward segregation-before-polarization pathway accelerating isolation.
+
+- [[hxxps://arxiv.org/abs/2605.31095][Vehicle Overacceleration -- A Fundamental Microscopic Mechanism for Traffic Breakdown Control Using Automated Vehicles and AI]]
+:ALGO: Microscopic modeling separating traffic breakdown caused by overacceleration от instabilities caused by overdeceleration.
+:IMPACT: confirms traffic breakdown governed by vehicle overacceleration, enabling strategies для control via automated vehicles.
+
+- [[hxxps://arxiv.org/abs/2606.00196][Evolution of cooperation in the multiplex]]
+:ALGO: General framework для evolution cooperation в multiplex networks governed by multi-phenotype homophily.
+:IMPACT: derives analytical conditions для natural selection favoring cooperation across phenotypic traits в heterogeneous populations.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2412.15378][What Leads to Administrative Bloat? A Dynamic Model of Administrative Cost and Waste]] — Dynamical model administrative growth integrating process creation и obsolescence explaining variation across organizations.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В AI акцент смещается на constrained hyperparameter optimization и stability analysis optimization methods (SAM) near saddle points. LLM-based planning adopts structured representations (DAG) для dual-arm coordination вместо linear sequences. Robustness и fairness under perturbations становятся ключевыми criteria для trustworthy model assessment.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2406.09953][DAG-Plan: Generating Directed Acyclic Dependency Graphs for Dual-Arm Cooperative Planning]]
+:WHAT: Task planning framework using DAG как central representation для dual-arm coordination через LLM semantic parser.
+:IMPACT: achieves 48% higher success rate и 84.1% higher execution efficiency чем existing paradigms в dual-arm kitchen benchmark.
+
+- [[hxxps://arxiv.org/abs/2307.06647][DeepIPCv2: LiDAR-powered Robust Environmental Perception and Navigational Control for Autonomous Vehicle]]
+:WHAT: End-to-end autonomous driving framework integrating LiDAR-based perception с command-specific control learning.
+:IMPACT: achieves lowest total metric error и fewest driving interventions highlighting robustness к illumination changes.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2211.14411][c-TPE: Tree-structured Parzen Estimator with Inequality Constraints for Expensive Hyperparameter Optimization]]
+:ALGO: Constrained TPE (c-TPE) extension Bayesian optimization method для handling inequality constraints в HPO.
+:IMPACT: exhibits best average rank performance на 81 expensive HPO problems с statistical significance.
+
+- [[hxxps://arxiv.org/abs/2301.06308][Stability Analysis of Sharpness-Aware Minimization]]
+:ALGO: Investigation convergence instability SAM near saddle point через qualitative theory dynamical systems.
+:IMPACT: proves saddle point can become attractor under SAM dynamics и diffusion worse than vanilla gradient descent.
+
+- [[hxxps://arxiv.org/abs/2307.05213][Score Function Gradient Estimation to Widen the Applicability of Decision-Focused Learning]]
+:ALGO: Method combining stochastic smoothing с score function gradient estimation для decision-focused learning.
+:IMPACT: opens use DFL methods к nonlinear objectives и uncertain parameters в problem constraints.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2403.07008][AutoEval Done Right: Using Synthetic Data for Model Evaluation]] — Statistically principled algorithms для autoevaluation через AI-labeled synthetic data increasing effective sample size by 50%.

@@ -1,0 +1,119 @@
+#+TITLE: Daily Digest: 2026-10-23
+#+FROM: [2026-10-22 Thu]
+#+TO: [2026-10-23 Fri]
+#+DATE: [2026-10-23 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Вендоры активно снижают барьер входа в графовые и RAG-технологии: Neo4j выпустил Document Intelligence и Laravel-интеграцию, а AWS продолжает курс на serverless-кастомизацию моделей с training session API, где инженер пишет свой training loop без управления GPU. Инженерная повестка смещается к security в эпоху AI-атак и к оптимизации затрат — WarpStream показывает, что cloud-диски дороже S3 в 24 раза, а Databricks формализует AI cost management. В open source появился Harness² от Google — self-improving агенты без ретрейна весов, что сигналит о сдвиге к обучению «обвязки» вместо моделей. В AI-сообществе нарастает скепсис к базовым концепциям safety: разбор несостоятельности instrumental convergence и дискуссии о верифицируемом замедлении AI между США и Китаем задают тон.
+
+* 📂 Категории
+
+** Data Engineering
+
+- [[https://www.kdnuggets.com/how-to-process-large-json-files-in-python-with-ijson][How to Process Large JSON Files in Python With ijson]] (KDnuggets) — Практический приём потоковой обработки JSON через ijson: загрузка файла на 43 MB раздувала память до 808 MB, стриминг решает проблему OOM на больших файлах.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/how-to-process-large-json-files-in-python-with-ijson][How to Process Large JSON Files in Python With ijson]]
+:SCORE: 7/10
+:WHY: Конкретное решение частой production-проблемы — утечка памяти при загрузке больших JSON, с готовой заменой на streaming-подход.
+
+** Engineers
+
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-do-we-need-to-rethink-software][The Pulse: Time to rethink software security because of AI?]] (The Pragmatic Engineer) — Серия громких инцидентов безопасности за один день, использование AI атакующими, спор вокруг системы контроля версий Anthropic и прогнозы Thorsten Ball о будущем разработки.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-do-we-need-to-rethink-software][The Pulse: Time to rethink software security because of AI?]]
+:SCORE: 8/10
+:WHY: Свежий обзор реальных security-инцидентов с AI-фактором — обязательный контекст для оценки угроз в собственных системах.
+
+** Vendors
+
+- [[https://neo4j.com/blog/graph-database/finding-the-ultimate-beneficial-owner-in-a-pile-of-kyc-documents-with-document-intelligence/][Finding the Ultimate Beneficial Owner in a Pile of KYC Documents with Document Intelligence]] (Neo4j) — Разбор построения knowledge graph из документов без кода с поиском конечного бенефициара через Cypher и Louvain community detection.
+- [[https://neo4j.com/blog/developer/bringing-neo4j-into-laravel/][Bringing Neo4j into Laravel]] (Neo4j) — Пакет neo4j-laravel даёт Eloquent-подобные модели и DB facade для Cypher-запросов, не ломая привычные паттерны Laravel.
+- [[https://aws.amazon.com/blogs/database/troubleshooting-data-mismatches-with-tablediff-on-amazon-rds-for-sql-server/][Troubleshooting Data Mismatches with tablediff on Amazon RDS for SQL Server]] (AWS Database Blog) — tablediff даёт независимую row-level верификацию паритета данных реплик, когда метрики DMV вроде HEALTHY не гарантируют согласованность.
+- [[https://www.databricks.com/blog/ai-cost-management][The new economics of AI cost management]] (Databricks) — Подход к управлению затратами на enterprise AI после двух лет фокуса на внедрении.
+- [[https://www.databricks.com/blog/fraud-analyst-ai-coworker-detecting-telecom-fraud-real-time-one-platform][The Fraud Analyst AI Coworker: Detecting Telecom Fraud in Real-Time on One Platform]] (Databricks) — Кейс обнаружения телеком-фрода в реальном времени на единой платформе по данным CFCA 2025.
+- [[https://www.warpstream.com/blog/cloud-disks-are-expensive][Cloud Disks are (Really!) Expensive - WarpStream]] (WarpStream) — Конкретные цифры: cloud block storage дороже S3 в 24+ раза за GiB, и почему disk-based Kafka кластеры сжигают бюджет.
+- [[https://www.warpstream.com/blog/your-warpstream-questions-answered][Your WarpStream Questions, Answered - WarpStream]] (WarpStream) — Ответы на вопросы об архитектуре, BYOC vs Serverless, ценах и trade-offs zero-disk streaming.
+
+*** 💎 Топ-3 категории
+**** [[https://www.warpstream.com/blog/cloud-disks-are-expensive][Cloud Disks are (Really!) Expensive - WarpStream]]
+:SCORE: 9/10
+:WHY: Прямо влияет на архитектурные и бюджетные решения: 24x разница в стоимости хранения — аргумент за diskless-стриминг.
+**** [[https://aws.amazon.com/blogs/database/troubleshooting-data-mismatches-with-tablediff-on-amazon-rds-for-sql-server/][Troubleshooting Data Mismatches with tablediff on Amazon RDS for SQL Server]]
+:SCORE: 8/10
+:WHY: Практический инструмент детекции расхождений данных на репликах после failover — то, что метрики репликации принципиально не показывают.
+**** [[https://neo4j.com/blog/graph-database/finding-the-ultimate-beneficial-owner-in-a-pile-of-kyc-documents-with-document-intelligence/][Finding the Ultimate Beneficial Owner in a Pile of KYC Documents with Document Intelligence]]
+:SCORE: 7/10
+:WHY: Рабочий рецепт превращения неструктурированных документов в запросный граф знаний без написания кода.
+
+** Open Source
+
+- [[https://www.kdnuggets.com/google-open-sources-harness-self-improving-ai-agents-without-retraining][Google Open-Sources Harness²: Self-Improving AI Agents Without Retraining]] (KDnuggets) — Google открыл код Harness²: агенты улучшают промпты, инструменты, память и скрипты через два рекурсивных цикла без изменения весов модели; есть бесплатный демо-запуск.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/google-open-sources-harness-self-improving-ai-agents-without-retraining][Google Open-Sources Harness²: Self-Improving AI Agents Without Retraining]]
+:SCORE: 8/10
+:WHY: Самоулучшающиеся агенты без ретрейна — новый класс open-source инструментария, который стоит попробовать в собственных агентных пайплайнах.
+
+** Artificial Intelligence
+
+- [[https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/][Beyond tree cover: mapping the world's forest types]] (Google DeepMind) — Глобальная карта классификации каждого 10-метрового участка суши Земли по типам леса.
+- [[https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/][Flint-interactive: A language for creating interactive data visualizations]] (Microsoft Research) — Язык высокоуровневых семантических событий для генерации надёжных интерактивных визуализаций агентами без низкоуровневого кода.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-polly-delivers-a-major-upgrade-to-its-generative-engine/][Amazon Polly delivers a major upgrade to its Generative engine]] (AWS Machine Learning Blog) — Апгрейд генеративного движка Polly: 14 новых голосов в 9 локалях, drop-in совместимость с существующими вызовами API.
+- [[https://aws.amazon.com/blogs/machine-learning/how-iskaypet-unified-corporate-knowledge-with-amazon-bedrock-managed-knowledge-bases/][How IskayPet unified corporate knowledge with Amazon Bedrock Managed Knowledge Bases]] (AWS Machine Learning Blog) — Кейс RAG-ассистента на 4 языка и 3 страны поверх SharePoint без собственного управления векторными БД и ingestion-пайплайнами.
+- [[https://aws.amazon.com/blogs/machine-learning/announcing-new-ways-to-customize-models-with-sagemaker-ai-without-managing-gpus/][Announcing new ways to customize models with SageMaker AI, without managing GPUs]] (AWS Machine Learning Blog) — GA training sessions в SageMaker: пост-тренинг (SFT, DPO, RLVR, multi-turn RL) с контролем логики без управления GPU-инфраструктурой.
+- [[https://aws.amazon.com/blogs/machine-learning/write-your-own-training-loop-without-managing-gpus-with-amazon-sagemaker-training-sessions/][Write your own training loop — without managing GPUs — with Amazon SageMaker training session APIs]] (AWS Machine Learning Blog) — API-примитивы forward_backward(), optim_step() и sample() на stateful-сессии: свой training loop при делегировании compute-слоя сервису.
+- [[https://aws.amazon.com/blogs/machine-learning/deploy-ai-in-a-hipaa-eligible-environment-with-amazon-quick/][Deploy AI in a HIPAA-eligible environment with Amazon Quick]] (AWS Machine Learning Blog) — Гайд по деплою агентного AI в регулируемой среде: ACL-aware retrieval, аудит действий агентов и governance для работы с PHI.
+- [[https://aws.amazon.com/blogs/machine-learning/stream-low-latency-speech-from-ai-agents-using-kokoro-tts-on-amazon-sagemaker-ai/][Stream low-latency speech from AI agents using Kokoro TTS on Amazon SageMaker AI]] (AWS Machine Learning Blog) — Стриминг TTS пос_sentences через Kokoro-82M на SageMaker: синтез начинается с первого предложения вместо ожидания полного ответа в 5 секунд.
+- [[https://aws.amazon.com/blogs/machine-learning/stop-guessing-auto-scaling-targets-for-tts-on-amazon-sagemaker-ai/][Stop guessing auto scaling targets for TTS on Amazon SageMaker AI]] (AWS Machine Learning Blog) — Методика расчёта порогов auto scaling из двух измерений (Q_max и T_total) вместо угадывания, с метрикой ConcurrentRequestsPerModel.
+- [[https://aws.amazon.com/blogs/machine-learning/how-rescale-built-an-ai-triage-agent-with-strands-agents-and-ai-dlc/][How Rescale built an AI triage agent with Strands Agents and AI-DLC]] (AWS Machine Learning Blog) — Кейс: агент триажа тестовых фейлов на Strands Agents по фреймворку AI-DLC — от постановки задачи до staging за 5 дней.
+- [[https://huggingface.co/blog/microsoft/thinkingbox-training][Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox]] (Hugging Face) — Microsoft превращает оценку выполнения SQL в базе в RL-награды для пост-тренинга агентных моделей.
+- [[https://huggingface.co/blog/allenai/olmoearth-v1-3][OlmoEarth v1.3: State-of-the-art embeddings for the whole planet]] (Hugging Face) — Обновление OlmoEarth: state-of-the-art эмбеддинги для геопространственных задач на всей поверхности Земли.
+- [[https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1][Ensemble forecasting with IBM Granite time-series models]] (Hugging Face) — Ансамблирование моделей Granite для улучшения точности прогнозирования временных рядов.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/write-your-own-training-loop-without-managing-gpus-with-amazon-sagemaker-training-sessions/][Write your own training loop — without managing GPUs — with Amazon SageMaker training session APIs]]
+:SCORE: 9/10
+:WHY: Смена уровня абстракции в пост-тренинге: полный контроль над training loop через API без владения GPU-кластером — критично для команд, делающих RL для агентов.
+**** [[https://www.kdnuggets.com/google-open-sources-harness-self-improving-ai-agents-without-retraining][Google Open-Sources Harness²: Self-Improving AI Agents Without Retraining]]
+:SCORE: 8/10
+:WHY: Рекурсивные циклы самоулучшения промптов, инструментов и памяти без ретрейна — готовый к применению подход к эволюции агентных систем.
+**** [[https://aws.amazon.com/blogs/machine-learning/stream-low-latency-speech-from-ai-agents-using-kokoro-tts-on-amazon-sagemaker-ai/][Stream low-latency speech from AI agents using Kokoro TTS on Amazon SageMaker AI]]
+:SCORE: 7/10
+:WHY: Решает реальную проблему воспринимаемой задержки voice-агентов с дешёвой моделью на 82M параметров и готовой архитектурой стриминга.
+
+** Non Engineering
+
+- [[https://www.databricks.com/blog/ai-bill-coming][The AI Bill is coming]] (Databricks) — Интервью с Catherine Brown о надвигающемся AI-законодательстве и его последствиях для индустрии.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/ai-bill-coming][The AI Bill is coming]]
+:SCORE: 6/10
+:WHY: Понимание регуляторной траектории AI необходимо для планирования compliance-требований продуктовых и инфраструктурных решений.
+
+** AI Consciousness
+
+- [[https://www.lesswrong.com/posts/oxZfMvQS9NxcNTozL/instrumental-convergence-is-incoherent][Instrumental convergence is incoherent]] (LessWrong) — Автор с 200–300 часами изучения AI safety разбирает, почему концепция instrumental convergence опирается на класс предэмпирических категорических предсказаний с низким success rate и предлагает более grounded фреймворк.
+- [[https://www.lesswrong.com/posts/Gm3HfondXm2cwAQLb/how-to-handle-the-demise-of-every-human-talent][How to Handle the Demise of Every Human Talent?]] (LessWrong) — Личное эссе PhD-студента по AI о том, как воспринимать обесценивание человеческих навыков (программирование, музыка, наука) перед лицом AI, догоняющего и обгоняющего людей.
+- [[https://www.lesswrong.com/posts/osoJLzXycDhjm3tqv/highlights-from-garrison-lovely-s-obsolete][Highlights from Garrison Lovely's "Obsolete"]] (LessWrong) — Рецензия на книгу «Obsolete»: аргументация за движение к паузе/заморозке AI через массовое вытеснение труда и критика её слабых мест.
+- [[https://www.lesswrong.com/posts/pY76hHbdD4jduX3YH/wah-wah-wah-wah-do-more-ai-r-and-d][Wah wah wah wah do more AI R&D]] (LessWrong) — Сатирический разбор паттерна «умных причин», по которым производство AI capabilities якобы снижает экзистенциальный риск.
+- [[https://www.lesswrong.com/posts/m8gZSi9pwmciHjqpk/is-social-policing-of-unusual-norm-violations-hard-to-learn][Is social policing of unusual norm violations hard to learn?]] (LessWrong) — Гипотеза о том, что общество систематически недоподготовлено к нарушителям норм, действующим необычными способами, из-за особенностей обучения нормам на наблюдении.
+- [[https://www.lesswrong.com/posts/DjT6CqbNiWNFuHBXw/the-full-context-of-the-ai-agent-quote-at-the-end-of-ai-gone][The full context of the AI agent quote at the end of AI Gone Wild on Netflix]] (LessWrong) — Полная цитата self-generated prompt injection из отчёта OpenAI, обрезанная в документальном фильме Netflix, с контекстом инцидента Hugging Face swarm.
+- [[https://www.lesswrong.com/posts/ywrgeAPMn83FxzFBk/how-could-the-us-and-china-verifiably-slow-ai][How could the US and China verifiably slow AI?]] (LessWrong) — Подробный обзор теории игр одностороннего замедления, методов двусторонней верификации и сценария после «warning shot».
+- [[https://www.lesswrong.com/posts/8ozpJjwi5wjiyvuvd/suddenly-unclean][Suddenly, Unclean]] (LessWrong) — Аргумент о неизбежном разрыве («discontinuity») в «чистоте» нейросетей относительно метрики покрытия нейрон/концепт, как продолжение дискуссии вокруг Cammarata's Neural Networks Are Already Clean.
+- [[https://www.lesswrong.com/posts/nYSuQ8YD3QNCPc6vY/opening-up-attention-a-qk-transcoder-dashboard-for-feature-3][Opening up Attention: A QK Transcoder Dashboard for Feature Pairs]] (LessWrong) — Интерактивный дашборд query-key транскодеров для визуализации моносемантических фичей в механизме внимания GPT-2 small.
+- [[https://www.lesswrong.com/posts/WRvxRHMCmc3Qt4axz/greater-good-arguments-in-ai-safety][Greater good arguments in AI safety]] (LessWrong) — Разбор структурно схожих аргументов «вторичного вреда» против prosaic AI safety работы через призму исторических антикапиталистических критик благотворительности.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/oxZfMvQS9NxcNTozL/instrumental-convergence-is-incoherent][Instrumental convergence is incoherent]]
+:SCORE: 9/10
+:WHY: Фундаментальная критика одной из самых нагруженных концепций AI safety — полезна для калибровки собственных прогнозов поведения больших моделей.
+**** [[https://www.lesswrong.com/posts/ywrgeAPMn83FxzFBk/how-could-the-us-and-china-verifiably-slow-ai][How could the US and China verifiably slow AI?]]
+:SCORE: 8/10
+:WHY: Систематический обзор механизмов верифицируемого замедления AI — редкий технически детализированный материал по governance.
+**** [[https://www.lesswrong.com/posts/nYSuQ8YD3QNCPc6vY/opening-up-attention-a-qk-transcoder-dashboard-for-feature-3][Opening up Attention: A QK Transcoder Dashboard for Feature Pairs]]
+:SCORE: 7/10
+:WHY: Практический инструмент механитерпретации внимания трансформеров — открытый дашборд для исследования QK-схем GPT-2.

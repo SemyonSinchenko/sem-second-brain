@@ -1,0 +1,84 @@
+#+TITLE: Daily Digest: 2026-06-24
+#+FROM: [2026-06-23 Tue]
+#+TO: [2026-06-24 Wed]
+#+DATE: [2026-06-24 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия смещает фокус с экспериментов с ИИ на производственные агентные системы с строгой изоляцией и управлением доступом. Инженеры данных решают проблемы метаданных и кэширования в Lakehouse архитектурах для поддержки AI-нагрузок. В инженерной культуре наблюдается тренд на замедление разработки ради надежности внедрения агентов, несмотря на рост индивидуальной продуктивности. Вендоры консолидируются вокруг концепций управляемого ИИ и графовых данных для маркетинга и науки.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://huggingface.co/blog/ibm-research/cuga-apps][Build real agentic apps using CUGA: two dozen working examples on a lightweight harness]] (Hugging Face) — Практический набор примеров для создания агентных приложений на легковесном каркасе.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-protein-research-copilot-with-amazon-bedrock-agentcore][Build a protein research copilot with Amazon Bedrock AgentCore]] (AWS) — Пример создания исследовательского ассистента с векторным поиском и генерацией резюме.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/shared-infrastructure-isolated-tenants-pool-model-multi-tenancy-with-amazon-bedrock-agentcore][Shared infrastructure, isolated tenants: Pool model multi-tenancy with Amazon Bedrock AgentCore]] (AWS) — Архитектурный паттерн изоляции тенантов в многопользовательских AI-системах.
+- [[hxxps://www.kdnuggets.com/heres-why-webmcp-is-exciting][Here's Why WebMCP is Exciting]] (KDnuggets) — Обзор стандарта WebMCP для предоставления инструментов браузерным агентам.
+- [[hxxps://www.kdnuggets.com/20206/06/deasilex/the-math-skills-every-aspiring-data-scientist-needs-to-master-before-writing-a-single-line-of-code][The Math Skills Every Aspiring Data Scientist Needs to Master Before Writing a Single Line of Code]] (KDnuggets) — Базовый обзор математических дисциплин, необходимых для работы в Data Science.
+- [[hxxps://www.kdnuggets.com/5-essential-approaches-to-robust-outlier-detection][5 Essential Approaches to Robust Outlier Detection]] (KDnuggets) — Сравнение пяти методов детекции аномалий для улучшения качества предиктивных моделей.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/shared-infrastructure-isolated-tenants-pool-model-multi-tenancy-with-amazon-bedrock-agentcore][Shared infrastructure, isolated tenants: Pool model multi-tenancy with Amazon Bedrock AgentCore]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов SaaS: реализация изоляции данных и成本控制 в продакшен-агентах.
+**** [[hxxps://huggingface.co/blog/ibm-research/cuga-apps][Build real agentic apps using CUGA: two dozen working examples on a lightweight harness]]
+:SCORE: 8/10
+:WHY: Дает конкретные референсные реализации агентов, позволяя избежать изобретения велосипеда.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-protein-research-copilot-with-amazon-bedrock-agentcore][Build a protein research copilot with Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Показывает полный цикл внедрения ML-моделей и векторного поиска в бизнес-логику через агенты.
+
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/what-are-lakehouse-catalogs-the-role-of-catalogs-in-apache-iceberg/][What Are Lakehouse Catalogs? The Role of Catalogs in Apache Iceberg]] (Dremio) — Глубокий разбор роли каталогов в управлении метаданными Iceberg и ACID транзакциях.
+- [[hxxps://medium.com/towards-data-engineering/lakebase-all-that-she-wants-e8bf17e3efe8][Lakebase All That She Wants]] (Towards Data Engineering) — Кейс оптимизации латентности через разделение горячих данных и архива в fraude-детекции.
+- [[hxxps://medium.com/towards-data-engineering/databricks-summit-2026-%EF%B8%8F-hail-the-emperor-55bf44c20ab7][Databricks Summit 2026 ️ Hail The Emperor]] (Towards Data Engineering) — Обзор стратегии Databricks по интеграции агентного ИИ в управляемый Lakehouse.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/what-are-lakehouse-catalogs-the-role-of-catalogs-in-apache-iceberg/][What Are Lakehouse Catalogs? The Role of Catalogs in Apache Iceberg]]
+:SCORE: 9/10
+:WHY: Фундаментальное понимание каталогов необходимо для построения надежных хранилищ данных на Iceberg.
+**** [[hxxps://medium.com/towards-data-engineering/lakebase-all-that-she-wants-e8bf17e3efe8][Lakebase All That She Wants]]
+:SCORE: 8/10
+:WHY: Реальный урок архитектуры: как feature creep убивает производительность и как спасти p95 латентность.
+**** [[hxxps://medium.com/towards-data-engineering/databricks-summit-2026-%EF%B8%8F-hail-the-emperor-55bf44c20ab7][Databricks Summit 2026 ️ Hail The Emperor]]
+:SCORE: 7/10
+:WHY: Помогает понять вектор развития платформы и роль семантического слоя в эпоху агентов.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/slow-down-to-speed-up][Slow down to speed up: so much has changed in 6 months' time]] (The Pragmatic Engineer) — Анализ влияния ИИ-агентов на продуктивность команд и качество кода в крупных компаниях.
+- [[hxxps://engineering.fb.com/2026/06/23/production-engineering/how-meta-built-ultra-narrow-batteries-for-ai-glasses-meta-tech-podcast/][How Meta Engineered Ultra-Narrow Batteries for AI Glasses]] (Meta Engineering) — Инженерный разбор ограничений форм-фактора и энергопотребления в носимых AI-устройствах.
+- [[hxxps://www.warpstream.com/blog/a-brief-rant-about-the-new-product-development-lifecycle][A Brief Rant About the New Product Development Lifecycle]] (WarpStream) — Опыт использования AI-агентов в разработке без потери uptime системы.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/slow-down-to-speed-up][Slow down to speed up: so much has changed in 6 months' time]]
+:SCORE: 10/10
+:WHY: Обязательное чтение для лидов: честно о рисках AI-хайпа и деградации инженерной культуры.
+**** [[hxxps://www.warpstream.com/blog/a-brief-rant-about-the-new-product-development-lifecycle][A Brief Rant About the New Product Development Lifecycle]]
+:SCORE: 8/10
+:WHY: Практический взгляд на баланс между скоростью внедрения агентов и надежностью продакшена.
+**** [[hxxps://engineering.fb.com/2026/06/23/production-engineering/how-meta-built-ultra-narrow-batteries-for-ai-glasses-meta-tech-podcast/][How Meta Engineered Ultra-Narrow Batteries for AI Glasses]]
+:SCORE: 7/10
+:WHY: Демонстрирует системные ограничения железа, которые влияют на архитектурные решения софта для Edge AI.
+
+** Vendors
+- [[hxxps://neo4j.com/blog/agentic-ai/neo4j-snowflake-2026-modern-marketing-data-stack/][Neo4j Named "One to Watch" in Snowflake's 2026 Modern Marketing Data Stack Report]] (Neo4j) — Интеграция графовых данных в Snowflake для улучшения контекста маркетинговых AI-моделей.
+- [[hxxps://www.databricks.com/blog/genesis-workbench-blueprint-industry-ai-life-sciences-powered-databricks-and-nvidia][Genesis Workbench: A blueprint for industry AI in life sciences, powered by Databricks and NVIDIA]] (Databricks) — Отраслевое решение для ускорения разработки лекарств с использованием GPU.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/agentic-ai/neo4j-snowflake-2026-modern-marketing-data-stack/][Neo4j Named "One to Watch" in Snowflake's 2026 Modern Marketing Data Stack Report]]
+:SCORE: 8/10
+:WHY: Показывает тренд на сближение графовых связей и облачных хранилищ для задач Identity Resolution.
+**** [[hxxps://www.databricks.com/blog/genesis-workbench-blueprint-industry-ai-life-sciences-powered-databricks-and-nvidia][Genesis Workbench: A blueprint for industry AI in life sciences, powered by Databricks and NVIDIA]]
+:SCORE: 7/10
+:WHY: Пример вертикальной интеграции стека данных и вычислений для специфичных High-Performance задач.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность для нетворкинга и обсуждения стандартов графовых БД с разработчиками движков.
+
+** Open Source
+- [[hxxps://opensource.org/blog/open-source-ai-fellowship-announced-at-un-open-source-week][Open Source AI Fellowship Announced at UN Open Source Week]] (Open Source Initiative) — Запуск стипендии для разработки политики и стандартов Open Source ИИ систем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/open-source-ai-fellowship-announced-at-un-open-source-week][Open Source AI Fellowship Announced at UN Open Source Week]]
+:SCORE: 8/10
+:WHY: Важно для понимания будущих лицензионных ограничений и определений Open Source в контексте нейросетей.

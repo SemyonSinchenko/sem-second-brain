@@ -1,0 +1,45 @@
+#+TITLE: Daily Digest: 2026-08-03
+#+FROM: [2026-08-02 Sun]
+#+TO: [2026-08-03 Mon]
+#+DATE: [2026-08-03 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Инженерное сообщество сталкивается с вызовами восприятия информации в эпоху фрагментированного контента и снижения глубины чтения. В Data Engineering намечается стратегический сдвиг от пакетной обработки к потоковой идентификации сущностей для поддержки агентных систем. Экосистема Rust продолжает привлекать разработчиков через детальное сравнение моделей модульности с другими языками. Геополитические конфликты усиливают информационную войну, требуя критического анализа данных из конфликтующих источников. Индустрия графовых баз данных активизирует профессиональное сообщество через очные встречи в рамках конференции VLDB.
+
+* 📂 Категории
+** Engineers
+- [[hxxps://joereis.substack.com/p/the-post-literate-engineer][The Post-Literate Engineer]] (joereis.substack.com) — Анализ снижения привычки к глубокому чтению среди инженеров из-за фрагментации медиа.
+- [[hxxps://rossabaker.com/blog/rust-book-ch07/][Rust Book, Chapter 7: Packages, Crates, and Modules]] (rossabaker.com) — Практическое сопоставление системы модулей Rust для разработчиков со знанием Scala.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rossabaker.com/blog/rust-book-ch07/][Rust Book, Chapter 7: Packages, Crates, and Modules]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов, внедряющих Rust в полиглотную среду.
+**** [[hxxps://joereis.substack.com/p/the-post-literate-engineer][The Post-Literate Engineer]]
+:SCORE: 8/10
+:WHY: Подсветка когнитивных сдвигов, влияющих на техническую глубину специалистов.
+
+** Data Engineering
+- [[hxxps://www.learningfromdata.zingg.ai/p/the-question-your-master-data-hasnt][The Question Your Master Data Hasn't Been Asked Yet]] (learningfromdata.zingg.ai) — Аргументация перехода от пакетной идентификации сущностей к потоковой для AI-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.learningfromdata.zingg.ai/p/the-question-your-master-data-hasnt][The Question Your Master Data Hasn't Been Asked Yet]]
+:SCORE: 9/10
+:WHY: Определяет архитектуру следующего поколения для идентификации в реальном времени.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи сообщества Graph Data Community совместно с конференцией VLDB в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга для специалистов по графовым технологиям.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/our-honest-truththeir-lying-propaganda]["Our Honest Truth"—"Their Lying Propaganda"]] (peterturchin.substack.com) — Клиодинамический анализ противоречивых данных о потерях в войне и механики информационной войны.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/our-honest-truththeir-lying-propaganda]["Our Honest Truth"—"Their Lying Propaganda"]]
+:SCORE: 8/10
+:WHY: Демонстрирует количественные методы анализа конфликтующих источников данных.

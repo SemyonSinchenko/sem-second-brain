@@ -1,0 +1,110 @@
+#+TITLE: Arxiv Digest: 2026-08-18
+#+FROM: [2026-08-17 Mon]
+#+TO: [2026-08-18 Tue]
+#+DATE: [2026-08-18 Tue]
+#+STARTUP: showall
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+За последние сутки наблюдается сильный фокус на оптимизацию распределённого обучения ML-моделей. Ключевые направления включают ускорение тренировки через контроль перегрузок сети, снижение накладных расходов на контрольные точки и синхронизацию без барьеров. Также представлены исследования новых поколений serverless-платформ и протоколов верификации данных перед коммитом в федеративных mesh-архитектурах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2402.09589][MLCC: A Congestion Control Technique to Accelerate ML Training]]
+:WHAT: Метод контроля перегрузок, который масштабирует скорость отправки потоков для смещения коммуникации в периоды вычислений (interleaving).
+:IMPACT: Ускорение среднего времени итерации тренировки до 1.9x и 99-го перцентиля до 2.7x, уменьшение сетевой конкуренции в GPU-кластерах.
+
+- [[hxxps://arxiv.org/abs/2509.04084][Optimizing Frequent Checkpointing via Low-Cost Differential for Distributed Training Systems]]
+:WHAT: Фреймворк повторного использования сжатых градиентов для дифференциальных контрольных точек, устраняющий избыточные вычисления.
+:IMPACT: Снижение времени тренировки до 89.2%, возможность контрольных точек каждый шаг итерации без деградации производительности.
+
+- [[hxxps://arxiv.org/abs/2608.13757][A Barrier-Free Synchronization Algorithm for Multi-Engine AI Accelerators]]
+:WHAT: Алгоритм синхронизации без барьеров для структурированного управления потоком с вложенными циклами через динамические пороги.
+:IMPACT: Снижение задержки на 10-45%, ускорение до 3.3x на синхронизационно-ограниченных бенчмарках для AWS Trainium.
+
+- [[hxxps://arxiv.org/abs/2608.14643][Proof-Gated Publication: Verify-Before-Commit Content Integrity for Serverless Data-Mesh Lakehouses]]
+:WHAT: Протокол PVDM с четырьмя фазами (Physical, Verify, Durable, Metadata), блокирующий коммит при провале верификации через keyed multiset hash.
+:IMPACT: Блокировка 8000 из 8000 инжектированных ошибок, накладные расходы верификации ~17 мс независимо от размера таблицы.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.08244][Self-Stabilizing Algorithms in the Uniform Port Model]]
+:ALGO: Самостабилизирующиеся алгоритмы в truly uniform модели с конечными автоматами на портах для задач симметрии (MIS, matching, coloring).
+:IMPACT: Первый результат для truly uniform модели с poly-log временем на общих графах, расширяет выразительность за пределы node-centric моделей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.15916][New Kids: An Architecture and Performance Investigation of Second-Generation Serverless Platforms]] — Анализ семи serverless-платформ второго поколения с lightweight isolates, снижение cold start latency с 40ms до 10ms.
+- [[hxxps://arxiv.org/abs/2608.13705][Adaptive Snapshots Require Visible Reads]] — Доказательство невозможности построения adaptive snapshots с невидимыми чтениями при линейризуемости даже в single-writer setting.
+- [[hxxps://arxiv.org/abs/2608.13824][Balancing Workload Performance and Slurm Stress: Four Nextflow Deployment Strategies]] — Сравнение четырёх стратегий развёртывания Nextflow на Slurm с метриками walltime и RPC-нагрузки на планировщик.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В категории cs.AI выделяются работы по оптимизации обслуживания MoE-моделей, федеративному обучению с учётом приватности и бенчмаркам для оценки устойчивости VLM к out-of-distribution данным. Также представлены исследования по квантово-классическим гибридным архитектурам для LLM и методы балансировки adversarial robustness с обобщающей способностью.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.13057][TEMPO: Makespan-Aware Expert-Parallel Load Balancing Across Memory- and Compute-Bound Regimes]]
+:WHAT: Диспетчер TEMPO, решающий задачу makespan-aware dispatch для экспертного параллелизма с учётом двух режимов (memory-bound и compute-bound).
+:IMPACT: Увеличение throughput на 4-6% и снижение p99 latency на ~15.6% для Qwen3-235B, интеграция с SGLang вне критического пути.
+
+- [[hxxps://arxiv.org/abs/2608.14648][Stop Indexing at Full Precision: Revisiting Clustering for Vector Embeddings]]
+:WHAT: Индексационный пайплайн с применением снижения размерности, квантования и прунинга перед кластеризацией векторных эмбеддингов.
+:IMPACT: 1-битные коды дают качество кластеризации в пределах 1% от идеала при сокращении хранения в 60x.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.13914][Hybrid Quantum-inspired Kolmogorov-Arnold Networks for Privacy-Aware Federated Biosignal Learning]]
+:ALGO: Гибридная HQKAN-архитектура для федеративной классификации ЭКГ с сокращением параметров на 37.35% и коммуникационных затрат на 24.89%.
+:IMPACT: Компактная альтернатива MLP для privacy-aware федеративного обучения на биосигналах с улучшенными метриками для меньшинственных классов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.13844][Federated Prompt Learning: A Unified Framework, Empirical Analysis, and Future Directions]] — Обзор федеративного prompt learning для LLM с анализом trade-offs производительности, коммуникации и приватности.
+- [[hxxps://arxiv.org/abs/2602.18094][OODBench: Out-of-Distribution Benchmark for Large Vision-Language Models]] — Бенчмарк на 40K OOD-пар для оценки устойчивости VLM с автоматизированной метрикой Basic-to-Advanced Progression.
+- [[hxxps://arxiv.org/abs/2608.14765][Agentic Data Cleaning Without a Clean Reference: An Experimental Study of Capabilities and Trade-offs]] — Исследование семи конфигураций агентов для очистки данных без эталона с trade-offs между detection, repair и evidence grounding.
+- [[hxxps://arxiv.org/abs/2410.17397][Quantum Large Language Models via Tensor Network Disentanglers]] — Гибридная квантово-классическая архитектура с MPO, сокращающая классические параметры в 1000+ раз при сохранении perplexity.
+- [[hxxps://arxiv.org/abs/2411.15041][mR²AG: Multimodal Retrieval-Reflection-Augmented Generation for Knowledge-Based VQA]] — Фреймворк с адаптивным retrieval и reflection-операциями для MLLM, превосходящий GPT-4o на INFOSEEK и Encyclopedic-VQA.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования в social physics охватывают анализ транспортных задержек через функциональные сети, рациональность выбора маршрутов пассажирами и теорию знаковых сетей. Особый интерес представляют работы по реконструкции коммерческих сетей цивилизации Инда и анализу устойчивости климатических коалиций через бистабильные модели.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.17247][Signed Networks: theory, methods, and applications]]
+:ALGO: Фундаментальный обзор теории знаковых графов с мерами (clustering, centralities, motifs, Laplacians) и анализом balance theory.
+:IMPACT: Структурированный вход для исследователей сложных систем, формализация полярности взаимодействий от социологии до нейронаук.
+
+- [[hxxps://arxiv.org/abs/2510.05143][Functional Connectivity Networks for Transportation Delay Analysis: from Theory to Software]]
+:ALGO: Теоретический фреймворк для построения функциональных сетей транспорта с корреляционными и причинно-следственными тестами.
+:IMPACT: Python-пакет delaynet для реконструкции и анализа сетей задержек, применён к швейцарской железнодорожной системе.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.12381][Do Railway Commuters Exhibit Consistent Route Choice Rationality Across Different Contexts and Time? Evidence from Tokyo metropolitan Commutes]] — Анализ выбора маршрутов 1M пользователей GPS в Токио: коллективный выбор чувствителен к затратам, но не детерминирован, стабильность в течение 12 месяцев.
+- [[hxxps://arxiv.org/abs/2601.14632][Evaluating the impact of incomplete contact tracing data on urban epidemic dynamics]] — Моделирование потерь информации в contact tracing: IO-потери критичнее CO, порог эффективности ~4% для Сеула и ~10% для Пусана.
+- [[hxxps://arxiv.org/abs/2604.23582][Asynchronous Barter, Periodic Reconciliation: Evidence for a Scale-Free Commercial Network in the Indus Valley Civilization]] — Гипотеза о scale-free коммерческой сети цивилизации Хараппа с power-law α≈2.3-2.6, координация через AP2PBS-протокол без центральной власти.
+- [[hxxps://arxiv.org/abs/2605.25055][Building Digital Societies as Ecosystems: How Recognition and Repeat Relationships Sustain Cross-Community Work in Open Source]] — Анализ 464 cybersecurity-проектов: кросс-комьюнити работа концентрируется в тонком слое (9 авторов = 14% межкомьюнити PR), принятие растёт с 42% до 87% при увеличении breadth.
+- [[hxxps://arxiv.org/abs/2608.04303][The rank and layer distributions in random recursive trees]] — Точные рекурсивные выражения для распределений rank и layer в случайных рекурсивных деревьях без зависимости от меток или корня.
+- [[hxxps://arxiv.org/abs/2608.11652][Twenty-Five Years of Air Quality in Bangladesh: Trends, Seasonality, and Spatial Pollution Regimes]] — 25 лет данных по качеству воздуха: 4 режима загрязнения через K-means, PM2.5/PM10 доминируют, Dhaka-Narsingdi кластер ухудшается на 1.84 AQI/год.
+- [[hxxps://arxiv.org/abs/2608.12143][Robustness over efficiency in climate coalitions: a bistable model and a map of architectures]] — Бистабильная модель коалиций: малый клуб vs near-universal коалиция, carbon currency self-igniting, robustness определяет формирование, efficiency — доставку.
+- [[hxxps://arxiv.org/abs/2608.14696][The Calibration-Leverage Tradeoff in Exactly Solvable Win-Probability Models]] — Tradeoff между точной калибровкой WP и attributable leverage в крикете: martingale требует независимости, что вызывает мiscalibration.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В cs.DS представлены фундаментальные результаты по lower bounds для графовых streaming-алгоритмов, спектральной кластеризации в высокоразмерных блочных моделях и аппроксимационным алгоритмам для задач связности. Также интересны работы по динамической энумерации в регулярных языках и оптимизации с супермодулярными ограничениями.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2104.04908][Graph Streaming Lower Bounds for Parameter Estimation and Property Testing via a Streaming XOR Lemma]]
+:ALGO: Новая техника lower bounds через streaming XOR Lemma для space-pass tradeoffs в оценке параметров графов.
+:IMPACT: Доказательство необходимости n^Ω(1) space или Ω(1/ε) passes для (1+ε)-аппроксимации, усиление предыдущих bounds для multi-pass алгоритмов.
+
+- [[hxxps://arxiv.org/abs/2305.00979][Spectral clustering in the Gaussian mixture block model]]
+:ALGO: Анализ спектральной кластеризации и embedding для графов из высокоразмерных Gaussian mixture block моделей (d→∞, n→∞).
+:IMPACT: Начало картирования information-computation ландшафта для кластеризации в современных сетях с латентными признаками.
+
+- [[hxxps://arxiv.org/abs/2604.00724][Fast Deterministic Distributed Degree Splitting]]
+:ALGO: Алгоритм O(ε⁻¹·log n) для balanced orientation и degree splits в LOCAL, связь с hypergraph sinkless orientation.
+:IMPACT: Улучшение сложности для (3/2+ε)Δ-edge coloring, совпадение с state-of-the-art для constant ε при Δ=O(2^(log^(1/3) n)).
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2505.00922][Cluster deletion and clique partitioning in graphs with bounded clique number]] — Polynomial-time алгоритм для cographs, 2·C(c,2)/(C(c,2)+1)-аппроксимация для графов с clique number ≤c.
+- [[hxxps://arxiv.org/abs/2602.14748][Constant-Time Dynamic Enumeration of Word Infixes in a Regular Language]] — Алгоритм constant-time updates и constant delay для динамической энумерации L-infixes в semi-extensible ZG языках.
+- [[hxxps://arxiv.org/abs/2602.16240][Submodular Maximization under Supermodular Constraint: Greedy Guarantees]] — Greedy-алгоритм с (1-e^(-(1-γ)))-аппроксимацией для субмодулярной максимизации с супермодулярными ограничениями, эксперименты на LLM-агентах.
+- [[hxxps://arxiv.org/abs/2604.04137][Noise tolerance via reinforcement in the quantum search problem]] — Reinforcement экспоненциально снижает число слоёв эволюции с √D до ln D, повышение noise threshold для квантового поиска.
+- [[hxxps://arxiv.org/abs/2604.10819][Differentially Private Verification of Distribution Properties]] — Landscape differentially private verification с reduction от private-coin к AM-протоколам для ε=O(1/√s).
+- [[hxxps://arxiv.org/abs/2605.07386][Convex Optimization with Nested Evolving Feasible Sets]] — CONES: online-алгоритмы с O(T^(1-β)) regret и O(T^β) movement cost, Frugal-алгоритм с zero regret и O(log T) для strongly convex.
+- [[hxxps://arxiv.org/abs/2605.10058][An Approximation Algorithm for 2-Vertex-Connectivity via Cycle-Restricted 2-Edge-Covers]] — Улучшение аппроксимации для 2-VCSS с 4/3 до 21/16+ε (<1.313) через cycle-restricted 2-edge-cover.

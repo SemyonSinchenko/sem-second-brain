@@ -1,0 +1,65 @@
+#+TITLE: Daily Digest: 2026-08-29
+#+FROM: [2026-08-28 Fri]
+#+TO: [2026-08-29 Sat]
+#+DATE: [2026-08-29 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Вендорские платформы смещают AI от «ответа» к операционным действиям: Neo4j строит графовый слой ответственности, Databricks превращает инсайты Genie One в workflow.
+В ML-инфраструктуре доминирует дисциплина стоимости и доступности: локальные SLM, квантование, co-hosting GPU и Multi-AZ placement для inference.
+Вендоры данных показывают конкретные паттерны: Kafka на object storage против EBS для TCO, пакетная запись в Feature Store и масштабирование time-series foundation models в продакшене.
+В инженерных материалах остается сильная тема системного проектирования логов и кворумов: AtomicLog/LogDrive упрощает storage-примитивы, перенося гарантии в sequencer.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.ssp.sh/blog/writing-since-2015/][Writing really is an Emotional Rollercoaster]] (ssp.sh) — Демонстрирует итеративный процесс инженерного письма: перепаузы, обсуждение с людьми и AI, постоянная переструктурировка заметок в читаемый материал.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/writing-since-2015/][Writing really is an Emotional Rollercoaster]]
+:SCORE: 6/10
+:WHY: Показывает практику превращения сырых инженерных наблюдений в публичные тексты без иллюзии «напиши за пять часов».
+
+** Engineers
+- [[hxxps://jack-vanlightly.com/blog/2026/8/28/the-atomiclog-logdrive-strong-vs-weak-sealing][The AtomicLog + LogDrive: Strong vs weak sealing]] (jack-vanlightly.com) — Объясняет, как перенос ответственности за single-value register и sealing в sequencer снижает требования к storage-бэкенду и удешевляет кворумы.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/8/28/the-atomiclog-logdrive-strong-vs-weak-sealing][The AtomicLog + LogDrive: Strong vs weak sealing]]
+:SCORE: 9/10
+:WHY: Дает практическую разницу между strong и weak sealing и её влияние на выбор storage primitive.
+
+** Vendors
+- [[hxxps://neo4j.com/blog/genai/the-enterprise-knowledge-layer-operating-structure/][The enterprise knowledge layer: Operating Structure]] (neo4j.com) — Показывает, как смоделировать оргструктуру в графе, чтобы AI-агенты могли определять ответственность, эскалацию и handoff между подразделениями.
+- [[hxxps://www.warpstream.com/blog/warpstream-benchmarks-and-tco][How WarpStream Reduces Kafka Infrastructure Costs: A TCO Breakdown - WarpStream]] (warpstream.com) — Приводит TCO-бенчмарк Kafka на object storage против self-hosted с фокусом на исключение меж-АЗ платежей и отказ от EBS.
+- [[hxxps://www.databricks.com/blog/beyond-answers-new-genie-one-features-turn-insights-action][Beyond answers: New Genie One features to turn insights into action]] (databricks.com) — Анонс функций Genie One для перевода аналитических ответов в рабочие действия; полезен для оценки agentic BI-паттернов.
+- [[hxxps://www.databricks.com/blog/how-indra-unified-ev-charging-data-databricks][How Indra unified EV charging data on Databricks]] (databricks.com) — Кейс консолидации разрозненных EV charging данных в единый операционный слой для масштабирования и принятия решений.
+- [[hxxps://www.databricks.com/blog/how-trackunit-turns-construction-data-decisions-ai][How Trackunit turns construction data into decisions with AI]] (databricks.com) — Показывает путь от телеметрии строительной техники и maintenance-записей к приоритизированным решениям по обслуживанию.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс TUC с повесткой по GQL, TinkerGQL, graph sparsification и graph-native normalization; полезно для отслеживания графовых стандартов и инструментария.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/genai/the-enterprise-knowledge-layer-operating-structure/][The enterprise knowledge layer: Operating Structure]]
+:SCORE: 9/10
+:WHY: Описывает конкретный графовый слой ответственности, без которого AI-агенты не могут выполнять процессы в enterprise.
+**** [[hxxps://www.warpstream.com/blog/warpstream-benchmarks-and-tco][How WarpStream Reduces Kafka Infrastructure Costs: A TCO Breakdown - WarpStream]]
+:SCORE: 9/10
+:WHY: Дает измеримые драйверы TCO Kafka: inter-AZ fees, EBS vs object storage и бенчмарки вместо абстрактного маркетинга.
+**** [[hxxps://www.databricks.com/blog/beyond-answers-new-genie-one-features-turn-insights-action][Beyond answers: New Genie One features to turn insights into action]]
+:SCORE: 7/10
+:WHY: Указывает на практический сдвиг аналитических платформ от ответов к исполняемым workflow-действиям.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/the-local-ai-stack-for-productive-slms][The Local AI Stack for Productive SLMs]] (kdnuggets.com) — Дает каркас выбора компонентов локального SLM-стека по слоям: serving, retrieval, context management, с акцентом на практичность, а не только benchmark.
+- [[hxxps://www.kdnuggets.com/quantization-and-pruning-methods-to-make-your-llm-leaner][Quantization and Pruning Methods to Make Your LLM Leaner]] (kdnuggets.com) — Разбирает quantization и pruning как production-меры против лишней стоимости, латентности и потребления памяти в LLM-сервисах.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/batch-write-and-discover-records-in-amazon-sagemaker-feature-store/][Batch write and discover records in Amazon SageMaker Feature Store]] (aws.amazon.com) — Вводит BatchWriteRecord до 25 записей за вызов и ListRecords для перечисления ID; решает проблему high-throughput ingestion и обнаруживаемости in-memory feature store.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-decathlon-runs-demand-forecasting-at-scale-with-chronos-2/][How Decathlon runs demand forecasting at scale with Chronos-2]] (aws.amazon.com) — Делится архитектурой масштабирования Chronos-2 для недельных прогнозных горизонтов 12/52 недель и уроками перехода от DeepAR/TFT к TSFM.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/spreading-the-load-how-salesforce-met-multi-az-ha-with-sagemaker-inference-components/][Spreading the load: How Salesforce met Multi-AZ HA with SageMaker Inference Components]] (aws.amazon.com) — Показывает, как SchedulingConfig, AvailabilityZoneBalance и PlacementStrategy устраняют AZ single points of failure при co-hosting моделей на GPU.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/spreading-the-load-how-salesforce-met-multi-az-ha-with-sagemaker-inference-components/][Spreading the load: How Salesforce met Multi-AZ HA with SageMaker Inference Components]]
+:SCORE: 10/10
+:WHY: Практичный кейс балансировки стоимости GPU и обязательной Multi-AZ доступности в production inference.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/batch-write-and-discover-records-in-amazon-sagemaker-feature-store/][Batch write and discover records in Amazon SageMaker Feature Store]]
+:SCORE: 9/10
+:WHY: Решает конкретный operational gap Feature Store: API-call explosion при записи и отсутствие browse/list для in-memory tier.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-decathlon-runs-demand-forecasting-at-scale-with-chronos-2/][How Decathlon runs demand forecasting at scale with Chronos-2]]
+:SCORE: 9/10
+:WHY: Показывает реальный production-переход к time-series foundation models с масштабом, бизнес-метриками и архитектурными компромиссами.

@@ -1,0 +1,181 @@
+#+TITLE: Arxiv Digest: 2026-05-06
+#+FROM: [2026-05-05 Tue]
+#+TO: [2026-05-06 Wed]
+#+DATE: [2026-05-06 Wed]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается сильный тренд на интеграцию векторного поиска и RAG-систем в традиционные СУБД (PostgreSQL), что снижает сложность production-развертаний. Параллельно развиваются направления самовосстанавливающих databases на основе GNN и RL, а также аппаратное оффлоадирование декодирования через SmartNIC для Data Lakes. Появляются frameworks для garantii recall в neural databases, что критично для доверия к результатам.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2507.13757][Efficient and Scalable Self-Healing Databases Using Meta-Learning and Dependency-Driven Recovery]]
+:WHAT: Framework самовосстановления DBMS с использованием MAML для anomaly detection, GNN для prediction cascading failures и RL для recovery.
+:IMPACT: Позволяет DBMS адаптироваться к unseen workload patterns в real-time с минимальным количеством labeled data, снижая latency recovery на 85%.
+
+- [[hxxps://arxiv.org/abs/2602.18775][Should I Hide My Duck in the Lake?]]
+:WHAT: Vision для Data Processing SmartNIC, который offloads decoding и operators прямо на network datapath для cloud data lakes.
+:IMPACT: Позволяет скрыть成本 parsing raw files (46% runtime), значительно increasing query processing performance на disaggregated storage.
+
+- [[hxxps://arxiv.org/abs/2605.03275][Beyond Similarity Search: A Unified Data Layer for Production RAG Systems]]
+:WHAT: Unified data layer на базе PostgreSQL с native vector search (pgvector) и HNSW indexing для RAG систем.
+:IMPACT: Eliminates cross-tenant data leakage и reduces latency для date-filtered queries на 92%, решая проблемы staleness и synchronization.
+
+- [[hxxps://arxiv.org/abs/2605.03806][ConRAD: Conformal Risk-Aware Neural Databases]]
+:WHAT: Framework для enforce declarative recall guarantees в neural graph database query engine через Conformal Risk Control.
+:IMPACT: Provides finite-sample statistical validity для query results, dynamically bypassing neural inference when local evidence suffices.
+
+- [[hxxps://arxiv.org/abs/2308.04552][WhaleVis: Visualizing the History of Commercial Whaling]]
+:WHAT: Interactive dashboard для commercial whaling dataset с modeling catch data as a graph (nodes=locations, edges=routes).
+:IMPACT: Facilitates visual estimation of whale search effort и spatial distribution, открывая новые avenues для graph analysis fisheries data.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.03640][In-memory Multidimensional Indexing Using the skd-tree]]
+:ALGO: Slicing kd-tree (skd-tree), variant kd-tree где nodes partition space into slices across single splitting dimension.
+:IMPACT: Radically reduces tree levels и limits computations для multi-dimensional range/proximity queries via SIMD instructions.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.03942][Reservoir property image slices from the Groningen gas field for image translation and segmentation]] — High-resolution dataset reservoir-property image slices для benchmarking geological image analysis methods.
+- [[hxxps://arxiv.org/abs/2605.03954][Inconsistent Databases and Argumentation Frameworks with Collective Attacks]] — Establishes connection between subset-maximal repairs for inconsistent databases и SET-based Argumentation Frameworks.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Основной фокус смещается на optimization LLM inference (serving, speculative decoding) и автоматизацию RAG pipelines. Важным трендом является benchmarking AI agents на workspace tasks с real-world dependencies и co-design infrastructure (AI Data Center/Power Grid). Появляются инструменты для автоматической optimization RAG и handling multimodal workloads.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.03465][FINER-SQL: Boosting Small Language Models for Text-to-SQL]]
+:WHAT: Reinforcement learning framework для enhancement SLMs через fine-grained execution feedback (memory и atomic rewards).
+:IMPACT: Enables stable, critic-free optimization для Text-to-SQL, matching larger LLMs accuracy с reduced inference latency.
+
+- [[hxxps://arxiv.org/abs/2605.03596][Workspace-Bench 1.0: Benchmarking AI Agents on Workspace Tasks with Large-Scale File Dependencies]]
+:WHAT: Benchmark для evaluating AI agents на Workspace Learning с 20,476 files и 388 tasks involving file dependency graphs.
+:IMPACT: Reveals current agents remain far from reliable workspace learning (47.4% avg), providing realistic evaluation с cross-file retrieval.
+
+- [[hxxps://arxiv.org/abs/2605.02967][AutoRAGTuner: A Declarative Framework for Automatic Optimization of RAG Pipelines]]
+:WHAT: Declarative framework для automating RAG life cycle с adaptive Bayesian optimization engine для hyper-parameter tuning.
+:IMPACT: Reduces engineering overhead up to 95% для architectural adjustments и consistently outperforms default baselines.
+
+- [[hxxps://arxiv.org/abs/2603.26498][TCM-Serve: Modality-aware Scheduling for Multimodal Large Language Model Inference]]
+:WHAT: Modality-aware scheduler (TCM-Serve) что classifies requests (videos=trucks, text=motorcycles) для MLLM inference.
+:IMPACT: Reduces time-to-first-token (TTFT) by 54% overall и prevents head-of-line blocking для large multimodal requests.
+
+- [[hxxps://arxiv.org/abs/2512.16455][AI4EOSC: a Federated Cloud Platform for Artificial Intelligence in Scientific Research]]
+:WHAT: Federated, open-source platform для operationalizing full AI/ML lifecycle within European Open Science Cloud ecosystem.
+:IMPACT: Integrates heterogeneous compute/storage resources с "FAIR-by-design" approach, reducing manual burden на researchers.
+
+- [[hxxps://arxiv.org/abs/2605.03090][From Barrier to Bridge: The Case for AI Data Center/Power Grid Co-Design]]
+:WHAT: Argument для shift от implicit coexistence к explicit co-development между data center и electric power industries.
+:IMPACT: Identifies key research directions (joint capacity planning, compute-power protocol stack) для sustainable AI infrastructure.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2504.13614][Adaptive Long-term Embedding with Denoising and Augmentation for Recommendation]]
+:ALGO: ALDA4Rec method constructs item-item graph, filters noise via community detection, и uses GCN/GRU/Attention для embeddings.
+:IMPACT: Improves accuracy и robustness в graph-based sequential recommendation systems через adaptive weighting long-term preferences.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2309.09550][Adaptive Reorganization of Neural Pathways for Continual Learning with Spiking Neural Networks]] — Brain-inspired continual learning algorithm с adaptive reorganization neural pathways для SNN.
+- [[hxxps://arxiv.org/abs/2401.12783][A Scoping Review of Deep Learning Methods for Photoplethysmography Data]] — Comprehensive literature search для studies applying deep learning к PPG data (460 papers).
+- [[hxxps://arxiv.org/abs/2407.11077][Deep deterministic policy gradient with symmetric data augmentation for lateral attitude tracking control of a fixed-wing aircraft]] — Symmetric data augmentation method для sample-efficient offline RL в aircraft control.
+- [[hxxps://arxiv.org/abs/2408.12622][The AI risk repository: A meta-review, database, and taxonomy of risks from artificial intelligence]] — Comprehensive catalog of AI risks (1,725 distinct risks) organized into unified system.
+- [[hxxps://arxiv.org/abs/2410.17517][The Hive Mind is a Single Reinforcement Learning Agent]] — Establishes equivalence between collective decision-making (hive mind) и single online RL agent.
+- [[hxxps://arxiv.org/abs/2502.04419][Understanding and Mitigating Bias Inheritance in LLM-based Data Augmentation on Downstream Tasks]] — Systematic investigation understanding, analyzing, и mitigating bias inheritance в synthetic datasets.
+- [[hxxps://arxiv.org/abs/2502.04512][Safety Must Precede the Deployment of Open-Ended AI]] — Position paper arguing distinct safety challenges для open-ended AI systems (loss of predictability, emergent misalignment).
+- [[hxxps://arxiv.org/abs/2502.10148][Closed-Loop Vision-Language Planning for Multi-Agent Coordination]] — COMPASS framework integrating Vision-Language Models для decentralized, closed-loop decision-making в MARL.
+- [[hxxps://arxiv.org/abs/2503.10070][AhaRobot: A Low-Cost Open-Source Bimanual Mobile Manipulator for Embodied AI]] — Low-cost, open-source bimanual mobile manipulator tailored для Embodied-AI data collection.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+В области social physics выделяется empirical derivation stochastic models для opinion dynamics (Langevin-type) и применение hypergraphs для analysis contagion suppression. Также представлены новые frameworks для synergistic causality и использование fractal scaling exponents как indicators software stability.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.03574][Long-Range Correlation in Code Commit Dynamicsas a Novel Indicator of Software Product Stability: A Detrended Fluctuation Analysis Study]]
+:WHAT: Proposes fractal scaling exponent alpha (via DFA) на time series lines of code added per commit как indicator software stability.
+:IMPACT: Demonstrates that temporal organization of development activity (long-range memory) predicts stability better than commit volume alone.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.16226][D-MODD: A Diffusion Model of Opinion Dynamics Derived from Online Data]]
+:ALGO: Empirical derivation continuous-time stochastic model (Langevin-type SDE) для real-world opinion dynamics на binary topic.
+:IMPACT: Provides first direct evidence что online opinion dynamics admit Markovian description at operator level, bridging sociophysics и behavioral data.
+
+- [[hxxps://arxiv.org/abs/2605.02993][Targeted Disruption of Hypernetworks via Spectral Partitioning]]
+:ALGO: Hyperedge-removal strategies для suppressing contagion на synthetic hypergraphs via spectral k-way clustering s-line graphs.
+:IMPACT: Shows spectral overlap structure can identify structurally salient hyperedges, though structural salience alone doesn't guarantee optimal suppression.
+
+- [[hxxps://arxiv.org/abs/2605.03267][Partial Effective Information Decomposition for Synergistic Causality]]
+:ALGO: Partial Effective Information Decomposition (PEID) framework decomposes influence multiple source variables на target variable under maximum-entropy interventions.
+:IMPACT: Offers unified toolkit для analyzing cross-scale и multivariate causal mechanisms в complex systems (defines causal graphs with hyperedges).
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.01938][How to measure the optimality of word or gesture order with respect to the principle of swap distance minimization]] — Mathematical framework для measuring degree optimality word order variation w.r.t. swap distance minimization.
+- [[hxxps://arxiv.org/abs/2604.10049][The Pareto principle in Sports and Economics in view of Runs Scored by Batters in the Indian Premier League]] — Proxy-based approach using sports performance data для mimic economic distributions и explore inequality evolution.
+- [[hxxps://arxiv.org/abs/2605.02926][Towards Geostrategic Critical Minerals and Materials Resilience: Secure Supply-Chain and Criticality Analyses for Quantum Technologies in Arctic and Space Environments]] — Maps secure-supply и criticality risks для quantum technologies deployed в extreme environments.
+- [[hxxps://arxiv.org/abs/2605.02985][The Dominance of Environment over Entity's Capabilities]] — Analytical framework для probability individual success based на structural asymmetry между capacity entity и size possibility space.
+- [[hxxps://arxiv.org/abs/2605.02991][Vishap epoch unitary society in Armenian Highlands, c. 4000 BC: data analysis consequences]] — Data analysis consequences Vishaps (dragon stones) discovery в Armenian Highlands indicating organized unified society.
+- [[hxxps://arxiv.org/abs/2605.03185][AI and the Research-Education Environment of Physics]] — Summary opinions provided в discussion session на KITP program "Generative AI for High and Low Energy Physics".
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Акцент на optimization approximate nearest neighbor search (ANNS) через theoretical analysis SNG и развитие algorithms для temporal graphs. Также представлены improvements в classic problems như sorting with partial information и graph coloring, с focus на practical bounds и construction.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2504.17743][Realization of Temporally Connected Graphs Based on Degree Sequences]]
+:ALGO: Complete characterization feasible cases и recognition algorithm (O(n) time) для deciding whether degree sequence can be realized as temporally connected graph.
+:IMPACT: Relax NP-hard problem deciding temporal connectivity, providing constructive algorithm для generating temporally connected graphs.
+
+- [[hxxps://arxiv.org/abs/2509.15531][Sparse Neighborhood Graph-Based Approximate Nearest Neighbor Search Revisited: Theoretical Analysis and Optimization]]
+:ALGO: OPT-SNG framework с martingale-based model pruning process что proves SNG maximum out-degree O(n^{2/3+epsilon}) и expected search path O(log n).
+:IMPACT: Derives closed-form rule для selecting optimal truncation parameter, achieving 5.9x speedup в index construction time без parameter sweeping.
+
+- [[hxxps://arxiv.org/abs/2602.10747][Better Diameter Bounds for Efficient Shortcuts and a Structural Criterion for Constructiveness]]
+:ALGO: New structural criterion (certified shortcut) для shortcut constructions в directed reachability и shortest paths parallel algorithms.
+:IMPACT: Captures constructiveness в shortcut constructions и obtains stronger diameter lower bounds для certified shortcuts и hopsets.
+
+- [[hxxps://arxiv.org/abs/2507.04516][The planar edge-coloring theorem of Vizing in O(n log n) time]]
+:ALGO: Algorithm finding edge-coloring для planar graph maximum degree Delta>=8 в O(n log n) time via modified recoloring procedure.
+:IMPACT: Extends previous ideas для missing case Delta=8 и generalizes на bounded genus graphs.
+
+- [[hxxps://arxiv.org/abs/2507.17036][Fast One-Pass Sparse Approximation of the Top Eigenvectors of Huge Approximately Low-Rank Matrices? Yes, MAM^*!]]
+:ALGO: Provably-accurate one-pass algorithms для sparse approximation top eigenvectors extremely massive matrices based на single compact linear sketch.
+:IMPACT: Approximates leading eigenvectors huge matrices too large для store в memory via single pass с sublinear runtime.
+
+- [[hxxps://arxiv.org/abs/2404.04552][Fast and Simple Sorting Using Partial Information]]
+:ALGO: Simple deterministic algorithm sorting n items given outcomes m pre-existing comparisons в O(m + log T) time.
+:IMPACT: Resolves problem studied since 1976, solving top-k sorting problem в minimum time и comparisons to within constant factors.
+
+- [[hxxps://arxiv.org/abs/2506.24001][Fantastic Flips and Where to Find Them: A General Framework for Parameterized Local Search on Partitioning Problems]]
+:ALGO: Abstract framework generalizing natural parameterized local search approaches для large class partitioning problems (Cluster Editing, Vector Bin Packing).
+:IMPACT: Shows all problems fitting框架 can be solved в tau^k 2^{O(k)} |I|^{O(1)} time, complementing с W[1]-hardness results.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2407.03833][Quantum spectral method for gradient and Hessian estimation]] — New quantum algorithm для another class functions (analytic functions well-defined over complex field) returning epsilon-approximation gradient.
+- [[hxxps://arxiv.org/abs/2503.06917][Sample-Efficient Optimization over Generative Priors via Coarse Learnability]] — Introduces "coarse learnability" statistical assumption для designing iterative MBO algorithm с polynomial number samples.
+- [[hxxps://arxiv.org/abs/2508.13100][A Perfectly Truthful Calibration Measure]] — Designs simple, perfectly и strictly truthful, sound и complete calibration measure в batch setting (averaged two-bin calibration error).
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Ключевые работы посвящены distributed LLM inference на масштабах интернета (BloomBee) и использованию CXL memory pooling для GPU collectives. Также развивается automated kernel synthesis через agentic workflows и adaptive speculative decoding для compression-aware selection.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.21072][Distributed Generative Inference of LLM at Internet Scales with Multi-Dimensional Communication Optimization]]
+:WHAT: BloomBee framework для internet-scale distributed LLM inference integrating LLM-layer assignment, micro-batching и tensor offloading.
+:IMPACT: Improves service throughput up to 1.76x и reduces average latency up to 43.20% compared к state-of-the-art decentralized LLM inference systems.
+
+- [[hxxps://arxiv.org/abs/2602.22457][CCCL: Node-Spanning GPU Collectives with CXL Memory Pooling]]
+:WHAT: Collective communication library leveraging CXL shared memory pool для support cross-node GPU operations без traditional RDMA-based networking.
+:IMPACT: Achieves average performance improvements 1.34x-1.94x для collective operations (AllGather, Broadcast) и saves production cost by 2.75x в hardware.
+
+- [[hxxps://arxiv.org/abs/2604.26666][FACT: Compositional Kernel Synthesis with a Three-Stage Agentic Workflow]]
+:WHAT: FACT workflow optimizing PyTorch modules through multi-pattern composition grounding synthesis в CUTLASS C++ via agentic graph-level pattern discovery.
+:IMPACT: Achieves 2.03x speedup на MiniGPT и 1.41x на Llama 3 8B compared к baselines, offering practical path от traced PyT modules к deployable kernels.
+
+- [[hxxps://arxiv.org/abs/2605.02888][SpecKV: Adaptive Speculative Decoding with Compression-Aware Gamma Selection]]
+:WHAT: Lightweight adaptive controller (SpecKV) selecting speculation length gamma per step using signals extracted от draft model itself.
+:IMPACT: Achieves 56.0% improvement over fixed-gamma=4 baseline с only 0.34 ms overhead per decision, statistically significant improvement.
+
+- [[hxxps://arxiv.org/abs/2307.07066][Can Blockchains Reliably Train Machine Learning Models?]]
+:WHAT: Proof of training (PoT) protocol directing mining power toward verifiable training machine learning models preserving PoW incentives.
+:IMPACT: Indicates considerable potential including high task throughput, strong robustness, и improved network security для decentralized training.
+
+- [[hxxps://arxiv.org/abs/2409.16808][A Comprehensive Evaluation of Deep Learning Object Detection Models on Heterogeneous Edge Devices]]
+:WHAT: Benchmark YOLOv8, EfficientDet Lite, и SSD на Raspberry Pi, Jetson Nano/Orin с/without TPU accelerators evaluating energy, latency, accuracy.
+:IMPACT: Reveals clear trade-offs among accuracy, latency, и energy efficiency across model-device combinations для resource-constrained edge devices.

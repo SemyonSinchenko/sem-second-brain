@@ -1,0 +1,72 @@
+#+TITLE: Daily Digest: 2026-09-05
+#+FROM: [2026-09-04 Fri]
+#+TO: [2026-09-05 Sat]
+#+DATE: [2026-09-05 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Production AI shifts from model selection to operations: routing, memory lifecycle, disaster-recovery agents, and controlled infrastructure now decide cost and reliability. Vendor and cloud posts emphasize measurable efficiency: custom GPU kernels, persistent GPU capacity, and GPU goodput are becoming practical cost metrics for model factories. Open-source layers such as NVIDIA routing and Cosmos reduce lock-in and prototype time, but they also shift maintenance, security review, and licensing ownership to engineering teams. Data plumbing still gates quality: serverless Postgres for agent state, Textract-driven document parsing, and cross-channel memory make RAG and assistant systems auditable. Non-engineering demand for natural-language analytics, like Genie One, is growing, increasing pressure on metadata, permissions, and platform enablement.
+
+* 📂 Категории
+
+** Data Engineering
+- [[https://vutr.substack.com/p/databricks-introduced-a-new-database][\[FREE\] Databricks introduced a new database that could change everything (?)]] (Vutr) — Разбирает Lakebase как serverless Postgres с разделением compute и storage для low-latency OLTP и состояния AI-агентов.
+- [[https://aws.amazon.com/blogs/machine-learning/customizing-your-knowledge-base-on-amazon-bedrock-for-large-and-complex-documents-using-amazon-textract/][Customizing your knowledge base on Amazon Bedrock for large and complex documents using Amazon Textract]] (AWS) — Показывает, как Textract и тегирование таблиц готовят сложные PDF и счета к RAG, снижая пропуски и галлюцинации.
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/customizing-your-knowledge-base-on-amazon-bedrock-for-large-and-complex-documents-using-amazon-textract/][Customizing your knowledge base on Amazon Bedrock for large and complex documents using Amazon Textract]]
+:SCORE: 8/10
+:WHY: Дает прикладной рецепт структурирования документов перед индексацией и запросами LLM.
+**** [[https://vutr.substack.com/p/databricks-introduced-a-new-database][\[FREE\] Databricks introduced a new database that could change everything (?)]]
+:SCORE: 7/10
+:WHY: Помогает оценить OLTP-архитектуру и базу для транзакций агентов, а не только аналитики.
+
+** Engineers
+- [[https://aws.amazon.com/blogs/machine-learning/how-intuit-built-an-agentic-disaster-recovery-assistant-with-amazon-bedrock/][How Intuit built an agentic disaster recovery assistant with Amazon Bedrock]] (AWS) — Описывает агент для disaster recovery поверх EWOK, где runbooks превращены в skills, а исполнение остается governed workflow.
+- [[https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/][Designing lifecycle policies for AgentCore memory]] (AWS) — Практический подход к scoring, consolidation и pruning памяти агентов: episodic expire быстрее, semantic retain дольше, есть CDK и Step Functions workflow.
+- [[https://aws.amazon.com/blogs/machine-learning/run-agent-driven-amazon-sagemaker-hyperpod-operations-with-instantstart/][Run agent-driven Amazon SageMaker HyperPod operations with InstantStart]] (AWS) — Показывает, как агентное управление HyperPod опирается на единый control plane, retryable операции и стандартные AWS/Kubernetes ресурсы.
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/how-intuit-built-an-agentic-disaster-recovery-assistant-with-amazon-bedrock/][How Intuit built an agentic disaster recovery assistant with Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Показывает production-паттерн превращения tribal knowledge в проверяемые, auditable failover skills.
+**** [[https://aws.amazon.com/blogs/machine-learning/designing-lifecycle-policies-for-agentcore-memory/][Designing lifecycle policies for AgentCore memory]]
+:SCORE: 8/10
+:WHY: Управляет память агента как managed resource: TTL, consolidation, compliance, pruning и nightly workflow.
+**** [[https://aws.amazon.com/blogs/machine-learning/run-agent-driven-amazon-sagemaker-hyperpod-operations-with-instantstart/][Run agent-driven Amazon SageMaker HyperPod operations with InstantStart]]
+:SCORE: 8/10
+:WHY: Полезно для инженерных платформ: агент должен работать через детерминированный control plane, а не через raw CLI guessing.
+
+** Vendors
+- [[https://www.databricks.com/blog/achieving-extreme-efficiency-through-specialized-gpu-kernel-generation][Achieving Extreme Efficiency through Specialized GPU Kernel Generation]] (Databricks) — Databricks показывает генерацию специализированных GPU-ядер для production inference и путь к эффективности выше generic kernels.
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/achieving-extreme-efficiency-through-specialized-gpu-kernel-generation][Achieving Extreme Efficiency through Specialized GPU Kernel Generation]]
+:SCORE: 8/10
+:WHY: Актуально, если latency и cost inference упираются в kernel-level GPU optimization и vendor roadmap for GPU workloads.
+
+** Open Source
+- [[https://www.kdnuggets.com/switchyard-nvidias-open-source-routing-library][Switchyard: NVIDIA’s Open Source Routing Library]] (KDNuggets) — Open-source routing library для AI-запросов: выбирает модель по стоимости и латентности, снижая переплату за всегда дорогие LLM.
+- [[https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/][Build a Physical AI model factory with NVIDIA Cosmos 3 on SageMaker HyperPod]] (AWS) — Разбирает open omnimodal model NVIDIA Cosmos и model factory: генерация синтетики, post-training и evaluation на одном resilient GPU пуле.
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/switchyard-nvidias-open-source-routing-library][Switchyard: NVIDIA’s Open Source Routing Library]]
+:SCORE: 9/10
+:WHY: Дает прямой open-source паттерн для cost/latency control в multi-model AI systems.
+**** [[https://aws.amazon.com/blogs/machine-learning/build-a-physical-ai-model-factory-with-nvidia-cosmos-3-on-sagemaker-hyperpod/][Build a Physical AI model factory with NVIDIA Cosmos 3 on SageMaker HyperPod]]
+:SCORE: 8/10
+:WHY: Полезен как пример использования open model license в production pipeline с GPU capacity planning и goodput metrics.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/5-free-llm-api-providers-you-can-use-in-2026][5 Free LLM API Providers You Can Use in 2026]] (KDNuggets) — Список бесплатных LLM API providers для прототипов, fast inference и агентных сценариев с акцентом на ограничения, multimodality и data policies.
+- [[https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/][Deploy a multimodal WhatsApp ordering assistant with Amazon Bedrock AgentCore]] (AWS) — Референсная архитектура multimodal assistant: WhatsApp text и voice, Bedrock AgentCore, MCP к backend, cross-channel memory и CDK deployment.
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/deploy-a-multimodal-whatsapp-ordering-assistant-with-amazon-bedrock-agentcore/][Deploy a multimodal WhatsApp ordering assistant with Amazon Bedrock AgentCore]]
+:SCORE: 9/10
+:WHY: Дает concrete reference architecture для production conversational agents с async webhook, cross-channel memory и backend isolation.
+**** [[https://www.kdnuggets.com/5-free-llm-api-providers-you-can-use-in-2026][5 Free LLM API Providers You Can Use in 2026]]
+:SCORE: 7/10
+:WHY: Быстрый обзор no-cost model access для spike-решений, но инженеру нужно проверять rate limits, privacy и vendor lock-in.
+
+** Non Engineering
+- [[https://www.databricks.com/blog/five-ways-marketers-can-use-genie-one][Five ways marketers can use Genie One]] (Databricks) — Маркетинг-кейсы Genie One показывают, как business users переходят к natural-language analytics, увеличивая спрос на метаданные, permissions и governed self-service data products.
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/five-ways-marketers-can-use-genie-one][Five ways marketers can use Genie One]]
+:SCORE: 5/10
+:WHY: Помогает понять бизнес-спрос на self-service BI, который инженерной платформе нужно operationalize через metadata, access controls и trust.

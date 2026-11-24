@@ -1,0 +1,106 @@
+#+TITLE: Daily Digest: 2026-10-03
+#+FROM: [2026-10-02 Fri]
+#+TO: [2026-10-03 Sat]
+#+DATE: [2026-10-03 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Ключевой сдвиг дня — индустриализация границы между генеративным ИИ и детерминированной логикой: паттерн Adjudicated Query от AWS оставляет LLM роль интерфейса, а pass/fail-решения передаёт версионируемому движку правил. AWS параллельно дособирает агентный стек — защищённый веб-поиск для Claude Desktop через AgentCore Gateway и мульти-turn RL (MTRL) в SageMaker для дообучения малых агентов под свою среду. Databricks наращивает агентную повестку: миллион созданных Genie-агентов и realtime-персонализация на связке Lakebase и AI Search. Для инженеров актуальны экономика промптов через сжатие токенов и трезвый взгляд на новую роль Forward Deployed Engineer. В AI-safety дискурсе доминируют recursive self-improvement и отсутствие «стерильных зон» у языковых моделей — эссе Low-Background Minds задаёт тон обсуждения.
+
+* 📂 Категории
+** Инженеры (Engineers)
+- [[https://www.kdnuggets.com/python-foundations-for-engineering-a-cheat-sheet][Python Foundations for Engineering: A KDnuggets Cheat Sheet]] (KDnuggets) — Шпаргалка по базовому Python, который не заменяется фреймворками и остаётся фундаментом любой инженерной работы.
+- [[https://www.kdnuggets.com/forward-deployed-engineer-ais-hottest-new-career-or-consulting-with-a-better-title][Forward Deployed Engineer: AI’s Hottest New Career, or Consulting With a Better Title?]] (KDnuggets) — Трезвый разбор самой разогретой ИИ-роли: где реальная инженерия на стыке с заказчиком, а где ребрендинг консалтинга.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/python-foundations-for-engineering-a-cheat-sheet][Python Foundations for Engineering: A KDnuggets Cheat Sheet]]
+:SCORE: 7/10
+:WHY: Базовые конструкции Python не устаревают и определяют качество отладки любого production-кода, включая LLM-пайплайны.
+**** [[https://www.kdnuggets.com/forward-deployed-engineer-ais-hottest-new-career-or-consulting-with-a-better-title][Forward Deployed Engineer: AI’s Hottest New Career, or Consulting With a Better Title?]]
+:SCORE: 7/10
+:WHY: Помогает оценить самый хайповый карьерный трек в ИИ без иллюзий о его реальном содержании.
+
+** Вендоры (Vendors)
+- [[https://www.databricks.com/blog/capital-markets-buy-side-runs-nav-finance-protects-fee][In Capital Markets, the Buy Side Runs on NAV. Finance Protects the Fee.]] (Databricks) — Доменная карта того, как ежедневный цикл buy-side строится вокруг NAV, а финансы защищают fee — полезно инженерам в финтехе.
+- [[https://www.databricks.com/blog/how-choose-your-first-genie-agents-maximum-impact][How to choose your first Genie Agents for maximum impact]] (Databricks) — Критерии выбора первых Genie-агентов для максимума эффекта на фоне миллиона созданных в 2026 году.
+- [[https://www.databricks.com/blog/real-time-retail-intelligence-building-e-commerce-recommendations-lakebase-and-ai-search][Real-Time Retail Intelligence: Building E-Commerce Recommendations with Lakebase and AI Search on Databricks]] (Databricks) — Архитектура realtime-рекомендаций e-commerce на связке транзакционной Lakebase и векторного AI Search.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/real-time-retail-intelligence-building-e-commerce-recommendations-lakebase-and-ai-search][Real-Time Retail Intelligence: Building E-Commerce Recommendations with Lakebase and AI Search on Databricks]]
+:SCORE: 8/10
+:WHY: Рабочий гибридный паттерн OLTP-базы и AI-поиска, который легко адаптируется под любую персонализацию в реальном времени.
+**** [[https://www.databricks.com/blog/how-choose-your-first-genie-agents-maximum-impact][How to choose your first Genie Agents for maximum impact]]
+:SCORE: 7/10
+:WHY: Готовая рамка приоритизации агентных внедрений вместо стихийного списка «хотелок» бизнеса.
+**** [[https://www.databricks.com/blog/capital-markets-buy-side-runs-nav-finance-protects-fee][In Capital Markets, the Buy Side Runs on NAV. Finance Protects the Fee.]]
+:SCORE: 6/10
+:WHY: Полезная доменная разведка для инженеров, чьи данные обслуживают капитальные рынки.
+
+** Открытый код (Open Source)
+- [[https://huggingface.co/blog/allenai/astabrief][Open-sourcing AstaBrief, the fast report-generation model in Asta]] (Hugging Face) — Allen AI открывает AstaBrief, быструю модель генерации отчётов, — готовый строительный блок для research-ассистентов без вендорского лока-ина.
+
+*** 💎 Топ-3 категории
+**** [[https://huggingface.co/blog/allenai/astabrief][Open-sourcing AstaBrief, the fast report-generation model in Asta]]
+:SCORE: 6/10
+:WHY: Открытая модель генерации отчётов, которую можно сразу встроить в собственный пайплайн и тюнить под свои форматы.
+
+** Искусственный интеллект (Artificial Intelligence)
+- [[https://www.kdnuggets.com/5-proven-techniques-for-token-compression-and-prompt-optimization][5 Proven Techniques for Token Compression and Prompt Optimization]] (KDnuggets) — Пять проверенных техник сжатия токенов и оптимизации промптов: ниже стоимость, выше качество ответов.
+- [[https://aws.amazon.com/blogs/machine-learning/sweep-thousands-of-leases-for-compliance-using-amazon-quick-and-the-adjudicated-query-pattern/][Sweep thousands of leases for compliance using Amazon Quick and the Adjudicated Query pattern]] (AWS Machine Learning Blog) — Паттерн Adjudicated Query: LLM лишь переводит вопрос в вызовы типизированных операций, а pass/fail-решения принимает детерминированный движок правил с доказуемой полнотой и защитимостью находок.
+- [[https://aws.amazon.com/blogs/machine-learning/add-secure-web-search-to-claude-desktop-with-amazon-bedrock-agentcore/][Add secure Web Search to Claude Desktop with Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — Как подключить управляемый веб-поиск к Claude Desktop через AgentCore Gateway с JWT-аутентификацией из IAM Identity Center, не выпуская запросы за периметр AWS.
+- [[https://aws.amazon.com/blogs/machine-learning/fine-tune-a-search-agent-with-multi-turn-rl-on-amazon-sagemaker-ai/][Fine-tune a search agent with multi-turn RL on Amazon SageMaker AI]] (AWS Machine Learning Blog) — Мульти-turn RL (MTRL) в SageMaker дообучает малую модель на полных траекториях агента: скорость и цена малой модели с надёжностью frontier.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/sweep-thousands-of-leases-for-compliance-using-amazon-quick-and-the-adjudicated-query-pattern/][Sweep thousands of leases for compliance using Amazon Quick and the Adjudicated Query pattern]]
+:SCORE: 9/10
+:WHY: Воспроизводимый архитектурный шаблон для compliance-критичных GenAI-систем: provable completeness и defensibility вместо «примерно проверили всё».
+**** [[https://aws.amazon.com/blogs/machine-learning/fine-tune-a-search-agent-with-multi-turn-rl-on-amazon-sagemaker-ai/][Fine-tune a search agent with multi-turn RL on Amazon SageMaker AI]]
+:SCORE: 8/10
+:WHY: Практичный способ получить надёжное multi-turn агентное поведение малой модели без frontier-затрат на инференсе.
+**** [[https://www.kdnuggets.com/5-proven-techniques-for-token-compression-and-prompt-optimization][5 Proven Techniques for Token Compression and Prompt Optimization]]
+:SCORE: 7/10
+:WHY: Прямая экономия токен-бюджета на каждом вызове LLM почти без потери качества ответов.
+
+** Сознание ИИ (AI Consciousness)
+- [[https://www.lesswrong.com/posts/e3TCEuhoAz5XJrzGk/a-blog-based-on-git-sure-feels-nice][A blog based on git sure feels nice]] (LessWrong) — Практичный рецепт: блог на git с публикацией через git push, настройка которого свелась к диалогу с ИИ вокруг README.
+- [[https://www.lesswrong.com/posts/3uT42yoj2iimYn7Ra/lab-leak-in-russia][Lab Leak in Russia]] (LessWrong) — Сообщение о лабораторной утечке пневмонической чумы в России — свежий аргумент в споре о биорисках и preparedness.
+- [[https://www.lesswrong.com/posts/PAzerqAofFCLoWsgK/reviewing-my-lesswrong-post-history-with-claude][Reviewing my LessWrong post history with Claude]] (LessWrong) — Claude Code разбирает 7-летнюю историю постов и рейтинги и находит устойчивые паттерны когнитивных искажений.
+- [[https://www.lesswrong.com/posts/RJTkboMEgDifkiaxd/how-to-talk-about-extinction][How to talk about extinction]] (LessWrong) — Вместо вечного спора «за/против» x-risk-фрейминга — конкретные протоколы тестирования сценариев и мессенджеров.
+- [[https://www.lesswrong.com/posts/p9qNwqXsiEPPuG9tz/low-background-minds][Low-Background Minds]] (LessWrong) — Эссе Opus 5.5: языковая модель — операционная без стерильного поля, где prompt injection — это «операция в холле».
+- [[https://www.lesswrong.com/posts/ZT2rKu3Z6RaargYYF/what-is-recursive-self-improvement-and-what-would-it-mean-to][What is recursive self-improvement and what would it mean to ban it?]] (LessWrong) — Разбор спектра определений RSI и того, почему любой запрет потребует произвольного порога.
+- [[https://www.lesswrong.com/posts/uw8RQ8yjKexnhTw6E/state-of-the-field-ai-for-epistemics-and-coordination][State of the Field: AI for Epistemics and Coordination]] (LessWrong) — Обзор формирующегося поля ИИ для эпистемики и координации: риски концентрации влияния и ограниченное окно для норм и публичной инфраструктуры.
+- [[https://www.lesswrong.com/posts/PiP4JqQFKhoqHGG2n/how-to-apply-to-ai-safety-fellowships-and-beyond][How to apply to AI safety fellowships (and beyond)]] (LessWrong) — Тактика «legibility»: как описывать навыки в заявках на феллоушипы, чтобы ревьюер не спутал вас с Average Joe.
+- [[https://www.lesswrong.com/posts/nmBXMp97vhxC4ucuE/petrov-day-in-cusco-with-a-candle-1][Petrov Day in Cusco, with a candle]] (LessWrong) — Ретеллинг истории Петрова: в 1983-м «у компьютера нет мозга», в эпоху ИИ это всё менее верно.
+- [[https://www.lesswrong.com/posts/PA7f9a9ZFcqpjmGEZ/dialogue-with-eliezer-yudkowsky-on-neural-networks][Dialogue with Eliezer Yudkowsky on Neural Networks]] (LessWrong) — Юдковский объясняет, что именно он критиковал в нейросетях в 2007-м и что этот ошибочный прогноз говорит о модели интеллекта.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/p9qNwqXsiEPPuG9tz/low-background-minds][Low-Background Minds]]
+:SCORE: 9/10
+:WHY: Лучшая метафора года для понимания архитектурной причины prompt injection: у модели нет «кожи», только бейджи.
+**** [[https://www.lesswrong.com/posts/ZT2rKu3Z6RaargYYF/what-is-recursive-self-improvement-and-what-would-it-mean-to][What is recursive self-improvement and what would it mean to ban it?]]
+:SCORE: 9/10
+:WHY: Единственный систематический разбор определений RSI — база для трезвой оценки политик лабораторий и регуляторных предложений.
+**** [[https://www.lesswrong.com/posts/uw8RQ8yjKexnhTw6E/state-of-the-field-ai-for-epistemics-and-coordination][State of the Field: AI for Epistemics and Coordination]]
+:SCORE: 8/10
+:WHY: Стратегическая карта поля по ~65 интервью показывает, где инженерные усилия в эпистемике и координации ещё не заняты рынком.
+**** [[https://www.lesswrong.com/posts/PA7f9a9ZFcqpjmGEZ/dialogue-with-eliezer-yudkowsky-on-neural-networks][Dialogue with Eliezer Yudkowsky on Neural Networks]]
+:SCORE: 8/10
+:WHY: Откровенная ретроспектива громкого ошибочного прогноза — калибровочный материал для собственных суждений о парадигмах ИИ.
+**** [[https://www.lesswrong.com/posts/PAzerqAofFCLoWsgK/reviewing-my-lesswrong-post-history-with-claude][Reviewing my LessWrong post history with Claude]]
+:SCORE: 7/10
+:WHY: Реплицируемый приём агентного самоаудита на лонгитюдных данных — готовый workflow для Claude Code.
+**** [[https://www.lesswrong.com/posts/RJTkboMEgDifkiaxd/how-to-talk-about-extinction][How to talk about extinction]]
+:SCORE: 7/10
+:WHY: Конкретные исследовательские протоколы для x-risk-коммуникации вместо бесконечного спора «за/против».
+**** [[https://www.lesswrong.com/posts/e3TCEuhoAz5XJrzGk/a-blog-based-on-git-sure-feels-nice][A blog based on git sure feels nice]]
+:SCORE: 6/10
+:WHY: Минимальный рецепт публикации через git push, который можно воспроизвести за один вечер с помощью ИИ.
+**** [[https://www.lesswrong.com/posts/PiP4JqQFKhoqHGG2n/how-to-apply-to-ai-safety-fellowships-and-beyond][How to apply to AI safety fellowships (and beyond)]]
+:SCORE: 6/10
+:WHY: Тактика представления навыков в заявках, применимая к любому техническому найму с шумным отбором.
+**** [[https://www.lesswrong.com/posts/nmBXMp97vhxC4ucuE/petrov-day-in-cusco-with-a-candle-1][Petrov Day in Cusco, with a candle]]
+:SCORE: 5/10
+:WHY: Рефлексия о последнем человеческом слове при автоматизации критических решений.
+**** [[https://www.lesswrong.com/posts/3uT42yoj2iimYn7Ra/lab-leak-in-russia][Lab Leak in Russia]]
+:SCORE: 4/10
+:WHY: Оперативный контекст биобезопасности, важный для preparedness, но далёкий от инженерной практики.

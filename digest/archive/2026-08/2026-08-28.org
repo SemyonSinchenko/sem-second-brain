@@ -1,0 +1,85 @@
+#+TITLE: Daily Digest: 2026-08-28
+#+FROM: [2026-08-27 Thu]
+#+TO: [2026-08-28 Fri]
+#+DATE: [2026-08-28 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+- За сутки заметен сдвиг от генеративных демо к управляемой эксплуатации: DeepMind, Google и Databricks продвигают контроль, double-blind оценку и fault-tolerant ML-пайплайны.
+- Поставщики усиливают инфраструктурную ценность — observability для self-hosted speech AI, cross-region inference с data residency и GPU-шеринг через NVIDIA MPS.
+- В big tech обсуждается кадровая трансформация из-за AI: Meta по сообщениям планировала сокращать команды на 60%.
+- Для data engineering важны сигналы о Lakebase/streaming/lakehouse, structured chart extraction и graph-стандартах GQL/LDBC.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.databricks.com/blog/building-ai-era-lakebase-streaming-and-lakehouse-innovations-vldb-2026][Building for the AI Era: Lakebase, Streaming, and Lakehouse Innovations at VLDB 2026]] (Databricks) — Показывает, как Lakebase, streaming и lakehouse связывают operational data с AI-нагрузками; полезно для выбора платформы и архитектурных решений.
+- [[hxxps://www.databricks.com/blog/enhancing-agent-retrieval-structured-chart-extraction][Enhancing Agent Retrieval with Structured Chart Extraction]] (Databricks) — Описывает structured extraction из чартов для retrieval-агентов, что повышает точность ответов на документной и визуальной аналитике.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Агрегирует свежие темы graph-стандартов, GQL и графовых ускорителей; важно для data/graph engineering roadmap.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/building-ai-era-lakebase-streaming-and-lakehouse-innovations-vldb-2026][Building for the AI Era: Lakebase, Streaming, and Lakehouse Innovations at VLDB 2026]]
+:SCORE: 8/10
+:WHY: Даёт понятный сигнал, куда движутся operational data-платформы для AI-нагрузок.
+**** [[hxxps://www.databricks.com/blog/enhancing-agent-retrieval-structured-chart-extraction][Enhancing Agent Retrieval with Structured Chart Extraction]]
+:SCORE: 7/10
+:WHY: Практично для инженеров, которые строят retrieval поверх смешанной таблично-графиковой аналитики.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Полезно как индекс направления graph data-стандартов и research/industry-практик.
+
+** Engineers
+- [[hxxps://www.kdnuggets.com/what-we-can-learn-from-google-engineers-indispensible-prompts][What We Can Learn From Google Engineers’ Indispensible Prompts]] (KDnuggets) — Раскрывает личные рабочие промпты Google-инженеров; можно адаптировать как шаблоны для code review, design docs и отладки.
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-meta-wanted-to-reduce-teams][The Pulse: Meta wanted to reduce teams by 60% because of AI]] (Pragmatic Engineer) — Сообщает о планах Meta сокращать команды из-за AI; важно для оценки реальных кадровых последствий, а не только хайпа.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/deepgram-deepens-amazon-sagemaker-ai-observability-with-enhanced-metrics/][Deepgram deepens Amazon SageMaker AI observability with Enhanced Metrics]] (AWS) — Закрывает проблемы billing, feature usage и GPU-инсайдов в изолированных SageMaker-контейнерах; полезно для platform/SRE-инженеров.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/what-we-can-learn-from-google-engineers-indispensible-prompts][What We Can Learn From Google Engineers’ Indispensible Prompts]]
+:SCORE: 8/10
+:WHY: Даёт конкретные паттерны промптов, которые можно превратить в инженерные рабочие процессы.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-meta-wanted-to-reduce-teams][The Pulse: Meta wanted to reduce teams by 60% because of AI]]
+:SCORE: 7/10
+:WHY: Показывает, что AI-эффективность может менять состав и размер engineering-команд.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/deepgram-deepens-amazon-sagemaker-ai-observability-with-enhanced-metrics/][Deepgram deepens Amazon SageMaker AI observability with Enhanced Metrics]]
+:SCORE: 8/10
+:WHY: Практично для engineers, которым нужны usage и engine-level метрики внутри self-hosted endpoints.
+
+** Vendors
+- [[hxxps://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/][Gemini Omni 1.1 Flash lets you build with more control]] (DeepMind) — Анонс Gemini Omni 1.1 Flash с акцентом на контроль разработчика; стоит оценивать для более предсказуемых прототипов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-agentic-creative-workflows-with-amazon-quick-and-fal/][Build agentic creative workflows with Amazon Quick and fal]] (AWS) — Демонстрирует agent harness из Amazon Quick, Skills, fal и MCP для длинных creative workflows; полезно как шаблон orchestrating media-нагрузок.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-openai-models-on-amazon-bedrock-for-in-country-inferencing-in-india/][Introducing OpenAI models on Amazon Bedrock for in-country inferencing in India]] (AWS) — Описывает India geographic cross-Region inference для OpenAI на Bedrock; важно для compliance-чувствительных инференс-нагрузок с data residency.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-openai-models-on-amazon-bedrock-for-in-country-inferencing-in-india/][Introducing OpenAI models on Amazon Bedrock for in-country inferencing in India]]
+:SCORE: 8/10
+:WHY: Показывает паттерн inference profiles, который решает capacity и data residency одновременно.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-agentic-creative-workflows-with-amazon-quick-and-fal/][Build agentic creative workflows with Amazon Quick and fal]]
+:SCORE: 7/10
+:WHY: Конкретный пример MCP-оркестрации с reusable workflow instructions и human gates.
+**** [[hxxps://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/][Gemini Omni 1.1 Flash lets you build with more control]]
+:SCORE: 6/10
+:WHY: Полезен для оценки новых Gemini-вариантов в разработческих и продуктовых сценариях.
+
+** Artificial Intelligence
+- [[hxxps://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/][Piloting the world's first double-blind AI evaluations]] (DeepMind) — Пилот double-blind AI-оценок снижает предвзятость сравнений; нужно для строгой валидации моделей и выбора vendor.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/reduce-asr-inference-costs-by-75-with-nvidia-mps-on-amazon-ec2/][Reduce ASR inference costs by 75% with NVIDIA MPS on Amazon EC2]] (AWS) — Кейс NVIDIA MPS + Triton для ASR: 75% меньше GPU-инстансов при сохранении sub-second latency; конкретный путь к cost optimization.
+- [[hxxps://www.databricks.com/blog/fast-fault-tolerant-pytorch-training-ai-runtime][Fast, fault-tolerant PyTorch training on AI Runtime]] (Databricks) — Фокус на goodput и fault tolerance при PyTorch-обучении; полезно для ML-платформ и распределённых тренировок.
+- [[hxxps://www.databricks.com/blog/vertical-advantage-transforming-industries-lakebase-and-agentic-ai][Vertical Advantage: Transforming Industries with Lakebase and Agentic AI]] (Databricks) — Продвигает Lakebase + agentic AI для вертикальных индустрий; больше позиционирование, чем практический инженерный паттерн.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/reduce-asr-inference-costs-by-75-with-nvidia-mps-on-amazon-ec2/][Reduce ASR inference costs by 75% with NVIDIA MPS on Amazon EC2]]
+:SCORE: 9/10
+:WHY: Даёт воспроизводимый подход к GPU-утилизации, стоимости и latency SLA в inference-нагрузках.
+**** [[hxxps://www.databricks.com/blog/fast-fault-tolerant-pytorch-training-ai-runtime][Fast, fault-tolerant PyTorch training on AI Runtime]]
+:SCORE: 8/10
+:WHY: Вводит goodput как практичный критерий надёжности и эффективности распределённого обучения.
+**** [[hxxps://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/][Piloting the world's first double-blind AI evaluations]]
+:SCORE: 7/10
+:WHY: Важен для инженерной культуры оценки AI-систем без систематических смещений.
+
+** Non Engineering
+- [[hxxps://www.databricks.com/blog/what-qsr-reports-miss-about-decisions-matter-most][What QSR reports miss about the decisions matter the most]] (Databricks) — Критикует QSR-аналитику за то, что отчёты скрывают наиболее важные решения; полезно как напоминание: метрики должны быть связаны с действиями, а не только объёмом.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/what-qsr-reports-miss-about-decisions-matter-most][What QSR reports miss about the decisions matter the most]]
+:SCORE: 5/10
+:WHY: Показывает бизнес-слепое место в отчётности, но техническая ценность для senior engineer ограничена.

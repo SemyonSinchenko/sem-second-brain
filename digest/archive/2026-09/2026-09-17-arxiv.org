@@ -1,0 +1,153 @@
+#+TITLE: Arxiv Digest: 2026-09-17
+#+FROM: [2026-09-16 Wed]
+#+TO: [2026-09-17 Thu]
+#+DATE: [2026-09-17 Thu]
+#+STARTUP: showall
+
+* cs.DB
+** 🧐 Обзор
+За сутки в cs.DB заметен акцент на надёжности распределённых СУБД и на интеграции LLM в текстово-SQL пайплайны. Зрелое направление — тестирование DDBMS через учёт стратегий распределения данных. Практически релевантны также стандартизация гармонизации данных и связывание корпусов с открытыми графами знаний.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.18501][Distribution-Aware Distributed Database Testing (Extended Version)]]
+:WHAT: DAT/DistRanger — автоматизированное тестирование распределённых СУБД с учётом стратегий шардирования и распределённых оптимизаций, включая мутации запросов с исторической обратной связью.
+:IMPACT: 31 ранее неизвестный баг в четырёх продакшн DDBMS; прямой инструмент повышения надёжности распределённых систем обработки запросов.
+
+- [[https://arxiv.org/abs/2406.14163][Crossmaps: standardizing ex-post data harmonization workflows]]
+:WHAT: Фреймворк Crossmaps — разделение спецификации и реализации переклассификации агрегатов между стандартами (part-to-whole массив + crossmap), с графовыми, матричными и edgelist-энкодингами.
+:IMPACT: Делает ex-post гармонизацию проверяемой и переиспользуемой вместо скрытых ad-hoc скриптов — важно для data engineering и ETL-пайплайнов.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.18289][Linking Speakers of the German Parliament to Wikidata: Scope and Coverage of Metadata]]
+:ALGO: Методика entity linking всех спикеров Бундестага (1949–2021) к Wikidata с оценкой покрытия и смещений метаданных.
+:IMPACT: Показывает практические ограничения открытых графов знаний (пробелы по полу, профессии, транснациональным атрибутам) — полезно при построении KG-приложений.
+
+* cs.AI
+** 🧐 Обзор
+В cs.AI доминирует тема Text-to-SQL: совместная multi-agent RL-оптимизация (DualSQL) и переосмысление schema linking с новыми LLM. Зреет направление надёжности — атрибуция цитирований и оценка неопределённости. Практическая значимость — совместимость с БД-задачами и агентными системами.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.18135][DualSQL: Text-to-SQL with Multi-Agent Reinforcement Learning]]
+:WHAT: Двухагентная система schema linking + SQL-генерация на общем бэкбоне с multi-agent RL, guardrail-механизмами и метрикой REX.
+:IMPACT: 71.1% execution accuracy на BIRD для 8B модели — превосходит 32B решения; практичный путь к компактным SQL-агентам с доступом к БД.
+
+- [[https://arxiv.org/abs/2408.07702][The Death of Schema Linking? Text-to-SQL in the Age of Well-Reasoned Language Models]]
+:WHAT: Пайплайн Text-to-SQL, отказывающийся от schema linking при влезании схемы в контекст; вместо фильтрации — аугментация, селекция и коррекция.
+:IMPACT: 71.83% на BIRD (1-е место); пересматривает архитектуру SQL-пайплайнов — меньше преждевременной фильтрации схемы.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.17568][Independence-System Realisations in Single-Source Unsplittable Flow]]
+:ALGO: Полиномиальная реализация любых конечных independence-систем через gadget'ы в ациклических одноисточниковых flow-инстансах; точные пороги для нечётных циклов.
+:IMPACT: Мост между потоковыми задачами и структурой stable-set — релевантно для routing и задач размещения с ограничениями на congestion.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2405.02228][Abstention vs. Hallucination: Benchmarking LLM Source Attribution for Scientific Citations]] — бенчмарк REASONS из 12,723 цитирований, показывающий trade-off между отказом от ответа и галлюцинациями при RAG.
+- [[https://arxiv.org/abs/2006.12694][Limits of Transfer Learning]] — теоретические границы эффективности transfer learning через framework алгоритмического поиска.
+- [[https://arxiv.org/abs/2409.09253][Unleash LLMs Potential for Sequential Recommendation by Coordinating Dual Dynamic Index Mechanism]] — LLM-рекомендатель ED² с dual dynamic index, +19.6% Hit-Rate на трёх датасетах.
+- [[https://arxiv.org/abs/2412.07255][Label-Confidence-Aware Uncertainty Estimation in Natural Language Generation]] — метод UQ на основе pointwise KL-дивергенции, согласовывающий выборку с калибровкой конкретного ответа.
+- [[https://arxiv.org/abs/2502.12048][A Survey on Bridging EEG Signals and Generative AI]] — обзор EEG→image/text/audio с анализом датасетов и архитектур.
+- [[https://arxiv.org/abs/2502.14254][Mem2Ego: Empowering Vision-Language Models with Global-to-Ego Memory for Long-Horizon Embodied Navigation]] — VLM-навигация с адаптивной выборкой из глобальной памяти.
+- [[https://arxiv.org/abs/2503.10265][SurgRAW: Multi-Agent Workflow with Chain of Thought Reasoning for Robotic Surgical Video Analysis]] — CoT-агентный workflow для понимания хирургических сцен с бенчмарком SurgCoTBench.
+- [[https://arxiv.org/abs/2503.12018][CompArt: Operationalizing Aesthetic Alignment in Text-to-Image Generation via Principles of Art]] — датасет и адаптер ArtDapter для управления композицией в T2I по 10 осям.
+- [[https://arxiv.org/abs/2505.01912][BOOM: Benchmarking Out-Of-distribution Molecular Property Predictions of Machine Learning Models]] — бенчмарк OOD-обобщения моделей предсказания свойств молекул: лучшие модели дают в 3 раза бо́льшую ошибку вне распределения.
+
+* cs.DS
+** 🧐 Обзор
+В cs.DS — прорывные результаты по онлайн-задачам и приватности: впервые пробита барьер T^{2/3} для последовательной калибровки, улучшен competitive ratio для matroid secretary до 3.7321. Зреет направление дифференциальной приватности с доказанно оптимальными механизмами (Binary Tree, PrivTree). Практически интересен GPU-ускоренный поиск алгоритмов матричного умножения.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.17533][GPU-Accelerated Search for Fast Matrix Multiplication over F_2]]
+:WHAT: GPU-поиск по flip-графам умножения матриц (миллиард шагов/с на H200, 1000× ускорение) + доказательство сильной связности flip-графа над F_2.
+:IMPACT: Новый рекорд для 7×7 матриц (245 умножений); демонстрирует GPU как инструмент автоматизированного поиска алгоритмов.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.17782][A 3.7321-Competitive Algorithm for Matroid Secretary]]
+:ALGO: Улучшение 4-конкурентного алгоритма Синглы до 2+√3 через резервную выборку и обратимый референсный процесс, O(n²) запросов независимости.
+:IMPACT: Задача с прямыми приложениями к онлайн-аукционам и распределению ресурсов.
+
+- [[https://arxiv.org/abs/2609.17713][A tight 1/3-approximation algorithm and FPTASs for the Colored Knapsack Problem]]
+:ALGO: Первая аппроксимация (1/3, линейное время) и два FPTAS для Colorful Knapsack через переформулировку DP по прибыли.
+:IMPACT: Практичные схемы для задач планирования с классами совместимости (scheduling с несовместимыми парами).
+
+- [[https://arxiv.org/abs/2406.13668][Breaking the T^{2/3} Barrier for Sequential Calibration]]
+:ALGO: Эквивалентность калибровки и игры sign preservation with reuse; первый за 25 лет улучшенный верхний O(T^{2/3-ε}) и нижняя граница Ω(T^{0.54389}).
+:IMPACT: Основа для онлайн-прогнозирования с гарантиями калибровки — релевантно для систем принятия решений и прогнозирования нагрузки.
+
+- [[https://arxiv.org/abs/2609.17650][Tight Lower Bounds for Differentially Private Continual Counting]]
+:ALGO: Доказательство асимптотической оптимальности Binary Tree Mechanism при pure и approximate DP через единую hard-дистрибуцию на дереве.
+:IMPACT: Закрывает открытый вопрос о стандарте DP-мониторинга временных рядов — ориентир для реализации приватной аналитики.
+
+- [[https://arxiv.org/abs/2609.17624][Intrinsic-Dimensional Wasserstein Guarantees for Private Synthetic Measures]]
+:ALGO: Оптимальная (по минимаксу) 1-Wasserstein ошибка ~ (εn)^{-1/s}, зависящая от внутренней размерности данных, для PrivTree-синтетики.
+:IMPACT: Практические ориентиры качества приватной синтетики для высокоразмерных, но внутренне низкоразмерных датасетов.
+
+- [[https://arxiv.org/abs/2609.17655][Efficient Robust Learning at the Information-Theoretic Limit]]
+:ALGO: Полиномиальный алгоритм робастного обучения с ошибкой η+ε через no-regret learners; первый polytime-алгоритм для полуплоскостей при гауссовских маргиналах.
+:IMPACT: Доводит робастное обучение до теоретического предела с вычислительной эффективностью — важно для устойчивых ML-конвейеров.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2511.00470][An Approximation Algorithm for Monotone Submodular Cost Allocation]] — k/2-аппроксимация MSCA с совпадающими нижними границами и приложениями к polymatroid intersection.
+- [[https://arxiv.org/abs/2609.17614][Low-Degree Polynomial Approximation of the Cross-Polytope]] — точная степень-искажение tradeoff Θ(√(d/t)) для SoS-аппроксимации ℓ₁-шара, требующая степени Θ(d).
+
+* cs.DC
+** 🧐 Обзор
+cs.DC сегодня целиком про serving LLM и агентных workflow: JCT-ориентированный pipeline parallelism (PipeSwift), физический планировщик Dyserve, иерархическое управление KV-кэшем для diffusion LLM (GroupKV) и адаптивный runtime Libra для RL-посттренинга. Вторая волна — параллельный lexing с сертификатами разбиения и децентрализация durable execution. Практическая значимость максимальна: 1.4–4.2× приросты на реальных GPU-кластерах.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.16491][PipeSwift: Revisiting Pipeline Parallelism for Large-Scale Completion-Oriented Agentic LLM Serving]]
+:WHAT: Pipeline-parallel runtime, переориентированный с token-SLO на job completion time: JCT-aware планирование + pipeline-интегрированный multi-token prediction.
+:IMPACT: До 1.45× снижение JCT против SGLang wide-EP и 1.54× против state-of-the-art PD-disaggregation на 64 H800 — напрямую улучшает стоимость агентного serving.
+
+- [[https://arxiv.org/abs/2607.02942][Serving Agentic Workflows with a Physical-Plan Compiler and Adaptive Runtime]]
+:WHAT: Dyserve — слой физического планирования между оркестрацией и serving: компилятор выбирает модель/верификатор/бэкенд на узел, runtime переключает варианты по давлению на бэкенды.
+:IMPACT: +3–9 п.п. точности с ускорением latency до 6.8×; корректно-вовремя завершённые запросы растут с 18.1% до 67.2% при burst-нагрузке.
+
+- [[https://arxiv.org/abs/2606.03077][Libra: Efficient Resource Management for Agentic RL Post-Training]]
+:WHAT: Адаптивный runtime для agentic RL: bucket-планировщик rollout с guided causality + динамическое перераспределение воркеров между rollout и training через non-blocking протокол.
+:IMPACT: До 4.2× throughput на кластерах A800/Ascend — снижает стоимость RL-посттренинга агентных LLM.
+
+- [[https://arxiv.org/abs/2609.17573][GroupKV: Hierarchical KV Cache Management for Long-Context Diffusion LLM Inference]]
+:WHAT: Иерархическое управление KV-кэшем для dLLM: групповая sparse-селекция, предиктивный prefetching по cross-layer консистентности, streaming prefill.
+:IMPACT: До 48× увеличение обслуживаемого контекста и 3.73× ускорение при offload — ключевое для длинноконтекстного dLLM-инференса.
+
+- [[https://arxiv.org/abs/2608.03473][Certified Split Points for Parallel Lexing]]
+:WHAT: Символы с сертификатом безопасного разбиения входа для параллельного lexing без симуляции/перекрытия, проверяемые за O(1) по таблицам DFA.
+:IMPACT: 92.6–95.3% параллельной эффективности на 8 потоках; превращает параллельный lexing из языкового допущения в проверяемое свойство компилятора.
+
+- [[https://arxiv.org/abs/2608.09761][Certified Split Windows for Parallel Lexing: Recovering Boundaries Where No Byte Certifies]]
+:WHAT: Обобщение сертификатов с байта на окно: восстанавливает начало токена там, где ни один байт не сертифицируется, через точный анализ достижимых конфигураций сканера.
+:IMPACT: 322 из 337 «безнадёжных» наборов токенов получают окна разбиения — расширяет применимость параллельного lexing на реальные языки (JSON, C-подобные).
+
+- [[https://arxiv.org/abs/2609.17645][State Without a Landlord: Peer-to-Peer Replication of Durable Workflow State]]
+:WHAT: Архитектура P2P-репликации журналов durable execution: single-writer epoch cores, quorum-finalized closure certificates, content-addressed payload plane.
+:IMPACT: Убирает зависимость durable workflow от провайдера-«арендодателя» — шаг к портируемому и цензурностойкому stateful serverless.
+
+- [[https://arxiv.org/abs/2510.04478][Overlapping Schwarz Scheme for Linear-Quadratic Programs in Continuous Time]]
+:WHAT: Optimize-then-discretize декомпозиция Шварца для LQ-задач оптимального управления с перекрывающимися временными интервалами и доказанной сходимостью через экспоненциальное затухание чувствительности.
+:IMPACT: Параллелизация задач управления без фиксации интегратора — применимо к scientific computing и model predictive control.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2608.12946][Efficient Randomized LL/SC that Preserves History Independence]] — рандомизированная реализация LL/SC с O(nτ+m) базовых объектов и QHI-совместимостью, делающая QHI-хеширование реализуемым на доступном железе.
+
+* physics.soc-ph
+** 🧐 Обзор
+В physics.soc-ph — активное применение сетевых методов к социальным данным: от анализа избирательных коалиций через community detection до agent-based моделей половых контактов и забастовок. Зреет тема коллективного знания — топология и перекрытие знаний влияют на интеграцию. Практически интересны масштабные эмпирические исследования (eBay, Kalshi) с сетевой оптикой.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.18200][Shannon entropy and complex network community detection to study electoral coalition behaviour at municipal scale]]
+:WHAT: Представление урбанистического электорального ландшафта как сети участков с корреляционными рёбрами + community detection и Шенноновская энтропия для измерения фрагментации коалиций.
+:IMPACT: Масштабируемый data-driven фреймворк анализа локальных социальных сетей — применим к любым пространственно-корреляционным данным голосования.
+
+- [[https://arxiv.org/abs/2609.18140][Overlap and topology shape synergy in collective knowledge integration]]
+:ALGO: Модель знаний как подграфов общего пространства: разделение внутренней и внешней синергии, влияние топологии (scale-free, small-world, modular) на интеграцию.
+:IMPACT: Напрямую релевантно проектированию рекомендательных и краудсорсинговых систем: умеренное rewiring увеличивает возможности, но рассеивает их.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.17610][On-Demand Combinatorial Event Markets on Kalshi]] — масштабный эмпирический анализ 7.6M рыночных объектов: эффективная ширина рынка измеряется иерархически, а не количеством тикеров.
+- [[https://arxiv.org/abs/2608.17312][Reputation and institutional certification as complementary trust mechanisms in a single online market]] — на ~1M листингов eBay показано разделение труда между репутацией и сертификацией.
+- [[https://arxiv.org/abs/2609.17622][Modelling sexual partnership dynamics and population heterogeneities in agent-based dynamic network models]] — калиброванная ABM-модель динамических контактных сетей по данным NATSAL-3.
+- [[https://arxiv.org/abs/2609.17761][Why Some Strikes Last Longer]] — минимальная динамическая модель, выявляющая «парадокс устойчивости»: остаточная активность может продлевать конфликты.
+- [[https://arxiv.org/abs/2609.17982][Macroscopic Response Diagnoses the Noise Sensitivity of Terminal Outcomes]] — измеримый критерий noise sensitivity систем через макроскопический отклик, верифицированный на модели Изинга и играх.
+- [[https://arxiv.org/abs/2607.13650][Calming traffic in unsignalized bidirectional streets by introducing one-lane bottlenecks]] — аналитика пропускной способности и задержек для FIFO vs. directional priority на улицах с узкими местами.
+- [[https://arxiv.org/abs/2408.12633][Evolutionary modelling reveals melodic and harmonic constraints on global scale structure]] — эволюционное моделирование 1,314 музыкальных шкал: мелодия, а не гармония, определяет глобальную структуру.
+- [[https://arxiv.org/abs/2609.17532][Enhancing Extubation Failure Prediction with LLM-Derived Features from Respiratory Therapy Clinical Notes]] — LLM-извлечение признаков из свободного текста заметок улучшает клиническое предсказание.

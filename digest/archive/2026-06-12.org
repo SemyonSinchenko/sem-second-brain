@@ -1,0 +1,82 @@
+#+TITLE: Daily Digest: 2026-06-12
+#+FROM: [2026-06-11 Thu]
+#+TO: [2026-06-12 Fri]
+#+DATE: [2026-06-12 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Сдвиг фокуса в AI-инженерии: от генерации кода к надежности агентов и оценке результатов (Wes McKinney, Agent-EvalKit). Рост затрат на токены заставляет пересматривать выбор инструментов и переходить на открытые модели (Token Tax). Вендоры усиливают интеграцию AI в аналитику и обработку документов, но text-to-SQL показывает пределы на сложных схемах (Dremio, AWS, Databricks). Инфраструктурные инструменты эволюционируют для поддержки многоконфигурационных сред и больших данных (Chezmoi, DataFusion, Spark).
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.ssp.sh/blog/how-to-use-ai-with-de-wes-mckinney/][Vibe Coding Is Dangerous, Agentic Engineering Isn't—Wes McKinney]] (ssp.sh) — Интервью с создателем Pandas о доверии к агентному коду и спецификациях.
+- [[hxxps://dataengineeringcentral.substack.com/p/escaping-the-token-tax-how-open-models][Escaping the Agentic Token Tax: Replacing Claude Code or Copilot with OpenCode]] (dataengineeringcentral.substack.com) — Анализ роста затрат на токены и стратегии перехода на открытые модели.
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-vices-virtues-150469fecc51?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Vices & Virtues]] (medium.com) — Глубокое погружение в различия между Data Source V1 и V2 в Spark.
+- [[hxxps://datafusion.apache.org/blog/2026/06/12/datafusion-54.0.0][Apache DataFusion 54.0.0 Released]] (apache.org) — Релиз движка с поддержкой LATERAL joins и улучшением производительности.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/how-to-use-ai-with-de-wes-mckinney/][Vibe Coding Is Dangerous, Agentic Engineering Isn't—Wes McKinney]]
+:SCORE: 10/10
+:WHY: Критически важный взгляд от создателя Pandas на надежность агентной разработки.
+**** [[hxxps://dataengineeringcentral.substack.com/p/escaping-the-token-tax-how-open-models][Escaping the Agentic Token Tax: Replacing Claude Code or Copilot with OpenCode]]
+:SCORE: 9/10
+:WHY: Практические советы по снижению затрат на AI-инструменты в продакшене.
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-vices-virtues-150469fecc51?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Vices & Virtues]]
+:SCORE: 8/10
+:WHY: Объясняет архитектурные ограничения Spark, важные для оптимизации пайплайнов.
+
+** Инженеры
+- [[hxxps://rednafi.com/misc/chezmoi/][Migrating from GNU stow to chezmoi]] (rednafi.com) — Опыт миграции управления_dotfiles_ на более современный инструмент.
+- [[hxxps://newsletter.pragmaticengineer.com/p/did-anthropics-new-model-just-boost][The Pulse: Did Anthropic's new model just boost rival Codex's market share?]] (newsletter.pragmaticengineer.com) — Дайджест индустрии: утечки данных Anthropic, сбои Coinbase и тренды найма.
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/did-anthropics-new-model-just-boost][The Pulse: Did Anthropic's new model just boost rival Codex's market share?]]
+:SCORE: 9/10
+:WHY: Обзор ключевых рисков и трендов Big Tech за неделю.
+**** [[hxxps://rednafi.com/misc/chezmoi/][Migrating from GNU stow to chezmoi]]
+:SCORE: 7/10
+:WHY: Полезный кейс по улучшению личной инфраструктуры разработчика.
+
+** Вендоры
+- [[hxxps://www.dremio.com/blog/text-to-sql-vs-agentic-analytics-what-the-upgrade-requires/][Text-to-SQL vs Agentic Analytics: What the Upgrade Requires]] (dremio.com) — Сравнение ограничений text-to-SQL и агентной аналитики для сложных запросов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/extract-data-with-on-demand-and-batch-pipelines-dynamically/][Extract Data with On-demand and Batch Pipelines Dynamically]] (aws.amazon.com) — Архитектура обработки документов через Amazon Bedrock с выбором инференса.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/optimize-blueprint-extraction-accuracy-in-amazon-bedrock-data-automation/][Optimize blueprint extraction accuracy in Amazon Bedrock Data Automation]] (aws.amazon.com) — Методы тюнинга извлечения данных из документов без дообучения моделей.
+- [[hxxps://www.databricks.com/blog/unlocking-semantics-for-ai-how-mercedes-benz-korea-built-trusted-talk-data-scale][Unlocking semantics for AI: How Mercedes-Benz Korea built trusted "Talk to Data" at scale]] (databricks.com) — Кейс внедрения семантического слоя для AI в Mercedes-Benz.
+- [[hxxps://aws.amazon.com/blogs/database/provision-oracle-databaseaws-resources-using-terraform][Provision Oracle Database@AWS resources using Terraform]] (aws.amazon.com) — Инструкция по инфраструктуре как код для Oracle на AWS.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/text-to-sql-vs-agentic-analytics-what-the-upgrade-requires/][Text-to-SQL vs Agentic Analytics: What the Upgrade Requires]]
+:SCORE: 9/10
+:WHY: Честный разбор архитектурных пределов текущих AI-интерфейсов к данным.
+**** [[hxxps://www.databricks.com/blog/unlocking-semantics-for-ai-how-mercedes-benz-korea-built-trusted-talk-data-scale][Unlocking semantics for AI: How Mercedes-Benz Korea built trusted "Talk to Data" at scale]]
+:SCORE: 8/10
+:WHY: Реальный пример масштабирования AI-аналитики в энтерпрайзе.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/optimize-blueprint-extraction-accuracy-in-amazon-bedrock-data-automation/][Optimize blueprint extraction accuracy in Amazon Bedrock Data Automation]]
+:SCORE: 8/10
+:WHY: Практика повышения точности IDP пайплайнов на управляемых сервисах.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/feature-stores-from-scratch-a-minimal-working-implementation][Feature Stores from Scratch: A Minimal Working Implementation]] (kdnuggets.com) — Руководство по созданию минимального хранилища фич для ML.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/][Evaluate AI agents systematically with Agent-EvalKit]] (aws.amazon.com) — Тулkit для системной оценки агентов через трассировку вызовов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/spot-trends-faster-sort-smarter-unlocking-sparklines-and-custom-sort-in-amazon-quick/][Spot trends faster, sort smarter: Unlocking Sparklines and Custom Sort in Amazon Quick]] (aws.amazon.com) — Новые возможности визуализации трендов в Amazon QuickSight.
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/evaluate-ai-agents-systematically-with-agent-evalkit/][Evaluate AI agents systematically with Agent-EvalKit]]
+:SCORE: 9/10
+:WHY: Решает проблему валидации агентного поведения, а не только результата.
+**** [[hxxps://www.kdnuggets.com/feature-stores-from-scratch-a-minimal-working-implementation][Feature Stores from Scratch: A Minimal Working Implementation]]
+:SCORE: 8/10
+:WHY: Понимание внутренней устройства feature stores важно для архитектуры ML.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/spot-trends-faster-sort-smarter-unlocking-sparklines-and-custom-sort-in-amazon-quick/][Spot trends faster, sort smarter: Unlocking Sparklines and Custom Sort in Amazon Quick]]
+:SCORE: 7/10
+:WHY: Улучшение читаемости дашбордов для бизнес-решений.
+
+** Open Source
+- [[hxxps://datafusion.apache.org/blog/2026/06/12/datafusion-54.0.0][Apache DataFusion 54.0.0 Released]] (apache.org) — Обновление движка запросов с новыми функциями SQL и улучшениями Avro.
+*** 💎 Топ-3 категории
+**** [[hxxps://datafusion.apache.org/blog/2026/06/12/datafusion-54.0.0][Apache DataFusion 54.0.0 Released]]
+:SCORE: 8/10
+:WHY: Значимый релиз для экосистемы обработки данных на Rust.
+
+** Не инженерное
+- [[hxxps://www.kdnuggets.com/7-best-ways-to-get-funding-for-your-startup-idea][7 Best Ways to Get Funding for Your Startup Idea]] (kdnuggets.com) — Обзор вариантов финансирования для технических фаундеров.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/7-best-ways-to-get-funding-for-your-startup-idea][7 Best Ways to Get Funding for Your Startup Idea]]
+:SCORE: 6/10
+:WHY: Базовая информация для инженеров, планирующих запуск стартапа.

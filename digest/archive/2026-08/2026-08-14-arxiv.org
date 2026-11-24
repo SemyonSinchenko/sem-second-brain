@@ -1,0 +1,118 @@
+#+TITLE: Arxiv Digest: 2026-08-14
+#+FROM: [2026-08-13 Thu]
+#+TO: [2026-08-14 Fri]
+#+DATE: [2026-08-14 Fri]
+#+STARTUP: showall
+
+* cs.DB
+** 🧐 Обзор
+За последние сутки наблюдается рост интереса к управлению жизненным циклом данных в финансовых системах и интеграции графовых моделей с реляционными базами для задач ИИ. Зрелые подходы к верификации пайплайнов данных становятся критически важными на фоне генерации кода агентами. Практическая значимость смещается в сторону автоматизации миграции между облаком и локальными инфраструктурами.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.11640][Reverse Migration of Cloud Applications to On-premises]]
+:WHAT: Инструмент Diel для автоматизации обратной миграции облачных приложений в локальную среду.
+:IMPACT: Решает парадокс разработки в облаке при требованиях комплаенса для локального развертывания, синхронизируя версии.
+- [[hxxps://arxiv.org/abs/2608.11644][Guided Table Retrieval for Structured Data Search]]
+:WHAT: Четырехэтапный пайплайн для поиска таблиц и построения деревьев соединений с использованием LLM.
+:IMPACT: Повышает точность ответа на вопросы по структурированным данным, избегая хрупкости端到端 подходов.
+- [[hxxps://arxiv.org/abs/2608.12367][Lifecycle-Aware Archival for Asymmetric Financial Datasets: A Production Study]]
+:WHAT: Система архивации для финансовых транзакций на PostgreSQL с учетом жизненного цикла записей.
+:IMPACT: Снижает размер горячего хранилища на 95% и затраты на инфраструктуру на 53% без изменения схемы.
+- [[hxxps://arxiv.org/abs/2608.12375][Pipeline Denotational Design: Correct-by-Construction Data Pipelines at Zero Cost]]
+:WHAT: Методология проектирования пайплайнов данных, корректных по построению, через семантическую алгебру.
+:IMPACT: Гарантирует корректность зернистости данных на этапе проектирования, что критично для AI-генерации кода.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.12407][From Relational and Property Graph Data to Large Language Models]]
+:ALGO: Синтез реляционной и графовой моделей данных через замену внешних ключей ссылочными значениями.
+:IMPACT: Позволяет эффективно следовать по связям вместо lookup join, улучшая передачу знаний в LLM.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.31475][A Theoretical Study of DBLog: Certified Virtual Cuts for a Snapshot-Equivalent Replay of Live Databases]] — Формализация состояния replay в CDC через сертифицированные виртуальные срезы без физических снепшотов.
+
+* cs.AI
+** 🧐 Обзор
+Исследования фокусируются на создании специализированных систем памяти для агентов и бенчмарках для проверки понимания семантики потоковой обработки. Автоматизация научных вычислений с помощью мультиагентных систем показывает высокий потенциал. Практическая ценность работ заключается в снижении порога входа для сложных вычислительных задач.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.12348][StreamReason-Bench: Can Large Language Models Reason about Event-Time Stream-Processing Semantics?]]
+:WHAT: Бенчмарк для оценки способности LLM понимать семантику обработки потоков событий во времени.
+:IMPACT: Выявляет слабые места моделей в работе с поздними данными и окнами, что критично для автономных агентов.
+- [[hxxps://arxiv.org/abs/2608.12365][FluctlightDB: A Memory Model of Data for AI Agents]]
+:WHAT: Встроенная СУБД для долгосрочной памяти агентов с семантикой кодирования и активации по cue.
+:IMPACT: Предлагает специализированный слой данных для агентных систем, превосходящий векторный поиск в задачах recall.
+- [[hxxps://arxiv.org/abs/2505.04997][Foam-Agent: A Large Language Model-Based Multi-Agent Framework for Automating Computational Fluid Dynamics Workflows]]
+:WHAT: Мультиагентный фреймворк для автоматизации workflows OpenFOAM через естественный язык.
+:IMPACT: Снижает барьер входа в вычислительную гидродинамику, автоматизируя планирование и исправление ошибок.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2410.02091][The Impact of Generative AI on Collaborative Open-Source Software Development: Evidence from GitHub Copilot]] — Анализ влияния Copilot на продуктивность и координацию в OSS, выявивший рост вклада при увеличении времени координации.
+- [[hxxps://arxiv.org/abs/2412.17228][MatchMiner-AI: Open-source, Privacy-preserving Cancer Clinical Trial Matching using Artificial Intelligence]] — Open-source пайплайн для подбора клинических испытаний онкобольным с использованием открытых LLM.
+
+* physics.soc-ph
+** 🧐 Обзор
+Применение топологического анализа данных и сетевых моделей расширяется на задачи городской инфраструктуры и нейробиологии. Динамика сетей высшего порядка и трофическая структура становятся ключевыми для понимания распространения воздействий. Наблюдается тренд на использование физических моделей для анализа социальных и биологических систем.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2410.09067][Evaluating Cooling Center Coverage Using Persistent Homology of a Filtered Witness Complex]]
+:ALGO: Использование персистентной гомологии для выявления пробелов в покрытии охлаждающих центров.
+:IMPACT: Предлагает альтернативу индексам уязвимости, выявляя географические зоны риска через топологические дыры.
+- [[hxxps://arxiv.org/abs/2608.12382][Trophic structure predicts seizure propagation in brain network models]]
+:ALGO: Исследование влияния трофической когерентности и спектрального радиуса на распространение seizures.
+:IMPACT: Связывает направленность обработки информации в мозге с предрасположенностью к эпилептическим припадкам.
+- [[hxxps://arxiv.org/abs/2608.12676][Dimension Reduction of Higher-Order Dynamical Networks]]
+:ALGO: Одномерная редукция для динамических систем на сетях с взаимодействиями высшего порядка.
+:IMPACT: Позволяет точно моделировать稳态 состояния сложных сетей через эффективную силу взаимодействия.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.12381][Do Railway Commuters Exhibit Consistent Route Choice Rationality Across Different Contexts and Time? Evidence from Tokyo metropolitan Commutes]] — Анализ стабильности выбора маршрута commuters в Токио через статистику физику и данные смартфонов.
+- [[hxxps://arxiv.org/abs/2608.13184][Beyond persuasion: Mobile electoral interfaces in polarized societies]] — Динамическая модель выборов, где изменения определяются мобильным интерфейсом между поляризованными блоками.
+
+* cs.DS
+** 🧐 Обзор
+Развиваются алгоритмы аппроксимации для задач связности и модификации графов с учетом геометрических ограничений. Адаптивные оценки сложности и онлайн-кластеризация с оптимизацией норм становятся новым стандартом. Теоретические результаты все чаще учитывают практические ограничения на вычисления.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.15076][Online Correlation Clustering: Simultaneously Optimizing All $\ell_p$-norms]]
+:ALGO: Онлайн-алгоритм для корреляционной кластеризации, одновременно оптимизирующий все $\ell_p$-нормы.
+:IMPACT: Обеспечивает баланс между минимизацией ошибок и справедливостью для узлов в потоковом режиме.
+- [[hxxps://arxiv.org/abs/2603.05358][Revisiting Graph Modification via Disk Scaling: From One Radius to Interval-Based Radii]]
+:ALGO: Обобщение операции масштабирования дисков для модификации графов в интервале радиусов.
+:IMPACT: Решает открытые вопросы сложности для кластерных и полных графов в геометрических моделях.
+- [[hxxps://arxiv.org/abs/2604.13025][Asymptotically Faster Algorithms for Recognizing $(k,\ell)$-Sparse Graphs]]
+:ALGO: Субквадратичные алгоритмы распознавания разреженных графов через ориентации и декомпозицию.
+:IMPACT: Ускоряет проверку жесткости и других свойств в комбинаторной оптимизации.
+- [[hxxps://arxiv.org/abs/2605.10058][An Approximation Algorithm for 2-Vertex-Connectivity via Cycle-Restricted 2-Edge-Covers]]
+:ALGO: Алгоритм аппроксимации для задачи 2-вершинной связности с улучшенным коэффициентом.
+:IMPACT: Улучшает границы для фундаментальной задачи проектирования живучих сетей.
+- [[hxxps://arxiv.org/abs/2608.00840][Sublinear Time Eigenvector Approximation via Column Sampling]]
+:ALGO: Сублинейная аппроксимация собственных векторов через выборку столбцов матрицы.
+:IMPACT: Позволяет быстро оценивать собственные векторы больших матриц в квантово-вдохновленных алгоритмах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2005.10800][New Approximation Algorithms for Maximum Asymmetric Traveling Salesman and Shortest Superstring]] — Комбинаторный алгоритм аппроксимации для Max ATSP и задачи о кратчайшей суперстроке.
+- [[hxxps://arxiv.org/abs/2512.06559][Tight Adaptive Bounds for Convex Hulls]] — Адаптивные нижние оценки для построения выпуклых оболочек и фронтов Парето.
+
+* cs.DC
+** 🧐 Обзор
+Ключевые направления включают микросекундную эластичность виртуальных машин и оптимизацию-serving для LLM на уровне операторов. Верификация ядер GPU и протоколов консенсуса выходит на первый план из-за роста использования генеративного ИИ. Системы становятся более адаптивными к нагрузке при сохранении гарантий безопасности.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.12633][Offering Microsecond-Scale Cross-VM Core Elasticity on Colocated Lightweight Virtual Machines]]
+:WHAT: Подложка HyperFlux для эластичности физических ядер между VM за микросекунды.
+:IMPACT: Снижает tail latency на 10x при колокации нагрузок по сравнению со статическим выделением.
+- [[hxxps://arxiv.org/abs/2608.13107][Meshlib: In-Process Policy Enforcement for Sidecar-less Service Meshes]]
+:WHAT: Библиотека для enforcement политик Layer-7 внутри процесса без sidecar-прокси.
+:IMPACT: Убирает накладные расходы sidecar при сохранении безопасности service mesh на базе Cilium.
+- [[hxxps://arxiv.org/abs/2608.13499][OpScale: Operator-level Provisioning and Autoscaling for LLM Serving]]
+:WHAT: Фреймворк автомасштабирования для LLM на уровне операторов модели.
+:IMPACT: Сокращает использование GPU на 36.3% при соблюдении SLO за счет finer-grained эластичности.
+- [[hxxps://arxiv.org/abs/2608.05033][SparseDitto: Customizing GPU Kernels for Different Sparsity Patterns with LLM-Based Agentic System]]
+:WHAT: Система генерации GPU-ядер под конкретные паттерны разреженности через LLM-агентов.
+:IMPACT: Дает ускорение до 146x над cuSPARSE за счет адаптации под структуру матрицы.
+- [[hxxps://arxiv.org/abs/2608.12700][A Contract-Grade Verifier for LLM-Generated GPU Kernels, and a Native Blackwell Backward for the Gated-Linear-Recurrence Family]]
+:WHAT: Верификатор ядер GPU на основе контрактов и нативное ядро для GDN family.
+:IMPACT: Выявляет 39.5% ошибочных ядер, принятых стандартными тестами, обеспечивая надежность генерации.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.00501][Machine-Checked Dual-Write Recovery from a Committed Log]] — Формальная информация граница для восстановления после сбоев при двойной записи в независимые системы.

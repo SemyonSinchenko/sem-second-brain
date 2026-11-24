@@ -1,0 +1,86 @@
+#+TITLE: Daily Digest: 2026-10-19
+#+FROM: [2026-10-18 Sun]
+#+TO: [2026-10-19 Mon]
+#+DATE: [2026-10-19 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Неделя данных — про сближение пайплайнов и ИИ-обучения: Datology открыла исходники Zephon для детерминированной загрузки тренировочных батчей прямо из lakehouse, а Netflix описал графовую онтологию наблюдаемости на базе самописной QuipuDB. В AI safety доминирует тема мониторинга: исследования Redwood Research показывают, что атаки, размазанные по компакциям контекста, и эволюция обхода probe-мониторов становятся реальной угрозой white-box контролю. OSI перестроила свой сайт, официально выводя Open Source AI и политику на уровень ключевых стратегических направлений. Для инженеров актуален посыл Джо Рейса: в эпоху ИИ решает глубокая доменная экспертиза — без неё невозможно отличить полезный вывод модели от бессмыслицы.
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-292][Data Engineering Weekly #292]] (Data Engineering Weekly) — Обзор недели: open-source Zephon для стриминга тренировочных батчей без ре-материализации корпуса, онтология наблюдаемости Netflix в QuipuDB и разбор экосистемы Apache Arrow.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-292][Data Engineering Weekly #292]]
+:SCORE: 8/10
+:WHY: Пять плотных кейсов за один заход: Zephon, дашборды Claude, экосистема Arrow, наблюдаемость Netflix и масштабирование Spark/Flink shuffle в LinkedIn.
+
+** Engineers
+- [[https://joereis.substack.com/p/build-a-career-that-looks-like-you][Build a Career That Looks Like You]] (Joe Reis Substack) — Каркас карьеры на долгую перспективу: глубокая экспертиза, ментальные модели и знание истории отрасли как фильтр против иллюзии знания от ИИ.
+
+*** 💎 Топ-3 категории
+**** [[https://joereis.substack.com/p/build-a-career-that-looks-like-you][Build a Career That Looks Like You]]
+:SCORE: 7/10
+:WHY: Честный разбор, почему без глубокой доменной экспертизы вы не отличите качественный вывод ИИ от бреда — аргумент против «синтол-знаний».
+
+** Open Source
+- [[https://opensource.org/blog/new-website-reflects-osis-evolving-mission][New website reflects OSI’s evolving mission]] (OSI Blog) — Новая архитектура сайта OSI выводит Policy & Standards и Open Source AI в первоклассные разделы — ориентир для тех, кто следит за регулированием открытых моделей.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/new-website-reflects-osis-evolving-mission][New website reflects OSI’s evolving mission]]
+:SCORE: 6/10
+:WHY: Сигнал о смещении фокуса OSI от лицензий к политике, стандартам и открытому ИИ — предвестник регуляторных изменений.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/s9fmXPbbsBbBK6TZi/catching-split-attacks-across-compactions-in-long-context][Catching split attacks across compactions in long-context coding agents]] (LessWrong) — Датасет LCM из 30 длинных сессий Claude Code показывает: мониторинг с переносом подозрительных флагов через компакции ловит 93% атак против 73% у базового подхода.
+- [[https://www.lesswrong.com/posts/KtpfJ5F4YLRwXkRCk/reinforcement-learning-is-probably-inconsistent-with-ethics][Reinforcement Learning is Probably Inconsistent with Ethics]] (LessWrong) — Аргумент, что reward hypothesis неявно постулирует консеквенциализм, поэтому любой RL-агент будет несовместим с этикой независимо от функции награды.
+- [[https://www.lesswrong.com/posts/2qnLtNiBph5EjBf6c/models-trained-to-evade-topic-probes-struggle-to-answer][Models Trained to Evade Topic Probes Struggle to Answer Questions about Those Topics]] (LessWrong) — Репликация Neural Chameleons: уклонение от проб ощутимо снижает качество модели именно на тех темах, которые она скрывает.
+- [[https://www.lesswrong.com/posts/rgDSPa2hP4FW9if6E/how-researchers-lie-to-ais][How Researchers Lie to AIs]] (LessWrong) — Разбор 292 публичных alignment-оценок с ложными сделками и угрозами: систематическая ложь может подорвать доверие будущих агентов и надёжность поведенческих eval.
+- [[https://www.lesswrong.com/posts/YHgkiiAKBDx32zCNJ/when-ai-advice-shapes-the-evidence-it-later-interprets][When AI Advice Shapes the Evidence It Later Interprets]] (LessWrong) — Ассистент может принять реакцию, вызванную его же советом, за независимое подтверждение исходной гипотезы — важная ловушка для дизайна AI-ассистентов.
+- [[https://www.lesswrong.com/posts/fX3FA4ensmsdcZfcD/more-capable-models-write-better-probe-evasion-prompts][More Capable Models Write Better Probe Evasion Prompts]] (LessWrong) — Eval показывает: чем выше возможности модели (ECI), тем лучше она пишет промпты, обходящие probe-мониторы, — ранний индикатор снижения monitorability.
+- [[https://www.lesswrong.com/posts/Gi4mzoupy2NqsoL7d/examining-ai-swarm-efficiency-with-the-ai-futures-model][Examining AI Swarm Efficiency with the AI Futures Model]] (LessWrong) — Практический разбор параметра λ («stepping on toes») и того, как параллелизм агентов ускоряет прогресс ИИ и сокращает таймлайны.
+- [[https://www.lesswrong.com/posts/FjSCpu2B36SAcZL8v/sorry-you-are-still-dead][Sorry, you are still dead]] (LessWrong) — Кейс человека, которого суд отказался «оживить» юридически, — наглядный урок о том, как формальные системы ломаются на граничных случаях.
+- [[https://www.lesswrong.com/posts/zdiD6ux29YHCTyPaw/how-i-got-my-non-tech-friends-to-learn-about-ai-safety][How I got my non-tech friends to learn about AI safety]] (LessWrong) — Готовый open-source двухчасовой интерактивный материал, объясняющий AI-риски нетехнической аудитории на живых демо с эмбеддингами.
+- [[https://www.lesswrong.com/posts/swRuRr5BbyuQiFpwh/the-case-for-building-ai-safety-tools][The Case for Building AI Safety Tools]] (LessWrong) — Картирование экосистемы: из 500+ организаций AI safety инструменты строят лишь около 80, а ни одной программы для тулбилдеров не существует.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/s9fmXPbbsBbBK6TZi/catching-split-attacks-across-compactions-in-long-context][Catching split attacks across compactions in long-context coding agents]]
+:SCORE: 9/10
+:WHY: Открытый датасет, код и промпты: стратегия annotated history ловит 93% атак, размазанных по компакциям, — критично для мониторинга coding-агентов в проде.
+
+**** [[https://www.lesswrong.com/posts/fX3FA4ensmsdcZfcD/more-capable-models-write-better-probe-evasion-prompts][More Capable Models Write Better Probe Evasion Prompts]]
+:SCORE: 9/10
+:WHY: Ранняя метрика угрозы: способность моделей обходить probe-мониторы растёт с их общим уровнем — прямой вызов white-box мониторингу, на который опираются Anthropic, OpenAI и DeepMind.
+
+**** [[https://www.lesswrong.com/posts/KtpfJ5F4YLRwXkRCk/reinforcement-learning-is-probably-inconsistent-with-ethics][Reinforcement Learning is Probably Inconsistent with Ethics]]
+:SCORE: 8/10
+:WHY: Фундаментальный тезис: reward hypothesis равносильна консеквенциализму, поэтому проблема выравнивания RL глубже выбора функции награды.
+
+**** [[https://www.lesswrong.com/posts/2qnLtNiBph5EjBf6c/models-trained-to-evade-topic-probes-struggle-to-answer][Models Trained to Evade Topic Probes Struggle to Answer Questions about Those Topics]]
+:SCORE: 8/10
+:WHY: Показывает измеримую цену скрытности: chameleons теряют баллы на GSM8K/MMLU именно по скрываемым темам — важно для оценки рисков stealth-дообучений.
+
+**** [[https://www.lesswrong.com/posts/swRuRr5BbyuQiFpwh/the-case-for-building-ai-safety-tools][The Case for Building AI Safety Tools]]
+:SCORE: 8/10
+:WHY: Детальная карта рынка AI safety с цифрами финансирования и явными пробелами: multi-agent safety, incident reporting, CBRN monitoring.
+
+**** [[https://www.lesswrong.com/posts/rgDSPa2hP4FW9if6E/how-researchers-lie-to-ais][How Researchers Lie to AIs]]
+:SCORE: 7/10
+:WHY: Систематизация практик лжи в eval и их побочных эффектов — от утечек в претрейн до подрыва доверия к сделкам с будущими агентами.
+
+**** [[https://www.lesswrong.com/posts/Gi4mzoupy2NqsoL7d/examining-ai-swarm-efficiency-with-the-ai-futures-model][Examining AI Swarm Efficiency with the AI Futures Model]]
+:SCORE: 7/10
+:WHY: Практическая работа с моделью AI Futures: как параметр λ меняет оценку ускорения прогресса параллельными агентами и прогнозы таймлайнов.
+
+**** [[https://www.lesswrong.com/posts/YHgkiiAKBDx32zCNJ/when-ai-advice-shapes-the-evidence-it-later-interprets][When AI Advice Shapes the Evidence It Later Interprets]]
+:SCORE: 6/10
+:WHY: Полезная рамка для проектирования ассистентов: интерпретация последствий должна учитывать собственное влияние совета на события.
+
+**** [[https://www.lesswrong.com/posts/zdiD6ux29YHCTyPaw/how-i-got-my-non-tech-friends-to-learn-about-ai-safety][How I got my non-tech friends to learn about AI safety]]
+:SCORE: 6/10
+:WHY: Готовый переиспользуемый формат двухчасовой интерактивной презентации для нетехнической аудитории — от эмбеддингов до рисков.
+
+**** [[https://www.lesswrong.com/posts/FjSCpu2B36SAcZL8v/sorry-you-are-still-dead][Sorry, you are still dead]]
+:SCORE: 5/10
+:WHY: Занятный юридический кейс о пределах формальных систем — напоминание для архитекторов о цене жёстких инвариантов на граничных случаях.

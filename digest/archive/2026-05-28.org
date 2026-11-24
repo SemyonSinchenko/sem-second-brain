@@ -1,0 +1,80 @@
+#+TITLE: Daily Digest: 2026-05-28
+#+FROM: [2026-05-27 Wed]
+#+TO: [2026-05-28 Thu]
+#+DATE: [2026-05-28 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия движется в сторону упрощения стеков: DuckDB набирает популярность как ответ на избыточную сложность современных платформ данных. В сфере ИИ акцент смещается с генерации кода на агентов, способных выполнять комплексные IT-задачи, однако бенчмарки показывают, что модели все еще ошибаются в половине случаев. Инженеры Kafka углубляются в оптимизацию параллелизма через Share Groups, а вендоры активно внедряют AI-ассистенты для миграции и управления базами данных.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://jack-vanlightly.com/blog/2026/5/27/kafka-share-groups-and-parallelizing-consumption-part-2-producer-batches-and-shareacquiremode][Kafka Share Groups and Parallelizing Consumption - Part 2: Producer Batches and share.acquire.mode]] (jack-vanlightly.com) — Анализ влияния размера батчей продюсера и режима share.acquire.mode на параллелизм потребителей в Kafka 4.3.0.
+- [[hxxps://dataengineeringcentral.substack.com/p/data-ai-and-duckdb][Data, AI, and DuckDB]] (dataengineeringcentral.substack.com) — Обсуждение тренда на упрощение стека данных и роли DuckDB в эпоху AI-агентов, генерирующих множество запросов.
+- [[hxxps://www.dremio.com/blog/agentic-lakehouse-architecture-the-four-technical-layers/][Agentic Lakehouse Architecture: The Four Technical Layers]] (dremio.com) — Техническая карта из 4 слоев для построения надежной платформы данных, устойчивой к нагрузкам от AI-агентов.
+- [[hxxps://www.dremio.com/blog/apache-polaris-1-5-0-deep-dive-into-the-future-of-open-data-catalogs/][Apache Polaris 1.5.0: Deep-Dive Into the Future of Open Data Catalogs]] (dremio.com) — Обзор новой версии открытого каталога для Iceberg с интеграцией Apache Ranger и улучшенной безопасностью.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/5/27/kafka-share-groups-and-parallelizing-consumption-part-2-producer-batches-and-shareacquiremode][Kafka Share Groups and Parallelizing Consumption - Part 2: Producer Batches and share.acquire.mode]]
+:SCORE: 9/10
+:WHY: Критично для инженеров, настраивающих высоконагруженные потребители Kafka: объясняет скрытые зависимости между батчами продюсера и локами потребителей.
+**** [[hxxps://dataengineeringcentral.substack.com/p/data-ai-and-duckdb][Data, AI, and DuckDB]]
+:SCORE: 8/10
+:WHY: Помогает переоценить архитектуру стека данных в сторону простоты, учитывая рост нагрузки от AI-агентов.
+**** [[hxxps://www.dremio.com/blog/agentic-lakehouse-architecture-the-four-technical-layers/][Agentic Lakehouse Architecture: The Four Technical Layers]]
+:SCORE: 8/10
+:WHY: Предоставляет готовый референс архитектуры для поддержки AI-агентов, предотвращая ошибки на уровне хранения и метаданных.
+
+** Инженеры и Карьера
+- [[hxxps://newsletter.pragmaticengineer.com/p/opencode][Building OpenCode with Dax Raad]] (newsletter.pragmaticengineer.com) — Интервью о создании AI-инструмента OpenCode, важности инженерного вкуса и скептицизме к полной автоматизации разработки.
+- [[hxxps://vutr.substack.com/p/no-cluster-no-setup-a-spark-practice][No cluster, no setup. A Spark practice tool I built to help you prep for interviews.]] (vutr.substack.com) — Обзор веб-инструмента для практики Spark SQL и DataFrame API без настройки кластера, аналог LeetCode для Data Engineers.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/opencode][Building OpenCode with Dax Raad]]
+:SCORE: 9/10
+:WHY: Честный взгляд основателя на ограничения AI в разработке, напоминающий, что стратегическое мышление важнее скорости кодинга.
+**** [[hxxps://vutr.substack.com/p/no-cluster-no-setup-a-spark-practice][No cluster, no setup. A Spark practice tool I built to help you prep for interviews.]]
+:SCORE: 7/10
+:WHY: Полезный инструмент для поддержания квалификации в Spark без накладных расходов на инфраструктуру.
+
+** Вендоры и Платформы
+- [[hxxps://www.databricks.com/blog/how-lakebase-architecture-stays-resilient-cloud-failures][How the lakebase architecture stays resilient to cloud failures]] (databricks.com) — Описание архитектурных решений Databricks Lakebase для обеспечения отказоустойчивости при сбоях облачной инфраструктуры.
+- [[hxxps://aws.amazon.com/blogs/database/guide-your-amazon-aurora-mysql-migration-with-kiro-powers/][Guide your Amazon Aurora MySQL migration with Kiro powers]] (aws.amazon.com) — Демо AI-агента Kiro для автоматизации миграции RDS MySQL на Aurora с проверкой совместимости и генерацией SQL.
+- [[hxxps://aws.amazon.com/blogs/database/real-time-personalized-recommendations-with-amazon-sagemaker-and-amazon-managed-valkey/][Real-time personalized recommendations with Amazon SageMaker and Amazon-managed Valkey]] (aws.amazon.com) — Архитектура персонализированных рекомендаций в реальном времени с использованием векторного поиска в Valkey и SageMaker.
+- [[hxxps://www.databricks.com/blog/reliable-llm-inference-scale][Reliable LLM Inference at Scale]] (databricks.com) — Обзор платформы инференса Databricks для обслуживания frontier-моделей с гарантированной надежностью.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/guide-your-amazon-aurora-mysql-migration-with-kiro-powers/][Guide your Amazon Aurora MySQL migration with Kiro powers]]
+:SCORE: 8/10
+:WHY: Показывает практическое применение AI-агентов для рутинных DevOps-задач, снижая риск человеческой ошибки при миграции.
+**** [[hxxps://www.databricks.com/blog/how-lakebase-architecture-stays-resilient-cloud-failures][How the lakebase architecture stays resilient to cloud failures]]
+:SCORE: 8/10
+:WHY: Важно для архитекторов, проектирующих отказоустойчивые системы на управляемых платформах данных.
+**** [[hxxps://aws.amazon.com/blogs/database/real-time-personalized-recommendations-with-amazon-sagemaker-and-amazon-managed-valkey/][Real-time personalized recommendations with Amazon SageMaker and Amazon-managed Valkey]]
+:SCORE: 7/10
+:WHY: Конкретный пример реализации low-latency векторного поиска для продакшн-систем рекомендаций.
+
+** Open Source
+- [[hxxps://opensource.org/blog/open-source-organizations-weigh-in-on-age-attestation][Open Source Organizations Weigh in on Age Attestation]] (opensource.org) — Заявление OSI и других фондов regarding требованиях проверки возраста для ОС, затрагивающих вопросы приватности и доступа.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/open-source-organizations-weigh-in-on-age-attestation][Open Source Organizations Weigh in on Age Attestation]]
+:SCORE: 6/10
+:WHY: Важно для понимания регуляторного давления на экосистему Open Source и потенциальных ограничений доступа к инструментам.
+
+** Искусственный Интеллект
+- [[hxxps://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/][Extending Human Intelligence Through AI]] (microsoft.com) — Исследование Microsoft о том, что AI расширяет человеческий интеллект, а не заменяет его, и о проблемах безопасности на системном уровне.
+- [[hxxps://huggingface.co/blog/ibm-research/itbench-aa][ITBench-AA: Frontier Models Score Below 50% on the First Benchmark for Agentic Enterprise IT Tasks]] (huggingface.co) — Бенчмарк IBM, показывающий, что топовые модели выполняют менее 50% задач корпоративного IT-агентства без ошибок.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-data-overload-to-actionable-insights-how-verizon-connect-scaled-agentic-ai-to-100000-users/][From data overload to actionable insights: How Verizon Connect scaled agentic AI to 100,000 users]] (aws.amazon.com) — Кейс масштабирования агентного AI для анализа телеметрии автопарка с использованием специализированных модулей аномалий.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-ai-agents-for-business-support-using-amazon-bedrock-agentcore/][Building AI agents for business support using Amazon Bedrock AgentCore]] (aws.amazon.com) — Пример создания HR-агентов на Bedrock AgentCore для автоматизации рутинных задач с экономией до 97% затрат.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/ibm-research/itbench-aa][ITBench-AA: Frontier Models Score Below 50% on the First Benchmark for Agentic Enterprise IT Tasks]]
+:SCORE: 9/10
+:WHY: Критически важный бенчмарк для реалистичной оценки возможностей LLM-агентов в enterprise-среде без маркетинговой шелухи.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/extending-human-intelligence-through-ai/][Extending Human Intelligence Through AI]]
+:SCORE: 8/10
+:WHY: Глубокий концептуальный взгляд на природу AI, полезный для формирования стратегии внедрения и безопасности.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/from-data-overload-to-actionable-insights-how-verizon-connect-scaled-agentic-ai-to-100000-users/][From data overload to actionable insights: How Verizon Connect scaled agentic AI to 100,000 users]]
+:SCORE: 8/10
+:WHY: Практический паттерн архитектуры для масштабирования агентного AI на большие объемы данных без перегрузки LLM.

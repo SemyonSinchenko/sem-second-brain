@@ -1,0 +1,87 @@
+#+TITLE: Daily Digest: 2026-05-19
+#+FROM: [2026-05-18 Mon]
+#+TO: [2026-05-19 Tue]
+#+DATE: [2026-05-19 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с прототипирования AI-агентов на их надежную эксплуатацию в продакшене, уделяя внимание оценке качества и оркестрации. В инженерии данных фундаментальные проблемы вроде дубликатов записи остаются актуальными несмотря на развитие архитектур Lakehouse. Рынок труда требует от специалистов выхода за рамки SQL и Python в сторону системного мышления и понимания бизнес-ценности. Вендоры активно интегрируют генеративный AI в свои платформы для автоматизации операций и ускорения аналитики.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/spark-postgres-duplicates-dang-it][Spark. Postgres. Duplicates. Dang it.]] (Data Engineering Central) — Разбор классической проблемы дубликатов данных и важности определения зернистости набора данных перед оптимизацией.
+- [[hxxps://www.dremio.com/blog/definitive-guide-to-the-data-lakehouse][Definitive Guide to the Data Lakehouse]] (Dremio) — Полное руководство по архитектуре lakehouse, миграции и роли Apache Iceberg как стандарта табличных форматов.
+- [[hxxps://www.databricks.com/blog/question-your-commercial-data-should-already-be-able-answer][The question your commercial data should already be able to answer]] (Databricks) — Пример использования коммерческих данных для ответа на критические вопросы в здравоохранении и бизнесе.
+- [[hxxps://www.databricks.com/blog/how-deutsche-borse-built-generative-ai-tool-tackle-large-scale-migration-zeppelin-notebooks][How Deutsche Börse built a generative AI tool to tackle the large-scale migration of Zeppelin notebooks to Databricks]] (Databricks) — Кейс миграции нотбуков с использованием инструментов генеративного AI для ускорения процесса.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/spark-postgres-duplicates-dang-it][Spark. Postgres. Duplicates. Dang it.]]
+:SCORE: 9/10
+:WHY: Напоминает senior-инженерам, что фундаментальные знания о данных важнее новых инструментов при отладке проблем.
+**** [[hxxps://www.dremio.com/blog/definitive-guide-to-the-data-lakehouse][Definitive Guide to the Data Lakehouse]]
+:SCORE: 8/10
+:WHY: Структурированное объяснение эволюции от хранилищ к lakehouse, полезное для архитектурных решений.
+**** [[hxxps://www.databricks.com/blog/question-your-commercial-data-should-already-be-able-answer][The question your commercial data should already be able to answer]]
+:SCORE: 7/10
+:WHY: Демонстрирует реальную бизнес-ценность данных, выходящую за рамки технической реализации пайплайнов.
+
+** Engineers
+- [[hxxps://www.kdnuggets.com/the-hidden-skill-gap-why-knowing-sql-python-isnt-enough-anymore][The Hidden Skill Gap: Why Knowing SQL + Python Isn't Enough Anymore]] (KDnuggets) — Анализ разрыва между навыками кандидатов и реальными требованиями компаний к инженерам данных.
+- [[hxxps://vutr.substack.com/p/how-to-become-a-senior-data-engineer][How to become a senior data engineer?]] (vutr.substack) — Советы по развитию мышления senior-инженера с фокусом на бизнес-ценность вместо изучения инструментов.
+- [[hxxps://www.databricks.com/blog/announcing-databricks-analytics-engineer-learning-pathway][Announcing the Databricks analytics engineer learning pathway]] (Databricks) — Анонс нового пути обучения для аналитических инженеров в экосистеме Databricks.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/how-to-become-a-senior-data-engineer][How to become a senior data engineer?]]
+:SCORE: 9/10
+:WHY: Критически важно для роста: смещает фокус с инструментов на ответственность и бизнес-результаты.
+**** [[hxxps://www.kdnuggets.com/the-hidden-skill-gap-why-knowing-sql-python-isnt-enough-anymore][The Hidden Skill Gap: Why Knowing SQL + Python Isn't Enough Anymore]]
+:SCORE: 8/10
+:WHY: Помогает скорректировать план развития навыков в соответствии с текущим спросом рынка.
+**** [[hxxps://www.databricks.com/blog/announcing-databricks-analytics-engineer-learning-pathway][Announcing the Databricks analytics engineer learning pathway]]
+:SCORE: 7/10
+:WHY: Полезно для планирования обучения команды в рамках конкретных vendor-экосистем.
+
+** Vendors
+- [[hxxps://engineering.atspotify.com/2026/5/better-experiments-with-llm-evals-a-funnel-not-a-fork/][Better Experiments with LLM Evals — A funnel, not a fork]] (Spotify Engineering) — Подход Spotify к оценке LLM как к воронке экспериментов, а не тупиковой ветви разработки.
+- [[hxxps://aws.amazon.com/blogs/database/building-an-ai-powered-grid-investigation-agent-with-aurora-dsql-and-amazon-bedrock-agentcore/][Building an AI-powered grid investigation agent with Aurora DSQL and Amazon Bedrock AgentCore]] (AWS) — Пример построения AI-агента для расследования инцидентов с использованием распределенной БД и протокола A2A.
+- [[hxxps://www.dremio.com/blog/how-dremio-keeps-agentic-analytics-fast-without-manual-tuning/][How Dremio Keeps Agentic Analytics Fast Without Manual Tuning]] (Dremio) — Описание автономной архитектуры производительности для непредсказуемых SQL-запросов от AI-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/aderant-transforms-cloud-operations-with-amazon-quick/][Aderant transforms cloud operations with Amazon Quick]] (AWS) — Кейс ускорения поиска документации и поддержки клиентов с помощью AI-поиска по шести системам.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества графовых баз данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/how-dremio-keeps-agentic-analytics-fast-without-manual-tuning/][How Dremio Keeps Agentic Analytics Fast Without Manual Tuning]]
+:SCORE: 9/10
+:WHY: Решает ключевую проблему продакшена: производительность непредсказуемых запросов от AI-агентов без ручного тюнинга.
+**** [[hxxps://aws.amazon.com/blogs/database/building-an-ai-powered-grid-investigation-agent-with-aurora-dsql-and-amazon-bedrock-agentcore/][Building an AI-powered grid investigation agent with Aurora DSQL and Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Практический паттерн реализации коммуникации между агентами (A2A) и доступа к данным через естественный язык.
+**** [[hxxps://engineering.atspotify.com/2026/5/better-experiments-with-llm-evals-a-funnel-not-a-fork/][Better Experiments with LLM Evals — A funnel, not a fork]]
+:SCORE: 8/10
+:WHY: Опыт крупного вендора по интеграции оценки LLM в процесс разработки, снижающий риски деградации качества.
+
+** Open Source
+- [[hxxps://opensource.org/blog/open-technology-research-symposium-2026-opens-call-for-proposals][Open Technology Research Symposium 2026 Opens Call for Proposals]] (Open Source Initiative) — Призыв к участию в симпозиуме по исследованию открытых технологий и их роли в цифровой инфраструктуре.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/open-technology-research-symposium-2026-opens-call-for-proposals][Open Technology Research Symposium 2026 Opens Call for Proposals]]
+:SCORE: 7/10
+:WHY: Возможность для инженеров повлиять на политику и стандарты открытых технологий через исследовательские доклады.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/5-cool-things-i-did-with-local-language-models][5 Cool Things I Did with Local Language Models]] (KDnuggets) — Личный опыт использования локальных моделей в ежедневном workflow как основной, а не компромиссной опции.
+- [[hxxps://huggingface.co/blog/nvidia/cosmos-fine-tuning-for-robot-video-generation][Fine-Tuning NVIDIA Cosmos Predict 2.5 with LoRA/DoRA for Robot Video Generation]] (Hugging Face) — Технический блог о тонкой настройке моделей NVIDIA для генерации видео роботами.
+- [[hxxps://huggingface.co/blog/PaddlePaddle/paddleocr-transformers][PaddleOCR 3.5: Running OCR and Document Parsing Tasks with a Transformers Backend]] (Hugging Face) — Обновление PaddleOCR с поддержкой бэкенда Transformers для задач парсинга документов.
+- [[hxxps://huggingface.co/blog/ibm-research/open-agent-leaderboard][The Open Agent Leaderboard]] (Hugging Face) — Запуск лидерборда для оценки производительности автономных AI-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/prompting-amazon-nova-2-for-content-moderation/][Prompting Amazon Nova 2 for content moderation]] (AWS) — Руководство по модерации контента с помощью промптинга Amazon Nova 2 без дообучения модели.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-custom-code-based-evaluators-in-amazon-bedrock-agentcore/][Build custom code-based evaluators in Amazon Bedrock AgentCore]] (AWS) — Инструкция по созданию кастомных оценщиков качества на коде для AI-агентов в критичных доменах.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-custom-code-based-evaluators-in-amazon-bedrock-agentcore/][Build custom code-based evaluators in Amazon Bedrock AgentCore]]
+:SCORE: 9/10
+:WHY: Критически важно для продакшена: позволяет внедрить детерминированную проверку качества там, где LLM-судьи ошибаются.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/prompting-amazon-nova-2-for-content-moderation/][Prompting Amazon Nova 2 for content moderation]]
+:SCORE: 8/10
+:WHY: Практический гайд по балансировке точности и ложных срабатываний в системах модерации контента.
+**** [[hxxps://www.kdnuggets.com/5-cool-things-i-did-with-local-language-models][5 Cool Things I Did with Local Language Models]]
+:SCORE: 7/10
+:WHY: Демонстрирует реальную применимость локальных моделей для повышения приватности и скорости в ежедневных задачах.

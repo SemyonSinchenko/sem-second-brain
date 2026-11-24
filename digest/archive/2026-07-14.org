@@ -1,0 +1,90 @@
+#+TITLE: Daily Digest: 2026-07-14
+#+FROM: [2026-07-13 Mon]
+#+TO: [2026-07-14 Tue]
+#+DATE: [2026-07-14 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+ИИ-агенты переходят в стадию промышленной эксплуатации с фокусом на безопасность идентичности (OAuth 2.0 Token Exchange) и оптимизацию затрат черезtiers моделей (GPT-5.6). В Data Engineering наблюдается тренд на консолидацию платформ (Cloudflare) и углубление в операционные проблемы хранения (деградация Iceberg, перестройка индексов). Инфраструктурная оптимизация остается ключевой темой: от кастомных планировщиков ядра в Meta до управляемых сервисов базы данных в AWS.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/cloudflare-as-a-data-platform][Cloudflare as a Data Platform?]] (Data Engineering Central) — Анализ попытки Cloudflare занять нишу полноценной Data Platform с учетом позднего входа на рынок.
+- [[hxxps://www.dremio.com/blog/how-data-lake-table-storage-degrades-over-time/][How Data Lake Table Storage Degrades Over Time]] (Dremio) — Подробный разбор пяти типов деградации хранилища Apache Iceberg и методов их детектирования.
+- [[hxxps://aws.amazon.com/blogs/database/rebuild-large-indexes-on-aurora-postgresql-with-blue-green-deployments/][Rebuild large indexes on Aurora PostgreSQL with Blue/Green Deployments]] (AWS) — Практическое руководство по перестройке больших индексов без простоя с использованием NVMe и Blue/Green.
+- [[hxxps://aws.amazon.com/blogs/database/provisioning-dms-schema-conversion-via-aws-cloudformation/][Provisioning DMS Schema Conversion via AWS CloudFormation]] (AWS) — Автоматизация конвертации схем баз данных через CloudFormation для ускорения миграции.
+- [[hxxps://www.databricks.com/blog/how-unity-catalog-managed-tables-bring-interoperability-performance-and-unified-governance][How Unity Catalog managed tables bring interoperability, performance, and unified governance to the Lakehouse]] (Databricks) — Обзор возможностей управляемых таблиц Unity Catalog для унификации управления данными.
+- [[hxxps://www.kdnuggets.com/5-real-world-sql-projects-to-build-your-data-portfolio][5 Real-World SQL Projects to Build Your Data Portfolio]] (KDnuggets) — Подборка практических SQL проектов для укрепления портфолио инженера данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/how-data-lake-table-storage-degrades-over-time/][How Data Lake Table Storage Degrades Over Time]]
+:SCORE: 9/10
+:WHY: Критически важно для поддержания производительности озер данных в продакшене на длинной дистанции.
+**** [[hxxps://dataengineeringcentral.substack.com/p/cloudflare-as-a-data-platform][Cloudflare as a Data Platform?]]
+:SCORE: 8/10
+:WHY: Позволяет оценить стратегический сдвиг инфраструктурных провайдеров в сторону полных стеков данных.
+**** [[hxxps://aws.amazon.com/blogs/database/rebuild-large-indexes-on-aurora-postgresql-with-blue-green-deployments/][Rebuild large indexes on Aurora PostgreSQL with Blue/Green Deployments]]
+:SCORE: 8/10
+:WHY: Решает конкретную операционную проблему больших баз данных с минимальным риском для доступности.
+
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/openai-gpt-5-6-sol-terra-and-luna-are-now-generally-available-on-amazon-bedrock/][OpenAI GPT-5.6 Sol, Terra, and Luna are now generally available on Amazon Bedrock]] (AWS) — Обзор новых уровней производительности моделей OpenAI для балансировки затрат и качества инференса.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/implement-on-behalf-of-token-exchange-for-multi-tenant-agents-with-amazon-bedrock-agentcore-gateway/][Implement on-behalf-of token exchange for multi-tenant agents with Amazon Bedrock AgentCore Gateway]] (AWS) — Руководство по безопасной передаче идентичности пользователя в многопользовательских агентных системах.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-solution-at-bluesight-with-amazon-bedrock/][Building an agentic AI solution at Bluesight with Amazon Bedrock]] (AWS) — Кейс внедрения единого агентного ИИ-решения для комплаенса в здравоохранении.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/launching-ui-for-generative-ai-inference-recommendations-in-amazon-sagemaker-ai/][Launching UI for generative AI inference recommendations in Amazon SageMaker AI]] (AWS) — Новый низкокодовый интерфейс для подбора оптимальных конфигураций инференса.
+- [[hxxps://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/][Empowering India's next generation of innovators with ATL Saathi]] (Google DeepMind) — Инициатива по внедрению ИИ-инструментов в образовательные лаборатории робототехники.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/implement-on-behalf-of-token-exchange-for-multi-tenant-agents-with-amazon-bedrock-agentcore-gateway/][Implement on-behalf-of token exchange for multi-tenant agents with Amazon Bedrock AgentCore Gateway]]
+:SCORE: 9/10
+:WHY: Решает фундаментальную проблему безопасности идентичности при масштабировании агентных архитектур.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/openai-gpt-5-6-sol-terra-and-luna-are-now-generally-available-on-amazon-bedrock/][OpenAI GPT-5.6 Sol, Terra, and Luna are now generally available on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Предоставляет инженеру инструменты для точного выбора модели под задачу и бюджет.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/building-an-agentic-ai-solution-at-bluesight-with-amazon-bedrock/][Building an agentic AI solution at Bluesight with Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Демонстрирует реальный паттерн объединения разрозненных данных через агентов в регулируемой отрасли.
+
+** Engineers
+- [[hxxps://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/][Verifying Rust cryptography in SymCrypt, from standards to code]] (Microsoft Research) — Опыт формальной верификации криптографии на Rust с использованием Lean и AI-агентов.
+- [[hxxps://vutr.substack.com/p/docker-for-data-engineer][Docker for data engineer]] (vutr.substack) — Практическое руководство по контейнеризации для инженеров данных с фокусом на реальные workload'ы.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/when-your-brain-works-differently-ai-isnt-a-luxury-its-accessibility/][When your brain works differently, AI isn't a luxury—it's accessibility]] (AWS) — Личный опыт использования ИИ как инструмента доступности для нейроотличных специалистов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/][Verifying Rust cryptography in SymCrypt, from standards to code]]
+:SCORE: 10/10
+:WHY: Передовой край обеспечения безопасности кода: формальная верификация в продакшене.
+**** [[hxxps://vutr.substack.com/p/docker-for-data-engineer][Docker for data engineer]]
+:SCORE: 8/10
+:WHY: Базовый навык контейнеризации необходим для воспроизводимости пайплайнов данных.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/when-your-brain-works-differently-ai-isnt-a-luxury-its-accessibility/][When your brain works differently, AI isn't a luxury—it's accessibility]]
+:SCORE: 7/10
+:WHY: Важный взгляд на культуру инженерии и использование ИИ для повышения личной эффективности.
+
+** Open Source
+- [[hxxps://engineering.fb.com/2026/07/13/ml-applications/modernizing-the-meta-ads-service-with-an-open-source-kernel-scheduler/][Modernizing the Meta Ads Service With an Open-Source Kernel Scheduler]] (Meta Engineering) — Использование BPF-based sched_ext для снижения задержек в рекламном сервисе Meta.
+- [[hxxps://www.dremio.com/blog/apache-ossie-incubating-the-new-name-for-open-semantic-interchange/][Apache Ossie (Incubating): The New Name for Open Semantic Interchange]] (Dremio) — Обновление статуса проекта стандартизации семантического слоя в Apache Foundation.
+- [[hxxps://www.kdnuggets.com/structured-language-model-generation-with-outlines][Structured Language Model Generation with Outlines]] (KDnuggets) — Обзор библиотеки Outlines для детерминированной генерации структурированных данных LLM.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/07/13/ml-applications/modernizing-the-meta-ads-service-with-an-open-source-kernel-scheduler/][Modernizing the Meta Ads Service With an Open-Source Kernel Scheduler]]
+:SCORE: 9/10
+:WHY: Показывает глубокую оптимизацию ядра Linux для специфических high-load задач.
+**** [[hxxps://www.dremio.com/blog/apache-ossie-incubating-the-new-name-for-open-semantic-interchange/][Apache Ossie (Incubating): The New Name for Open Semantic Interchange]]
+:SCORE: 8/10
+:WHY: Стандартизация семантического слоя критична для совместимости BI и ИИ-агентов.
+**** [[hxxps://www.kdnuggets.com/structured-language-model-generation-with-outlines][Structured Language Model Generation with Outlines]]
+:SCORE: 7/10
+:WHY: Полезный инструмент для повышения надежности интеграции LLM в инженерные системы.
+
+** Vendors
+- [[hxxps://neo4j.com/blog/agentic-ai/connected-intelligence-operationalizing-production/][Connected Intelligence: Operationalizing Production-Grade Graph Solutions Across Enterprise Networks]] (Neo4j) — Запуск Virtual Graph для работы с данными в Databricks и Snowflake без копирования.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического пользовательского сообщества графовых баз данных в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/agentic-ai/connected-intelligence-operationalizing-production/][Connected Intelligence: Operationalizing Production-Grade Graph Solutions Across Enterprise Networks]]
+:SCORE: 8/10
+:WHY: Архитектурный паттерн zero-copy для интеграции графовых вычислений в облачные хранилища.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность для нетворкинга и обмена опытом в нише графовых технологий.

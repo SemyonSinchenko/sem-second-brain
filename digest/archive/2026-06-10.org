@@ -1,0 +1,89 @@
+#+TITLE: Daily Digest: 2026-06-10
+#+FROM: [2026-06-09 Tue]
+#+TO: [2026-06-10 Wed]
+#+DATE: [2026-06-10 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия фокусируется на внедрении AI-агентов в продакшн, смещая акцент с экспериментов на управление доступом и автоматизацию операций. В Data Engineering ключевой темой стала оптимизация производительности и стоимости через скрытое партиционирование Iceberg и паттерны_pagination_ для серверless SQL. Рынок труда показывает рост компенсаций для AI-инженеров выше традиционных разработчиков при одновременном сокращении найма стажеров.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/hidden-partitioning-how-iceberg-eliminates-accidental-full-table-scans/][Hidden Partitioning: How Iceberg Eliminates Accidental Full Table Scans]] (Dremio) — Объясняет, как скрытое партиционирование Iceberg структурно предотвращает дорогостоящие полные сканирования таблиц без участия пользователя.
+- [[hxxps://aws.amazon.com/blogs/database/building-type-safe-applications-with-drizzle-orm-in-aurora-dsql/][Building type-safe applications with Drizzle ORM in Aurora DSQL]] (AWS) — Демонстрирует настройку type-safe ORM с IAM-аутентификацией для распределенной серверless базы данных.
+- [[hxxps://aws.amazon.com/blogs/database/pagination-patterns-in-amazon-aurora-dsql/][Pagination patterns in Amazon Aurora DSQL]] (AWS) — Сравнивает методы пагинации для минимизации потребления DPU и избежания конфликтов транзакций в распределенной среде.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/hidden-partitioning-how-iceberg-eliminates-accidental-full-table-scans/][Hidden Partitioning: How Iceberg Eliminates Accidental Full Table Scans]]
+:SCORE: 9/10
+:WHY: Критически важно для архитектуры данных: устраняет человеческий фактор в оптимизации запросов на уровне формата таблицы.
+**** [[hxxps://aws.amazon.com/blogs/database/pagination-patterns-in-amazon-aurora-dsql/][Pagination patterns in Amazon Aurora DSQL]]
+:SCORE: 8/10
+:WHY: Прямое влияние на бюджет и надежность: неверный паттерн пагинации в серверless БД ведет к экспоненциальному росту затрат.
+**** [[hxxps://aws.amazon.com/blogs/database/building-type-safe-applications-with-drizzle-orm-in-aurora-dsql/][Building type-safe applications with Drizzle ORM in Aurora DSQL]]
+:SCORE: 7/10
+:WHY: Практический гайд по снижению runtime-ошибок в распределенных БД через compile-time проверки схемы.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-job-market-in-2026-part-2][State of the software engineering job market in 2026, part 2]] (Pragmatic Engineer) — Анализ рынка показывает, что компенсации AI-инженеров превышают классические SWE роли, а набор стажеров сокращается.
+- [[hxxps://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos][What it feels like to work with Mythos]] (One Useful Thing) — Личный опыт работы с новой моделью Claude 5 Fable, демонстрирующий качественный скачок в автономном выполнении задач.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-agentic-incident-triage-assistant-with-amazon-quick-and-new-relic/][Build an agentic incident triage assistant with Amazon Quick and New Relic]] (AWS) — Пример внедрения агента для сокращения MTTR через автоматизацию сбора доказательств инцидента.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-job-market-in-2026-part-2][State of the software engineering job market in 2026, part 2]]
+:SCORE: 10/10
+:WHY: Обязательное чтение для планирования карьеры: данные показывают структурный сдвиг в спросе и оплатах между AI и классической разработкой.
+**** [[hxxps://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos][What it feels like to work with Mythos]]
+:SCORE: 9/10
+:WHY: Дает реалистичное представление о пределах возможностей современных AI-моделей в сложных инженерных контекстах.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-agentic-incident-triage-assistant-with-amazon-quick-and-new-relic/][Build an agentic incident triage assistant with Amazon Quick and New Relic]]
+:SCORE: 8/10
+:WHY: Показывает конкретный паттерн внедрения агентов в SRE-практику для снижения операционной нагрузки на команду.
+
+** Vendors
+- [[hxxps://www.dremio.com/blog/semantic-layer-governance-control-what-ai-agents-access/][Semantic Layer Governance: Control What AI Agents Access]] (Dremio) — Предлагает архитектурный паттерн управления доступом AI-агентов через семантический слой вместо процедурных проверок.
+- [[hxxps://www.databricks.com/blog/claude-fable-5-now-available-databricks-fully-governed-through-unity-ai-gateway/][Claude Fable 5 is now available on Databricks, fully governed through Unity AI Gateway]] (Databricks) — Анонс интеграции мощной языковой модели в платформу данных с централизованным управлением доступом.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/scale-robot-reinforcement-learning-with-nvidia-isaac-lab-on-amazon-sagemaker-ai/][Scale Robot Reinforcement Learning with NVIDIA Isaac Lab on Amazon SageMaker AI]] (AWS) — Описание инфраструктуры для обучения политик роботов в симуляции с использованием управляемых кластеров SageMaker.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/semantic-layer-governance-control-what-ai-agents-access/][Semantic Layer Governance: Control What AI Agents Access]]
+:SCORE: 9/10
+:WHY: Решает проблему безопасности AI-агентов на архитектурном уровне, что критично для enterprise-внедрений.
+**** [[hxxps://www.databricks.com/blog/claude-fable-5-now-available-databricks-fully-governed-through-unity-ai-gateway/][Claude Fable 5 is now available on Databricks, fully governed through Unity AI Gateway]]
+:SCORE: 8/10
+:WHY: Демонстрирует тренд на глубокую интеграцию LLM в платформы данных с соблюдением корпоративных политик безопасности.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/scale-robot-reinforcement-learning-with-nvidia-isaac-lab-on-amazon-sagemaker-ai/][Scale Robot Reinforcement Learning with NVIDIA Isaac Lab on Amazon SageMaker AI]]
+:SCORE: 7/10
+:WHY: Важно для инженеров, работающих на стыке ML и инфраструктуры: показывает масштабирование обучения в симуляции.
+
+** Artificial Intelligence
+- [[hxxps://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/][Fluid, natural voice translation with Gemini 3.5 Live Translate]] (DeepMind) — Представление технологии голосового перевода в реальном времени с сохранением естественности речи.
+- [[hxxps://deepmind.google/blog/introducing-gemma-4-12b-a-unified-encoder-free-multimodal-model/][Introducing Gemma 4 12B: a unified, encoder-free multimodal model]] (DeepMind) — Анонс новой мультимодальной модели с архитектурой без энкодера для унификации задач.
+- [[hxxps://huggingface.co/blog/ServiceNow-AI/code-switching][Can Voice Agents Handle Bilingual Customers? Benchmarking Frontier ASR on Code-Switched Speech]] (Hugging Face) — Бенчмарк производительности ASR систем на смешанной речи (code-switching) для мультиязычных сценариев.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/][Fluid, natural voice translation with Gemini 3.5 Live Translate]]
+:SCORE: 9/10
+:WHY: Знаковый шаг для интерфейсов будущего: низколатентный голосовой перевод меняет подход к международным коммуникациям.
+**** [[hxxps://huggingface.co/blog/ServiceNow-AI/code-switching][Can Voice Agents Handle Bilingual Customers? Benchmarking Frontier ASR on Code-Switched Speech]]
+:SCORE: 8/10
+:WHY: Критично для продакшн Voice-агентов: показывает реальную готовность моделей к работе со смешанными языками.
+**** [[hxxps://deepmind.google/blog/introducing-gemma-4-12b-a-unified-encoder-free-multimodal-model/][Introducing Gemma 4 12B: a unified, encoder-free multimodal model]]
+:SCORE: 7/10
+:WHY: Интересная архитектурная эволюция открытых моделей, упрощающая пайплайны обработки мультимодальных данных.
+
+** Open Source
+- [[hxxps://www.kdnuggets.com/10-github-repositories-for-web-development-in-python][10 GitHub Repositories for Web Development in Python]] (KDnuggets) — Подборка репозиториев для создания API, дашбордов и внутренних инструментов на Python.
+- [[hxxps://huggingface.co/blog/mishig/spaces-agents-md][How an Agent Built a 3D Paris Gallery by Chaining Two Hugging Face Spaces]] (Hugging Face) — Кейс соединения нескольких Hugging Face Spaces для создания сложного 3D-приложения агентом.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества графовых баз данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/mishig/spaces-agents-md][How an Agent Built a 3D Paris Gallery by Chaining Two Hugging Face Spaces]]
+:SCORE: 8/10
+:WHY: Наглядный пример оркестрации агентов через chaining внешних сервисов для создания сложных продуктов.
+**** [[hxxps://www.kdnuggets.com/10-github-repositories-for-web-development-in-python][10 GitHub Repositories for Web Development in Python]]
+:SCORE: 7/10
+:WHY: Полезный ресурс для быстрого старта внутренних инструментов и прототипирования на Python.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность для инженеров графовых БД быть в курсе roadmap стандартов и сообщества.

@@ -1,0 +1,69 @@
+#+TITLE: Daily Digest: 2026-08-11
+#+FROM: [2026-08-10 Mon]
+#+TO: [2026-08-11 Tue]
+#+DATE: [2026-08-11 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия ИИ переходит от промпт-инжиниринга к инженерии спецификаций и автономным агентным системам. Вендоры облачных решений фокусируются на отказоустойчивости БД и упрощении операционных задач восстановления данных. Интеграция агентных паттернов в классические data pipelines становится практической необходимостью, а не просто демо. Сохраняется спрос на фундаментальные знания в стриминге и математике для инженеров на фоне общего хайпа.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/specification-engineering-the-new-skill-after-prompt-engineering][Specification Engineering: The New Skill After Prompt Engineering]] (KDnuggets) — Переход от написания промптов к формализации требований повышает надежность ИИ-систем.
+- [[hxxps://www.kdnuggets.com/new-free-ebook-understanding-agentic-ai-an-executive-briefing][New Free eBook: Understanding Agentic AI, an Executive Briefing]] (KDnuggets) — Обзор компонентов агентных систем для технологических руководителей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-nops-shipped-finops-agents-75-faster-with-amazon-bedrock-agentcore/][How nOps shipped FinOps agents 75% faster with Amazon Bedrock AgentCore]] (AWS) — Кейс ускорения разработки агентов на 75% благодаря управляемой оркестрации.
+- [[hxxps://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents][Build Low-Latency Multilingual Voice Agents: Open Weights & Full Deployment Control with NVIDIA Magpie TTS]] (HuggingFace) — Решение для голосовых агентов с открытыми весами и низкой задержкой.
+- [[hxxps://huggingface.co/blog/MultiverseComputingCAI/efficient-knowledge-distillation][Making Knowledge Distillation Cheap Enough to Run at Scale]] (HuggingFace) — Методы удешевления дистилляции знаний для масштабирования моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/run-interactive-ides-on-amazon-eks-with-sagemaker-ai-to-power-up-your-ai-workflows/][Run interactive IDEs on Amazon EKS with SageMaker AI to power up your AI workflows]] (AWS) — Запуск IDE в кластере EKS для доступа к GPU и хранилищу без переключения контекста.
+- [[hxxps://www.kdnuggets.com/top-10-ai-influencers-of-2026][Top 10 AI Influencers of 2026]] (KDnuggets) — Список ключевых фигур, влияющих на развитие ИИ в 2026 году.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/specification-engineering-the-new-skill-after-prompt-engineering][Specification Engineering: The New Skill After Prompt Engineering]]
+:SCORE: 9/10
+:WHY: Критически важный сдвиг компетенций для построения надежных продакшн-систем на базе ИИ.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-nops-shipped-finops-agents-75-faster-with-amazon-bedrock-agentcore/][How nOps shipped FinOps agents 75% faster with Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Реальный пример архитектуры агентов с измеримым эффектом скорости доставки.
+**** [[hxxps://www.kdnuggets.com/new-free-ebook-understanding-agentic-ai-an-executive-briefing][New Free eBook: Understanding Agentic AI, an Executive Briefing]]
+:SCORE: 7/10
+:WHY: Стратегическое понимание компонентов агентных систем для принятия технических решений.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/recover-from-accidental-dynamodb-changes-using-bulk-executor/][Recover from accidental DynamoDB changes using Bulk Executor]] (AWS) — Точечный откат изменений в DynamoDB без восстановления всей таблицы через S3 экспорт.
+- [[hxxps://aws.amazon.com/blogs/database/build-zero-downtime-write-architectures-for-amazon-neptune/][Build zero-downtime write architectures for Amazon Neptune]] (AWS) — Паттерн очереди записи для обеспечения доступности графовой БД во время обновлений.
+- [[hxxps://aws.amazon.com/blogs/database/configure-aws-advanced-jdbc-wrapper-connection-pooling-with-the-assistant/][Configure AWS Advanced JDBC Wrapper connection pooling with the assistant]] (AWS) — Настройка пулинга соединений для Aurora и RDS с минимальными накладными расходами.
+- [[hxxps://www.databricks.com/blog/how-ground-genie-agents-both-structured-data-and-documents-without-losing-governance][How to ground Genie Agents in both structured data and documents without losing governance]] (Databricks) — Баланс между доступом агентов к данным и управлением безопасностью.
+- [[hxxps://www.databricks.com/blog/innocent-until-combined-blocking-lethal-trifecta-omnigent-contextual-policies][Innocent until combined: Blocking the lethal trifecta with Omnigent Contextual Policies]] (Databricks) — Политики безопасности для предотвращения рискованных комбинаций действий агентов.
+- [[hxxps://www.databricks.com/blog/introducing-file-type-native-column-type-multimodal-data][Introducing FILE type: a native column type for multimodal data]] (Databricks) — Нативный тип колонки для работы с мультимодальными данными в таблицах.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Встреча сообщества по графовым базам данных в рамках VLDB 2026.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/recover-from-accidental-dynamodb-changes-using-bulk-executor/][Recover from accidental DynamoDB changes using Bulk Executor]]
+:SCORE: 9/10
+:WHY: Практическое решение для аварийного восстановления данных без простоя таблицы.
+**** [[hxxps://aws.amazon.com/blogs/database/build-zero-downtime-write-architectures-for-amazon-neptune/][Build zero-downtime write architectures for Amazon Neptune]]
+:SCORE: 8/10
+:WHY: Архитектурный паттерн для высоконагруженных графовых систем с требованием доступности.
+**** [[hxxps://aws.amazon.com/blogs/database/configure-aws-advanced-jdbc-wrapper-connection-pooling-with-the-assistant/][Configure AWS Advanced JDBC Wrapper connection pooling with the assistant]]
+:SCORE: 7/10
+:WHY: Оптимизация производительности соединений для Java-приложений в экосистеме AWS.
+
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/quasi-agentic-pipelines-with-databricks][Quasi-Agentic Pipelines with Databricks and Apache Airflow]] (Data Engineering Central) — Практический подход к внедрению агентов в детерминированные data pipeline.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/quasi-agentic-pipelines-with-databricks][Quasi-Agentic Pipelines with Databricks and Apache Airflow]]
+:SCORE: 8/10
+:WHY: Редкий пример интеграции агентов в классические инструменты инженера данных.
+
+** Инженеры
+- [[hxxps://vutr.substack.com/p/how-to-start-learning-stream-processing][How to start learning stream processing from zero?]] (vutr.substack) — Руководство по переходу от батч-обработки к стримингу с разбором концепций.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Разбор метода наименьших квадратов для понимания основ машинного обучения.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/how-to-start-learning-stream-processing][How to start learning stream processing from zero?]]
+:SCORE: 8/10
+:WHY: Структурированный план изучения сложной темы для расширения инженерного стека.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Напоминание о важности математических фундаментов для работы с данными.

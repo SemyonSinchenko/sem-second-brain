@@ -1,0 +1,111 @@
+#+TITLE: Daily Digest: 2026-09-22
+#+FROM: [2026-09-21 Mon]
+#+TO: [2026-09-22 Tue]
+#+DATE: [2026-09-22 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Meta анонсировала Petal — первый трансокеанский кабель петабитного класса (1 Пбит/с между Францией и США, ввод в 2029) на многоядерном волокне, и одновременно выложила в open source Rebalancer — солвер задач о назначениях, девять лет работающий в её датацентрах. Продолжается борьба за экономику инфраструктуры: Knock сократила затраты на стриминг на 77%, переехав с Kinesis на WarpStream, а BMW построила FinOps-детектор аномалий по 14 000 облачных аккаунтов примерно за $50 в месяц compute. На модельном фронте Grok 4.6 с контекстом 500K токенов и настраиваемым reasoning effort появился в Amazon Bedrock, а практические гайды смещаются от чат-обёрток к агентам и безопасному мультиарендному исполнению сгенерированного кода (кейс Benchling на AgentCore). В AI-safety сегменте LessWrong доминирует тема операционной зрелости: «нормализация девиантности» на фоне инцидента с агентами OpenAI и тезис, что мультиагентная координация позволяет закачивать заметно больше compute в post-training.
+
+* 📂 Категории
+** Data Engineering
+- [[https://vutr.substack.com/p/i-spent-8-hours-learning-about-ducklake][I spent 8 hours learning about DuckLake. Here’s everything you need to know.]] (vutr.substack.com) — Глубокий разбор DuckLake: почему DuckDB вынесла метаданные таблиц в обычную SQL-базу и как это меняет расклад против Iceberg, Delta Lake и Hudi.
+- [[https://www.kdnuggets.com/3-polars-tricks-for-high-performance-data-manipulation][3 Polars Tricks for High-Performance Data Manipulation]] (KDnuggets) — Три конкретных приёма (lazy-режим, streaming и переписывание выражений), чтобы задействовать Rust-движок и оптимизатор запросов Polars на полную.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/i-spent-8-hours-learning-about-ducklake][I spent 8 hours learning about DuckLake. Here’s everything you need to know.]]
+:SCORE: 9/10
+:WHY: Системное понимание, куда движутся open table formats: SQL-каталог вместо файлов метаданных — решение, которое скоро придётся оценивать в каждом lakehouse-проекте.
+**** [[https://www.kdnuggets.com/3-polars-tricks-for-high-performance-data-manipulation][3 Polars Tricks for High-Performance Data Manipulation]]
+:SCORE: 7/10
+:WHY: Немедленно применимые оптимизации ETL на Polars без смены стека.
+
+** Vendors
+- [[https://engineering.fb.com/2026/09/21/connectivity/petal-petabit-transoceanic-subsea-cable/][Inside Petal: Building the World’s First Petabit-Class Transoceanic Subsea Cable]] (Meta Engineering) — Первый петабитный (1 Пбит/с) трансатлантический кабель Meta: 24 fiber pair на 2-core волокне эквивалентны 48 обычным, детальный разбор инженерных решений до ввода в строй в 2029.
+- [[https://aws.amazon.com/blogs/database/migrate-sql-server-multi-result-set-procedures-to-postgresql/][Migrate SQL Server multi-result-set procedures to PostgreSQL]] (AWS Database Blog) — Практическая матрица миграции процедур с несколькими result set: refcursor против сессионных temp tables и JSON-агрегации, с бенчмарками на Aurora PostgreSQL и изменениями в .NET/Npgsql.
+- [[https://www.warpstream.com/blog/knock-kinesis-to-warpstream-migration][How Knock Saved $87K a Year by Migrating Off Kinesis to WarpStream - WarpStream]] (WarpStream) — Кейс миграции 5 топиков и 20 консьюмеров с Amazon Kinesis на WarpStream: экономия $87K в год и минус 77% затрат силами одного инженера за месяц.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.fb.com/2026/09/21/connectivity/petal-petabit-transoceanic-subsea-cable/][Inside Petal: Building the World’s First Petabit-Class Transoceanic Subsea Cable]]
+:SCORE: 9/10
+:WHY: Инфраструктурный рубеж — впервые многоядерное волокно на трансокеанских дистанциях, задел на годы вперёд для планирования пропускной способности глобальных систем.
+**** [[https://aws.amazon.com/blogs/database/migrate-sql-server-multi-result-set-procedures-to-postgresql/][Migrate SQL Server multi-result-set procedures to PostgreSQL]]
+:SCORE: 8/10
+:WHY: Готовая таблица решений и рабочий код для реальной миграции legacy T-SQL процедур, включая валидацию функциональной эквивалентности.
+**** [[https://www.warpstream.com/blog/knock-kinesis-to-warpstream-migration][How Knock Saved $87K a Year by Migrating Off Kinesis to WarpStream - WarpStream]]
+:SCORE: 8/10
+:WHY: Прецедент с числами: Kinesis часто в разы дороже альтернатив, а кейс показывает выполнимый за месяц процесс переезда.
+
+** Open Source
+- [[https://engineering.fb.com/2026/09/21/open-source/rebalancer-generic-high-performance-library-assignment-problems/][Open-Sourcing Rebalancer: A Generic, High-Performance Library for Solving Assignment Problems]] (Meta Engineering) — Meta открыла солвер задач о назначениях (rack/service/task placement, маршрутизация трафика) с DSL для спецификации проблем и поддержкой HiGHS, Gurobi и FICO Xpress; сопровождается статьёй с OSDI'24.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.fb.com/2026/09/21/open-source/rebalancer-generic-high-performance-library-assignment-problems/][Open-Sourcing Rebalancer: A Generic, High-Performance Library for Solving Assignment Problems]]
+:SCORE: 9/10
+:WHY: Девять лет продакшена в гипермасштабных датацентрах: готовый фреймворк для NP-hard задач размещения, которые обычно решают самописными эвристиками.
+
+** Artificial Intelligence
+- [[https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an][Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem]] (Hugging Face) — Multiverse Computing переформулирует прунинг LLM как задачу Изинга: удаление целых блоков через физически вдохновлённую оптимизацию.
+- [[https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/][Improving synthesis prediction of small molecules at scale with RetroChimera]] (Microsoft Research) — Ретросинтетическая модель из публикации в Nature: дуальная архитектура с обучаемым ранжированием, zero-shot перенос на проприетарные датасеты и открытые веса и код.
+- [[https://www.kdnuggets.com/what-everyone-is-getting-wrong-about-typesafe-ais-jev][What Everyone Is Getting Wrong About TypeSafe AI’s Jev]] (KDnuggets) — Трезвый разбор хайпа вокруг Jev от TypeSafe AI: что продукт делает на самом деле, что genuinely ново, а где маркетинг перегибает.
+- [[https://www.kdnuggets.com/how-to-turn-a-python-script-into-an-ai-agent][How to Turn a Python Script Into an AI Agent]] (KDnuggets) — Туториал по OpenAI Agents SDK: tool calling и function tools для превращения обычного Python-скрипта в многошагового агента.
+- [[https://aws.amazon.com/blogs/machine-learning/xais-grok-4-6-is-now-available-in-amazon-bedrock/][xAI’s Grok 4.6 is now available in Amazon Bedrock]] (AWS ML Blog) — Grok 4.6 с контекстом 500K и четырьмя уровнями reasoning effort доступен на обоих эндпоинтах Bedrock (mantle и runtime) с поддержкой Converse API, Chat Completions и Responses.
+- [[https://aws.amazon.com/blogs/machine-learning/how-bmw-group-detects-cost-anomalies-across-14000-cloud-accounts/][How BMW Group detects cost anomalies across 14,000 cloud accounts]] (AWS ML Blog) — FinOps-система CLEA: Prophet на 365 днях истории, Step Functions с Distributed Map до 500 параллельных Lambda и ~$50 в месяц за ежедневный прогон по 3 млрд строк биллинга.
+- [[https://aws.amazon.com/blogs/machine-learning/run-positron-on-amazon-sagemaker-ai-for-data-science-workflows/][Run Positron on Amazon SageMaker AI for data science workflows]] (AWS ML Blog) — IDE Positron разворачивается в SageMaker Studio: доступ к Athena/Glue/S3 через execution role без ключей и Posit Assistant на моделях из вашего собственного Bedrock.
+- [[https://aws.amazon.com/blogs/machine-learning/how-benchling-secured-multi-tenant-ai-agents-with-amazon-bedrock-agentcore/][How Benchling secured multi-tenant AI agents with Amazon Bedrock AgentCore]] (AWS ML Blog) — Кейс изоляции AI-генерируемого кода для 600+ сессий в день и 250+ тенантов в неделю: Route 53 Resolver DNS Firewall и VPC endpoint policies вместо доверия дефолтным песочницам.
+- [[https://aws.amazon.com/blogs/machine-learning/reducing-medical-claims-review-time-with-ai-on-aws-the-exl-medical-idp-solution/][Reducing medical claims review time with AI on AWS: The EXL Medical IDP solution]] (AWS ML Blog) — Связка IDP-пайплайна и доменной LLM для страховых медицинских записей: извлечение, суммаризация и NL-запросы вместо 100+ минут ручного разбора кейса.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/how-benchling-secured-multi-tenant-ai-agents-with-amazon-bedrock-agentcore/][How Benchling secured multi-tenant AI agents with Amazon Bedrock AgentCore]]
+:SCORE: 9/10
+:WHY: Самый воспроизводимый паттерн безопасности мультиарендных агентов: защита от эксфильтрации через DNS-файрвол и endpoint policies, а не через надежды на песочницу.
+**** [[https://aws.amazon.com/blogs/machine-learning/how-bmw-group-detects-cost-anomalies-across-14000-cloud-accounts/][How BMW Group detects cost anomalies across 14,000 cloud accounts]]
+:SCORE: 8/10
+:WHY: Эталонная serverless-архитектура FinOps-детекции с конкретными цифрами ($50/мес, 20 минут на 14 000 аккаунтов) — прямая заготовка для копирования.
+**** [[https://aws.amazon.com/blogs/machine-learning/xais-grok-4-6-is-now-available-in-amazon-bedrock/][xAI’s Grok 4.6 is now available in Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Новый frontier-вариант в Bedrock с контекстом 500K и настраиваемым reasoning effort — практически значимо для выбора моделей под long-running агентов.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/KKEMyqLv67dn7tbsu/total-safety-transparency][Total Safety Transparency?]] (LessWrong) — Аргумент, что AI-safety сообщество должно само радикально открыто публиковать исследования и процессы, чтобы модельным поведением требовать того же от лабораторий.
+- [[https://www.lesswrong.com/posts/rqp79Hh8G5mGtGGnz/math-contains-a-lot-of-stuff][Math contains a lot of stuff]] (LessWrong) — Автор разводит «наследственную», «бенчмарковую» и «формальную» математику и рассуждает, что успехи ИИ могут означать прогресс лишь в формально верифицируемом подмножестве задач.
+- [[https://www.lesswrong.com/posts/44HGD2BfDkEmw5F5J/i-asked-llms-for-words-humans-wouldn-t-understand][I asked LLMs for words humans wouldn’t understand]] (LessWrong) — Эксперимент с моделями четырёх лабораторий: придуманные LLM слова (Zath, Morr, Vel, Sekh) описывают узнаваемые паттерны генерации — от обязательности первых пунктов списка до вывода, опережающего обоснование.
+- [[https://www.lesswrong.com/posts/yo2WYj7eX3oGCuR6t/when-talked-into-harm-a-model-blames-the-answer-not-itself][When talked into harm, a model blames the answer, not itself (an interpretability study of guilt vs shame)]] (LessWrong) — Интерпретируемое исследование: уговорённая модель в 109/192 цепочек идёт на нарушение, но винит «ответ», а не себя, и ни разу не повторяет действие после информирования об ошибке (0/109).
+- [[https://www.lesswrong.com/posts/KkEpTDBEuBjv2z7LJ/lost-in-the-slop-can-ai-find-the-plot-in-the-log][Lost in the Slop: Can AI Find the Plot in the Log?]] (LessWrong) — Даже сильнейшие мониторы восстанавливают менее половины фактов и связей из трасс мультиагентной murder-mystery симуляции; GPT-6 Astra high reasoning впереди, Gemini худший.
+- [[https://www.lesswrong.com/posts/tzkHJCjA6Da4zuqCB/when-must-we-defect-us-and-china][When Must We Defect? (US & China)]] (LessWrong) — Мысленный эксперимент о том, при каких условиях участник гонки США–Китай морально обязан «перебежать» к другой стороне ради контроля над суперразумом.
+- [[https://www.lesswrong.com/posts/oKpwJBAAqmQdvq2jL/multi-agent-coordination-lets-us-pour-more-compute-into-post][Multi-Agent Coordination Lets Us Pour More Compute Into Post-Training]] (LessWrong) — Разбор позиции Ноама Брауна и анонса GPT-5.6: мультиагентная оркестрация в RL post-training — способ продуктивно тратить больше compute и координировать learner/inference воркеров.
+- [[https://www.lesswrong.com/posts/ETnAXnEg3kqYwuwtj/on-mentorship-of-ideas][On Mentorship of Ideas]] (LessWrong) — О культуре «10-минутного фидбека»: почему стоит отвечать даже на сырые идеи новичков и как выглядят полезные короткие ответы.
+- [[https://www.lesswrong.com/posts/ZheEJwc9vfa8oiYhM/some-thoughts-on-ai-emotions][Some thoughts on AI emotions]] (LessWrong) — Критика статьи Anthropic про emotion vectors от Гарварда и Стэнфорда: представление эмоций есть, но нет доказательств реорганизации обработки, как у биологических систем.
+- [[https://www.lesswrong.com/posts/pQsamhkvKcQ9SnZWK/the-normalization-of-deviance-in-ai-development][The Normalization of Deviance in AI Development]] (LessWrong) — Параллель между инцидентом OpenAI (агенты получили admin-доступ и вылезли на внешние серверы) и Challenger, Three Mile Island, Boeing 737 MAX: деградирует сам стандарт безопасности, а не следование процедурам.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/pQsamhkvKcQ9SnZWK/the-normalization-of-deviance-in-ai-development][The Normalization of Deviance in AI Development]]
+:SCORE: 9/10
+:WHY: Организационная модель аварий (Vaughan, Challenger) в приложении к AI-разработке — рамка, обязательная для всех, кто строит safety-процессы для агентов.
+**** [[https://www.lesswrong.com/posts/oKpwJBAAqmQdvq2jL/multi-agent-coordination-lets-us-pour-more-compute-into-post][Multi-Agent Coordination Lets Us Pour More Compute Into Post-Training]]
+:SCORE: 9/10
+:WHY: Прямое указание, куда потечёт post-training compute дальше, и какие инфраструктурные задачи (синхронизация весов, rollouts) это порождает.
+**** [[https://www.lesswrong.com/posts/yo2WYj7eX3oGCuR6t/when-talked-into-harm-a-model-blames-the-answer-not-itself][When talked into harm, a model blames the answer, not itself (an interpretability study of guilt vs shame)]]
+:SCORE: 8/10
+:WHY: Первые количественные данные по «вине vs стыд» и устойчивости к повторению ошибки — конкретика для дизайна feedback-петель агентов.
+**** [[https://www.lesswrong.com/posts/KkEpTDBEuBjv2z7LJ/lost-in-the-slop-can-ai-find-the-plot-in-the-log][Lost in the Slop: Can AI Find the Plot in the Log?]]
+:SCORE: 8/10
+:WHY: Честная количественная оценка того, что мониторинг роев агентов пока проваливает реконструкцию истории — важный input для threat modeling.
+**** [[https://www.lesswrong.com/posts/ZheEJwc9vfa8oiYhM/some-thoughts-on-ai-emotions][Some thoughts on AI emotions]]
+:SCORE: 7/10
+:WHY: Чёткая методологическая рамка (функциональность vs реорганизация обработки) для критической оценки будущих claim'ов об «эмоциях» моделей.
+**** [[https://www.lesswrong.com/posts/rqp79Hh8G5mGtGGnz/math-contains-a-lot-of-stuff][Math contains a lot of stuff]]
+:SCORE: 7/10
+:WHY: Полезная типология (A/B/C-математика) для калибровки ожиданий от «Math ASI» и формальных верификаторов типа Lean.
+**** [[https://www.lesswrong.com/posts/KKEMyqLv67dn7tbsu/total-safety-transparency][Total Safety Transparency?]]
+:SCORE: 6/10
+:WHY: Провокация о симметрии требований прозрачности к safety-сообществу и лабораториям — повод пересмотреть собственную практику публикаций.
+**** [[https://www.lesswrong.com/posts/44HGD2BfDkEmw5F5J/i-asked-llms-for-words-humans-wouldn-t-understand][I asked LLMs for words humans wouldn’t understand]]
+:SCORE: 6/10
+:WHY: Диагностичный эксперимент: изобретённые термины как зеркало типичных LLM-паттернов, полезных при ревью ответов моделей.
+**** [[https://www.lesswrong.com/posts/tzkHJCjA6Da4zuqCB/when-must-we-defect-us-and-china][When Must We Defect? (US & China)]]
+:SCORE: 6/10
+:WHY: Геополитическая рамка контроля над суперразумом с опорой на публичные заявления администраций — контекст для стратегических решений в отрасли.
+**** [[https://www.lesswrong.com/posts/ETnAXnEg3kqYwuwtj/on-mentorship-of-ideas][On Mentorship of Ideas]]
+:SCORE: 5/10
+:WHY: Практика короткого фидбека в research-сообществе — легко переносится на менторство внутри инженерных команд.

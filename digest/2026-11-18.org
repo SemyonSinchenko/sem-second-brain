@@ -1,0 +1,127 @@
+#+TITLE: Daily Digest: 2026-11-18
+#+FROM: [2026-11-17 Tue]
+#+TO: [2026-11-18 Wed]
+#+DATE: [2026-11-18 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Неделя прошла под знаком стоимости инференса: AWS добавил KV-cache-роутинг в SageMaker и управляемый NVIDIA Dynamo на HyperPod, а разбор Pragmatic Engineer показывает, что переезд с API frontier-лабов на открытые модели срезает расходы на токены у Uber на 50% и у Pinterest на 90%. Второй тренд — взросление открытых форматов: Dremio выпустил операторские руководства по Polaris 1.9.0, федерации каталогов и семантике identifier fields в Iceberg, а Databricks и Google продвинули интероперабельность Unity Catalog и Borderless Lakehouse. Самый дешёвый вызов модели — тот, которого не было: кейсы AWS показывают до −71% токенов и −80% latency, когда детерминированный код заменяет LLM на рутинных шагах пайплайна. В AI safety обсуждают model organisms с сандбэггингом, устойчивые к аудиту, и разрыв между суперубедительностью ИИ в бенчмарках и его реальной persuasiveness. Инженерам данных — практичный разбор отказоустойчивого CDC-коннектора, собранного с помощью AI-агента, с тестами на kill -9.
+
+* 📂 Категории
+** Инженерия данных
+- [[https://newsletter.pragmaticengineer.com/p/inference-engineering-for-software-engineers][Inference engineering for software engineers]] (Pragmatic Engineer) — Практический маршрут миграции с API frontier-лабов на открытые модели: от мультитенантных инференс-провайдеров до выделенных GPU с настройкой KV-кэша и speculative decoding.
+- [[https://juhache.substack.com/p/vibe-coding-a-cdc-connector-durable][Vibe Coding a CDC Connector: Durable CDC (2/5)]] (juhache.substack.com) — Порядок «записали в SQLite-журнал → подтвердили в PostgreSQL» даёт zero-loss при kill -9, а дубликаты доставки решаются идемпотентностью приёмника.
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (ssp.sh) — Интервью с автором «Writing for Developers»: как техническим специалистам выстраивать процесс письма и публиковать блоги, которые реально читают.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/inference-engineering-for-software-engineers][Inference engineering for software engineers]]
+:SCORE: 9/10
+:WHY: Конкретная двухэтапная стратегия переезда на открытые модели с признаками «пора на выделенные GPU» — прямая экономика инференса для любого senior-инженера.
+**** [[https://juhache.substack.com/p/vibe-coding-a-cdc-connector-durable][Vibe Coding a CDC Connector: Durable CDC (2/5)]]
+:SCORE: 8/10
+:WHY: Kill-switch тесты наглядно показывают, где именно ломается CDC и как порядок коммитов устраняет потерю данных — готовый чек-лист для проектирования своего коннектора.
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Приёмы письменной коммуникации от инженерного райтера — навык, который напрямую влияет на карьеру senior-специалиста.
+
+** Вендоры
+- [[https://www.databricks.com/blog/built-object-storage-served-cache][Built on object storage, served from cache]] (Databricks) — Кэширование снимает главный аргумент против Postgres на object storage: latency локальных SSD при стоимости S3.
+- [[https://www.databricks.com/blog/how-we-raised-databricks-cluster-rate-limits-75][How we raised Databricks cluster rate limits by 7.5×]] (Databricks) — Инженерная история команды Compute Platform о том, как поднять лимиты создания кластеров в 7,5 раза.
+- [[https://neo4j.com/blog/developer/the-knowledge-layer-for-enterprise-ai-domain-ontology/][The knowledge layer for enterprise AI: Domain Ontology]] (Neo4j) — Как дать спорной корпоративной терминологии («churn» с тремя разными ответами) управляемое определение, стюарда и интервал валидности в графе, чтобы агенты отвечали однозначно.
+- [[https://www.dremio.com/blog/migrating-semantic-models-with-apache-ossie-converters/][Migrating Semantic Models with Apache Ossie Converters]] (Dremio) — Миграция семантических моделей через Ossie: инвентаризация, round-trip тесты метрик и joins, параллельный прогон вместо веры в lossless-конвертацию.
+- [[https://www.dremio.com/blog/testing-apache-ossie-semantic-models-in-ci/][Testing Apache Ossie Semantic Models in CI]] (Dremio) — Готовый CI-пайплайн для Ossie-моделей: валидация схемы, линтер связей, fixture-тесты метрик по SQL-диалектам и гейты обратной совместимости.
+- [[https://www.dremio.com/blog/testing-apache-iceberg-across-dremio-spark-flink-and-trino/][Testing Apache Iceberg Across Dremio, Spark, Flink, and Trino]] (Dremio) — Методика «контракта совместимости»: контрольные append'ы, time-travel чтения и сверка чек-сумм снапшотов между четырьмя движками.
+- [[https://www.dremio.com/blog/apache-iceberg-identifier-fields-keys-cdc-deletes-and-upserts/][Apache Iceberg Identifier Fields: Keys, CDC, Deletes, and Upserts]] (Dremio) — Identifier fields — метаданные, а не primary key: спека не гарантирует уникальность, дедупликацию CDC и upsert-порядок обеспечивает ваш пайплайн.
+- [[https://www.dremio.com/blog/apache-polaris-catalog-federation-iceberg-rest-hive-and-hadoop/][Apache Polaris Catalog Federation: Iceberg REST, Hive, and Hadoop]] (Dremio) — Федерация Polaris 1.9.0 даёт единый REST/RBAC-шлюз над внешними каталогами, не импортируя метаданные: авторитет остаётся у источника.
+- [[https://www.dremio.com/blog/apache-polaris-1-9-0-new-features-breaking-changes-and-upgrade-guide/][Apache Polaris 1.9.0: New Features, Breaking Changes, and Upgrade Guide]] (Dremio) — Обязательная миграция JDBC-метастора на схему v6, пагинация списков по умолчанию и переработка S3 credential vending — чек-лист обновления без простоя.
+- [[https://aws.amazon.com/blogs/database/accelerate-your-dynamodb-workloads-with-dynamodb-caching-with-amazon-elasticache-serverless-for-valkey/][Accelerate your DynamoDB workloads with DynamoDB caching with Amazon ElastiCache Serverless for Valkey]] (AWS Blog) — Write-through кэш для DynamoDB на Valkey убирает hot-key throttling с саб-миллисекундной задержкой и без переписывания слоя доступа к данным.
+- [[https://aws.amazon.com/blogs/database/use-query-statistics-to-find-slow-and-expensive-queries-in-aurora-dsql/][Use query statistics to find slow and expensive queries in Aurora DSQL]] (AWS Blog) — Per-statement статистика Aurora DSQL (calls, latency, scanned rows, DPU) в CloudWatch — от алерта до измеримой стоимости нехватки индекса.
+- [[https://aws.amazon.com/blogs/database/add-your-organizations-runbooks-and-policies-using-retrieval-augmented-generation-rag-on-amazon-aurora-postgresql/][Add your organization's runbooks and policies using Retrieval Augmented Generation (RAG) on Amazon Aurora PostgreSQL]] (AWS Blog) — Runbook'ы в S3 + pgvector на Aurora дают DBA-ассистенту ответы, цитирующие внутренние регламенты команды.
+- [[https://aws.amazon.com/blogs/database/build-an-ai-powered-dba-assistant-for-amazon-aurora-and-amazon-rds-with-kiro/][Build an AI-powered DBA assistant for Amazon Aurora and Amazon RDS with Kiro]] (AWS Blog) — Kiro с MCP-серверами для PostgreSQL и CloudWatch закрывает инцидент БД от алерта до фикса в одном интерфейсе.
+- [[https://aws.amazon.com/blogs/database/distribute-amazon-rds-traffic-between-read-replicas-using-network-load-balancer/][Distribute Amazon RDS traffic between read replicas using Network Load Balancer]] (AWS Blog) — NLB с health-check и AZ-аффинностью как альтернатива Aurora reader endpoint и Route 53 для чтения с реплик.
+- [[https://www.databricks.com/blog/azure-databricks-sessions-microsoft-ignite-2026][Azure Databricks sessions at Microsoft Ignite 2026]] (Databricks) — Программа сессий Azure Databricks на Ignite 2026.
+- [[https://www.databricks.com/blog/branch-sync-serve-what-our-lakebase-hackathon-taught-us-about-building-lakebase][Branch, sync, serve: What our Lakebase Hackathon taught us about building on Lakebase]] (Databricks) — Уроки хакатона: паттерны ветвления и синхронизации Postgres-баз на lakehouse-платформе.
+- [[https://www.databricks.com/blog/advancing-catalog-interoperability-unity-catalog-and-google-clouds-borderless-lakehouse][Advancing Catalog Interoperability with Unity Catalog and Google Cloud's Borderless Lakehouse]] (Databricks) — Каталоги двигаются к интероперабельности дальше открытых форматов таблиц.
+- [[https://www.databricks.com/blog/liveramp-rampid-identity-resolution-packaged-clean-rooms][How packaged clean rooms bring RampID to your lakehouse]] (Databricks) — Identity-резолюция через RampID в clean rooms без отправки PII вендору.
+- [[https://www.databricks.com/blog/new-azure-databricks-azure-government-now-beta][The new Azure Databricks on Azure Government is now in Beta]] (Databricks) — Azure Databricks в правительственном облаке вышел в бету для регулируемых отраслей.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/built-object-storage-served-cache][Built on object storage, served from cache]]
+:SCORE: 9/10
+:WHY: Разрушает устоявшийся архитектурный аргумент против Postgres на object storage — must-read перед любым решением о БД-инфраструктуре.
+**** [[https://www.dremio.com/blog/apache-polaris-1-9-0-new-features-breaking-changes-and-upgrade-guide/][Apache Polaris 1.9.0: New Features, Breaking Changes, and Upgrade Guide]]
+:SCORE: 8/10
+:WHY: Конкретные breaking changes (JDBC v6, пагинация, credential vending), незнание которых ломает продакшн при обновлении.
+**** [[https://www.dremio.com/blog/apache-iceberg-identifier-fields-keys-cdc-deletes-and-upserts/][Apache Iceberg Identifier Fields: Keys, CDC, Deletes, and Upserts]]
+:SCORE: 8/10
+:WHY: Чётко разделяет гарантии спецификации Iceberg и поведение движков в CDC/upsert сценариях — постоянный источник трудноуловимых багов.
+
+** Искусственный интеллект
+- [[https://aws.amazon.com/blogs/machine-learning/cut-generative-ai-costs-code-for-rules-models-for-judgment/][Cut generative AI costs: Code for rules, models for judgment]] (AWS Blog) — Флоучарт из трёх вопросов для каждого шага воркфлоу: нужен ли там вообще LLM, или хватит детерминированного правила.
+- [[https://aws.amazon.com/blogs/machine-learning/reducing-token-costs-and-latency-in-amazon-bedrock-agentcore-json-workloads/][Reducing token costs and latency in Amazon Bedrock AgentCore JSON workloads]] (AWS Blog) — Три композируемые стратегии для агента с 40+ инструментами и payload'ами в 23 МБ: до −71% токенов и −80% latency.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-real-time-endpoints-now-support-kv-cache-aware-routing/][Amazon SageMaker AI real-time endpoints now support KV cache aware routing]] (AWS Blog) — Роутинг по фактическому состоянию KV-кэша инстансов исправляет главный изъян prefix-aware хеширования — отправку запросов на «холодный» кэш.
+- [[https://aws.amazon.com/blogs/machine-learning/managed-nvidia-dynamo-on-amazon-sagemaker-hyperpod-inference/][Managed NVIDIA Dynamo on Amazon SageMaker HyperPod Inference]] (AWS Blog) — Disaggregated prefill/decode пулы, KV-aware роутинг и gang scheduling для мультинодового LLM-сервинга с бенчмарками.
+- [[https://aws.amazon.com/blogs/machine-learning/reason-over-time-series-data-with-opentslm-on-amazon-sagemaker-jumpstart/][Reason over time-series data with OpenTSLM on Amazon SageMaker JumpStart]] (AWS Blog) — Открытые тайм-сериес LLM рассуждают над телеметрией вместе с текстовым контекстом — пример из proactive IT-поддержки Nexthink.
+- [[https://aws.amazon.com/blogs/machine-learning/getting-ai-out-of-the-demo-and-into-businesses-globally/][Getting AI out of the demo and into businesses globally]] (AWS Blog) — Типовые провалы «последней мили» ИИ на трёх уровнях: фундамент, воркфлоу, governance — с выводами из 15 стран.
+- [[https://aws.amazon.com/blogs/machine-learning/build-whatsapp-ai-agents-with-amazon-bedrock-agentcore/][Build WhatsApp AI agents with Amazon Bedrock AgentCore]] (AWS Blog) — Open source SMART SDK закрывает весь channel-слой WhatsApp (вебхуки, медиа, окно Meta 24ч, память) одним terraform apply.
+- [[https://aws.amazon.com/blogs/machine-learning/secure-oauth-patterns-for-snowflake-cortex-ai-through-amazon-bedrock-agentcore/][Secure OAuth patterns for Snowflake Cortex AI through Amazon Bedrock AgentCore]] (AWS Blog) — Три end-to-end протестированных OAuth-паттерна для агентов поверх MCP, включая OBO grant для unattended ворклоадов.
+- [[https://aws.amazon.com/blogs/machine-learning/govern-and-discover-records-with-common-metadata-in-aws-agent-registry/][Govern and discover records with common metadata in AWS Agent Registry]] (AWS Blog) — Кастомные метаданные-схемы дают единый словарь владельцев, рисков и окружений для всех агентов и MCP-серверов организации.
+- [[https://aws.amazon.com/blogs/machine-learning/announcing-ai-data-preparation-capabilities-in-amazon-sagemaker-build-high-quality-datasets-for-model-development-workflows/][Announcing AI data preparation capabilities in Amazon SageMaker: Build high-quality datasets for model development workflows]] (AWS Blog) — Auto-labeling «жюри моделей», human review через Label Studio и генерация синтетики из спецификации без ручных пайплайнов.
+- [[https://www.kdnuggets.com/how-to-calibrate-your-classifiers-probabilities-in-scikit-learn][How to Calibrate Your Classifier's Probabilities in Scikit-learn]] (KDnuggets) — От обнаружения некалиброванности через reliability diagram и Brier score до фикса Platt scaling'ом и isotonic regression.
+- [[https://www.kdnuggets.com/7-best-ai-coding-plans-for-10-or-less-in-2026][7 Best AI Coding Plans for $10 or Less in 2026]] (KDnuggets) — Сравнение бюджетных AI-кодинг планов: OpenCode, Cursor, GitHub Copilot, Cline, Zed и Xiaomi MiMo.
+- [[https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/][Can AI help build a healthier future?]] (Microsoft Research) — Eric Topol и Eric Horvitz о будущем ИИ в медицине: диагностика, медицинская визуализация, виртуальные клетки и biological foundation models.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/cut-generative-ai-costs-code-for-rules-models-for-judgment/][Cut generative AI costs: Code for rules, models for judgment]]
+:SCORE: 9/10
+:WHY: Самый недооценённый рычаг стоимости генеративных систем — таблица решений «код vs модель» применима к любому существующему пайплайну.
+**** [[https://aws.amazon.com/blogs/machine-learning/reducing-token-costs-and-latency-in-amazon-bedrock-agentcore-json-workloads/][Reducing token costs and latency in Amazon Bedrock AgentCore JSON workloads]]
+:SCORE: 9/10
+:WHY: Измеримые −71% токенов и −80% latency на production-агенте с большими JSON — паттерны переносятся на любой агентный фреймворк.
+**** [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-real-time-endpoints-now-support-kv-cache-aware-routing/][Amazon SageMaker AI real-time endpoints now support KV cache aware routing]]
+:SCORE: 8/10
+:WHY: Роутинг по реальному состоянию кэша решает проблему multi-turn диалогов, на которой спотыкается prefix-aware хеширование.
+
+** Сознание ИИ
+- [[https://www.lesswrong.com/posts/7FQMM394P4D7ZAsBj/where-is-all-the-ai-persuasion][Where is all the AI persuasion?]] (LessWrong) — Фронтовые модели супербедительны в исследованиях, но в реальном мире эффект пропадает — редкая возможность проверить, переносится ли прогресс ИИ на «размытые» задачи.
+- [[https://www.lesswrong.com/posts/7k3xBdhHb546oLBv4/designing-deceptive-model-organisms-that-successfully-evade][Designing Deceptive Model Organisms that Successfully Evade Auditing]] (LessWrong) — Три model organism с сандбэггингом, устойчивые к black-box и white-box аудиту, — новый жёсткий бенчмарк для техник аудита.
+- [[https://www.lesswrong.com/posts/K7jgPBhQSgwpmv8DT/ai-takeoff-complex-tasks-and-pacing][AI Takeoff: Complex Tasks and Pacing]] (LessWrong) — Модель takeoff с разделением transfer (супервизируемо) и validity (нет): базовый сценарий даёт TED-AI в феврале 2029.
+- [[https://www.lesswrong.com/posts/yQmzPMMeBLmGuZokr/i-m-worried-about-llms-accelerating-hardware-for-cheap-asi][I'm worried about LLMs accelerating hardware for cheap ASI]] (LessWrong) — Аргумент, что LLM ускорят разработку железа для дешёвого (<$10k) ASI новой парадигмы, вероятно, несовместимого с выравниванием ценностей.
+- [[https://www.lesswrong.com/posts/Nr43jaP4mpxzKwtYj/eci-visualized-as-a-weighted-average-of-benchmarks][ECI visualized as a weighted average of benchmarks]] (LessWrong) — Разложение композитного ECI на взвешенные бенчмарки показывает, где именно одна модель отстаёт от другой.
+- [[https://www.lesswrong.com/posts/ocywf8gX9mkNmBxdp/a-wander-through-adult-intelligence-amplification][A wander through adult intelligence amplification...]] (LessWrong) — Диалог о roadmapping для усиления взрослого человеческого интеллекта: почему ясных биотех-путей пока нет и с чего начать.
+- [[https://ethicsblog.crb.uu.se/2026/11/17/academic-authorship-intellectually-invested-author-or-rapporteur/?utm_source=rss&utm_medium=rss&utm_campaign=academic-authorship-intellectually-invested-author-or-rapporteur][Academic authorship: intellectually invested author or rapporteur?]] (The Ethics Blog) — Философское эссе о том, превращает ли генеративный ИИ автора в «рапортёра» и что это значит для самого акта мышления на письме.
+- [[https://www.lesswrong.com/posts/zr8MgWXLhqzTiiLNj/curiosity-as-a-defense-mechanism-against-being-vulnerable][Curiosity as a Defense Mechanism Against Being Vulnerable]] (LessWrong) — Эпистемическое и эмпатическое любопытство как защита от уязвимости — и почему смелость создаёт настоящую связь.
+- [[https://www.lesswrong.com/posts/dxMEtLuSYmctkdt7e/the-uk-generates-less-wind-power-than-texas][The UK generates less wind power than Texas]] (LessWrong) — Великобритания генерирует меньше ветровой энергии, чем Техас: разбор на данных ERCOT и OWID, почему относительные проценты вводят в заблуждение.
+- [[https://www.lesswrong.com/posts/dDEvvXfHoLtxTfTGz/making-the-i-measure][Making the I-measure]] (LessWrong) — Короткий поэтический текст о самореференции и сознании как артефакт ИИ-эры.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/7FQMM394P4D7ZAsBj/where-is-all-the-ai-persuasion][Where is all the AI persuasion?]]
+:SCORE: 9/10
+:WHY: Единственная проверяемая «fuzzy»-доменка, где бенчмарки расходятся с реальностью, — калибрует ожидания от любых оценок возможностей ИИ.
+**** [[https://www.lesswrong.com/posts/7k3xBdhHb546oLBv4/designing-deceptive-model-organisms-that-successfully-evade][Designing Deceptive Model Organisms that Successfully Evade Auditing]]
+:SCORE: 9/10
+:WHY: Новые organism'ы обходят существующие техники аудита — прямое повышение планки для всех, кто строит safety-оценки.
+**** [[https://www.lesswrong.com/posts/K7jgPBhQSgwpmv8DT/ai-takeoff-complex-tasks-and-pacing][AI Takeoff: Complex Tasks and Pacing]]
+:SCORE: 8/10
+:WHY: Формализует, почему ИИ отлично оптимизирует супервизируемые метрики, но буксует на validity — ключ к трезвому планированию под ИИ.
+**** [[https://www.lesswrong.com/posts/yQmzPMMeBLmGuZokr/i-m-worried-about-llms-accelerating-hardware-for-cheap-asi][I'm worried about LLMs accelerating hardware for cheap ASI]]
+:SCORE: 7/10
+:WHY: Нестандартный сценарий риска: дешёвый ASI через новую парадигму и лучшее железо меняет саму постановку проблемы выравнивания.
+**** [[https://www.lesswrong.com/posts/Nr43jaP4mpxzKwtYj/eci-visualized-as-a-weighted-average-of-benchmarks][ECI visualized as a weighted average of benchmarks]]
+:SCORE: 6/10
+:WHY: Полезный способ читать композитные лидерборды как взвешенные средние, а не верить одному числу.
+**** [[https://www.lesswrong.com/posts/ocywf8gX9mkNmBxdp/a-wander-through-adult-intelligence-amplification][A wander through adult intelligence amplification...]]
+:SCORE: 6/10
+:WHY: Структурная карта белых пятен в усилении когнитивных способностей — задел для амбициозных исследовательских программ.
+**** [[https://ethicsblog.crb.uu.se/2026/11/17/academic-authorship-intellectually-invested-author-or-rapporteur/?utm_source=rss&utm_medium=rss&utm_campaign=academic-authorship-intellectually-invested-author-or-rapporteur][Academic authorship: intellectually invested author or rapporteur?]]
+:SCORE: 5/10
+:WHY: Готовая рамка для корпоративных политик использования LLM в письменной работе инженеров.
+**** [[https://www.lesswrong.com/posts/zr8MgWXLhqzTiiLNj/curiosity-as-a-defense-mechanism-against-being-vulnerable][Curiosity as a Defense Mechanism Against Being Vulnerable]]
+:SCORE: 5/10
+:WHY: Прикладной психологический инсайт для коммуникации и обратной связи в инженерных командах.
+**** [[https://www.lesswrong.com/posts/dxMEtLuSYmctkdt7e/the-uk-generates-less-wind-power-than-texas][The UK generates less wind power than Texas]]
+:SCORE: 5/10
+:WHY: Трезвый урок энергетической статистики с открытыми данными — против манипуляций относительными процентами.
+**** [[https://www.lesswrong.com/posts/dDEvvXfHoLtxTfTGz/making-the-i-measure][Making the I-measure]]
+:SCORE: 3/10
+:WHY: Художественный артефакт о самореференции — любопытно как культурный след ИИ-эры, но не более.

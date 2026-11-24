@@ -1,0 +1,137 @@
+#+TITLE: Arxiv Digest: 2026-09-15
+#+FROM: [2026-09-14 Mon]
+#+TO: [2026-09-15 Tue]
+#+DATE: [2026-09-15 Tue]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+** 🧐 Обзор
+Свежий поток cs.DB отражает два устойчивых тренда. Первый — динамическая обработка запросов: сразу две работы замыкают карту инкрементального поддержания представлений над полукольцами, дав дихотомии для классов p-hierarchical и strong-connex. Второй — графовые языки созревают к ревизии стандарта GQL: точная иерархия выразительной силы ограничений (PG-Keys) и первая практическая перезапись онтологических навигационных запросов в GQL/Cypher. На системной стороне — слияние графовых ANN-индексов для RAG и векторных СУБД (FGIM), снижение «cross-model tax» между PostgreSQL/MongoDB/Neo4j (MM-quecat) и дешёвое инкрементальное ведение таксономий поверх arXiv-потоков (GIST).
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2603.21710][FGIM: a Fast Graph-based Indexes Merging Framework for Approximate Nearest Neighbor Search]]
+:WHAT: Фреймворк слияния существующих графовых ANN-индексов в один через цепочку трансформаций PG→k-NNG, рифинмент k-NNG и обратное k-NNG→PG; интегрируется с HNSW и другими методами.
+:IMPACT: Слияние индексов критично для консолидации кластеров и read-write contention в реал-тайм векторных БД и RAG: до 3.5× ускорения против инкрементального построения HNSW при сопоставимом качестве поиска.
+- [[https://arxiv.org/abs/2609.05014][Reducing the Cross-Model Tax: Query Optimization over Multi-Model Data]]
+:WHAT: MM-quecat — mapping- и capability-aware оптимизатор декомпозиционных запросов поверх реляционных, документных и графовых СУБД: model-aware predicate pushdown, cross-model dependent joins, неповторяющееся построение частей плана.
+:IMPACT: Predicate pushdown снижает латентность до двух порядков и устраняет OOM-отказы; планирование крупнейших графовых планов ускоряется с сотен мс до единиц мс — прямой выигрыш для мультимодельных архитектур.
+- [[https://arxiv.org/abs/2607.09149][Taxonomy Maintenance In The Wild Over Evolving Scholarly Data: Reliability, Efficiency, and Cost-Effectiveness]]
+:WHAT: GIST — фреймворк непрерывной адаптации таксономий: частичные иерархии из «Related Work», box-эмбеддинги для is-a смещения, novelty-aware coreset вместо полного переобучения.
+:IMPACT: На реальных arXiv-данных +11.0%/+13.1% Node/Edge F1 при ~10% времени и денег сильнейшего бейзлайна — готовый шаблон сопровождения эволюционирующих каталогов знаний.
+- [[https://arxiv.org/abs/2609.13929][Specification-Driven Data Architecture Reconstruction: From Physical Code to Logical and Conceptual Specifications]]
+:WHAT: Provenance-aware детерминист-first пайплайн реконструкции логических/концептуальных спецификаций из Oracle-DDL с отдельным ревьюируемым слоем для LLM-гипотез.
+:IMPACT: Практика миграций legacy-схем: 97.99% завершения на 249 образцах, аудируемый структурный базлайн и честный контроль admissibility LLM-гипотез (17.9%), защищающий от «тихого» продвижения галлюцинаций в архитектурные факты.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2603.09806][Expressive Power of Property Graph Constraint Languages]]
+:ALGO: Унифицирующий фреймворк для сравнения PG-Keys, GFD и GGD поверх CRPQ-паттернов; полная и строгая иерархия выразительности с точным указанием, когда PG-Keys строго сильнее.
+:IMPACT: Результаты прямо нацелены на грядущую ревизию стандарта GQL — определяют, какие ограничения целостности графа реально выразимы в индустриальных языках.
+- [[https://arxiv.org/abs/2608.20092][Rewriting Ontology-Mediated Property Graph Queries into GQL]]
+:ALGO: Практическая техника перезаписи навигационных запросов над DL-Lite-онтологиями в фрагмент GQL с вложенными two-way regular path queries, вычислимый в Cypher.
+:IMPACT: Впервые OBDA для графов становится реализуемым в актуальных стандартах: proof-of-concept показывает жизнеспособность онтологического слоя над property graphs.
+- [[https://arxiv.org/abs/2606.07795][The Role of Semirings in Incremental View Maintenance]]
+:ALGO: Класс p-hierarchical CQ: для zero-sum/zero-divisor free полуколец обновление за O(N^{fhtw-1}) амортизированно и перечисление с константной задержкой; дихотомия с условными нижними оценками.
+:IMPACT: Для p-hierarchical α-ациклических запросов IVM при вставках становится константным — охватывает natural, provenance, covariance и tropical полукольца, т.е. широкий класс аналитических нагрузок.
+- [[https://arxiv.org/abs/2607.23881][Answering Conjunctive Queries with Aggregations under Updates]]
+:ALGO: Новый класс strong-connex: при вставках граница поддерживаемости отступает от free-connex; единый фреймворк (адаптация CROWN к аннотированным отношениям) с дихотомиями по запросу и полукольцу.
+:IMPACT: Прямой гид для движков динамической обработки: какие SUM/COUNT-агрегации, provenance и политики доступа можно держать актуальными за O(1) амортизированное время.
+- [[https://arxiv.org/abs/2609.03672][Convolution Sum-Product Queries]]
+:ALGO: Обобщение SPQ атомами с линейными комбинациями переменных: адаптация Worst-Case Optimal Joins, расширение tree-декомпозиций, где линейные формы — граждане первого сорта, и три меры ширины.
+:IMPACT: Оптимизирует ворклоады типа обработки изображений поверх реляционных движков и связывает evaluation с (min,+)-convolution и k-SUM гипотезами.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.13802][Numerical Stability of Linear Algebra Operations over Relational Databases]] — первая формализация численной устойчивости линейной алгебры над join-матрицами: projected backward stability и database condition number.
+
+* cs.AI — Искусственный интеллект
+** 🧐 Обзор
+Центр тяжести потока — прикладная ML-для-систем тема вокруг жизненного цикла LLM: PEEK управляет KV-кэшем через radix-дерево очереди ожидания с кратными выигрышами TTFT на SGLang/vLLM, Concertina делает гранулярность pipeline parallelism адаптивной переменной длинноконтекстного обучения, а LLM-роутинг балансирует точность и стоимость генерации SQL. Это зрелость «serving/training economics» как отдельной системной дисциплины. Остальной поток — безопасность и надёжность моделей (бэкдоры в PLM, галлюцинации LVLM) и гибридные планировщики движения.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2607.02525][PEEK: Predictive Queue-Informed KV Cache Management for LLM Serving]]
+:WHAT: Лёгкий планировщик/eviction-фреймворк для LLM-сервинга: инкрементальное radix-дерево над очередью ожидания, dual-walk longest-prefix matching, приём «пионёров» кластеров префиксов и многострочный stride-планировщик против голодания.
+:IMPACT: На SGLang/vLLM до 3.0×/2.6× cache hit, 7.9×/7.1× TTFT и 3.6×/4.5× throughput без изменения движка — значимый прирост при росте KV-cache давления.
+- [[https://arxiv.org/abs/2509.21275][Concertina: Data-Centric Adaptive Pipeline Parallelism for Efficient Heterogeneous Long-Context LLM Training]]
+:WHAT: DPP — гранулярность PP (packed/split/hybrid чанки) как адаптивное к нагрузке пространство оптимизации с сопряжённым stage-aware чанк-левел checkpointing.
+:IMPACT: До 1.69× ускорения против FlexSP и 1.40× против MEPipe на длинноконтекстном обучении; код открыт — прямой кандидат в производственные пайплайны.
+- [[https://arxiv.org/abs/2411.04319][Towards Optimizing SQL Generation via LLM Routing]]
+:WHAT: Первый LLM-роутинг для Text-to-SQL: динамический выбор самой дешёвой модели, способной точно сгенерировать SQL (score- и classification-стратегии).
+:IMPACT: Точность уровня сильнейшей LLM при меньших задержках и стоимости — практичный шаблон economics-aware доступа к БД через естественный язык.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2410.24205][Zonal RL-RRT: Integrated RL-RRT Path Planning with Collision Probability and Zone Connectivity]]
+:ALGO: kd-tree разбиение карты на зоны с обеспечением связности зон и Value Iteration как верхнеуровневым планировщиком над RL-RRT.
+:IMPACT: 3× быстрее RRT/RRT* и в среднем на 1.5× лучше BIT*/Informed RRT* от 2D до 6D; проверено на манипуляторе UR10e в MuJoCo — практичный гибридный планировщик.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2410.15359][Hallucination in Multimodal Foundation Models: A Survey on Causes, Corrections, and Evaluations]] — систематический обзор причин, стратегий коррекции и бенчмарков галлюцинаций в LVLM.
+- [[https://arxiv.org/abs/2402.18945][SynGhost: Invisible and Universal Task-agnostic Backdoor Attack via Syntactic Transfer]] — невидимый синтаксический бэкдор в PLM через отравление корпуса плюс entropy-фильтр maxEntropy для защиты.
+- [[https://arxiv.org/abs/2605.19892][Deep Tech to Space: Space Data Centers and AI Revolution at the Edge]] — архитектура орбитальных дата-центров LEO: межспутниковые линки, топология сети, оркестрация сервисов и анализ технико-экономической реализуемости.
+
+* physics.soc-ph — Физика социума и сетей
+** 🧐 Обзор
+В этом потоке заметен поворот к наблюдаемости и обратным задачам на сетях: расширенный фильтр Калмана восстанавливает константу связи модели Курамото из одного скалярного сигнала, а для физических обучающихся сетей доказаны границы «слепой» наблюдаемости через maximum-weight spanning forests. Прикладная линия — мультимасштабный перколяционный анализ неравенства доступа к медицине в Гане, связывающий локальные карманы бедного доступа с иерархией дорожной сети. Классическая модельная социофизика (Chatterjee–Sen с антиконформистами и негибкими агентами) уточняет фазовые диаграммы порядка/беспорядка.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.14510][Unveiling healthcare-access inequality in Ghana using a multiscale approach]]
+:WHAT: Расширение percolation divergence tree: связка street-level карт доступности с иерархической структурой дорожной сети для поиска масштабов, где неравенство совпадает с разрывами связности.
+:IMPACT: ~25% населения Ганы живут дальше 5 км от медучреждения; метод разделяет моноцентрический и полицентрический типы бедного доступа — прямой инструмент для таргетированных интервенций и межуровневой координации политики.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.06582][Blind directions of physical learning networks: where to measure and what to measure]]
+:ALGO: Теорема декомпозиции якобиана boundary response по скрытым компонентам и доказанная верхняя оценка «слепой размерности» через maximum-weight spanning forests; факторный анализ для карманов из h скрытых узлов.
+:IMPACT: Отвечает на инженерный вопрос «где и что измерять»: электрод внутри кармана-клики даёт h−1 направлений там, где внешний — ноль; проверено на 5343 компонентах и аппаратном self-learning-контуре.
+- [[https://arxiv.org/abs/2607.28046][Inferring Coupling Strength from the Kuramoto Order Parameter]]
+:ALGO: Extended Kalman filter с augmented state, рекурсивно оценивающий константу связи K по скалярному порядковому параметру R(t); ковариационный шаг считается дёшево через mean-field структуру.
+:IMPACT: Стабильная реконструкция даже при малых и шумных R(t) — дешёвый прогноз синхронизационных переходов в больших осцилляторных сетях по макронаблюдениям.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.13867][From Network Inequality to Network Fairness: A Perspective on Responsible Decision-Making]] — десять сетевых эффектов, порождающих структурные смещения в решениях, и призыв к целостной «networked»-справедливости.
+- [[https://arxiv.org/abs/2601.07432][Extending the Biswas--Chatterjee--Sen model with nonconformists and inflexibles]] — антиконформисты и негибкие как эффективное смещение, подавляющее неупорядоченную фазу; mean-field совпадает с Монте-Карло.
+- [[https://arxiv.org/abs/2609.14917][Geometric Signatures of Conceptual Reorganization: A Counterfactual Embedding Framework for Detecting Scientific Revolutions]] — геометрия document-эмбеддингов как измеримая наблюдаемая перестройки научных областей.
+- [[https://arxiv.org/abs/2609.15273][A Latent Oscillator Measurement Model to Simulate Emotional-Expression Score Dynamics in Video]] — LOMM: генеративная модель латентных осцилляторов для проверки, восстанавливает ли DynEGA/EGA/GraphicalVAR известную размерную структуру.
+- [[https://arxiv.org/abs/2608.20395][The Effective Gravitational Field of the Ball in Association Football]] — из трекинг-данных извлечено эффективное «поле притяжения» к мячу с сигнатурами ролей и геометрии поля.
+- [[https://arxiv.org/abs/2609.14751][From the Physics of Society to a Sociology of Artificial Agents]] — эссе о «искусственных социальных фактах»: популяции LLM-агентов спонтанно формируют конвенции и коллективные смещения.
+
+* cs.DS — Структуры данных и алгоритмы
+** 🧐 Обзор
+cs.DS показывает зрелость распределённой графовой теории: 2-ruling sets на графах с ограниченной arboricity доведены до O(log log n) раундов в LOCAL — почти вплотную к нижней оценке — плюс экспоненциальное улучшение в MPC. В классических структурах данных — не-жадный linear probing с почти оптимальным худшим случаем и первые сублинейные скечи для ANN и A-KDE на динамических потоках. Отдельно выделяется Marked Edge Walk: новое MCMC-предложение для сэмплирования разбиений графов с существенно меньшим spanning-tree смещением.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2510.23039][Sublinear Sketches for Approximate Nearest Neighbor and Kernel Density Estimation]]
+:WHAT: Скечи сублинейного размера памяти и времени запроса для ANN в потоковой модели (включая Turnstile) и первые теоретические сублинейные гарантии для A-KDE в sliding-window модели.
+:IMPACT: Компактные структуры с низкими ошибками на реальных данных — основа лёгких ANN/KDE-сервисов для ML-аналитики и информационных систем.
+- [[https://arxiv.org/abs/2607.17494][Linear Probing with Non-Greedy Insertions]]
+:WHAT: Interlinear probing — не-жадная стратегия вставок в linear probing: худший случай O(x log x) на вставку при заполнении 1−1/x, O(x) амортизированно, поддержка отрицательных запросов.
+:IMPACT: Почти оптимальность доказана нижней оценкой Ω(x√log x) — практическое улучшение самой массовой хеш-структуры без переупорядочивания элементов.
+- [[https://arxiv.org/abs/2505.07163][Exact Spin Elimination for Quadratic and k-Local Ising Optimization]]
+:WHAT: Точное удаление спинов через Walsh elimination с сохранением правил восстановления — контроль trade-off между бюджетом активных спинов и сложностью взаимодействий.
+:IMPACT: Успешность на спарсных спиновых стеклах растёт с 10.4% до 97.5%, оценка time-to-solution падает в ~34 раза, входы — на 50% больше при том же бюджете; прямой выигрыш для Ising/квантовых солверов.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2606.11974][Near-Optimal Distributed 2-Ruling Sets on Graphs with Low Arboricity]]
+:ALGO: Рандомизированный LOCAL-алгоритм 2-ruling set за O(log log n) раундов при arboricity до O(log log n) — экспоненциальное улучшение, почти совпадающее с нижней оценкой; плюс MPC-версия за O(log log log n) раундов.
+:IMPACT: Базовый примитив для распределённой обработки разреженных графов (доминирующие множества, скелеты сетей) приближается к теоретическому пределу.
+- [[https://arxiv.org/abs/2510.17714][The Marked Edge Walk: A Novel MCMC Algorithm for Sampling of Graph Partitions]]
+:ALGO: Новое MCMC-предложение на остовных деревьях с мечеными рёбрами с вычислимыми вероятностями переходов для Metropolis-Hastings.
+:IMPACT: Гибкая генерация ансамблей разбиений (перекройка избирательных округов, композитность, партийная симметрия) с меньшим spanning-tree смещением — значимо для graph partitioning как сервиса оценивания.
+- [[https://arxiv.org/abs/2608.28313][Multi-tier Flexible Graph Connectivity]]
+:ALGO: Модель k-tier FGC для неуниформных отказов рёбер и три аппроксимационных алгоритма: LP-логарифмический, комбинаторный для min-cardinality и 2-аппроксимация для мультиграфов.
+:IMPACT: Прямой язык и инструменты сетевого дизайна с дифференцированной надёжностью каналов — мин-стоимостная связность с требованиями по уровням отказов.
+- [[https://arxiv.org/abs/2604.27983][Distributed Santa Claus via Global Rounding]]
+:ALGO: Первый универсальный CONGEST-солвер для смешанных packing-covering LP; O(log n/log log n)-аппроксимация задачи Santa Claus за Θ̂(√n+D) раундов с почти совпадающей нижней оценкой.
+:IMPACT: Расширяет распределённую оптимизацию на класс смешанных LP — базис для справедливого распределения ресурсов в сетевых системах.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2604.09806][Algorithms for Standard-form ILP Problems via Komlós' Discrepancy Setting (Refined 2^{O(k)}-analysis)]] — уточнённые FPT-границы для ILP: оптимизация за 2^{O(k)}Δ² через ℓ₂-discrepancy вместо ℓ∞.
+- [[https://arxiv.org/abs/2507.20038][An Algorithm-to-Contract Framework without Demand Queries]] — фреймворк «алгоритм → контракт» без demand-оракулов; первые approximation-схемы для мультиагентных контрактов за пределами аддитивных наград.
+- [[https://arxiv.org/abs/2601.08111][Derandomizing Matrix Concentration Inequalities from Free Probability]] — детерминированные полиномиальные алгоритмы из теории свободной вероятности: matrix Spencer и построение near-Ramanujan экспандеров.
+- [[https://arxiv.org/abs/2602.09273][The Price of Privacy For Approximating Max-CSP]] — барьер O(ε) для ε-DP аппроксимации Max-CSP в режиме высокой приватности и совпадающий алгоритм для bounded-degree/triangle-free случаев.
+- [[https://arxiv.org/abs/2512.25033][EF(X) Orientations: A Parameterized Complexity Perspective]] — параметризованная сложность envy-free ориентаций графов: tractable-случаи для EF, ответы на открытые вопросы для EFX.
+
+* cs.DC — Распределённые вычисления
+** 🧐 Обзор
+cs.DC движется в двух направлениях: «осторожное доверие» и инфраструктура для LLM. Pirateship встраивает BFT-протокол внутрь CFT-консенсуса без дополнительных сообщений, страхуя TEE-леджеры от компрометации платформы; VOXEL открывает co-design симуляцию 3D-стекчипов для инференса LLM. Алгоритмическая линия — фундаментальная графовая аналитика в мобильно-агентной модели и приблизительный gradient coding с коммуникационной экономией; практический мост к оркестрации — семантический мониторинг кластеров LPSE с латентностью ~72× ниже LLM.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2602.05346][Pirateship: Append-Only Ledgers for (Mostly) Trusted Execution Environments]]
+:WHAT: Консенсус-протокол, встраивающий BFT внутрь CFT-протокола без дополнительных сообщений за счёт рефакторинга структур обоих.
+:IMPACT: Целостность распределённого append-only лога сохраняется даже при компрометации TEE-платформы — при производительности на уровне обычных TEE-консенсусов.
+- [[https://arxiv.org/abs/2604.26821][Exploring the Efficiency of 3D-Stacked AI Chip Architecture for LLM Inference with VOXEL]]
+:WHAT: VOXEL — открытый compiler-aware end-to-end симулятор 3D-стекчипов: tile-to-core и tensor-to-bank мапинги, NoC-топологии, DRAM-bandwidth и энерготепловые ограничения.
+:IMPACT: Показывает, что эффективность LLM-инференса определяется прежде всего мапингами тензоров на ядра и банки памяти — ориентир для проектирования HW/SW-стека.
+- [[https://arxiv.org/abs/2606.08869][A Low-Latency Semantic State Estimator using Latent Predictive Learning for Dynamic Network Monitoring and Orchestration]]
+:WHAT: LPSE — латентный предиктивный оценщик состояния сети: slot-routed permutation-invariant представления телеметрии и ответы из семантического кодбука вместо авторегрессионной генерации текста.
+:IMPACT: Фиксированная стоимость инференса, генерализация на добавление/удаление узлов без переобучения, 87.13% точности при ~72× меньшей латентности — готовый компонент closed-loop мониторинга Kubernetes-кластеров.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2402.03653][Agent-Based Triangle Counting: Unlocking Truss Decomposition, Triangle Centrality, and Local Clustering Coefficient]]
+:ALGO: Фреймворк мобильных агентов в анонимных графах: дисперсия, выбор лидера, остовное и BFS-деревья, перечисление треугольников с узловой и рёберной статистикой → truss decomposition и треугольная центральность.
+:IMPACT: Фундаментальная графовая аналитика без глобальных идентификаторов и знания топологии — модель для децентрализованных и агентных сетевых систем.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2603.22514][Communication-Efficient Approximate Gradient Coding]] — первые систематические конструкции приблизительного gradient coding на двудольных графах и сильно регулярных графах с аналитическими оценками ошибки и доказанной сходимостью обучения.

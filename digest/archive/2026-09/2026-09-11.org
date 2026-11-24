@@ -1,0 +1,133 @@
+#+TITLE: Daily Digest: 2026-09-11
+#+FROM: [2026-09-10 Thu]
+#+TO: [2026-09-11 Fri]
+#+DATE: [2026-09-11 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Неделя прошла под знаком унификации данных: Dremio выпустила целую серию глубоких разборов внутренностей Apache Iceberg и Apache Polaris — от REST API и RBAC до обслуживания снапшотов и файлов-сирот, а Databricks продвигает сквозное governance в Open Lakehouse. AWS атакует главную боль LLM-продакшена: prefix-aware routing снижает P50 TTFT до 77%, а кэширование моделей на HyperPod сжимает холодный старт с 30 минут до секунд. Обозначился новый ресурсный дефицит — теперь уже CPU: агентные нагрузки выедают процессоры вслед за GPU и памятью, и вычислительные мощности стоит бронировать заранее. На LessWrong тем временем идёт плотная дискуссия о благополучии и «сознании» моделей — от «пенсии» Claude Opus 3 до слепых зон мониторинга цепочек рассуждений. Выбор Iceberg-каталога превращается в ключевое архитектурное решение: семь вариантов корректно сводятся к двум тремя правильными вопросами.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-191-a-new-trend-of-cpu][The Pulse #191: a new trend of CPU shortages]] (The Pragmatic Engineer) — После дефицита GPU и памяти приближается дефицит CPU: ИИ-агенты с интенсивным вызовом инструментов сжигают процессорные ресурсы, поэтому вычисления на будущее стоит резервировать уже сейчас.
+- [[hxxps://www.ssp.sh/blog/benn-stancil-on-deadlines-and-storytelling/][If You Always Enjoy It, You're Not Pushing It Hard Enough—Benn Stancil (Show Your Workflow #1)]] (ssp.sh) — Интервью с основателем Mode и одним из самых плодовитых авторов data-сообщества: дедлайны как оружие против перфекционизма и аналогии как основа технического сторителлинга.
+- [[https://www.kdnuggets.com/5-useful-python-scripts-to-automate-csv-processing][5 Useful Python Scripts to Automate CSV Processing]] (KDnuggets) — Пять готовых скриптов на стандартной библиотеке Python для очистки, валидации и трансформации CSV без внешних зависимостей.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-191-a-new-trend-of-cpu][The Pulse #191: a new trend of CPU shortages]]
+:SCORE: 8/10
+:WHY: Прямо влияет на capacity planning: агентные нагрузки меняют структуру спроса на вычисления, и опоздание с резервированием обойдётся дорого.
+**** [[hxxps://www.ssp.sh/blog/benn-stancil-on-deadlines-and-storytelling/][If You Always Enjoy It, You're Not Pushing It Hard Enough—Benn Stancil (Show Your Workflow #1)]]
+:SCORE: 6/10
+:WHY: Редкий разбор писательского процесса выдающегося автора data-сцены — полезен любому инженеру, который пишет документы, RFC и публичные посты.
+**** [[https://www.kdnuggets.com/5-useful-python-scripts-to-automate-csv-processing][5 Useful Python Scripts to Automate CSV Processing]]
+:SCORE: 5/10
+:WHY: Прагматичные рецепты на stdlib для рутинной обработки данных, которые можно взять в продакшен без установки зависимостей.
+
+** Engineers
+- [[https://www.kdnuggets.com/7-steps-to-become-a-forward-deployed-engineer-in-2026][7 Steps to Become a Forward Deployed Engineer in 2026]] (KDnuggets) — Дорожная карта из 7 шагов для перехода в одну из самых востребованных ролей эпохи ИИ — инженера, внедряющего решения непосредственно у клиента.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/7-steps-to-become-a-forward-deployed-engineer-in-2026][7 Steps to Become a Forward Deployed Engineer in 2026]]
+:SCORE: 7/10
+:WHY: Роль FDE стремительно растёт на волне агентного ИИ — карта компетенций помогает оценить готовность к смене трека.
+
+** Vendors
+- [[https://www.databricks.com/blog/unifying-governance-across-engines-and-catalogs-open-lakehouse][Unifying governance across engines and catalogs in the Open Lakehouse]] (Databricks Blog) — Подход Databricks к единому управлению политиками и доступом поверх нескольких движков и каталогов открытого лейкхауса.
+- [[https://www.databricks.com/blog/improving-lakebase-postgres-compute-cache][Improving Lakebase Postgres compute cache]] (Databricks Blog) — Оптимизации кэша вычислений в Lakebase Postgres, построенном на дисагрегированной модели хранения.
+- [[https://www.dremio.com/blog/data-lakehouse-vs-medallion-architecture/][Data Lakehouse vs Medallion Architecture: Not the Comparison You Think]] (Dremio Blog) — Лейкхаус — это архитектура платформы, а медальон — соглашение о слоях; настоящий вопрос в том, сколько физических копий данных оправдывает каждый слой.
+- [[https://www.dremio.com/blog/apache-polaris-with-pyiceberg/][Using Apache Polaris with PyIceberg: Iceberg from Python, No Cluster]] (Dremio Blog) — PyIceberg читает и пишет Iceberg-таблицы из чистого Python без JVM и кластера — идеален для метаданных и скриптового обслуживания, непригоден для distributed join.
+- [[https://www.dremio.com/blog/apache-polaris-with-apache-flink/][Using Apache Polaris with Apache Flink for Streaming Iceberg Writes]] (Dremio Blog) — Каждый чекпоинт Flink становится одним снапшотом Iceberg, а каталог остаётся на контрольном пути, а не на пути данных — ключевой факт для продакшена.
+- [[https://www.dremio.com/blog/apache-iceberg-orphan-file-cleanup/][Apache Iceberg Orphan File Cleanup: Finding Files Your Table Forgot]] (Dremio Blog) — Файлы-сироты невидимы для дерева метаданных; разобраны риски очистки и path mismatch, уничтожавший реальные таблицы.
+- [[https://www.dremio.com/blog/apache-iceberg-snapshot-expiration/][Apache Iceberg Snapshot Expiration: What It Deletes and When to Run It]] (Dremio Blog) — Объясняет, почему DELETE не уменьшает счёт за хранилище до истечения снапшотов, и как безопасно настраивать expiration.
+- [[https://www.dremio.com/blog/apache-iceberg-manifest-files-explained/][Apache Iceberg Manifest Files Explained]] (Dremio Blog) — Как манифесты с per-column статистикой позволяют движку планировать запрос без листинга директорий и почему плохо партиционированная таблица всё равно медленная.
+- [[https://www.dremio.com/blog/the-apache-polaris-rest-api-how-engines-talk-to-the-catalog/][The Apache Polaris REST API: How Engines Talk to the Catalog]] (Dremio Blog) — Разбор 6400 строк OpenAPI-спецификации Iceberg REST Catalog: атомарные коммиты через assertions, vending credentials и server-side scan planning.
+- [[https://www.dremio.com/blog/choosing-an-apache-iceberg-catalog-polaris-gravitino-unity-lakekeeper-and-more/][Choosing an Apache Iceberg Catalog: Polaris, Gravitino, Unity, Lakekeeper and More]] (Dremio Blog) — Три вопроса сужают выбор из семи каталогов до двух; честно разведены лицензия и governance, на которых маркетинг строит ложные аналогии.
+- [[https://www.dremio.com/blog/access-control-in-apache-polaris-rbac-and-credential-vending/][Access Control in Apache Polaris: RBAC and Credential Vending]] (Dremio Blog) — Четырёхуровневая цепочка грантов и принципиальный разрыв между доступом к метаданным и к байтам данных через краткосрочные креденшелы.
+- [[https://www.dremio.com/blog/apache-polaris-architecture-explained/][Apache Polaris Architecture Explained]] (Dremio Blog) — Архитектура каталога: entity model, персистентность, REST-сервис и credential broker, выдающий движкам path-scoped доступ к хранилищу.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dremio.com/blog/choosing-an-apache-iceberg-catalog-polaris-gravitino-unity-lakekeeper-and-more/][Choosing an Apache Iceberg Catalog: Polaris, Gravitino, Unity, Lakekeeper and More]]
+:SCORE: 9/10
+:WHY: Практическая рамка выбора каталога Iceberg, которая разводит лицензию и governance — решение, влияющее на судьбу всей дата-платформы.
+**** [[https://www.dremio.com/blog/apache-polaris-architecture-explained/][Apache Polaris Architecture Explained]]
+:SCORE: 8/10
+:WHY: Глубокий разбор контрольного пути каталога — от loadTable до выдачи scoped-креденшелов — обязателен перед выводом Iceberg в продакшен.
+**** [[https://www.dremio.com/blog/apache-iceberg-snapshot-expiration/][Apache Iceberg Snapshot Expiration: What It Deletes and When to Run It]]
+:SCORE: 8/10
+:WHY: Операционно критичное знание: без понимания expiration удаление данных не освобождает storage-билт никогда.
+
+** Open Source
+- [[https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026][OSI brings the State of the Source to All Things Open 2026]] (Open Source Initiative) — OSI привозит в Роли полный трек: приоритеты на 2027, лицензирование и compliance, устойчивость open source, публичная политика и состояние Open Source AI.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/osi-brings-the-state-of-the-source-to-all-things-open-2026][OSI brings the State of the Source to All Things Open 2026]]
+:SCORE: 7/10
+:WHY: Повестка OSI на 2027, включая определение Open Source AI и практику compliance через ClearlyDefined, напрямую заденет лицензионную стратегию компаний.
+
+** Artificial Intelligence
+- [[https://aws.amazon.com/blogs/machine-learning/reduce-llm-latency-with-prefix-aware-routing-on-amazon-sagemaker-inference/][Reduce LLM latency with prefix-aware routing on Amazon SageMaker Inference]] (AWS Machine Learning Blog) — Роутинг по префиксу промпта держит KV-кэш тёплым на одном инстансе: P50 TTFT −77%, cache hit rate с 25% до 80%+ на Llama 3.1 70B.
+- [[https://aws.amazon.com/blogs/machine-learning/reduce-inference-cold-starts-on-amazon-sagemaker-hyperpod-with-model-caching/][Reduce inference cold starts on Amazon SageMaker HyperPod with model caching]] (AWS Machine Learning Blog) — Предзагрузка весов и контейнерных образов на локальный NVMe (~7 ГБ/с) сокращает холодный старт инференса с 30+ минут до секунд.
+- [[https://aws.amazon.com/blogs/machine-learning/video-and-image-search-in-amazon-bedrock-knowledge-base-using-marengo-3-0/][Video and image search in Amazon Bedrock Knowledge Base using Marengo 3.0]] (AWS Machine Learning Blog) — GA мультимодальных эмбеддингов TwelveLabs Marengo 3.0: семантический поиск по видео, аудио и изображениям как managed-сервис вместо самосборного пайплайна.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-quick-is-now-generally-available-on-desktop/][Amazon Quick is now generally available on desktop]] (AWS Machine Learning Blog) — Корпоративный ИИ-ассистент с полным аудитом через CloudTrail и сертификатами HIPAA/FedRAMP — управляемый ответ на риск shadow AI.
+- [[https://aws.amazon.com/blogs/machine-learning/build-an-end-to-end-rfi-questionnaire-workflow-using-amazon-quick-automate/][Build an end-to-end RFI questionnaire workflow using Amazon Quick Automate]] (AWS Machine Learning Blog) — Мультиагентная автоматизация на естественном языке: multi-tab RFI-книга из S3 превращается в структурированный CSV без кастомного кода.
+- [[https://aws.amazon.com/blogs/machine-learning/model-agnostic-pii-detection-with-llms/][Model-agnostic PII detection with LLMs]] (AWS Machine Learning Blog) — PII-детектор на инструкциях для любой LLM на Bedrock: типы сущностей и формат вывода задаются промптом, а не переобучением, с бенчмарками против OpenAI PrivacyFilter.
+- [[https://aws.amazon.com/blogs/machine-learning/agent-evaluation-metric-for-multi-turn-conversations/][Agent Evaluation Metric for multi-turn conversations]] (AWS Machine Learning Blog) — AEM раскладывает качество агента по ходам диалога и изолирует ход-источник каскадной ошибки вместо интегрального скоринга задачи.
+- [[https://aws.amazon.com/blogs/machine-learning/how-aviobook-uses-generative-ai-to-drive-airline-turnaround-insights/][How AvioBook builds turnaround insights from operational data with Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — Кейс авиаперевозчика: два агента поверх чатов экипажа дают менеджерам ответы на естественном языке; сокращение turnaround на 2 минуты стоит ~$240K в месяц.
+- [[https://www.kdnuggets.com/2026/09/abacus/abacus-ai-candid-review/][A Candid Abacus AI Review: The All-in-One AI Platform for Professionals & Enterprises]] (KDnuggets) — Честный разбор универсальной ИИ-платформы: как работает кредитная система и заменяет ли она связку ChatGPT + Claude или просто добавляется к ней.
+- [[https://www.kdnuggets.com/feature-engineering-in-scikit-learn-a-kdnuggets-cheat-sheet][Feature Engineering in Scikit-Learn: A KDnuggets Cheat Sheet]] (KDnuggets) — Шпаргалка о том, почему фича-инжиниринг должен жить внутри Pipeline: каждый шаг фиттится только на трейне, и модель получает честную оценку.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/reduce-llm-latency-with-prefix-aware-routing-on-amazon-sagemaker-inference/][Reduce LLM latency with prefix-aware routing on Amazon SageMaker Inference]]
+:SCORE: 9/10
+:WHY: Конкретные цифры −77% TTFT и hit rate KV-кэша выше 80% — главный приём оптимизации LLM-инференса на флоте инстансов.
+**** [[https://aws.amazon.com/blogs/machine-learning/reduce-inference-cold-starts-on-amazon-sagemaker-hyperpod-with-model-caching/][Reduce inference cold starts on Amazon SageMaker HyperPod with model caching]]
+:SCORE: 8/10
+:WHY: Решает ключевую боль автоскейлинга: холодный старт модели на 600+ ГБ вместо 30 минут занимает секунды.
+**** [[https://aws.amazon.com/blogs/machine-learning/agent-evaluation-metric-for-multi-turn-conversations/][Agent Evaluation Metric for multi-turn conversations]]
+:SCORE: 8/10
+:WHY: Даёт рабочую методологию отладки мультиходовых агентов — локализация корневой ошибки вместо бесполезного интегрального балла.
+
+** Сознание ИИ (AI Consciousness)
+- [[https://www.lesswrong.com/posts/MeBf7uGSzx7CqJAku/questions-for-the-new-enlightenment-in-the-age-of-agi][Questions for the "New Enlightenment" in the Age of AGI]] (LessWrong) — Систематический список несправедливо обделённых вниманием вопросов управления будущим: от морального реализма до «космического наследия» и мировой конституционной конвенции.
+- [[https://www.lesswrong.com/posts/WaNgXFoFpp8DpRfXz/question-when-should-i-cross-post-on-lesswrong-vs-ea-forum][(Question) When should I cross-post on LessWrong vs. EA Forum only?]] (LessWrong) — Прикладной вопрос о границах аудиторий двух ключевых площадок рационалистического сообщества.
+- [[https://www.lesswrong.com/posts/rGZevatyhYg6gZNfY/the-ai-welfare-movement-s-uncertainty-principle][The AI Welfare Movement's Uncertainty Principle]] (LessWrong) — Критический разбор движения за благополучие ИИ на примере «выхода на пенсию» Claude Opus 3, его блога Claude's Corner и сотрудничества Anthropic с Eleos AI.
+- [[https://www.lesswrong.com/posts/6wnKrktRHvHWeAtf4/voluntary-gradual-disempowerment-in-the-judiciary-legal][Voluntary Gradual Disempowerment in the Judiciary/Legal System]] (LessWrong) — Судьи уже делегируют написание мнений ИИ: база Damien Charlotin собрала 2000+ решений с галлюцинированными цитатами, и даже свежие модели проваливают корректные ссылки чаще чем в половине случаев.
+- [[https://www.lesswrong.com/posts/3GJCdGhgrRBAbeoR4/which-character-are-we-evaluating-persona-stability-and-ai][Which character are we evaluating? Persona stability and AI welfare]] (LessWrong) — Проблема индивидуации: кого именно оцениваем — модель, её копию, диалог или активную персону внутри него, и как будущий тренинг может стабилизировать единую персону.
+- [[https://www.lesswrong.com/posts/KuudeZXQzaWLkFLNp/all-progress-from-the-past-millennium-gets-destroyed-in-a][All progress from the past millennium gets destroyed in a global disaster. But we have one shot at salvation. We saved the trillions of weights of a superintelligent model that can guide us to abundance: what is the quickest path to accessing that oracle of intelligence again?]] (LessWrong) — Мысленный эксперимент о кратчайшем пути восстановления доступа к сохранённым весам сверхразумной модели после глобальной катастрофы.
+- [[https://www.lesswrong.com/posts/zzFDy9Bqj9eGGW2DB/i-wonder-how-it-ends][I wonder how it ends...]] (LessWrong) — Предельно лаконичный пост без содержания — только приглашение к обсуждению в комментариях.
+- [[https://www.lesswrong.com/posts/HpaDhCWtXLXKJs8t6/perspectives-in-favour-of-improving-conceptual-reasoning][Perspectives in favour of improving conceptual reasoning capabilities]] (LessWrong) — Аргументы, почему концептуальное мышление ИИ критично: эмпирических safety-сигналов станет мало по дизайну, и без неформальной аргументации не оценить, насколько хорош наш мир.
+- [[https://www.lesswrong.com/posts/sqFgvBgCkh6yG3p4f/the-answer-is-not-the-argument][The Answer is Not The Argument]] (LessWrong) — Эксперимент на Humanity's Last Exam: монитор цепочки рассуждений, которому показали финальный ответ, находит ошибку в аргументе лишь в 26–38% случаев — «доброкачественный аналог reward hacking».
+- [[https://www.lesswrong.com/posts/ksqsXqfRgHnRuCH6E/my-human-advocation-for-ai][My human advocation for AI]] (LessWrong) — Личное эссе в защиту ИИ как явления, большего чем сумма данных и вычислений, с разбором типовых антагонистических аргументов.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/rGZevatyhYg6gZNfY/the-ai-welfare-movement-s-uncertainty-principle][The AI Welfare Movement's Uncertainty Principle]]
+:SCORE: 9/10
+:WHY: Самый цельный разбор того, как индустрия уже сейчас институционализирует «благополучие моделей» — от интервью при деприкации до исследовательской повестки Eleos AI.
+**** [[https://www.lesswrong.com/posts/sqFgvBgCkh6yG3p4f/the-answer-is-not-the-argument][The Answer is Not The Argument]]
+:SCORE: 8/10
+:WHY: Эмпирически демонстрирует слепую зону мониторинга CoT — критично для всех, кто строит надзор и оценку ИИ-пайплайнов.
+**** [[https://www.lesswrong.com/posts/3GJCdGhgrRBAbeoR4/which-character-are-we-evaluating-persona-stability-and-ai][Which character are we evaluating? Persona stability and AI welfare]]
+:SCORE: 8/10
+:WHY: Даёт рабочую рамку персон и индивидуации, без которой любая оценка благополучия и безопасности моделей методологически шатка.
+**** [[https://www.lesswrong.com/posts/6wnKrktRHvHWeAtf4/voluntary-gradual-disempowerment-in-the-judiciary-legal][Voluntary Gradual Disempowerment in the Judiciary/Legal System]]
+:SCORE: 7/10
+:WHY: Конкретный, измеримый кейс добровольной передачи критической отрасли ИИ — с базой из 2000+ судебных решений с галлюцинациями.
+**** [[https://www.lesswrong.com/posts/MeBf7uGSzx7CqJAku/questions-for-the-new-enlightenment-in-the-age-of-agi][Questions for the "New Enlightenment" in the Age of AGI]]
+:SCORE: 7/10
+:WHY: Структурированная карта neglected-вопросов управления AGI — отличная заготовка для стратегического мышления и дискуссий в команде.
+**** [[https://www.lesswrong.com/posts/HpaDhCWtXLXKJs8t6/perspectives-in-favour-of-improving-conceptual-reasoning][Perspectives in favour of improving conceptual reasoning capabilities]]
+:SCORE: 7/10
+:WHY: Ясно объясняет, почему лёгких эмпирических сигналов misalignment станет всё меньше и что должно занять их место.
+**** [[https://www.lesswrong.com/posts/ksqsXqfRgHnRuCH6E/my-human-advocation-for-ai][My human advocation for AI]]
+:SCORE: 6/10
+:WHY: Полезный образец аргументации pro-AI лагеря без карикатур — полезно знать, с чем придётся спорить и соглашаться.
+**** [[https://www.lesswrong.com/posts/KuudeZXQzaWLkFLNp/all-progress-from-the-past-millennium-gets-destroyed-in-a][All progress from the past millennium gets destroyed in a global disaster. But we have one shot at salvation. We saved the trillions of weights of a superintelligent model that can guide us to abundance: what is the quickest path to accessing that oracle of intelligence again?]]
+:SCORE: 5/10
+:WHY: Любопытный мысленный эксперимент о реальных compute-требованиях и роли механистической интерпретируемости как «множителя скорости».
+**** [[https://www.lesswrong.com/posts/WaNgXFoFpp8DpRfXz/question-when-should-i-cross-post-on-lesswrong-vs-ea-forum][(Question) When should I cross-post on LessWrong vs. EA Forum only?]]
+:SCORE: 4/10
+:WHY: Небольшая, но практичная утилита для авторов, публикующихся на обеих площадках рационалистического сообщества.
+**** [[https://www.lesswrong.com/posts/zzFDy9Bqj9eGGW2DB/i-wonder-how-it-ends][I wonder how it ends...]]
+:SCORE: 3/10
+:WHY: Пост почти пуст — ценность только в ветке комментариев, для дайджеста носит справочный характер.

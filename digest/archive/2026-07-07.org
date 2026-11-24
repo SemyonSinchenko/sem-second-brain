@@ -1,0 +1,81 @@
+#+TITLE: Daily Digest: 2026-07-07
+#+FROM: [2026-07-06 Mon]
+#+TO: [2026-07-07 Tue]
+#+DATE: [2026-07-07 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+AWS анонсировала Lambda MicroVMs, заполняя разрыв между EC2 и serverless, что меняет ландшафт вычислений. Вендоры упрощают управление данными: встроенные каталоги в хранилище (Iceberg) и автоматические апгрейды таблиц снижают операционную нагрузку. В AI тренд смещается к агентным системам: от управления моделями к обучению агентов через RL и интеграции HF с SageMaker в один клик.
+
+* 📂 Категории
+** Инженерия Данных
+- [[hxxps://dataengineeringcentral.substack.com/p/aws-lambda-microvms-what-new-devilry][AWS Lambda MicroVMs - What new devilry]] (Data Engineering Central) — Анализ новой вычислительной модели AWS, заполняющей нишу между EC2 и Lambda для оптимизации затрат и производительности.
+- [[hxxps://www.dremio.com/blog/when-catalogs-are-embedded-in-storage/][When Catalogs Are Embedded in Storage]] (Dremio) — Обзор архитектуры встроенных каталогов в S3, устраняющей необходимость в отдельных сервисах управления метаданными Iceberg.
+- [[hxxps://www.databricks.com/blog/automatic-upgrades-best-practice-features-your-lakehouse-tables][Automatic Upgrades: best practice features for your lakehouse tables]] (Databricks) — Описание автоматического применения лучших практик к таблицам Unity Catalog без вмешательства инженера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/aws-lambda-microvms-what-new-devilry][AWS Lambda MicroVMs - What new devilry]]
+:SCORE: 9/10
+:WHY: Критично для понимания будущей архитектуры вычислений в AWS и миграции legacy workloads с EC2.
+**** [[hxxps://www.dremio.com/blog/when-catalogs-are-embedded-in-storage/][When Catalogs Are Embedded in Storage]]
+:SCORE: 8/10
+:WHY: Снижает операционный оверхед поддержки Iceberg, убирая внешний каталог из уравнения.
+**** [[hxxps://www.databricks.com/blog/automatic-upgrades-best-practice-features-your-lakehouse-tables][Automatic Upgrades: best practice features for your lakehouse tables]]
+:SCORE: 7/10
+:WHY: Автоматизация рутинного обслуживания таблиц освобождает время для решения бизнес-задач.
+
+** Искусственный Интеллект
+- [[hxxps://www.kdnuggets.com/getting-started-with-hugging-face-ml-intern-your-first-ml-agent][Getting Started with Hugging Face ML Intern: Your First ML Agent]] (KDnuggets) — Гайд по использованию агента ML Intern для автоматизации написания кода и обучения моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/run-minimax-models-on-amazon-bedrock/][Run MiniMax models on Amazon Bedrock]] (AWS) — Обзор открытых моделей MiniMax для агентных задач и долгосрочного контекста в защищенной среде AWS.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-multi-turn-rl-infrastructure-for-amazon-nova-on-amazon-sagemaker-hyperpod/][Deploying Multi-Turn RL Infrastructure for Amazon Nova on Amazon SageMaker HyperPod]] (AWS) — Инструкция по развертыванию инфраструктуры RL для обучения агентов многошаговым сценариям.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-multi-turn-rl-infrastructure-for-amazon-nova-on-amazon-sagemaker-hyperpod/][Deploying Multi-Turn RL Infrastructure for Amazon Nova on Amazon SageMaker HyperPod]]
+:SCORE: 9/10
+:WHY: Практический паттерн обучения агентов сложным workflow, выходящий за рамки простого fine-tuning.
+**** [[hxxps://www.kdnuggets.com/getting-started-with-hugging-face-ml-intern-your-first-ml-agent][Getting Started with Hugging Face ML Intern: Your First ML Agent]]
+:SCORE: 8/10
+:WHY: Демонстрирует сдвиг роли инженера от написания кода к управлению AI-агентами разработки.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/run-minimax-models-on-amazon-bedrock/][Run MiniMax models on Amazon Bedrock]]
+:SCORE: 7/10
+:WHY: Возможность использовать специализированные coding-модели без управления инфраструктурой инференса.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/dynatas-journey-to-lower-tco-and-faster-modernization-with-aws-database-savings-plans/][Dynata's journey to lower TCO and faster modernization with AWS Database Savings Plans]] (AWS) — Кейс оптимизации затрат на БД через консолидацию резервирований и переход на Graviton.
+- [[hxxps://www.databricks.com/blog/scaling-security-alert-triage-specialized-agents-databricks][Scaling Security Alert Triage With Specialized Agents on Databricks]] (Databricks) — Пример использования AI-агентов для автоматической триады инцидентов безопасности на петабайтах данных.
+- [[hxxps://www.databricks.com/blog/openai-and-databricks-dais-2026-making-enterprise-ai-real][OpenAI and Databricks at DAIS 2026: Making enterprise AI real]] (Databricks) — Анонс стратегического партнерства для внедрения enterprise AI решений на базе данных компаний.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/dynatas-journey-to-lower-tco-and-faster-modernization-with-aws-database-savings-plans/][Dynata's journey to lower TCO and faster modernization with AWS Database Savings Plans]]
+:SCORE: 8/10
+:WHY: Конкретная стратегия снижения TCO и упрощения управления резервированиями БД в AWS.
+**** [[hxxps://www.databricks.com/blog/scaling-security-alert-triage-specialized-agents-databricks][Scaling Security Alert Triage With Specialized Agents on Databricks]]
+:SCORE: 7/10
+:WHY: Реальный use-case применения агентов для безопасности, а не просто генерации текста.
+**** [[hxxps://www.databricks.com/blog/openai-and-databricks-dais-2026-making-enterprise-ai-real][OpenAI and Databricks at DAIS 2026: Making enterprise AI real]]
+:SCORE: 7/10
+:WHY: Сигнал о конвергенции генеративного AI и корпоративных данных в единую платформу.
+
+** Открытое ПО
+- [[hxxps://huggingface.co/blog/lerobot-release-v060][LeRobot v0.6.0: Imagine, Evaluate, Improve]] (Hugging Face) — Релиз фреймворка для робототехники с новыми возможностями оценки и улучшения моделей.
+- [[hxxps://www.databricks.com/blog/contextual-policies-omnigent-using-session-state-better-govern-ai-agents][Contextual Policies in Omnigent: Using session state to better govern AI agents]] (Databricks) — Описание open-source мета-харнесса для управления политиками и состоянием сессий AI-агентов.
+- [[hxxps://huggingface.co/blog/Photoroom/prx-part4-data][PRX Part 4: Our Data Strategy]] (Hugging Face) — Инсайты о стратегии работы с данными для обучения открытых моделей в продакшене.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/contextual-policies-omnigent-using-session-state-better-govern-ai-agents][Contextual Policies in Omnigent: Using session state to better govern AI agents]]
+:SCORE: 8/10
+:WHY: Решает проблему управления состоянием и безопасностью в открытых агентных системах.
+**** [[hxxps://huggingface.co/blog/lerobot-release-v060][LeRobot v0.6.0: Imagine, Evaluate, Improve]]
+:SCORE: 7/10
+:WHY: Важный инструмент для инженеров, исследующих пересечение ML и физической робототехники.
+**** [[hxxps://huggingface.co/blog/Photoroom/prx-part4-data][PRX Part 4: Our Data Strategy]]
+:SCORE: 6/10
+:WHY: Полезный опыт построения дата-пайплайнов для кастомных моделей внутри продукта.
+
+** Инженеры
+- [[hxxps://www.kdnuggets.com/data-scientists-are-becoming-ai-managers-not-model-builders][Data Scientists Are Becoming AI Managers, Not Model Builders]] (KDnuggets) — Анализ трансформации роли дата-сайентиста от построения моделей к управлению AI-системами.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/data-scientists-are-becoming-ai-managers-not-model-builders][Data Scientists Are Becoming AI Managers, Not Model Builders]]
+:SCORE: 8/10
+:WHY: Помогает senior-инженерам адаптировать карьерную стратегию под новые реалии рынка AI.

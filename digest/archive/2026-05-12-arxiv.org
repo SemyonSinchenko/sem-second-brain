@@ -1,0 +1,155 @@
+#+TITLE: Arxiv Digest: 2026-05-12
+#+FROM: [2026-05-11 Mon]
+#+TO: [2026-05-12 Tue]
+#+DATE: [2026-05-12 Tue]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается сильный тренд на интеграцию LLM в задачи управления данными: от импутации пропущенных значений до настройки индексов. Параллельно развиваются методы сжатия данных с использованием графовых моделей и оптимизация ANN-индексов для GPU-кластеров, что указывает на рост требований к производительности в векторных базах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2506.16616][LDI: Localized Data Imputation for Text-Rich Tables]]
+:WHAT: Фреймворк для импутации пропусков в текстовых таблицах с использованием локализованного推理 LLM.
+:IMPACT: Повышает точность до 8% и обеспечивает интерпретируемость за счет выбора контекстно релевантных атрибутов.
+- [[hxxps://arxiv.org/abs/2603.09181][Evaluating the Practical Effectiveness of LLM-Driven Index Tuning with Microsoft Database Tuning Advisor]]
+:WHAT: Оценка эффективности настройки индексов с помощью LLM в сравнении с промышленным DTA.
+:IMPACT: Показывает потенциал LLM как дополнения к традиционным оптимизаторам, несмотря на вариабельность производительности.
+- [[hxxps://arxiv.org/abs/2605.09928][OpenZL: Using Graphs to Compress Smaller and Faster]]
+:WHAT: Система сжатия данных на основе графовой модели модульных кодеков.
+:IMPACT: Обеспечивает высокую скорость и степень сжатия, превосходящие универсальные алгоритмы, упрощая разработку специализированных компрессоров.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.02171][QuIVer: Rethinking ANN Graph Topology via Training-Free Binary Quantization]]
+:ALGO: Построение графового индекса ANN полностью в 2-битном пространстве квантования без обучения.
+:IMPACT: Значительное ускорение поиска (до 4.9x) и экономия памяти при сохранении высокой точности.
+- [[hxxps://arxiv.org/abs/2605.10135][ScaleGANN: Accelerate Large-Scale ANN Indexing by Cost-effective Cloud GPUs]]
+:ALGO: Система распределенного построения графовых индексов на спотовых GPU с разделением и слиянием.
+:IMPACT: Ускорение построения индексов до 9x при снижении затрат в 6 раз для больших датасетов.
+- [[hxxps://arxiv.org/abs/2605.10373][Toward Multi-Database Query Reasoning for Text2Cypher]]
+:ALGO: Формализация генерации запросов Cypher across multiple graph databases.
+:IMPACT: Решает проблему маршрутизации и декомпозиции запросов в распределенных графовых системах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2601.10604][Translating database mathematical schemes into relational database software applications with MatBase]] — Алгоритм трансляции математических схем данных в реляционные структуры с доказательством оптимальности.
+- [[hxxps://arxiv.org/abs/2605.08397][Maintaining Queries under Updates Using Heavy-Light Partitioning of the Input Relations]] — Общий подход к инкрементальному поддержанию представлений для произвольных join-запросов.
+- [[hxxps://arxiv.org/abs/2605.08601][Elastic Scheduling of Intermittent Query Processing in a Cluster Environment]] — Схемы планирования пакетной обработки потоков с эластичным масштабированием узлов.
+- [[hxxps://arxiv.org/abs/2605.09054][Personalized w-Event Privacy for Infinite Stream Estimation]] — Механизмы персонализированной приватности для бесконечных потоков данных с динамическим распределением бюджета.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Заметен сдвиг в сторону объяснимости графовых нейросетей (GNN) и обнаружения атак (backdoors). Также развиваются методы эффективной генерации изображений (diffusion) и адаптации языковых моделей (VLM/LLM) через персонализацию и уменьшение переобучения.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2402.02286][Attention-Mamba: A Mamba-Enhanced Multi-Scale Parallel Inference Network for Medical Image Segmentation]]
+:WHAT: Архитектура сегментации медицинских изображений с использованием状态空间 моделей Mamba вместо трансформеров.
+:IMPACT: Достигает SOTA результатов при меньшей вычислительной сложности и линейной зависимости от длины последовательности.
+- [[hxxps://arxiv.org/abs/2410.10247][LPT: Less-overfitting Prompt Tuning for Vision-Language Model]]
+:WHAT: Фреймворк тонкой настройки промптов для VLM с ограничениями на сохранение структуры признаков.
+:IMPACT: Снижает переобучение и улучшает обобщающую способность при трансфере на новые домены.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2010.03496][Inductive Entity Representations from Text via Link Prediction]]
+:ALGO: Обучение векторных представлений сущностей через предсказание связей с использованием текстовых описаний.
+:IMPACT: Позволяет использовать представления для индуктивных задач и поиска информации без дополнительного обучения.
+- [[hxxps://arxiv.org/abs/2403.18136][Identifying Backdoored Graphs in Graph Neural Network Training: An Explanation-Based Approach with Novel Metrics]]
+:ALGO: Метод обнаружения backdoor-атак на GNN через анализ графовых объяснений и новые метрики.
+:IMPACT: Повышает безопасность и надежность классификации на графах в присутствии вредоносных данных.
+- [[hxxps://arxiv.org/abs/2407.07639][Explaining Graph Neural Networks for Node Similarity on Graphs]]
+:ALGO: Оценка градиентных объяснений для задач поиска сходства узлов в GNN.
+:IMPACT: Provides actionable и согласованные объяснения, позволяющие понимать влияния на схожесть узлов.
+- [[hxxps://arxiv.org/abs/2409.19379][Automated conjecturing with \emph{TxGraffiti}]]
+:ALGO: Система автоматической генерации математических гипотез в теории графов на основе эвристик.
+:IMPACT: Ускоряет исследовательский процесс и предлагает новые направления для теоретических доказательств.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2303.05307][Learning Strategic Value and Cooperation in Multi-Player Stochastic Games through Side Payments]] — Расширение ценности Харшани-Шепли на стохастические игры с трансферабельной полезностью.
+- [[hxxps://arxiv.org/abs/2405.17642][Unifying Perspectives: Plausible Counterfactual Explanations on Global, Group-wise, and Local Levels]] —Unified метод генерации контрфактических объяснений с учетом правдоподобия.
+- [[hxxps://arxiv.org/abs/2407.06576][Virtual Personas for Language Models via an Anthology of Backstories]] — Кондиционирование LLM на виртуальные персонажи через биографии для симуляции опросов.
+- [[hxxps://arxiv.org/abs/2407.12173][Beta Sampling is All You Need: Efficient Image Generation Strategy for Diffusion Models using Stepwise Spectral Analysis]] — Оптимизация шагов сэмплирования в диффузионных моделях на основе спектрального анализа.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования фокусируются на универсальных паттернах в городских сетях (амениети, велошеринг) и динамике социальных движений. Наблюдается интерес к моделированию сотрудничества и поведения в условиях неопределенности (эпидемии, политическая поляризация).
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.15784][Comparing Analytical Approaches for Bike Station Expansion: A Location-Allocation Study in Trondheim, Norway]]
+:WHAT: Сравнение моделей размещения станций велошеринга (WLC, MCLP, data-driven).
+:IMPACT: Выявляет системные различия в приоритетах пространства и предлагает консенсусные локации для расширения.
+- [[hxxps://arxiv.org/abs/2605.08622][Networks of amenities reveal universal homophily and heterophily across global cities]]
+:WHAT: Байесовский анализ смешивания амениети в 800 городах мира.
+:IMPACT: Обнаруживает универсальные масштабы гомофилии и гетерофилии, прогнозирующие изменения арендной стоимости.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.22677][Self-Similarity in Online Networks During Social Movements]]
+:ALGO: Анализ самоподобия в сетях хэштегов социальных движений через ренормализацию.
+:IMPACT: Выявляет универсальные организационные принципы координации коллективных действий в пиковые фазы.
+- [[hxxps://arxiv.org/abs/2510.03772][Cooperation in public goods game on square lattices with agents changing interaction groups]]
+:ALGO: Модель пространственного взаимодействия с переоценкой групп сотрудничества.
+:IMPACT: Демонстрирует, как разнообразие сетей взаимодействия способствует возникновению кооперации без внешних механизмов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.00982][Multivariable Behavioral Change Modeling of Epidemics in the Presence of Undetected Infections]] — Байесовская модель эпидемий с учетом поведенческих изменений и неучтенных инфекций.
+- [[hxxps://arxiv.org/abs/2511.14814][Reviewing definition of resilience in different disciplines with a focus on disaster restructure systems]] — Обзор концепций устойчивости в экологии, инженерии и социальных науках.
+- [[hxxps://arxiv.org/abs/2605.08669][Modeling Decision-Making with Will for Cooperation in Social Dilemmas]] — Framework "воли" агентов для преодоления дилемм сотрудничества через ограничение рациональности.
+- [[hxxps://arxiv.org/abs/2605.09784][A computational model of spatial politics: Hotelling-Downs model as statistical physics]] — Расширение модели Хотеллинга-Даунса на многопартийные системы и поляризацию.
+- [[hxxps://arxiv.org/abs/2605.09831][From Discrete to Continuous Highest-earning Imitation Dynamics]] — Анализ динамики подражания лидерам в больших популяциях через стохастическую аппроксимацию.
+- [[hxxps://arxiv.org/abs/2605.10382][DREAMS: Modelling Support for Research into Engineering and Artistic Design]] — Прототип среды для поддержки методологии дизайн-исследований (DRM).
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Актуальны задачи динамической поддержки графовых свойств (кластеризация, связность) и оптимизации в больших размерах (оптимальный транспорт, матричное умножение). Появляются новые языковые абстракции для графовых алгоритмов и квантовые улучшения для спектральных задач.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2404.11591][The EDGE Language: Extended General Einsums for Graph Algorithms]]
+:WHAT: Язык абстракции графовых алгоритмов на основе тензорной алгебры и нотации Einsum.
+:IMPACT: Упрощает сравнение алгоритмов и разделение логики вычислений от низкоуровневой реализации.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2507.13470][Faster Multi-Source Reachability and Approximate Distances via Shortcuts, Hopsets and Matrix Multiplication]]
+:ALGO: Централизованные и параллельные алгоритмы достижимости с использованием ярлыков и умножения матриц.
+:IMPACT: Улучшает границы сложности для графов с малыми сепараторами и произвольных графов.
+- [[hxxps://arxiv.org/abs/2504.12060][Static to Dynamic Correlation Clustering]]
+:ALGO: Фреймворк трансформации статических алгоритмов корреляционной кластеризации в динамические.
+:IMPACT: Достигает коэффициента аппроксимации 1.485 с константным временем обновления против адаптивного противника.
+- [[hxxps://arxiv.org/abs/2510.15593][Temporal Graph Reconfiguration for Always-Connected Graphs]]
+:ALGO: Задача реконфигурации временных графов с сохранением связности на каждом шаге.
+:IMPACT: Предлагает алгоритм динамического программирования и доказывает APX-трудность поиска кратчайшей последовательности.
+- [[hxxps://arxiv.org/abs/2409.08405][Consistent Tie-Strength Labeling for Multilayer Strong Triadic Closure]]
+:ALGO: Формулировки STC для многоуровневых сетей с обеспечением кросс-слойной согласованности.
+:IMPACT: Улучшает интерпретацию силы связей в социальных и биологических мультиплексных сетях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2410.01656][Efficient Statistics With Unknown Truncation, Polynomial Time Algorithms, Beyond Gaussians]] — Алгоритмы оценки параметров распределений с неизвестной усеченностью за полиномиальное время.
+- [[hxxps://arxiv.org/abs/2511.11237][An Efficient Algorithm for Minimizing Ordered Norms in Fractional Load Balancing]] — Рандомизированный алгоритм минимизации упорядоченных норм вектора нагрузки.
+- [[hxxps://arxiv.org/abs/2511.11359][Log-Averaged Mirror Prox for Fast, Large-Scale Optimal Transport in Linear Space]] — Метод зеркального проксима для оптимального транспорта с линейной памятью.
+- [[hxxps://arxiv.org/abs/2511.11988][Graded Projection Recursion (GPR): Corrections, Obstructions, and Conservative Approximate Matrix Multiplication]] — Консервативный фреймворк приблизительного матричного умножения с исправлениями предыдущих результатов.
+- [[hxxps://arxiv.org/abs/2508.21002][Spectral Gaps with Quantum Counting Queries and Oblivious State Preparation]] — Квантовый алгоритм аппроксимации спектральных зазоров с логарифмическим числом кубитов.
+- [[hxxps://arxiv.org/abs/2504.17392][Edge-weighted Online Stochastic Matching Under Jaillet-Lu LP]] — Улучшенные границы конкурентности для онлайн-сопоставления с взвешенными ребрами.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Ключевой темой остается эффективное обслуживание LLM в распределенных средах (serverless, GPU clusters). Параллельно развиваются теоретические основы устойчивости к византийским сбоям и методы федеративного обучения с учетом гетерогенности клиентов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2505.09999][ServeGen: Workload Characterization and Generation of Large Language Model Serving in Production]]
+:WHAT: Фреймворк характеризации и генерации реалистичных рабочих нагрузок для serving LLM.
+:IMPACT: Позволяет избегать недо provisioning на 50% при бенчмаркинге систем обслуживания.
+- [[hxxps://arxiv.org/abs/2510.11938][FlexPipe: Adapting Dynamic LLM Serving Through Inflight Pipeline Refactoring in Fragmented Serverless Clusters]]
+:WHAT: Система динамической реконфигурации пайплайнов LLM во время выполнения в serverless кластерах.
+:IMPACT: Улучшает эффективность ресурсов в 8.5 раз и снижает задержку на 38% в условиях фрагментации.
+- [[hxxps://arxiv.org/abs/2601.22204][FedAdaVR: Adaptive Variance Reduction for Robust Federated Learning under Limited Client Participation]]
+:WHAT: Алгоритм FL с адаптивным уменьшением дисперсии для работы при частичном участии клиентов.
+:IMPACT: Устраняет ошибки участия и снижает требования к памяти на 87.5% при квантовании.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.07456][Agentic AI-Driven UAV Network Deployment: An LLM-Enhanced Exact Potential Game Approach]]
+:ALGO: Оптимизация развертывания сетей БПЛА через точные потенциальные игры с усилением LLM.
+:IMPACT: Решает смешанно-целочисленную задачу размещения и связи для улучшения пропускной способности и задержек.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.04310][Why Canonical Rounds Fail for Optimal Byzantine Resilience]] — Доказательство несовместимости канонических раундов с оптимальной устойчивостью к византийским сбоям.
+- [[hxxps://arxiv.org/abs/2511.03609][Stone Duality Proofs for Colorless Distributed Computability Theorems]] — Топологическое кодирование исполнений распределенных протоколов через спектральные пространства.
+- [[hxxps://arxiv.org/abs/2512.05372][Breaking the Capacity Bottleneck in Model-Heterogeneous Federated Learning via Gradual Model Restoration]] — FedGMR: постепенное восстановление плотности подмоделей для клиентов с ограниченной пропускной способностью.
+- [[hxxps://arxiv.org/abs/2602.05179][From Sequential to Parallel: Reformulating Dynamic Programming as GPU Kernels for Large-Scale Stochastic Combinatorial Optimization]] — GPU-ядра для параллельного динамического программирования в стохастической оптимизации.
+- [[hxxps://arxiv.org/abs/2602.09520][Rashomon Sets and Model Multiplicity in Federated Learning]] — Формализация множеств Рашомона для анализа множественности моделей в федеративном обучении.

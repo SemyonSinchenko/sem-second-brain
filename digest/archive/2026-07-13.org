@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-07-13
+#+FROM: [2026-07-12 Sun]
+#+TO: [2026-07-13 Mon]
+#+DATE: [2026-07-13 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Внедрение AI-агентов тормозится организационной структурой компаний, а не только технологиями. Инженеры данных исследуют новые системы, оптимизированные для работы агентов, а не людей. Индустрия фокусируется на снижении языковых издержек ИИ и улучшении визуализации. Одновременно продолжаются оффлайн-встречи профессиональных сообществ вокруг крупных конференций.
+
+* 📂 Категории
+** Engineers
+- [[hxxps://joereis.substack.com/p/your-agents-are-stuck-in-your-org][Your Agents Are Stuck In Your Org Chart]] (Joe Reis) — Статья объясняет, почему внедрение агентов ИИ проваливается без изменения оргструктуры, ссылаясь на закон Конвея.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/your-agents-are-stuck-in-your-org][Your Agents Are Stuck In Your Org Chart]]
+:SCORE: 9/10
+:WHY: Критично для понимания рисков масштабирования ИИ без рефакторинга процессов.
+
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-278][Data Engineering Weekly #278]] (Data Engineering Weekly) — Дайджест охватывает использование ИИ в Dagster, новые системы для агентов от BAIR и визуальный язык Flint.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-278][Data Engineering Weekly #278]]
+:SCORE: 8/10
+:WHY: Обзор инструментов и исследований, определяющих будущее дата-платформ.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (GDC Council) — Анонс встречи технического сообщества в Бостоне, совмещенной с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и влияния на стандарты через участие в сообществе.

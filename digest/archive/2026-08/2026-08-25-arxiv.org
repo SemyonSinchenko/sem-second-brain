@@ -1,0 +1,130 @@
+#+TITLE: Arxiv Digest: 2026-08-25
+#+FROM: [2026-08-24 Mon]
+#+TO: [2026-08-25 Tue]
+#+DATE: [2026-08-25 Tue]
+#+STARTUP: showall
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+В распределенных системах наблюдается тренд на адаптивную оркестрацию в гетерогенных средах (GPU, UAV, K8s) и формальную верификацию протоколов. Исследования фокусируются на снижении времени простоя при отказе лидеров, управлении задачами непосредственно на GPU и обеспечении аудируемости межорганизационных взаимодействий.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2502.00138][JustAct: A Framework for Auditable Multi-Agent Systems Regulated by Inter-Organisational Policies]]
+:WHAT: Фреймворк для мультиагентных систем, где действия обосновываются динамическими политиками и соглашениями.
+:IMPACT: Гарантирует, что разрешенные действия не могут быть опровергнуты позже, что критично для медицины и регуляторики.
+- [[hxxps://arxiv.org/abs/2507.15154][Dynamic Tuning of Election Parameters for Timely Leader Failover in State Machine Replication]]
+:WHAT: Система Dynatune динамически настраивает параметры выборов лидера в Raft/Multi-Paxos в зависимости от сети.
+:IMPACT: Снижает время обнаружения отказа лидера на 78% и время простоя на 45% в условиях нестабильной сети.
+- [[hxxps://arxiv.org/abs/2509.04719][Spatio-Temporal Parallelism for Diffusion Model Inference on Heterogeneous Multi-GPU Systems]]
+:WHAT: Фреймворк Orchestra оркестрирует параллелизм по времени и пространству для инференса диффузионных моделей.
+:IMPACT: Уменьшает задержку на 45% в гетерогенных кластерах GPU, устраняя эффекты стрэгглеров.
+- [[hxxps://arxiv.org/abs/2603.12031][Agentic-Kube: A Graph-Enhanced Multi-Agent Reinforcement Learning Framework for Multi-Objective Kubernetes Scheduling]]
+:WHAT: Кооперативная MARL-система для размещения подов в Kubernetes с использованием графовых сетей.
+:IMPACT: Достигает Pareto-эффективности и снижает коллизии анти-аффинности на 53% по сравнению со стандартным планировщиком.
+- [[hxxps://arxiv.org/abs/2604.05982][GTaP: A GPU-Resident Fork-Join Task-Parallel System with a Pragma-Based Interface]]
+:WHAT: Системаtask-параллелизма fork-join, выполняемая полностью внутри persistent GPU kernel.
+:IMPACT: Превосходит предыдущие реализации на два порядка и ускоряет реальные рабочие нагрузки до 5.2x.
+- [[hxxps://arxiv.org/abs/2604.10186][VeriNC: Finding Design Risks of In-Network Computing Systems]]
+:WHAT: Инструмент верификации систем in-network computing через моделирование состояний.
+:IMPACT: Находит риски дизайна за секунды и экономит 67% кода спецификаций, обеспечивая корректность протоколов.
+- [[hxxps://arxiv.org/abs/2608.12946][Efficient Randomized LL/SC that Preserves History Independence]]
+:WHAT: Рандомизированная реализация объектов LL/SC с константной сложностью шагов.
+:IMPACT: Позволяет реализовать эффективные hash-таблицы на доступном железе без асимптотического роста сложности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.09616][DCGen 1.1 Technical Report: Generating Datacenter Configurations (including IT, Power, Cooling)]] — Инструмент генерации реалистичных конфигураций датацентров для исследований.
+- [[hxxps://arxiv.org/abs/2509.25700][PAST: Pilot and Adaptive Orchestration for Timely and Resilient Service Delivery in Edge-Assisted UAV Networks under Spatio-Temporal Dynamics]] — Фреймворк торговли ресурсами для сетей UAV с учетом динамики.
+- [[hxxps://arxiv.org/abs/2509.03945][Prob-GParareal: A Probabilistic Numerical Parallel-in-Time Solver for Differential Equations]] — Вероятностный решатель дифференциальных уравнений с квантованием неопределенности.
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В области баз данных доминирует интеграция LLM для управления данными и семантического кэширования, а также изучение квантовых подходов к оптимизации запросов. Исследования направлены на адаптацию моделей к новым озерам данных и улучшение механизмов поиска векторных представлений.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.08793][LakeHopper: Knowledge-Aware Adaptation of Column Type Annotators across Data Lakes]]
+:WHAT: Метод адаптации аннотаторов типов колонок для новых озер данных с использованием LLM как верификатора.
+:IMPACT: Достигает качества полного обучения при использовании менее 6% меток и избегает галлюцинаций типов.
+- [[hxxps://arxiv.org/abs/2608.20280][Which Eviction Policy Should an LLM Cache Use? A Systematic Study Across Workloads, Capacities, and Encoders]]
+:WHAT: Систематическое исследование политик вытеснения для семантических кэшей LLM.
+:IMPACT: Показывает, что LFU остается сильным базовым вариантом, а качество ответов важнее сырого hit-rate.
+- [[hxxps://arxiv.org/abs/2608.20683][Improving Join Order Optimization on Gate-Based Quantum Computers via Structured Parameter Initialization]]
+:WHAT: Применение квантовой оптимизации (QAOA) для задачи порядка соединений с инициализацией SPIQ.
+:IMPACT: Увеличивает частоту сэмплирования оптимального плана до 5 раз на малых масштабах.
+- [[hxxps://arxiv.org/abs/2608.21494][Retrieval Needs Multivectors: An Exponential Separation]]
+:WHAT: Теоретическое и экспериментальное обоснование превосходства мультивекторных эмбеддингов над сингл-векторными.
+:IMPACT: Предлагает новый бенчмарк ANDOR, демонстрирующий экспоненциальный разрыв в выразительной силе.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Фокус смещается на оркестрацию агентов (MCP, жюри LLM) и применение RL для комбинаторных задач, включая маршрутизацию и расписание. Важным направлением остается оценка способности нейросетей изучать дискретные алгоритмы и генерировать спецификации.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.06064][iScheduler: Reinforcement Learning-Driven Continual Optimization for Large-Scale Resource Investment Problems]]
+:WHAT: RL-фреймворк для итеративного планирования задач с ограничениями ресурсов.
+:IMPACT: Ускоряет достижение выполнимости до 43 раз на промышленных бенчмарках по сравнению с солверами.
+- [[hxxps://arxiv.org/abs/2602.18492][Vibe Coding on Trial: Operating Characteristics of Unanimous LLM Juries]]
+:WHAT: Применение комитета LLM для верификации сгенерированного SQL кода.
+:IMPACT: Малые единогласные комитеты сильных моделей снижают ложные принятия при сохранении пропускной способности.
+- [[hxxps://arxiv.org/abs/2608.07530][NL2SHACL-Bench: A Benchmark Suite for Natural Language to SHACL Translation]]
+:WHAT: Бенчмарк для трансляции естественного языка в ограничения SHACL для графов знаний.
+:IMPACT: Выявляет трудности современных LLM в генерации семантически эквивалентных сложных ограничений.
+- [[hxxps://arxiv.org/abs/2608.22063][From SQL Generation to Tool Selection: A Domain-Oriented Pattern for MCP Servers]]
+:WHAT: Паттерн Domain-Oriented Tooling для MCP серверов вместо генерации SQL на лету.
+:IMPACT: Повышает точность выполнения задач до 0.939 и позволяет использовать меньшие модели без потери качества.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.13106][Which Algorithms Can Graph Neural Networks Learn?]]
+:ALGO: Теоретическая框架 характеризует условия, при которых MPNN могут изучать алгоритмы на произвольных размерах.
+:IMPACT: Устанавливает границы применимости GNN для задач вроде кратчайших путей и динамического программирования.
+- [[hxxps://arxiv.org/abs/2406.16424][Memory-Enhanced Neural Solvers for Routing Problems]]
+:ALGO: Подход MEMENTO использует память для улучшения поиска нейральных солверов на инференсе.
+:IMPACT: Превосходит tree-search и fine-tuning в задачах TSP и VRP, масштабируясь на большие экземпляры.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.08688][Reconciling Consistency-Based Diagnosis with Actual-Causality-Based Explanations]] — Связь между диагностикой на основе согласованности и актуальной причинностью в XAI.
+- [[hxxps://arxiv.org/abs/2608.21914][Consistency Is Not Coherence: Orientation Search for Certified Alignments Between 4D Defence Upper Ontologies]] — Выравнивание онтологий для оборонной инфраструктуры данных.
+- [[hxxps://arxiv.org/abs/2403.04931][A Survey on Human-AI Collaboration with Large Foundation Models]] — Обзор интеграции больших фундаментальных моделей в человеческое сотрудничество.
+- [[hxxps://arxiv.org/abs/2409.14644][LSem2Vec: A Simple yet Effective Two-Stage Approach for Source Code Embedding]] — Двухэтапный подход к встраиванию исходного кода без дообучения.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования концентрируются на моделировании динамических сетей и механизмов кооперации с использованием RL и теории игр. Особое внимание уделяется влиянию доверия, мобильности и структурных ограничений на коллективное поведение и устойчивость систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2410.08875][Online design of dynamic networks]]
+:WHAT: Метод онлайн-проектирования динамических сетей на основе Monte Carlo Tree Search.
+:IMPACT: Позволяет строить сеть общественного транспорта на лету в ответ на стохастический спрос, превосходя классические VRP.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.22705][Evolution of cooperation with Q-learning: how much information do we need?]]
+:ALGO: Анализ эволюции кооперации в структурированных популяциях с помощью Q-learning и варьирования размера окрестности.
+:IMPACT: Выявляет нелинейную зависимость уровня кооперации от объема информации, указывая на оптимальный баланс.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2211.05653][From Logistic to Gompertz: A Microscopic Theory of Coherent Growth in Biological Systems]] — Микроскопическая теория когерентного роста, связывающая логистическую и Гомперца модели.
+- [[hxxps://arxiv.org/abs/2608.21505][Earth as a Closed Life-Support System: Finite Buffers, Dynamical Thresholds, and Planetary Sustainability]] — Модель планетарной устойчивости через конечные буферы ресурсов и отходов.
+- [[hxxps://arxiv.org/abs/2608.23194][The power law in human mobility is a mixture artifact: evidence from a pandemic natural experiment]] — Доказательство того, что степенной закон мобильности является артефактом агрегации.
+- [[hxxps://arxiv.org/abs/2608.22768][The Loop-Gain Matrix: Coupled Rebalancing Feedback and the Blind Spots of Scalar Stability Monitoring]] — Матричный анализ стабильности рынков с leveraged ETF, выявляющий слепые зоны скалярного мониторинга.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Развиваются эффективные структуры данных для приватности и обучаемых фильтров, а также изучается сложность фундаментальных задач разбиения графов. Актуальны вопросы оптимизации памяти и времени в задачах обработки строк и упаковки.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2502.03696][Cascaded Learned Bloom Filter for Optimizing Model-Filter Size Balance and Fast Rejection]]
+:WHAT: Архитектура Cascaded Learned Bloom Filter с оптимизатором на основе динамического программирования.
+:IMPACT: Снижает использование памяти на 17% и время отклонения в 65 раз по сравнению с state-of-the-art.
+- [[hxxps://arxiv.org/abs/2608.22185][Residual Privacy Budgeting with Weighted Scarcity Allocation for Online Query Answering]]
+:WHAT: Механизм остаточного бюджетирования приватности для онлайн-запросов с zCDP.
+:IMPACT: Гарантирует 1-конкурентность против офлайн-оптимума и минимизирует расход бюджета за счет переиспользования.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/1902.10765][Reconfiguration of Connected Graph Partitions]]
+:ALGO: Исследование связности пространства конфигураций карт районов через операции переключения вершин.
+:IMPACT: Доказывает NP-полноту поиска кратчайшей последовательности и предлагает эффективные алгоритмы для связных случаев.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2112.03738][A more efficient algorithm to compute the Rand Index for change-point problems]] — Алгоритм вычисления индекса Rand за O(r+s) для задач обнаружения изменений.
+- [[hxxps://arxiv.org/abs/2503.08863][Improved Approximation Algorithms for Three-Dimensional Bin Packing]] — Улучшенные аппроксимационные алгоритмы для 3D упаковки и минимизации объема.
+- [[hxxps://arxiv.org/abs/2511.13301][A Complexity Analysis of the c-Closed Vertex Deletion Problem]] — Анализ классической и параметризованной сложности удаления вершин для c-замкнутых графов.
+- [[hxxps://arxiv.org/abs/2606.31030][Optimal-Time Contextual Pattern Matching in Compressed Space]] — Оптимальное по времени сопоставление паттернов в сжатом пространстве SCDAWG.

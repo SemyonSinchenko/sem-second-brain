@@ -1,0 +1,114 @@
+#+TITLE: Arxiv Digest: 2026-05-21
+#+FROM: [2026-05-20 Wed]
+#+TO: [2026-05-21 Thu]
+#+DATE: [2026-05-21 Thu]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+Наблюдается смещение фокуса на оптимизацию сложных графовых запросов и интеграцию GPU в традиционные OLAP системы. Методы оценки вклада данных через значения Шапли становятся более практичными для динамических сценариев. Также виден интерес к открытым метрикам ранжирования научных публикаций.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.02862][PystachIO: Efficient Distributed GPU Query Processing with PyTorch over Fast Networks & Fast Storage]]
+:WHAT: Прототип распределенного OLAP движка на базе PyTorch, оптимизирующий использование GPU, сети и хранилища.
+:IMPACT: Ускорение обработки запросов до 3 раз по сравнению с существующими GPU-подходами за счет перекрытия вычислений и ввода-вывода.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2406.05417][Optimizing Navigational Graph Queries]]
+:ALGO: Новые техники оптимизации для навигационных запросов, сочетающих рекурсию и поиск паттернов.
+:IMPACT: Первое практическое решение для сложных навигационных запросов с улучшением производительности на порядки.
+- [[hxxps://arxiv.org/abs/2605.20620][Dynamic Shapley Computation]]
+:ALGO: Фреймворк D-Shap для динамического пересчета значений Шапли через维护 матрицы игрок-задача.
+:IMPACT: Снижение стоимости обновлений на три порядка, что делает оценку данных жизнеспособной в динамических условиях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.17657][General Science Ranking (GSR): An Open-Source, Citation-Normalized Journal and Conference Classification System for Computer Science and Medicine]] — Открытая система ранжирования журналов и конференций на основе библиометрических данных OpenAlex.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+LLM интегрируются в системы управления данными для упрощения доступа и семантической сортировки. В сетевом анализе акцент смещается на практические интервенции (здравоохранение) и справедливый отбор репрезентативных узлов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2507.01053][M3: Conversational LLMs Simplify Secure Clinical Data Access, Understanding, and Analysis]]
+:WHAT: Система для запросов к клинической базе MIMIC-IV на естественном языке через Model Context Protocol.
+:IMPACT: Снижение барьера входа для исследователей и возможность локального развертывания для защиты конфиденциальности.
+- [[hxxps://arxiv.org/abs/2509.00303][Access Paths for Efficient Ordering with Large Language Models]]
+:WHAT: Оптимизатор для семантического оператора LLM ORDER BY, выбирающий путь доступа на основе бюджета.
+:IMPACT: Фундаментальные insights для построения масштабируемых аналитических систем на базе LLM.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.20218][Network-Based Interventions for HIV Prevention via Cascade-Aware Suppression of Transmission]]
+:ALGO: Алгоритм CAST для оптимизации распределения ресурсов в сетях передачи ВИЧ.
+:IMPACT: Эффективное подавление каскадов заражений в реальных сетях по сравнению с базовыми методами.
+- [[hxxps://arxiv.org/abs/2502.03545][Proportional Selection in Networks]]
+:ALGO: Подходы к выбору репрезентативных узлов с учетом влияния и разнообразия сети.
+:IMPACT: Теоретическое обоснование и эксперименты для задач справедливого отбора в графах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2502.17773][How Many Human Survey Respondents is a Large Language Model Worth? An Uncertainty Quantification Perspective]] — Фреймворк для квантования неопределенности при замене респондентов симуляциями LLM.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Статистическая физика активно применяется для моделирования динамики мнений и диффузии в симплициальных комплексах. Значительный объем работ посвящен анализу мобильности и социологических данных высокого разрешения.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.16086][Random Walks Across Dimensions: Exploring Simplicial Complexes]]
+:ALGO: Оператор случайных блужданий по симплициальным комплексам различных размерностей.
+:IMPACT: Ранжирование важности структур высших порядков и анализ стратегий поиска с телепортацией.
+- [[hxxps://arxiv.org/abs/2605.20454][Sparse Contextual Coupling Reshapes Diffusion Geometry in Multilayer Hypergraphs]]
+:ALGO: Фреймворк диффузии для анализа влияния稀疏 контекстных слоев на геометрию мультиграфов.
+:IMPACT: Показать, как небольшие контекстные слои существенно меняют расстояния диффузии и структуру сообществ.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2507.11521][Opinion dynamics: Statistical physics and beyond]] — Обзорный материал, систематизирующий терминологию и модели динамики мнений.
+- [[hxxps://arxiv.org/abs/2605.20263][The NetMob26 Dataset: A High-Resolution Multi-Source View of Public Bus Mobility in Niterói]] — Датасет мобильности общественного транспорта с данными GPS и билетных транзакций.
+- [[hxxps://arxiv.org/abs/2605.20313][The Securitization of Science: A Systems Perspective on Policy and Measurement]] — Анализ влияния политик безопасности на международное научное сотрудничество.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Прогресс в аппроксимационных алгоритмах для классических задач кластеризации и доминирования. Исследуется вычислительная сложность майнинга частых деревьев и пределы оптимизации ввода-вывода.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2503.10972][A $(2+\varepsilon)$-Approximation Algorithm for Metric $k$-Median]]
+:ALGO: Алгоритм аппроксимации для метрической задачи k-медиан с фактором $2+\epsilon$.
+:IMPACT: Закрытие разрыва между эвристическими и гарантированными решениями для_exact_ k центров.
+- [[hxxps://arxiv.org/abs/2602.03436][The Complexity of Maximal/Closed Frequent Tree Mining for Bounded Height Trees]]
+:ALGO: Классификация сложности майнинга частых деревьев в зависимости от высоты и упорядоченности.
+:IMPACT: Показано, что даже малые ограничения высоты не гарантируют полиномиальную сложность для всех случаев.
+- [[hxxps://arxiv.org/abs/2605.18623][An Approximation Algorithm for Graph Label Selection]]
+:ALGO: Первый алгоритм аппроксимации $\tilde{O}(\log^{1.5} n)$ для выбора меток в графе.
+:IMPACT: Масштабируемое решение для дистилляции репрезентативного набора вершин.
+- [[hxxps://arxiv.org/abs/2605.20526][An $O(n^5)$-Time Algorithm for Optimal Broadcast Domination]]
+:ALGO: Точный алгоритм для задачи оптимального широковещательного доминирования.
+:IMPACT: Решение гипотезы о квадратичном времени для общего случая связных графов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.09464][The Impossibility of Simultaneous Time and I/O Optimality for The Planar Maxima and Convex Hull Problems]] — Доказательство невозможности одновременной оптимальности по времени и I/O для выпуклой оболочки.
+- [[hxxps://arxiv.org/abs/2605.04465][Inverse Quadratic Decay in Random Subset Sum]] — Эвристика лучевого поиска для задачи о сумме подмножества с гарантией ошибки.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Доминирование тем распределенного обслуживания LLM, эффективности GPU и безопасности кэширования. Важные результаты получены в византийском консенсусе и хранении данных для генеративного контента.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.19385][LatentBox: Storing AI-Generated Images at Scale via a Latent-First Design]]
+:WHAT: Система хранения, сохраняющая латентные представления вместо пикселей для генеративных изображений.
+:IMPACT: Сокращение постоянного хранилища на 78.7% при сохранении низкой задержки доступа.
+- [[hxxps://arxiv.org/abs/2412.14061][Fast Byzantine Total Order Broadcast]]
+:WHAT: Протокол Flutter для византийской широковещательной рассылки с задержкой $2\Delta + \epsilon$.
+:IMPACT: Квази-оптимальная задержка в хороших условиях без подписей, что важно для квантовой устойчивости.
+- [[hxxps://arxiv.org/abs/2510.18586][TokenCake: A KV-Cache-centric Serving Framework for LLM-based Multi-Agent Applications]]
+:WHAT: Фреймворк обслуживания, ко-оптимизирующий планирование и память KV-кэша для мульти-агентных задач.
+:IMPACT: Снижение задержки на 47% и улучшение утилизации памяти GPU за счет управления простоем агентов.
+- [[hxxps://arxiv.org/abs/2603.10726][PrefixWall: Mitigating Prefix Caching Side Channels in Shared LLM Systems]]
+:WHAT: Система защиты от	side-channel атак через кэширование префиксов в многопользовательских LLM.
+:IMPACT: Безопасность без потери производительности, позволяющая до 70% повторного использования кэша.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.20497][Hypergraph Partitioning on GPU with Distinct Incident Hyperedges and Size Constraints]]
+:ALGO: GPU-центричный алгоритм многоуровневого разбиения гиперграфов с ограничениями на размер.
+:IMPACT: Ускорение в 380 раз по сравнению с последовательными методами при сохранении качества разбиения.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.28777][The Computer System Trail]] — Книжный roadmap по фундаментальным работам в распределенных системах и ОС.
+- [[hxxps://arxiv.org/abs/2605.20466][Fifty Years of Transaction Processing Research (extended)]] — Расширенная версия обзора истории и будущего исследований транзакций.

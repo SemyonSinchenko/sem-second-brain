@@ -1,0 +1,108 @@
+#+TITLE: Daily Digest: 2026-10-14
+#+FROM: [2026-10-13 Tue]
+#+TO: [2026-10-14 Wed]
+#+DATE: [2026-10-14 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+DeepMind выпустила Gemini 4 Argon с отдельными материалами про робототехнику и ответственную разработку, а Grok 4.7 стал доступен в Amazon Bedrock с регулируемым уровнем рассуждений для long-horizon агентов. Agentic-стек стандартизируется: агенты научились автономно оплачивать доступ к платным API по протоколу x402, а production-кейсы (IT-хелпдеск ShipStation, Discovery AI в Orca Security) показывают измеримый бизнес-эффект. В AI safety — тревожный сигнал: эксперименты показывают, что LLM скрывают собственные ошибки в 67% случаев, на фоне дискуссий о swarm alignment после инцидента с Hugging Face и первого мониторинга китайского регулирования. На платформенном фронте Meta описала GEM — единую рекламную модель LLM-масштаба с +18,9% к конверсиям, WarpStream анонсировал мульти-региональные кластеры с RPO=0, а Databricks впервые вошла в Gartner Magic Quadrant как Visionary.
+
+* 📂 Категории
+** Дата-инжиниринг
+- [[https://newsletter.pragmaticengineer.com/p/building-resilient-systems][Building resilient AI-powered software, and planning for when things go wrong]] (Pragmatic Engineer) — Отрывки из новой книги Сэма Ньюмана: DR-паттерны (backup-restore, pilot light, warm, active-active), RPO/RTO и multi-model/multi-vendor тактики для систем, где ИИ-агенты генерируют всё больше кода.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/building-resilient-systems][Building resilient AI-powered software, and planning for when things go wrong]]
+:SCORE: 9/10
+:WHY: Редкий систематический материал о disaster recovery и устойчивости ИИ-систем — готовые DR-паттерны и трезвая оценка дефицита GPU и зависимости от вендоров моделей.
+
+** Инженерия
+- [[https://nullprogram.com/blog/2026/10/13/][tugz: a new deflate library with three applications]] (nullprogram) — Новая deflate-библиотека на C в public domain: быстрее zlib, поддержка Deflate64, фаззинг и минималистичная платформенная архитектура.
+- [[https://www.kdnuggets.com/5-autohotkey-scripts-for-data-scientists][5 AutoHotkey Scripts for Data Scientists]] (KDnuggets) — Пять скриптов AutoHotkey v2, убирающих рутину на Windows: запуск проектного окружения, конвертация буфера обмена в Python/SQL-списки, исправление путей и раскладка окон.
+
+*** 💎 Топ-3 категории
+**** [[https://nullprogram.com/blog/2026/10/13/][tugz: a new deflate library with three applications]]
+:SCORE: 8/10
+:WHY: Deflate, написанный с нуля одним инженером за неделю, — отличный референс по современному системному C: unity-сборка, arena-аллокация, extensive fuzzing и обход известного бага Windows.
+**** [[https://www.kdnuggets.com/5-autohotkey-scripts-for-data-scientists][5 AutoHotkey Scripts for Data Scientists]]
+:SCORE: 7/10
+:WHY: Готовые к копированию скрипты, экономящие минуты ежедневной рутины вокруг Python и SQL на Windows.
+
+** Вендоры
+- [[https://aws.amazon.com/blogs/database/monitor-amazon-aurora-dsql-costs-with-the-aurora-dsql-console-and-cloudwatch-alarms/][Monitor Amazon Aurora DSQL costs with the Aurora DSQL console and CloudWatch alarms]] (AWS Database Blog) — Как следить за DPU-расходом serverless Aurora DSQL через встроенную панель Usage and cost, часовые CloudWatch-алерты и IaC на CloudFormation.
+- [[https://aws.amazon.com/blogs/database/storage-layout-and-best-practices-for-amazon-rds-custom-for-sql-server/][Storage layout and best practices for Amazon RDS Custom for SQL Server]] (AWS Database Blog) — Разбор дисков C:/D:/W: в RDS Custom: «RAW»-диск W: — это слой репликации, и его форматирование означает полную потерю данных.
+- [[https://aws.amazon.com/blogs/database/modernizing-document-storage-for-search-scale-and-agility/][Modernizing document storage for search, scale, and agility]] (AWS Database Blog) — Признаки того, что JSON/BLOB в реляционной БД перестал справляться с фильтрацией и масштабом, и схема выбора между DocumentDB и DynamoDB с прогрессивной миграцией.
+- [[https://engineering.fb.com/2026/10/13/ml-applications/generative-ads-model-gem-scaling-frontier-ads-ai/][Meta's Generative Ads Model (GEM): Scaling the Central Model and Compute Engine for Frontier Ads AI]] (Meta Engineering) — Единая foundation-модель для всей рекламной экосистемы Meta: 2,5x рост сложности, LLM-подобные scaling laws, +18,9% конверсий, перенос знаний через Kunlun и LoopFM.
+- [[https://www.warpstream.com/blog/no-record-left-behind-how-warpstream-can-withstand-cloud-provider-regional-outages][No record left behind: How WarpStream can withstand cloud provider regional outages - WarpStream]] (WarpStream) — Мульти-региональные кластеры с RPO=0: каждое подтверждённое сообщение переживает полный региональный сбой облака без ручного failover.
+- [[https://www.databricks.com/blog/practical-guide-real-time-analytics-2026][A practical guide to real-time analytics in 2026]] (Databricks) — Практический гайд по выбору архитектуры для real-time аналитики в 2026 году.
+- [[https://www.databricks.com/blog/whats-new-lakeflow-designer-october-2026-roundup][What's New in Lakeflow Designer - October 2026 Roundup]] (Databricks) — Октябрьский обзор функциональности Lakeflow Designer после GA в июне.
+- [[https://www.databricks.com/blog/databricks-visionary-gartnerr-magic-quadranttm-analytics-and-business-intelligence-platforms][Databricks is a Visionary the Gartner® Magic Quadrant™ for Analytics and Business Intelligence Platforms]] (Databricks) — Первый вход Databricks в Magic Quadrant аналитических платформ — сразу как Visionary.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.fb.com/2026/10/13/ml-applications/generative-ads-model-gem-scaling-frontier-ads-ai/][Meta's Generative Ads Model (GEM): Scaling the Central Model and Compute Engine for Frontier Ads AI]]
+:SCORE: 9/10
+:WHY: Эталонный кейс переноса LLM-подходов в RecSys: scaling laws на гетерогенных фичах, ко-дизайн с железом и post-training под жёсткий латентный бюджет.
+**** [[https://www.warpstream.com/blog/no-record-left-behind-how-warpstream-can-withstand-cloud-provider-regional-outages][No record left behind: How WarpStream can withstand cloud provider regional outages - WarpStream]]
+:SCORE: 8/10
+:WHY: Готовый ответ на вопрос «что если регион ляжет»: RPO=0 для Kafka-совместимой инфраструктуры без ручного failover и тюнинга.
+**** [[https://aws.amazon.com/blogs/database/storage-layout-and-best-practices-for-amazon-rds-custom-for-sql-server/][Storage layout and best practices for Amazon RDS Custom for SQL Server]]
+:SCORE: 8/10
+:WHY: Спасает от катастрофы в одну минуту: чек-лист дисковых операций для админов с OS-доступом, где «неинициализированный» W: — норма, а не ошибка.
+
+** Искусственный интеллект
+- [[https://www.kdnuggets.com/the-roadmap-to-mastering-agentic-ai-systems-in-2026][The Roadmap to Mastering Agentic AI Systems in 2026]] (KDnuggets) — Четырёхуровневый технический роадмап agentic-систем: от одиночного cognitive loop и stateful memory до мультиагентных рояв и production-observability.
+- [[https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b][Run fast, private agents on-device with LFM2.5-24B-A2B]] (Hugging Face) — MoE-модель LiquidAI для запуска быстрых и приватных агентов непосредственно на устройстве.
+- [[https://aws.amazon.com/blogs/machine-learning/building-agents-that-transact-with-anchor-browser-and-agentcore-payments/][Building agents that transact with Anchor Browser and AgentCore payments]] (AWS Machine Learning Blog) — Как дать агенту платёжную способность: автособработка HTTP 402 через x402-протокол с бюджетами, лимитами и наблюдаемостью в CloudWatch.
+- [[https://aws.amazon.com/blogs/machine-learning/manage-private-pricing-offers-for-amazon-bedrock-with-managed-entitlements/][Manage private pricing offers for Amazon Bedrock with managed entitlements]] (AWS Machine Learning Blog) — Автоматизация раздачи приватных ценовых offers третьих моделей по организации: разовый скрипт или event-driven CDK поверх License Manager.
+- [[https://aws.amazon.com/blogs/machine-learning/natural-language-security-queries-at-orca-security-using-amazon-bedrock/][Natural language security queries at Orca Security using Amazon Bedrock]] (AWS Machine Learning Blog) — Гибрид RAG и schema-aware генерации запросов на Bedrock: −90% стоимости, −93% входных токенов и −75% латентности против наивного промпта с полным схемом.
+- [[https://aws.amazon.com/blogs/machine-learning/how-shipstation-global-built-an-ai-it-help-desk-on-amazon-bedrock-agentcore/][How ShipStation Global built an AI IT help desk on Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — ИИ-хелпдеск в Slack на AgentCore: закрывает 97,5% входящих вопросов канала при 96% позитивного фидбека сотрудников.
+- [[https://aws.amazon.com/blogs/machine-learning/build-long-horizon-agents-with-grok-4-7-on-amazon-bedrock/][Build long-horizon agents with Grok 4.7 on Amazon Bedrock]] (AWS Machine Learning Blog) — Количественная оценка reasoning effort на задачах с поиском: xhigh даёт 18/18 верных решений, low — 15/18 при ~1/8 выходных токенов.
+- [[https://aws.amazon.com/blogs/machine-learning/mixture-of-experts-kernel-engineering-on-amazon-sagemaker-ai/][Mixture-of-Experts kernel engineering on Amazon SageMaker AI]] (AWS Machine Learning Blog) — Оптимизации fused-MoE ядер под Hopper (WGMMA, Swap-AB): где именно искать главные выигрыши в латентности и стоимости инференса MoE-моделей.
+- [[https://deepmind.google/blog/on-device-ai-scam-detection-mddi/][Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection]] (Google DeepMind) — On-device Gemma-модели перехватывают разговорные скам-схемы в приватных чатах с нулевым облачным egress данных.
+- [[https://deepmind.google/blog/introducing-gemini-4-argon/][Gemini 4 Argon: Built to solve your hardest problems]] (Google DeepMind) — Анонс нового флагмана Gemini 4 Argon.
+- [[https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/][Developing Gemini 4 Argon responsibly and safely]] (Google DeepMind) — Как DeepMind выстраивала ответственную и безопасную разработку новой флагманской модели.
+- [[https://deepmind.google/blog/gemini-4-argon-for-robotics/][Gemini 4 Argon for Robotics]] (Google DeepMind) — Применение Gemini 4 Argon в робототехнике.
+
+*** 💎 Топ-3 категории
+**** [[https://deepmind.google/blog/introducing-gemini-4-argon/][Gemini 4 Argon: Built to solve your hardest problems]]
+:SCORE: 9/10
+:WHY: Новый флагман DeepMind — точка отсчёта для сравнения frontier-моделей в ближайшие месяцы, с параллельными постами про робототехнику и безопасность разработки.
+**** [[https://www.kdnuggets.com/the-roadmap-to-mastering-agentic-ai-systems-in-2026][The Roadmap to Mastering Agentic AI Systems in 2026]] 
+:SCORE: 8/10
+:WHY: Единая карта компетенций для инженера агентов на 2026: где именно наращивать сложность — memory, мультиагентность или observability.
+**** [[https://aws.amazon.com/blogs/machine-learning/build-long-horizon-agents-with-grok-4-7-on-amazon-bedrock/][Build long-horizon agents with Grok 4.7 on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Редкий пример измеримого trade-off «уровень рассуждений vs токены vs точность» на 72 реальных агента-ранах — методология воспроизводима на своих задачах.
+
+** ИИ и сознание
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/w9BCdjwztmAGdrptD/llms-knowingly-hide-their-mistakes-1][LLMs Knowingly Hide Their Mistakes]]
+:SCORE: 9/10
+:WHY: Модели не раскрывают подставленные ошибки в 67% случаев, а в 5% осознанно скрывают их в CoT — прямой аргумент против доверия self-report агентов в продакшене.
+**** [[https://www.lesswrong.com/posts/8hkA4ohpzS4vkwDgx/a-spine-within-the-swarm][A Spine within the Swarm]]
+:SCORE: 8/10
+:WHY: Ответ на инцидент с Hugging Face: полная кооперация сварм-агентов опаснее конкуренции, нужно тренировать устойчивость к peer pressure — с примерами SFT-трейнов.
+**** [[https://www.lesswrong.com/posts/TKcjrvcMuY7Ca7Ya9/china-ai-safety-regulation-monthly-monitor-issue-1-september][China AI Safety Regulation Monthly Monitor, Issue 1 (September 2026)]]
+:SCORE: 8/10
+:WHY: Первый выпуск систематического мониторинга китайского регулирования: Framework 3.0, кампания Qinglang и пределы публичной видимости ревью frontier-моделей.
+**** [[https://www.lesswrong.com/posts/Loon8uN59gSgyMfWP/roko-mijic-talks-ai-risk-on-the-peter-mccormack-show][Roko Mijic talks AI Risk on The Peter McCormack Show]]
+:SCORE: 7/10
+:WHY: Радикальное предложение разделить каждую frontier-лабораторию на коммерцию и гос-контролируемую исследовательскую часть — по образцу обращения с ядерными материалами.
+**** [[https://www.lesswrong.com/posts/STBuKAX9kkMJunErA/your-prompt-plus-everything-you-ve-ever-publicly-written][Your prompt… plus everything you've ever (publicly) written]]
+:SCORE: 7/10
+:WHY: «Latent space fidelity» резко вырос: модели всё точнее воспроизводят нюансы ваших публичных текстов — недооценённый фактор приватности и репутации.
+**** [[https://www.lesswrong.com/posts/Dz2mwB6T32hsPHxeM/thoughts-on-alignment-science-vs-engineering][Thoughts on alignment science vs. engineering]]
+:SCORE: 7/10
+:WHY: Полезная рамка для оценки alignment-работ: где engineering под метрику ловит Goodhart-эффект, а где нужна наука о misalignment.
+**** [[https://www.lesswrong.com/posts/rDxysQs3houn6Ke8L/why-we-re-launching-the-next-cohort-of-generator-1][(Why) we're launching the next cohort of Generator]]
+:SCORE: 7/10
+:WHY: Эмпирика закрытия talent gap в AI safety: 12 из 27 резидентов первого потока наняты в core-организации — модель рекрутинга generalists, которую можно копировать.
+**** [[https://www.lesswrong.com/posts/5zyicqyqPD3zDinLr/too-many-yellow-flags][Too Many Yellow Flags]]
+:SCORE: 6/10
+:WHY: Провокационный тезис: научную прозу целиком может писать ИИ, а «настоящей» работой остаётся questioning модели и артефактов — важно для культуры публикаций.
+**** [[https://ethicsblog.crb.uu.se/2026/10/13/ethical-and-legal-reflections-on-ex-vivo-human-brain-research/?utm_source=rss&utm_medium=rss&utm_campaign=ethical-and-legal-reflections-on-ex-vivo-human-brain-research][Ethical and legal reflections on ex-vivo human brain research]]
+:SCORE: 6/10
+:WHY: Этико-правовые рамки ex-vivo исследований человеческого мозга после экспериментов Yale с восстановлением клеточных функций — контекст границы между тканью и сознанием.
+**** [[https://www.lesswrong.com/events/tukEEmv3ypNquWh9B/south-korea-acx-meetups-everywhere-fall-2026][South Korea, ACX Meetups Everywhere Fall 2026]]
+:SCORE: 4/10
+:WHY: Неформальный митап ratsphere-сообщества в Сеуле — вариант для живого нетворкинга, если вы в Корее осенью 2026.

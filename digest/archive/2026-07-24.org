@@ -1,0 +1,80 @@
+#+TITLE: Daily Digest: 2026-07-24
+#+FROM: [2026-07-23 Thu]
+#+TO: [2026-07-24 Fri]
+#+DATE: [2026-07-24 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия фокусируется на переходе AI-агентов в продакшн: ключевыми темами стали оценка надежности, обнаружение скрытых сбоев и безопасность генерации кода. Вендоры предлагают архитектуры без копирования данных (Neo4j) и усиливают контроль затрат на AI (Databricks). Инженеры обсуждают баланс между ручной разработкой для поддержания квалификации и использованием агентских инструментов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/warning-this-rust-code-was-written][WARNING: This Rust code was written by hand.]] (Data Engineering Central) — Размышления о важности ручного написания кода для поддержания инженерной квалификации в эпоху AI.
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-quitting-spotify-podcasts][The Pulse: Quitting Spotify Podcasts over reliability]] (Pragmatic Engineer) — Анализ надежности платформ и влияния высокого внедрения AI на стабильность инфраструктуры.
+- [[hxxps://medium.com/towards-data-engineering/sda-04-reading-unity-catalog-metadata-the-agents-first-tool-416386672a46?source=rss-6e4a30cbb0e1------2][SDA 04: Reading Unity Catalog Metadata — The Agent's First Tool]] (Medium) — Практика чтения метаданных Unity Catalog для обеспечения автономности data-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/warning-this-rust-code-was-written][WARNING: This Rust code was written by hand.]]
+:SCORE: 9/10
+:WHY: Критическое напоминание о ценности глубокого понимания кода для seniors, проектирующих AI-системы.
+**** [[hxxps://medium.com/towards-data-engineering/sda-04-reading-unity-catalog-metadata-the-agents-first-tool-416386672a46?source=rss-6e4a30cbb0e1------2][SDA 04: Reading Unity Catalog Metadata — The Agent's First Tool]]
+:SCORE: 8/10
+:WHY: Конкретная реализация инструмента обнаружения данных для автономных агентов в Databricks.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-quitting-spotify-podcasts][The Pulse: Quitting Spotify Podcasts over reliability]]
+:SCORE: 7/10
+:WHY: Инсайды о надежности инфраструктуры крупных платформ и рисках чрезмерной автоматизации.
+
+** Engineers
+- [[hxxps://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22][An opinionated guide to which AI to use to do stuff]] (One Useful Thing) — Руководство по выбору моделей и агентских систем для решения реальных рабочих задач.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.oneusefulthing.org/p/an-opinionated-guide-to-which-ai-b22][An opinionated guide to which AI to use to do stuff]]
+:SCORE: 9/10
+:WHY: Практичная матрица выбора инструментов AI для разных уровней сложности задач.
+
+** Vendors
+- [[hxxps://neo4j.com/blog/auradb/neo4j-virtual-graph-is-now-in-public-preview/][Neo4j Virtual Graph is now in public preview]] (Neo4j) — Zero-copy архитектура для создания графов знаний поверх Snowflake и Databricks.
+- [[hxxps://www.databricks.com/blog/how-fda-built-ai-platform-85-its-staff-now-use-daily][How the FDA Built an AI Platform That 85% of Its Staff Now Use Daily]] (Databricks) — Кейс масштабного внедрения AI-платформы в государственной структуре.
+- [[hxxps://www.databricks.com/blog/why-frontier-data-agent-outperforms-general-coding-agents-quality-and-cost][Why A Frontier Data Agent Outperforms General Coding Agents in Quality and Cost]] (Databricks) — Сравнение эффективности специализированных data-агентов и универсальных coding-агентов.
+- [[hxxps://www.databricks.com/blog/provisioning-agentic-era-how-databricks-built-self-serve-infrastructure-vending-machine][Provisioning for the Agentic Era: How Databricks Built a Self-Serve Infrastructure Vending Machine]] (Databricks) — Подходы к самообслуживанию инфраструктуры для поддержки агентских рабочих нагрузок.
+- [[hxxps://www.databricks.com/blog/introducing-ai-spend-controls-unity-ai-gateway][Introducing AI spend controls with Unity AI Gateway]] (Databricks) — Инструменты контроля затрат на использование AI-моделей в enterprise.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи сообщества по управлению графовыми данными в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/auradb/neo4j-virtual-graph-is-now-in-public-preview/][Neo4j Virtual Graph is now in public preview]]
+:SCORE: 9/10
+:WHY: Значимый сдвиг в архитектуре графов: работа с данными без их перемещения и дублирования.
+**** [[hxxps://www.databricks.com/blog/why-frontier-data-agent-outperforms-general-coding-agents-quality-and-cost][Why A Frontier Data Agent Outperforms General Coding Agents in Quality and Cost]]
+:SCORE: 8/10
+:WHY: Данные о стоимости и качестве специализированных агентов важны для архитектурных решений.
+**** [[hxxps://www.databricks.com/blog/how-fda-built-ai-platform-85-its-staff-now-use-daily][How the FDA Built an AI Platform That 85% of Its Staff Now Use Daily]]
+:SCORE: 8/10
+:WHY: Доказательство возможности массового внедрения AI-платформ в строгих регуляторных условиях.
+
+** Open Source
+- [[hxxps://www.kdnuggets.com/7-best-claude-code-alternatives-for-cli-agentic-coding][7 Best Claude Code Alternatives for CLI Agentic Coding]] (KDnuggets) — Обзор CLI-инструментов с открытым кодом для агентской разработки с локальными моделями.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/7-best-claude-code-alternatives-for-cli-agentic-coding][7 Best Claude Code Alternatives for CLI Agentic Coding]]
+:SCORE: 8/10
+:WHY: Полезный список альтернатив для снижения затрат и повышения контроля над контекстом в CLI.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/getting-started-with-omnivoice-studio][Getting Started with OmniVoice-Studio]] (KDnuggets) — Локальное клонирование голоса и видео-даббинг без API и ограничений использования.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/best-practices-for-applying-amazon-bedrock-guardrails-to-code-generation-workflows/][Best practices for applying Amazon Bedrock Guardrails to code generation workflows]] (AWS) — Настройка защитных механизмов для безопасной генерации кода в продакшене.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/][Evaluating AI Agents: A production blueprint with Strands and AgentCore]] (AWS) — Blueprint для сквозной оценки надежности AI-агентов перед релизом.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-trade-assistant-how-jefferies-optimized-front-office-trading-operations-with-ai/][Building trade assistant: How Jefferies optimized front office trading operations with AI]] (AWS) — Кейс использования агентов для анализа торговых данных в реальном времени.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-multi-region-visualizations-with-highcharts-in-amazon-quick/][Building multi-Region visualizations with Highcharts in Amazon Quick]] (AWS) — Решение для кросс-региональных визуализаций через кастомные компоненты в QuickSight.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/][Detecting silent agent failures with Amazon Bedrock AgentCore optimization]] (AWS) — Методы обнаружения скрытых поведенческих сбоев в работе масштабируемых агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-retrieval-for-amazon-bedrock-managed-knowledge-base/][Agentic retrieval for Amazon Bedrock Managed Knowledge Base]] (AWS) — Улучшение поиска ответов на многошаговые запросы через итеративный retrieval.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/evaluating-ai-agents-a-production-blueprint-with-strands-and-agentcore/][Evaluating AI Agents: A production blueprint with Strands and AgentCore]]
+:SCORE: 10/10
+:WHY:Must-read для инженеров: готовая схема оценки агентов, снижающая риски продакшена.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/detecting-silent-agent-failures-with-amazon-bedrock-agentcore-optimization/][Detecting silent agent failures with Amazon Bedrock AgentCore optimization]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему наблюдаемости: сбои без ошибок в логах.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-retrieval-for-amazon-bedrock-managed-knowledge-base/][Agentic retrieval for Amazon Bedrock Managed Knowledge Base]]
+:SCORE: 8/10
+:WHY: Улучшает точность RAG для сложных запросов, требующих сравнения и синтеза.

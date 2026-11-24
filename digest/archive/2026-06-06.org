@@ -1,0 +1,65 @@
+#+TITLE: Daily Digest: 2026-06-06
+#+FROM: [2026-06-05 Fri]
+#+TO: [2026-06-06 Sat]
+#+DATE: [2026-06-06 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Европейский союз официально включил Open Source в стратегию цифрового суверенитета, открывая возможности для госзакупок и поддержки стартапов. Вендоры фокусируются на надежности ИИ-агентов через внедрение семантических слоев и эволюционную разработку баз данных. Инженеры делятся практиками обработки холодных данных через локальный ClickHouse без тяжелых кластеров. В сфере ИИ обсуждаются методы калибровки моделей и эффективная обработка текста через SpaCy.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.databricks.com/blog/enabling-evolutionary-database-development-database-branching-lakebase-part-2][Enabling Evolutionary Database Development: database branching with Lakebase, continued]] (databricks.com) — Продолжение серии о методологии эволюционного проектирования баз данных с использованием ветвления.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/enabling-evolutionary-database-development-database-branching-lakebase-part-2][Enabling Evolutionary Database Development: database branching with Lakebase, continued]]
+:SCORE: 7/10
+:WHY: Полезно для понимания современных практик безопасного изменения схем данных в продакшене.
+
+** Engineers
+- [[hxxps://rushter.com/blog/clickhouse-data-processing][Using local ClickHouse for data processing]] (rushter.com) — Практический гайд по использованию локального ClickHouse для быстрой обработки холодных данных вместо Spark.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rushter.com/blog/clickhouse-data-processing][Using local ClickHouse for data processing]]
+:SCORE: 9/10
+:WHY: Высокая практическая ценность для решения ад-хок задач без развертывания тяжелых кластеров.
+
+** Vendors
+- [[hxxps://gdotv.com/blog/teg-benchmark-property-graph-pipeline-ingest-aws-neptune/][Building a Property Graph Pipeline from the TEG Benchmark: Part 2 – Populating the AWS Neptune Graph]] (gdotv.com) — Инструкция по загрузке CSV в Amazon Neptune через bulk loader API и верификации через Gremlin.
+- [[hxxps://www.dremio.com/blog/semantic-layer-for-ai-agents-stop-getting-the-numbers-wrong/][Semantic Layer for AI Agents: Stop Getting the Numbers Wrong]] (dremio.com) — Архитектурный подход к предотвращению галлюцинаций ИИ-агентов на.enterprise данных.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического сообщества LDBC в Бостоне совместно с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/semantic-layer-for-ai-agents-stop-getting-the-numbers-wrong/][Semantic Layer for AI Agents: Stop Getting the Numbers Wrong]]
+:SCORE: 9/10
+:WHY: Критически важно для внедрения надежных AI-решений в бизнес-процессы с точными данными.
+**** [[hxxps://gdotv.com/blog/teg-benchmark-property-graph-pipeline-ingest-aws-neptune/][Building a Property Graph Pipeline from the TEG Benchmark: Part 2 – Populating the AWS Neptune Graph]]
+:SCORE: 7/10
+:WHY: Конкретный кейс реализации пайплайна для графовых баз данных в облаке AWS.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обмена опытом в сообществе графовых баз данных.
+
+** Open Source
+- [[hxxps://opensource.org/blog/osi-welcomes-the-european-unions-tech-sovereignty-package][OSI welcomes the European Union's "Tech Sovereignty" package]] (opensource.org) — Обзор стратегии ЕС, приоритезирующей Open Source в госзакупках и поддержке бизнеса.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/osi-welcomes-the-european-unions-tech-sovereignty-package][OSI welcomes the European Union's "Tech Sovereignty" package]]
+:SCORE: 8/10
+:WHY: Стратегически важно для понимания будущего регулирования и финансирования Open Source в Европе.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/a-deep-dive-into-calibration-of-language-models-platt-scaling-isotonic-regression-temperature-scaling][A Deep Dive into Calibration of Language Models: Platt Scaling, Isotonic Regression, Temperature Scaling]] (kdnuggets.com) — Технический разбор методов пост-обработки для согласования уверенности модели с точностью.
+- [[hxxps://www.kdnuggets.com/3-spacy-tricks-for-efficient-text-processing-entity-recognition][3 SpaCy Tricks for Efficient Text Processing & Entity Recognition]] (kdnuggets.com) — Советы по оптимизации скорости обработки текста и кастомизации распознавания сущностей.
+- [[hxxps://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim][Thousand Token Wood: shipping a multi-agent economy on a 3B model]] (huggingface.co) — Пример запуска экономики мульти-агентов на компактной модели в рамках хакатона.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/a-deep-dive-into-calibration-of-language-models-platt-scaling-isotonic-regression-temperature-scaling][A Deep Dive into Calibration of Language Models: Platt Scaling, Isotonic Regression, Temperature Scaling]]
+:SCORE: 8/10
+:WHY: Глубокое понимание калибровки необходимо для создания надежных ML-систем в продакшене.
+**** [[hxxps://www.kdnuggets.com/3-spacy-tricks-for-efficient-text-processing-entity-recognition][3 SpaCy Tricks for Efficient Text Processing & Entity Recognition]]
+:SCORE: 7/10
+:WHY: Практические оптимизации для повседневных задач NLP-инженера.
+**** [[hxxps://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim][Thousand Token Wood: shipping a multi-agent economy on a 3B model]]
+:SCORE: 6/10
+:WHY: Интересный эксперимент по запуску агентных систем на ограниченных ресурсах.

@@ -1,0 +1,57 @@
+#+TITLE: Daily Digest: 2026-07-15
+#+FROM: [2026-07-14 Tue]
+#+TO: [2026-07-15 Wed]
+#+DATE: [2026-07-15 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Агентный ИИ активно переходит в продакшн: новые кейсы внедрения в QA, UX и медицинском контенте демонстрируют реальное сокращение издержек и времени проверки. Оптимизация LLM становится критичной задачей: фокус смещается с простого добавления GPU на устранение лишней работы и грамотное управление контекстом. Вендоры предлагают готовые архитектурные паттерны для корпоративного ИИ, включая семантические онтологии и защиту от специфических атак на агентов. Инженеры начинают проектировать автономные «лупы» (loops) вместо ручного написания промптов, что меняет традиционный workflow взаимодействия с моделями.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/12-ways-to-reduce-llm-latency-and-inference-costs-in-production][12 Ways to Reduce LLM Latency and Inference Costs in Production]] (kdnuggets) — Практическое руководство по сокращению задержек и затрат через устранение лишней работы в запросах.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/multi-agent-social-intelligence-with-strands-agents-and-amazon-bedrock/][Multi-agent social intelligence with Strands Agents and Amazon Bedrock]] (aws) — Архитектурный паттерн оркестрации мульти-агентных систем для анализа социальных сигналов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/scaling-medical-content-review-at-flo-health-with-amazon-bedrock-part-2][Scaling medical content review at Flo Health with Amazon Bedrock – Part 2]] (aws) — Кейс внедрения AI-судей для проверки медицинского контента с сокращением времени ревью на 60%.
+- [[hxxps://www.kdnuggets.com/getting-started-with-conductor-for-gemini-cli][Getting Started with Conductor for Gemini CLI]] (kdnuggets) — Обзор расширения для управления контекстом в Gemini CLI.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerating-software-delivery-with-agentic-qa-automation-using-amazon-nova-act-part-2][Accelerating software delivery with agentic QA automation using Amazon Nova Act – Part 2]] (aws) — Интеграция агентного тестирования в CI/CD пайплайны через тестовые suites.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/scaling-ux-testing-with-amazon-nova-act-a-new-approach-to-user-flow-analysis][Scaling UX testing with Amazon Nova Act: A new approach to user flow analysis]] (aws) — Использование мультимодальных моделей для визуального тестирования пользовательских сценариев.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/sciencesofts-hipaa-compliant-ai-voice-scheduler-built-on-aws][ScienceSoft's HIPAA-compliant AI voice scheduler built on AWS]] (aws) — Пример создания compliant голосового ассистента для записи пациентов в здравоохранении.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/12-ways-to-reduce-llm-latency-and-inference-costs-in-production][12 Ways to Reduce LLM Latency and Inference Costs in Production]]
+:SCORE: 9/10
+:WHY: Конкретные техники оптимизации инференса, которые напрямую влияют на unit-экономику продакшн-систем.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/scaling-medical-content-review-at-flo-health-with-amazon-bedrock-part-2][Scaling medical content review at Flo Health with Amazon Bedrock – Part 2]]
+:SCORE: 9/10
+:WHY: Редкий пример полноценного production-кейса с измеримыми метриками эффективности и безопасности в регулируемой сфере.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/multi-agent-social-intelligence-with-strands-agents-and-amazon-bedrock/][Multi-agent social intelligence with Strands Agents and Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Демонстрирует сложный сценарий оркестрации нескольких агентов для сбора и корреляции данных из разнородных источников.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/build-a-semantic-ontology-to-power-ai-assistants-on-aws-part-1/][Build a semantic ontology to power AI assistants on AWS – Part 1]] (aws) — Инструкция по построению семантической онтологии для навигации ИИ по enterprise-данным.
+- [[hxxps://neo4j.com/blog/government/public-sector-workforce-intelligence-and-compound-questions/][Public sector workforce intelligence and compound questions]] (neo4j) — Использование графовых баз для решения сложных вопросов распределения кадров в госсекторе.
+- [[hxxps://www.databricks.com/blog/blocking-slow-burn-attacks-contextual-policies-omnigent][Blocking Slow-Burn Attacks: Contextual Policies in Omnigent]] (databricks) — Подход к защите от постепенных атак на ИИ-агентов через контекстные политики.
+- [[hxxps://www.databricks.com/blog/take-insights-anywhere-genie-one-mobile][Take insights anywhere with Genie One on mobile]] (databricks) — Мобильный доступ к инсайтам через AI-ассистента Genie One.
+- [[hxxps://www.databricks.com/blog/how-retail-finance-teams-are-using-agentic-ai-protect-omni-channel-margins][How Retail Finance teams are using Agentic AI to protect omni-channel margins]] (databricks) — Применение агентного ИИ для управления маржой в ритейле.
+- [[hxxps://www.databricks.com/blog/foundational-context-cross-industry-function-specific-accelerators-lakebase][Foundational context: Cross-industry & function-specific accelerators for Lakebase]] (databricks) — Обзор акселераторов для управляемой Postgres базы Lakebase.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil) — Анонс встречи технического пользовательского сообщества LDBC в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/build-a-semantic-ontology-to-power-ai-assistants-on-aws-part-1/][Build a semantic ontology to power AI assistants on AWS – Part 1]]
+:SCORE: 8/10
+:WHY: Описывает фундаментальный паттерн решения проблемы галлюцинаций через структурирование знаний вместо расширения контекста.
+**** [[hxxps://neo4j.com/blog/government/public-sector-workforce-intelligence-and-compound-questions/][Public sector workforce intelligence and compound questions]]
+:SCORE: 7/10
+:WHY: Иллюстрирует силу графовых запросов для соединения разрозненных данных в системах, где реляционные модели не справляются.
+**** [[hxxps://www.databricks.com/blog/blocking-slow-burn-attacks-contextual-policies-omnigent][Blocking Slow-Burn Attacks: Contextual Policies in Omnigent]]
+:SCORE: 8/10
+:WHY: Поднимает важную проблему безопасности агентных систем, которую стандартные периметровые защиты часто игнорируют.
+
+** Инженерия данных
+- [[hxxps://newsletter.pragmaticengineer.com/p/what-is-loop-engineering][What is "loop engineering?"]] (pragmaticengineer) — Анализ тренда перехода инженеров от написания промптов к проектированию автономных циклов работы агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/what-is-loop-engineering][What is "loop engineering?"]]
+:SCORE: 8/10
+:WHY: Объясняет смену парадигмы в работе инженера с ИИ: от ручного промптинга к архитектуре автономных процессов.

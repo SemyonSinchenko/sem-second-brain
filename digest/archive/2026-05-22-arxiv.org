@@ -1,0 +1,114 @@
+#+TITLE: Arxiv Digest: 2026-05-22
+#+FROM: [2026-05-21 Thu]
+#+TO: [2026-05-22 Fri]
+#+DATE: [2026-05-22 Fri]
+#+STARTUP: showall
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+За последние сутки наблюдается сильный фокус на оптимизацию инфраструктуры для больших языковых моделей (LLM): от предзагрузки весов до эластичного обучения и управления памятью. Исследования смещаются в сторону специализированного аппаратно-программного ко-дизайна (NDP, multicast) для снижения задержек и энергопотребления в распределенных кластерах. Также заметно развитие алгоритмов консенсуса и репликации данных для нестабильных сетей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.09472][WarmServe: Enabling One-for-Many GPU Prewarming for Multi-LLM Serving]]
+:WHAT: Система предзагрузки параметров нескольких моделей на GPU на основе прогноза нагрузки.
+:IMPACT: Снижает хвостовую задержку TTFT до 50.8 раз и повышает пропускную способность в 2.5 раза по сравнению с автоскейлингом.
+- [[hxxps://arxiv.org/abs/2605.22014][LiveR: Fine-Grained Elasticity via Live Reconfiguration for Model Training]]
+:WHAT: Рантайм для живой переконфигурации распределенного обучения LLM без остановки (stop-and-restart).
+:IMPACT: Сокращает время простоя при изменении топологии с минут до секунд, обеспечивая до 99% полезной пропускной способности на волатильных ресурсах.
+- [[hxxps://arxiv.org/abs/2605.21603][DynaFlow: Transparent and Flexible Intra-Device Parallelism via Programmable Operator Scheduling]]
+:WHAT: Фреймворк для прозрачного внедрения внутриустройственного параллелизма через разделение логики и расписания.
+:IMPACT: Позволяет интегрировать стратегии параллелизма в существующие ML-системы с минимальными изменениями кода, увеличивая throughput до 1.29x.
+- [[hxxps://arxiv.org/abs/2605.21952][NasZip: Software and Hardware Co-Design to Accelerate Approximate Nearest Neighbor Search with DIMM-Based Near-Data Processing]]
+:WHAT: Аппаратно-программный фреймворк для ANNS с использованием обработки Near-Data Processing и раннего выхода.
+:IMPACT: Ускоряет поиск ближайших соседей в 8.4 раза по сравнению с CPU и в 1.4 раза по сравнению с GPU, снижая нагрузку на память.
+- [[hxxps://arxiv.org/abs/2605.22416][Asymmetric Virtual Memory Paging for Hybrid Mamba-Transformer Inference]]
+:WHAT: Аллокатор виртуальной памяти, разделяющий KV-кэши и состояния SSM в физические пулы с миграцией.
+:IMPACT: Уменьшает события Out-of-Memory на 7.6% и увеличивает пропускную способность запросов до 13.3 раз для гибридных моделей.
+- [[hxxps://arxiv.org/abs/2605.22428][Exploiting Multicast for Accelerating Collective Communication]]
+:WHAT: Семантика передачи MultiWrite, устраняющая дублирование пакетов в коллективных коммуникациях.
+:IMPACT: Снижает задержку операторов AllGather/AlltoAll на 33% на коммерческих устройствах Ascend NPU.
+- [[hxxps://arxiv.org/abs/2605.21847][CompPow: A Case for Component-level GPU Power Management]]
+:WHAT: Подход к управлению питанием GPU на уровне отдельных компонентов.
+:IMPACT: Потенциально повышает энергоэффективность на 10% и производительность на 5% за счет ко-дизайна софта и железа.
+- [[hxxps://arxiv.org/abs/2605.22393][Nf-PEAK: Process-Based Energy Attribution for Nextflow Workflows on Kubernetes Clusters]]
+:WHAT: Контейнеризированный метод атрибуции энергии CPU и DRAM отдельным процессам и задачам Nextflow.
+:IMPACT: Обеспечивает точность оценки энергии до 6.6% MAPE даже при конкуренции ресурсов, превосходя инструмент Kepler.
+- [[hxxps://arxiv.org/abs/2507.03486][A Distributed Consensus Algorithm for Prioritizing Autonomous Vehicle Passing at Unsignalized Intersections under Mixed Traffic]]
+:WHAT: Алгоритм распределенного консенсуса на базе голосования для определения приоритета проезда беспилотников.
+:IMPACT: Достигает стабильного консенсуса за 30-40 мс в смешанном трафике, улучшая поток на перекрестках без светофоров.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.22426][Monotone Erasure Codes]]
+:ALGO: Введение монотонных кодов коррекции ошибок, уважающих произвольные предположения о доверии узлам.
+:IMPACT: Позволяет строить эффективные протоколы надежной рассылки и консенсуса для блокчейн-систем с обобщенными моделями отказов.
+- [[hxxps://arxiv.org/abs/2605.22491][Relay-Based Synchronization of Replicated Data Types in Opportunistic Networks]]
+:ALGO: Протоколы синхронизации CRDT с использованием мобильных ретрансляторов в Opportunistic Networks.
+:IMPACT: Значительно ускоряет сходимость реплик данных в условиях нестабильных радио-контактов между устройствами.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2512.06743][OSM+: Billion-Level OpenStreetMap Dataset for City-wide Experiments]] — Структурированный датасет дорожной сети на 1 млрд вершин для масштабных графовых экспериментов.
+- [[hxxps://arxiv.org/abs/2605.21797][Polars inside Intel SGX2 Enclaves: An Empirical Study of Confidential Analytical Query Processing]] — Эмпирическое исследование производительности движка Polars в доверенных средах исполнения SGX2 с оверхедом ~1.5x.
+- [[hxxps://arxiv.org/abs/2605.22811][GS-QA: A Benchmark for Geospatial Question Answering]] — Бенчмарк для геопространственного QA с 2800 парами вопрос-ответ на базе OSM и Wikipedia.
+- [[hxxps://arxiv.org/abs/2603.23536][optimade-maker: Automated generation of interoperable materials APIs from static datasets]] — Тулkit для автоматической генерации OPTIMADE-совместимых API из сырых данных о материалах.
+- [[hxxps://arxiv.org/abs/2603.14987][Beyond Benchmark Islands: Toward Representative Trustworthiness Evaluation for Agentic AI]] — Фреймворк HAAF для оценки доверенности агентных ИИ через распределение сценариев, а не изолированные бенчмарки.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В области алгоритмов выделяются работы по динамическим графам и планированию в сетях центров обработки данных. Появились новые эффективные решения для инкрементального максимального потока и планирования coflows в гетерогенных сетях. Также исследуются фундаментальные вопросы упаковки данных и приватности с точки зрения вычислительной сложности.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2502.09105][Incremental Approximate Maximum Flow via Residual Graph Sparsification]]
+:ALGO: Алгоритм поддержки приближенного максимального потока при вставке ребер с полилогарифмическим амортизированным временем обновления.
+:IMPACT: Первое решение с высокой эффективностью для плотных графов, использующее разрежение остаточных графов в инкрементальном режиме.
+- [[hxxps://arxiv.org/abs/2501.09293][Scheduling Coflows for Minimizing the Maximum Completion Time in Heterogeneous Parallel Networks]]
+:ALGO: Полиномиальный алгоритм аппроксимации для минимизации времени завершения coflows в гетерогенных сетях (EPS/OCS).
+:IMPACT: Гарантирует коэффициенты аппроксимации до 2-4 в зависимости от архитектуры коммутаторов, что критично для планирования в ЦОД.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2404.03797][Asymptotic optimality of dynamic first-fit packing on the half-axis]] — Доказательство асимптотической оптимальности алгоритма first-fit для динамической упаковки предметов неединичного размера.
+- [[hxxps://arxiv.org/abs/2605.21601][Near-Optimal Generalized Private Testing]] — Механизм пороговой проверки для дифференциальной приватности с близкой к оптимальной точностью и сложностью по выборке.
+- [[hxxps://arxiv.org/abs/2605.21400][Space-Time Trade-off in Integer Linear Scaling Rounded to the Nearest Integer through Multiplicative and Additive Decomposition]] — Алгоритмы целочисленного масштабирования для компенсации тактового скева без потерь точности float.
+- [[hxxps://arxiv.org/abs/2602.11791][Gray Codes With Constant Delay and Constant Auxiliary Space]] — Первые алгоритмы генерации кодов Грея с постоянной задержкой и использованием постоянной вспомогательной памяти.
+- [[hxxps://arxiv.org/abs/2605.21738][Asymptotic Rank Speedup Theorems, Revisited]] — Улучшенные теоремы об ускорении асимптотического ранга тензоров, применимые к быстрому умножению матриц.
+- [[hxxps://arxiv.org/abs/2605.21753][Finding a Solution to the Erdős-Ginzburg-Ziv Theorem in Linear Time]] — Детерминированный линейный алгоритм для нахождения подпоследовательности с суммой, делящейся на n.
+- [[hxxps://arxiv.org/abs/2605.21829][An $\Omega(n \log n)$ Randomized Lower Bound for Cutting a Cake into Proportionally Fair Pieces]] — Нижний предел сложности для задачи справедливого разделения ресурса (cake cutting).
+- [[hxxps://arxiv.org/abs/2601.05157][Learning Mixture Models via Efficient High-dimensional Sparse Fourier Transforms]] — Алгоритм обучения смесей распределений через разреженные преобразования Фурье, работающий с тяжелыми хвостами.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования диффузии в социальных сетях отходят от классических S-образных моделей в сторону субэкспоненциального роста и кусочно-степенных законов. Актуальным становится учет демографической зависимости и мнений при моделировании эпидемий и внедрения технологий. Эти модели предоставляют более точные инструменты для анализа сетевой динамики и принятия решений.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.04106][Sub-exponential Growth Dynamics in Complex Systems: A Piecewise Power-Law Model for the Diffusion of New Words and Names]]
+:ALGO: Кусочно-степенная модель для характеристики сложных кривых роста с субэкспоненциальным паттерном.
+:IMPACT: Предлагает практичный фреймворк для описания и сравнения диффузии в социальных и веб-сетях, выявляя предпочтения в коммуникации.
+- [[hxxps://arxiv.org/abs/2512.06385][Demographic Dependence of Vaccine Adoption under Opinion Persuasion]]
+:ALGO: Модель SIS-Vo для распространения информации о вакцинах в сети мнений с учетом демографии.
+:IMPACT: Позволяет анализировать устойчивость политик вакцинации к дезинформации и таргетировать вмешательства для стабилизации эпидемического процесса.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.22699][An Analytics Framework for Modeling Residential Photovoltaic Adoption and Decision Dynamics]] — Аналитический фреймворк для моделирования внедрения фотоэлектрических систем с учетом пространственной и временной динамики решений.
+- [[hxxps://arxiv.org/abs/2605.21844][A Utility-Driven Bounded-Confidence Model for Opinion Dynamics]] — Модель динамики мнений, где влияние зависит от полезности, демонстриющая метастабильность и переключение состояний.
+- [[hxxps://arxiv.org/abs/2601.15537][Can Rising Consumption Deepen Inequality?]] — Расширение агентной модели капитализма, показывающее робастность зависимости неравенства от параметра R при различных ограничениях транзакций.
+- [[hxxps://arxiv.org/abs/2605.22587][Endogenous drivers of gender disparity in online dating]] — Механизм, объясняющий widening гендерного разрыва в онлайн-знакомствах через ограничения по времени и ожидания контактов.
+- [[hxxps://arxiv.org/abs/2605.17534][The Curious Case of Max Planck retracted papers. When past scientific practices meet contemporary publishing norms]] — Анализ ретракции статей Планка как следствие современных процедур цифровизации, а не научного мошенничества.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В прикладном ИИ для систем растет внимание к безопасности LLM на уровне управляющей плоскости (control-plane) и анализу кода. Появляются атаки, использующие грамматически ограниченную декодировку, что требует новых методов защиты. Также оцениваются возможности моделей в задачах статического и динамического анализа программного обеспечения.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2503.24191][When Grammar Guides the Attack: Uncovering Control-Plane Vulnerabilities in LLMs with Structured Output]]
+:WHAT: Класс атак Constrained Decoding Attack (CDA), использующий маскировку логитов для внедрения вредоносного префикса.
+:IMPACT: Демонстрирует уязвимость защиты LLM на уровне декодирования, достигая 94-99% успеха даже на флагманских моделях, что требует межплоскостной защиты.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2305.12138][Exploring Code Analysis: Zero-Shot Insights on Syntax and Semantics with LLMs]] — Оценка 21 LLM в задачах анализа кода (AST, CFG, taint), показавшая превосходство в синтаксисе, но ограничения в динамическом_reasoning.
+- [[hxxps://arxiv.org/abs/2311.04938][Improved DDIM Sampling with Moment Matching Gaussian Mixtures]] — Улучшение сэмплирования DDIM через согласование моментов гауссовых смесей, повышающее качество изображений при малом числе шагов.
+- [[hxxps://arxiv.org/abs/2410.04753][ImProver: Agent-Based Automated Proof Optimization]] — Агент на базе LLM для переписывания формальных доказательств с оптимизацией по длине и читаемости.
+- [[hxxps://arxiv.org/abs/2411.01332][A Mechanistic Explanatory Strategy for XAI]] — Стратегия объяснения ИИ через идентификацию функциональных механизмов (нейроны, цепи) в глубоких сетях.
+- [[hxxps://arxiv.org/abs/2503.17599][Evaluating Clinical Competencies of Large Language Models with a General Practice Benchmark]] — Бенчмарк GPBench для оценки клинической компетентности LLM, показавший необходимость человеческого надзора.
+- [[hxxps://arxiv.org/abs/2209.03358][Attacking the Spike: On the Transferability and Security of Spiking Neural Networks to Adversarial Examples]] — Атака MDSE на спайковые нейросети, использующая динамическую оценку градиента для обхода защиты.
+- [[hxxps://arxiv.org/abs/2502.09487][Internal narratives parameterise affective states]] — Параметризация депрессивных состояний через внутренние нарративы, представленные в пространстве LLM.
+- [[hxxps://arxiv.org/abs/2502.20349][Naturalistic Computational Cognitive Science: Towards generalizable models and theories that capture the full range of natural behavior]] — Аргументация в пользу использования натуралистических парадигм и данных в вычислительной когнитивной науке.
+- [[hxxps://arxiv.org/abs/2401.00139][Enhancing Causal Reasoning in Large Language Models: A Causal Attribution Model for Precision Fine-Tuning]] — Модель причинной атрибуции для улучшения reasoning способностей LLM через точную донастройку.

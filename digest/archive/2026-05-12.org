@@ -1,0 +1,77 @@
+#+TITLE: Daily Digest: 2026-05-12
+#+FROM: [2026-05-11 Mon]
+#+TO: [2026-05-12 Tue]
+#+DATE: [2026-05-12 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с простых чат-ботов на автономных агентов с социальным интеллектом и способностью к Negotiation. AWS углубляет интеграцию AI-сервисов (Claude Platform, Nova Multimodal), предлагая единый биллинг и мультимодальный поиск. В инфраструктуре данных наблюдается консолидация вокруг открытых стандартов (Apache Polaris) и распределенных СУБД (Aurora DSQL) для поддержки AI-нагрузок. Инженерам данных предстоит адаптироваться к роли архитекторов AI-агентов, где критичны контекст и доверие, а не только пайплайны.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/][SocialReasoning-Bench: Measuring whether AI agents act in users' best interests]] (Microsoft) — Бенчмарк оценивает способность агентов вести переговоры и защищать интересы пользователя в социальных контекстах.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-platform-on-aws-anthropics-native-platform-through-your-aws-account/][Introducing Claude Platform on AWS: Anthropic's native platform, through your AWS account]] (AWS) — Прямой доступ к API Claude через аккаунт AWS упрощает биллинг и аудит для корпоративных команд.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/manufacturing-intelligence-with-amazon-nova-multimodal-embeddings/][Manufacturing intelligence with Amazon Nova Multimodal Embeddings]] (AWS) — Мультимодальные эмбеддинги позволяют искать техническую информацию по чертежам и графикам, а не только по тексту.
+- [[hxxps://www.kdnuggets.com/guardrails-for-llms-measuring-ai-hallucination-and-verbosity/][Guardrails for LLMs: Measuring AI 'Hallucination' and Verbosity]] (KDnuggets) — Рассмотрены методы инфраструктурного контроля за излишней многословностью и галлюцинациями моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-web-search-enabled-agents-with-strands-and-exa/][Building web search-enabled agents with Strands and Exa]] (AWS) — Интеграция поисковых инструментов в SDK агентов позволяет выполнять многошаговые задачи с актуальными данными.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-miro-uses-amazon-bedrock-to-boost-software-bug-routing-accuracy-and-improve-time-to-resolution-from-days-to-hours/][How Miro uses Amazon Bedrock to boost software bug routing accuracy and improve time-to-resolution from days to hours]] (AWS) — Кейс автоматизации маршрутизации багов снизил время решения с дней до часов благодаря LLM-классификации.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-quick-accelerating-the-path-from-enterprise-data-to-ai-powered-decisions/][Amazon Quick: Accelerating the path from enterprise data to AI-powered decisions]] (AWS) — Новое поколение BI-инструментов генерирует SQL по естественному языку с учетом политик безопасности.
+- [[hxxps://www.kdnuggets.com/build-an-ai-powered-learning-management-system-that-actually-trains-people/][Build an AI-Powered Learning Management System That Actually Trains People]] (KDnuggets) — Практическое руководство по созданию LMS с использованием Ollama и FastAPI для адаптивного обучения.
+- [[hxxps://huggingface.co/blog/amazon/foundation-model-training-and-inference-on-aws/][Building Blocks for Foundation Model Training and Inference on AWS]] (HuggingFace) — Обзор инструментов и практик для обучения и инференса фундаментальных моделей в экосистеме AWS.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/socialreasoning-bench-measuring-whether-ai-agents-act-in-users-best-interests/][SocialReasoning-Bench: Measuring whether AI agents act in users' best interests]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания ограничений агентов в реальных социальных взаимодействиях и negotiations.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-platform-on-aws-anthropics-native-platform-through-your-aws-account/][Introducing Claude Platform on AWS: Anthropic's native platform, through your AWS account]]
+:SCORE: 8/10
+:WHY: Значительно упрощает Enterprise-внедрение Claude за счет единого IAM и биллинга AWS.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/manufacturing-intelligence-with-amazon-nova-multimodal-embeddings/][Manufacturing intelligence with Amazon Nova Multimodal Embeddings]]
+:SCORE: 8/10
+:WHY: Демонстрирует реальную пользу мультимодального поиска для работы с технической документацией и чертежами.
+
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/apache-polaris-the-catalog-standard-for-lakehouses-and-ai/][Apache Polaris: The Catalog Standard for Iceberg Lakehouses and Agentic Analytics]] (Dremio) — Новый стандарт каталога устраняет дублирование данных между хранилищем и озером, упрощая доступ для AI.
+- [[hxxps://dataengineeringcentral.substack.com/p/reducing-pyspark-testing-suite-runtimes/][Reducing PySpark Testing Suite Runtimes]] (Data Engineering Central) — Советы по оптимизации времени выполнения тестов в больших PySpark проектах без потери качества.
+- [[hxxps://blog.dataexpert.io/p/ai-architecture-is-misunderstood/][A well-architected secretary is 76 agents in a trenchcoat]] (DataExpert) — Анализ эволюции AI-агентов от заметок к проактивным секретарям с контекстом команды.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-polaris-the-catalog-standard-for-lakehouses-and-ai/][Apache Polaris: The Catalog Standard for Iceberg Lakehouses and Agentic Analytics]]
+:SCORE: 9/10
+:WHY: Фундаментальное изменение архитектуры Lakehouse, важное для построения масштабируемых AI-пайплайнов.
+**** [[hxxps://blog.dataexpert.io/p/ai-architecture-is-misunderstood/][A well-architected secretary is 76 agents in a trenchcoat]]
+:SCORE: 8/10
+:WHY: Глубокий инсайт о том, как проектировать AI-агентов для реальной полезности в бизнес-процессах.
+**** [[hxxps://dataengineeringcentral.substack.com/p/reducing-pyspark-testing-suite-runtimes/][Reducing PySpark Testing Suite Runtimes]]
+:SCORE: 7/10
+:WHY: Практическая оптимизация рутины, освобождающая время инженера для более сложных задач.
+
+** Vendors
+- [[hxxps://engineering.fb.com/2026/05/11/security/labyrinth-1-1-end-to-end-encrypted-e2ee-backups-more-reliable/][Labyrinth 1.1: Making End-to-End Encrypted Backups Even More Reliable ]] (Meta) — Обновление протокола повышает надежность E2EE бэкапов сообщений при потере устройства или смене сети.
+- [[hxxps://aws.amazon.com/blogs/database/amazon-aurora-dsql-connections-drivers-strings-and-best-practices/][Amazon Aurora DSQL connections: Drivers, strings, and best practices]] (AWS) — Руководство по подключению к распределенной СУБД с использованием IAM-аутентификации и короткоживущих токенов.
+- [[hxxps://www.databricks.com/blog/unlocking-archives-turning-unstructured-documents-searchable-database-groundwater-discovery/][Unlocking the Archives: Turning Unstructured Documents into a Searchable Database for Groundwater Discovery]] (Databricks) — Кейс использования неструктурированных документов для поиска подземных вод с помощью AI.
+- [[hxxps://www.databricks.com/blog/predictive-quality-starts-where-defect-detection-stops/][Predictive quality starts where defect detection stops]] (Databricks) — Пример внедрения Predictive Quality в производстве для снижения брака до его появления.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества графовых баз данных в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/05/11/security/labyrinth-1-1-end-to-end-encrypted-e2ee-backups-more-reliable/][Labyrinth 1.1: Making End-to-End Encrypted Backups Even More Reliable ]]
+:SCORE: 8/10
+:WHY: Важное обновление протокола безопасности для инженеров, работающих с мессенджерами и приватными данными.
+**** [[hxxps://aws.amazon.com/blogs/database/amazon-aurora-dsql-connections-drivers-strings-and-best-practices/][Amazon Aurora DSQL connections: Drivers, strings, and best practices]]
+:SCORE: 8/10
+:WHY: Практические детали подключения к новой распределенной архитектуре AWS, избегающие частых ошибок.
+**** [[hxxps://www.databricks.com/blog/unlocking-archives-turning-unstructured-documents-searchable-database-groundwater-discovery/][Unlocking the Archives: Turning Unstructured Documents into a Searchable Database for Groundwater Discovery]]
+:SCORE: 7/10
+:WHY: Показательный пример применения Data Lakehouse для решения сложных задач поиска в неструктурированных данных.
+
+** Engineers
+- [[hxxps://vutr.substack.com/p/how-does-ai-impact-data-engineers/][How does AI impact data engineers?]] (Vu Tr) — Размышления о том, как AI меняет роль инженера данных от написания кода к оценке_trade-offs_ и архитектуре.
+- [[hxxps://www.kdnuggets.com/10-github-repositories-to-master-fastapi/][10 GitHub Repositories to Master FastAPI]] (KDnuggets) — Подборка репозиториев для изучения FastAPI через шаблоны, аутентификацию и микросервисы.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/how-does-ai-impact-data-engineers/][How does AI impact data engineers?]]
+:SCORE: 9/10
+:WHY: Честный взгляд на трансформацию профессии, помогающий senior-инженерам адаптировать карьерную стратегию.
+**** [[hxxps://www.kdnuggets.com/10-github-repositories-to-master-fastapi/][10 GitHub Repositories to Master FastAPI]]
+:SCORE: 7/10
+:WHY: Полезный ресурс для быстрого освоения современного стандарта разработки API на Python.

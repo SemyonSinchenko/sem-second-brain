@@ -1,0 +1,137 @@
+#+TITLE: Arxiv Digest: 2026-05-13
+#+FROM: [2026-05-12 Tue]
+#+TO: [2026-05-13 Wed]
+#+DATE: [2026-05-13 Wed]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается рост интереса к безопасности генеративных моделей в базах данных и бенчмаркингу автоскейлинга. Зрелые подходы к интеграции графов знаний в задачи оптимизации показывают практическую ценность для реальных доменов. Также виден сдвиг в сторону оценки приватности в реляционных контекстах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.11953][PROTECT-DB: Protecting Data using Replicated State Machines: Efficient Corruption Detection & Recovery]]
+:WHAT: Система на основе детерминированного PostgreSQL с византийско-устойчивыми реплицированными машинами состояний.
+:IMPACT: Обеспечивает быстрое обнаружение повреждений и восстановление без остановкивки транзакций, что критично для защищенных БД.
+- [[hxxps://arxiv.org/abs/2605.12272][BatchBench: Toward a Workload-Aware Benchmark for Autoscaling Policies in Big Data Batch Processing -- A Proposed Framework]]
+:WHAT: Фреймворк для бенчмаркинга политик автоскейлинга (rule-based, learned, LLM-agents).
+:IMPACT: Решает проблему несопоставимости результатов в исследованиях облатчных вычислений.
+- [[hxxps://arxiv.org/abs/2605.12204][Graph-Grounded Optimization: Rao-Family Metaheuristics, Classical OR, and SLM-Driven Formulation over Knowledge Graphs]]
+:WHAT: Парадигма оптимизации, где переменные и ограничения извлекаются из графа знаний через Cypher.
+:IMPACT: Позволяет решать сложные задачи (логистика, здравоохранение) с учетом семантики данных, выявляя ошибки качества данных.
+- [[hxxps://arxiv.org/abs/2605.11527][FERMI: Exploiting Relations for Membership Inference Against Tabular Diffusion Models]]
+:WHAT: Атака на вывод членства для табличных диффузионных моделей с учетом реляционной структуры.
+:IMPACT: Повышает точность оценки приватности на 53% в белом ящике, выявляя уязвимости в синтетических данных.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.12560][Towards Output-Optimal Uniform Sampling and Approximate Counting for Join-Project Queries]]
+:ALGO: Асимптотически оптимальные алгоритмы сэмплирования для join-project запросов.
+:IMPACT: Закрывает пробел в производительности для распространенных рабочих нагрузок по сравнению с state-of-the-art.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.12319][Data-aware candidate selection in NL2SQL translation via small separating instances]] — метод выбора кандидатов для NL2SQL на основе разделяющих экземпляров.
+- [[hxxps://arxiv.org/abs/2605.12349][Will My Favorite Chases Terminate if Evaluating Conjunctive Queries Does? One Does Not Simply Decide This]] — анализ неразрешимости проверки терминации chase для классов правил.
+- [[hxxps://arxiv.org/abs/2603.27841][Electrospinning-Data.org: A FAIR, Structured Knowledge Resource for Nanofiber Fabrication]] — инфраструктура данных для электропрядения.
+- [[hxxps://arxiv.org/abs/2605.04905][Cross-Model Consistency of Feature Importance in Electrospinning: Separating Robust from Model-Dependent Features]] — оценка устойчивости важности признаков в ML.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В центре внимания — фундаментальные модели для сетевого трафика и эффективность вывода LLM. Исследования смещаются от чистого качества к семантической целостности при сжатии и энергоэффективности архитектур.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2310.17025][netFound: Principled Design for Network Foundation Models]]
+:WHAT: Фундаментальная модель для анализа трафика с учетом протоколов и контекста.
+:IMPACT: Достигает F1 0.95 в дискриминации контекста, превосходя существующие аналоги, при сохранении приватности.
+- [[hxxps://arxiv.org/abs/2502.01941][Semantic Integrity Matters: Benchmarking and Preserving High-Density Reasoning in KV Cache Compression]]
+:WHAT: Метод сжатия KV-кэша ShotKV, сохраняющий семантические единицы (few-shot примеры).
+:IMPACT: Улучшает точность рассуждений на 9-18% и снижает задержку на 11% в длинном контексте.
+- [[hxxps://arxiv.org/abs/2412.05225][BEExformer: A Fast Inferencing Binarized Transformer with Early Exits]]
+:WHAT: Бинаризованный трансформер с механизмом раннего выхода.
+:IMPACT: Уменьшает размер модели в 21 раз и FLOPs на 52% с ростом точности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2409.08290][Reconsidering the energy efficiency of spiking neural networks]] — строгая оценка энергоэффективности SNN против квантованных ANN.
+- [[hxxps://arxiv.org/abs/2302.12039][Natural Language Processing in the Legal Domain]] — обзор развития NLP в юридической сфере.
+- [[hxxps://arxiv.org/abs/2304.10891][Transformer-Based Autonomous Driving Models and Deployment-Oriented Compression: A Survey]] — обзор сжатия моделей для автономного вождения.
+- [[hxxps://arxiv.org/abs/2402.07619][Developing a Multi-variate Prediction Model For COVID-19 From Crowd-sourced Respiratory Voice Data]] — диагностика COVID-19 по голосу.
+- [[hxxps://arxiv.org/abs/2412.13050][Modality-Inconsistent Continual Learning of Multimodal Large Language Models]] — непрерывное обучение MLLM с不一致 модальностями.
+- [[hxxps://arxiv.org/abs/2501.06857][A Counterfactual Cause in Situation Calculus]] — контрфактуальный анализ причинности.
+- [[hxxps://arxiv.org/abs/2501.19403][Tackling Fake Forgetting through Uncertainty Quantification]] — метрика качества машинного разучивания.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Акцент на реконструкцию топологии сетей по зашумленным данным и динамику мнений на квантовых сетях. Практическая релевантность в инфраструктурном мониторинге и моделировании социальных систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2505.11517][Information-Theoretic Grid Topology Reconstruction using Low-Precision Smart Meter Data]]
+:WHAT: Анализ чувствительности реконструкции топологии электросетей к квантованию данных.
+:IMPACT: Показывает возможность восстановления структуры по 8-бит данным, снижая требования к instrumentation.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.11692][Topology-dependent criticality in triplet majority-rule dynamics with collective reversal]]
+:ALGO: Модель динамики мнений на кванченных сетях с коллективным разворотом.
+:IMPACT: Выявляет зависимость критических экспонент от кластеризации и топологии (Watts-Strogatz).
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.11058][Big Mysteries Survey: Physicists' Views on Cosmology, Black Holes, Quantum Mechanics, and Quantum Gravity]] — опрос физиков о фундаментальных вопросах.
+- [[hxxps://arxiv.org/abs/2605.11297][Cities of Knowledge and Big Science in Developing Countries: Luxury or Investment? The GCLSI Case]] — экономический анализ синхротрона в Латинской Америке.
+- [[hxxps://arxiv.org/abs/2605.12037][Empirical Confirmation of the Environmental-Dominance Inequality a direct decomposition of Var(ln \r{ho}eff ) across four levels of aggregation]] — анализ неравенства через дисперсию.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Развитие спектральных методов для тензорных сетей и структур данных для сжатых строк. Теоретические результаты получают прикладное значение в физических симуляциях и биоинформатике.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.10864][Random Access in Grammar-Compressed Strings: Optimal Trade-Offs in Almost All Parameter Regimes]]
+:WHAT: Структура данных для доступа к сжатым строкам с оптимальным-trade-off.
+:IMPACT: Поддерживает эффективные запросы в почти всех режимах параметров, улучшая предыдущие границы.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.02725][Congestion bounds via Laplacian eigenvalues and their application to tensor networks with arbitrary geometry]]
+:ALGO: Оценка congestion через собственные значения Лапласиана для вложения графов в деревья.
+:IMPACT: Дает границы памяти и времени для контрактации тензорных сетей.
+- [[hxxps://arxiv.org/abs/2509.26426][A Linear-Time 1.5-Approximation for Broadcasting in k-Cycle Graphs]]
+:ALGO: Аппроксимационный алгоритм для широковещания в k-циклических графах.
+:IMPACT: Решает NP-трудную задачу для конкретного класса топологий за линейное время.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.02353][Interval Graphs are Reconstructible]] — доказательство восстанавливаемости интервальных графов.
+- [[hxxps://arxiv.org/abs/2504.10428][Smoothed Analysis of Learning from Positive Samples]] — сглаженный анализ обучения только по положительным примерам.
+- [[hxxps://arxiv.org/abs/2512.02427][Risk-Sensitive Online Selection with Bounded Adaptivity]] — онлайн выбор с учетом риска (CVaR).
+- [[hxxps://arxiv.org/abs/2601.05026][A data structure for monomial ideals with applications to signature Gr\"obner bases]] — структура данных для мономиальных идеалов.
+- [[hxxps://arxiv.org/abs/2602.01682][Finite and Corruption-Robust Regret Bounds in Online Inverse Linear Optimization under M-Convex Action Sets]] — регрет-границы в обратной оптимизации.
+- [[hxxps://arxiv.org/abs/2603.19965][Computational Complexity Analysis of Interval Methods in Solving Uncertain Nonlinear Systems]] — сложность интервальных методов.
+- [[hxxps://arxiv.org/abs/2603.25417][Fast Iteration of Spaced k-mers]] — алгоритмы для биоинформатики.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Доминируют работы по оптимизации вывода LLM (KV-кэш, параллелизм весов) и специализированным ускорителям. Федеративное обучение становится более робастным к атакам и гетерогенности.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.01621][DWDP: Distributed Weight Data Parallelism for High-Performance LLM Inference on NVL72]]
+:WHAT: Стратегия параллелизма с оффлоадингом весов MoE без синхронизации.
+:IMPACT: Увеличивает TPS/GPU на 8.8% в кластере NVL72.
+- [[hxxps://arxiv.org/abs/2512.12131][BOOST: BOttleneck-Optimized Scalable Training Framework for Low-Rank Large Language Models]]
+:WHAT: Фреймворк обучения для low-rank архитектур с тензорным параллелизмом.
+:IMPACT: Ускорение до 2.27x по сравнению с наивным 3D параллелизмом.
+- [[hxxps://arxiv.org/abs/2512.22168][TileLoom: Automatic Dataflow Planning for Tile-Based Languages on Spatial Dataflow Accelerators]]
+:WHAT: Компилятор MLIR для пространственных ускорителей данных.
+:IMPACT: Автоматизирует маппинг на Tenstorrent, достигая производительности vendor-библиотек.
+- [[hxxps://arxiv.org/abs/2602.09725][Efficient Remote KV Cache Reuse with GPU-native Video Codec]]
+:WHAT: Система KVCodec для сжатия KV-кэша видео-кодеками GPU.
+:IMPACT: Снижает TTFT в 3.5 раза в сетях с ограниченной пропускной способностью.
+- [[hxxps://arxiv.org/abs/2602.17808][Collaborative Processing for Multi-Tenant Inference on Memory-Constrained Edge TPUs]]
+:WHAT: Система SwapLess для совместного CPU-TPU вывода.
+:IMPACT: Снижает задержку на 77% в мульти-тенантных сценариях на Edge.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.05497][Patterns behind Chaos: Forecasting Data Movement for Efficient Large-Scale MoE LLM Inference]]
+:ALGO: Анализ паттернов движения данных в MoE моделях.
+:IMPACT: Позволяет ускорение 6.6x на wafer-scale GPU через оптимизацию размещения экспертов.
+- [[hxxps://arxiv.org/abs/2511.14715][FLARE: Adaptive Multi-Dimensional Reputation for Robust Client Reliability in Federated Learning]]
+:ALGO: Адаптивная система репутации для клиентов FL.
+:IMPACT: Повышает робастность на 16% против байесовских и адаптивных атак.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2511.01420][Gradient Clock Synchronization with Practically Constant Local Skew]] — улучшенные гарантии синхронизации часов.
+- [[hxxps://arxiv.org/abs/2405.10271][Pruning Federated Models through Loss Landscape Analysis and Client Agreement Scoring]] — прунинг моделей в FL.
+- [[hxxps://arxiv.org/abs/2603.26438][A Lightweight High-Throughput Collective-Capable NoC for Large-Scale ML Accelerators]] — Network on Chip для ML ускорителей.

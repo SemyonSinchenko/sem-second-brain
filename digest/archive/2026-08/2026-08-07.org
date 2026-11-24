@@ -1,0 +1,61 @@
+#+TITLE: Daily Digest: 2026-08-07
+#+FROM: [2026-08-06 Thu]
+#+TO: [2026-08-07 Fri]
+#+DATE: [2026-08-07 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Безопасность агентных систем становится приоритетом: AWS внедряет временные политики и ограничения скорости для Bedrock AgentCore. Инфраструктура данных эволюционирует в сторону оптимизации: WarpStream управляет миллионами ключей Kafka в 128 МБ RAM, а Databricks усиливает позиции против BigQuery. Наблюдаемость AI-агентов выходит на новый уровень с интеграцией OpenTelemetry для Codex и автоматизированным_REASONING_. Максимилиан Бошемин (создатель Airflow) демонстрирует паттерны координации AI-агентов через визуальные интерфейсы вместо хаотичных скриптов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.ssp.sh/blog/figma-for-agents-max-beauchemin/][Figma for Agents: How Airflow's Creator Coordinates AI ft. Maxime Beauchemin]] (ssp.sh) — Создатель Airflow показывает, как визуализировать задачи агентов на канвасе для балансировки качества и скорости в грязных DWH.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/figma-for-agents-max-beauchemin/][Figma for Agents: How Airflow's Creator Coordinates AI ft. Maxime Beauchemin]]
+:SCORE: 9/10
+:WHY: Практический паттерн оркестрации AI-агентов от архитектора, определившего стандарты Data Engineering.
+
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/securing-ai-agents-with-temporal-policies-in-amazon-bedrock-agentcore/][Securing AI agents with temporal policies in Amazon Bedrock AgentCore]] (aws.amazon.com) — Внедрение stateful-политик для контроля последовательности действий агента и предотвращения накопления рисков.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-visibility-for-codex-on-amazon-bedrock-with-opentelemetry-and-amazon-cloudwatch/][Build visibility for Codex on Amazon Bedrock with OpenTelemetry and Amazon CloudWatch]] (aws.amazon.com) — Нативная телеметрия для Codex позволяет отслеживать adoption и затраты без прокси-серверов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agent-skills-for-automated-reasoning-policies-in-amazon-bedrock/][Agent Skills for Automated Reasoning policies in Amazon Bedrock]] (aws.amazon.com) — Использование формальной логики (SMT-LIB) для валидации ответов AI вместо статистической выборки.
+- [[hxxps://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/][WeatherNext: AI model achieves breakthrough in forecasting cyclones]] (deepmind.google) — Прорыв в прогнозировании циклонов с помощью специализированных AI-моделей.
+- [[hxxps://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026/][The Minimal AI Engineer Toolkit for 2026]] (kdnuggets.com) — Обзор шести essential-инструментов для развертывания автономных систем в продакшене.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/securing-ai-agents-with-temporal-policies-in-amazon-bedrock-agentcore/][Securing AI agents with temporal policies in Amazon Bedrock AgentCore]]
+:SCORE: 10/10
+:WHY: Критически важно для продакшена: контроль последовательности действий агента предотвращает каскадные ошибки.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-visibility-for-codex-on-amazon-bedrock-with-opentelemetry-and-amazon-cloudwatch/][Build visibility for Codex on Amazon Bedrock with OpenTelemetry and Amazon CloudWatch]]
+:SCORE: 9/10
+:WHY: Решает проблему наблюдаемости AI-агентов в enterprise-среде без добавления лишней инфраструктуры.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agent-skills-for-automated-reasoning-policies-in-amazon-bedrock/][Agent Skills for Automated Reasoning policies in Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Переход от вероятностных проверок к математически доказуемой валидации ответов модели.
+
+** Vendors
+- [[hxxps://aws.amazon.com/blogs/database/mcp-tools-for-amazon-aurora-dsql-query-execution-and-schema-management/][MCP tools for Amazon Aurora DSQL: Query execution and schema management]] (aws.amazon.com) — Интеграция MCP-сервера позволяет управлять схемой Aurora DSQL прямо из AI-ассистента в IDE.
+- [[hxxps://www.warpstream.com/blog/kafka-kv-store][Kafka as a KV Store: deduplicating millions of keys with just 128 MiB of RAM - WarpStream]] (warpstream.com) — Инженерный кейс оптимизации компактированных топиков Kafka с минимальным потреблением памяти.
+- [[hxxps://www.databricks.com/blog/introducing-officeqa-pro-v2-new-benchmark-enterprise-grounded-reasoning][Introducing OfficeQA Pro V2: A New Benchmark for Enterprise Grounded-Reasoning]] (databricks.com) — Новый бенчмарк для оценки способности моделей к обоснованным рассуждениям в enterprise-контексте.
+- [[hxxps://www.databricks.com/blog/bigquery-databricks-strategic-framework-modern-migration][BigQuery to Databricks: A Strategic Framework for Modern Migration]] (databricks.com) — Стратегический фреймворк для миграции с BigQuery на Databricks для растущих предприятий.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Повестка сообщества Graph Data Council: стандарты GQL и ускорение графовых вычислений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/mcp-tools-for-amazon-aurora-dsql-query-execution-and-schema-management/][MCP tools for Amazon Aurora DSQL: Query execution and schema management]]
+:SCORE: 9/10
+:WHY: Демонстрирует реальную пользу MCP для сокращения контекстных переключений при работе с БД.
+**** [[hxxps://www.warpstream.com/blog/kafka-kv-store][Kafka as a KV Store: deduplicating millions of keys with just 128 MiB of RAM - WarpStream]]
+:SCORE: 9/10
+:WHY: Глубокая техническая оптимизация, полезная для инженеров, работающих с высокими нагрузками Kafka.
+**** [[hxxps://www.databricks.com/blog/introducing-officeqa-pro-v2-new-benchmark-enterprise-grounded-reasoning][Introducing OfficeQA Pro V2: A New Benchmark for Enterprise Grounded-Reasoning]]
+:SCORE: 8/10
+:WHY: Помогает оценить готовность моделей к сложным задачам reasoned-ответов в бизнес-среде.
+
+** Engineers
+- [[hxxps://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026/][The Minimal AI Engineer Toolkit for 2026]] (kdnuggets.com) — Список инструментов для построения production-grade автономных систем в ближайшем будущем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/the-minimal-ai-engineer-toolkit-for-2026/][The Minimal AI Engineer Toolkit for 2026]]
+:SCORE: 8/10
+:WHY: Помогает сформировать стек инструментов для перехода от экспериментов к надежным AI-системам.

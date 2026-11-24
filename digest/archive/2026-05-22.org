@@ -1,0 +1,76 @@
+#+TITLE: Daily Digest: 2026-05-22
+#+FROM: [2026-05-21 Thu]
+#+TO: [2026-05-22 Fri]
+#+DATE: [2026-05-22 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия смещает фокус на агентный ИИ: Microsoft представляет MagenticLite для работы с малыми моделями, а AWS расширяет Bedrock AgentCore для многоарендности и обработки длинного контекста. В сфере безопасности проект Vega предлагает использовать zero-knowledge proofs для цифровой идентичности без раскрытия данных. Вендоры обновляют инфраструктуру: AWS выпускает Aurora MySQL 8.4 с выравниванием версий сообщества, а Databricks демонстрирует отраслевые решения на базе Genie. Инженеры обсуждают архитектуру агентов синтетических данных и новые инструменты для изучения Airflow.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/system-design-interview-questions-a-handy-collection][System Design Interview Questions: A Handy Collection]] (KDNuggets) — Подборка репозиториев с вопросами и паттернами для подготовки к системному дизайну.
+- [[hxxps://www.kdnuggets.com/best-small-language-models-on-hugging-face-right-now][Best Small Language Models on Hugging Face Right Now!]] (KDNuggets) — Обзор лучших малых языковых моделей с бенчмарками и примерами кода для запуска.
+- [[hxxps://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/][MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models]] (Microsoft) — Экспериментальное агентное приложение, оптимизированное для работы на локальном железе с малыми моделями.
+- [[hxxps://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/][Vega: Zero-knowledge proofs for digital identity in the age of AI]] (Microsoft) — Протокол для подтверждения личности через ZKP без передачи самих документов удостоверяющему центру.
+- [[hxxps://deepmind.google/blog/were-launching-the-google-deepmind-accelerator-program-in-asia-pacific-to-tackle-environmental-risks/][We're launching the Google DeepMind Accelerator program in Asia Pacific to tackle environmental risks]] (Google DeepMind) — Запуск акселератора для проектов, использующих ИИ для решения экологических проблем в Азиатско-Тихоокеанском регионе.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-nova-act-is-now-hipaa-eligible/][Amazon Nova Act is now HIPAA eligible]] (AWS) — Агентный сервис для автоматизации браузерных задач теперь соответствует требованиям HIPAA для здравоохранения.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/intelligent-radiology-workflow-optimization-with-ai-agents-2/][Intelligent radiology workflow optimization with AI agents]] (AWS) — Использование агентов для оптимизации распределения задач в радиологии с учетом загрузки и специализации врачей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/integrating-aws-api-mcp-server-with-amazon-quick-suite-using-amazon-bedrock-agentcore-runtime/][Integrating AWS API MCP Server with Amazon Quick using Amazon Bedrock AgentCore Runtime]] (AWS) — Интеграция MCP-сервера для управления инфраструктурой AWS через естественный язык в Amazon Q.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-multi-tenant-agents-with-amazon-bedrock-agentcore/][Building multi-tenant agents with Amazon Bedrock AgentCore]] (AWS) — Архитектурные паттерны изоляции tenants при построении многоарендных агентных приложений на AWS.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/break-the-context-window-barrier-with-amazon-bedrock-agentcore/][Break the context window barrier with Amazon Bedrock AgentCore]] (AWS) — Реализация рекурсивных языковых моделей (RLM) для анализа документов, превышающих размер контекстного окна.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-ai-agents-for-business-intelligence-with-amazon-bedrock-agentcore/][Build AI agents for business intelligence with Amazon Bedrock AgentCore]] (AWS) — Кейс OPLOG: внедрение агентов для BI сократило время ручной отчетности на 98%.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-recruitment-assistant-using-amazon-bedrock/][Build an AI-powered recruitment assistant using Amazon Bedrock]] (AWS) — Референсная архитектура ассистента для парсинга резюме и генерации вопросов кандидатам.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-ai-powered-dashboard-automation-agents-with-nlp-on-amazon-bedrock-agentcore/][Build AI-powered dashboard automation agents with NLP on Amazon Bedrock AgentCore]] (AWS) — Автоматизация изменения дашбордов через自然语言 запросы с использованием агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/magenticlite-magenticbrain-fara1-5-an-agentic-experience-optimized-for-small-models/][MagenticLite, MagenticBrain, Fara1.5: An agentic experience optimized for small models]]
+:SCORE: 9/10
+:WHY: Демонстрирует возможность запуска эффективных агентных систем на локальном оборудовании через ко-дизайн модели и инструментария.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/vega-zero-knowledge-proofs-for-digital-identity-in-the-age-of-ai/][Vega: Zero-knowledge proofs for digital identity in the age of AI]]
+:SCORE: 9/10
+:WHY: Критически важная технология для приватной верификации личности в эпоху автономных агентов, работающая без доверенной настройки.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/break-the-context-window-barrier-with-amazon-bedrock-agentcore/][Break the context window barrier with Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Практическое решение проблемы ограниченного контекста через рекурсивные модели и песочницу для анализа больших документов.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/amazon-aurora-mysql-8-4-is-now-generally-available/][Amazon Aurora MySQL 8.4 is now generally available]] (AWS) —_major release_ с выравниванием нумерации версий относительно社區 MySQL LTS и улучшенными настройками безопасности.
+- [[hxxps://aws.amazon.com/blogs/database/knowing-when-new-open-source-database-engine-versions-release-on-amazon-aurora-and-amazon-rds/][Knowing when new open source database engine versions release on Amazon Aurora and Amazon RDS]] (AWS) — Публикация графиков выхода версий двигателей БД для планирования обновлений и维护 окон.
+- [[hxxps://www.databricks.com/blog/how-security-teams-can-report-cyber-risk-boards][How security teams can report cyber risk to boards]] (Databricks) — Рекомендации по квантованию киберрисков и отчетности перед руководством.
+- [[hxxps://www.databricks.com/blog/transforming-industries-conversational-ai-partner-solutions-built-databricks-genie][Transforming industries with conversational AI: Partner solutions built on Databricks Genie]] (Databricks) — Обзор партнерских решений на базе Genie для внедрения Conversational AI в отраслях.
+- [[hxxps://www.databricks.com/blog/emissions-reporting-decarbonization-decisions][From emissions reporting to decarbonization decisions]] (Databricks) — Использование данных для перехода от отчетности по выбросам к решениям по декарбонизации.
+- [[hxxps://www.databricks.com/blog/youve-built-the-media-products-now-make-them-personalized][You've built the media products, now make them personalized]] (Databricks) — Стратегии персонализации медиа-продуктов на основе аналитики аудитории.
+- [[hxxps://www.databricks.com/blog/what-happened-what-will-happen][From "What Happened?" to "What Will Happen?"]] (Databricks) — Эволюция бизнес-аналитики от описательной к предиктивной модели.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества LDBC в Бостоне, совмещенной с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/amazon-aurora-mysql-8-4-is-now-generally-available/][Amazon Aurora MySQL 8.4 is now generally available]]
+:SCORE: 8/10
+:WHY: Важное обновление для пользователей Aurora: упрощение версионирования и доступ к функциям MySQL 8.4 LTS.
+**** [[hxxps://aws.amazon.com/blogs/database/knowing-when-new-open-source-database-engine-versions-release-on-amazon-aurora-and-amazon-rds/][Knowing when new open source database engine versions release on Amazon Aurora and Amazon RDS]]
+:SCORE: 7/10
+:WHY: Прозрачные таймлайны выхода версий помогают инженерам планировать maintenance и миграции без сюрпризов.
+**** [[hxxps://www.databricks.com/blog/transforming-industries-conversational-ai-partner-solutions-built-databricks-genie][Transforming industries with conversational AI: Partner solutions built on Databricks Genie]]
+:SCORE: 6/10
+:WHY: Обзор готовых отраслевых решений на базе Genie показывает вектор развития платформы для бизнес-пользователей.
+
+** Инженеры
+- [[hxxps://medium.com/towards-data-engineering/sda-02-designing-the-synthetic-data-agent-07ca29ddf51f?source=rss-6e4a30cbb0e1------2][SDA 02: Designing the Synthetic Data Agent]] (Medium) — Архитектурный дизайн агента для генерации синтетических данных с разделением ответственности и валидацией.
+- [[hxxps://vutr.substack.com/p/3-hours-and-you-will-learn-every][3 hours and you will learn every Apache Airflow fundamental]] (Substack) — CLI-инструмент для ускоренного изучения фундаментальных принципов Apache Airflow.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/sda-02-designing-the-synthetic-data-agent-07ca29ddf51f?source=rss-6e4a30cbb0e1------2][SDA 02: Designing the Synthetic Data Agent]]
+:SCORE: 8/10
+:WHY: Глубокий разбор архитектуры агента: разделение оркестрации и инструментов, работа с состоянием и Governance.
+**** [[hxxps://vutr.substack.com/p/3-hours-and-you-will-learn-every][3 hours and you will learn every Apache Airflow fundamental]]
+:SCORE: 7/10
+:WHY: Практический инструмент для быстрого освоения Airflow, популярного оркестратора в Data Engineering.
+
+** Data Engineering
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-antigravity-2-0-takes-ide][The Pulse: Antigravity 2.0 takes 'IDE' out of its new IDE]] (The Pragmatic Engineer) — Обзор негативной реакции сообщества на редизайн IDE из-за багов и проблем с UX.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-antigravity-2-0-takes-ide][The Pulse: Antigravity 2.0 takes 'IDE' out of its new IDE]]
+:SCORE: 6/10
+:WHY: Важный сигнал о проблемах UX и стабильности в новых инструментах разработки, влияющих на продуктивность.

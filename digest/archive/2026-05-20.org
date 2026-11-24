@@ -1,0 +1,84 @@
+#+TITLE: Daily Digest: 2026-05-20
+#+FROM: [2026-05-19 Tue]
+#+TO: [2026-05-20 Wed]
+#+DATE: [2026-05-20 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия фокусируется на переходе ИИ-агентов от экспериментов к надежным производственным системам с акцентом на управление стоимостью и безопасностью. Вендоры активно выпускают инструменты для governance, включая новые шлюзы Unity AI Gateway и политики доступа в SageMaker. В инженерной практике растут обсуждения влияния ИИ на качество кода и глубокие технические проблемы, такие как сериализация в Spark. Ключевой тренд — автоматизация мониторинга данных и оптимизация инфраструктуры для снижения издержек при сохранении производительности.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.kdnuggets.com/top-10-python-libraries-for-data-engineering-in-2026][Top 10 Python Libraries for Data Engineering in 2026]] (KDnuggets) — Обзор библиотек для ускорения и упрощения поддержки пайплайнов данных в 2026 году.
+- [[hxxps://www.dremio.com/blog/data-quality-tools-for-dremio/][4 Data Quality Tools to Keep Your Data In Shape]] (Dremio) — Сравнение инструментов тестирования и observability для обеспечения точности данных в lakehouse.
+- [[hxxps://www.databricks.com/blog/automate-data-kpi-monitoring-sql-alerts][Automate Data & KPI Monitoring with SQL Alerts]] (Databricks) — Руководство по автоматизации мониторинга ключевых метрик данных через SQL-алерты.
+- [[hxxps://www.databricks.com/blog/how-build-real-time-fraud-detection-using-spark-real-time-mode-and-lakebase][How to Build Real-Time Fraud Detection using Spark Real-Time Mode and Lakebase]] (Databricks) — Паттерн построения низколатентной системы детекции мошенничества на Spark.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-ml-feature-pipelines-with-new-capabilities-in-amazon-sagemaker-feature-store/][Accelerate ML feature pipelines with new capabilities in Amazon SageMaker Feature Store]] (AWS) — Новые возможности SageMaker для управления доступом и оптимизации метаданных Iceberg.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/how-build-real-time-fraud-detection-using-spark-real-time-mode-and-lakebase][How to Build Real-Time Fraud Detection using Spark Real-Time Mode and Lakebase]]
+:SCORE: 9/10
+:WHY: Практический архитектурный паттерн для real-time обработки на Spark с минимизацией задержек.
+**** [[hxxps://www.dremio.com/blog/data-quality-tools-for-dremio/][4 Data Quality Tools to Keep Your Data In Shape]]
+:SCORE: 8/10
+:WHY: Сравнительный анализ инструментов качества данных поможет выбрать стек для lakehouse архитектуры.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-ml-feature-pipelines-with-new-capabilities-in-amazon-sagemaker-feature-store/][Accelerate ML feature pipelines with new capabilities in Amazon SageMaker Feature Store]]
+:SCORE: 8/10
+:WHY: Важно для инженеров ML платформ, сталкивающихся с ростом затрат на метаданные и доступом к фичам.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/ai-impact-on-software-engineers-part-2][AI's impact on software engineers in 2026: key trends, Part 2]] (Pragmatic Engineer) — Анализ влияния ИИ-инструментов на продуктивность, качество кода и культуру разработки.
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-%EF%B8%8F-serializer-killa-8f17dd32a8b0?source=rss-6e4a30cbb0e1------2][Apache Spark WTF???☠️ Serializer Killa]] (Medium) — Глубокое погружение в проблемы сериализации объектов в JVM при работе Spark кластеров.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/ai-impact-on-software-engineers-part-2][AI's impact on software engineers in 2026: key trends, Part 2]]
+:SCORE: 10/10
+:WHY: Критически важно для понимания долгосрочных изменений в роли инженера и управлении командами.
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-%EF%B8%8F-serializer-killa-8f17dd32a8b0?source=rss-6e4a30cbb0e1------2][Apache Spark WTF???☠️ Serializer Killa]]
+:SCORE: 9/10
+:WHY: Помогает диагностировать и устранять скрытые проблемы производительности в распределенных вычислениях.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/how-to-get-the-most-out-of-claude-cowork][How to Get the Most Out of Claude Cowork]] (KDnuggets) — Инструкция по использованию автономного агента Claude для выполнения задач на локальном компьютере.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/scalable-voice-agent-design-with-amazon-nova-sonic-multi-agent-tools-and-session-segmentation/][Scalable voice agent design with Amazon Nova Sonic: multi-agent, tools, and session segmentation]] (AWS) — Архитектурные паттерны для создания масштабируемых голосовых агентов с низкой задержкой.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/extending-conversational-memory-in-kiro-cli-using-amazon-bedrock-agentcore-memory/][Extending conversational memory in Kiro CLI using Amazon Bedrock AgentCore Memory]] (AWS) — Реализация долговременной памяти для CLI агентов через кастомный MCP сервер.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/implementing-programmatic-tool-calling-on-amazon-bedrock/][Implementing programmatic tool calling on Amazon Bedrock]] (AWS) — Оптимизация вызова инструментов через генерацию кода для снижения латентности и затрат токенов.
+- [[hxxps://huggingface.co/blog/allenai/olmoearth-v1-1][OlmoEarth v1.1: A more efficient family of models]] (HuggingFace) — Релиз более эффективной семьи моделей для задач, связанных с землей и климатом.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/implementing-programmatic-tool-calling-on-amazon-bedrock/][Implementing programmatic tool calling on Amazon Bedrock]]
+:SCORE: 10/10
+:WHY: Паттерн Programmatic Tool Calling существенно снижает затраты и задержки в сложных workflow агентов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/scalable-voice-agent-design-with-amazon-nova-sonic-multi-agent-tools-and-session-segmentation/][Scalable voice agent design with Amazon Nova Sonic: multi-agent, tools, and session segmentation]]
+:SCORE: 9/10
+:WHY: Актуальные архитектурные решения для продакшен голосовых интерфейсов с гарантированным SLA.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/extending-conversational-memory-in-kiro-cli-using-amazon-bedrock-agentcore-memory/][Extending conversational memory in Kiro CLI using Amazon Bedrock AgentCore Memory]]
+:SCORE: 8/10
+:WHY: Решает проблему потери контекста в сессиях IDE агентов, повышая продуктивность разработчика.
+
+** Vendors
+- [[hxxps://gdotv.com/blog/visualizing-apache-age-gdotv/][Visualizing Apache AGE: Connecting gdotv and Exploring the Air Routes Graph]] (gdotv) — Обзор возможностей визуализации графовых данных Apache AGE через IDE gdotv.
+- [[hxxps://aws.amazon.com/blogs/database/deploying-amazon-rds-for-db2-using-terraform/][Deploying Amazon RDS for Db2 using Terraform]] (AWS) — Модульный Terraform шаблон для автоматизации развертывания RDS for Db2 с учетом лицензирования.
+- [[hxxps://aws.amazon.com/blogs/database/nine-entertainments-journey-achieving-98-cost-savings-with-amazon-elasticache-serverless-for-valkey/][Nine Entertainment's journey: Achieving 98% cost savings with Amazon ElastiCache Serverless for Valkey]] (AWS) — Кейс миграции на serverless кэширование с сокращением затрат на 98% при пиковых нагрузках.
+- [[hxxps://aws.amazon.com/blogs/database/automated-jdbc-query-caching-with-the-aws-advanced-jdbc-wrapper/][Automated JDBC query caching with the AWS Advanced JDBC Wrapper]] (AWS) — Плагин для автоматического кэширования результатов JDBC запросов в ElastiCache без изменения кода приложения.
+- [[hxxps://www.databricks.com/blog/stop-rogue-ai-how-unity-catalog-secures-your-agent-actions][Stop rogue AI: How Unity Catalog secures your agent actions]] (Databricks) — Механизмы безопасности Unity Catalog для контроля действий автономных ИИ-агентов.
+- [[hxxps://www.databricks.com/blog/whats-new-unity-ai-gateway-service-policies-guardrails-observability-and-cost-controls-ai][What's new in Unity AI Gateway: service policies, guardrails, observability, and cost controls for AI agents and MCPs]] (Databricks) — Новые функции шлюза для управления политиками, безопасностью и стоимостью ИИ-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/nine-entertainments-journey-achieving-98-cost-savings-with-amazon-elasticache-serverless-for-valkey/][Nine Entertainment's journey: Achieving 98% cost savings with Amazon ElastiCache Serverless for Valkey]]
+:SCORE: 9/10
+:WHY: Реальный кейс оптимизации затрат на инфраструктуру, полезный для платформенных инженеров.
+**** [[hxxps://aws.amazon.com/blogs/database/automated-jdbc-query-caching-with-the-aws-advanced-jdbc-wrapper/][Automated JDBC query caching with the AWS Advanced JDBC Wrapper]]
+:SCORE: 8/10
+:WHY: Техническое решение для ускорения read-heavy нагрузок без рефакторинга приложения.
+**** [[hxxps://www.databricks.com/blog/whats-new-unity-ai-gateway-service-policies-guardrails-observability-and-cost-controls-ai][What's new in Unity AI Gateway: service policies, guardrails, observability, and cost controls for AI agents and MCPs]]
+:SCORE: 8/10
+:WHY: Ключевое обновление для внедрения governance в продакшен ИИ-системы на базе Databricks.
+
+** Non Engineering
+- [[hxxps://www.databricks.com/blog/cfos-guide-managing-value-based-care-financial-performance][A CFO's guide to managing value-based care financial performance]] (Databricks) — Руководство для финансовых директоров по управлению эффективностью в здравоохранении на основе данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/cfos-guide-managing-value-based-care-financial-performance][A CFO's guide to managing value-based care financial performance]]
+:SCORE: 6/10
+:WHY: Полезно для понимания бизнес-контекста использования данных в специфических отраслях.

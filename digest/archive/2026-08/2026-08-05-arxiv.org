@@ -1,0 +1,117 @@
+#+TITLE: Arxiv Digest: 2026-08-05
+#+FROM: [2026-08-04 Tue]
+#+TO: [2026-08-05 Wed]
+#+DATE: [2026-08-05 Wed]
+#+STARTUP: showall
+
+* Базы данных (cs.DB)
+** 🧐 Обзор
+В последней подборке заметен сильный сдвиг в сторону оптимизации векторного поиска и интеграции агентских систем с СУБД. Исследования фокусируются на снижении накладных расходов при дедупликации данных и обеспечении согласованности политик доступа в реальном времени. Также виден интерес к точным алгоритмам поиска плотных подграфов в гетерогенных сетях.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.03199][SieveIVF: Threshold-Aware IVF Execution for Large-Scale Training Data Deduplication]]
+:WHAT: Система динамического выделения бюджета.partition для обратного файла (IVF) на основе порога сходства.
+:IMPACT: Ускоряет дедупликацию эмбеддингов в 4-8 раз без потери качества поиска, критично для подготовки данных LLM.
+- [[hxxps://arxiv.org/abs/2608.02764][Stateful Governance for Concurrent Agentic Systems]]
+:WHAT: Архитектура Provenact для управления состоянием политик доступа в конкурентных агентских системах.
+:IMPACT: Предотвращает устаревание авторизаций при выполнении действий агентами, обеспечивая безопасность транзакций.
+- [[hxxps://arxiv.org/abs/2604.20144][An Agentic Approach to Metadata Reasoning]]
+:WHAT: Агентный движок Metadata Reasoner для автономного выбора релевантных источников данных.
+:IMPACT: Решает проблему обнаружения данных в озерах данных, повышая F1-score выбора датасетов до 85%.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.03061][Scalable Exact Densest P-Partite Subgraph Search in Heterogeneous Information Networks]]
+:ALGO: Точный алгоритм BoxDPpS с pruning безопасных регионов для поиска плотных подграфов.
+:IMPACT: Ускоряет поиск семантических паттернов в гетерогенных сетях в 27 раз по сравнению с SOTA.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.02607][Extracting ODRL Policies from Business Process Models: A Graph Traversal Approach to Compliance-by-Extraction]] — Автоматическое извлечение политик ODRL из BPMN моделей через обход графа процессов.
+- [[hxxps://arxiv.org/abs/2608.03477][Getting to the Root: A Combined Complexity Perspective on Consistent Query Answering]] — Анализ комбинированной сложности согласованных ответов на запросы при ограничениях целостности.
+
+* Распределенные вычисления (cs.DC)
+** 🧐 Обзор
+Наблюдается тренд на разделение инфраструктуры обучения и инференса ИИ, а также на оптимизацию репликации в распределенных системах. Значительное внимание уделяется отказоустойчивости на commodity-сетях и эффективным системам поиска на мобильных устройствах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.21286][Ira: Efficient Transaction Replay for Distributed Systems]]
+:WHAT: Фреймворк Ira для ускорения реплея транзакций на备份-нодах через передачу подсказок доступа.
+:IMPACT: Ускоряет реплей в Ethereum-клиентах до 23.6 раз, снижая_latency_консенсуса.
+- [[hxxps://arxiv.org/abs/2608.00501][Machine-Checked Dual-Write Recovery from a Committed Log]]
+:WHAT: Машинно-проверяемая теория восстановления после сбоев при двойной записи в лог.
+:IMPACT: Формализует гарантии exactly-once доставки, устраняя неопределенность состояний после краша.
+- [[hxxps://arxiv.org/abs/2602.11456][AuroraRL: Fast, Fault-Tolerant, and Cost-Efficient Reinforcement Learning over Decentralized Network]]
+:WHAT: Система AuroraRL для RL-обучения на слабосвязанных GPU через稀疏-дельта синхронизацию.
+:IMPACT: Снижает передачу весов в 79 раз, делая распределенное RL рентабельным на стандартных сетях.
+- [[hxxps://arxiv.org/abs/2511.19192][MUSE: A Heterogeneity-Aware Multimedia Search Engine for Mobile SoCs]]
+:WHAT: Поисковый движок MUSE, ко-дизайнированный для мобильных SoC с асинхронным пайплайном.
+:IMPACT: Повышает пропускную способность запросов на 40% и снижает энергопотребление в 4.6 раза на Snapdragon.
+- [[hxxps://arxiv.org/abs/2608.02608][Separating Intelligence from Inference: A Standard for Edge-Native AI Computing]]
+:WHAT: Архитектурный принцип разделения централизованного обучения и периферийного инференса.
+:IMPACT: Предлагает стандарт для Edge AI, способный сэкономить 19 ТВт·ч энергии в год при масштабе.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.06387][Lock-free Asynchronously Distributed Linked Lists]]
+:ALGO: Распределенный связный список DiLi с условной lock-free гарантией и динамической балансировкой.
+:IMPACT: Позволяет масштабировать конкурентные структуры данных горизонтально без даунтайма.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.06068][A Dual-CRDT Architecture for Decentralized Trust Governance and Evolution]] — Архитектура двойных CRDT для управления доверием и эволюции правил в децентрализованных системах.
+- [[hxxps://arxiv.org/abs/2608.01662][LongCat Sparse Attention: Taming the Lightning via Streaming-aware Hierarchical Cross-Layer Indexing]] — Оптимизация sparse attention для контекста в 1 млн токенов через иерархическое индексирование.
+- [[hxxps://arxiv.org/abs/2510.19972][New Hardness Results for the LOCAL Model via a Simple Self-Reduction]] — Упрощенное доказательство нижней оценки сложности для максимального паросочетания в модели LOCAL.
+
+* Структуры данных и алгоритмы (cs.DS)
+** 🧐 Обзор
+В области алгоритмов доминируют улучшения в обработке графов общего вида и задачах раскраски. Появились эффективные методы декомпозиции потоков в циклических графах и уточненные оценки для перечисления клик.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.19153][Fast and Flexible Flow Decompositions in General Graphs via Dominators]]
+:ALGO: Фреймворк декомпозиции потоков в графах с циклами через деревья доминаторов.
+:IMPACT: Ускоряет MILP-формулировки для мульти-сборки в 1000 раз, решая задачи за секунды.
+- [[hxxps://arxiv.org/abs/2608.02614][Near-Optimal Algorithms for Maximal Clique Enumeration in Structurally Sparse Graphs]]
+:ALGO: Алгоритмы перечисления максимальных клик для графов без миноров и иммERSION.
+:IMPACT: Достигает асимптотически оптимальных баз экспоненты для структурно разреженных графов.
+- [[hxxps://arxiv.org/abs/2607.17029][Degeneracy-Guided List Compression for Greedy Graph Coloring]]
+:ALGO: Метод сжатия списков цветов P-SAPST на основе вырожденности графа.
+:IMPACT: Снижает размер списков на 47% при сохранении успешности жадной раскраски.
+- [[hxxps://arxiv.org/abs/2304.09666][List Defective Colorings: Distributed Algorithms and Applications]]
+:ALGO: Обобщение дефектных и списковых раскрасок для ускорения детерминированных алгоритмов.
+:IMPACT: Позволяет достичь сложности O(sqrt(Δ)) для раскраски в модели CONGEST.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.02478][Solving the Shortest Vector Problem in 2^0.6039n Time via Mid-point Hessian]] — Улучшенный алгоритм для задачи кратчайшего вектора решетки со сложностью 2^0.6039n.
+- [[hxxps://arxiv.org/abs/2605.25303][Algorithms with Polynomially-Improved Approximation Factors for the 2 -> q Norm, and Applications]] — Полиномиальные аппроксимации для нормы 2->q и применения в робастной статистике.
+- [[hxxps://arxiv.org/abs/2604.27757][Temporal Routing in Static Networks: The Schedule Completion Problem]] — Полиномиальное решение задачи завершения расписания для временных путей в статических графах.
+
+* Искусственный интеллект (cs.AI)
+** 🧐 Обзор
+Фокус смещается на инфраструктурные аспекты ИИ: оптимизацию ядер GPU и инженерия графов знаний. Исследуются методы эффективной адаптации моделей и новые языки контрактов для пространственно-временных данных.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.02611][KernelBrain: Coarse-to-Fine, Budget-Aware Search for Agentic GPU Kernel Optimization]]
+:WHAT: Агент оптимизации ядер GPU с адаптивным выделением ресурсов и профилированием.
+:IMPACT: Достигает ускорения до 6.72x над PyTorch при снижении времени оптимизации на 48%.
+- [[hxxps://arxiv.org/abs/2608.02630][PULSE: An Executable Contract Language for Spatiotemporal Knowledge Graph Engineering]]
+:WHAT: Язык контрактов PULSE для локализации ролей и эффектов в инженерии графов знаний.
+:IMPACT: Обеспечивает безопасность и трассируемость изменений в пространственно-временных KG.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.02949][On the missing data layer and a potential solution]] — Предложение инфраструктуры DataHub для решения проблем обнаружения и снабжения датасетами в Латинской Америке.
+- [[hxxps://arxiv.org/abs/2311.17815][A Survey on Design Methodologies for Accelerating Deep Learning on Heterogeneous Architectures]] — Обзор методологий ко-дизайна аппаратного и программного обеспечения для ускорения глубокого обучения.
+- [[hxxps://arxiv.org/abs/2405.16440][MambaTS: Improved Selective State Space Models for Long-term Time Series Forecasting]] — Фреймворк MambaTS для прогнозирования временных рядов на основе state space моделей.
+
+* Социальная физика и сети (physics.soc-ph)
+** 🧐 Обзор
+Исследования демонстрируют применение сетевого анализа к финансовым каскадам и коллективному принятию решений. Моделируют влияние психологических факторов и локального социального влияния на эволюцию сетей.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.27233][Evolutionary dynamics of collective decision-making with local social influence on static and dynamic networks]]
+:ALGO: Модель эволюционной динамики с учетом локального социального влияния на графах.
+:IMPACT: Показывает, как структура сети усиливает или компенсирует преимущества опций при коллективном выборе.
+- [[hxxps://arxiv.org/abs/2608.03616][Measuring the engine of a liquidation cascade: subcritical branching inside a first-order transition]]
+:ALGO: Анализ ветвления в крипто-ликвидационных каскадах через параметры порядка.
+:IMPACT: Выявляет, что тяжесть краха определяется ликвидностью, а не критическим мультипликатором.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/1510.08490][Psychological Determinants and Consequences of Complex Networks]] — Модели связи психологических черт и характеристик социальных сетей.
+- [[hxxps://arxiv.org/abs/2608.03125][Performance appraisal promotes cooperation in spatial public goods games]] — Механизм оценки производительности дляpromotion кооперации в играх общественных благ.
+- [[hxxps://arxiv.org/abs/2603.26717][Spatio-temporal evolution of low-magnitude seismicity before the May 24, 2013, Sea of Okhotsk earthquake recovered by waveform cross correlation]] — Восстановление сейсмичности малой магнитуды перед крупным землетрясением.

@@ -1,0 +1,191 @@
+#+TITLE: Arxiv Digest: 2026-05-26
+#+FROM: [2026-05-25 Mon]
+#+TO: [2026-05-26 Tue]
+#+DATE: [2026-05-26 Tue]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+В последние сутки наблюдается рост интереса к специализированным индексам для временных и семантических данных, а также к оптимизации сложности containment запросов. Исследования фокусируются на повышении эффективности поиска в высокоразмерных пространствах и обеспечении целостности знаний в лабораторных workflows. Практическая значимость смещается в сторону интеграции графовых структур для управления мета-данными и точного временного фильтрования.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2603.02941][Timehash: Hierarchical Time Indexing for Efficient Business Hours Search]]
+:WHAT: Иерархический алгоритм индексирования времени, снижающий размер индекса на 97% при сохранении точности.
+:IMPACT: Критически важно для location-based сервисов, позволяя выполнять временные фильтры с низкой латентностью в инвертированных индексах.
+
+- [[hxxps://arxiv.org/abs/2605.23985][Federated Semantic Knowledge Graphs for Laboratory Workflows: A Structured Expert Elicitation Methodology Demonstrated Through Bioanalytical Workflow Twins]]
+:WHAT: Федеративная архитектура семантического графа знаний для захвата неявных экспертных знаний в лабораторных процессах.
+:IMPACT: Позволяет выявлять скрытые отказы в научных workflow, обеспечивая аудируемость и семантическую связность данных для AI-агентов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2509.10138][Semi-interval Comparison Constraints in Query Containment and Their Impact on Certain Answer Computation]]
+:ALGO: Анализ вычислительной сложности containment запросов с арифметическими сравнениями полу-интервалов.
+:IMPACT: Определяет границы эффективного выполнения запросов в СУБД, показывая случаи полиномиального вычисления определенных ответов.
+
+* cs.DC (Распределенные вычисления)
+** 🧐 Обзор
+Основной тренд — агрессивная акселерация систем на GPU (OLTP, файловые форматы, индексы) и оптимизация распределенного обучения больших моделей (MLLM). Параллельно развиваются протоколы надежной широковещательной рассылки и механизмы управления параллелизмом для снижения contention. Практическая релевантность высока для облачных робототехнических систем и высокопроизводительных вычислений.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2406.10158][GPU-Accelerated OLTP: An In-Depth Analysis of Concurrency Control Schemes]]
+:WHAT: Тестовый стенд gCCTB для оценки схем контроля конкурентности на GPU в workload'ах OLTP.
+:IMPACT: Разрушает миф о непригодности GPU для транзакций, показывая пути оптимизации параллельной обработки тысяч транзакций.
+
+- [[hxxps://arxiv.org/abs/2602.01086][MedBeads: An Agent-Native, Immutable Data Substrate for Trustworthy Medical AI]]
+:WHAT: Инфраструктура данных на основе DAG Меркла для неизменяемого хранения клинических событий.
+:IMPACT: Решает проблему контекстуального несоответствия для медицинских AI-агентов, гарантируя детерминизм и защиту от подмены данных.
+
+- [[hxxps://arxiv.org/abs/2602.17335][Do GPUs Really Need New Tabular File Formats?]]
+:WHAT: Исследование влияния конфигурации Parquet на производительность сканирования на GPU.
+:IMPACT: Показывает, что правильная настройка существующих форматов может увеличить пропускную способность до 125 ГБ/с без изменения спецификации.
+
+- [[hxxps://arxiv.org/abs/2602.21247][PiPNN: Ultra-Scalable Graph-Based Nearest Neighbor Indexing]]
+:WHAT: Алгоритм построения графовых индексов PiPNN, использующий HashPrune для избежания bottleneck поиска.
+:IMPACT: Позволяет строить индексы ANN для миллиардов записей за 20 минут на одной машине, ускоряя поиск соседей в 12 раз.
+
+- [[hxxps://arxiv.org/abs/2503.11367][Efficient Distributed MLLM Training with Cornstarch]]
+:WHAT: Фреймворк Cornstarch для распределенного обучения мультимодальных больших языковых моделей с балансировкой нагрузки.
+:IMPACT: Увеличивает пропускную способность обучения MLLM в 2.26 раза за счет учета гетерогенности модели и данных.
+
+- [[hxxps://arxiv.org/abs/2505.02761][Optimistic, Signature-Free Reliable Broadcast and Its Applications]]
+:WHAT: Оптимистичный протокол надежной широковещательной рассылки без подписей, завершающийся за 2 шага.
+:IMPACT: Снижает задержки консенсуса в BFT-системах (Sailfish++), обеспечивая постквантовую безопасность на ограниченном CPU.
+
+- [[hxxps://arxiv.org/abs/2505.07417][LA-IMR: Latency-Aware, Predictive In-Memory Routing and Proactive Autoscaling for Tail-Latency-Sensitive Cloud Robotics]]
+:WHAT: Слой управления с предиктивным масштабированием и маршрутизацией для снижения хвостовой латентности.
+:IMPACT: Уменьшает P99 задержку на 20.7% в гибридных облачно-граничных инфраструктурах для робототехники.
+
+- [[hxxps://arxiv.org/abs/2505.11788][Communication-Efficient Hybrid Language Model via Uncertainty-Aware Opportunistic and Compressed Transmission]]
+:WHAT: Метод CU-HLM для эффективной передачи токенов между малой и большой языковой моделью на основе неопределенности.
+:IMPACT: Повышает пропускную способность токенов в 206 раз за счет сжатия и пропуска лишних передач в распределенных системах.
+
+- [[hxxps://arxiv.org/abs/2512.04320][VLCs: Managing Parallelism with Virtualized Libraries]]
+:WHAT: Виртуализированные библиотечные контексты (VLCs) для изоляции ресурсов параллельных библиотек внутри процесса.
+:IMPACT: Позволяет избегать contention при композицию параллельных библиотек (OpenMP, LibTorch) без модификации их кода.
+
+- [[hxxps://arxiv.org/abs/2601.20273][SwiftFusion: Scalable Sequence Parallelism for Distributed Inference of Diffusion Transformers on GPUs]]
+:WHAT: Движок StreamFusion с тополого-зависимым параллелизмом последовательностей для инференса Diffusion Transformers.
+:IMPACT: Ускоряет генерацию изображений и видео на GPU кластерах в 1.77 раза за счет оптимизации коммуникаций.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2311.11342][On the Communication Complexity of Decentralized Stochastic Bilevel Optimization]]
+:ALGO: Новые алгоритмы децентрализованной стохастической bilevel оптимизации с улучшенной сходимостью.
+:IMPACT: Снижает коммуникационные затраты в распределенном обучении (meta-learning, NAS) без строгих предположений о гетерогенности.
+
+- [[hxxps://arxiv.org/abs/2507.15233][A Multi-Armed Bandit-Based Participant Selection Method for Federated Recommendation Systems]]
+:ALGO: Динамический выбор участников в федеративных рекомендательных системах на основе Multi-Armed Bandit.
+:IMPACT: Балансирует качество модели и системную эффективность в edge-cloud средах, улучшая тренировку на 32-50%.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2505.15988][An Ecosystem of Services for FAIR Computational Workflows]] — Экосистема сервисов для обеспечения принципов FAIR в вычислительных workflow.
+- [[hxxps://arxiv.org/abs/2510.14862][Multi-modal video data-pipelines for machine learning with minimal human supervision]] — Автономный пайплайн для создания мультимодальных видеоданных с минимальным участием человека.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+В области алгоритмов выделяются работы по ускорению линейных решателей, оптимизации кеширования и планированию потоков в дата-центрах. Теоретические результаты по смешиванию марковских цепей и пермутационным расписаниям дополняют практические исследования. Наблюдается сдвиг в сторону универсальной сходимости численных методов независимо от обусловленности.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2508.01108][Random-Access Ranked Retrieval and Similarity Search]]
+:WHAT: Расширение операции Random Access для ранжированного поиска и поиска по сходству в высокоразмерных пространствах.
+:IMPACT: Обеспечивает логарифмическое время запроса для аналитических систем и рекомендаций, масштабируясь на миллионы кортежей.
+
+- [[hxxps://arxiv.org/abs/2501.09293][Scheduling Coflows for Minimizing the Maximum Completion Time in Heterogeneous Parallel Networks]]
+:WHAT: Алгоритм аппроксимации для планирования coflows в гетерогенных сетях дата-центров.
+:IMPACT: Минимизирует время завершения коммуникаций в сложных сетевых архитектурах (EPS, OCS), критично для производительности кластеров.
+
+- [[hxxps://arxiv.org/abs/2604.16075][Towards Universal Convergence of Backward Error in Linear System Solvers]]
+:WHAT: Алгоритмы решения линейных систем с универсальной сходимостью по обратной ошибке независимо от числа обусловленности.
+:IMPACT: Предлагает сложность O(n^2/epsilon) для PSD систем, что значительно ускоряет численные вычисления в больших задачах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2502.05511][New and Improved Bounds for Markov Paging]]
+:ALGO: Улучшенный анализ алгоритма dominating distribution для модели кеширования Markov Paging.
+:IMPACT: Доказывает 2-конкурентность вместо 4, улучшая теоретические гарантии для стратегий замены страниц в ОС.
+
+- [[hxxps://arxiv.org/abs/2605.02067][Faster Mixing for Triangulations via Transport Flows]]
+:ALGO: Улучшенная оценка времени смешивания для цепи переворотов триангуляции выпуклого многоугольника.
+:IMPACT: Продвигает понимание случайных процессов на комбинаторных структурах, сокращая оценку до O(n^2).
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.04197][Optimal Smoothed Analysis of the Simplex Method]] — Оптимальный сглаженный анализ симплекс-метода с улучшенными границами сложности.
+- [[hxxps://arxiv.org/abs/2504.04639][Ineffectiveness for Search and Undecidability of PCSP Meta-Problems]] — Исследование неэффективности алгоритмов для поисковой версии PCSP и неразрешимости мета-проблем.
+- [[hxxps://arxiv.org/abs/2510.00162][Dynamic Necklace Splitting]] — Динамическая версия задачи справедливого деления ожерелья с поддержкой обновлений.
+- [[hxxps://arxiv.org/abs/2602.22110][Robust Permutation Flowshops Under Budgeted Uncertainty]] — Робастная оптимизация пермутационных flowshop задач при бюджетированной неопределенности.
+- [[hxxps://arxiv.org/abs/2603.17424][Lattice Structure and Efficient Basis Construction for Strongly Connected Orientations]] — Конструктивный алгоритм построения базиса для сильно связных ориентаций графов.
+- [[hxxps://arxiv.org/abs/2604.00963][Rapid mixing in positively weighted restricted Boltzmann machines]] — Полилогарифмические оценки времени смешивания дляRestricted Boltzmann Machines.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+Ключевые направления включают развитие памяти для AI-агентов, мультимодальное кластеризацию и влияние LLM на научную и открытую разработку. Системы становятся более агенто-ориентированными, с акцентом на долгосрочный контекст и надежность. Практические применения охватывают видео-поиск, защиту от атак и генерацию изображений.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.23986][MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing]]
+:WHAT: Фреймворк памяти MemForest с иерархическим временным индексом для долгосрочных LLM-агентов.
+:IMPACT: Увеличивает пропускную способность построения памяти в 6 раз, устраняя узкое место последовательных обновлений состояния.
+
+- [[hxxps://arxiv.org/abs/2505.02129][Subspace Aggregation Query and Index Generation for Multidimensional Resource Space Model]]
+:WHAT: Модель ресурсного пространства с графовым индексом для агрегационных запросов в подпространствах.
+:IMPACT: Позволяет эффективно управлять и запрашивать ресурсы в многомерных семантических пространствах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2011.10254][Unbalanced Incomplete Multi-view Clustering via the Scheme of View Evolution: Weak Views are Meat; Strong Views do Eat]]
+:ALGO: Метод кластеризации UIMC с эволюцией представлений для несбалансированных неполных данных.
+:IMPACT: Улучшает качество кластеризации на 40% за счет взвешенного объединения сильных и слабых представлений.
+
+- [[hxxps://arxiv.org/abs/2011.10396][Double Self-weighted Multi-view Clustering via Adaptive View Fusion]]
+:ALGO: Фреймворк DSMC с двойным самовзвешиванием для удаления шумов и избыточных признаков.
+:IMPACT: Повышает робастность мультимодальной кластеризации за счет адаптивного слияния графов.
+
+- [[hxxps://arxiv.org/abs/2209.11572][Multi-Modal Cross-Domain Alignment Network for Video Moment Retrieval]]
+:ALGO: Сеть MMCDA для трансфера знаний аннотаций между доменами в задаче поиска видео-моментов.
+:IMPACT: Решает проблему доменного разрыва, позволяя применять модели на неразмеченных данных целевого домена.
+
+- [[hxxps://arxiv.org/abs/2303.07863][You Can Ground Earlier than See: An Effective and Efficient Pipeline for Temporal Sentence Grounding in Compressed Videos]]
+:ALGO: Фреймворк TCSF для временного заземления предложений напрямую в сжатых видео.
+:IMPACT: Снижает вычислительную сложность и задержку, используя низкоуровневые признаки без полного декодирования кадров.
+
+- [[hxxps://arxiv.org/abs/2406.09250][MirrorCheck: Efficient Adversarial Defense for Vision-Language Models]]
+:ALGO: Фреймворк детекции атак MirrorCheck на основе регенерации изображений и проверки семантической согласованности.
+:IMPACT: Обеспечивает защиту мультимодальных моделей от адаптивных атак без зависимости от конкретной архитектуры.
+
+- [[hxxps://arxiv.org/abs/2412.07333][Fusion Embedding for Pose-Guided Person Image Synthesis with Diffusion Model]]
+:ALGO: Метод FPDM с явным выравниванием fused embeddings для синтеза изображений людей по позе.
+:IMPACT: Улучшает сохранение текстур и консистентность идентичности при генерации диффузионными моделями.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.24180][Human-AI Collaboration in Science at Scale: A Global Large-scale Randomized Field Experiment]] — Масштабный эксперимент, показавший рост ревизий статей благодаря AI-фидбеку.
+- [[hxxps://arxiv.org/abs/2409.08379][The Impact of Large Language Models on Open-source Innovation: Evidence from GitHub Copilot]] — Анализ влияния Copilot на открытую разработку, увеличившего вклад на 28-40%.
+- [[hxxps://arxiv.org/abs/2410.15173][Uncovering Autoregressive LLM Knowledge of Thematic Fit in Event Representation]] — Исследование знания тематического соответствия событий в авторегрессионных LLM.
+- [[hxxps://arxiv.org/abs/2411.00934][The Meme Is the Message: Generative Memesis and AI Visuals in the 2024 USA Presidential Elections]] — Анализ влияния сгенерированных AI мемов на политическую вовлеченность в соцсетях.
+- [[hxxps://arxiv.org/abs/2401.11963][Bridging Evolutionary Algorithms and Reinforcement Learning: A Comprehensive Survey on Hybrid Algorithms]] — Обзор гибридных алгоритмов эволюционного обучения с подкреплением (ERL).
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+Исследования фокусируются на динамике транспортных сетей, обнаружении отказов и эволюции кооперации в гиперграфах. Моделирование эпидемий и социальных процессов дополняется анализом пространственной справедливости и налоговых динамик. Алгоритмические вклады касаются кластеризации и перколяции в направленных сетях.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2311.02624][Failure detection for transport processes on networks]]
+:ALGO: Метод редукции размерности для обнаружения отказов в транспортных сетях на основе диффузии.
+:IMPACT: Позволяет выявлять сбои в реальном времени по ограниченному числу наблюдений, улучшая контроль транспортных потоков.
+
+- [[hxxps://arxiv.org/abs/2603.04669][Strongly clustered random graphs via triadic closure: Degree correlations and clustering spectrum]]
+:ALGO: Модель сильно кластеризованных случайных графов с замыканием триад.
+:IMPACT: Дает точные выражения для спектра кластеризации и корреляций степеней, объясняя транзитивность в реальных сетях.
+
+- [[hxxps://arxiv.org/abs/2605.22646][Directed extended-range percolation]]
+:ALGO: Модель направленной перколяции расширенного диапазона (DERP) для сетей с ненаправленными ребрами.
+:IMPACT: Показывает, как направленность упрощает определение порога перколяции, что важно для квантовых коммуникаций.
+
+- [[hxxps://arxiv.org/abs/2605.24633][Quantifying concurrency in event-based temporal network and hypergraph data]]
+:ALGO: Метрика edge-event correlation (EEC) для измерения конкурентности во временных сетях.
+:IMPACT: Помогает выявлять структуры, способствующие быстрому распространению информации или эпидемий.
+
+- [[hxxps://arxiv.org/abs/2605.25016][Payoff-Driven Coevolution and Oscillatory Dynamics in Hypergraph]]
+:ALGO: Модель коэволюции общественных благ на динамическом гиперграфе с осцилляторной динамикой.
+:IMPACT: Объясняет циклы процветания и спада в групповых системах через адаптивную реструктуризацию связей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2512.22596][Evaluating Soccer Player Movements Using the Attacker-Defender Model]] — Валидация физически интерпретируемой модели движений игрока на больших данных лиги.
+- [[hxxps://arxiv.org/abs/2604.13357][Network Epidemic Control via Model Predictive Control: Extended Version]] — Применение MPC для контроля эпидемий в сетях с жесткими спектральными ограничениями.
+- [[hxxps://arxiv.org/abs/2605.20280][Spatial Activity Opportunity Fairness among Elderly Residents in Nagoya: A Comparative Analysis across Three Wards with Different Rent Levels]] — Анализ пространственной справедливости возможностей активности для пожилых жителей в Нагое.
+- [[hxxps://arxiv.org/abs/2605.23919][Stochastic compliance/evasion dynamics in tax models: a piecewise deterministic Markov process approach]] — Стохастическая модель динамики уклонения от налогов с использованием PDMP.

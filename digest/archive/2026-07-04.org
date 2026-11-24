@@ -1,0 +1,41 @@
+#+TITLE: Daily Digest: 2026-07-04
+#+FROM: [2026-07-03 Fri]
+#+TO: [2026-07-04 Sat]
+#+DATE: [2026-07-04 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+В управлении данными акцент смещается с технического устранения дубликатов на осознание организационных политик, стоящих за инерцией качества. В сфере искусственного интеллекта наблюдается баланс между практической интеграцией API моделей и фундаментальными исследовательскими партнерствами с индустрией развлечений. Инструменты визуализации графов продолжают развиваться, предлагая инженерам оптимизированные WebGL решения для веба. Сообщество графовых баз данных планирует очную встречу в рамках конференции VLDB для обсуждения технических стандартов.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.learningfromdata.zingg.ai/p/the-duplicate-you-tolerate-is-a-decision][The Duplicate You Tolerate Is a Decision You've Made]] (learningfromdata.zingg.ai) — Дубликаты данных представлены как результат неявных бизнес-решений, а не просто технический долг, требующий оценки рисков.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.learningfromdata.zingg.ai/p/the-duplicate-you-tolerate-is-a-decision][The Duplicate You Tolerate Is a Decision You've Made]]
+:SCORE: 9/10
+:WHY: Критически важно для сеньоров, чтобы перестать treating data quality issues as mere bugs and start evaluating them as business policy decisions with costs.
+
+** Вендоры
+- [[hxxps://gdotv.com/blog/practical-advice-on-graph-visualization-with-sigmajs/][Practical Advice on Graph Visualization: The Case of SigmaJS]] (gdotv) — Разбор архитектурных компромиссов SigmaJS при рендеринге графов в вебе через WebGL для высокой производительности.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического сообщества LDBC в Бостоне в рамках конференции VLDB для обмена опытом.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://gdotv.com/blog/practical-advice-on-graph-visualization-with-sigmajs/][Practical Advice on Graph Visualization: The Case of SigmaJS]]
+:SCORE: 8/10
+:WHY: Практические инсайты по выбору движка визуализации помогут избежать проблем с производительностью при работе с большими графами в браузере.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Полезно для отслеживания roadmap графовых технологий и нетворкинга внутри профессионального сообщества.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/getting-started-with-the-claude-api-in-python][Getting Started with the Claude API in Python]] (kdnuggets) — Практическое руководство по интеграции Claude API в Python-проекты с использованием официального SDK.
+- [[hxxps://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/][Google DeepMind and A24 announce first-of-its-kind research partnership]] (deepmind.google) — Стратегическое партнерство между исследователями ИИ и киноиндустрией для изучения новых форматов повествования.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/getting-started-with-the-claude-api-in-python][Getting Started with the Claude API in Python]]
+:SCORE: 8/10
+:WHY: Готовый туториал для быстрой интеграции LLM в существующие Python-сервисы без излишней абстракции.
+**** [[hxxps://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/][Google DeepMind and A24 announce first-of-its-kind research partnership]]
+:SCORE: 7/10
+:WHY: Демонстрирует тренд выхода исследовательских лабораторий ИИ за пределы чистого кода в смежные креативные индустрии.

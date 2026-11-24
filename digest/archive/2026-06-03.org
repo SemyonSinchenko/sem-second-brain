@@ -1,0 +1,81 @@
+#+TITLE: Daily Digest: 2026-06-03
+#+FROM: [2026-06-02 Tue]
+#+TO: [2026-06-03 Wed]
+#+DATE: [2026-06-03 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Экосистема Apache Iceberg достигает новой зрелости с внедрением эволюции партиционирования и REST Catalog, что устраняет необходимость переписывания данных и упрощает интеграцию движков. AWS усиливает позицию в сфере AI-агентов и managed-сервисов, предлагая durability для ElastiCache и гибкость лицензирования для SQL Server через BYOM. В инженерной практике наблюдается сдвиг в сторону осознанного замедления при внедрении AI-агентов и глубокого анализа архитектуры Spark Connect.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/partition-evolution-change-your-partitioning-without-rewriting-data/][Partition Evolution: Change Your Partitioning Without Rewriting Data]] (Dremio) — Iceberg позволяет менять стратегию партиционирования без переписывания данных, решая проблему физичеких директорий Hive.
+- [[hxxps://www.dremio.com/blog/apache-iceberg-rest-catalog-what-it-is-and-how-to-use-it/][Apache Iceberg REST Catalog: What It Is and How to Use It]] (Dremio) — REST Catalog обеспечивает вендор-независимый доступ к метаданным Iceberg, заменяя Hive Metastore для облачных нативных движков.
+- [[hxxps://www.databricks.com/blog/query-tags-context-your-warehouse-queries-have-been-missing][Query Tags: The Context Your Warehouse Queries Have Been Missing]] (Databricks) — Автоматическое логирование атрибутов запросов в Databricks SQL добавляет контекст для отладки и аудита warehouse-нагрузок.
+- [[hxxps://www.databricks.com/blog/beyond-parsing-x12-closing-gap-revenue-cycle-workflows-healthcare][Beyond parsing X12: Closing the gap for revenue cycle workflows in healthcare]] (Databricks) — Анализ рабочих процессов revenue cycle в здравоохранении выходит за рамки простого парсинга X12 транзакций.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/partition-evolution-change-your-partitioning-without-rewriting-data/][Partition Evolution: Change Your Partitioning Without Rewriting Data]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему технических долгов data lake, позволяя менять физическую организацию данных без дорогостоящих миграций.
+**** [[hxxps://www.dremio.com/blog/apache-iceberg-rest-catalog-what-it-is-and-how-to-use-it/][Apache Iceberg REST Catalog: What It Is and How to Use It]]
+:SCORE: 9/10
+:WHY: REST API для каталога устраняет зависимости от JVM и упрощает подключение полиглотных клиентов к таблицам Iceberg.
+**** [[hxxps://www.databricks.com/blog/query-tags-context-your-warehouse-queries-have-been-missing][Query Tags: The Context Your Warehouse Queries Have Been Missing]]
+:SCORE: 8/10
+:WHY: Добавление контекста к запросам критично для наблюдаемости и оптимизации затрат в больших warehouse-системах.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when][Ideas: slow down to speed up when working with AI agents]] (Pragmatic Engineer) — Использование AI-агентов требует замедления темпа разработки для сохранения качества кода и архитектурной целостности.
+- [[hxxps://blog.devgenius.io/apache-spark-wtf-growing-onions-50fcc19168e3?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Growing Onions]] (DevGenius) — Spark Connect разделяет клиент и сервер через gRPC, упрощая зависимости, но усложняя отладку распределенных задач.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/ideas-slow-down-to-speed-up-when][Ideas: slow down to speed up when working with AI agents]]
+:SCORE: 9/10
+:WHY: Контринтуитивный совет замедляться при использовании AI критичен для поддержания стандартов инженерной культуры в эпоху генерации кода.
+**** [[hxxps://blog.devgenius.io/apache-spark-wtf-growing-onions-50fcc19168e3?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Growing Onions]]
+:SCORE: 8/10
+:WHY: Глубокий разбор архитектуры Spark Connect помогает понять компромиссы между изоляцией зависимостей и сложностью отладки.
+
+** Vendors
+- [[hxxps://aws.amazon.com/blogs/database/announcing-durability-for-amazon-elasticache/][Announcing durability for Amazon ElastiCache for Valkey]] (AWS) — ElastiCache для Valkey получил режим durability с синхронной записью для сценариев, где потеря данных недопустима.
+- [[hxxps://aws.amazon.com/blogs/database/unlock-license-mobility-with-bring-your-own-media-on-fully-managed-amazon-rds-for-sql-server/][Unlock license mobility with Bring Your Own Media on fully managed Amazon RDS for SQL Server]] (AWS) — AWS RDS для SQL Server теперь поддерживает Bring Your Own Media, позволяя использовать существующие лицензии в managed-сервисе.
+- [[hxxps://gdotv.com/blog/teg-benchmark-property-graph-pipeline-huggingface-to-csv/][Building a Property Graph Pipeline from the TEG Benchmark: Part 1 – From HuggingFace to Structured CSV]] (gdotv) — Инструкция по конвертации бенчмарка TEG-DB из PyTorch Geometric в CSV для импорта в AWS Neptune.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического пользовательского сообщества LDBC в Бостоне, посвященной графовым базам данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/announcing-durability-for-amazon-elasticache/][Announcing durability for Amazon ElastiCache for Valkey]]
+:SCORE: 9/10
+:WHY: Добавление гарантий durability в кэш-сервисы расширяет сценарии использования для критичных состояний AI-агентов и платежных систем.
+**** [[hxxps://aws.amazon.com/blogs/database/unlock-license-mobility-with-bring-your-own-media-on-fully-managed-amazon-rds-for-sql-server/][Unlock license mobility with Bring Your Own Media on fully managed Amazon RDS for SQL Server]]
+:SCORE: 8/10
+:WHY: Поддержка BYOM снимает финансовый барьер для миграции enterprise-нагрузок SQL Server на полностью управляемую платформу AWS.
+**** [[hxxps://gdotv.com/blog/teg-benchmark-property-graph-pipeline-huggingface-to-csv/][Building a Property Graph Pipeline from the TEG Benchmark: Part 1 – From HuggingFace to Structured CSV]]
+:SCORE: 7/10
+:WHY: Практический гайд по пайплайну графовых данных полезен для инженеров, внедряющих graph DB в ML-инфраструктуру.
+
+** Open Source
+- [[hxxps://www.kdnuggets.com/10-github-repositories-for-modern-database-systems-and-tools][10 GitHub Repositories for Modern Database Systems and Tools]] (KDnuggets) — Подборка из 10 open-source репозиториев для современных баз данных, включая инструменты мониторинга, кэширования и AI-памяти.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/10-github-repositories-for-modern-database-systems-and-tools][10 GitHub Repositories for Modern Database Systems and Tools]]
+:SCORE: 8/10
+:WHY: Curated-список инструментов экономит время на поиск надежных open-source решений для инфраструктуры данных и AI.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/a-gentle-primer-on-llm-explainability][A Gentle Primer on LLM Explainability]] (KDnuggets) — Обзор текущих методов и тенденций в области объяснимости больших языковых моделей.
+- [[hxxps://huggingface.co/blog/Hcompany/holo31][Holo3.1: Fast & Local Computer Use Agents]] (HuggingFace) — Анонс локальных агентов Holo3.1 для автоматизации действий на компьютере с акцентом на скорость и приватность.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/][The art and science of hyperparameter optimization on Amazon Nova Forge]] (AWS) — Tuning гиперпараметров на Amazon Nova Forge критичен для избегания catastrophic forgetting при доменной адаптации моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/][Object detection with Amazon Nova 2 Lite]] (AWS) — Amazon Nova 2 Lite позволяет делать object detection через текстовые промпты без обучения моделей и инфраструктуры ML.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/][How Baz improved its AI Agent Code Review accuracy using Amazon Bedrock AgentCore]] (AWS) — Агент Baz использует Bedrock AgentCore для валидации кода против дизайн-спецификаций Figma и требований Jira.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-baz-improved-its-ai-agent-code-review-accuracy-using-amazon-bedrock-agentcore/][How Baz improved its AI Agent Code Review accuracy using Amazon Bedrock AgentCore]]
+:SCORE: 9/10
+:WHY: Реальный кейс автоматизации code review через валидацию поведения и дизайна, а не только синтаксиса, задает новый стандарт для AI-инструментов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/the-art-and-science-of-hyperparameter-optimization-on-amazon-nova-forge/][The art and science of hyperparameter optimization on Amazon Nova Forge]]
+:SCORE: 9/10
+:WHY: Глубокий разбор балансировки специализации модели и сохранения общих знаний предотвращает дорогостоящие ошибки при fine-tuning.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/object-detection-with-amazon-nova-2-lite/][Object detection with Amazon Nova 2 Lite]]
+:SCORE: 8/10
+:WHY: Возможность детекции объектов через промпты без обучения моделей снижает порог входа для внедрения компьютерного зрения в приложения.

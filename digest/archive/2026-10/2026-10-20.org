@@ -1,0 +1,121 @@
+#+TITLE: Daily Digest: 2026-10-20
+#+FROM: [2026-10-19 Mon]
+#+TO: [2026-10-20 Tue]
+#+DATE: [2026-10-20 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Meta выложила сразу три инженерных кейса: семантическая токенизация GenRecs для рекламных рекомендаций, паттерн «тонкого оркестратора» для ИИ-агентов и гигаваттный супер кластер Prometheus на ~1 млн GPU. AWS сфокусировалась на эффективности инференса: push- и bi-directional перенос KV-кэша в vLLM (до 3x выигрыш в TTFT), структурированные выводы Claude в Bedrock и порт Deepgram Nova-3 на Trainium2. Anthropic-направление дешевеет — Claude Haiku 5.5 срезал цены на 90% при 1M контексте, что меняет экономику агентных workflow. В безопасности ИИ зрелая повестка: распределённые мультиагентные атаки обходят мониторы, GLM-5.1 показала высокий контроль цепочек рассуждений, а GRAFT локализует reward hacking в удаляемые параметры. OSI закрепляет «Open Source AI» в политическом мейнстриме — определения формируются сейчас и скоро повлияют на лицензирование моделей.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/delta-kernel-with-rust-doing-stuff][Delta Kernel (with Rust). Doing stuff.]] (Data Engineering Central) — Практическая работа с Delta Kernel на Rust показывает, как избежать проблем совместимости версий между DuckDB, Polars и Delta Lake в продакшене.
+
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/delta-kernel-with-rust-doing-stuff][Delta Kernel (with Rust). Doing stuff.]]
+:SCORE: 8/10
+:WHY: Ручная работа с протоколом Delta-таблиц даёт понимание, почему ломается совместимость инструментов поверх одного слоя данных.
+
+** Engineers
+- [[https://vutr.substack.com/p/etl-and-elt-for-data-engineers][ETL and ELT for data engineers]] (vutr.substack) — Систематизация ETL/ELT от истоков data warehouse до современных ограничений — полезная проверка базовых паттернов перемещения данных.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/etl-and-elt-for-data-engineers][ETL and ELT for data engineers]]
+:SCORE: 7/10
+:WHY: Свежая структурированная рефлексия над фундаментом профессии, который остаётся неизменным при любой моде на инструменты.
+
+** Vendors
+- [[https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/][The Thin Orchestrator: How We Made Our AI Agents More Reliable by Giving the Router Less to Do]] (Meta Engineering) — 1300-строчный оркестратор без доменной логики маршрутизирует 20+ workflow к 14 агентам: перегруженный контекст деградирует точность, а не улучшает её.
+- [[https://engineering.fb.com/2026/10/19/ml-applications/genrecs-tokenization-transforming-ads-recommendation-at-meta-with-stable-model-vocabulary/][GenRecs Tokenization: Transforming Ads Recommendation at Meta with Stable Model Vocabulary]] (Meta Engineering) — Семантический вокабуляр токенов вместо per-item ID дал +0,35% конверсий и решает cold-start новых товаров без истории взаимодействий.
+- [[https://engineering.fb.com/2026/10/19/data-center-engineering/inside-prometheus-meta-gigawatt-scale-supercluster/][Inside Prometheus: Meta's Journey to a Gigawatt-Scale Supercluster]] (Meta Engineering) — Первый этап супер кластера готов: goodput >85% на пре-трейне, MTBI ~54k GPU-часов, закрытый жидкостный контур охлаждения.
+- [[https://aws.amazon.com/blogs/database/analyzing-aurora-mysql-issues-with-kiro-ide-and-aurora-mysql-mcp-server/][Analyzing Aurora MySQL issues with Kiro IDE and Aurora MySQL MCP server]] (AWS Database Blog) — Диагностика дедлоков и всплесков IOPS через natural language с MCP-сервером прямо в IDE — вместо ручного разбора SHOW ENGINE INNODB STATUS.
+- [[https://www.databricks.com/blog/hp-ai-ready-cdp-databricks-customerlake][How HP Is Building an AI-Ready CDP with Databricks CustomerLake]] (Databricks) — Кейс миграции клиентской платформы данных HP под ИИ-сценарии на CustomerLake.
+- [[https://www.databricks.com/blog/what-makes-catalog-open-unity-catalog-advances-open-lakehouse][What makes a catalog open? Unity Catalog Advances the Open Lakehouse]] (Databricks) — Разбор критериев настоящей «открытости» каталога метаданных в эпоху открытых форматов.
+- [[https://www.databricks.com/blog/how-get-most-out-running-dbt-databricks][How to get the most out of running dbt on Databricks]] (Databricks) — Практические рекомендации по запуску dbt на Databricks для команд со сложившимися трансформациями.
+- [[https://www.databricks.com/blog/databricks-doubling-down-new-york-city-premier-ai-talent-hub][Databricks Is Doubling Down On New York City As A Premier AI Talent Hub]] (Databricks) — Расширение R&D-хаба в Нью-Йорке — индикатор обострения конкуренции за ИИ-таланты.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/][The Thin Orchestrator: How We Made Our AI Agents More Reliable by Giving the Router Less to Do]]
+:SCORE: 9/10
+:WHY: Протестированный в проде архитектурный паттерн: проблему агентов решают изоляцией контекста, а не промптами или окном побольше.
+**** [[https://engineering.fb.com/2026/10/19/ml-applications/genrecs-tokenization-transforming-ads-recommendation-at-meta-with-stable-model-vocabulary/][GenRecs Tokenization: Transforming Ads Recommendation at Meta with Stable Model Vocabulary]]
+:SCORE: 8/10
+:WHY: Замена ID на семантические токены — переносимый приём решения cold-start и кросс-кампанийного переноса знаний в рекомендательных системах.
+**** [[https://engineering.fb.com/2026/10/19/data-center-engineering/inside-prometheus-meta-gigawatt-scale-supercluster/][Inside Prometheus: Meta's Journey to a Gigawatt-Scale Supercluster]]
+:SCORE: 8/10
+:WHY: Редкие публичные метрики goodput и MTBI для обучения фронттир-моделей — ориентир для оценки надёжности собственных больших training runs.
+
+** Open Source
+- [[https://opensource.org/blog/opening-new-paths-for-open-source][Opening New Paths for Open Source]] (Open Source Initiative) — OSI продвигает общие определения Open Source AI на уровне ООН и конгресса 40+ фондов — сигнал для лицензионной и регулирующей политики.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/opening-new-paths-for-open-source][Opening New Paths for Open Source]]
+:SCORE: 7/10
+:WHY: Формулировки Open Source AI сейчас закладываются в политику и стандарты — от этого зависит лицензирование моделей, которые вы деплоите.
+
+** Artificial Intelligence
+- [[https://aws.amazon.com/blogs/machine-learning/push-based-kv-transfer-to-improve-ttft-and-tpot-for-disaggregated-inference-in-vllm/][Push-based KV transfer to improve TTFT and TPOT for disaggregated inference in vLLM]] (AWS ML Blog) — Push-режим NIXL убирает координацию переноса KV-кэша с критического пути: до 3x TTFT и 30% TPOT, фича уже отдана в vLLM.
+- [[https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/][Improve TTFT for multi-turn agentic workloads with bi-directional KV transfer in vLLM]] (AWS ML Blog) — Обратный перенос KV от decode к prefill переиспользует контекст между ходами: до 3.3x TTFT на агентных диалогах.
+- [[https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/][Structured outputs for Anthropic Claude models on Amazon Bedrock]] (AWS ML Blog) — Constrained decoding на уровне генерации токенов: JSON всегда соответствует схеме, без retry-логики и с меньшим числом выходных токенов.
+- [[https://www.kdnuggets.com/claude-haiku-5-5-whats-new-and-how-to-use-it-for-fast-cheap-ai-workflows][Claude Haiku 5.5: What's New and How to Use It for Fast, Cheap AI Workflows]] (KDnuggets) — Минус 90% к прайсу, adaptive thinking и контекст 1M токенов: что изменилось относительно Haiku 4.5 и как собрать классификацию и суб-агентов.
+- [[https://www.kdnuggets.com/7-checks-to-run-before-trusting-ai-generated-code][7 Checks to Run Before Trusting AI-Generated Code]] (KDnuggets) — Генерация кода подешевела, но верификация остаётся задачей инженера — конкретный чек-лист из 7 проверок.
+- [[https://www.kdnuggets.com/langchain-vs-llamaindex-vs-building-from-scratch-heres-what-i-suggest][LangChain vs. LlamaIndex vs. Building From Scratch: Here's What I Suggest]] (KDnuggets) — Выбор фреймворка для LLM-приложения сводится к одному вопросу: что именно вы оптимизируете.
+- [[https://aws.amazon.com/blogs/machine-learning/pegasus-1-5-from-twelvelabs-is-now-available-in-amazon-bedrock/][Pegasus 1.5 from TwelveLabs is now available in Amazon Bedrock]] (AWS ML Blog) — Видео до 2 часов превращается в структурированный JSON с таймстампами без пре-индексации, прямо из S3.
+- [[https://aws.amazon.com/blogs/machine-learning/how-deepgram-optimized-voice-ai-at-scale-with-aws-trainium/][How Deepgram optimized voice AI at scale with AWS Trainium]] (AWS ML Blog) — Порт Nova-3 на Trainium2 через TorchNeuron дал 11–70% больше аудио за доллар на батч-транскрипции — полезный кейс миграции инференса.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-jumpstart-2026-year-to-date-in-review/][Amazon SageMaker JumpStart: 2026 year-to-date in review]] (AWS ML Blog) — 100+ моделей от 30 провайдеров за 9 месяцев: обзор каталога FMs с one-click деплоем и fine-tuning (LoRA, SFT, DPO, RLVR).
+- [[https://aws.amazon.com/blogs/machine-learning/developers-can-now-access-sagemaker-studio-through-the-new-aws-experience/][Developers can now access SageMaker Studio through the new AWS experience]] (AWS ML Blog) — Вход через Google/GitHub/Apple и готовая Studio-среда за ~20 секунд с $100 кредитов — резкое снижение барьера входа в SageMaker.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/push-based-kv-transfer-to-improve-ttft-and-tpot-for-disaggregated-inference-in-vllm/][Push-based KV transfer to improve TTFT and TPOT for disaggregated inference in vLLM]]
+:SCORE: 9/10
+:WHY: Измеримый до 3x выигрыш TTFT на дисагрегированном инференсе с уже смерженной в vLLM ускоритель-независимой фичей.
+**** [[https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/][Improve TTFT for multi-turn agentic workloads with bi-directional KV transfer in vLLM]]
+:SCORE: 8/10
+:WHY: До 3.3x TTFT именно на многоходовых агентных сценариях — прямой ответ на главную боль чат- и tool-using-агентов.
+**** [[https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/][Structured outputs for Anthropic Claude models on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Детерминированный schema-compliant JSON без пост-обработки и retry упрощает продакшен-интеграции и снижает стоимость высоконагруженных пайплайнов.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/SiWdLyjQQtBgtaLZq/red-teaming-multi-agent-attacks-for-loss-of-control-risks][Red-teaming multi-agent attacks for loss-of-control risks]] (LessWrong) — Распределённые мультиагентные атаки выглядят безобидно для фронттир-мониторов даже при просмотре всех траекторий сразу.
+- [[https://www.lesswrong.com/posts/q3pckKRxRXWBthbKb/glm-5-1-has-astra-level-cot-control][GLM-5.1 Has ~Astra Level CoT Control]] (LessWrong) — GLM-модели демонстрируют ~60% управляемости цепочек рассуждений, тогда как Kimi и DeepSeek — слабый контроль; ключевой сигнал для мониторинга CoT.
+- [[https://www.lesswrong.com/posts/mKJEBiuuxHKuCoTB6/gradient-routing-localizes-and-removes-unintended-behaviors][Gradient Routing Localizes and Removes Unintended Behaviors in RL]] (LessWrong) — GRAFT изолирует обновления от обнаруженного reward hacking в удаляемые после обучения параметры, предотвращая недетектируемые читы.
+- [[https://www.lesswrong.com/posts/FZmEpvcdbgnRLmAKg/human-vs-ai-in-go-in-2026-lessons-for-superintelligence][Human vs AI in Go in 2026: Lessons for superintelligence?]] (LessWrong) — Победа Shin Jin-seo над KataGo с форой всего в 2 камня заставляет пересмотреть интуиции о «сверхчеловеческом» уровне ИИ.
+- [[https://www.lesswrong.com/posts/qWBJxLpnx67YLyAme/a-tourist-mathematician-s-apologia-living-in-a-human-agi][A Tourist Mathematician's Apologia: Living in a Human-AGI World]] (LessWrong) — 700+ «решений» OpenAI по 3 часа вычислений каждое ставят вопрос о смысле творческой работы в духе Харди.
+- [[https://www.lesswrong.com/posts/Bzk4g9KvRWr8GPr6F/what-do-the-other-80-percent-mean][What do the other 80 percent mean?]] (LessWrong) — Оценки «25% вымирания» ничего не говорят об остальных исходах: призыв дифференцировать сценарии по аналогии с ядерным риск-анализом.
+- [[https://www.lesswrong.com/posts/YxCS3snoMRGDhyrZk/how-is-prosaic-aligned-ai-supposed-to-work][How is "prosaic aligned AI" supposed to work?]] (LessWrong) — Мысленный эксперимент с двумя государствами и ASI обнажает нерешённое противоречие «послушания vs собственная мораль».
+- [[https://www.lesswrong.com/posts/7LGcCDcNrWvXpH2RP/permanent-underclass-taxonomy][Permanent underclass taxonomy]] (LessWrong) — Структурированная таксономия «вечного андеркласса» по условиям жизни, агентности, возможности выхода и контролю над ИИ.
+- [[https://www.lesswrong.com/posts/9RRqT2EdysASmdRmt/a-video-by-adam-conover-and-the-a-i-distraction-narrative][A Video by Adam Conover and the "A.I. Distraction Narrative"]] (LessWrong) — Разбор и контраргументы тезису, что нарратив экзистенциального риска придуман для отвлечения от текущих вредов ИИ.
+- [[https://www.lesswrong.com/posts/adCPqbs47dsckoao9/improving-the-flow-of-interesting-things][Improving the flow of interesting things]] (LessWrong) — Предложение четырёхслойной системы матчинга знаний и возможностей между людьми — концепт, а не инженерия.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/SiWdLyjQQtBgtaLZq/red-teaming-multi-agent-attacks-for-loss-of-control-risks][Red-teaming multi-agent attacks for loss-of-control risks]]
+:SCORE: 9/10
+:WHY: Показывает, что текущий мониторинг траекторий агентов принципиально слеп к распределённым атакам — прямое влияние на дизайн oversight ваших мультиагентных систем.
+**** [[https://www.lesswrong.com/posts/q3pckKRxRXWBthbKb/glm-5-1-has-astra-level-cot-control][GLM-5.1 Has ~Astra Level CoT Control]]
+:SCORE: 9/10
+:WHY: Высокая управляемость CoT в открытых моделях подрывает базовое допущение, что chain-of-thought — надёжный канал для мониторинга.
+**** [[https://www.lesswrong.com/posts/mKJEBiuuxHKuCoTB6/gradient-routing-localizes-and-removes-unintended-behaviors][Gradient Routing Localizes and Removes Unintended Behaviors in RL]]
+:SCORE: 8/10
+:WHY: Практичный метод против reward hacking с открытым кодом — изоляция вредных обновлений в удаляемые параметры вместо гонки с монитором.
+**** [[https://www.lesswrong.com/posts/FZmEpvcdbgnRLmAKg/human-vs-ai-in-go-in-2026-lessons-for-superintelligence][Human vs AI in Go in 2026: Lessons for superintelligence?]]
+:SCORE: 8/10
+:WHY: Эмпирический повод пересмотреть «очевидные» оценки разрыва человек-ИИ, которые часто переносятся на другие домены по аналогии.
+**** [[https://www.lesswrong.com/posts/qWBJxLpnx67YLyAme/a-tourist-mathematician-s-apologia-living-in-a-human-agi][A Tourist Mathematician's Apologia: Living in a Human-AGI World]]
+:SCORE: 7/10
+:WHY: Конкретный кейс массовой автоматизации элитной интеллектуальной работы — предвестник того же давления на инженерные профессии.
+**** [[https://www.lesswrong.com/posts/Bzk4g9KvRWr8GPr6F/what-do-the-other-80-percent-mean][What do the other 80 percent mean?]]
+:SCORE: 7/10
+:WHY: Методологический аргумент: недифференцированные вероятности катастрофы скрывают сценарии, к которым стоит готовить инфраструктуру.
+**** [[https://www.lesswrong.com/posts/YxCS3snoMRGDhyrZk/how-is-prosaic-aligned-ai-supposed-to-work][How is "prosaic aligned AI" supposed to work?]]
+:SCORE: 7/10
+:WHY: Вскрывает нерешённые конфликты в целевой архитектуре «безопасного» ASI, о которых стоит думать уже при дизайне агентных систем.
+**** [[https://www.lesswrong.com/posts/7LGcCDcNrWvXpH2RP/permanent-underclass-taxonomy][Permanent underclass taxonomy]]
+:SCORE: 6/10
+:WHY: Структурированный словарь измерений для споров о пост-AGI обществе, где иначе участники говорят о разном.
+**** [[https://www.lesswrong.com/posts/9RRqT2EdysASmdRmt/a-video-by-adam-conover-and-the-a-i-distraction-narrative][A Video by Adam Conover and the "A.I. Distraction Narrative"]]
+:SCORE: 6/10
+:WHY: Готовая аргументация по спорному нарративу — полезна для взвешенной позиции в внутренних дебатах о рисках ИИ.
+**** [[https://www.lesswrong.com/posts/adCPqbs47dsckoao9/improving-the-flow-of-interesting-things][Improving the flow of interesting things]]
+:SCORE: 5/10
+:WHY: Концепт четырёхслойной дистрибуции знаний, который может подсказать идеи для внутренних discovery- и матчинг-систем.

@@ -1,0 +1,81 @@
+#+TITLE: Daily Digest: 2026-09-28
+#+FROM: [2026-09-27 Sun]
+#+TO: [2026-09-28 Mon]
+#+DATE: [2026-09-28 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия данных снова переживает ребрендинг: все продают «context layers» и «context graphs», но вечные проблемы семантики, владения и доверия не двигаются с места. На инженерном фронте — практичный сдвиг к полностью open-source MLOps-стеку (Iceberg, Feast, MLflow, Kafka/Flink), воспроизводимому локально без облака, и первые боевые паттерны встраивания LLM-суждений в пайплайны: «judgement columns» и data-агент DoorDash Vera. В интерпретируемости — знаковое опровержение: репликация на Qwen и Gemma не подтвердила гипотезу Anthropic о J-space как global workspace. Поле AI safety активно занимается самоосмыслением: карта из ~3400 работ и реестр из 58 исследовательских программ ставят вопрос о реальном распределении ресурсов. Регуляторный диссонанс фиксируется цифрами: медианное кросс-бордер GDPR-дело длится 6.2 года, а сильный AGI по прогнозам — 4.5.
+* 📂 Категории
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-289][Data Engineering Weekly #289]] (Data Engineering Weekly) — Обзор недели: реверс-инжиниринг Jev API, паттерн «judgement columns» для Airflow-пайплайнов с confidence-порогами и DoorDash Vera — data-агент, отвечающий только по vetted-таблицам с фидбеком от владельцев доменов.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-289][Data Engineering Weekly #289]]
+:SCORE: 8/10
+:WHY: Сводка даёт готовый продакшен-паттерн: типизированные LLM-ответы с порогом уверенности и маршрутизацией неуверенных случаев на более сильную модель или человека.
+** Engineers
+- [[https://jaehyeon.me/blog/2026-09-28-mlops-with-a-feature-store/][Learning MLOps with a Feature Store: A New Series]] (jaehyeon.me) — Старт серии: автор воспроизводит FTI-архитектуру (feature/training/inference) из книги Dowling на open-source стеке Iceberg + Feast + MLflow + Kafka/Flink, всё запускается локально через Docker Compose.
+- [[https://joereis.substack.com/p/this-years-better-mousetrap-new-tech][This Year’s Better Mousetrap: New Tech, Same Old Problems, and The Semantic Swamp]] (Joe Reis) — Трезвый разбор того, как индустрия данных переупаковывает одни и те же проблемы под новые лейблы — от Hadoop до «context graph» — и почему смена платформы не лечит организационную дисфункцию.
+- [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u8_references.html][Unbounded: References]] (Clojure Civitas) — Справочный список источников по экономике, богатству и налогообложению — пригодится как база для моделирования распределения богатства.
+
+*** 💎 Топ-3 категории
+**** [[https://jaehyeon.me/blog/2026-09-28-mlops-with-a-feature-store/][Learning MLOps with a Feature Store: A New Series]]
+:SCORE: 9/10
+:WHY: Полный чертёж production-ML архитектуры из трёх несвязанных пайплайнов с feature store и model registry, воспроизводимый офлайн без облака.
+**** [[https://joereis.substack.com/p/this-years-better-mousetrap-new-tech][This Year’s Better Mousetrap: New Tech, Same Old Problems, and The Semantic Swamp]]
+:SCORE: 8/10
+:WHY: Прививка от хайпа: пример «что такое клиент» показывает, что даже семантический слой не снимает вопрос, кто и в каком сценарии утверждает определения.
+**** [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u8_references.html][Unbounded: References]]
+:SCORE: 3/10
+:WHY: Лишь список литературы без анализа — полезен только если вы сами работаете над моделями распределения богатства.
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/pnDjvdo6cX2H7Ddsy/is-the-j-space-a-global-workspace-for-multi-hop-reasoning-an][Is the J-Space a global workspace for multi-hop reasoning? An investigation in open-weight models]] (LessWrong) — Репликация на Qwen3.6-27B и Gemma 3 27B-it: контрфактическая подмена ответа обгоняет подмену промежуточного шага в 3 из 4 условий — гипотеза Anthropic о J-space как global workspace не подтверждается на open-weight моделях.
+- [[https://www.lesswrong.com/posts/QhnBjr62fsmCTT4Bf/a-missing-lecture-in-mechanistic-interpretability-feature][A missing lecture in mechanistic interpretability: Feature Attribution and LRP]] (LessWrong) — Недостающая лекция по mech interp: интуиция Layer-wise Relevance Propagation, её связь с градиентами и с attribution patching / J-Lens.
+- [[https://www.lesswrong.com/posts/fqpSosGwSt3uiZq35/ai-safety-field-visual-impact-analysis][AI safety field visual impact analysis]] (LessWrong) — Интерактивный «рельеф» ~3466 работ по AI safety с кластеризацией по 18 суб-полям: alignment training и scalable oversight доминируют по цитированиям, а adversarial robustness и interpretability дают больше работ, но меньше цитат на статью.
+- [[https://www.lesswrong.com/posts/mzK2cmFquDzYTt3nr/ai-safety-agendas][AI Safety Agendas]] (LessWrong) — Запущена карта из 58 исследовательских программ против 12 ключевых проблем alignment с краудсорсингом оценок зрелости — прямой ответ на невидимое распределение ресурсов в поле.
+- [[https://www.lesswrong.com/posts/dx37BqcoZs2BCq4Ew/ireland-s-gdpr-regulator-will-still-be-investigating-when][Ireland’s GDPR regulator will still be investigating when AGI arrives]] (LessWrong) — Медианное кросс-бордер GDPR-дело тянется 6.2 года, а сильный AGI по прогнозу Metaculus — 4.5: регуляторный надзор придётся сдвигать на этап до выпуска модели.
+- [[https://www.lesswrong.com/posts/AobGnBCsheYrTDEEG/dialogue-with-eliezer-yudkowsky-on-foom][Dialogue with Eliezer Yudkowsky on FOOM]] (LessWrong) — Дословная переписка с Елизером по мотивам дебатов Hanson–Yudkowsky: локальный vs глобальный intelligence explosion и что старые аргументы предсказали о современных моделях.
+- [[https://www.lesswrong.com/posts/pqBYkzELfEYKcXESh/human-civilization-assumes-nobody-is-superhuman-until-ai-1][Human Civilization Assumes Nobody Is Superhuman. Until AI.]] (LessWrong) — Аргумент, что политика, наука и рынки построены на предпосылке конечности людей, и сверхчеловеческий AI растворяет сами игровые структуры, а не просто добавляет новые риски.
+- [[https://www.lesswrong.com/posts/X9SeoYXCXSx4domNv/why-did-it-get-sparser][Why did it get Sparser?]] (LessWrong) — Автор пытается индуцировать полисемантичность, сделав bias адаптивным (Flexbias), и вместо этого получает более разреженную сеть — сырой, но показательный small-scale эксперимент.
+- [[https://www.lesswrong.com/posts/beo5nvfkQ5eRXKiBz/could-self-esteem-function-as-a-core-protection-layer-agains][Could self-esteem function as a core protection layer agains character corruption?]] (LessWrong) — Спекулятивная гипотеза: поддержание «самооценки» модели как встроенный защитный слой от corruption персонажа по аналогии с терапевтической теорией ван Зессена.
+- [[https://www.lesswrong.com/posts/HRer49BxWNdZZaGnS/overcoming-a-rare-brain-disease-5-years-of-caspr2-autoimmune][Overcoming a rare brain disease: 5 years of CASPR2 autoimmune encephalitis]] (LessWrong) — N=1 история пяти лет борьбы с CASPR2-энцефалитом: от ошибочных диагнозов до работающей комбинации церебролизина, донепезила, диеты и HIIT.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/pnDjvdo6cX2H7Ddsy/is-the-j-space-a-global-workspace-for-multi-hop-reasoning-an][Is the J-Space a global workspace for multi-hop reasoning? An investigation in open-weight models]]
+:SCORE: 9/10
+:WHY: Проверяемое опровержение ключевой гипотезы Anthropic с готовыми датасетами и условиями — критично для всех, кто строит tooling поверх J-lens.
+**** [[https://www.lesswrong.com/posts/QhnBjr62fsmCTT4Bf/a-missing-lecture-in-mechanistic-interpretability-feature][A missing lecture in mechanistic interpretability: Feature Attribution and LRP]]
+:SCORE: 8/10
+:WHY: Концентрат академических знаний, которых нет в курсах mech interp, напрямую применимый к attribution patching и J-Lens.
+**** [[https://www.lesswrong.com/posts/fqpSosGwSt3uiZq35/ai-safety-field-visual-impact-analysis][AI safety field visual impact analysis]]
+:SCORE: 7/10
+:WHY: Единственная карта поля с фильтрами по авторам и времени — быстро показывает, где реальная плотность работ, а где только взаимное цитирование.
+**** [[https://www.lesswrong.com/posts/mzK2cmFquDzYTt3nr/ai-safety-agendas][AI Safety Agendas]]
+:SCORE: 7/10
+:WHY: Практичный реестр 58 исследовательских программ с оценками зрелости — помогает выбрать, куда реально вкладывать усилия.
+**** [[https://www.lesswrong.com/posts/dx37BqcoZs2BCq4Ew/ireland-s-gdpr-regulator-will-still-be-investigating-when][Ireland’s GDPR regulator will still be investigating when AGI arrives]]
+:SCORE: 7/10
+:WHY: Численно доказывает, что compliance-циклы по AI Act не поспевают за циклом релизов — прямое влияние на продуктовую и юридическую стратегию.
+**** [[https://www.lesswrong.com/posts/AobGnBCsheYrTDEEG/dialogue-with-eliezer-yudkowsky-on-foom][Dialogue with Eliezer Yudkowsky on FOOM]]
+:SCORE: 6/10
+:WHY: Спор о скачках через архитектуру vs контент неожиданно релевантен сегодняшним рассуждениям о scaling и RL — первоисточник в сжатом виде.
+**** [[https://www.lesswrong.com/posts/pqBYkzELfEYKcXESh/human-civilization-assumes-nobody-is-superhuman-until-ai-1][Human Civilization Assumes Nobody Is Superhuman. Until AI.]]
+:SCORE: 6/10
+:WHY: Сдвигает рамку AI-риска с misalignment на растворение игровых структур — полезная линза для проектирования систем контроля.
+**** [[https://www.lesswrong.com/posts/X9SeoYXCXSx4domNv/why-did-it-get-sparser][Why did it get Sparser?]]
+:SCORE: 5/10
+:WHY: Ранний эксперимент о связи полисемантичности и плотности сети — источник идей для собственных мини-исследований.
+**** [[https://www.lesswrong.com/posts/beo5nvfkQ5eRXKiBz/could-self-esteem-function-as-a-core-protection-layer-agains][Could self-esteem function as a core protection layer agains character corruption?]]
+:SCORE: 4/10
+:WHY: Спекулятивно, но даёт нестандартную тестируемую гипотезу о стабильности персонажа модели.
+**** [[https://www.lesswrong.com/posts/HRer49BxWNdZZaGnS/overcoming-a-rare-brain-disease-5-years-of-caspr2-autoimmune][Overcoming a rare brain disease: 5 years of CASPR2 autoimmune encephalitis]]
+:SCORE: 3/10
+:WHY: Вне инженерных тем, но образцовый пример того, как системный человек документирует собственное здоровье и работу с врачами.
+** Non Engineering
+- [[https://peterturchin.substack.com/p/what-came-first-in-human-evolution][What Came First in Human Evolution: Intelligence or Culture?]] (Peter Turchin) — Разбор зеркальных последовательностей Харари (интеллект→культура) и культурных эволюционистов (культура→интеллект) с указанием на книгу Хенрича The Secret of Our Success.
+
+*** 💎 Топ-3 категории
+**** [[https://peterturchin.substack.com/p/what-came-first-in-human-evolution][What Came First in Human Evolution: Intelligence or Culture?]]
+:SCORE: 5/10
+:WHY: Тренирует умение распознавать зеркальные причинные нарративы в любых технических дебатах — навык переносимый далеко за пределы эволюционной теории.

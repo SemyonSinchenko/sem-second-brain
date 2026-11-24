@@ -1,0 +1,33 @@
+* Scala
+** JSON Encoder
+
+https://github.com/kubuszok/kindlings
+
+* Social
+** BlueSky
+
+https://eurosky.tech/accounts/
+
+** Liberty & Economics
+*** https://www.pnas.org/doi/10.1073/pnas.2320788122
+"Lost opportunities: How gendered arrangements harm men"
+
+
+Traditional gendered arrangements—norms, roles, prejudices, and hierarchies—shape every human life. Associated harms are primarily framed as women’s issues due to more severe consequences women face. Yet, gendered arrangements also shape men’s relationships, career paths, and health. Current work on gender equity overlooks men’s perspectives. Despite benefits they gain from out-ranking women, men’s position paradoxically entraps them in restrictive roles, compelling them to prioritize dominance. An inclusive framework challenges prevailing narratives by considering personal costs borne by men. Identifying with a man’s traditional role is a mixed privilege, as five gendered arrangements show for men who subscribe to them: 1. Masculine norms can restrict men’s choices and are associated with adverse health trajectories; 2. Some men’s disengagement from communal roles denies them positive outcomes associated with caring for others; 3. Hostile sexism fosters antipathy, fueling tension in some men’s interactions with women; 4. Benevolent sexism forces some men into scripted interactions, preventing genuine connections and burdening them with unrealistic breadwinner and protector roles; 5. Societal shifts in gender hierarchies can elicit threat responses in men, depending on intersections with social class and racial identities. Understanding costs to men calls for more empirical research. Gender equity for men, whose circumstances differ from those of women, would enable men to make informed choices and achieve better outcomes for themselves—paralleling the progress women have made in many areas of life. Striving for equity for all genders can ultimately enhance overall human well-being.
+*** https://charlieangus.substack.com/p/the-lost-boys-of-the-online-right
+"The Lost Boys of the Online Right"
+* Privacy
+** https://www.androidauthority.com/google-recaptcha-play-services-requirement-3664806/
+
+reCAPTCHA requires GMS
+
+* Spark
+* SDD
+** https://martinfowler.com/articles/structured-prompt-driven/
+* Shitposting
+** https://playboy.substack.com/p/this-bond-girl-posed-for-playboy   :lgbtqp:
+* Tools
+** Multimedia
+*** [[https://thereallo.dev/blog/converting-gifs-properly][Making GIF from video, BlogPost]] :linux:multimedia:
+** Development
+*** [[https://github.com/jnsahaj/lumen][Git diff / PR review TUI]] :linux:dev:git:

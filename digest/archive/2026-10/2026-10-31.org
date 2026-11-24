@@ -1,0 +1,127 @@
+#+TITLE: Daily Digest: 2026-10-31
+#+FROM: [2026-10-30 Fri]
+#+TO: [2026-10-31 Sat]
+#+DATE: [2026-10-31 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Крупные вендоры (Microsoft, Databricks, Neo4j, AWS) синхронно сфокусировались наenterprise-оценке и внедрении AI: синтетические данные для тестирования Copilot, графовая аналитика для антифрода, интеграция SAP с Databricks. AWS делает ставку на операционную зрелость агентных нагрузок — от FinOps-плейбука по расходам Bedrock до live-превью веб-приложений в AgentCore. В индустрии найма происходит знаковый сдвиг: Anthropic полностью убрал coding-интервью, а Amazon формально включил использование AI в ожидания от SDE. Для инженеров на переднем крае — собственный лёгкий coding harness Prospero как контрпример раздутым веб-стекам. В исследованиях выравнивания появляется новый класс работ: структурный анализ «персональных» весов моделей и обсуждение верифицируемого международного контроля над AI.
+
+* 📂 Категории
+
+** Data Engineering
+- [[https://www.kdnuggets.com/silent-data-errors-that-survive-every-cleaning-pipeline][Silent Data Errors That Survive Every Cleaning Pipeline]] (KDnuggets) — разбор четырёх классов багов, которые проходят все проверки на null, дубликаты и схему; полезно для аудита ваших пайплайнов.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/silent-data-errors-that-survive-every-cleaning-pipeline][Silent Data Errors That Survive Every Cleaning Pipeline]]
+:SCORE: 7/10
+:WHY: Тихие ошибки данных — самый дорогой класс багов; категоризация помогает построить проверки, которых нет в стандартных тестах.
+
+** Engineers
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding][The Pulse: Anthropic kills the coding interview]] (Pragmatic Engineer) — Anthropic отказался от DSA-интервью из-за нулевого сигнала, Amazon включил AI-использование в ожидания SDE, а incident.io срезал AI-расходы с $4 500 до $1 600 на разработчика в месяц.
+- [[https://nullprogram.com/blog/2026/10/31/][Prospero: a new coding harness for a more civilized age]] (nullprogram) — авторский coding harness на C++/Dear ImGui, потребляющий на два порядка меньше ресурсов веб-аналогов, с поддержкой headless-агентов и desktop-управления.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding][The Pulse: Anthropic kills the coding interview]]
+:SCORE: 8/10
+:WHY: Прямой сигнал о крахе традиционного найма и реальных AI-бюджетов в компаниях — критично для планирования команды и карьеры.
+
+**** [[https://nullprogram.com/blog/2026/10/31/][Prospero: a new coding harness for a more civilized age]]
+:SCORE: 7/10
+:WHY: Показывает, что агентный harness — это по сути curl + popen(), и задаёт ориентир по ресурсоэффективности для локальных LLM-воркфлоу.
+
+** Vendors
+- [[https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/][From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence]] (Microsoft Research) — описание платформы генерации синтетических enterprise-сред для оценки Copilot без доступа к реальным данным клиентов.
+- [[https://neo4j.com/blog/government/intelligence-tradecraft-the-analysis-room/][Why we're opening the Analysis Room]] (Neo4j) — новая платформа дискуссий о разведывательном анализе и границах автоматизации с AI.
+- [[https://neo4j.com/blog/graph-database/unmasking-fraud-neo4j-in-microsoft-fabric/][Unmasking fraud networks: How graph-grounded Copilots stop P2P fraud in Microsoft Fabric]] (Neo4j) — кейс, почему SQL-join'ы проваливаются на мультихоповом антифроде и как граф поверх Fabric в OneLake решает проблему.
+- [[https://www.databricks.com/blog/databricks-and-sap-unleash-end-end-data-ai-capabilities-level-enterprise-ai-transformation][Databricks and SAP unleash end-to-end data & AI capabilities]] (Databricks) — интеграция Databricks с SAP для сквозных data+AI-пайплайнов в enterprise.
+- [[https://www.databricks.com/blog/wealth-management-client-onboarding-needs-more-ai][Wealth Management Client Onboarding Needs More Than AI]] (Databricks) — почему онбординг клиентов в wealth management буксует даже при работающих системах и AI.
+- [[https://www.databricks.com/blog/deliberate-decisions-and-enterprise-ai-value][Deliberate decisions and enterprise AI value]] (Databricks) — рамка для превращения экспериментов с AI в измеримую enterprise-ценность.
+
+*** 💎 Топ-3 категории
+**** [[https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/][From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence]]
+:SCORE: 9/10
+:WHY: Рецепт построения синтетических enterprise-окружений для eval'ов AI — воспроизводимая методология, применимая к любому продукту с чувствительными данными.
+
+**** [[https://neo4j.com/blog/graph-database/unmasking-fraud-neo4j-in-microsoft-fabric/][Unmasking fraud networks: How graph-grounded Copilots stop P2P fraud in Microsoft Fabric]]
+:SCORE: 8/10
+:WHY: Наглядная архитектурная демонстрация, где реляционные join'ы ломаются на связях в несколько хопов, и рабочее решение через графы.
+
+**** [[https://www.databricks.com/blog/databricks-and-sap-unleash-end-end-data-ai-capabilities-level-enterprise-ai-transformation][Databricks and SAP unleash end-to-end data & AI capabilities]]
+:SCORE: 7/10
+:WHY: Слияние систем записи (SAP) и аналитической платформы задаёт шаблон enterprise AI transformation, который затронет большинство крупных компаний.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/vibe-coding-a-classic-game-building-breakout-step-by-step-with-an-ai-assistant][Vibe Coding a Classic Game: Building Breakout Step by Step with an AI Assistant]] (KDnuggets) — пошаговый туториал по vibe coding: описание на естественном языке, генерация и итерации силами AI-агента.
+- [[https://huggingface.co/blog/nvidia/nemotron-halloween][nemotron-halloween]] (Hugging Face) — релиз NVIDIA Nemotron на Hugging Face Hub.
+- [[https://aws.amazon.com/blogs/machine-learning/managing-amazon-bedrock-costs-end-to-end-a-playbook-for-finops-and-platform-teams/][Managing Amazon Bedrock costs end to end: A playbook for FinOps and platform teams]] (AWS Machine Learning) — пятиступенчатая операционная модель: атрибуция, наблюдаемость, бюджеты, оптимизация дефолтов и регулярный review.
+- [[https://aws.amazon.com/blogs/machine-learning/preview-web-apps-live-as-your-coding-agent-builds-them-with-amazon-bedrock-agentcore-runtime/][Preview web apps live as your coding agent builds them with Amazon Bedrock AgentCore runtime]] (AWS Machine Learning) — Session Endpoints дают аутентифицированный URL на живое приложение внутри изолированного microVM агента.
+- [[https://aws.amazon.com/blogs/machine-learning/how-worldwide-express-automated-freight-exceptions-with-amazon-bedrock/][How Worldwide Express automated freight exceptions with Amazon Bedrock]] (AWS Machine Learning) — кейс multi-agent решения: -75% активных исключений, +$10M свободного денежного потока за 6 месяцев.
+- [[https://aws.amazon.com/blogs/machine-learning/configure-the-chatgpt-desktop-app-with-amazon-bedrock-in-aws-govcloud-us/][Configure the ChatGPT desktop app with Amazon Bedrock in AWS GovCloud (US)]] (AWS Machine Learning) — настройка Codex и ChatGPT desktop с маршрутизацией через Bedrock в GovCloud и zero data retention.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/managing-amazon-bedrock-costs-end-to-end-a-playbook-for-finops-and-platform-teams/][Managing Amazon Bedrock costs end to end: A playbook for FinOps and platform teams]]
+:SCORE: 9/10
+:WHY: Первая системная рамка для контроля расходов на агентные нагрузки, где потребление токенов растёт с автономностью, а не с числом пользователей.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/preview-web-apps-live-as-your-coding-agent-builds-them-with-amazon-bedrock-agentcore-runtime/][Preview web apps live as your coding agent builds them with Amazon Bedrock AgentCore runtime]]
+:SCORE: 8/10
+:WHY: Практичный паттерн для developer experience агентной разработки: live-превью в браузере без деплоя на каждую итерацию.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/how-worldwide-express-automated-freight-exceptions-with-amazon-bedrock/][How Worldwide Express automated freight exceptions with Amazon Bedrock]]
+:SCORE: 7/10
+:WHY: Редкий кейс с прозрачными бизнес-метриками multi-agent внедрения — полезен для обоснования ROI перед менеджментом.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/iErBZ5fomL4tyyHy6/persona-geology-underlying-structure-in-character-training][Persona Geology: Underlying Structure in Character Training Adapters]] (LessWrong) — зоопарк из 134 personality-LoRA на Qwen3.5-4B раскладывается на пять факторов, напоминающих Big Five, с метрикой CharIn для предсказания сдвига персоны до обучения.
+- [[https://www.lesswrong.com/posts/pc38q4fMMpGdsFaRv/the-advocacy-gap-in-international-ai-verification][The Advocacy Gap in International AI Verification]] (LessWrong) — аргумент, что верификация международного соглашения о темпах развития frontier AI технически осуществима по аналогии с ядерными договорами.
+- [[https://www.lesswrong.com/posts/oL7aFoRmRXGwEMhCm/microdosing-the-spirit-of-anthropic][Microdosing the spirit of Anthropic]] (LessWrong) — метафора «микродозирования» эпистемического состояния сотрудников AI-лабораторий: разумные убеждения по отдельности, но систематически смещённые в пользу организации.
+- [[https://www.lesswrong.com/posts/s4z629mkjFtQCY654/reviewing-my-2017-ai-risk-project][Reviewing my 2017 AI Risk Project]] (LessWrong) — ретроспектива прогнозов 2017 года об AI-рисках: масштабирование действительно оказалось главным путём к AGI.
+- [[https://www.lesswrong.com/posts/ZQas8Jk42RSkzrNF3/could-a-first-mover-lock-everyone-out-of-outer-space][Could a first mover lock everyone out of outer space?]] (Forethought / LessWrong) — количественная оценка soft и hard lock-out в космосе как механизма закрепления решающего стратегического преимущества после intelligence explosion.
+- [[https://www.lesswrong.com/posts/mCK6T7wyks3kL3kyB/dice-enterprises-as-imperfect-recall-games][Dice enterprises as imperfect-recall games]] (LessWrong) — препринт по теории вероятностей: dice enterprises и полиномиальная аппроксимация как модели игр с несовершенной памятью.
+- [[https://www.lesswrong.com/posts/NCpEMknDtRbyCGL5B/john-holt-s-escape-from-childhood-summary][John Holt's Escape from Childhood: Summary]] (LessWrong) — конспект книги Холта о детстве как социальном институте, лишающем детей базовых прав.
+- [[https://www.lesswrong.com/posts/2STd6qthbJS6fqxBr/childhood-and-education-22-voice-without-exit][Childhood and Education #22: Voice Without Exit]] (LessWrong) — разбор кейса PS 307 из New York Times как иллюстрации провала «голоса» без «выхода» в образовании.
+- [[https://www.lesswrong.com/posts/D5LtSMzz2sCrBNJFn/the-three-nothings-of-existence][The Three Nothings of Existence]] (LessWrong) — переформулировка трёх характеристик существования (непостоянство, неудовлетворённость, несамостийность) как практических указателей, а не метафизики.
+- [[https://www.lesswrong.com/posts/d9XXgp8H9whdtRLTR/low-volume-cymbals-are-underrated][Low-volume cymbals are underrated]] (LessWrong) — эссе барабанщика о том, почему low-volume тарелки — практичное решение для рок-сцены, вопреки общепринятому мнению.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/iErBZ5fomL4tyyHy6/persona-geology-underlying-structure-in-character-training][Persona Geology: Underlying Structure in Character Training Adapters]]
+:SCORE: 8/10
+:WHY: Эмпирическое доказательство низкоразмерной структуры «персоны» в весах модели — прямой вклад в интерпретируемость и выравнивание.
+
+**** [[https://www.lesswrong.com/posts/pc38q4fMMpGdsFaRv/the-advocacy-gap-in-international-ai-verification][The Advocacy Gap in International AI Verification]]
+:SCORE: 7/10
+:WHY: Систематизирует технически осуществимые механизмы верификации AI-соглашений — ключевой пробел в политических дебатах о регулировании frontier AI.
+
+**** [[https://www.lesswrong.com/posts/oL7aFoRmRXGwEMhCm/microdosing-the-spirit-of-anthropic][Microdosing the spirit of Anthropic]]
+:SCORE: 7/10
+:WHY: Трезвая рамка для калибровки доверия к заявлениям инсайдеров AI-лабораторий — важный навык при чтении любых анонсов и прогнозов.
+
+**** [[https://www.lesswrong.com/posts/s4z629mkjFtQCY654/reviewing-my-2017-ai-risk-project][Reviewing my 2017 AI Risk Project]]
+:SCORE: 6/10
+:WHY: Редкая честная ретроспектива прогнозов: масштабирование текущих подходов подтвердилось, что поучительно для калибровки собственных предсказаний.
+
+**** [[https://www.lesswrong.com/posts/ZQas8Jk42RSkzrNF3/could-a-first-mover-lock-everyone-out-of-outer-space][Could a first mover lock everyone out of outer space?]]
+:SCORE: 6/10
+:WHY: Количественный анализ ($49–73B soft lock-out, $150–390B hard) сценариев захвата космоса после intelligence explosion — свежий ракурс AI-рисков.
+
+**** [[https://www.lesswrong.com/posts/mCK6T7wyks3kL3kyB/dice-enterprises-as-imperfect-recall-games][Dice enterprises as imperfect-recall games]]
+:SCORE: 5/10
+:WHY: Математически строгий подход к моделированию систем с несовершенной памятью — нишевый, но потенциально полезный инструмент для рассуждений об агентных системах.
+
+**** [[https://www.lesswrong.com/posts/NCpEMknDtRbyCGL5B/john-holt-s-escape-from-childhood-summary][John Holt's Escape from Childhood: Summary]]
+:SCORE: 4/10
+:WHY: Подробный конспект провокационной книги о правах детей — полезен для широкого кругозора, но вне инженерной практики.
+
+**** [[https://www.lesswrong.com/posts/2STd6qthbJS6fqxBr/childhood-and-education-22-voice-without-exit][Childhood and Education #22: Voice Without Exit]]
+:SCORE: 4/10
+:WHY: Сильный кейс-стади о провале институциональных реформ, применимый как метафора к организационным проблемам в технологических компаниях.
+
+**** [[https://www.lesswrong.com/posts/D5LtSMzz2sCrBNJFn/the-three-nothings-of-existence][The Three Nothings of Existence]]
+:SCORE: 3/10
+:WHY: Элегантная переформулировка буддийских трёх характеристик — ценна для личной рефлексии, но не для технической работы.
+
+**** [[https://www.lesswrong.com/posts/d9XXgp8H9whdtRLTR/low-volume-cymbals-are-underrated][Low-volume cymbals are underrated]]
+:SCORE: 2/10
+:WHY: Занимательное эссе о противодействии морализаторству в ремесленных сообществах — приятное чтение без прямой инженерной ценности.

@@ -1,0 +1,128 @@
+#+TITLE: Arxiv Digest: 2026-08-19
+#+FROM: [2026-08-18 Tue]
+#+TO: [2026-08-19 Wed]
+#+DATE: [2026-08-19 Wed]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+Наблюдается сближение теоретических гарантий структурной декомпозиции с практическими задачами оптимизации запросов. Мета-декомпозиции позволяют эффективно перебирать деревья соединений без явной枚举ции, что ускоряет планирование на порядки. Параллельно развивается использование LLM для генерации метаданных таблиц, что улучшает поиск и NL2SQL трансляцию за счет обратной связи от retrieval-систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.17171][Polaris: Learning to Generate Table Descriptions from Retrieval Feedback]]
+:WHAT: Система обучения LLM генерировать описания таблиц на основе_feedback_ от поиска (BM25).
+:IMPACT: Улучшает релевантность поиска таблиц в больших коллекциях, превосходя state-of-the-art решения.
+- [[hxxps://arxiv.org/abs/2605.12319][Data-aware candidate selection in NL2SQL translation via small separating instances]]
+:WHAT: Метод выбора кандидатов для NL2SQL на основе разделяющих экземпляров и происхождения данных.
+:IMPACT: Значительно повышает точность трансляции при ограниченном числе кандидатов без оценки согласованности.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.15465][Succinct Structure Representations for Efficient Query Optimization]]
+:ALGO: Введение мета-декомпозиций для ациклических запросов, сжато представляющих все деревья соединений.
+:IMPACT: Позволяет строить оптимизаторы на основе стоимости за полиномиальное время с гарантиями качества плана.
+- [[hxxps://arxiv.org/abs/2608.17853][Rerootable Hypertree Decompositions]]
+:ALGO: Исследование перекорневости (rerootability) в гипердеревьях и расслабленной нормальной формы.
+:IMPACT: Делает теоретические декомпозиции более пригодными для практики за счет умеренного увеличения ширины.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.14957][Best Reaction Target To Determine Proton Distribution Radii of Atomic Nuclei]] — физическое исследование ядерных реакций (ошибочно классифицировано как cs.DB).
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основные тренды сосредоточены на отказоустойчивости систем обучения LLM-агентов и стабильности облачных микросервисов. Протоколы консенсуса эволюционируют в сторону DAG-структур с быстрым путем commits (2 сообщения). Критической проблемой становится управление retry-штормами и верификация сгенерированных GPU-ядер.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2511.23278][RetryGuard: Preventing Self-Inflicted and Attack-Driven Retry Storms in Cloud Applications]]
+:WHAT: Распределенный фреймворк контроля политик повторных попыток для микросервисов.
+:IMPACT: Снижает размер штормов на 98% и уменьшает пиковое количество реплик в 3 раза в Kubernetes.
+- [[hxxps://arxiv.org/abs/2608.14635][Belayer: Efficient Fault Tolerance for LLM Agentic RL Training]]
+:WHAT: Система отказоустойчивости для RL-обучения агентов с сохранением состояния окружения и GPU.
+:IMPACT: Ускоряет восстановление после сбоев workers до 42 раз, сохраняя консистентность контекста LLM.
+- [[hxxps://arxiv.org/abs/2608.12700][A Contract-Grade Verifier for LLM-Generated GPU Kernels, and a Native Blackwell Backward for the Gated-Linear-Recurrence Family]]
+:WHAT: Верификатор из 12 adversarial gates для проверки ядер GPU и реализация backward для GDN.
+:IMPACT: Выявляет 39.5% ошибочных ядер, пропущенных стандартными тестами, обеспечивая надежность генерации.
+- [[hxxps://arxiv.org/abs/2608.16940][QSimAdv: A Late-Bound, Vendor-Agnostic Architecture for High-Performance Quantum-Circuit Simulation]]
+:WHAT: Архитектура симуляции квантовых цепей с поздним связыванием (late binding) для разных бэкендов.
+:IMPACT: Обеспечивает переносимость и производительность на GPU/CPU кластерах без потери нативной скорости.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.26292][FinWhale: An Optimally Resilient Two-Round Terminating DAG Protocol]]
+:ALGO: Протокол BFT на основе DAG с быстрым путем коммита за два сообщения.
+:IMPACT: Достигает оптимальной задержки в частично синхронной модели, интегрируя быстрый путь в uncertified DAG.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.12935][Predictions Can Only Help! Communication Efficient Byzantine Agreement with Predictions]] — эффективный по коммуникациям византийский консенсус с предсказаниями (~O(n^2)).
+- [[hxxps://arxiv.org/abs/2504.04046][Obfuscated Consensus]] — анализ невозможности консенсуса и обфусцированные протоколы для shared memory.
+- [[hxxps://arxiv.org/abs/2512.19326][Simulations between Strongly Sublinear MPC and Node-Capacitated Clique]] — симуляции между моделями MPC и NCC в сублинейном режиме.
+- [[hxxps://arxiv.org/abs/2607.01209][All-out Attack: Optimal Block Withholding Under Pay-Per-Share Scheme]] — анализ атак удержания блоков в майнинговых пулах PPS.
+- [[hxxps://arxiv.org/abs/2608.03473][Certified Split Points for Parallel Lexing: Exact and Modulo Discarded Tokens]] — условия для параллельного лексического анализа без специляции.
+- [[hxxps://arxiv.org/abs/2602.16222][Near-optimal population protocols on bounded-degree trees]] — протоколы популяции для деревьев с константной памятью.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Развиваются алгоритмы для потоковых данных с ограниченной частотой и аппроксимации кратчайших путей в взвешенных графах. Важным направлением остается оценка расходимости (discrepancy) систем путей для задач дифференциальной приватности. Предложены новые структуры для индексации повторяющихся строк с учетом контекста.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.13126][Unlocking Fractional Moments in Delphic Set Streams]]
+:WHAT: Алгоритмы оценки моментов F_k для потоков множеств Delphic с ограниченной частотой.
+:IMPACT: Первые однопроходные алгоритмы с полилогарифмической памятью для практически релевантных режимов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2401.15781][The Discrepancy of Shortest Paths]]
+:ALGO: Улучшение верхних и нижних оценок наследственной расходимости для систем кратчайших путей.
+:IMPACT: Ужесточает границы ошибок для дифференциально-приватных расстояний и range queries.
+- [[hxxps://arxiv.org/abs/2509.04640][Additive, Near-Additive, and Multiplicative Approximations for APSP in Weighted Undirected Graphs: Trade-offs and Algorithms]]
+:ALGO: Новые алгоритмы аппроксимации APSP с аддитивными и мультипликативными ошибками для плотных графов.
+:IMPACT: Улучшает время выполнения и обходит условные нижние границы за счет аддитивных членов.
+- [[hxxps://arxiv.org/abs/2010.07076][Contextual Pattern Matching]]
+:ALGO: Задача контекстного поиска паттернов в повторяющихся коллекциях строк.
+:IMPACT: Эффективное использование пространства, зависящего от повторяемости текста, для поиска уникальных вхождений.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2410.11090][The Lanczos algorithm for matrix functions: a handbook for scientists]] — руководство по алгоритму Ланцоша для функций матриц.
+- [[hxxps://arxiv.org/abs/2509.19914][Stealing From the Dragon's Hoard: Online Unbounded Knapsack With Removal]] — онлайн-задача о рюкзаке с возможностью удаления предметов.
+- [[hxxps://arxiv.org/abs/2511.02725][Mixing of general biased adjacent transposition chains]] — анализ времени смешивания для цепей перестановок.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования фокусируются на анализе крупномасштабных исторических и социальных сетей с использованием графовых моделей. Ведется дискуссия о выразительности обычных графов против гиперграфов для моделирования взаимодействий высшего порядка. Применяются методы статистической физики для объяснения поведения выбора и формирования мнений.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.16937][Graphs are maximally expressive for higher-order interactions]]
+:ALGO: Доказательство того, что графовые модели полно выражают взаимодействия высшего порядка без гиперграфов.
+:IMPACT: Унифицирует основу для моделирования систем, ставя под сомнение необходимость гиперграфовых формулировок.
+- [[hxxps://arxiv.org/abs/2608.17915][Computational Prosopography across a Millennium: Mathematically Oriented Lineages Traced from the Fields Medalists]]
+:ALGO: Реконструкция сети наставник-студент за 9 веков на основе 470k утверждений.
+:IMPACT: Выявление структурных паттернов (песочные часы, сходимость) в истории науки через анализ путей.
+- [[hxxps://arxiv.org/abs/2608.17968][Simplicial closure fragments the explosive cooperation transitions in higher-order public goods games]]
+:ALGO: Анализ влияния симплициального замыкания на переходы кооперации в играх общественных благ.
+:IMPACT: Показывает фрагментацию бистабильности в симплициальных комплексах по сравнению с гиперграфами.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2412.12721][Information, entropy and the paradox of choice: A model for understanding human choice behavior]] — модель выбора на основе относительной энтропии.
+- [[hxxps://arxiv.org/abs/2601.04074][Multi-Dimensional Opinion Formation]] — кинетическое уравнение для многомерной динамики мнений.
+- [[hxxps://arxiv.org/abs/2604.23582][Asynchronous Barter, Periodic Reconciliation: Evidence for a Scale-Free Commercial Network in the Indus Valley Civilization]] — анализ торговой сети цивилизации Инда.
+- [[hxxps://arxiv.org/abs/2608.16895][Orphan risks at the frontier of artificial intelligence: What diverging safety and compliance frameworks reveal about how AI companies choose the risks they prioritize]] — анализ выбора рисков компаниями ИИ.
+- [[hxxps://arxiv.org/abs/2608.17312][Reputation and institutional certification as complementary trust mechanisms in a single online market]] — взаимодействие репутации и сертификации на eBay.
+- [[hxxps://arxiv.org/abs/2608.17511][Conditional-path Monte Carlo for rare stochastic dynamics on networks: Details and derivations]] — метод Монте-Карло для редких событий в сетях (эпидемии, сбои).
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Внимание смещается на оптимизацию обучения трансформеров и эффективное встраивание исходного кода без дообучения. Графовая аналитика используется для оценки средних расстояний в больших сетях с ограниченной памятью. Критикуются стандартные протоколы человеческой оценки NLG систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2409.14644][LSem2Vec: A Simple yet Effective Two-Stage Approach for Source Code Embedding]]
+:WHAT: Двухэтапный подход к встраиванию кода через извлечение семантики LLM и sentence embedding.
+:IMPACT: Эффективное решение для клонирования и кластеризации кода без task-specific fine-tuning.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.16916][Average Distance Approximation for Static Large Graphs]]
+:ALGO: Оценка средних расстояний через landmark-методы (SEF, Eppstein-Wang) и сэмплирование.
+:IMPACT: Скалируемое решение для графовой аналитики с ошибкой до 0.02% на больших статических графах.
+- [[hxxps://arxiv.org/abs/2502.00213][Gradient Heterogeneity Complements Hessian Heterogeneity in Transformer Optimization]]
+:ALGO: Анализ гетерогенности градиентов и Гессиана в оптимизации трансформеров (SGD vs Adam).
+:IMPACT: Теоретическое объяснение преимуществ адаптивных оптимизаторов и влияния слой-нормализации.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2205.11930][The Authenticity Gap in Human Evaluation]] — критика стандартных протоколов оценки NLG и предложение SPA.
+- [[hxxps://arxiv.org/abs/2501.06286][Bactrainus: Optimizing Large Language Models for Multi-hop Complex Question Answering Tasks]] — модульный фреймворк selector-reader для multi-hop QA.

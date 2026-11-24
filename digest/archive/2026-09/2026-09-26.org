@@ -1,0 +1,113 @@
+#+TITLE: Daily Digest: 2026-09-26
+#+FROM: [2026-09-25 Fri]
+#+TO: [2026-09-26 Sat]
+#+DATE: [2026-09-26 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Тема дня — инфраструктура RL-пост-тренинга: MoE-модели с GRPO масштабируют на EKS через EFA и DeepEP (+40% throughput) и на HyperPod через SkyRL с чекпоинтами и авторекавери узлов. Продакшн-инженерия LLM зреет: NarrateAI на Bedrock показывает пять координированных техник QA с ~99% числовой точности при стриминге, а Qwen3-TTS выводит клонирование голоса в управляемый self-hosted эндпоинт. AWS последовательно продвигает принцип «данные не едут к вычислениям»: CDC из PostgreSQL в S3 на Fargate разворачивается одним CloudFormation-стеком, а кросс-региональный тренинг поверх Qumulo обходится без копирования петабайт. В AI safety центр тяжести сместился к институтам и доказательствам: опрос 1580 исследователей даёт в среднем 18% вероятность катастрофы, а «spurious probes» позволяют читать внутреннее состояние модели чёрным ящиком, устойчивым к маскировке.
+
+* 📂 Категории
+** Data Engineering
+- [[https://aws.amazon.com/blogs/database/how-to-stream-postgresql-changes-to-amazon-s3-with-aws-fargate/][How to stream PostgreSQL changes to Amazon S3 with AWS Fargate]] (AWS Database Blog) — Готовый CDC-конвейер одним CloudFormation-стеком: Fargate-ридер репликационного слота PostgreSQL, буферизация EventBridge/SQS с DLQ и партиционированный JSON в S3 под Athena, полностью внутри приватных подсетей.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/how-to-stream-postgresql-changes-to-amazon-s3-with-aws-fargate/][How to stream PostgreSQL changes to Amazon S3 with AWS Fargate]]
+:SCORE: 9/10
+:WHY: Чётко объясняет, почему для постоянного соединения с replication slot нужен именно Fargate (Lambda MicroVM засыпает и рвёт стрим WAL), и даёт полную архитектуру с DLQ — экономит дни проектирования CDC.
+
+** Engineers
+- [[https://www.kdnuggets.com/7-advanced-python-tricks-to-level-up-your-coding-skills][7 Advanced Python Tricks to Level Up Your Coding Skills]] (KDnuggets) — Разбор приёмов на уже существующих возможностях языка, а не новом синтаксисе — компактный чек-лист для код-ревью и рефакторинга.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/7-advanced-python-tricks-to-level-up-your-coding-skills][7 Advanced Python Tricks to Level Up Your Coding Skills]]
+:SCORE: 7/10
+:WHY: Семь конкретных приёмов стандартного Python, которые переносятся в продакшн-код без новых зависимостей.
+
+** Vendors
+- [[https://www.databricks.com/blog/data-dialogue-how-sp-global-energy-made-its-structured-data-estate-conversational-databricks][From Data to Dialogue: How S&P Global Energy Made Its Structured Data Estate Conversational with Databricks Genie Agents and MCP]] (Databricks) — Кейс превращения корпоративного хранилища структурированных данных в диалоговый интерфейс через Genie-агентов и MCP — референс для агентного доступа к данным.
+- [[https://aws.amazon.com/blogs/machine-learning/how-datacor-built-self-service-rental-analytics-with-amazon-quick-sight/][How Datacor built self-service rental analytics with Amazon Quick Sight]] (AWS Machine Learning Blog) — Паттерн embedded-аналитики с natural-language-поиском и кросс-облачным пайплайном, убравший IT-билетты из цикла тарифных решений.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/data-dialogue-how-sp-global-energy-made-its-structured-data-estate-conversational-databricks][From Data to Dialogue: How S&P Global Energy Made Its Structured Data Estate Conversational with Databricks Genie Agents and MCP]]
+:SCORE: 8/10
+:WHY: Практический пример связки MCP с агентами поверх корпоративных данных — прямой шаблон для text-to-SQL и внутренних ассистентов.
+**** [[https://aws.amazon.com/blogs/machine-learning/how-datacor-built-self-service-rental-analytics-with-amazon-quick-sight/][How Datacor built self-service rental analytics with Amazon Quick Sight]]
+:SCORE: 7/10
+:WHY: Честный разбор узкого места «данные только через IT» на масштабе 27,5 млн активов и архитектуры self-service BI с генеративным поиском.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/batching-by-length-instead-of-looping-item-by-item-for-slm-optimization][Batching by Length Instead of Looping Item by Item for SLM Optimization]] (KDnuggets) — Финал серии по оптимизации SLM: батчинг запросов по длине вместо поэлементного цикла заметно повышает утилизацию GPU при инференсе малых моделей.
+- [[https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/][Scaling MoE reinforcement learning on Amazon EKS with EFA and DeepEP with 40% more throughput]] (AWS Machine Learning Blog) — Архитектура RLHF/GRPO для MoE: экспертный параллелизм с динамической all-to-all маршрутизацией через DeepEP поверх EFA даёт +40% пропускной способности на EKS.
+- [[https://aws.amazon.com/blogs/machine-learning/accelerate-multimodal-rl-training-with-skyrl-on-amazon-sagemaker-hyperpod/][Accelerate multimodal RL training with SkyRL on Amazon SageMaker HyperPod]] (AWS Machine Learning Blog) — GRPO-пост-тренинг Qwen3-VL-8B на отказоустойчивом кластере HyperPod с Ray: решаемость визуальных лабиринтов выросла с 43,75% до более чем 95%.
+- [[https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/][NarrateAI: production-ready LLM quality assurance on Amazon Bedrock]] (AWS Machine Learning Blog) — Пять техник продакшн-QA на Bedrock (адаптивная оркестрация, межаккаунтный multi-model failover, стриминговая валидация абзацев, композитная оценка, верификация чисел) дают ~99% числовой точности в реальном времени.
+- [[https://aws.amazon.com/blogs/machine-learning/deploying-real-time-personalized-speech-with-qwen3-tts-on-amazon-sagemaker-ai/][Deploying real-time personalized speech with Qwen3-TTS on Amazon SageMaker AI]] (AWS Machine Learning Blog) — Клонирование голоса с нескольких секунд референсного аудио на Qwen3-TTS-12Hz-1.7B-Base из JumpStart: 10 языков, кросс-язычной перенос и стриминг на управляемом эндпоинте.
+- [[https://aws.amazon.com/blogs/machine-learning/multi-region-training-with-amazon-sagemaker-hyperpod-and-qumulo/][Multi-Region training with Amazon SageMaker HyperPod and Qumulo]] (AWS Machine Learning Blog) — Тренировка в одном регионе поверх данных в другом через Cloud Native Qumulo: без копирования петабайт кластер выходит на 115–117 samples/sec и 98–100% утилизации GPU после прогрева в 100–150 батчей.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/scaling-moe-reinforcement-learning-on-amazon-eks-with-efa-and-deepep-with-40-more-throughput/][Scaling MoE reinforcement learning on Amazon EKS with EFA and DeepEP with 40% more throughput]]
+:SCORE: 9/10
+:WHY: Редкий разбор реальных узких мест масштабирования MoE-RL — при высокой разреженности обучение упирается в коммуникацию, а DeepEP+EFA дают измеримые +40%.
+**** [[https://aws.amazon.com/blogs/machine-learning/narrateai-production-ready-llm-quality-assurance-on-amazon-bedrock/][NarrateAI: production-ready LLM quality assurance on Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Систематический набор техник борьбы с галлюцинациями, троттлингом и лагами валидации в стриминговых LLM-приложениях — применим к любому агентному продакшну, не только к Bedrock.
+**** [[https://aws.amazon.com/blogs/machine-learning/multi-region-training-with-amazon-sagemaker-hyperpod-and-qumulo/][Multi-Region training with Amazon SageMaker HyperPod and Qumulo]]
+:SCORE: 8/10
+:WHY: Разрушает допущение «данные и GPU должны быть в одном регионе»: замеры показывают нулевой штраф за 60 мс латентности после короткого прогрева.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/LawgAaGTvbbnZi7u2/evidence-about-risk-should-be-transparent][Evidence about risk should be transparent]] (LessWrong) — Тезис: прежде чем «верифицировать» обязательства лабораторий по безопасности, нужны структурированные и фальсифицируемые заявления о рисках потери контроля, которых индустрия пока не публикует.
+- [[https://www.lesswrong.com/posts/n8u3BfqFoGh4jnzpo/plan-r-ai-safety-by-asics][Plan R: AI Safety by ASICs]] (LessWrong) — Предложение разделить индустрию на ограниченные в финансировании R&D-организации и deployment-компании, чтобы ни один игрок не владел одновременно мощным ИИ и безграничной финансовой претензией на результат.
+- [[https://www.lesswrong.com/posts/62j5mPY8pFo2GD5fo/what-did-ai-researchers-think-at-the-end-of-2024-1][What did AI researchers think at the end of 2024?]] (LessWrong) — Опрос 1580 авторов публикаций в топ-конференциях: в среднем 18% вероятность вымирания или необратимого лишения человечества контроля из-за ИИ, каждый третий оценил её не ниже 20%.
+- [[https://www.lesswrong.com/posts/f7r9QCmjoYFG9ReyF/alignment-forecasting-predicting-misalignment-from-training][Alignment Forecasting: Predicting Misalignment from Training Data]] (LessWrong) — AlignmentForecastBench на более чем 5000 комбинаций «модель × датасет × режим отказа»: misalignment от файнтюнинга можно предсказывать до обучения по misbehavior score и историческим emergent-рейтам.
+- [[https://www.lesswrong.com/posts/gZh6txHhp8sm832sE/spurious-probes-as-a-black-box-alternative-to-activation][Spurious probes as a black-box alternative to activation probing]] (LessWrong) — Посторонние вопросы («назови амфибию») выдают внутреннее состояние модели с balanced accuracy 0,77–0,81 и почти не подавляются ни системными промптами, ни обучением уклоняться от активационных зондов.
+- [[https://www.lesswrong.com/posts/gbExicZvKtHBboLR6/applications-open-winter-2027-affine-alignment-seminar-due][Applications open: Winter 2027 AFFINE Alignment Seminar (due Nov 22)]] (LessWrong) — Набор на месячный резиденс-семинар по философским основам выравнивания в Португалии: бесплатно, со стипендией $1000, дедлайн 22 ноября.
+- [[https://www.lesswrong.com/posts/WMBgSseHJpghhma4n/we-need-a-better-theory-of-polarization-because-it-s-failing][We need a better theory of polarization, because it's failing to predict the AI debate]] (LessWrong) — Дебаты об ИИ и дата-центрах не поляризуются по партийным линиям вопреки устоявшейся теории — важный сигнал о непредсказуемости будущего регуляторного ландшафта.
+- [[https://www.lesswrong.com/posts/j3xefrWrNqsmMfJEi/on-ezra-klein-s-podcast-with-jensen-huang][On Ezra Klein's Podcast With Jensen Huang]] (LessWrong) — Глава Nvidia отрицает ASI и экзистенциальный риск, но его же инженерная логика «не отгружай непротестированный продукт» приводит его к выводу о необходимости останавливать лаборатории.
+- [[https://www.lesswrong.com/posts/ioFYSZbCysLDjH3DN/foundational-premises-of-advanced-ai][Foundational premises of advanced AI]] (LessWrong) — Систематизация базовых предпосылок о ML, скейлинге и способностях ИИ — общий словарь, чтобы споры о политике ИИ не упирались в разную онтологию собеседников.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/gZh6txHhp8sm832sE/spurious-probes-as-a-black-box-alternative-to-activation][Spurious probes as a black-box alternative to activation probing]]
+:SCORE: 9/10
+:WHY: Практичный чёрноящичный детектор «осознания тестирования» — готовый строительный блок для eval-инфраструктуры без доступа к активациям, устойчивый к известным методам маскировки.
+**** [[https://www.lesswrong.com/posts/62j5mPY8pFo2GD5fo/what-did-ai-researchers-think-at-the-end-of-2024-1][What did AI researchers think at the end of 2024?]]
+:SCORE: 9/10
+:WHY: Редкая эмпирическая база для калибровки собственных оценок рисков — что реально думают исследователи, а не спикеры с трибун.
+**** [[https://www.lesswrong.com/posts/f7r9QCmjoYFG9ReyF/alignment-forecasting-predicting-misalignment-from-training][Alignment Forecasting: Predicting Misalignment from Training Data]]
+:SCORE: 8/10
+:WHY: Первая систематическая попытка предсказывать misalignment до файнтюнинга — прямой кандидат в пайплайны проверки обучающих датасетов.
+**** [[https://www.lesswrong.com/posts/LawgAaGTvbbnZi7u2/evidence-about-risk-should-be-transparent][Evidence about risk should be transparent]]
+:SCORE: 8/10
+:WHY: Точно называет пробел индустрии: без фальсифицируемых заявлений о рисках любой «аудит безопасности» пока технически невозможен.
+**** [[https://www.lesswrong.com/posts/n8u3BfqFoGh4jnzpo/plan-r-ai-safety-by-asics][Plan R: AI Safety by ASICs]]
+:SCORE: 7/10
+:WHY: Нестандартная рамка снижения рисков через разделение R&D и деплоя с аппаратными ограничениями — полезная альтернатива привычным схемам мораториев.
+**** [[https://www.lesswrong.com/posts/j3xefrWrNqsmMfJEi/on-ezra-klein-s-podcast-with-jensen-huang][On Ezra Klein's Podcast With Jensen Huang]]
+:SCORE: 7/10
+:WHY: Разбор позиции ключевого инфраструктурного игрока — важен для прогноза политики поставок GPU и отраслевого регулирования.
+**** [[https://www.lesswrong.com/posts/ioFYSZbCysLDjH3DN/foundational-premises-of-advanced-ai][Foundational premises of advanced AI]]
+:SCORE: 7/10
+:WHY: Компактная карта предпосылок для согласования терминов в дискуссиях о рисках ИИ внутри команды.
+**** [[https://www.lesswrong.com/posts/WMBgSseHJpghhma4n/we-need-a-better-theory-of-polarization-because-it-s-failing][We need a better theory of polarization, because it's failing to predict the AI debate]]
+:SCORE: 6/10
+:WHY: Объясняет, почему привычные политические модели плохо предсказывают регуляцию ИИ — фон для комплаенса и стратегирования.
+**** [[https://www.lesswrong.com/posts/gbExicZvKtHBboLR6/applications-open-winter-2027-affine-alignment-seminar-due][Applications open: Winter 2027 AFFINE Alignment Seminar (due Nov 22)]]
+:SCORE: 5/10
+:WHY: Конкретная возможность для тех, кто хочет углубиться в foundations-исследования выравнивания.
+
+** Non Engineering
+- [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u6_economic_growth.html][Unbounded: Economic Growth]] (Clojure Civitas) — Как концентрация богатства ослабляет спрос, участие и долгосрочный рост — контекст для оценки макроэффектов автоматизации.
+- [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u7_how_to_get_a_wealth_tax.html][Unbounded: How to Get a Wealth Tax]] (Clojure Civitas) — Механика того, как общественное давление конвертируется в законодательство о налоге на богатство.
+- [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u8_references.html][Unbounded: References]] (Clojure Civitas) — Подборка источников по экономике, налогообложению богатства и прогрессу.
+
+*** 💎 Топ-3 категории
+**** [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u6_economic_growth.html][Unbounded: Economic Growth]]
+:SCORE: 6/10
+:WHY: Даёт рамку для рассуждений о том, куда экономически движется массовая автоматизация и ИИ.
+**** [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u7_how_to_get_a_wealth_tax.html][Unbounded: How to Get a Wealth Tax]]
+:SCORE: 5/10
+:WHY: Полезный фон для понимания регуляторного давления на концентрацию капитала в tech-индустрии.
+**** [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u8_references.html][Unbounded: References]]
+:SCORE: 4/10
+:WHY: Быстрая точка входа в первоисточники, если тема перераспределения богатства интересует глубже.

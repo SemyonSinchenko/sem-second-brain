@@ -1,0 +1,96 @@
+#+TITLE: Arxiv Digest: 2026-08-20
+#+FROM: [2026-08-19 Wed]
+#+TO: [2026-08-20 Thu]
+#+DATE: [2026-08-20 Thu]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается устойчивый тренд на оптимизацию векторного поиска в производственных средах. Исследования смещаются от статических индексов к динамическим сценариям с удалением и обновлением данных. Особое внимание уделяется сокращению случайных обращений к памяти и использованию SIMD-ускорения для разреженных векторов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.08395][SINDI: An Efficient Index for Sparse Vector Approximate Maximum Inner Product Search]]
+:WHAT: Индекс SINDI для разреженного MIPS с SIMD-ускорением, последовательным доступом к инвертированным спискам и отсечением векторов.
+:IMPACT: Ускорение QPS в 4.2–26.4 раза при Recall@50 > 99%, интегрирован в библиотеку VSAG от Ant Group.
+
+- [[hxxps://arxiv.org/abs/2607.29173][MERIT: Efficient In-Place Deletion for Dynamic Graph-Based Approximate Nearest Neighbor Indexes]]
+:WHAT: Фреймворк для удаления вершин в графовых индексах ANNS с локальным восстановлением связности через MST и версионированием рёбер.
+:IMPACT: Удаление работает со скоростью вставки, до 18.87× быстрее SOTA, сохраняет recall при накоплении удалений — критично для RAG и рекомендательных систем.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.18958][APICURON: a reactive infrastructure for credit attribution across distributed research data ecosystems]] — платформа для атрибуции вклада кураторов данных в биологических知识базах с интеграцией через ORCID.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В области алгоритмов на графах виден прогресс в динамических задачах: минимальный разрез, раскраска рёбер, перечисление путей. Параллельные алгоритмы достигаютnear-linear work с sub-linear depth для плотных графов. Усиливается внимание к корректности ранее опубликованных алгоритмов и их полноте.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.15436][PLASMA: A Layout-Aware Benchmark Reveals Memory Layout Matters for Graph-based ANNS on GPU]]
+:ALGO: Фреймворк для изоляции влияния топологии графа и расположения вершин в памяти на GPU.
+:IMPACT: Перестановка вершин даёт до 80% прирост QPS при сохранении точности — важно для GPU-ускоренного векторного поиска.
+
+- [[hxxps://arxiv.org/abs/2607.14745][Enumerating Length-Bounded Simple Paths and Cycles in Directed Graphs with O(k(n+m)) Delay Using Edge-Consistent Node Barriers]]
+:ALGO: Новый алгоритм BS-DFS с edge-consistency для перечисления простых путей и циклов с ограничением по длине.
+:IMPACT: Исправляет ошибки полноты в предыдущих работах (BC-DFS, CYCLE_SEARCH), гарантирует O(k(n+m)) задержку между выводами.
+
+- [[hxxps://arxiv.org/abs/2405.09141][Tree-Packing Revisited: Faster Fully Dynamic Min-Cut and Arboricity]]
+:ALGO: Улучшенный алгоритм динамического минимального разреза через упаковку остовных деревьев, детерминированный с O(λ^5.5√n).
+:IMPACT: Улучшает границы для динамического min-cut и арбористости, работает на мультиграфах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2404.16349][More Asymmetry Yields Faster Matrix Multiplication]] — новый метод для умножения матриц с ω < 2.371177 через асимметричный анализ.
+- [[hxxps://arxiv.org/abs/2603.02689][Deterministic Edge Coloring with few Colors in CONGEST]] — детерминированная раскраска рёбер в (1+ε)Δ + O(√log n) цветов за полилогарифмические раунды.
+- [[hxxps://arxiv.org/abs/2605.16618][Adversarially Robust Approximate Furthest Neighbor]] — первая робастная структура данных для поиска наиболее удалённой точки в адаптивной модели запросов.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Распределённые системы фокусируются на эффективном обслуживании LLM, федеративном обучении и оркестрации микросервисов. Ключевые направления: снижение энергопотребления, учёт неопределённости при автомасштабировании, оптимизация коммуникации между edge и cloud.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.15473][Q-First: Most of Attention Needs Only the Query in Disaggregated LLM Decoding]]
+:WHAT: Протокол для раздельного выполнения attention и feed-forward в disaggregated LLM serving, позволяющий параллельную работу.
+:IMPACT: Устраняет простои между устройствами без новых операторов или оборудования, ошибка 3.2×10^-3 относительно оригинала.
+
+- [[hxxps://arxiv.org/abs/2608.18390][SLO-Scaler: Uncertainty-Aware SLO-Driven Autoscaling for Microservices]]
+:WHAT: Фреймворк автомасштабирования на основе Bayesian LSTM с учётом неопределённости прогнозов и анализом графа зависимостей.
+:IMPACT: Снижает нарушение SLO на 29-56%, уменьшает количество реплик на 18-33% при bursty трафике в Kubernetes.
+
+- [[hxxps://arxiv.org/abs/2608.18376][When Do Microservices Save Energy? Evidence from Environmental Simulation Workflows]]
+:WHAT: Сравнение монолитного и микросервисного исполнения для экологических моделей с event-driven оркестрацией.
+:IMPACT: Микросервисы экономят энергию только для крупных workflow, event-driven оркестрация даёт 41% экономии при повторном исследовании параметров.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2506.19260][Topology-Aware Differential Privacy in Hierarchical Federated Learning]] — оптимальное распределение шума в иерархическом FL с учётом структуры регионов.
+- [[hxxps://arxiv.org/abs/2608.17641][rl-triton: High-Performance Triton GPU Kernels for Reinforcement Learning Credit Assignment]] — библиотека Triton-ядер для RL с унифицированным associative scan, ускорение 1.6-5.7×.
+- [[hxxps://arxiv.org/abs/2608.13824][Balancing Workload Performance and Slurm Stress: Four Nextflow Deployment Strategies]] — сравнение стратегий развёртывания Nextflow на Slurm по RPC-нагрузке и времени выполнения.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В прикладном ML растёт интерес к энергоэффективности, безопасности LLM и автоматизации извлечения данных. Появляются фреймворки для оценки causal ML и систематического анализа уязвимостей в длинном контексте.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.19025][Self-prompting and cross-model consensus enable reproducible data extraction from scientific literature with large language models]]
+:WHAT: Воркфлоу с self-prompting и кросс-модельной проверкой для извлечения данных из научных статей.
+:IMPACT: Определяет разделение труда между экспертами и моделями, позволяет масштабировать курирование данных с сохранением контроля качества.
+
+- [[hxxps://arxiv.org/abs/2608.18149][TokenPowerSandbox: Evidence-Gated CPU-First Screening for Energy-Aware LLM Serving]]
+:WHAT: Workflow для энерго-аудита LLM с CPU-проекцией, короткими пробами на GPU и заморозкой модели перед измерением.
+:IMPACT: MAPE по энергии 6-7%, но показывает, что точность по энергии не гарантирует точность по задержке (TTFT gate).
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2511.04707][Jailbreaking in the Haystack]] — атака NINJA использует позиционирование вредоносных целей в длинном контексте для обхода безопасности LLM.
+- [[hxxps://arxiv.org/abs/2511.22842][CausalProfiler: Generating Synthetic Benchmarks for Rigorous and Transparent Evaluation of Causal Machine Learning]] — генератор синтетических бенчмарков для causal ML с гарантиями покрытия трёх уровней причинного вывода.
+- [[hxxps://arxiv.org/abs/2512.14012][Professional Software Developers Don't Vibe, They Control: AI Agent Use for Coding in 2025]] — исследование показывает, что опытные разработчики контролируют агентов, а не делегируют полностью.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Сетевой анализ применяется к академическим траекториям, городскому планированию и оценке рисков ИИ. Наблюдается интерес к само-согласованным мерам на двудольных сетях и масштабным законам в урбанистике.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.04030][Convergence criteria for self-consistent measures in bipartite networks]]
+:ALGO: Явный критерий сходимости для итеративных мер в двудольных сетях (аналогично PageRank, fitness/complexity).
+:IMPACT: Предлагает удаление проблемных узлов или регуляризацию для улучшения сходимости — применимо к ранжированию в сетевых системах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2306.16643][Conservative adventurers have more future academic impact]] — учёные, часто переключающиеся между близкими темами, получают до 19% больше цитирований.
+- [[hxxps://arxiv.org/abs/2608.18792][Removing Population Size, World Cities Leave on Land a Footprint of Wealth]] — закон масштабирования застроенной площади городов пропорционален населению, вариации коррелируют с ВВП на душу.

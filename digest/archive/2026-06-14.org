@@ -1,0 +1,37 @@
+#+TITLE: Daily Digest: 2026-06-14
+#+FROM: [2026-06-13 Sat]
+#+TO: [2026-06-14 Sun]
+#+DATE: [2026-06-14 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Databricks представила Omnigent, мета-инструмент для оркестрации и контроля агентных систем в масштабе. Feldera демонстрирует архитектуру DBSP для эффективной инкрементальной обработки потоковых данных без полной пересборки состояний. Apache Spark 4.0 внедряет нативную визуализацию, перенося вычисления графиков на кластер для защиты драйвера от OOM. Сообщество LDBC анонсировало встречу в Бостоне для обсуждения графовых технологий и стандартов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.junaideffendi.com/p/how-feldera-works-a-true-incremental][How Feldera Works: A True Incremental View Maintenance Engine]] (Junaid Effendi) — разбор архитектуры DBSP для эффективной обработки дельт в потоковых SQL-запросах.
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-nothing-breaks-like-a-chart-7c0692a5d64b?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Nothing Breaks Like A Chart]] (Medium/Towards Data Engineering) — анализ изменений в PySpark 4.0, переносящих рендеринг графиков на сторону кластера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.junaideffendi.com/p/how-feldera-works-a-true-incremental][How Feldera Works: A True Incremental View Maintenance Engine]]
+:SCORE: 9/10
+:WHY: Глубокий технический разбор альтернативы традиционным streaming-движкам для сложных реляционных запросов.
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-nothing-breaks-like-a-chart-7c0692a5d64b?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Nothing Breaks Like A Chart]]
+:SCORE: 8/10
+:WHY: Критически важное обновление для инженеров данных, устраняющее узкие места визуализации больших датасетов.
+
+** Artificial Intelligence
+- [[hxxps://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents][Introducing Omnigent: A Meta-Harness to Combine, Control and Share Your Agents]] (Databricks) — новая платформа для объединения и управления жизненным циклом AI-агентов в enterprise-среде.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/introducing-omnigent-meta-harness-combine-control-and-share-your-agents][Introducing Omnigent: A Meta-Harness to Combine, Control and Share Your Agents]]
+:SCORE: 7/10
+:WHY: Полезно для понимания трендов оркестрации агентов, несмотря на привязку к экосистеме вендора.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — анонс встречи технического сообщества по графовым базам данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность для нетворкинга и обсуждения стандартов графовых технологий для заинтересованных команд.

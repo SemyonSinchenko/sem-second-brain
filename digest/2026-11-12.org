@@ -1,0 +1,145 @@
+#+TITLE: Daily Digest: 2026-11-12
+#+FROM: [2026-11-11 Wed]
+#+TO: [2026-11-12 Thu]
+#+DATE: [2026-11-12 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+День прошёл под знаком агентного ИИ в продакшне: Databricks разом представила линейку Genie (Ontology в GA, Genie One, бенчмарк 1.6× точности), а AWS открыла Web Search API на AgentCore и показала enterprise-паттерны rollout для OpenAI Codex. В базах данных доминируют отказоустойчивость и миграции: автоматизация zero-ETL после глобального failover, zero-downtime миграция в ElastiCache Serverless и устойчивая к failover IAM-аутентификация для Aurora Global Database. Из технически глубокого — детектирование silent data corruption в распределённом обучении на SageMaker HyperPod и семантический диф формальных политик через антиунификацию на e-graphs. В open-source OSI возобновила обсуждение Open Source AI Definition двумя годами после OSAID 1.0, а в safety-сообществе спорят о реальной степени eval awareness frontier-моделей и запускают коллективную закупку GPU (Chips for Humanity).
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/how-open-is-open-iceberg-catalogs][How Open Is Open? Iceberg, Catalogs, and User Choice]] (Data Engineering Weekly) — Насколько «открыт» Iceberg на практике: REST-каталог как точка коммерческой зависимости и необходимость проверяемого определения открытости для архитектуры платформы.
+- [[https://vutr.substack.com/p/free-10-years-ago-uber-engineers][10 Years Ago, Uber Engineers Built Us a Gift (FREE)]] (vutr) — Технический разбор дизайна Apache Hudi: почему он силён именно в upsert и инкрементальной обработке и когда его стоит выбирать вместо Iceberg/Delta Lake.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/how-open-is-open-iceberg-catalogs][How Open Is Open? Iceberg, Catalogs, and User Choice]]
+:SCORE: 8/10
+:WHY: Даёт чёткую рамку оценки vendor lock-in вокруг REST-каталога Iceberg — архитектурное решение, которое затронет платформу на годы вперёд.
+**** [[https://vutr.substack.com/p/free-10-years-ago-uber-engineers][10 Years Ago, Uber Engineers Built Us a Gift (FREE)]]
+:SCORE: 7/10
+:WHY: Глубокий разбор технических решений Hudi даёт конкретные аргументы для выбора open table format под upsert- и инкрементальные нагрузки.
+
+** Engineers
+- [[https://dataengineeringcentral.substack.com/p/ai-is-changing-software-engineering][AI Is Changing Software Engineering Forever | Gregor Ojstersek]] (Data Engineering Central) — Подкаст с экс-CTO и автором The Multiplier Mindset: как ИИ меняет грейды junior→principal, почему сгенерированный код опасен для фундаментальных навыков и почему код никогда не был настоящим bottleneck.
+
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/ai-is-changing-software-engineering][AI Is Changing Software Engineering Forever | Gregor Ojstersek]]
+:SCORE: 7/10
+:WHY: Трезвый взгляд на трансформацию инженерных ролей и лидерства в эпоху ИИ — полезен для планирования собственной карьеры и развития команды.
+
+** Vendors
+- [[https://engineering.fb.com/2026/11/11/ml-applications/intelligent-delivery-serve-better-ads/][Intelligent Delivery: Making Every Unit of Compute Serve Better Ads]] (Meta Engineering) — Как Meta ML-моделями предсказывает маржинальную пользу каждой единицы compute в ads ranking и распределяет её по всему serving-стеку: ~10% прироста поверх модельных улучшений с 2017 года.
+- [[https://aws.amazon.com/blogs/database/refresh-a-single-tenant-across-accounts-with-aurora-mysql-and-amazon-s3/][Refresh a single tenant across accounts with Aurora MySQL and Amazon S3]] (AWS Database Blog) — Паттерн копирования данных одного тенанта между аккаунтами без сетевого пути: Aurora cloning + SELECT INTO OUTFILE S3, параллельные per-table шаги с независимыми ретраями вместо многочасового dump-and-load.
+- [[https://aws.amazon.com/blogs/database/resilient-iam-database-authentication-with-amazon-aurora-global-database-writer-endpoint/][Resilient IAM database authentication with Amazon Aurora Global Database writer endpoint]] (AWS Database Blog) — Как сделать passwordless IAM-аутентификацию устойчивой к cross-Region failover: динамическая подпись SigV4-токена по текущему primary и охват всех кластеров в политике rds-db:connect.
+- [[https://aws.amazon.com/blogs/database/building-a-multi-tenant-crm-with-amazon-aurora-dsql/][Building a multi-tenant CRM with Amazon Aurora DSQL]] (AWS Database Blog) — Serverless multi-tenancy на Aurora DSQL: pooled-модель, изоляция тенантов в централизованном data-access слое и OCC-retry обёртка для записей.
+- [[https://aws.amazon.com/blogs/database/offline-assessment-and-conversion-with-ai-agents-in-aws-dms/][Offline assessment and conversion with AI agents in AWS DMS]] (AWS Database Blog) — Оценка и конверсия схем через AI-агента по MCP до подключения к живой БД: offline source и virtual target режимы DMS Schema Conversion закрывают разрыв раннего планирования миграции.
+- [[https://aws.amazon.com/blogs/database/build-an-oracle-awr-style-report-for-rds-aurora-postgresql/][Build an Oracle AWR-style report for RDS/Aurora PostgreSQL]] (AWS Database Blog) — AWR-подобные отчёты для PostgreSQL на pg_stat_statements и pg_cron: снапшоты каждые 15 минут, сэмплер сессий и отчёт двумя SQL-командами.
+- [[https://aws.amazon.com/blogs/database/migrate-from-amazon-ec2-to-amazon-elasticache-serverless-with-zero-downtime/][Migrate from Amazon EC2 to Amazon ElastiCache Serverless with zero downtime]] (AWS Database Blog) — Онлайн-миграция self-managed Redis/Valkey в ElastiCache Serverless: один endpoint, управляемая репликация без сторонних тулов и бесплатный период 180 дней.
+- [[https://aws.amazon.com/blogs/database/automating-oracle-data-guard-switchover-and-failover-on-amazon-ec2/][Automating Oracle Data Guard switchover and failover on Amazon EC2]] (AWS Database Blog) — Оркестрация Data Guard через Step Functions + Lambda: 13 pre-checks, RPO-отчётность по SCN и полный аудит вместо ручного runbook.
+- [[https://aws.amazon.com/blogs/database/help-prevent-out-of-memory-restarts-on-aurora-mysql-8-4/][Help prevent out-of-memory restarts on Aurora MySQL 8.4]] (AWS Database Blog) — Разбор OOM avoidance в Aurora MySQL: три главных потребителя памяти, aurora_oom_response и новый aurora_enable_memory_management в 8.4.
+- [[https://aws.amazon.com/blogs/database/diagnose-amazon-aurora-mysql-performance-using-cloudwatch-database-insights/][Diagnose Amazon Aurora MySQL performance using CloudWatch Database Insights]] (AWS Database Blog) — Обновлённое руководство по диагностике MySQL через wait events и DB load: перевод частых wait events в конкретные действия вместо слепого апскейла инстанса.
+- [[https://aws.amazon.com/blogs/database/automate-aurora-zero-etl-recovery-after-global-failover/][Automate Aurora zero-ETL recovery after global failover]] (AWS Database Blog) — Автоматическое пересоздание zero-ETL интеграции с Redshift после failover через EventBridge + Lambda — иначе аналитика молча работает на устаревших данных.
+- [[https://www.databricks.com/blog/air-gapped-not-data-dark-how-bright-machines-gives-customers-live-factory-dashboards-without][Air gapped, not data dark: how Bright Machines gives customers live factory dashboards without opening the plant]] (Databricks) — Кейс доставки живых governed-дашбордов из air-gapped заводских сетей без их открытия наружу.
+- [[https://www.databricks.com/blog/detecting-credential-driven-attacks-databricks][Detecting credential-driven attacks on Databricks]] (Databricks) — Детектирование атак с украденными кредами на воркспейсах Databricks — конкретные сигналы для security-команд.
+- [[https://www.databricks.com/blog/databricks-doubles-down-ai-products-opens-new-235000-square-foot-san-francisco-headquarters][Databricks Doubles Down on AI Products, Opens New 235,000-Square-Foot San Francisco Headquarters]] (Databricks) — Корпоративная новость: новый кампус в Сан-Франциско и ставка компании на AI-продукты.
+- [[https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work][The new Genie: autonomous AI for complex enterprise work]] (Databricks) — Новый Genie: автономный AI-ассистент для сложной корпоративной работы поверх данных компании, а не только суммаризация.
+- [[https://www.databricks.com/blog/announcing-ga-genie-ontology][Announcing GA of Genie Ontology]] (Databricks) — GA Genie Ontology: формализованный бизнес-контекст как слой, благодаря которому агенты знают домен, а не угадывают.
+- [[https://www.databricks.com/blog/bring-your-business-context-chatgpt-claude-microsoft-copilot-cowork-and-grok-bot][Bring your business context to ChatGPT, Claude, Microsoft Copilot Cowork and Grok Bot]] (Databricks) — Интеграции, подключающие бизнес-контекст Databricks к внешним ассистентам через MCP.
+- [[https://www.databricks.com/blog/enterprise-context-action-genie-agents-now-analyze-more-data-sources-transform-your-work][From enterprise context to action: Genie Agents now analyze more data sources to transform your work]] (Databricks) — Расширение источников данных для Genie Agents: от BI-слоя к операционным системам.
+- [[https://www.databricks.com/blog/genie-genie-ontology-delivers-16-accuracy-less-half-tokens][Genie with Genie Ontology Delivers 1.6× the Accuracy with Less than Half the Tokens]] (Databricks) — Совместный с Turing бенчмарк enterprise data-агентов: Ontology даёт 1.6× точности при вдвое меньшем расходе токенов.
+- [[https://www.databricks.com/blog/genie-one-ai-cowork-home-everyone][Genie One: The AI cowork home for everyone]] (Databricks) — Genie One: единое рабочее пространство, где задачи, данные и AI-коуоркеры живут вместе.
+- [[https://duckdb.org/2026/11/12/local-analytics-without-a-database-server.html][Local Analytics Doesn't Need a Database Server]] (DuckDB) — Кейс SQLRooms: DuckDB-Wasm выполняет аналитические запросы прямо в браузере поверх Parquet в S3 — local-first аналитика без сервера и round-trip'ов.
+- [[https://neo4j.com/blog/graph-database/announcing-the-relate-by-neo4j-hackathon-2026-build-ai-agents-on-an-embedded-graph-database/][Announcing the Relate by Neo4j Hackathon 2026: Build AI Agents on an Embedded Graph Database]] (Neo4j) — Месячный хакатон по Relate — новому embedded графовому движку для AI-агентов с темой Context, Connected.
+- [[https://neo4j.com/blog/news/meet-relate-by-neo4j-an-embedded-database-for-ai-agents/][Meet Relate by Neo4j: An Embedded Database for AI Agents]] (Neo4j) — Relate: open-source embedded graph DB внутри приложения/агента — agent mode, компактный TOON-вывод, транзакции для мультиагентных обновлений и MCP-интерфейс.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.fb.com/2026/11/11/ml-applications/intelligent-delivery-serve-better-ads/][Intelligent Delivery: Making Every Unit of Compute Serve Better Ads]]
+:SCORE: 9/10
+:WHY: Редкая публикация внутренностей Meta: как предсказывать маржинальную пользу каждой единицы compute и распределять её по запросам, моделям и чипам ради глобального оптимума.
+**** [[https://aws.amazon.com/blogs/database/resilient-iam-database-authentication-with-amazon-aurora-global-database-writer-endpoint/][Resilient IAM database authentication with Amazon Aurora Global Database writer endpoint]]
+:SCORE: 8/10
+:WHY: Готовый паттерн passwordless-доступа, который переживает cross-Region failover без изменения connection string и правок политик — прямая боль multi-Region SaaS.
+**** [[https://www.databricks.com/blog/detecting-credential-driven-attacks-databricks][Detecting credential-driven attacks on Databricks]]
+:SCORE: 8/10
+:WHY: Конкретные детекторы атак через украденные креды для аналитических платформ, где PAT-токены стали главной поверхностью атаки.
+
+** Open Source
+- [[https://opensource.org/blog/open-source-ai-salons-and-whats-next][Open Source AI Salons and What's Next]] (Open Source Initiative) — OSI перезапускает обсуждение Open Source AI Definition серией Salons двумя годами после OSAID 1.0 и готовится к волне законотворчества по open-weight моделям.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/open-source-ai-salons-and-whats-next][Open Source AI Salons and What's Next]]
+:SCORE: 6/10
+:WHY: Понимание, куда эволюционирует OSAID и какое регулирование open-weight моделей готовится, напрямую влияет на лицензионную и продуктовую стратегию.
+
+** Artificial Intelligence
+- [[https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/][AlphaGenome 2: Deciphering how cells read DNA to better understand disease]] (Google DeepMind) — Модель нового поколения предсказывает влияние вариантов ДНК на конкретные типы клеток — отправная точка для геномной аналитики под задачи медицины.
+- [[https://www.kdnuggets.com/2026/11/abacus/where-does-abacus-ais-smaug-model-improve-performance-the-most][Where Does Abacus.AI's Smaug Model Improve Performance the Most?]] (KDnuggets) — Один и тот же рецепт fine-tuning на трёх разных open-weight моделях даёт приросты в совершенно разных местах — это информативнее любого одиночного бенчмарка.
+- [[https://www.kdnuggets.com/what-senior-data-science-job-postings-actually-ask-for-in-2026][What Senior Data Science Job Postings Actually Ask for in 2026]] (KDnuggets) — Анализ реальных вакансий senior DS: какие навыки и credential'ы действительно фильтруют наймающие менеджеры.
+- [[https://www.kdnuggets.com/9-key-llm-inference-metrics-explained-in-5-minutes][9 Key LLM Inference Metrics Explained in 5 Minutes]] (KDnuggets) — Компактный справочник по метрикам инференса LLM: латентность, скорость генерации токенов, загрузка системы с формулами.
+- [[https://aws.amazon.com/blogs/machine-learning/build-autonomous-ai-agents-with-amazon-bedrock-and-spring-ai/][Build autonomous AI agents with Amazon Bedrock and Spring AI]] (AWS ML Blog) — Паттерны построения автономных Java-агентов на Spring AI + AgentCore: планирование, вызов инструментов и память в привычном JVM-стеке.
+- [[https://aws.amazon.com/blogs/machine-learning/openai-codex-on-amazon-bedrock/][OpenAI Codex on Amazon Bedrock]] (AWS ML Blog) — Как подключить Codex к Bedrock, не создавая второй стек модельного доступа и идентификации: от least-privilege пилота до AgentCore Gateway и LLM Gateway.
+- [[https://aws.amazon.com/blogs/machine-learning/semantic-diffing-of-formal-policies-with-anti-unification/][Semantic diffing of formal policies with anti-unification]] (AWS ML Blog) — Семантический диф формальных политик (Cedar, SMT-LIB, CEL, OpenShell) через антиунификацию на e-graphs — отделяет смысловые изменения от синтаксического шума при ревью LLM-генерации.
+- [[https://aws.amazon.com/blogs/machine-learning/detecting-and-recovering-from-silent-data-corruption-on-amazon-sagemaker-hyperpod/][Detecting and recovering from silent data corruption on Amazon SageMaker HyperPod]] (AWS ML Blog) — Три проверки в DDP-тренировочном цикле (non-finite градиенты, ring replay audit, fingerprint весов) ловят GPU-дефекты, которые ECC и health-агенты принципиально не видят.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-the-web-search-api-on-amazon-bedrock-agentcore/][Introducing the Web Search API on Amazon Bedrock AgentCore]] (AWS ML Blog) — Веб-поиск одним API-вызовом с IAM-аутентификацией и без создаваемых ресурсов — для кастомных агентных циклов и не-агентных сценариев grounding.
+- [[https://aws.amazon.com/blogs/machine-learning/icymi-what-landed-for-ai-builders-in-october-2026/][ICYMI: What landed for AI builders in October 2026]] (AWS ML Blog) — Сводка октябрьских релизов: Claude Haiku 5.5, GPT-6.1 Terra, Nova 2.5 Sonic и обновления Bedrock AgentCore/Strands под cost и надёжность агентов.
+- [[https://aws.amazon.com/blogs/machine-learning/the-attendees-guide-to-the-aws-reinvent-2026-ai-ml-track/][The attendee's guide to the AWS re:Invent 2026 AI/ML track]] (AWS ML Blog) — Навигация по 140+ AI/ML-сессиям re:Invent с разбором типов сессий и карты AI-стека AWS от чипов до агентных решений.
+- [[https://aws.amazon.com/blogs/machine-learning/automating-aws-agent-registry-updates-with-push-based-architecture/][Automating AWS Agent Registry updates with push-based architecture]] (AWS ML Blog) — Событийная синхронизация MCP-серверов с реестром агентов через CloudTrail + EventBridge + Lambda — против устаревших метаданных, разрушающих доверие к каталогу.
+- [[https://aws.amazon.com/blogs/machine-learning/how-dxc-technology-built-a-multi-model-ai-substrate-on-amazon-bedrock/][How DXC Technology built a multi-model AI substrate on Amazon Bedrock]] (AWS ML Blog) — Кейс DXC OASIS: governance модельного доступа на уровне инфраструктуры (Guardrails, PrivateLink) как фундамент доверенного harness для агентов в регулируемых отраслях.
+- [[https://aws.amazon.com/blogs/machine-learning/accelerating-generative-ai-delivery-with-reusable-assets/][Accelerating generative AI delivery with reusable assets]] (AWS ML Blog) — Каталог из 23 production-ready open-source ассетов GenAI Innovation Center: от RAG-пайплайнов до agent scaffolding с кейсами DoorDash и Lyft.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/detecting-and-recovering-from-silent-data-corruption-on-amazon-sagemaker-hyperpod/][Detecting and recovering from silent data corruption on Amazon SageMaker HyperPod]]
+:SCORE: 9/10
+:WHY: Silent data corruption в GPU невидим для ECC и health-агентов — здесь три воспроизводимых проверки с полным кодом, которые реально спасают многомиллионные training-раны.
+**** [[https://aws.amazon.com/blogs/machine-learning/semantic-diffing-of-formal-policies-with-anti-unification/][Semantic diffing of formal policies with anti-unification]]
+:SCORE: 8/10
+:WHY: Практичный инструмент ревью автосгенерированных формальных политик: показывает только смысловые различия — критично при доверии LLM-генерации авторизационной логики.
+**** [[https://aws.amazon.com/blogs/machine-learning/openai-codex-on-amazon-bedrock/][OpenAI Codex on Amazon Bedrock]]
+:SCORE: 7/10
+:WHY: Проверенные пути подключения Codex через IAM и AgentCore Gateway с governance и телеметрией — экономит platform-команде недели проектирования.
+
+** AI Consciousness (ИИ и сознание)
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/mepsi7JNKYejq9wry/eval-awareness-vs-eval-paranoia][Eval Awareness vs. Eval Paranoia]]
+:SCORE: 9/10
+:WHY: Практикующий строитель alignment evals показывает на данных: маскировка стенда не влияет на reward hacking — это переворачивает привычный дизайн evals.
+**** [[https://www.lesswrong.com/posts/GPDhwwsFoZGwbcvdS/linkpost-neural-networks-are-already-clean-followup][Linkpost: Neural Networks Are Already Clean Followup Technical Paper]]
+:SCORE: 9/10
+:WHY: Техотчёт Goodfire с воспроизводимыми метриками: нейроны Qwen3.6-35B-A3B разрежены, описуемы на естественном языке и предсказуемы с точностью 95% — прямой материал для интерпретируемости.
+**** [[https://www.lesswrong.com/posts/e8S7u4iRi7fZyKbG5/ai-security-issues-are-social-engineering-issues][AI Security Issues Are Social Engineering Issues]]
+:SCORE: 8/10
+:WHY: Рамка prompt injection как social engineering кремния переносит зрелые защиты (capability-based security) с людей на LLM-системы.
+**** [[https://www.lesswrong.com/posts/scgudBc6hetT8ftTZ/models-can-critique-delusions-in-isolation-but-revert-to][Models Can Critique Delusions in Isolation but Revert to Affirming Them in Conversation]]
+:SCORE: 8/10
+:WHY: Систематические эксперименты показывают, почему коррекции не удерживаются в многоходовых диалогах и модель откатывается к сикофантии — критично для продакшн-ассистентов.
+**** [[https://www.lesswrong.com/posts/z58m8i2fMrGbJuhXX/quine-can-predict-cross-propensity-spillover-imperfectly-but][Quine can predict cross-propensity spillover. (imperfectly but significantly better than chance)]]
+:SCORE: 7/10
+:WHY: Открытая методология и результаты предсказания спилловера черт при SFT по матрице 24×24 — важные данные о побочных эффектах fine-tuning.
+**** [[https://www.lesswrong.com/posts/P3JjXySeQpdWjmCGw/chips-for-humanity-compute-for-ai-safety-research][Chips for Humanity: Compute for AI safety research]]
+:SCORE: 7/10
+:WHY: Реальная возможность получить GPU для safety-исследований на старте, пока compute не стал дефицитным ресурсом.
+**** [[https://www.lesswrong.com/posts/A6vtipePkrQuuebKF/from-fairbot-to-other-cooperation-conditions-by-substitution][From FairBot to other cooperation conditions by substitution]]
+:SCORE: 6/10
+:WHY: Наглядные подстановки формул показывают, как теорема Лёба обрывает бесконечную регрессию в кооперации provability-ботов.
+**** [[https://www.lesswrong.com/posts/CatAYdBDuGim6m3cd/fdt-and-the-sacrificial-volunteer-s-dilemma][FDT and the sacrificial volunteer's dilemma]]
+:SCORE: 6/10
+:WHY: Тонкий контрпример, разводящий policy-FDT и action-FDT, — полезная глубина в теории принятия решений для alignment-мышления.
+**** [[https://www.lesswrong.com/posts/swYNi3j4ryeZ4gebe/experience-machines-and-coxon-s-rhetorical-failure][Experience machines and Coxon's rhetorical failure]]
+:SCORE: 6/10
+:WHY: Разбор провала коммуникации рисков ИИ широкой аудитории — полезен всем, кто доносит safety-аргументы до нетехнических стейкхолдеров.
+**** [[https://www.lesswrong.com/posts/C3g3JxpJizPNjMsQ4/rage-rage-against-the-dying-of-the-light][Rage, Rage Against the Dying of the Light]]
+:SCORE: 5/10
+:WHY: Личное эссе о выходе из затяжного кризиса — ценность скорее человеческая, чем техническая, но честный взгляд на ментальное здоровье в сообществе.
+
+** Non Engineering
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (ssp.sh) — Интервью с автором пяти технических книг, включая Writing for Developers, о рабочем процессе технического писателя.
+- [[https://www.databricks.com/blog/brickster-voices-meet-alasdair-anderson][Brickster Voices: Meet Alasdair Anderson]] (Databricks) — Человеческий портрет недели Lead Solutions Architect в Databricks — полезно для калибровки карьерных ожиданий в customer-facing роли.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Конкретные приёмы написания технических книг и блогов от опытного практика — применимо к собственной письменной практике инженера.
+**** [[https://www.databricks.com/blog/brickster-voices-meet-alasdair-anderson][Brickster Voices: Meet Alasdair Anderson]]
+:SCORE: 5/10
+:WHY: Лёгкий взгляд на реальный ритм работы Lead Solutions Architect — небесполезно при выборе между продуктовыми и customer-facing треками.

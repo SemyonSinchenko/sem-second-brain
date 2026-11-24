@@ -1,0 +1,70 @@
+#+TITLE: Daily Digest: 2026-10-12
+#+FROM: [2026-10-11 Sun]
+#+TO: [2026-10-12 Mon]
+#+DATE: [2026-10-12 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Самая практичная новость дня — релиз odctl 1.0: одна команда поднимает на ноутбуке полностью связанный стек Kafka, Flink, Spark, Iceberg, Trino и MLflow с профилями -lite/-full, снимая часы настройки каталогов, схем и коннекторов. В свежем выпуске Data Engineering Weekly — два сильных production-кейса: Booking.com о миграции крупнейшего дата-озера Европы малыми партиями без остановки бизнеса и Affirm о едином слое клиентских данных для ML-моделей. Прослеживается тренд на стриминг поверх объектных хранилищ (blob-stream от Matt Klein как дешёвая альтернатива Kafka) и на использование LLM для производства контента — автор vutr.substack.com собрал видео о девяти технологиях, изменивших дата-инженерию, с помощью Opus 5.5. В категории AI Consciousness за день скопилась серия анонсов митапов ACX в Латинской Америке, онлайн-встреча в VRChat и первый митап-эксперимент в Красноярске — контент нетехнический, но полезный для нетворкинга.
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-291][Data Engineering Weekly #291]] (Data Engineering Weekly) — Свежий выпуск с разбором миграции крупнейшего дата-озера Европы от Booking.com (инкрементальный подход, малые партии, постоянно обновляемые копии общих данных) и слоя клиентских данных Affirm с общими определениями и проверками качества.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-291][Data Engineering Weekly #291]]
+:SCORE: 8/10
+:WHY: Внутри сразу два production-кейса — миграция озера масштаба Booking.com и паттерн единого слоя данных Affirm — готовые образцы для собственной миграционной и ML-платформенной стратегии.
+
+** Engineers
+- [[https://jaehyeon.me/blog/2026-10-12-odctl-1-0/][odctl 1.0: Kafka, Flink, Spark, Iceberg, Trino and MLflow on Your Laptop with One Command]] (jaehyeon.me) — Утилита через профили -lite/-full поднимает локально уже связанные между собой сервисы: Iceberg REST каталог с PostgreSQL и SeaweedFS, Kafka Connect с Debezium, общую таблицу Iceberg для Flink/Spark/Trino и Grafana-дашборды для каждого сервиса.
+- [[https://vutr.substack.com/p/video-9-technologies-that-changed][9 Technologies That Changed Data Engineering (видео)]] (vutr.substack.com) — Автор конвертирует свои статьи в видео с помощью Opus 5.5 (рендер кадров и озвучка через Python/JS-библиотеки, клон собственного голоса) и разбирает девять технологий, сформировавших современную дата-инженерию.
+
+*** 💎 Топ-3 категории
+**** [[https://jaehyeon.me/blog/2026-10-12-odctl-1-0/][odctl 1.0: Kafka, Flink, Spark, Iceberg, Trino and MLflow on Your Laptop with One Command]]
+:SCORE: 9/10
+:WHY: Снимает главный барьер локальных экспериментов с современным data-стеком — многочасовую сборку каталогов, schema registry и коннекторов — одной командой, включая готовые end-to-end примеры CDC и ML-пайплайнов.
+**** [[https://vutr.substack.com/p/video-9-technologies-that-changed][9 Technologies That Changed Data Engineering (видео)]]
+:SCORE: 6/10
+:WHY: Компактный чек-лист ключевых технологий индустрии плюс проверенный на практике рабочий процесс генерации видео через LLM, который можно повторить для внутренних обучающих материалов.
+
+** AI Consciousness
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/events/4iNmmyrLALGr6d8tw/krasnoyarsk-acx-meetups-everywhere-fall-2026][Krasnoyarsk – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 4/10
+:WHY: Единственный русскоязычный митап в подборке: автор сознательно экспериментирует, есть ли читатели ACX в Красноярске, — редкий шанс локального нетворкинга для инженеров из Сибири.
+**** [[https://www.lesswrong.com/events/SE6byPJvGG47Bevuv/vrchat-acx-meetups-everywhere-fall-2026][VRChat – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 3/10
+:WHY: Полностью онлайн-формат в VRChat без требования VR-шлема — самый доступный способ попасть на встречу сообщества из любой точки мира.
+**** [[https://www.lesswrong.com/events/89sjAcPXPyn3suHh4/asuncion-acx-meetups-everywhere-fall-2026][Asunción – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Организатор — Nuño Sempere, заметная фигура форкастинг-сообщества; стоит заранее уведомить его по email о своём участии.
+**** [[https://www.lesswrong.com/events/5dAaDfEM9eb29pEX9/belo-horizonte-acx-meetups-everywhere-fall-2026][Belo Horizonte – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Компактная встреча в Savassi — низкий порог входа для знакомства инженеров и исследователей с локальной рационалистской сетью.
+**** [[https://www.lesswrong.com/events/zRNterakn8ckgH86C/brasilia-acx-meetups-everywhere-fall-2026][Brasília – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Организатора мгновенно видно по футболке с Аланом Тьюрингом и табличке ACX MEETUP — практичный приём идентификации участников на людном месте.
+**** [[https://www.lesswrong.com/events/p5nRvuqSrozS3rux5/chapeco-acx-meetups-everywhere-fall-2026][Chapecó – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Показательный пример того, как сообщества расширяются в небольшие города, а не только в мегаполисы — модель для запуска локальных митапов.
+**** [[https://www.lesswrong.com/events/a3HKbNw9PGxuMDS6k/florianopolis-acx-meetups-everywhere-fall-2026][Florianópolis – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Классический мягкий формат с печеньками на набережной — удобная точка входа для новичков в сообществе.
+**** [[https://www.lesswrong.com/events/BriHRphrFs9gnLyyx/montevideo-acx-meetups-everywhere-fall-2026][Montevideo – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Встреча в Culto Café в центре Монтевидео — компактное событие для обмена контактами без формальной программы.
+**** [[https://www.lesswrong.com/events/kNY4djN9hwWFZD4BP/porto-alegre-acx-meetups-everywhere-fall-2026][Porto Alegre – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Организатора легко найти по красной одежде в фудкорте Iguatemi — простой шаблон для собственного первого митапа.
+**** [[https://www.lesswrong.com/events/msx6ntbpCXkarHpg6/santiago-acx-meetups-everywhere-fall-2026][Santiago – ACX Meetups Everywhere Fall 2026]]
+:SCORE: 2/10
+:WHY: Стол у входа в MUT с табличкой — типичный низкобарьерный формат знакомства с сообществом без регистрации и формальностей.
+
+** Non Engineering
+- [[https://peterturchin.substack.com/p/demography-of-polities-ii][Demography of Polities II]] (peterturchin.substack.com) — Турчин применяет модель интегративных/дезинтегративных циклов к политической динамике Франции, а команда Complexity Science Hub использует комбинацию LLM и исследователей для сбора данных о нестабильности исторических государств.
+
+*** 💎 Топ-3 категории
+**** [[https://peterturchin.substack.com/p/demography-of-polities-ii][Demography of Polities II]]
+:SCORE: 4/10
+:WHY: Наглядный пример LLM-ассистированного сбора и разметки данных в исследовательском пайплайне — методология, переносимая на инженерные задачи аудита и классификации.

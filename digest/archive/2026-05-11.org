@@ -1,0 +1,41 @@
+#+TITLE: Daily Digest: 2026-05-11
+#+FROM: [2026-05-10 Sun]
+#+TO: [2026-05-11 Mon]
+#+DATE: [2026-05-11 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Мультиагентные системы переходят от экспериментов к производству: от управления станками CNC до оркестрации данных. Инженерия данных трансформируется в инженерию контекста: Meta демонстрирует подход «Второго мозга» для 60K сотрудников. Управление жизненным циклом ML требует единого графа метаданных, как показывает опыт Netflix с Datomic и GraphQL. Аппаратное разнообразие в ИИ растет: использование AMD MI300X для задач manufacturability. Сообщество графовых баз данных планирует встречу в рамках VLDB.
+
+* 📂 Категории
+** Инженерия Данных
+- [[hxxps://medium.com/@AnalyticsAtMeta/how-we-built-an-ai-second-brain-for-60k-knowledge-workers-78c507dd795b][How We Built an AI Second Brain for 60K Knowledge Workers]] (Meta) — Кейс внедрения контекстной инженерии через пара-модель и агентные циклы для масштабной организации.
+- [[hxxps://engineering.salesforce.com/how-informatica-built-a-multi-agent-ai-system-to-reduce-data-workflows-from-months-to-days/][How Informatica Built a Multi-Agent AI System to Reduce Data Workflows from Months to Days]] (Salesforce Engineering) — Архитектура мультиагентной платформы CLAIRE для координации разрозненных этапов dataops.
+- [[hxxps://netflixtechblog.com/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph-5cc6d5828bb1][Democratizing Machine Learning at Netflix: Building the Model Lifecycle Graph]] (Netflix TechBlog) — Построение графа жизненного цикла ML на Datomic для унификации метаданных и сквозной трассировки.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://netflixtechblog.com/democratizing-machine-learning-at-netflix-building-the-model-lifecycle-graph-5cc6d5828bb1][Democratizing Machine Learning at Netflix: Building the Model Lifecycle Graph]]
+:SCORE: 9/10
+:WHY: Глубокий разбор архитектуры метаданных, решающей проблему фрагментации ML-платформ через графовую модель.
+**** [[hxxps://medium.com/@AnalyticsAtMeta/how-we-built-an-ai-second-brain-for-60k-knowledge-workers-78c507dd795b][How We Built an AI Second Brain for 60K Knowledge Workers]]
+:SCORE: 9/10
+:WHY: Практический шаблон для перехода от классической data engineering к контекстной инженерии в энтерпрайзе.
+**** [[hxxps://engineering.salesforce.com/how-informatica-built-a-multi-agent-ai-system-to-reduce-data-workflows-from-months-to-days/][How Informatica Built a Multi-Agent AI System to Reduce Data Workflows from Months to Days]]
+:SCORE: 8/10
+:WHY: Пример реализации детерминированной маршрутизации и валидации в мультиагентных системах для данных.
+
+** Искусственный Интеллект
+- [[hxxps://huggingface.co/blog/lablab-ai-amd-developer-hackathon/machinacheck][MachinaCheck: Building a Multi-Agent CNC Manufacturability System on AMD MI300X]] (Hugging Face) — Реализация мультиагентной системы проверки технологичности на аппаратном обеспечении AMD.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/lablab-ai-amd-developer-hackathon/machinacheck][MachinaCheck: Building a Multi-Agent CNC Manufacturability System on AMD MI300X]]
+:SCORE: 8/10
+:WHY: Демонстрирует применение агентных систем в физических производственных процессах с учетом hardware-специфики.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC/GDC) — Анонс технической встречи сообщества пользователей графовых баз данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обсуждения стандартов графовых баз данных с архитекторами индустрии.

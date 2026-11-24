@@ -1,0 +1,153 @@
+#+TITLE: Arxiv Digest: 2026-07-14
+#+FROM: [2026-07-13 Mon]
+#+TO: [2026-07-14 Tue]
+#+DATE: [2026-07-14 Tue]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+За последние сутки наблюдается активное развитие систем оптимизации запросов с применением LLM. Особенно заметен прогресс в области семантической обработки запросов и кардинальной оценки. Исследователи всё чаще используют агентные подходы для генерации специализированных оценщиков и переписывания SQL, что открывает новые возможности для адаптивной оптимизации под конкретные рабочие нагрузки.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.09361][Bespoke-Card: Why Tune When You Can Generate? Synthesizing Workload-Specific Cardinality Estimators]]
+:WHAT: Агентная система для синтеза исполняемого кода оценщиков кардинальности под конкретную рабочую нагрузку.
+:IMPACT: Сокращение времени выполнения PostgreSQL на 33% и уменьшение медианной q-error с 190.5 до 11.5 (-94%) на бенчмарке JOB.
+
+- [[hxxps://arxiv.org/abs/2606.20853][ReSequel: Robust LLM-assisted Query Rewriting and Optimization using Templatization and Sampling]]
+:WHAT: Слой оптимизации поверх существующих СУБД для переписывания SQL-запросов с использованием LLM и шаблонизации.
+:IMPACT: Ускорение до 16x над нативными СУБД и 22x над LLM-системами, отдельные запросы до 600x быстрее.
+
+- [[hxxps://arxiv.org/abs/2603.16450][MFTune: An Efficient Multi-fidelity Framework for Spark SQL Configuration Tuning]]
+:WHAT: Мульти-фиделити фреймворк для тюнинга конфигурации Spark SQL с использованием репрезентативных подмножеств SQL.
+:IMPACT: Значительное превосходство над пятью state-of-the-art методами тюнинга в практических временных ограничениях.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.10265][TGMS: An Agent-Native Bi-Temporal Graph Management System]]
+:ALGO: Би-темпоральная система управления графами с 13 верифицированными временными операторами для агентных инструментов.
+:IMPACT: Exact match 0.409 на бенчмарке коммуникационной сети против 0.045-0.182 у векторных RAG-подходов; 0.67 на коррекционных пробах.
+
+- [[hxxps://arxiv.org/abs/2602.23342][AlayaLaser: Efficient Index Layout and Search Strategy for Large-scale High-dimensional Vector Similarity Search]]
+:ALGO: On-disk графовая индексная система с оптимизацией под compute-bound сценарии через SIMD инструкции.
+:IMPACT: Превосходит существующие on-disk системы и достигает/превосходит производительность in-memory индексов для высокоразмерных векторов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.29151][CADENZA: Compiling Natural-Language Intent into Task-Specific Operator DAGs for Semantic Query Processing]] — Компиляция семантических операторов в task-specific DAG с оптимизацией trade-offs качество-латентность-стоимость.
+- [[hxxps://arxiv.org/abs/2607.10444][Deterministic method of data sequence processing]] — Детерминированные методы обработки потоков данных для систем мониторинга с теоремами алгебры последовательностей.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+В распределённых системах доминируют темы инференса LLM на edge-устройствах и гибридных архитектурах device-cloud. Ключевой тренд — оптимизация размещения вычислений между устройством и облаком с учётом мультимодальности и многозадачности. Параллельно развивается тематика изоляции производительности на GPU и приватности в федеративном обучении.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2502.11007][Device-Cloud Collaborative LLM Inference with Multi-Modal, Multi-Task, Multi-Turn Conversations]]
+:WHAT: Система TMO с Three-M Offloading (Multi-modal, Multi-task, Multi-turn) для совместного инференса LLM на устройстве и в облаке.
+:IMPACT: Значительные улучшения по латентности, стоимости и качеству ответов по сравнению с baseline подходами к оффлоадингу.
+
+- [[hxxps://arxiv.org/abs/2607.01299][HYPIC: Accelerating Hybrid-Attention LLM Serving with Position-Independent Caching]]
+:WHAT: Первая система для ускорения гибридно-внимательных LLM с position-independent кэшированием через segment-cumulative transition operator.
+:IMPACT: Уменьшение time-to-first-token в 3.25x и улучшение QPS в 1.66x над Prefix Cache при сохранении качества задач.
+
+- [[hxxps://arxiv.org/abs/2601.07600][Performance Isolation for Inference Processes in Edge GPU Systems]]
+:WHAT: Анализ механизмов изоляции (MPS, MIG, Green Contexts) на NVIDIA GPU для предсказуемого времени инференса.
+:IMPACT: Green Contexts представляют перспективную альтернативу для edge-устройств с низкими накладными расходами.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.21247][PiPNN: Ultra-Scalable Graph-Based Nearest Neighbor Indexing]]
+:ALGO: Алгоритм HashPrune для онлайн-прунинга рёбер, позволяющий строить графовые индексы через плотные матричные операции.
+:IMPACT: Построение индексов до 12.9x быстрее HNSW и 11.6x быстрее Vamana; возможность построения индексом миллиардного масштаба за 20 минут на одной машине.
+
+- [[hxxps://arxiv.org/abs/2606.02563][IntraShuffler: A Privacy Preserving Framework for Heterogeneous DP Federated Learning]]
+:ALGO: Privacy-aware механизм шаффлинга, группирующий клиентов в совместимые бакеты для сохранения ε-aware агрегации.
+:IMPACT: Снижение восстанавливаемости градиентов на 60% и точности surrogate inference с 0.78 до 0.33 при сохранении utility модели.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.21430][rush: Scalable Asynchronous Distributed Computing via Shared State in R]] — Пакет R для асинхронного параллелизма через Redis с overhead менее миллисекунды на задачу.
+- [[hxxps://arxiv.org/abs/2606.16924][Single-Connection Mixed-Criticality Transport with CATS: Bounded Guarantees, Three Structural Limits, and a QUIC Escape]] — Приоритизация трафика в одном TCP-соединении с гарантированными задержками через QUIC.
+- [[hxxps://arxiv.org/abs/2506.01377][Scheduling Techniques of AI Models on Modern Heterogeneous Edge GPU -- A Critical Review]] — Критический обзор планировщиков DNN на устройствах NVIDIA Jetson.
+- [[hxxps://arxiv.org/abs/2603.05774][First-Order Softmax Weighted Switching Gradient Method for Distributed Stochastic Minimax Optimization with Stochastic Constraints]] — Метод градиентного спуска для федеративного обучения со стохастическими ограничениями.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования в социальной физике продолжают развивать кинетические модели динамики мнений с учётом сетевых эффектов через графоны. Заметен рост работ по применению физических моделей (Fokker-Planck, стохастические процессы) к экономическим и социальным системам. Особый интерес представляют работы по системному риску в производственных сетях и адаптации к кризисам.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2506.21426][Evolution and determinants of firm-level systemic risk in local production networks]]
+:WHAT: Анализ динамики фирменного системного риска в венгерской экономике 2015-2022 с учётом адаптации цепочек поставок.
+:IMPACT: Демонстрация снижения эмпирического системного риска после пандемии благодаря адаптивному поведению фирм.
+
+- [[hxxps://arxiv.org/abs/2507.12495][Assessing the economic benefits of space weather mitigation investment decisions: Evidence from Aotearoa New Zealand]]
+:WHAT: Экономическая оценка потерь ВВП от геомагнитных бурь через coupled physics-engineering-economic моделирование.
+:IMPACT: Benefit-cost ratio до 330:1 для операционных стратегий и 34.4:1 для физической защиты от GIC.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.10614][Kinetic models of opinion-driven epidemic dynamics modulated by graphons]]
+:ALGO: Нелинейные нелокальные уравнения Fokker-Planck для эпидемий с мнениями на сети, представленной графоном.
+:IMPACT: Спонтанное формирование эпидемических волн через взаимодействия агентов без внешнего форсирования, зависит от связности графона.
+
+- [[hxxps://arxiv.org/abs/2506.07840][Control strategies and trends to equilibrium for kinetic models of opinion dynamics driven by social activity]]
+:ALGO: Кинетические уравнения с уровнем социальной активности как фактором взаимодействия, контроль через opinion leaders.
+:IMPACT: Поляризация мнений среди неактивных агентов, консенсус среди активных; методы энтропии для сходимости к равновесию.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.09452][Quantifying defensive pressure on the ball carrier in soccer based on minimum arrival time]] — Физически обоснованная метрика давления в футболе через минимальное время прибытия защитника.
+- [[hxxps://arxiv.org/abs/2603.05283][Wealth Taxation as a Drift Modification: A Fokker-Planck Approach to Tax Neutrality]] — reformulation нейтрального налога на богатство через снос дрейфа в уравнении Fokker-Planck.
+- [[hxxps://arxiv.org/abs/2512.22596][Evaluating Soccer Player Movements Using the Attacker-Defender Model]] — Валидация модели движения attacker-defender на 306 матчах J1 League.
+- [[hxxps://arxiv.org/abs/2602.22395][False memories to fake news: The evolution of the term "misinformation" in academic literature]] — Эволюция термина "misinformation" в академической литературе с 2011 по 2023.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В алгоритмических исследованиях выделяются работы по параллельным приближённым алгоритмам подсчёта и задачам покрытия с предшествованием. Значительный прорыв — разрешение 30-летней открытой проблемы next-to-shortest path для направленных графов с положительными весами. Также заметен прогресс в online механизмах для эгоистичной балансировки нагрузки.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.01263][Near-Optimal Parallel Approximate Counting via Sampling]]
+:WHAT: Неадаптивный алгоритм для приближённого подсчёта через сэмплирование с O(q log² h / ε²) выборками.
+:IMPACT: Естественное получение work-efficient параллельных (RNC) алгоритмов подсчёта для классических моделей (Ising, monomer-dimer).
+
+- [[hxxps://arxiv.org/abs/2604.11388][Min-Sum Set Cover on Parallel Machines]]
+:WHAT: Обобщение Min-Sum Set Cover на m машин с аппроксимацией через Parallel Densest Subfamily.
+:IMPACT: 4e/(e-1)+ε-аппроксимация для идентичных машин и 8e/(e-1)+ε для несвязанных машин.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.04345][A Polynomial-Time Algorithm for the Next-to-Shortest Path Problem on Positively Weighted Directed Graphs]]
+:ALGO: Полиномиальный алгоритм для next-to-shortest path на направленных графах с положительными весами рёбер.
+:IMPACT: Разрешение 30-летней открытой проблемы; ранее было известно только для неориентированных и планарных графов.
+
+- [[hxxps://arxiv.org/abs/2508.19473][Efficiently Coloring the Intersection of a General Matroid and Combinatorial Matroids]]
+:ALGO: Полиномиальный O(k)-аппроксимационный алгоритм для раскраски пересечения общего матроида и k-1 партиционных матроидов.
+:IMPACT: Первое O(k)-приближение где один матроид может быть общим; ранее лучший результат был O(log n) через Set Cover.
+
+- [[hxxps://arxiv.org/abs/2602.21312][Precedence-Constrained Decision Trees and Coverings]]
+:ALGO: Алгоритмические редукции между Optimal Decision Tree и Set Cover с ограничениями предшествования.
+:IMPACT: O*(√m)-аппроксимация для всех задач с polylog-гарантиями для outforests/inforests.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2412.20711][Online Selfish Load Balancing]] — Первый нетривиальный online механизм с competitive ratio O(log m) для related machines с двухсторонней truthful.
+- [[hxxps://arxiv.org/abs/2405.05544][Partially Ordered Sets Corresponding to the Partition Problem]] — Order-theoretic фреймворк для задачи разбиения через частично упорядоченные множества.
+- [[hxxps://arxiv.org/abs/2411.16624][Leakage-Robust Bayesian Persuasion]] — Схемы убеждения устойчивые к утечке сигналов между получателями.
+- [[hxxps://arxiv.org/abs/2112.06362][Learning to Schedule in Parallel-Server Queues with Stochastic Bilinear Rewards]] — Алгоритм планирования с tradeoff regret-queue length для биллинейных наград.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В прикладном машинном обучении наблюдается рост работ по RAG-системам для мульти-документных задач и специализированных доменов. Особое внимание уделяется training-free подходам для редактирования изображений и улучшению обобщающей способности через исследование нерелевантных состояний. Заметен тренд на агентные фреймворки для курации данных с физической верификацией.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.09762][BatteryLake: Agentic, Physics-Grounded Curation of Heterogeneous Battery Aging Data and Benchmarking]]
+:WHAT: Управляемое data lakehouse с агентной курацией данных о старении батарей через LLM и физическую верификацию.
+:IMPACT: Открытый бенчмарк из 41 датасета от 25+ институций со стандартизированными SOH/RUL задачами и 8 baseline моделями.
+
+- [[hxxps://arxiv.org/abs/2402.01767][HiQA: A Hierarchical Contextual Augmentation RAG for Multi-Documents QA]]
+:WHAT: MDQA фреймворк с каскадными метаданными и multi-route retrieval механизмом для работы с множеством документов.
+:IMPACT: State-of-the-art производительность в мульти-документных средах с бенчмарком MasQA.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.02091][CRINN: Contrastive Reinforcement Learning for Approximate Nearest Neighbor Search]]
+:ALGO: Парадигма оптимизации ANNS через reinforcement learning где скорость выполнения служит сигналом награды.
+:IMPACT: Лучшая производительность на 3 из 6 бенчмарков NNS, валидация что LLM+RL могут автоматизировать алгоритмические оптимизации.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2501.13692][Training-Free, Identity-Preserving Image Editing for Fashion Pose Alignment and Normalization]] — Training-free пайплайн FashionRepose для non-rigid корректировки поз одежды с сохранением идентичности.
+- [[hxxps://arxiv.org/abs/2502.20681][Disentangling Feature Structure: A Mathematically Provable Two-Stage Training Dynamics in Transformers]] — Теоретический анализ двухстадийной динамики обучения в трансформерах через disentangled признаки.
+- [[hxxps://arxiv.org/abs/2410.03565][Training on Irrelevant States Implies Data Augmentation: Generalization in Contextual MDPs]] — Подход Explore-Go для улучшения обобщения через фазу чистого исследования в начале эпизода.
+- [[hxxps://arxiv.org/abs/2409.19716][Constrained Reinforcement Learning for Safe Heat Pump Control]] — Constrained SAC с Linear Smoothed Log Barrier для оптимизации отопления зданий.
+- [[hxxps://arxiv.org/abs/2410.19553][On Occlusions in Video Action Detection: Benchmark Datasets And Training Recipes]] — Пять новых бенчмарков для изучения влияния окклюзий в детекции действий в видео.
+- [[hxxps://arxiv.org/abs/2410.20535][Asynchronous Perception Machine For Efficient Test-Time-Training]] — Архитектура APM для эффективного test-time-training с обработкой патчей в любом порядке.

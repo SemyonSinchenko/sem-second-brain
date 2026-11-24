@@ -1,0 +1,34 @@
+#+TITLE: Daily Digest: 2026-06-29
+#+FROM: [2026-06-28 Sun]
+#+TO: [2026-06-29 Mon]
+#+DATE: [2026-06-29 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За прошедший день ключевым трендом стало обновление таксономии архитектуры хранилищ и рабочих нагрузок, включая концепцию LakeDB. Инженеры Pinterest и Uber поделились практическим опытом обеспечения эволюции схем и отказоустойчивости распределенных систем на уровне зон. Также анонсирована встреча технического сообщества GDC, важная для специалистов по графовым базам данных.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://jack-vanlightly.com/blog/2026/6/21/can-we-agree-on-a-storage/workload-architecture-taxonomy][Can We Agree on a Storage/Workload Architecture Taxonomy?]] (Jack Vanlightly) — Предлагает обновить таксономию архитектур (OLTP, OLAP, LTAP) для согласования терминологии в индустрии.
+- [[hxxps://medium.com/pinterest-engineering/automated-schema-evolution-in-pinterests-next-generation-db-ingestion-framework-36c5c07070de][Automated Schema Evolution in Pinterest's Next-Generation DB Ingestion Framework]] (Pinterest Engineering) — Описывает подход к обратной совместимости схем через комбинацию Protobuf и каталогов данных.
+- [[hxxps://www.uber.com/us/en/blog/zone-failure-resilient/][Zone-Failure-Resilient OpenSearch® at Uber]] (Uber Engineering) — Демонстрирует настройку распределения шардов для устойчивости к отказам зон без хаотичной ребалансировки.
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-276][Data Engineering Weekly #276]] (Data Engineering Weekly) — Еженедельная подборка материалов по архитектуре данных, качеству и наблюдаемости.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.uber.com/us/en/blog/zone-failure-resilient/][Zone-Failure-Resilient OpenSearch® at Uber]]
+:SCORE: 9/10
+:WHY: Практический кейс по обеспечению отказоустойчивости кластера в продакшене с минимизацией ребалансировки.
+**** [[hxxps://medium.com/pinterest-engineering/automated-schema-evolution-in-pinterests-next-generation-db-ingestion-framework-36c5c07070de][Automated Schema Evolution in Pinterest's Next-Generation DB Ingestion Framework]]
+:SCORE: 8/10
+:WHY: Решает критическую проблему совместимости схем при ingestion, применимо для любых потоковых платформ.
+**** [[hxxps://jack-vanlightly.com/blog/2026/6/21/can-we-agree-on-a-storage/workload-architecture-taxonomy][Can We Agree on a Storage/Workload Architecture Taxonomy?]]
+:SCORE: 8/10
+:WHY: Помогает систематизировать понимание современных гибридных архитектур хранения данных.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества GDC в Бостоне, совмещенной с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обсуждения стандартов графовых баз данных с разработчиками GDC.

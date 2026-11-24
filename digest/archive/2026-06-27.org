@@ -1,0 +1,55 @@
+#+TITLE: Daily Digest: 2026-06-27
+#+FROM: [2026-06-26 Fri]
+#+TO: [2026-06-27 Sat]
+#+DATE: [2026-06-27 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия фокусируется на переходе AI-агентов из экспериментов в продакшн, особенно в регулируемых областях вроде финансов и страхования. Инженеры получают новые инструменты для локальной дообучки моделей на потребительском железе, что снижает зависимость от облачных GPU. В дата-инженерии тренд смещается к упрощению ELT-процессов внутри Lakehouse без лишних слоев инфраструктуры.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/production-grade-ai-agents-for-financial-compliance-lessons-from-stripe/][Production-grade AI agents for financial compliance: Lessons from Stripe]] (AWS Blog) — разбор архитектуры агентной системы Stripe, сократившей время проверки комплаенса на 26%.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-cara-pioneers-domain-specific-ai-for-enterprise-insurance-brokerages-with-aws/][How Cara pioneers domain-specific AI for enterprise insurance brokerages with AWS]] (AWS Blog) — кейс создания нишевого AI-решения для страхования с учетом регуляторных требований.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-interactive-pdf-text-extraction-from-amazon-s3/][Build interactive PDF text extraction from Amazon S3]] (AWS Blog) — руководство по созданию сервера для интерактивного извлечения текста из PDF вместо пакетной обработки.
+- [[hxxps://www.kdnuggets.com/fine-tuning-language-models-on-apple-silicon-with-mlx/][Fine-tuning Language Models on Apple Silicon with MLX]] (KDnuggets) — инструкция по локальному файн-тюнингу моделей на Mac без облачных затрат.
+- [[hxxps://www.kdnuggets.com/5-agentic-workflows-to-automate-your-data-science-pipeline/][5 Agentic Workflows to Automate Your Data Science Pipeline]] (KDnuggets) — обзор пяти рабочих процессов агентов для автоматизации этапов Data Science.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/production-grade-ai-agents-for-financial-compliance-lessons-from-stripe/][Production-grade AI agents for financial compliance: Lessons from Stripe]]
+:SCORE: 10/10
+:WHY: Реальный кейс внедрения агентов в критически важный финансовый процесс с метриками эффективности.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-cara-pioneers-domain-specific-ai-for-enterprise-insurance-brokerages-with-aws/][How Cara pioneers domain-specific AI for enterprise insurance brokerages with AWS]]
+:SCORE: 9/10
+:WHY: Демонстрирует важность доменной спецификации AI вместо использования-generic моделей в энтерпрайзе.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-interactive-pdf-text-extraction-from-amazon-s3/][Build interactive PDF text extraction from Amazon S3]]
+:SCORE: 8/10
+:WHY: Практическое решение для частой задачи извлечения данных из документов с сравнением подходов.
+
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/dremio-elt-load-transform-and-govern-data-without-leaving-the-lakehouse/][Dremio ELT: Load, Transform, and Govern Data Without Leaving the Lakehouse]] (Dremio) — описание подхода к ELT напрямую в Lakehouse на открытых стандартах без промежуточных инструментов.
+- [[hxxps://www.databricks.com/blog/decision-framework-etl-migration-databricks/][A Decision Framework for ETL Migration to Databricks]] (Databricks) —_framework_ для принятия решений при миграции хранимых процедур и ETL-процессов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/dremio-elt-load-transform-and-govern-data-without-leaving-the-lakehouse/][Dremio ELT: Load, Transform, and Govern Data Without Leaving the Lakehouse]]
+:SCORE: 9/10
+:WHY: Предлагает архитектуру для устранения лишних слоев инфраструктуры в пайплайнах данных.
+**** [[hxxps://www.databricks.com/blog/decision-framework-etl-migration-databricks/][A Decision Framework for ETL Migration to Databricks]]
+:SCORE: 8/10
+:WHY: Структурированный подход к сложной задаче миграции легаси ETL, полезный для техлидов.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/how-databricks-turning-video-searchable-actionable-intelligence/][How Databricks is turning video into searchable, actionable intelligence]] (Databricks) — пример использования видеоаналитики для инспекции инфраструктуры с помощью дронов.
+- [[hxxps://www.databricks.com/blog/how-english-office-students-leverages-databricks-enhance-higher-education-standards-and-drive/][How the English Office for Students leverages Databricks to enhance higher education standards and drive better student outcomes]] (Databricks) — кейс сокращения времени обработки данных с 8 часов до минут в госсекторе.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/how-databricks-turning-video-searchable-actionable-intelligence/][How Databricks is turning video into searchable, actionable intelligence]]
+:SCORE: 8/10
+:WHY: Показывает расширение возможностей платформы за пределы табличных данных в сторону мультимодального AI.
+**** [[hxxps://www.databricks.com/blog/how-english-office-students-leverages-databricks-enhance-higher-education-standards-and-drive/][How the English Office for Students leverages Databricks to enhance higher education standards and drive better student outcomes]]
+:SCORE: 7/10
+:WHY: Подтверждает масштабируемость решения на задачах с сотнями миллионов записей в реальном секторе.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и доступа к стандартам графовых данных для архитекторов систем.

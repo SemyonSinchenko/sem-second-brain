@@ -1,0 +1,38 @@
+#+TITLE: Daily Digest: 2026-04-26
+#+FROM: [2026-04-25 Sat]
+#+TO: [2026-04-26 Sun]
+#+DATE: [2026-04-26 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия переходит от скорости разработки к качеству данных и инфраструктуры как основному конкурентному преимуществу в эпоху ИИ. Senior-инженеры все чаще отказываются от тяжелых редакторов вроде Emacs в пользу кастомных нативных приложений, ускоренных ИИ. Инструменты подписи кода становятся доступнее через Azure, но требуют обхода ограничений штатного CLI. Клиодинамика предлагает новые количественные методы для анализа исторической нестабильности через прокси-переменные. LDBC продолжает развивать сообщество вокруг графовых баз данных в связке с академическими конференциями.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://joereis.substack.com/p/wtf-is-a-software-moat-in-2026][WTF is a Software Moat in 2026?]] (joereis.substack.com) — Скорость разработки обесценивается ИИ-агентами, защищенность бизнеса теперь определяется уникальными данными и глубокой интеграцией в инфраструктуру.
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/wtf-is-a-software-moat-in-2026][WTF is a Software Moat in 2026?]]
+:SCORE: 9/10
+:WHY: Критический анализ стратегий выживания продуктовых компаний в условиях commoditization кода генеративным ИИ.
+** Engineers
+- [[hxxps://nullprogram.com/blog/2026/04/26/][I have officially retired from Emacs]] (nullprogram.com) — Опыт миграции с 20-летнего Emacs на кастомные C++/wxWidgets приложения, ускоренной использованием ИИ-ассистентов.
+- [[hxxps://nullprogram.com/blog/2026/04/25/][My brave new code-signing world]] (nullprogram.com) — Обзор инструмента aas-sign для упрощения подписи кода через Azure Artifact Signing в CI/CD пайплайнах.
+*** 💎 Топ-3 категории
+**** [[hxxps://nullprogram.com/blog/2026/04/26/][I have officially retired from Emacs]]
+:SCORE: 9/10
+:WHY: Показывает тренд на отказ от универсальных IDE в пользу легковесных специализированных инструментов, создаваемых самими инженерами.
+**** [[hxxps://nullprogram.com/blog/2026/04/25/][My brave new code-signing world]]
+:SCORE: 8/10
+:WHY: Практическое решение проблемы сложной интеграции подписи кода Azure в кроссплатформенные сборки без лишнего оверхеда.
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи Technical User Community в Бостоне совместно с конференцией VLDB, прием докладов открыт до мая.
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность для инженеров, работающих с графовыми базами, напрямую повлиять на развитие стандартов и обмен опытом с вендорами.
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/cliodynamics-of-end-times-ii][Cliodynamics of End Times II]] (peterturchin.substack.com) — Исследование использования монетных кладов как количественного индикатора политической нестабильности в исторических циклах.
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/cliodynamics-of-end-times-ii][Cliodynamics of End Times II]]
+:SCORE: 8/10
+:WHY: Демонстрирует применение инженерного подхода к данным для анализа социальных систем, что полезно для понимания макро-контекста рынка.

@@ -1,0 +1,52 @@
+#+TITLE: Daily Digest: 2026-04-16
+#+FROM: [2026-04-15 Wed]
+#+TO: [2026-04-16 Thu]
+#+DATE: [2026-04-16 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Снижение стоимости инференса LLM доминирует в ленте с подробными практическими бенчмарками по спекулятивному декодированию на AWS Trainium. Управление агентами в продакшене выходит на первый план: Databricks анонсирует AI Gateway для MCP и управления инструментами, а Amazon Bedrock AgentCore демонстрируется в реальном кейсе управления денежными потоками в здравоохранении. В мире открытого ПО происходит ключевая смена руководства в OSI, что сигнализирует о новых приоритетах в политике и определении открытого ИИ. Среди data-инженеров заметна саморефлексия о границах специализации и размывании фокуса из-за повсеместного обсуждения ИИ. Архитектурные паттерны становятся более комплексными, смешивая графовые БД, агентов и облачные сервисы для создания безопасных и масштабируемых систем.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerating-decode-heavy-llm-inference-with-speculative-decoding-on-aws-trainium-and-vllm/][Accelerating decode-heavy LLM inference with speculative decoding on AWS Trainium and vLLM]] (AWS) — Практические бенчмарки показывают до 3x ускорение генерации токенов и снижение стоимости инференса для моделей типа Qwen3 через настройку параметров `num_speculative_tokens`.
+- [[hxxps://huggingface.co/blog/ibm-research/vakra-benchmark-analysis][Inside VAKRA: Reasoning, Tool Use, and Failure Modes of Agents]] (Hugging Face) — Детальный анализ бенчмарка VAKRA выявляет типовые ошибки агентов при использовании инструментов и цепочках рассуждений, что критично для отладки продакшен-систем.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/rede-mater-dei-de-saude-monitoring-ai-agents-in-the-revenue-cycle-with-amazon-bedrock-agentcore/][Rede Mater Dei de Saúde: Monitoring AI agents in the revenue cycle with Amazon Bedrock AgentCore]] (AWS) — Реальный кейс внедрения 12 AI-агентов в больничной сети с акцентом на встроенный мониторинг, управление токенами и предотвращение финансовых потерь.
+- [[hxxps://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/][Gemini 3.1 Flash TTS: the next generation of expressive AI speech]] (DeepMind) — Новая модель генерации речи предлагает гранулярный контроль через аудиотеги для создания выразительного контента.
+- [[hxxps://www.kdnuggets.com/7-steps-to-mastering-language-model-deployment][7 Steps to Mastering Language Model Deployment]] (KDnuggets) — Структурированное руководство по развёртыванию LLM, охватывающее архитектурные решения, баланс стоимости/латентности, безопасность и мониторинг.
+- [[hxxps://www.kdnuggets.com/notebooklm-for-the-creative-architect][NotebookLM for the Creative Architect]] (KDnuggets) — Обзор пяти ключевых возможностей NotebookLM для оптимизации творческих рабочих процессов и анализа документов.
+- [[hxxps://www.kdnuggets.com/top-5-extensions-for-vs-code-that-arent-copilot][Top 5 Extensions for VS Code That Aren’t Copilot]] (KDnuggets) — Подборка простых расширений для VS Code, повышающих продуктивность в повседневной разработке без использования ИИ.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/create-rich-custom-tooltips-in-amazon-quick-sight/][Create rich, custom tooltips in Amazon Quick Sight]] (AWS) — Новая возможность создавать кастомные всплывающие подсказки с графиками и KPI для улучшения визуализации данных в дашбордах.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/ai-gateway-how-connect-agents-external-mcps-securely][AI Gateway: How to Connect Agents to External MCPs Securely]] (Databricks) — Анонс AI Gateway как единого слоя для безопасного управления моделями, MCP-серверами и инструментами в экосистеме Databricks.
+- [[hxxps://www.databricks.com/blog/ai-gateway-governance-layer-agentic-ai][Expanding Agent Governance with Unity AI Gateway]] (Databricks) — Расширение возможностей AI Gateway для governance агентных систем, включая аудит, контроль доступа и политики.
+- [[hxxps://neo4j.com/blog/developer/building-a-neo4j-graph-agent-for-gemini-enterprise/][Building a Neo4j Graph Agent for Gemini Enterprise]] (Neo4j) — Пошаговое руководство по развёртыванию продакшен-готового графового агента в GCP с деталями по безопасности, контролю затрат и масштабируемой микросервисной архитектуре.
+- [[hxxps://gdotv.com/blog/weekly-edge-bigquery-graph-rdf-1-2-apache-tinkerpop-4-0-0/][The Weekly Edge: BigQuery Graph Goes Big, RDF 1.2 Advances, TinkerPop Hatches 3 New Gremlins, & more]] (gdotv) — Сводка новостей графовых технологий: запуск BigQuery Graph, прогресс в RDF 1.2 и выход Apache TinkerPop 4.0.0.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс технического сообщества по графовым базам данных, со-локализованного с конференцией VLDB в Бостоне, с открытым call for proposals.
+
+** Open Source
+- [[hxxps://opensource.org/blog/welcoming-duane-obrien-as-executive-director-of-the-open-source-initiative][Welcoming Duane O’Brien as Executive Director of the Open Source Initiative]] (Open Source Initiative) — Ключевое назначение нового исполнительного директора в OSI, который будет определять эволюцию Open Source AI Definition и политику на фоне глобального регулирования.
+- [[hxxps://opensource.org/blog/open-source-initiative-appoints-duane-obrien-as-executive-director][Open Source Initiative Appoints Duane O’Brien as Executive Director]] (Open Source Initiative) — Официальный анонс о назначении ветерана open source с 25-летним опытом, фокусирующегося на устойчивости проектов и ответственном участии компаний.
+- [[hxxps://opensource.org/blog/welcoming-the-new-executive-director][Welcoming the New Executive Director!]] (Open Source Initiative) — Вступительное письмо от временного исполнительного директора, представляющее Duane O’Brien и его видение будущего OSI.
+
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/from-industrial-data-at-basf-to-delta][From Industrial Data at BASF to Delta Lake Committer]] (Data Engineering Central) — Практический разбор построения масштабируемых data-платформ на 900+ заводах, реалий batch vs real-time и работы коммиттером Delta Lake.
+- [[hxxps://www.dataengineeringweekly.com/p/a-response-to-our-reader-survey][A Response to Our Reader Survey]] (Data Engineering Weekly) — Редакционный аудит 233 статей, формализующий границы между core data engineering и смежными AI-темами на основе фидбэка senior-инженеров.
+
+** Engineers
+- [[hxxps://www.junaideffendi.com/p/lyft-data-tech-stack][Lyft Data Tech Stack]] (Junaid Effendi) — Глубокий анализ высоконагруженного стека Lyft: Kafka, Flink, Trino, S3 на 100+ PB, обработка миллионов событий в секунду и архитектурные решения для real-time analytics и ML.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/dissecting-corpses-of-past-empires][Dissecting Corpses of Past Empires]] (Peter Turchin) — Анализ исторических циклов политической нестабильности и элитного перенаселения, проведённый через призму современных событий в США и Европе.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/accelerating-decode-heavy-llm-inference-with-speculative-decoding-on-aws-trainium-and-vllm/][Accelerating decode-heavy LLM inference with speculative decoding on AWS Trainium and vLLM]]
+:SCORE: 9/10
+:WHY: Конкретные бенчмарки и настройки для снижения стоимости инференса LLM в 3 раза — must-read для инженеров, развертывающих генеративные модели в продакшене.
+**** [[hxxps://www.databricks.com/blog/ai-gateway-how-connect-agents-external-mcps-securely][AI Gateway: How to Connect Agents to External MCPs Securely]]
+:SCORE: 8/10
+:WHY: Представляет emerging-архитектуру для управления агентами и MCP, что становится критичным для governance сложных AI-систем.
+**** [[hxxps://dataengineeringcentral.substack.com/p/from-industrial-data-at-basf-to-delta][From Industrial Data at BASF to Delta Lake Committer]]
+:SCORE: 8/10
+:WHY: Реальные инсайты по построению индустриальных data-платформ от практика, включая работу с lakehouse и переход в Developer Relations.

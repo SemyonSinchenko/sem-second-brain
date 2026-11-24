@@ -1,0 +1,122 @@
+#+TITLE: Arxiv Digest: 2026-07-02
+#+FROM: [2026-07-01 Wed]
+#+TO: [2026-07-02 Thu]
+#+DATE: [2026-07-02 Thu]
+#+STARTUP: showall
+
+* cs.DB
+** 🧐 Обзор
+Векторные базы данных становятся объектом пристального внимания с точки зрения безопасности, особенно в свете новых атак на пространство вложений. Одновременно растет интерес к семантической оптимизации запросов и временным графам, где классические подходы уступают место специализированным хранилищам. Наблюдается тренд на интеграцию матричных вычислений для ускорения соединений с проекциями и улучшение политик кэширования для семантического поиска.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.29151][CADENZA: Compiling Natural-Language Intent into Task-Specific Operator DAGs for Semantic Query Processing]]
+:WHAT: Компилятор семантических операторов в Task-Specific DAG с оптимизацией качества, задержки и стоимости.
+:IMPACT: Позволяет декларативно управлять запросами к LLM, достигая ускорения до 165.7x и снижения затрат в 310 раз.
+- [[hxxps://arxiv.org/abs/2607.00406][TVA: A Version-aware Temporal Graph Storage System for Real-time Analytics]]
+:WHAT: Специализированное хранилище временных графов с многоверсионной архитектурой и хешированием hopscotch.
+:IMPACT: Снижает задержку запросов до 9.9 раз и накладные расходы на хранение в 2.2 раза по сравнению с аналогами.
+- [[hxxps://arxiv.org/abs/2604.05480][Can You Trust the Vectors in Your Vector Database? Black-Hole Attack from Embedding Space Defects]]
+:WHAT: Исследование уязвимости векторных баз данных к атакам отравления через внедрение векторов в геометрический центр.
+:IMPACT: Demonstrates critical security risks in RAG systems, urging for robust defense mechanisms against centrality-driven hubness.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2002.12459][Fast Join Project Query Evaluation using Matrix Multiplication]]
+:ALGO: Алгоритмы оценки соединений с проекциями, параметризированные размером вывода и использующие матричное умножение.
+:IMPACT: Ускорение обработки запросов до 50 раз за счет использования оптимизированных библиотек линейной алгебры.
+- [[hxxps://arxiv.org/abs/2607.00727][Approximate Nearest Neighbor Search with Graph Range Filters]]
+:ALGO: Индекс DLH с маркировкой по расстоянию и сжатием Bloom filters для фильтрации графовых диапазонов.
+:IMPACT: Увеличивает пропускную способность на 70.3% при сохранении полноты выше 98.5% для сложных фильтров.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.00394][When Classic Cache Policies Fail: Learning-Augmented Replacement for Semantic Retrieval Buffers]] — Предложен фреймворк SOLAR для замены кэша в семантических буферах, превосходящий классические эвристики.
+- [[hxxps://arxiv.org/abs/2607.00254][Query-Centric Optimization of AI Workflows via Approximate Query Processing and Proxy Models]] — Применение аппроксимированной обработки запросов для сокращения вызовов дорогих моделей в AI-пайплайнах.
+- [[hxxps://arxiv.org/abs/2606.31983][Clean Me If You Can: A Large Collection of Real-World Addresses for Data Cleaning Benchmarking]] — Новый бенчмарк для очистки данных на основе реальных грязных наборов адресов.
+
+* cs.DC
+** 🧐 Обзор
+Распределенные системы для глубокого обучения фокусируются на преодолении гетерогенности оборудования и оптимизации коммуникаций между GPU. Ключевыми направлениями стали эффективное обслуживание MoE-моделей и перекрытие вычислений с передачей данных на уровне чанков. Также заметен сдвиг в сторону адаптивных планировщиков для агентных workflows с длинным контекстом и динамической маршрутизации экспертов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2504.20490][Hetu v2: A General and Scalable Deep Learning System with Hierarchical and Heterogeneous Single Program Multiple Data Annotations]]
+:WHAT: Расширение парадигмы SPMD для поддержки асимметричного шардирования и иерархической коммуникации в гетерогенных средах.
+:IMPACT: Позволяет эффективно обучать модели на нестабильных и разнородных устройствах без потери простоты программирования.
+- [[hxxps://arxiv.org/abs/2601.20595][Syncopate: Efficient Multi-GPU AI Kernels via Automatic Chunk-Centric Compute-Communication Overlap]]
+:WHAT: Компилятор и рантайм для автоматического мелкозернистого перекрытия вычислений и коммуникаций внутри единого ядра.
+:IMPACT: Ускорение до 4.7x на многопроцессорных рабочих нагрузках за счет устранения синхронизации на уровне ядер.
+- [[hxxps://arxiv.org/abs/2607.00151][SmoothAgent: Efficient Long-Horizon LLM-Based Agent Serving with Lookahead Context Engineering]]
+:WHAT: Модель.lookahead программирования для асинхронной трансформации контекста в агентных системах.
+:IMPACT: Устраняет накладные расходы на трансформацию контекста, снижая TTFT до 11.9 раз.
+- [[hxxps://arxiv.org/abs/2607.00466][ELDR: Expert-Locality-Aware Decode Routing for PD-Disaggregated MoE Serving]]
+:WHAT: Маршрутизатор декодирования, учитывающий локальность экспертов для PD-дисагрегированного обслуживания MoE.
+:IMPACT: Снижает медианную задержку TPOT на 5.9-13.9% за счет оптимизации загрузки весов экспертов.
+- [[hxxps://arxiv.org/abs/2606.22180][FeLoG: Scalable and Efficient Distributed Graph Embedding with Feedback Loop Mechanism]]
+:WHAT: Система распределенного встраивания графов с обратной связью для приоритизации недообученных узлов.
+:IMPACT: Ускорение сходимости в 27.9 раз и снижение коммуникационных затрат на 53.1% на крупномасштабных графах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2508.18224][FSA: An Alternative Efficient Implementation of Native Sparse Attention Kernel]] — Альтернативная реализация ядра разреженного внимания, эффективная для малых групп запросов в GQA.
+- [[hxxps://arxiv.org/abs/2607.00303][Promise-Future Synchronization for Cluster Asynchronous Many-Task Runtimes via MPI One-Sided Communication]] — Расширение рантайма AMT моделью promise-future для динамических алгоритмов.
+- [[hxxps://arxiv.org/abs/2607.00455][CloudyGUI: A Novel Python-based Framework for Auto-Scaling and Cloud Workload Analysis]] — Фреймворк с GUI для симуляции и валидации стратегий автоматического масштабирования в облаке.
+
+* cs.DS
+** 🧐 Обзор
+Алгоритмические исследования сосредоточены на параметризованной сложности задач на графах, включая временные пути и разделимость с сохранением связности. Значительный прогресс достигнут в структурах данных для работы со строками и внутренних запросов. Теоретические результаты все чаще учитывают практические ограничения, такие как количество хопов в маршрутизации и устойчивость к византийским сбоям.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.31759][Decoupling Trust in Byzantine CRDTs: Fine-grained Post-Compromise Handling without Breaking Causality]]
+:WHAT: Модель доверия для CRDT, разделяющая доверие к идентичности и содержимому обновлений.
+:IMPACT: Позволяет гибко обрабатывать компрометацию участников без нарушения причинной согласованности в децентрализованных системах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2106.14969][Hop-Constrained Metric Embeddings and their Applications]]
+:ALGO: Улучшенные вложения метрик с ограничениями на хопы для задач проектирования сетей.
+:IMPACT: Позволяет строить схемы компактной маршрутизации с доказанными гарантиями и улучшенными аппроксимациями.
+- [[hxxps://arxiv.org/abs/2511.15849][Connectivity-Preserving Important Separators: A Framework for Cut-Uncut Problems]]
+:ALGO: Обобщение важных сепараторов для задач разрезания с сохранением связности терминалов.
+:IMPACT: Систематический метод для FPT-алгоритмов в задачах типа Node Multiway Cut-Uncut.
+- [[hxxps://arxiv.org/abs/2607.00118][Temporal Path Covers: Dilworth Properties and Parameterized Complexity]]
+:ALGO: Исследование сложности покрытия путями во временных графах с учетом свойств Дилворта.
+:IMPACT: Устанавливает FPT-алгоритмы для параметра vertex cover и доказывает W[1]-трудность для других параметризаций.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2312.11873][Nearly Optimal Internal Dictionary Matching]] — Структура данных BASS для почти оптимальных внутренних запросов словарного соответствия.
+- [[hxxps://arxiv.org/abs/2512.08392][Finding All Bounded-Length Simple Cycles in a Directed Graph -- Revisited]] — Исправленный алгоритм перечисления циклов с гарантированной задержкой.
+- [[hxxps://arxiv.org/abs/2607.00244][Independent Set Hardness in Graphs of Bounded Twin-Width and Low-Radius Merge-Width]] — Доказательства трудности аппроксимации независимого множества для графов с ограниченной twin-width.
+- [[hxxps://arxiv.org/abs/2607.00204][Computing Smallest Suffixient Arrays in Sublinear Time]] — Алгоритм вычисления наименьших суффиксных массивов за сублинейное время.
+
+* cs.AI
+** 🧐 Обзор
+В прикладном машинном обучении акцент смещается на эффективность загрузки данных для огромных датасетов и безопасность моделей через fingerprinting. Методы борьбы с дисбалансом классов эволюционируют в сторону причинно-следственного прототипирования вместо простой генерации синтетических данных. Также растет интерес к интерпретируемости объяснений LLM и их зависимости от масштаба модели.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2506.01883][scDataset: Scalable Data Loading for Deep Learning on Large-Scale Single-Cell Omics]]
+:WHAT: Загрузчик данных PyTorch, сочетающий блочную выборку и пакетную загрузку для работы с данными на диске.
+:IMPACT: Ускорение обучения на два порядка величины по сравнению со случайной выборкой при сохранении разнообразия минибатчей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2407.10887][Hey, That's My Model! Introducing Chain & Hash, An LLM Fingerprinting Technique]] — Метод криптографической привязки промптов к ответам для защиты ownership LLM.
+- [[hxxps://arxiv.org/abs/2407.15283][Enhancing Hardware Fault Tolerance in Machines with Reinforcement Learning Policy Gradient Algorithms]] — Сравнение PPO и SAC для адаптации к аппаратным сбоям в автономных машинах.
+- [[hxxps://arxiv.org/abs/2507.14706][Fraud is Not Just Rarity: A Causal Prototype Attention Approach to Realistic Synthetic Oversampling]] — Архитектура CPAC для улучшения разделения кластеров при обнаружении мошенничества.
+- [[hxxps://arxiv.org/abs/2505.03303][Comparative Analysis of Lightweight CNNs for Resource-Constrained Devices: Predictive Performance, Efficiency Trade-offs, and Initialization Effects]] — Бенчмарк легковесных CNN с единым протоколом fine-tuning.
+- [[hxxps://arxiv.org/abs/2410.22526][From Silos to Systems: Process-Oriented Hazard Analysis for AI Systems]] — Адаптация метода STPA для анализа безопасности процессов разработки ИИ.
+- [[hxxps://arxiv.org/abs/2503.13445][Verbosity Tradeoffs and the Impact of Scale on the Faithfulness of LLM Self-Explanations]] — Исследование зависимости правдивости объяснений LLM от масштаба модели и verbosity.
+
+* physics.soc-ph
+** 🧐 Обзор
+Сетевой анализ применяется к критическим инфраструктурам, таким как энергосети, где ИИ используется для стабилизации через управление адмиттансами. Исследования эволюции сетей показывают связь между локальными правилами и глобальной структурой кратчайших путей. Социальные сети анализируются через призму неравного доступа к ресурсам и коррупционных связях.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.02114][AI-Driven Stabilization in Power Grids through Controlling Line Admittances]]
+:WHAT: Алгоритм AAC для автономной стабилизации энергосетей через адаптивную настройку регуляторов адмиттанса.
+:IMPACT: Объединяет планирование и контроль в реальном времени, снижая отклонения частоты и изолируя ключевые регуляторы.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.25237][Local network evolution rules drive shortest path multiplicity]]
+:ALGO: Анализ влияния локальных правил эволюции на кратность кратчайших путей и структуру сообществ.
+:IMPACT: Показывает, что высокая кратность путей является естественным следствием локальной эволюции, а не случайностью.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.00179][Synchronization and Swarming of Two-Mode Stochastic Oscillators]] — Модель роя агентов с двухрежимными осцилляторами, демонстрирующая квантованные топологические аттракторы.
+- [[hxxps://arxiv.org/abs/2607.00242][Unequal Access to Power in Corruption Networks: Evidence from Colombia]] — Анализ гендерных паттернов исключения в коррупционных сетях территориальной прессы.
+- [[hxxps://arxiv.org/abs/2607.00546][Open Science in Astrophysics: Citation Benefits of Open Code, Open Data, and Open Access]] — Исследование цитируемости в зависимости от открытости кода, данных и текста в астрофизике.
+- [[hxxps://arxiv.org/abs/2607.01234][Modeling the Performance of the Burevestnik Nuclear-Powered Cruise Missile]] — Моделирование характеристик ядерной крылатой ракеты на основе физических принципов.

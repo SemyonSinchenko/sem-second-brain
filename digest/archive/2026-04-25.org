@@ -1,0 +1,49 @@
+#+TITLE: Daily Digest: 2026-04-25
+#+FROM: [2026-04-24 Fri]
+#+TO: [2026-04-25 Sat]
+#+DATE: [2026-04-25 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия движется к агентным архитектурам, где ИИ пишет код пайплайнов вместо инженеров. Вендоры активно интегрируют фронтенерные модели в управляемые платформы с акцентом на безопасность. Регуляторы обновляют требования к риск-менеджменту моделей для банковского сектора на 2026 год. Сообщества планируют очные встречи для обсуждения технических стандартов.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://juhache.substack.com/p/the-10x-data-team-the-markdown-team][The 10x Data Team = The Markdown Team]] (juhache.substack.com) — Сдвиг роли инженера от написания кода к проектированию границ детерминизма для автономных агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://juhache.substack.com/p/the-10x-data-team-the-markdown-team][The 10x Data Team = The Markdown Team]]
+:SCORE: 9/10
+:WHY: Критическое понимание трансформации роли дата-инженера в эпоху автономных агентов.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/7-practical-openclaw-use-cases-you-should-know][7 Practical OpenClaw Use Cases You Should Know]] (kdnuggets.com) — Обзор конкретных кейсов автоматизации рутины и создания кастомных агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-workforce-ai-agents-with-visier-and-amazon-quick/][Building Workforce AI Agents with Visier and Amazon Quick]] (aws.amazon.com) — Паттерн объединения HR-аналитики и корпоративных знаний для принятия решений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/building-workforce-ai-agents-with-visier-and-amazon-quick/][Building Workforce AI Agents with Visier and Amazon Quick]]
+:SCORE: 8/10
+:WHY: Практический пример внедрения агентов в энтерпрайз-контекст с живыми данными.
+**** [[hxxps://www.kdnuggets.com/7-practical-openclaw-use-cases-you-should-know][7 Practical OpenClaw Use Cases You Should Know]]
+:SCORE: 7/10
+:WHY: Полезная подборка сценариев для быстрой автоматизации рабочих процессов.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/model-risk-management-2026-bankers-guide-revised-interagency-guidance][Model Risk Management in 2026: A Banker's Guide to the Revised Interagency Guidance]] (databricks.com) — Разбор изменений в регуляторике для банков, использующих мл-модели.
+- [[hxxps://www.databricks.com/blog/openai-gpt-55-now-available-databricks-fully-governed-through-unity-ai-gateway][OpenAI GPT-5.5 + Codex, now available and fully-governed in Databricks]] (databricks.com) — Релиз сильной модели в платформе с акцентом на управление доступом.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/model-risk-management-2026-bankers-guide-revised-interagency-guidance][Model Risk Management in 2026: A Banker's Guide to the Revised Interagency Guidance]]
+:SCORE: 8/10
+:WHY: Обязательно для архитекторов в FinTech из-за новых требований комплаенса 2026 года.
+**** [[hxxps://www.databricks.com/blog/openai-gpt-55-now-available-databricks-fully-governed-through-unity-ai-gateway][OpenAI GPT-5.5 + Codex, now available and fully-governed in Databricks]]
+:SCORE: 7/10
+:WHY: Важное обновление стека для команд, использующих Databricks как единую платформу.
+
+** Не инженерия
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи сообщества графовых баз данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность нетворкинга для специалистов по графовым технологиям и базам данных.

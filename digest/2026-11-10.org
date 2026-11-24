@@ -1,0 +1,135 @@
+#+TITLE: Daily Digest: 2026-11-10
+#+FROM: [2026-11-09 Mon]
+#+TO: [2026-11-10 Tue]
+#+DATE: [2026-11-10 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+За сутки доминирует практическая операционная волна вокруг Apache Iceberg и Apache Polaris: Dremio выпустила сразу девять инженерных гайдов — от атомарных CTAS/RTAS и Bloom-фильтров Parquet до физического перемещения таблиц и CDC из PostgreSQL через OLake. Anthropic выводит Claude Fable 5.2 на Amazon Bedrock, а Итан Маллик разбирает феномен «зубчатого AGI» — модель впечатляет в одних задачах и проваливается в других без простых ошибок. AWS агрессивно расширяет агентную платформу: Quick, Bedrock AgentCore, Managed Knowledge Base и семислойная референсная архитектура для продакшн-агентов. В сообществе alignment-исследований (LessWrong) обострилась дискуссия о прозрачности переобучения на методах выравнивания и о том, что западный playbook AI safety не переносится в Китай.
+
+* 📂 Категории
+
+** Vendors
+
+- [[https://neo4j.com/blog/developer/agentic-graphrag-and-an-explorer-for-your-own-stack/][Agentic GraphRAG and an explorer for your own stack]] (Neo4j) — Полный путь от файлов до агента над графом: Document Intelligence строит knowledge graph в Aura, а graph-explorer-kit даёт retriever, HTTP API и визуальный explorer с provenance до исходного PDF.
+- [[https://www.dremio.com/blog/governing-apache-ossie-semantic-models-in-apache-polaris-apis-privileges-and-scope/][Governing Apache Ossie Semantic Models in Apache Polaris: APIs, Privileges, and Scope]] (Dremio) — Polaris 1.8 вводит beta-эндпоинты для семантических моделей с RBAC, ортогональным к правам на Iceberg-датасеты — готовый паттерн разграничения авторов моделей и доступа к данным.
+- [[https://www.dremio.com/blog/operating-apache-polaris-with-the-admin-tool-bootstrap-purge-and-metastore-maintenance/][Operating Apache Polaris with the Admin Tool: Bootstrap, Purge, and Metastore Maintenance]] (Dremio) — Разграничение ответственности Admin Tool и сервера Polaris: purge и bootstrap обходят runtime-защиты, поэтому нужны версионный паритет и узкое scoping.
+- [[https://www.dremio.com/blog/running-apache-polaris-with-mongodb-nosql-persistence-bootstrap-and-maintenance/][Running Apache Polaris with MongoDB: NoSQL Persistence, Bootstrap, and Maintenance]] (Dremio) — MongoDB-метастор в Polaris официально experimental: лимит BSON 16 МБ, writeConcern majority, ежедневная компакция и запасной план на PostgreSQL.
+- [[https://www.dremio.com/blog/atomic-ctas-and-rtas-with-apache-iceberg-catalog-choice-staging-and-rollback/][Atomic CTAS and RTAS with Apache Iceberg: Catalog Choice, Staging, and Rollback]] (Dremio) — Атомарность CTAS/RTAS в Spark зависит от каталога: SparkCatalog стадирует метаданные и коммитит одной сменой указателя, SparkSessionCatalog — нет.
+- [[https://www.dremio.com/blog/parquet-bloom-filters-in-apache-iceberg-configuration-selectivity-and-row-group-skipping/][Parquet Bloom Filters in Apache Iceberg: Configuration, Selectivity, and Row-Group Skipping]] (Dremio) — Bloom-фильтры доказывают отсутствие, но не присутствие: включать их стоит только для селективных equality-предикатов, иначе платите CPU и размером файлов без выигрыша в I/O.
+- [[https://www.dremio.com/blog/apache-iceberg-partition-statistics-compute_partition_stats-pruning-and-query-planning/][Apache Iceberg Partition Statistics: compute_partition_stats, Pruning, and Query Planning]] (Dremio) — Разбор трёх слоёв статистики Iceberg (файловые метрики, partition stats, Puffin) и почему обновление одного слоя не обновляет остальные.
+- [[https://www.dremio.com/blog/postgresql-cdc-into-apache-iceberg-with-olake-go-and-apache-polaris/][PostgreSQL CDC into Apache Iceberg with OLake Go and Apache Polaris]] (Dremio) — Продакшн-архитектура CDC: replication-слоты, OAuth в Polaris с выдачей краткоживущих storage-креденшелов и компромиссы между частотой коммитов и churn метаданных.
+- [[https://www.dremio.com/blog/relocating-apache-iceberg-tables-with-rewrite_table_path-buckets-regions-and-recovery/][Relocating Apache Iceberg Tables with rewrite_table_path: Buckets, Regions, and Recovery]] (Dremio) — rewrite_table_path только переписывает метаданные и генерирует план копирования — данные физически не переносит, нужен контрольный цикл freeze-copy-validate-cutover.
+- [[https://www.dremio.com/blog/rate-limiting-iceberg-structured-streaming-micro-batches-async-planning-and-snapshot-safety/][Rate-Limiting Iceberg Structured Streaming: Micro-Batches, Async Planning, and Snapshot Safety]] (Dremio) — Лимиты файлов и строк на микро-батч + асинхронное планирование спасают драйвер от OOM, но ничего не заменяют корректную обработку чекпоинтов и overwrite/delete-снапшотов.
+- [[https://www.dremio.com/blog/continuous-apache-iceberg-table-maintenance-with-flink-compaction-expiration-and-locks/][Continuous Apache Iceberg Table Maintenance with Flink: Compaction, Expiration, and Locks]] (Dremio) — TableMaintenance в Flink: триггеры (по коммитам, размеру, времени), ограничение задач и стратегия блокировок, переживающая рестарты джобов.
+- [[https://aws.amazon.com/blogs/database/topsteps-migration-journey-self-managed-redis-oss-to-amazon-elasticache-for-valkey/][Topstep’s migration journey: Self-managed Redis OSS to Amazon ElastiCache for Valkey]] (AWS) — Кейс миграции 53 млн ключей боевого трейдинг-кэша через RedisShake с blue/green cutover и переключением одной DNS-записью за секунды.
+- [[https://engineering.fb.com/2026/11/09/developer-tools/extending-lldb-to-debug-applications-that-span-cpus-and-gpus/][Extending LLDB to Debug Applications That Span CPUs and GPUs]] (Meta) — Vendor-neutral архитектура accelerator-плагинов в lldb-server: CPU и GPU как отдельные debug-процессы в одной сессии — ключевой шаг к открытой отладке гетерогенных AI-ворклоадов.
+- [[https://engineering.atspotify.com/2026/11/ai-product-management-at-spotify-a-view-from-three-angles/][AI Product Management at Spotify: A View From Three Angles]] (Spotify) — «AI PM» — это не одна роль: Spotify разбирает три разных профиля продуктовой работы вокруг AI.
+- [[https://www.databricks.com/blog/databricks-commitment-european-sovereignty][Databricks' Commitment to European Sovereignty]] (Databricks) — Позиционирование Databricks на рынке европейского data sovereignty после десяти лет инвестиций.
+- [[https://www.databricks.com/blog/accelerate-gpu-training-unity-catalog-tables-ucdataset][Accelerate GPU training on Unity Catalog tables with UCDataset]] (Databricks) — UCDataset ускоряет GPU-обучение напрямую с таблиц Unity Catalog — GPU обычно самая дорогая часть training-рана, и data loading часто узкое место.
+- [[https://www.databricks.com/blog/turn-buying-signals-pipeline-sendoso-gifts-genie-one][Turn buying signals into pipeline with Sendoso gifts in Genie One]] (Databricks) — Пример связки AI-агентов с реальными действиями: сигналы покупки конвертируются в pipeline через Genie One.
+
+*** 💎 Топ-3 категории
+
+**** [[https://engineering.fb.com/2026/11/09/developer-tools/extending-lldb-to-debug-applications-that-span-cpus-and-gpus/][Extending LLDB to Debug Applications That Span CPUs and GPUs]]
+:SCORE: 9/10
+:WHY: Первый vendor-neutral подход к отладке CPU+GPU как единой сессии — прямая необходимость для всех, кто дебажит гетерогенные AI-ворклоады, и открытая архитектура для вендоров ускорителей.
+
+**** [[https://www.dremio.com/blog/atomic-ctas-and-rtas-with-apache-iceberg-catalog-choice-staging-and-rollback/][Atomic CTAS and RTAS with Apache Iceberg: Catalog Choice, Staging, and Rollback]]
+:SCORE: 8/10
+:WHY: Тонкое различие SparkCatalog vs SparkSessionCatalog объясняет «загадочные» частично-видимые состояния таблиц — критично для корректности пайплайнов на Iceberg.
+
+**** [[https://www.dremio.com/blog/rate-limiting-iceberg-structured-streaming-micro-batches-async-planning-and-snapshot-safety/][Rate-Limiting Iceberg Structured Streaming: Micro-Batches, Async Planning, and Snapshot Safety]]
+:SCORE: 8/10
+:WHY: Разбирает реальные причины OOM драйвера и тихого репроцессинга в стриминге с Iceberg — включая интеракцию чекпоинтов со снапшот-семантикой.
+
+** Artificial Intelligence
+
+- [[https://www.kdnuggets.com/can-ai-spot-data-leakage-before-your-model-hits-99-accuracy][Can AI Spot Data Leakage Before Your Model Hits 99% Accuracy?]] (KDnuggets) — Четыре классических утечки данных, «заложенных» в реальные данные и проверенных на четырёх моделях — практический тест, ловит ли AI утечки до того, как вы поверите в 99% accuracy.
+- [[https://www.kdnuggets.com/5-useful-python-automation-scripts-for-beginners][5 Useful Python Automation Scripts for Beginners]] (KDnuggets) — Пять скриптов для автоматизации рутины: файлы, изображения, ежедневные воркфлоу.
+- [[https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan][Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context]] (NVIDIA on Hugging Face) — Синтетический датасет с японской демографией и финансовым контекстом для тестирования AI-продуктов без персональных данных.
+- [[https://huggingface.co/blog/amazon/higher-order-pruning-experts][Your Experts Have Partners. There's HOPE for Keeping Them Together]] (Amazon on Hugging Face) — HOPE: higher-order pruning MoE-экспертов, учитывающий ко-активацию партнёров вместо независимого удаления.
+- [[https://aws.amazon.com/blogs/machine-learning/how-skills-and-agents-work-in-aws-quick/][How skills and agents work in AWS Quick]] (AWS) — Архитектура агентной платформы Quick: кастомные агенты, повторно используемые skills, пространства знаний и connectors с ограничением прав до уровня пользователя.
+- [[https://aws.amazon.com/blogs/machine-learning/single-shot-and-agentic-retrieval-with-amazon-bedrock-managed-knowledge-base/][Single-shot and agentic retrieval with Amazon Bedrock Managed Knowledge Base]] (AWS) — Один API теперь покрывает и дешёвый single-shot RAG, и многошаговый agentic retrieval — можно матчить усилие поиска к сложности вопроса без двух систем.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/][Introducing Claude Fable 5.2 on AWS]] (AWS) — Fable 5.2 на Bedrock: многочасовые агенты без присмотра, self-verification и режим aws_review с human safety review; Mythos 5.2 — только через verification-программы для кибербезопасности и life sciences.
+- [[https://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-5-super-vl-is-now-available-in-amazon-sagemaker-jumpstart/][NVIDIA Nemotron 3.5 Super VL is now available in Amazon SageMaker JumpStart]] (AWS) — VLM 120B/12B active с гибридом Mamba-2+MoE, контекстом до 1M токенов и NVFP4-квантизацией под Blackwell.
+- [[https://aws.amazon.com/blogs/machine-learning/pluggable-agentic-ai-framework-a-seven-layer-composable-enterprise-agentic-ai-reference-architecture-on-amazon-bedrock-agentcore/][Pluggable Agentic AI Framework: A seven-layer composable enterprise agentic AI reference architecture on Amazon Bedrock AgentCore]] (AWS) — Семислойная референсная архитектура для перевода агентных приложений из PoC в продакшн: маршрутизация моделей, guardrails, observability как встроенные слои с контрактами.
+- [[https://aws.amazon.com/blogs/machine-learning/how-crossnokaye-grounds-physical-ai-with-amazon-bedrock-agentcore/][How CrossnoKaye grounds physical AI with Amazon Bedrock AgentCore]] (AWS) — Physical AI в 100+ промпроизводствах: LLM планирует, а code interpreter в microVM-песочницах считает реальные физические балансы над 50 млрд сенсорных показаний в день.
+- [[https://aws.amazon.com/blogs/machine-learning/professional-work-deserves-professional-tools-meet-aws-quick/][Professional work deserves professional tools. Meet AWS Quick.]] (AWS) — Позиционирование Quick как AI-workspace «только для работы» с интеграцией Purview, IAM и Active Directory.
+
+*** 💎 Топ-3 категории
+
+**** [[https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/][Introducing Claude Fable 5.2 on AWS]]
+:SCORE: 9/10
+:WHY: Новая топовая модель для агентного кодинга с самопроверкой и режимом удержания данных aws_review — сразу влияет на выбор модели и compliance-настройку в продакшне.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/pluggable-agentic-ai-framework-a-seven-layer-composable-enterprise-agentic-ai-reference-architecture-on-amazon-bedrock-agentcore/][Pluggable Agentic AI Framework: A seven-layer composable enterprise agentic AI reference architecture on Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Закрывает главный разрыв между PoC и продакшн-агентами: семь слоёв с контрактами вместо самодельных routing/guardrails/observability в каждом проекте.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/single-shot-and-agentic-retrieval-with-amazon-bedrock-managed-knowledge-base/][Single-shot and agentic retrieval with Amazon Bedrock Managed Knowledge Base]]
+:SCORE: 8/10
+:WHY: Практичный паттерн матчинга стоимости поиска к сложности запроса в одном API — экономия на тривиальных вопросах без потери качества на сложных.
+
+** Data Engineering
+
+- [[https://dataengineeringcentral.substack.com/p/building-agents-and-tools-simply][Building Agents (and tools) ... simply.]] (Data Engineering Central) — Антихайповый разбор: за каждым «волшебным» агентом стоят знакомые кирпичи (API, очереди, БД, lakehouse), а LLM — самая простая часть системы за одним API-вызовом.
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (Streaming Systems) — Интервью с автором пяти технических книг о том, как инженерам писать читаемые блоги и документацию.
+
+*** 💎 Топ-3 категории
+
+**** [[https://dataengineeringcentral.substack.com/p/building-agents-and-tools-simply][Building Agents (and tools) ... simply.]]
+:SCORE: 8/10
+:WHY: Трезвое противоядие от over-engineering агентных систем: напоминание, что «новая архитектура» собирается из тех же компонентов, что платформенные команды строили годами.
+
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Полезные практики технического письма для инженеров, которые хотят, чтобы их блог читали, а не skim-мили.
+
+** Engineers
+
+- [[https://www.oneusefulthing.org/p/fable-52-and-jagged-agi][Fable 5.2 and Jagged AGI]] (One Useful Thing) — Итан Маллик тестирует Claude Fable 5.2: модель «почти AGI», но её неровность сместилась от галлюцинаций к непредсказуемым провалам в отдельных подзадачах — это меняет саму стратегию делегирования работы AI.
+- [[https://xenodium.com/journelly-1-5-released][Journelly 1.5 released: faster all around]] (Xenodium) — Релиз indie-приложения для журналинга на plain text (Markdown + Org): оптимизация под журналы в 3600+ записей и поиск по датам с фильтром on:.
+- [[https://vutr.substack.com/p/data-pipeline-101-a-definite-guide][Data Pipeline 101: A definitive guide to data storage]] (Data Etc) — Систематизация выбора в data storage: носитель (RAM/SSD/HDD/S3 с «человеческими» таймингами), файловый формат и табличный формат (Iceberg vs managed warehouse).
+
+*** 💎 Топ-3 категории
+
+**** [[https://www.oneusefulthing.org/p/fable-52-and-jagged-agi][Fable 5.2 and Jagged AGI]]
+:SCORE: 9/10
+:WHY: Конкретные стресс-тесты новой топ-модели (от хакинга железа по одному промпту до генерации видео) с честной картой провалов — обязательное чтение перед выбором модели под задачу.
+
+**** [[https://vutr.substack.com/p/data-pipeline-101-a-definite-guide][Data Pipeline 101: A definitive guide to data storage]]
+:SCORE: 7/10
+:WHY: Компактная рамка принятия решений по трём уровням абстракции хранения с оценками латентности — полезна для джунов и как чек-лист для сеньоров.
+
+**** [[https://xenodium.com/journelly-1-5-released][Journelly 1.5 released: faster all around]]
+:SCORE: 6/10
+:WHY: Пример производительной работы с большими plain-text журналами и Org-совместимостью — нишево, но показательно для мобильных инструментов поверх текстовых форматов.
+
+** AI Consciousness
+
+- [[https://www.lesswrong.com/posts/JTB8JjQfmkHsJtBDs/we-need-more-transparency-about-alignment-overfitting][We need more transparency about alignment overfitting]] (LessWrong) — Публичные свидетельства (OpenAI, Google DeepMind, Anthropic) о том, обучают ли компании напрямую на случаях misalignment — рискуя хрупким выравниванием, не обобщающимся за пределами eval-распределения.
+- [[https://www.lesswrong.com/posts/DevXcGBKsJG5Rz69o/misaligned-models-still-recognise-when-their-responses-are][Misaligned Models Still Recognise When Their Responses Are Harmful. Can Training Make Them Care?]] (LessWrong) — Misaligned-модели распознают вредность в чужих ответах (62% против 25%), но не поднимают её сами (0.7%), а переспрос «что не так» даёт в 13 раз больше безопасных ответов, чем ресемплинг — дешёвый источник on-policy safety-данных.
+- [[https://www.lesswrong.com/posts/AcBzhiaTW9KnB4EBv/the-western-ai-safety-playbook-doesn-t-transfer-to-china-1][The Western AI safety playbook doesn’t transfer to China]] (LessWrong) — Полевые наблюдения из двух недель в Китае: иностранная некоммерческая поддержка ограничена законом, а ястребиная риторика Запада делает safety-работу внутри КНР сложнее.
+- [[https://www.lesswrong.com/posts/ijt6YdwSNpcevbFJy/epistemic-sudden-death][Epistemic Sudden Death]] (LessWrong) — Аргумент, что мы в режиме «внезапной смерти»: между текущими моделями и takeover-capable системами нет промежуточных наблюдений, которые стоило бы ждать.
+- [[https://www.lesswrong.com/posts/3ASLq8ePNqkbeGqdj/lightcone-commons-round-1-complete-round-2-underway][Lightcone Commons: Round 1 complete, Round 2 underway]] (LessWrong) — Итоги первого раунда краудфандинга: $45.1M от 23 фандеров через 17 эвалюаторов на 147 проектов, медиана — четыре фандера на грант.
+- [[https://www.lesswrong.com/posts/JhBbPeDFZexiwqrzP/lightcone-commons-what-i-funded-and-why][Lightcone Commons: what I funded and why]] (LessWrong) — Разбор логики одного эвалюатора: приоритет AI policy с возможностью торможения, скепсис к median AI safety-работе и ставка на epistemics малых операторов.
+- [[https://www.lesswrong.com/posts/dQJ3ArHMLxqu8rptt/live-disagreements-with-people-around-me][Live disagreements with people around me]] (LessWrong) — Провокационные тезисы о рисках unchecked AI development: ставки underregulation несопоставимы с overregulation, а публичная коммуникация не так рискованна, как принято думать.
+- [[https://www.lesswrong.com/posts/MyepmzXbjmYuG6MfT/openatom-and-elemental-1][OpenAtom and Elemental]] (LessWrong) — Художественная аналогия AI-lab-динамики через вымышленный «компактный ядерный» OpenAtom: гонка, nonprofit и «беспокойство об утечке сегодня — как беспокойство о rogue ChatGPT».
+- [[https://www.lesswrong.com/posts/FLAWND7tXutaPw9BQ/eyesight-as-a-replicator-with-genes-as-its-vehicle][Eyesight as a replicator, with genes as its vehicle]] (LessWrong) — Альтернатива геноцентричному взгляду Докинза: «адаптивные payload'ы» как репликаторы — рамка, которую автор обещает применить к природе людей и возможных AI.
+- [[https://www.lesswrong.com/posts/FQNywBApGMfDH7GEy/pulling-the-lever-in-a-subway-problem][Pulling the Lever in a Subway Problem]] (LessWrong) — Реальный случай «проблемы вагонетки» в бостонском метро: принятие моральных решений в условиях неопределённости наблюдения, а не в чистом эксперименте.
+
+*** 💎 Топ-10 категории
+
+**** [[https://www.lesswrong.com/posts/DevXcGBKsJG5Rz69o/misaligned-models-still-recognise-when-their-responses-are][Misaligned Models Still Recognise When Their Responses Are Harmful. Can Training Make Them Care?]]
+:SCORE: 9/10
+:WHY: Эмпирически подтверждённый разрыв «распознаёт, но не сообщает» и в 13 раз более дешёвый способ генерации on-policy safety-данных — напрямую применимо к训练 pipeline.
+
+**** [[https://www.lesswrong.com/posts/JTB8JjQfmkHsJtBDs/we-need-more-transparency-about-alignment-overfitting][We need more transparency about alignment overfitting]]
+:SCORE: 8/10
+:WHY: Систематизация публичных заявлений OpenAI, DeepMind и Anthropic о разделении детекции и тренировки misalignment — ключевая входная точка для оценки ре robustности alignment-методов.
+
+**** [[https://www.lesswrong.com/posts/AcBzhiaTW9KnB4EBv/the-western-ai-safety-playbook-doesn-t-transfer-to-china-1][The Western AI safety playbook doesn’t transfer to China]]
+:SCORE: 7/10
+:WHY: Первичные полевые данные о том, как реально устроена AI safety-экосистема в Китае, — корректирует распространённые западные допущения.

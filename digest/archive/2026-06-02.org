@@ -1,0 +1,80 @@
+#+TITLE: Daily Digest: 2026-06-02
+#+FROM: [2026-06-01 Mon]
+#+TO: [2026-06-02 Tue]
+#+DATE: [2026-06-02 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус на операционализацию агентного ИИ: AWS представляет AgentCore для управления безопасностью, политиками и платежами агентов. Вендоры усиливают интеграцию графовых баз данных с lakehouse-архитектурами для решения задач governance и поиска связей в данных. В инженерии данных наблюдается тренд на упрощение стриминга через абстракции вроде Databricks Zerobus. Сообщество Open Source активно участвует в формировании регуляторных стандартов для ИИ на уровне G7.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/databricks-zerobus-event-streams][Databricks Zerobus - Event Streams + Lake House (be gone Kafka)]] (Data Engineering Central) — анализ новой абстракции стриминга от Databricks, снижающей операционную нагрузку по сравнению с Kafka.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/databricks-zerobus-event-streams][Databricks Zerobus - Event Streams + Lake House (be gone Kafka)]]
+:SCORE: 9/10
+:WHY: Критично для понимания эволюции стриминга в экосистеме Lakehouse и снижения сложности инфраструктуры.
+
+** Инженеры
+- [[hxxps://vutr.substack.com/p/i-spent-8-hours-learning-the-cap][I spent 8 hours learning the CAP theorem. Here's what I found.]] (vutr.substack.com) — практический разбор теоремы CAP с акцентом на применимость в современных распределенных системах.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/i-spent-8-hours-learning-the-cap][I spent 8 hours learning the CAP theorem. Here's what I found.]]
+:SCORE: 8/10
+:WHY: Освежает фундаментальные знания о распределенных системах, необходимые для принятия архитектурных решений.
+
+** Вендоры
+- [[hxxps://www.dremio.com/blog/dremio-data-catalog-governance-tools/][Governing Your Lakehouse: Data Catalog Tools That Work With Dremio]] (Dremio) — обзор инструментов каталогизации (Alation, OneLake) для управления метаданными в Dremio.
+- [[hxxps://www.databricks.com/blog/debunking-8-data-layout-myths-why-liquid-clustering-outperforms-partitioning][Debunking 8 data layout myths: why Liquid Clustering outperforms partitioning]] (Databricks) — сравнение производительности Liquid Clustering и традиционного партиционирования.
+- [[hxxps://aws.amazon.com/blogs/database/accelerating-developer-productivity-in-the-agentic-ai-era-with-amazon-aurora-postgresql/][Accelerating developer productivity in the agentic AI era with Amazon Aurora PostgreSQL]] (AWS) — роль СУБД в эпоху агентной разработки, где ИИ сам выбирает инфраструктуру.
+- [[hxxps://neo4j.com/blog/graph-database/digital-twins-that-learn-connected-asset-intelligence-with-neo4j-and-databricks/][Digital twins that learn: connected asset intelligence with Neo4j and Databricks]] (Neo4j) — архитектура цифровых двойников на основе графов для анализа связей в телеметрии.
+- [[hxxps://neo4j.com/blog/graph-database/building-retail-assistants-customers-can-trust-with-databricks-and-neo4j/][Building retail assistants customers can trust with Databricks and Neo4j]] (Neo4j) — использование графов знаний для повышения доверия к retail-ассистентам.
+- [[hxxps://neo4j.com/blog/genai/introducing-document-intelligence-from-documents-to-a-knowledge-graph-right-inside-aura/][Introducing Document Intelligence: From documents to a knowledge graph, right inside Aura]] (Neo4j) — автоматическое построение графов знаний из документов без написания кода экстракции.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — анонс встречи технического сообщества LDBC в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/debunking-8-data-layout-myths-why-liquid-clustering-outperforms-partitioning][Debunking 8 data layout myths: why Liquid Clustering outperforms partitioning]]
+:SCORE: 9/10
+:WHY: Прямое влияние на производительность запросов и стоимость хранения в Data Lakehouse.
+**** [[hxxps://neo4j.com/blog/graph-database/digital-twins-that-learn-connected-asset-intelligence-with-neo4j-and-databricks/][Digital twins that learn: connected asset intelligence with Neo4j and Databricks]]
+:SCORE: 8/10
+:WHY: Demonstrates a robust pattern for combining lakehouse scale with graph reasoning for IoT.
+**** [[hxxps://aws.amazon.com/blogs/database/accelerating-developer-productivity-in-the-agentic-ai-era-with-amazon-aurora-postgresql/][Accelerating developer productivity in the agentic AI era with Amazon Aurora PostgreSQL]]
+:SCORE: 8/10
+:WHY: Показывает сдвиг парадигмы разработки, где база данных становится прозраным слоем для агентов.
+
+** Open Source
+- [[hxxps://opensource.org/blog/open-source-initiative-helps-g7-deliver-vision-on-ai-Openness][Open Source Initiative Helps G7 Deliver Vision On AI Openness]] (Open Source Initiative) — отчет о сотрудничестве OSI и G7 по стандартизации терминологии открытости ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/open-source-initiative-helps-g7-deliver-vision-on-ai-Openness][Open Source Initiative Helps G7 Deliver Vision On AI Openness]]
+:SCORE: 9/10
+:WHY: Определяет будущие регуляторные рамки и лицензионные требования для Open Source ИИ моделей.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/mocking-a-year-of-iot-sensor-time-series-data-with-mimesis][Mocking a Year of IoT Sensor Time Series Data with Mimesis]] (KDnuggets) — руководство по генерации реалистичных временных рядов для тестирования.
+- [[hxxps://www.kdnuggets.com/5-must-know-python-concepts-for-data-scientists][5 Must-Know Python Concepts for Data Scientists]] (KDnuggets) — ключевые концепции Python для оптимизации пайплайнов данных.
+- [[hxxps://huggingface.co/blog/JetBrains/mellum2-launch][Introducing Mellum2: A 12B Mixture-of-Experts Model by JetBrains]] (Hugging Face) — релиз новой MoE модели от JetBrains.
+- [[hxxps://huggingface.co/blog/ibm-research/agent-logic-and-scalable-ai-adoption][Beyond LLMs: Why Scalable Enterprise AI Adoption Depends on Agent Logic]] (Hugging Face) — аргументация важности логики агентов для масштабирования ИИ в enterprise.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-a-secure-auth-code-flow-setup-using-agentcore-gateway-with-mcp-clients/][Building a secure auth code flow setup using AgentCore Gateway with MCP clients]] (AWS) — настройка OAuth 2.0 для безопасного доступа агентов к MCP серверам.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/reference-your-own-aws-secrets-manager-secrets-in-amazon-bedrock-agentcore-identity/][Reference your own AWS Secrets Manager secrets in Amazon Bedrock AgentCore Identity]] (AWS) — управление секретами для агентов через AWS Secrets Manager.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/transforming-rare-cancer-research-with-amazon-quick-integrating-biomedical-databases-for-breakthrough-discoveries/][Transforming rare cancer research with Amazon Quick: Integrating biomedical databases for breakthrough discoveries]] (AWS) — кейс использования агентного ИИ для биомедицинских исследований.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/][OpenAI models and Codex on Amazon Bedrock are now generally available]] (AWS) — выход моделей GPT-5.5 и Codex на платформе Bedrock.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/extending-mcp-support-for-amazon-bedrock-agentcore-gateway-2/][Extending MCP support for Amazon Bedrock AgentCore Gateway]] (AWS) — расширение поддержки MCP протокола в шлюзе AgentCore.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-policy-and-lambda-interceptors-in-amazon-bedrock-agentcore-gateway/][Secure AI agents with Policy and Lambda interceptors in Amazon Bedrock AgentCore gateway]] (AWS) — применение политик Cedar и Lambda для контроля действий агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/enable-safe-agentic-payments-with-built-in-guardrails-using-amazon-bedrock-agentcore-payments/][Enable safe agentic payments with built-in guardrails using Amazon Bedrock AgentCore payments]] (AWS) — механизм безопасных платежей от имени агента с лимитами.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agentops-operationalize-agentic-ai-at-scale-with-amazon-bedrock-agentcore/][AgentOps: Operationalize agentic AI at scale with Amazon Bedrock AgentCore]] (AWS) — методология эксплуатации и мониторинга агентных систем в продакшене.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-llm-model-loading-and-increase-context-windows-with-gpudirect-on-amazon-fsx-for-lustre-and-turboquant/][Accelerate LLM model loading and increase context windows with GPUDirect on Amazon FSx for Lustre and TurboQuant]] (AWS) — оптимизация загрузки весов моделей через GPUDirect Storage.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-quick-integration-with-time-series-databases-for-market-intelligence-using-mcp/][Amazon Quick integration with time-series databases for market intelligence using MCP]] (AWS) — интеграция временных рядов kdb+ с BI-агентами через MCP.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agentops-operationalize-agentic-ai-at-scale-with-amazon-bedrock-agentcore/][AgentOps: Operationalize agentic AI at scale with Amazon Bedrock AgentCore]]
+:SCORE: 10/10
+:WHY: Фундаментальный гайд по превращению экспериментов с агентами в надежную продакшен-систему.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-policy-and-lambda-interceptors-in-amazon-bedrock-agentcore-gateway/][Secure AI agents with Policy and Lambda interceptors in Amazon Bedrock AgentCore gateway]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему безопасности и детерминированного контроля действий автономных агентов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/openai-models-and-codex-on-amazon-bedrock-are-now-generally-available/][OpenAI models and Codex on Amazon Bedrock are now generally available]]
+:SCORE: 8/10
+:WHY: Расширяет доступ к frontier-моделям в корпоративной среде с соблюдением требований compliance.

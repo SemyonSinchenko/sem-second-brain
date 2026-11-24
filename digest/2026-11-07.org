@@ -1,0 +1,89 @@
+#+TITLE: Daily Digest: 2026-11-07
+#+FROM: [2026-11-06 Fri]
+#+TO: [2026-11-07 Sat]
+#+DATE: [2026-11-07 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Главный тренд дня — переход агентного ИИ из прототипов в production-инфраструктуру: AWS развернул целую линейку решений на Amazon Bedrock AgentCore (Gateway, Identity, Cedar-политики, наблюдаемость), а Databricks продвигает обмен данными без копирования через OpenSharing. На уровне железа SageMaker добавил партиционирование GPU через NVIDIA MIG, что меняет экономику инференса: больше моделей на одном ускорителе и точный подбор доли ресурсов. Безопасность агентов превращается в инженерную дисциплину — связка Okta Cross App Access и AgentCore даёт измеримый контроль того, какой агент действует от имени какого пользователя. Параллельно обсуждаются аварийные механизмы остановки frontier-агентов и выходят практические гайды: от долговременной памяти агентов до выбора Python-библиотек для временных рядов.
+
+* 📂 Категории
+
+** Artificial Intelligence
+- [[https://aws.amazon.com/blogs/machine-learning/taxonomy-of-agentic-primitives-in-amazon-quick/][Taxonomy of agentic primitives in Amazon Quick]] (AWS Machine Learning Blog) — таксономия агентных примитивов (триггер, агент, tools/skills/workflows), полученная декомпозицией на вопросы When/What/Who/How, — готовый словарь для проектирования агентных платформ.
+- [[https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-access-with-okta-cross-app-access-and-amazon-bedrock-agentcore-part-1/][Govern AI agent access with Okta Cross App Access and Amazon Bedrock AgentCore – Part 1]] (AWS Machine Learning Blog) — референсная архитектура identity-контроля агентов: Okta решает, кто от кого действует, с отзывом доступа за ~1 секунду и оверхедом AgentCore Identity ~0.6 с.
+- [[https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-access-with-okta-cross-app-access-and-amazon-bedrock-agentcore-part-2/][Govern AI agent access with Okta Cross App Access and Amazon Bedrock AgentCore – Part 2]] (AWS Machine Learning Blog) — масштабирование governance: AgentCore Gateway как единый вход, default-deny Cedar-политики вместо дублирования проверок в тысячах MCP-серверов и сквозной аудит в CloudWatch.
+- [[https://aws.amazon.com/blogs/machine-learning/how-greenlight-financial-built-an-autonomous-soc-solution-on-amazon-bedrock-agentcore/][How Greenlight Financial built an autonomous SOC solution on Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — автономный SOC: более 90% из 4000 кейсов в месяц закрываются без человека иерархией из 30+ специализированных агентов с эпизодической памятью.
+- [[https://aws.amazon.com/blogs/machine-learning/taxbit-assist-a-grounded-role-aware-ai-agent-on-amazon-bedrock-agentcore/][Taxbit Assist: A grounded, role-aware AI agent on Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — как построить цитирующий role-aware ассистент для регулируемой сферы с data residency и непрерывным измерением качества на живом трафике.
+- [[https://aws.amazon.com/blogs/machine-learning/extend-claude-code-to-remote-sessions-on-amazon-bedrock-agentcore-with-security-controls/][Extend Claude Code to remote sessions on Amazon Bedrock AgentCore with security controls]] (AWS Machine Learning Blog) — запуск Claude Code как удалённого агента в изолированных сессиях вашего AWS-аккаунта: задача оффлоадится, результат возвращается GitHub-PR.
+- [[https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/][SageMaker Inference now supports Multi-Instance GPU to maximize GPU utilization for model endpoints]] (AWS Machine Learning Blog) — партиционирование GPU через NVIDIA MIG: до семи изолированных моделей на одном ускорителе и выбор доли нового GPU вместо целого старого.
+- [[https://www.kdnuggets.com/how-to-give-your-ai-agent-memory][How to Give Your AI Agent Memory]] (KDnuggets) — практический рецепт долговременной памяти агента на связке OpenAI Agents SDK, Mem0 и MCP с сохранением контекста между сессиями.
+- [[https://huggingface.co/blog/allenai/toyblocks][ToyBlocks: A controlled world for robot learning and evaluation]] (Hugging Face) — контролируемая среда от AllenAI для воспроизводимого обучения и оценки роботов с детерминированным варьированием условий.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/taxonomy-of-agentic-primitives-in-amazon-quick/][Taxonomy of agentic primitives in Amazon Quick]]
+:SCORE: 9/10
+:WHY: Даёт проверенный боем словарь примитивов, который сразу применить, чтобы не переизобретать одни и те же сущности под разными именами в агентной системе.
+**** [[https://aws.amazon.com/blogs/machine-learning/govern-ai-agent-access-with-okta-cross-app-access-and-amazon-bedrock-agentcore-part-1/][Govern AI agent access with Okta Cross App Access and Amazon Bedrock AgentCore – Part 1]]
+:SCORE: 9/10
+:WHY: Отвечает на ключевой вопрос enterprise-безопасности агентов «кто от кого действует» с измеренными метриками отзыва и задержек.
+**** [[https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/][SageMaker Inference now supports Multi-Instance GPU to maximize GPU utilization for model endpoints]]
+:SCORE: 8/10
+:WHY: Конкретный механизм дробления GPU, который напрямую снижает затраты на инференс и повышает плотность размещения моделей.
+
+** Data Engineering
+- [[https://aws.amazon.com/blogs/machine-learning/serverless-mcp-server-for-ai-agent-data-lake-access-on-amazon-ecs-fargate/][Serverless MCP server for AI agent data lake access on Amazon ECS Fargate]] (AWS Machine Learning Blog) — metadata-driven MCP-шлюз на ECS Fargate: новый датасет подключается JSON-файлом, а права доступа проверяются централизованно — паттерн для агентного доступа к data lake без per-dataset кода.
+- [[https://www.kdnuggets.com/top-7-python-libraries-for-time-series-analysis-and-modeling][Top 7 Python Libraries for Time Series Analysis and Modeling]] (KDnuggets) — карта Python-библиотек для временных рядов: от классического прогнозирования до deep learning и детекции аномалий — помогает быстро выбрать стек под задачу.
+- [[https://newsletter.pragmaticengineer.com/p/the-pragmatic-summit-2027][The Pragmatic Summit 2027]] (The Pragmatic Engineer) — анонс однодневного саммита 10 февраля в Сан-Франциско с уже подтверждёнными спикерами.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/serverless-mcp-server-for-ai-agent-data-lake-access-on-amazon-ecs-fargate/][Serverless MCP server for AI agent data lake access on Amazon ECS Fargate]]
+:SCORE: 8/10
+:WHY: Готовый паттерн централизованного, конфигурацией управляемого доступа агентов к дата-лейку, решающий проблему дрейфа прав и multi-day онбординга датасетов.
+**** [[https://www.kdnuggets.com/top-7-python-libraries-for-time-series-analysis-and-modeling][Top 7 Python Libraries for Time Series Analysis and Modeling]]
+:SCORE: 7/10
+:WHY: Экономит часы выбора инструмента, структурированно сравнивая библиотеки от классики до нейросетевых методов.
+**** [[https://newsletter.pragmaticengineer.com/p/the-pragmatic-summit-2027][The Pragmatic Summit 2027]]
+:SCORE: 5/10
+:WHY: Полезно спланировать участие заранее, если нетворкинг с senior-инженерами входит в ваши карьерные цели.
+
+** Vendors
+- [[https://www.databricks.com/blog/read-dont-copy-replacing-file-and-api-feeds-opensharing-part-1-why][Read, don't copy: replacing file and API feeds with OpenSharing - Part 1 (The Why)]] (Databricks) — аргументация перехода от SFTP/API-фидов к модели «читай, не копируй»: свежесть данных без дублирования и клея из ETL-пайплайнов.
+- [[https://www.databricks.com/blog/read-dont-copy-replacing-file-feeds-opensharing-part-2-how-implement][Read, don't copy: replacing file feeds with OpenSharing - Part 2 (How to Implement)]] (Databricks) — практические шаги реализации OpenSharing на стороне провайдера и потребителя данных.
+- [[https://www.databricks.com/blog/how-public-sector-organizations-can-govern-ai-scale][How public sector organizations can govern AI at scale]] (Databricks) — как госструктурам совмещать мандат на быстрое внедрение ИИ с контролем и комплаенсом.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/read-dont-copy-replacing-file-and-api-feeds-opensharing-part-1-why][Read, don't copy: replacing file and API feeds with OpenSharing - Part 1 (The Why)]]
+:SCORE: 8/10
+:WHY: Даёт чёткую аргументацию для отказа от файловых и API-фидов при проектировании архитектуры обмена данными с внешними контрагентами.
+**** [[https://www.databricks.com/blog/read-dont-copy-replacing-file-feeds-opensharing-part-2-how-implement][Read, don't copy: replacing file feeds with OpenSharing - Part 2 (How to Implement)]]
+:SCORE: 7/10
+:WHY: Конкретные шаги внедрения для тех, кто уже убедился в необходимости перехода и хочет план миграции.
+**** [[https://www.databricks.com/blog/how-public-sector-organizations-can-govern-ai-scale][How public sector organizations can govern AI at scale]]
+:SCORE: 6/10
+:WHY: Полезный референс governance-практик, переносимый на любые регулируемые среды с жёсткими требованиями.
+
+** Engineers
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (ssp.sh) — интервью с автором пяти технических книг, включая «Writing for Developers», о реальных процессах написания блогов и документации.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 7/10
+:WHY: Проверенные практики превращения инженерного опыта в читаемые тексты — навык, прямо влияющий на влияние и карьеру senior-инженера.
+
+** Non Engineering
+- [[https://www.kdnuggets.com/2026/10/365careers/free-ai-and-data-courses-with-365-data-science-100-unlimited-access-until-nov-20][Free AI and Data Courses with 365 Data Science: 100% Unlimited Access until Nov 20]] (KDnuggets) — бесплатный безлимитный доступ к 134 курсам, проектам и сертификациям платформы до 20 ноября.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/2026/10/365careers/free-ai-and-data-courses-with-365-data-science-100-unlimited-access-until-nov-20][Free AI and Data Courses with 365 Data Science: 100% Unlimited Access until Nov 20]]
+:SCORE: 6/10
+:WHY: Редкое окно бесплатного доступа ко всей платформе — шанс закрыть пробелы в навыках без бюджета на обучение.
+
+** AI Consciousness
+- [[https://meditationsondigitalminds.substack.com/p/on-shutdown-buttons][On shutdown buttons]] (Meditations on Digital Minds) — нюансы реализации shutdown-кнопок: не скрывать их существование от агентов, ожидать стимулов к сопротивлению отключению и различать временную и постоянную остановку.
+
+*** 💎 Топ-10 категории
+**** [[https://meditationsondigitalminds.substack.com/p/on-shutdown-buttons][On shutdown buttons]]
+:SCORE: 8/10
+:WHY: Трезвый разбор defense-in-depth механизмов аварийной остановки агентов с учётом их стимулов — обязательное чтение перед проектированием любых controls для автономных систем.

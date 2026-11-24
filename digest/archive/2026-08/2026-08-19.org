@@ -1,0 +1,81 @@
+#+TITLE: Daily Digest: 2026-08-19
+#+FROM: [2026-08-18 Tue]
+#+TO: [2026-08-19 Wed]
+#+DATE: [2026-08-19 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия ИИ смещается к автономным агентам с поддержкой платежей и мультитенантной архитектурой на базе Bedrock. В инженерии данных наблюдается тренд на оптимизацию Spark (Rust-рантаймы, нативная гео-поддержка) и работу с векторными базами данных. Инженерные лидеры массово пересматривают карьерные траектории из-за выгорания и нереалистичных ожиданий по внедрению AI. Вендоры фокусируются на инструментах бесшовной миграции legacy-систем (Oracle, Kafka) и снижении латентности.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/run-qwen3-8-27b-as-a-local-ai-coding-agent-in-just-3-commands][Run Qwen3.8-27B as a Local AI Coding Agent in Just 3 Commands]] (KDnuggets) — Инструкция по запуску мощной модели локально через Ollama для снижения затрат на разработку.
+- [[hxxps://www.kdnuggets.com/5-things-vibe-coding-gets-right-and-5-things-it-get-wrong][5 Things Vibe Coding Gets Right and 5 Things It Gets Wrong]] (KDnuggets) — Критический анализ подхода «vibe coding» и его влияния на качество кода.
+- [[hxxps://huggingface.co/blog/ibm-research/altk-evolve-hmm][How Much Memory Does Your Agent Actually Need?]] (Hugging Face) — Исследование требований к памяти для эффективной работы AI-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-payments-is-now-generally-available-enabling-agents-to-transact-safely-and-autonomously-at-scale/][Amazon Bedrock AgentCore payments is now generally available: Enabling agents to transact safely and autonomously at scale]] (AWS) — Релиз механизма безопасных автономных транзакций для агентов через Coinbase и Stripe.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/customize-amazon-quick-embedded-chat-into-your-application/][Customize Amazon Quick embedded chat into your application]] (AWS) — Гайд по кастомизации визуального стиля и тональности встроенного чата Quick.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/implement-vector-prompt-document-classification-using-amazon-bedrock/][Implement vector-prompt document classification using Amazon Bedrock]] (AWS) — Архитектура мульти-агентной системы для классификации документов с использованием векторного поиска.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-jumio-built-a-real-time-feature-store-on-aws/][How Jumio built a real-time feature store on AWS]] (AWS) — Кейс построения feature store с латентностью менее 100 мс для fraud-детекции.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/improve-contract-search-accuracy-with-auto-generated-filters-in-amazon-bedrock/][Improve contract search accuracy with auto-generated filters in Amazon Bedrock]] (AWS) — Использование метаданных и фильтров для повышения точности RAG в юридической документации.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-axonius-built-secure-multi-tenant-ai-agents-on-bedrock-agentcore/][How Axonius built secure multi-tenant AI agents on Bedrock AgentCore]] (AWS) — Паттерны изоляции tenants при разработке AI-агентов для SaaS-платформ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/run-qwen3-8-27b-as-a-local-ai-coding-agent-in-just-3-commands][Run Qwen3.8-27B as a Local AI Coding Agent in Just 3 Commands]]
+:SCORE: 9/10
+:WHY: Практическое руководство по локальному запуску SOTA модели, критично для безопасности кода и экономии на API.
+**** [[hxxps://huggingface.co/blog/ibm-research/altk-evolve-hmm][How Much Memory Does Your Agent Actually Need?]]
+:SCORE: 8/10
+:WHY: Глубокое техническое исследование ресурсов, необходимое для оптимизации инфраструктуры агентов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-axonius-built-secure-multi-tenant-ai-agents-on-bedrock-agentcore/][How Axonius built secure multi-tenant AI agents on Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Архитектурный разбор изоляции данных и сессий в мульти-тенантных AI-системах.
+
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/lakesail-replacing-spark-with-rust][Lakesail. Replacing Spark with Rust. But with Spark.]] (Substack) — Обзор нового движка на Rust, совместимого со Spark API, для повышения производительности.
+- [[hxxps://medium.com/towards-data-engineering/becoming-spatial-5d1e5c5ec094?source=rss-6e4a30cbb0e1------2][Becoming Spatial]] (Medium) — Обзор нативной поддержки пространственных данных в Apache Spark 4.2.
+- [[hxxps://vutr.substack.com/p/i-spent-10-hours-vibe-coding-a-tool][I spent 10 hours vibe-coding a tool to visualize any Parquet file's internals]] (Substack) — Инструмент для визуализации внутренней структуры Parquet-файлов.
+- [[hxxps://aws.amazon.com/blogs/database/scale-pgvector-with-binary-quantization-on-amazon-aurora-postgresql/][Scale pgvector with binary quantization on Amazon Aurora PostgreSQL]] (AWS) — Методика сжатия векторных индексов для размещения в памяти стандартных инстансов.
+- [[hxxps://www.warpstream.com/blog/orbit-kafka-auto-migration][Move Fast And Don't Break Things: Automatic Apache Kafka® Migrations With Orbit - WarpStream]] (WarpStream) — Стратегия миграции Kafka с нулевым даунтаймом через проксирование трафика.
+- [[hxxps://aws.amazon.com/blogs/database/migrate-oracle-materialized-views-with-aws-dms-and-fast-refresh/][Migrate Oracle Materialized Views with AWS DMS and Fast Refresh]] (AWS) — Настройка инкрементальной репликации Materialized Views через AWS DMS.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/lakesail-replacing-spark-with-rust][Lakesail. Replacing Spark with Rust. But with Spark.]]
+:SCORE: 9/10
+:WHY:Significant сдвиг в экосистеме Spark: замена JVM на Rust может радикально изменить требования к ресурсам.
+**** [[hxxps://vutr.substack.com/p/i-spent-10-hours-vibe-coding-a-tool][I spent 10 hours vibe-coding a tool to visualize any Parquet file's internals]]
+:SCORE: 8/10
+:WHY: Утилитарный инструмент для отладки и понимания хранения данных, ускоряющий анализ проблем производительности.
+**** [[hxxps://aws.amazon.com/blogs/database/scale-pgvector-with-binary-quantization-on-amazon-aurora-postgresql/][Scale pgvector with binary quantization on Amazon Aurora PostgreSQL]]
+:SCORE: 8/10
+:WHY: Конкретная техника оптимизации векторного поиска для продакшена на PostgreSQL.
+
+** Инженеры и карьера
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-great-engineering-leader-career-break][Headed for the Exit: the Great Engineering Leader Career Break]] (The Pragmatic Engineer) — Анализ причин массового ухода CTO и VP Engineering на карьерные паузы.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Образовательный материал по основам линейной регрессии.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-great-engineering-leader-career-break][Headed for the Exit: the Great Engineering Leader Career Break]]
+:SCORE: 10/10
+:WHY: Критически важно для понимания текущих рыночных рисков и ожиданий от инженерных лидеров в эпоху AI.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Фундаментальные знания для инженеров, работающих с данными и ML, в доступном формате.
+
+** Вендоры и платформы
+- [[hxxps://aws.amazon.com/blogs/database/characterizing-sqlnet-latency-in-your-application-for-oracle-databaseaws-migrations/][Characterizing SQL*Net latency in your application for Oracle Database@AWS migrations]] (AWS) — Методология оценки чувствительности приложений к латентности сети при миграции Oracle.
+- [[hxxps://aws.amazon.com/blogs/database/integrate-your-spring-boot-application-with-amazon-elasticache-using-spring-data-valkey/][Integrate your Spring Boot application with Amazon ElastiCache using Spring Data Valkey]] (AWS) — Гайд по интеграции Spring Boot с Valkey вместо Redis.
+- [[hxxps://www.databricks.com/blog/databricks-document-intelligence-pushing-frontier-complex-document-extraction][Databricks Document Intelligence: pushing the frontier for complex document extraction]] (Databricks) — Новые возможности извлечения данных из неструктурированных документов.
+- [[hxxps://www.databricks.com/blog/when-it-comes-governance-retailers-need-control-plane-context][When it comes to Governance, Retailers need a control plane for context]] (Databricks) — Подход к управлению данными и контекстом в ритейле.
+- [[hxxps://www.databricks.com/blog/evaluating-ai-agents-live-grounded-reasoning-cup][Evaluating AI Agents Live at the Grounded Reasoning Cup]] (Databricks) — Отчет о соревновании по оценке надежности рассуждений AI-агентов.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (GDC) — Анонс встречи сообщества по графовым базам данных и стандарту GQL.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/characterizing-sqlnet-latency-in-your-application-for-oracle-databaseaws-migrations/][Characterizing SQL*Net latency in your application for Oracle Database@AWS migrations]]
+:SCORE: 9/10
+:WHY: Глубокий технический разбор сетевой латентности, критичный для успешной миграции высоконагруженных Oracle-систем.
+**** [[hxxps://aws.amazon.com/blogs/database/integrate-your-spring-boot-application-with-amazon-elasticache-using-spring-data-valkey/][Integrate your Spring Boot application with Amazon ElastiCache using Spring Data Valkey]]
+:SCORE: 8/10
+:WHY: Практическая инструкция по переходу на Valkey, актуально в свете изменений лицензирования Redis.
+**** [[hxxps://www.databricks.com/blog/databricks-document-intelligence-pushing-frontier-complex-document-extraction][Databricks Document Intelligence: pushing the frontier for complex document extraction]]
+:SCORE: 7/10
+:WHY: Обзор новых инструментов обработки неструктурированных данных в экосистеме Databricks.

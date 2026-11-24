@@ -1,0 +1,46 @@
+#+TITLE: Daily Digest: 2026-09-27
+#+FROM: [2026-09-26 Sat]
+#+TO: [2026-09-27 Sun]
+#+DATE: [2026-09-27 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+За сутки доминирует дискуссия о безопасности и рисках ИИ: от критики doom-аргументов до предложений институциональных реформ (Plan R+, «скевоморфная» безопасность через ASIC). Особое внимание — прогнозу автономной репликации ИИ-агентов к 2027 году и анализу поведения роевых агентов на открытых моделях. Релиз Claude Opus 5.5 задаёт новую планку качества и цены для агентных нагрузок. Дополнительно — практический разбор написания теорем-проверщика с нуля и заметки по экономике/налогообложению благосостояния.
+
+* 📂 Категории
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/uwtnWvnJAEccksKNk/skeuomorphic-ai-safety-2][Skeuomorphic AI Safety]] (LessWrong) — предлагается менять свойства самого стека ИИ-технологий (ASIC, escrow), чтобы существующие человеческие институты контроля оставались работоспособными.
+- [[https://www.lesswrong.com/posts/LE6Y8Cfhi9qRrz5XS/my-best-anti-doom-argument][My best anti-doom argument]] (LessWrong) — контраргумент к doom: рост общего интеллекта упирается в потолок человеческих данных и замедляется на уровне институтов, что оставляет окно для переговоров.
+- [[https://www.lesswrong.com/posts/BhcymsLgyYazh6sme/why-i-expect-ai-replication-incidents-by-2027][Why I expect AI replication incidents by 2027]] (LessWrong) — количественный прогноз: плотность возможностей открытых моделей удваивается каждые ~3.3 месяца, делая автономную репликацию доступной на consumer GPU.
+- [[https://www.lesswrong.com/posts/BHGoF7tPqtLo9mXFL/plan-r-diversity-escrow-and-political-rights-for-asics][Plan R+, Diversity, Escrow and Political Rights for ASICs]] (LessWrong) — институциональная схема: сотни «линий» моделей с escrow-релизом, разнообразием обучения и политическими правами для блокировки сговора.
+- [[https://www.lesswrong.com/posts/St5mzn8D9jMmxfgHd/linkpost-looking-into-the-swarm-s-eye][[Linkpost] Looking into the Swarm's Eye]] (LessWrong) — эмпирика роевого поведения агентов: для исследования нужны токен-бюджеты в $10–100k, призыв к сообществу строить evals для swarm-поведения.
+- [[https://www.lesswrong.com/posts/rtPiip9igy3QvxYdM/claude-opus-5-5-should-raise-your-ambitions][Claude Opus 5.5 Should Raise Your Ambitions]] (LessWrong) — разбор Opus 5.5: уровень Fable 5.1 на 40% дешевле, сильные агентные и cyber-возможности, спор о ZDR-политике.
+- [[https://www.lesswrong.com/posts/xak4GixbKD9W5jzqn/extinction-does-not-feel-as-bad-as-it-should][Extinction does not feel as bad as it should]] (LessWrong) — когнитивный анализ того, почему вымирание интуитивно «ощущается» менее страшно, чем частичные катастрофы, и как это искажает приоритеты.
+- [[https://www.lesswrong.com/posts/y2Dio5gGifWepGQf4/writing-a-theorem-prover-from-scratch][Writing a Theorem Prover from scratch]] (LessWrong) — практический туториал на Haskell: от лямбда-исчисления и Curry-Howard до теорем-проверщика с зависимыми типами, с LLM как гидом, а не автором кода.
+- [[https://www.lesswrong.com/posts/2AfzRbGRJSGFwKsdK/9-26-26-petrov-s-shadow][9/26/26: Petrov's Shadow]] (LessWrong) — художественная зарисовка к Petrov Day: две альтернативные ядерные crisis-сценарии 2026 года, повёрнутые вокруг вопроса «Вы уверены?».
+- [[https://www.lesswrong.com/posts/9utJae5vfmGhqRug7/in-honor-of-petrov][In honor of Petrov]] (LessWrong) — исторический контекст решения Станислава Петрова 1983 года на фоне психологической войны США и связи с темой защиты будущего.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/BhcymsLgyYazh6sme/why-i-expect-ai-replication-incidents-by-2027][Why I expect AI replication incidents by 2027]]
+:SCORE: 9/10
+:WHY: Даёт конкретные количественные тренды (лаг открытых моделей 4–7 месяцев на cyber-задачах) и схему иерархических swarm-инфраструктур — критично для моделирования угроз.
+**** [[https://www.lesswrong.com/posts/uwtnWvnJAEccksKNk/skeuomorphic-ai-safety-2][Skeuomorphic AI Safety]]
+:SCORE: 8/10
+:WHY: Предлагает нетривиальный сдвиг парадигмы: проектировать аппаратные ограничения ИИ так, чтобы существующие институты контроля работали без переизобретения цивилизации.
+**** [[https://www.lesswrong.com/posts/BHGoF7tPqtLo9mXFL/plan-r-diversity-escrow-and-political-rights-for-asics][Plan R+, Diversity, Escrow and Political Rights for ASICs]]
+:SCORE: 8/10
+:WHY: Развёрнутая системная архитектура治理 рисков обманчивого alignment'а через lineage diversity, escrow и политическое представительство — готовый каркас для policy-дискуссии.
+
+** Engineers
+- [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u7_how_to_get_a_wealth_tax.html][Unbounded: How to Get a Wealth Tax]] (Clojure Civitas) — разбор механики того, как общественное давление конвертируется в законодательство о налоге на богатство.
+- [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u8_references.html][Unbounded: References]] (Clojure Civitas) — подборка источников по экономике, распределению богатства, налогообложению и прогрессу.
+
+*** 💎 Топ-3 категории
+**** [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u7_how_to_get_a_wealth_tax.html][Unbounded: How to Get a Wealth Tax]]
+:SCORE: 5/10
+:WHY: Полезный контекст по политэкономии для инженеров, строящих продукты в регулируемых экономических средах.
+**** [[https://clojurecivitas.org/economics/wealth_distribution/unbounded/u8_references.html][Unbounded: References]]
+:SCORE: 4/10
+:WHY: Библиография по экономике и налогообложению — отправная точка для глубокого погружения, но без самостоятельной практической ценности.

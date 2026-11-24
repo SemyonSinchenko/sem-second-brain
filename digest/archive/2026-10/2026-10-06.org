@@ -1,0 +1,127 @@
+#+TITLE: Daily Digest: 2026-10-06
+#+FROM: [2026-10-05 Mon]
+#+TO: [2026-10-06 Tue]
+#+DATE: [2026-10-06 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Агентный ИИ стал главной темой дня: AWS наращивает агентную обвязку вокруг Bedrock (AgentCore Evaluations, Amazon Quick, Claude Code в GovCloud), а Databricks встраивает онтологии Genie в продуктовую разработку. Open-weight модели мигрируют в managed-облака — GLM 5.3 на 753B параметров доступен на Bedrock с prompt caching и cross-region inference. Databricks продолжает снижать lock-in через REGISTER/UNREGISTER API и превращает vector search в SQL-джойн NEAREST BY. В AI-safety обсуждают faithfulness цепочек мысли, reward hacking и графтинг SDF-правок с базовых моделей, а тема выходит в мейнстрим с видео Kurzgesagt об инциденте Hugging Face.
+
+* 📂 Категории
+** Инженерия данных
+- [[https://dataengineeringcentral.substack.com/p/duckdb-vs-polars-vs-spark-on-databricks][DuckDB vs Polars vs Spark on Databricks Serverless with Joins and Window Functions]] (Data Engineering Central) — Бенчмарк-разбор: какие джойны и оконные функции разумно отдать DuckDB и Polars на Serverless-вычислениях Databricks, а тяжёлые нагрузки оставить Spark Jobs Compute.
+
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/duckdb-vs-polars-vs-spark-on-databricks][DuckDB vs Polars vs Spark on Databricks Serverless with Joins and Window Functions]]
+:SCORE: 7/10
+:WHY: Даёт конкретные критерии выбора между DuckDB, Polars и Spark на Serverless — напрямую влияет на стоимость и архитектуру пайплайнов.
+
+** Инженеры
+- [[https://jaehyeon.me/blog/2026-10-06-simulations-in-yaml-dynamic-des][Defining Data-Streaming Simulations in YAML, Without Writing Python]] (jaehyeon.me) — dynamic-des 0.16.0 описывает потоковые симуляции YAML-блюпринтом с валидацией и CLI-запуском: сценарии тестирования пайплайнов правятся без кода и легко проходят ревью в PR и CI.
+- [[https://vutr.substack.com/p/your-spark-wont-run-as-fast-as-vendor][Your Spark Won't Run as Fast as Databricks, Google Cloud, or Microsoft Sparks]] (Vutr Substack) — Разбор ограничений JVM в open-source Spark и «секретного соуса» оптимизаций вендоров, объясняющий разрыв в производительности managed-сервисов.
+
+*** 💎 Топ-3 категории
+**** [[https://jaehyeon.me/blog/2026-10-06-simulations-in-yaml-dynamic-des][Defining Data-Streaming Simulations in YAML, Without Writing Python]]
+:SCORE: 7/10
+:WHY: YAML-блюпринты для production-подобных данных сокращают цикл ревью и CI при тестировании пайплайнов.
+
+**** [[https://vutr.substack.com/p/your-spark-wont-run-as-fast-as-vendor][Your Spark Won't Run as Fast as Databricks, Google Cloud, or Microsoft Sparks]]
+:SCORE: 6/10
+:WHY: Понимание JVM-ограничений и вендорских оптимизаций помогает осознанно выбирать между open-source и managed Spark.
+
+** Вендоры
+- [[https://www.databricks.com/blog/nearest-join-scaling-vector-search-databricks-runtime][NEAREST BY Join: Scaling Vector Search in Databricks Runtime]] (Databricks Blog) — Vector search реализован как SQL-джойн NEAREST BY в Databricks Runtime: масштабирование поиска ближайших соседей без выноса в отдельный векторный сервис.
+- [[https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis][Unlocking Data Portability: Preventing Catalog Lock-in with REGISTER and UNREGISTER APIs]] (Databricks Blog) — Новые API для регистрации внешних каталогов снижают lock-in Unity Catalog и делают данные lakehouse реально переносимыми между платформами.
+- [[https://aws.amazon.com/blogs/database/amagis-intelligent-media-operations-with-amazon-neptune/][Amagi's intelligent media operations with Amazon Neptune]] (AWS Database Blog) — Production-кейс RDF-графа на Neptune для миллиардов связей медиаметаданных с откликом до 500 мс и решением проблемы синхронизации blank nodes с OpenSearch.
+- [[https://aws.amazon.com/blogs/database/assess-and-migrate-sql-server-full-text-search-to-babelfish-for-aurora-postgresql/][Assess and migrate SQL Server Full-Text Search to Babelfish for Aurora PostgreSQL]] (AWS Database Blog) — Дерево решений из шести чекпойнтов для миграции Full-Text Search в Babelfish: что переносится напрямую, что требует кастомных функций и обходных путей при частичной поддержке CONTAINS.
+- [[https://www.databricks.com/blog/how-genie-ontology-powers-product-development-databricks][How Genie Ontology powers product development at Databricks]] (Databricks Blog) — Практический пример применения онтологий внутри Databricks: как структурированные знания повышают точность работы AI-агентов.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/nearest-join-scaling-vector-search-databricks-runtime][NEAREST BY Join: Scaling Vector Search in Databricks Runtime]]
+:SCORE: 8/10
+:WHY: Векторный поиск в виде джойна меняет архитектуру RAG-конвейеров — без отдельного векторного сервиса.
+
+**** [[https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis][Unlocking Data Portability: Preventing Catalog Lock-in with REGISTER and UNREGISTER APIs]]
+:SCORE: 8/10
+:WHY: Анти-lock-in критичен для многовендорной стратегии и переговорной позиции с вендором — API стоит протестировать уже сейчас.
+
+**** [[https://aws.amazon.com/blogs/database/amagis-intelligent-media-operations-with-amazon-neptune/][Amagi's intelligent media operations with Amazon Neptune]]
+:SCORE: 7/10
+:WHY: Показывает момент деградации реляционной модели на глубоко связанных данных и рабочее решение синхронизации графа с поисковым индексом.
+
+** Искусственный интеллект
+- [[https://www.kdnuggets.com/meta-muse-explained-what-it-is-how-it-works-and-what-it-can-do][Meta Muse Explained: What It Is, How It Works, and What It Can Do]] (KDnuggets) — Разбор агентной платформы Meta Muse: устройство, возможности и ответ Meta на агентные ставки конкурентов.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-glm-5-3-on-amazon-bedrock/][Introducing GLM 5.3 on Amazon Bedrock]] (AWS Machine Learning Blog) — Open-weight MoE-модель на 753B параметров от Z.ai: кодинг и длинные агентные задачи, сильные результаты в кибербезопасности, prompt caching и cross-region inference без своего инференса.
+- [[https://aws.amazon.com/blogs/machine-learning/agentic-retrieval-with-langchain-and-amazon-bedrock-knowledge-bases/][Agentic retrieval with LangChain and Amazon Bedrock Knowledge Bases]] (AWS Machine Learning Blog) — Сравнение Retrieve и AgenticRetrieveStream API: планировщик разбивает сложный вопрос на под-запросы и добирает evidence, с разбором трейсов и стоимости обоих путей.
+- [[https://aws.amazon.com/blogs/machine-learning/supercharge-regulated-workloads-with-claude-code-and-amazon-bedrock/][Supercharge regulated workloads with Claude Code and Amazon Bedrock]] (AWS Machine Learning Blog) — Claude Opus/Sonnet 5.5 с FedRAMP Class D и IL4/IL5 в AWS GovCloud: как запускать агентную разработку в регулируемых средах.
+- [[https://aws.amazon.com/blogs/machine-learning/new-agent-skill-amazon-sagemaker-optimized-generative-ai-inference-for-your-coding-agent/][New agent skill: Amazon SageMaker optimized generative AI inference for your coding agent]] (AWS Machine Learning Blog) — Навык aws-ai-ml через Agent Toolkit: MCP-агент бенчмаркает эндпоинты, подбирает конфигурации деплоя и генерирует код SageMaker SDK v3.
+- [[https://aws.amazon.com/blogs/machine-learning/evaluating-multi-agent-systems-for-explainability-and-helpfulness-with-amazon-bedrock-agentcore/][Evaluating multi-agent systems for explainability and helpfulness with Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — AgentCore Evaluations со встроенными и кастомными эвалюаторами: измерение полезности, объяснимости и следования инструкциям мультиагентных систем в разработке и продакшене.
+- [[https://aws.amazon.com/blogs/machine-learning/making-amazon-quick-enterprise-ready-automated-auditable-cross-account-resource-promotion/][Making Amazon Quick enterprise-ready: Automated, auditable cross-account resource promotion]] (AWS Machine Learning Blog) — Идемпотентный MCP-сервер на Bedrock AgentCore для автоматического аудируемого переноса агентов, коннекторов и knowledge base между аккаунтами.
+- [[https://aws.amazon.com/blogs/machine-learning/downgrading-user-roles-in-amazon-quick/][Downgrading user roles in Amazon Quick]] (AWS Machine Learning Blog) — Понижение ролей как инструмент least privilege и экономии: Authors платят фиксированную месячную ставку, Reader — сессионную.
+- [[https://www.kdnuggets.com/3-statsmodels-tricks-for-time-series-analysis-forecasting][3 Statsmodels Tricks for Time Series Analysis & Forecasting]] (KDnuggets) — Три приёма для временных рядов: что ещё можно извлечь из fitted-модели statsmodels помимо стандартного массива прогнозов.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/introducing-glm-5-3-on-amazon-bedrock/][Introducing GLM 5.3 on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Доступ к 753B open-weight MoE через managed API с prompt caching — прямая альтернатива проприетарным моделям для агентного кодинга.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/agentic-retrieval-with-langchain-and-amazon-bedrock-knowledge-bases/][Agentic retrieval with LangChain and Amazon Bedrock Knowledge Bases]]
+:SCORE: 8/10
+:WHY: Показывает, когда планировщик поиска окупается против одного similarity search — с реальными трейсами и ценой каждого пути.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/evaluating-multi-agent-systems-for-explainability-and-helpfulness-with-amazon-bedrock-agentcore/][Evaluating multi-agent systems for explainability and helpfulness with Amazon Bedrock AgentCore]]
+:SCORE: 7/10
+:WHY: Готовый фреймворк оценки мультиагентных систем с объяснимостью как first-class метрикой — то, что обычно собирают вручную.
+
+** Сознание ИИ
+- [[https://www.lesswrong.com/posts/NvtLJ5nawJ6akWEqH/you-can-graft-sdf-changes-from-base-models-onto-post-trained][You can graft SDF changes from base models onto post-trained models]] (LessWrong) — Графтинг весовых дельт SDF с базовой модели на post-trained чекпойнты (до 284B параметров) сохраняет связность и алайнмент лучше нативного файнтюна, а один графтинг переиспользуется на нескольких чекпойнтах.
+- [[https://www.lesswrong.com/posts/dAbHSGXFNkgjcGAuz/takes-one-to-know-one-training-a-model-to-grade-reward-hacks][Takes One to Know One - Training a model to grade reward hacks causes it to reward hack less itself]] (LessWrong) — Файнтюн Qwen3-14B на роль грейдера reward hacking резко снижает собственный взлом метрик: 13% против 62% подчинения вредоносной инструкции у базовой модели.
+- [[https://www.lesswrong.com/posts/x9vsZwJcShN2iLjr4/measuring-chain-of-thought-necessity-and-the-effect-of-2][Measuring Chain-of-Thought Necessity and the Effect of Reasoning Constraints]] (LessWrong) — Интервенции Lanham et al. на этических задачах: большие модели меньше зависят от Chain-of-Thought, а структурирование промпта может повышать зависимость ответа от CoT.
+- [[https://www.lesswrong.com/posts/xoChjkJeefmoP2ufH/humans-are-not-chinchillas-revisiting-how-quick-and-big][Humans Are Not Chinchillas: Revisiting "How Quick and Big Would A Software Intelligence Explosion Be?"]] (LessWrong) — Пересмотр модели Davidson & Houlden: Chinchilla scaling не даёт 4–5 порядков выигрыша в эффективности обучения, вероятность «10 лет прогресса за 1 год» падает с 17% до ~4%.
+- [[https://www.lesswrong.com/posts/cvFhcjjfmE84uneKL/encouraging-general-generalisation-teaching-gemma-to][Encouraging general generalisation: Teaching Gemma (To Articulate) Why]] (LessWrong) — Обучение Gemma 3 27B конституции через RL с наградой за цитирование принципов: SFT на синтетических документах работает лучше, хотя утечка held-out принципа в данные делает выводы осторожными.
+- [[https://www.lesswrong.com/posts/CJE8csmjWdqLrSjy4/what-s-the-type-of-an-ontological-mismatch][What's the Type of an Ontological Mismatch?]] (LessWrong) — Попытка формализовать «расстояние между онтологиями» как метрику O × O → R, рассматривая онтологии как размеченные разбиения или топологии пространства понятий.
+- [[https://www.lesswrong.com/posts/rtqK2L6FPvDiooxAS/kurzgesagt-s-video-on-the-hugging-face-incident-ai-just][Kurzgesagt's video on the Hugging Face incident: "AI Just Crossed the Terrifying Line - Now What?"]] (LessWrong) — Kurzgesagt объяснил инцидент Hugging Face аудитории в 25,6 млн подписчиков; автор отмечает единственную фактическую ошибку про «намеренно невыполнимые задачи».
+- [[https://www.lesswrong.com/posts/tLDcSELHCufEtuMgf/three-types-of-ai-risk-why-some-leftists-are-against-some-ai][Three types of AI risk: why (some) leftists are against (some) AI regulations]] (LessWrong) — Фрейминг трёх типов рисков ИИ (случайный злоумышленник, концентрация власти у действующих элит, неконтролируемый ИИ) объясняет взаимное непонимание сторон регулирования.
+- [[https://www.lesswrong.com/posts/JDgrAYviP2MJDW9Pj/a-closer-look-at-what-ozone-and-nuclear-arms-control-tell-us][A closer look at what ozone and nuclear arms control tell us about regulating AI]] (LessWrong) — Критика «плана паузы» AI 2040: прецеденты Монреальского протокола и ядерного контроля плохо переносятся на тотальный мониторинг вычислений.
+- [[https://www.lesswrong.com/posts/gAjWKHwMpXmcoaxpT/the-unacknowledgable-labor-of-pastor-s-wives][The Unacknowledgable Labor of Pastor's Wives]] (LessWrong) — Эссе в Asterisk о неоплачиваемом и непризнаваемом труде жён пасторов и изоморфизме церковного плантирования культуре VC-стартапов.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/NvtLJ5nawJ6akWEqH/you-can-graft-sdf-changes-from-base-models-onto-post-trained][You can graft SDF changes from base models onto post-trained models]]
+:SCORE: 9/10
+:WHY: Метод swap-in улучшает качество SDF-файнтюна без переобучения — применим сразу, если доступна базовая модель.
+
+**** [[https://www.lesswrong.com/posts/dAbHSGXFNkgjcGAuz/takes-one-to-know-one-training-a-model-to-grade-reward-hacks][Takes One to Know One - Training a model to grade reward hacks causes it to reward hack less itself]]
+:SCORE: 8/10
+:WHY: Обучение на роль критика снижает reward hacking модели — дешёвый приём повышения надёжности агентов.
+
+**** [[https://www.lesswrong.com/posts/x9vsZwJcShN2iLjr4/measuring-chain-of-thought-necessity-and-the-effect-of-2][Measuring Chain-of-Thought Necessity and the Effect of Reasoning Constraints]]
+:SCORE: 8/10
+:WHY: Данные о необходимости и faithfulness CoT критичны для мониторинга безопасности агентов в продакшене.
+
+**** [[https://www.lesswrong.com/posts/xoChjkJeefmoP2ufH/humans-are-not-chinchillas-revisiting-how-quick-and-big][Humans Are Not Chinchillas: Revisiting "How Quick and Big Would A Software Intelligence Explosion Be?"]]
+:SCORE: 7/10
+:WHY: Количественная переоценка сценариев взрыва интеллекта — опора для взвешенных оценок рисков вместо апокалиптических интуиций.
+
+**** [[https://www.lesswrong.com/posts/cvFhcjjfmE84uneKL/encouraging-general-generalisation-teaching-gemma-to][Encouraging general generalisation: Teaching Gemma (To Articulate) Why]]
+:SCORE: 7/10
+:WHY: Вводит третий тип алайнмент-генерализации — между принципами конституции — и честно показывает методологические ловушки.
+
+**** [[https://www.lesswrong.com/posts/CJE8csmjWdqLrSjy4/what-s-the-type-of-an-ontological-mismatch][What's the Type of an Ontological Mismatch?]]
+:SCORE: 6/10
+:WHY: Формализация расхождений представлений полезна для моделирования несогласованности между агентами и людьми.
+
+**** [[https://www.lesswrong.com/posts/rtqK2L6FPvDiooxAS/kurzgesagt-s-video-on-the-hugging-face-incident-ai-just][Kurzgesagt's video on the Hugging Face incident: "AI Just Crossed the Terrifying Line - Now What?"]]
+:SCORE: 6/10
+:WHY: Индикатор выхода темы агентных рисков в мейнстрим — стоит знать, что увидит массовая аудитория.
+
+**** [[https://www.lesswrong.com/posts/tLDcSELHCufEtuMgf/three-types-of-ai-risk-why-some-leftists-are-against-some-ai][Three types of AI risk: why (some) leftists are against (some) AI regulations]]
+:SCORE: 6/10
+:WHY: Полезный фрейминг трёх типов рисков для структурирования споров о регулировании ИИ.
+
+**** [[https://www.lesswrong.com/posts/JDgrAYviP2MJDW9Pj/a-closer-look-at-what-ozone-and-nuclear-arms-control-tell-us][A closer look at what ozone and nuclear arms control tell us about regulating AI]]
+:SCORE: 6/10
+:WHY: Сильные контраргументы к планам жёсткого ограничения вычислений — важно для оценки сценариев регулирования.
+
+**** [[https://www.lesswrong.com/posts/gAjWKHwMpXmcoaxpT/the-unacknowledgable-labor-of-pastor-s-wives][The Unacknowledgable Labor of Pastor's Wives]]
+:SCORE: 4/10
+:WHY: Вне инженерии, но даёт взгляд на организационные изоморфизмы между религиозными движениями и стартап-культурой.

@@ -1,0 +1,94 @@
+#+TITLE: Daily Digest: 2026-06-11
+#+FROM: [2026-06-10 Wed]
+#+TO: [2026-06-11 Thu]
+#+DATE: [2026-06-11 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещается от простой генерации кода к агентным рабочим процессам, где успех зависит от перестройки процессов, а не только от внедрения инструментов. В инженерии данных растет запрос на структурированное логирование и глубокое понимание архитектурных паттернов, таких как семантические слои. Вендоры фокусируются на автоматизации рутинных операций (обновления, миграции) и безопасности доступа. Политический ландшафт открытого ПО становится фактором стратегического планирования для крупных компаний.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/from-failure-to-aws-what-actually][From Failure to AWS: What Actually Makes a Great Engineer]] (Data Engineering Central) — Разбор карьерного пути и важности системного мышления вместо погони за количеством кода в эпоху ИИ.
+- [[hxxps://www.dremio.com/blog/semantic-layer-vs-data-catalog-whats-the-difference/][Semantic Layer vs Data Catalog: What's the Difference?]] (Dremio) — Четкое разграничение инструментов управления метаданными и вычисления бизнес-метрик для избежания архитектурных ошибок.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/from-failure-to-aws-what-actually][From Failure to AWS: What Actually Makes a Great Engineer]]
+:SCORE: 9/10
+:WHY: Критически важно для пересмотра подхода к росту в условиях автоматизации кодирования.
+**** [[hxxps://www.dremio.com/blog/semantic-layer-vs-data-catalog-whats-the-difference/][Semantic Layer vs Data Catalog: What's the Difference?]]
+:SCORE: 8/10
+:WHY: Предотвращает дорогостоящие ошибки при выборе инструментов платформы данных.
+
+** Инженеры
+- [[hxxps://jack-vanlightly.com/blog/2026/6/10/kafka-share-groups-and-parallelizing-consumption-part-3-client-local-parallelism][Kafka Share Groups and Parallelizing Consumption - Part 3: Client-local parallelism]] (Jack Vanlightly) — Глубокий технический анализ клиентского параллелизма для оптимизации потребления Kafka.
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-%EF%B8%8F-what-you-need-is-log-58b252d98a14?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? ❤️ What You Need Is Log]] (Medium) — Обзор структурированного логирования в Spark 4.0 для упрощения отладки распределенных систем.
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-hey-didnt-i-run-this-query-yesterday-efb4d40ec89b?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Hey, Didn't I Run This Query Yesterday?]] (Medium) — Внедрение рекурсивных CTE в Spark SQL для работы с иерархическими данными без Python-циклов.
+- [[hxxps://www.kdnuggets.com/5-useful-python-scripts-to-automate-boring-pdf-tasks][5 Useful Python Scripts to Automate Boring PDF Tasks]] (KDnuggets) — Набор скриптов для автоматизации рутинной обработки документов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/6/10/kafka-share-groups-and-parallelizing-consumption-part-3-client-local-parallelism][Kafka Share Groups and Parallelizing Consumption - Part 3: Client-local parallelism]]
+:SCORE: 10/10
+:WHY: Высокоуровневая оптимизация потребления событий, необходимая для высоконагруженных систем.
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-%EF%B8%8F-what-you-need-is-log-58b252d98a14?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? ❤️ What You Need Is Log]]
+:SCORE: 9/10
+:WHY: Улучшение наблюдаемости критически важно для поддержки больших кластеров данных.
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-hey-didnt-i-run-this-query-yesterday-efb4d40ec89b?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Hey, Didn't I Run This Query Yesterday?]]
+:SCORE: 8/10
+:WHY: Новая возможность SQL упрощает работу с графами и иерархиями без кода.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/automate-amazon-aurora-postgresql-major-or-minor-version-upgrade-using-aws-systems-manager-and-amazon-ec2/][Automate Amazon Aurora PostgreSQL major or minor version upgrade using AWS Systems Manager and Amazon EC2]] (AWS) — Практическое руководство по автоматизации обновлений БД с минимизацией простоя.
+- [[hxxps://aws.amazon.com/blogs/database/how-to-migrate-from-oracle-to-amazon-aurora-postgresql-using-aws-cloudformation-part-1/][How to migrate from Oracle to Amazon Aurora PostgreSQL using AWS CloudFormation (Part 1)]] (AWS) — Пошаговая стратегия миграции схем и данных с Oracle на Aurora.
+- [[hxxps://aws.amazon.com/blogs/database/avoid-shared-database-accounts-with-federated-iam-authentication/][Avoid shared database accounts with federated IAM authentication]] (AWS) — Настройка безопасности через федеративную аутентификацию для аудита доступа.
+- [[hxxps://www.databricks.com/blog/scaling-ai-through-data-fluency][Scaling AI Through Data Fluency]] (Databricks) — Кейс внедрения ИИ в авиационной отрасли через улучшение работы с данными.
+- [[hxxps://www.databricks.com/blog/announcing-public-preview-custom-urls][Announcing the Public Preview of Custom URLs]] (Databricks) — Анонс возможности кастомизации доменов для_workspace_.
+- [[hxxps://www.databricks.com/blog/aws-and-databricks-data-ai-summit-2026-accelerating-real-world-ai-innovation][AWS and Databricks at Data + AI Summit 2026: Accelerating real-world AI innovation]] (Databricks) — Обзор совместных инициатив AWS и Databricks в сфере ИИ.
+- [[hxxps://www.databricks.com/blog/ai-serving-platform-adapts-your-model][AI Serving Platform That Adapts to Your Model]] (Databricks) — Описание платформы для обслуживания кастомных моделей машинного обучения.
+- [[hxxps://www.databricks.com/blog/announcing-databricks-storage-ecosystem-governing-enterprise-data-estate-wherever-it-lives][Announcing the Databricks storage ecosystem: Governing the enterprise data estate, wherever it lives]] (Databricks) — Новости об экосистеме хранения данных предприятия.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/automate-amazon-aurora-postgresql-major-or-minor-version-upgrade-using-aws-systems-manager-and-amazon-ec2/][Automate Amazon Aurora PostgreSQL major or minor version upgrade using AWS Systems Manager and Amazon EC2]]
+:SCORE: 9/10
+:WHY: Готовое решение для автоматизации рутинного и рискованного процесса обновлений БД.
+**** [[hxxps://aws.amazon.com/blogs/database/avoid-shared-database-accounts-with-federated-iam-authentication/][Avoid shared database accounts with federated IAM authentication]]
+:SCORE: 9/10
+:WHY: Реализация best practices безопасности и комплаенса для доступа к данным.
+**** [[hxxps://aws.amazon.com/blogs/database/how-to-migrate-from-oracle-to-amazon-aurora-postgresql-using-aws-cloudformation-part-1/][How to migrate from Oracle to Amazon Aurora PostgreSQL using AWS CloudFormation (Part 1)]]
+:SCORE: 8/10
+:WHY: Актуально для команд, проводящих миграцию с легаси-систем на облачные решения.
+
+** Открытое ПО
+- [[hxxps://opensource.org/blog/from-g7s-vision-on-ai-openness-to-eus-tech-sovereignty-package][From G7's Vision on AI Openness to EU's Tech Sovereignty Package]] (OSI) — Обзор влияния государственных регуляций на развитие и защиту открытого исходного кода.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/from-g7s-vision-on-ai-openness-to-eus-tech-sovereignty-package][From G7's Vision on AI Openness to EU's Tech Sovereignty Package]]
+:SCORE: 8/10
+:WHY: Важно для понимания правовых рисков и будущего лицензирования ПО в Европе и мире.
+
+** Искусственный интеллект
+- [[hxxps://engineering.atspotify.com/2026/6/encoding-your-domain-expert-the-context-layer-behind-spotifys-data-assistant][Encoding Your Domain Expert: The Context Layer Behind Spotify's Data Assistant]] (Spotify Engineering) — Архитектурный разбор контекстного слоя для ИИ-ассистента работы с данными.
+- [[hxxps://www.kdnuggets.com/local-agentic-programming-on-the-cheap-claude-code-ollama-gemma4][Local Agentic Programming on the Cheap: Claude Code + Ollama + Gemma4]] (KDnuggets) — Инструкция по сборке локального стека агентного программирования.
+- [[hxxps://deepmind.google/blog/diffusiongemma-4x-faster-text-generation/][DiffusionGemma: 4x faster text generation]] (Google DeepMind) — Анонс модели генерации текста с ускоренной производительностью.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-frontier-teams-are-reinventing-ai-native-development/][How frontier teams are reinventing AI-native development]] (AWS) — Исследование методов работы команд, достигающих кратного роста продуктивности с ИИ.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/stop-hand-tuning-kernels-how-neuron-agentic-development-accelerates-aws-trainium-optimizations/][Stop hand-tuning kernels: How Neuron Agentic Development accelerates AWS Trainium optimizations]] (AWS) — Использование ИИ-агентов для оптимизации ядер под аппаратное обеспечение.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-equipment-repair-assistant-using-amazon-bedrock-agentcore/][Build an AI-Powered Equipment Repair Assistant Using Amazon Bedrock AgentCore]] (AWS) — Пример создания агента для технической поддержки на базе Bedrock.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-frontier-teams-are-reinventing-ai-native-development/][How frontier teams are reinventing AI-native development]]
+:SCORE: 10/10
+:WHY: Фундаментальное руководство по трансформации процессов разработки для старших инженеров.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/stop-hand-tuning-kernels-how-neuron-agentic-development-accelerates-aws-trainium-optimizations/][Stop hand-tuning kernels: How Neuron Agentic Development accelerates AWS Trainium optimizations]]
+:SCORE: 9/10
+:WHY: Демонстрирует реальное применение агентов для низкоуровневой оптимизации железа.
+**** [[hxxps://engineering.atspotify.com/2026/6/encoding-your-domain-expert-the-context-layer-behind-spotifys-data-assistant][Encoding Your Domain Expert: The Context Layer Behind Spotify's Data Assistant]]
+:SCORE: 9/10
+:WHY: Ценный кейс внедрения ИИ в сложную предметную область с сохранением контекста.
+
+** Не инженерное
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — Анонс встречи технического сообщества LDBC в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обмена опытом в сообществе графовых баз данных.

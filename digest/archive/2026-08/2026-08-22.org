@@ -1,0 +1,56 @@
+#+TITLE: Daily Digest: 2026-08-22
+#+FROM: [2026-08-21 Fri]
+#+TO: [2026-08-22 Sat]
+#+DATE: [2026-08-22 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+AWS представляет референсные архитектуры для агентных операций с данными и управления доступом ИИ-агентов. Оптимизация стоимости RAG через сжатие контекста становится стандартом для продакшена. Индустриальные внедрения ИИ переходят от прототипов к диагностике сложных систем в авиации и ритейле. Сообщество графовых баз данных синхронизирует стандарты GQL и инструменты на конференции TUC.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/][From Atari to EVE Online: Building on 15 Years of AI Research in Games]] (DeepMind) — Партнёрство DeepMind со студиями показывает эволюцию ИИ от тестовых сред к сложным игровым мирам.
+- [[hxxps://www.kdnuggets.com/run-muse-glimmer-for-local-vibe-coding-with-llama-cpp-dflash-and-pi][Run Muse Glimmer for Local Vibe Coding with llama.cpp, DFlash, and Pi]] (KDnuggets) — Инструкция по запуску локального агентного кодирования на RTX 3090 для обеспечения приватности.
+- [[hxxps://www.kdnuggets.com/5-real-world-use-cases-for-ai-agents-transforming-industries][5 Real-World Use Cases for AI Agents Transforming Industries]] (KDnuggets) — Обзор автономных агентов в поддержке, разработке и финтехе с реальными примерами внедрения.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/][Govern AI agent tool access with Amazon Bedrock AgentCore Gateway]] (AWS) — Решение проблемы credential sprawl через централизованный шлюз для ИИ-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/reduce-rag-costs-on-amazon-bedrock-with-query-aware-compression/][Reduce RAG costs on Amazon Bedrock with query-aware compression]] (AWS) — Метод фильтрации контекста меньшей моделью для снижения затрат на токены без потери качества.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerating-aircraft-ifec-diiagnostics-with-agentic-ai-on-aws/][Accelerating aircraft IFEC diagnostics with agentic AI on AWS]] (AWS) — Кейс Panasonic по использованию агентного ИИ для сокращения времени диагностики бортовых систем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/govern-ai-agent-tool-access-with-amazon-bedrock-agentcore-gateway/][Govern AI agent tool access with Amazon Bedrock AgentCore Gateway]]
+:SCORE: 9/10
+:WHY: Критически важно для безопасности: решает проблему неконтролируемого доступа агентов к внутренним инструментам и секретам.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/reduce-rag-costs-on-amazon-bedrock-with-query-aware-compression/][Reduce RAG costs on Amazon Bedrock with query-aware compression]]
+:SCORE: 8/10
+:WHY: Практичный паттерн оптимизации затрат на инференс в продакшене без ухудшения качества ответов.
+**** [[hxxps://www.kdnuggets.com/run-muse-glimmer-for-local-vibe-coding-with-llama-cpp-dflash-and-pi][Run Muse Glimmer for Local Vibe Coding with llama.cpp, DFlash, and Pi]]
+:SCORE: 8/10
+:WHY: Полезно для настройки приватного рабочего места разработчика с локальными LLM на доступном железе.
+
+** Инженерия данных
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-data-operations-platform-adop-data-engineering-into-hours/][Agentic Data Operations Platform (ADOP): Data engineering into hours]] (AWS) — Референсная архитектура для ускорения создания пайплайнов от Bronze до Gold с помощью ИИ-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-data-operations-platform-adop-data-engineering-into-hours/][Agentic Data Operations Platform (ADOP): Data engineering into hours]]
+:SCORE: 9/10
+:WHY: Меняет подход к построению платформ данных: агенты генерируют код, но продакшен работает на детерминированных артефактах.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/connecting-retail-demand-planning-campaign-and-store-execution][Connecting retail demand planning to campaign and store execution]] (Databricks) — Описание связки планирования спроса и исполнения в ритейле на платформе Databricks.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Повестка встречи сообщества графовых баз данных с обсуждением стандарта GQL и производительности.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Важно для отслеживания эволюции стандартов GQL и инструментов графовой аналитики от ключевых вендоров.
+**** [[hxxps://www.databricks.com/blog/connecting-retail-demand-planning-campaign-and-store-execution][Connecting retail demand planning to campaign and store execution]]
+:SCORE: 7/10
+:WHY: Демонстрирует интеграцию аналитики данных с операционными процессами вenterprise-секторе.
+
+** Инженеры
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Образовательный материал по методу наименьших квадратов с реализацией на Clojure.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 6/10
+:WHY: Хорошая практика для освежения фундаментальных знаний статистики через код.

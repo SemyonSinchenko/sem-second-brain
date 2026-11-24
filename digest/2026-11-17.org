@@ -1,0 +1,122 @@
+#+TITLE: Daily Digest: 2026-11-17
+#+FROM: [2026-11-16 Mon]
+#+TO: [2026-11-17 Tue]
+#+DATE: [2026-11-17 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Центральной темой дня стал сдвиг парадигмы инженерии: интервью с Сатьей Наделлой и разборы агентных систем сходятся в том, что генерация кода дешевеет, а верификация, спецификации и управление стоимостью токенов становятся новой ключевой компетенцией инженера. Вендоры активно легализуют «zero-ETL» и агентную инфраструктуру: Neo4j Virtual Graph открывает графы поверх хранилищ данных, а Databricks и AWS наперегонки выпускают агентные платформы (AgentCore, Genie One, managed knowledge bases). В data engineering сохраняется тренд на переосмысление классических идей — онтологии возвращаются благодаря агентам, а таблицные форматы (Iceberg/Delta/Hudi) показывают свои ограничения при потоковой записи. Отдельный блок — безопасность и управление ИИ: калифорнийское законодательство, kill switches и дискуссия о том, что методы safety-инжиниринга упираются в нерешенные научные проблемы.
+
+* 📂 Категории
+
+** Data Engineering
+
+- [[https://dataengineeringcentral.substack.com/p/what-the-is-ontology][What the !@#$% is Ontology?]] (Data Engineering Central) — Практичный разбор того, чем онтология отличается от семантического слоя и контекста агента, и почему концепция из 1960-х внезапно стала актуальной в эру LLM.
+- [[https://vutr.substack.com/p/why-streaming-is-a-pain-in-the-a][Why streaming is a pain in the a** for table formats?]] (vutr.substack) — Четкое объяснение, почему метаданные Delta/Iceberg/Hudi, спроектированные под батч, становятся узким местом при частых потоковых коммитах.
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (ssp.sh) — Интервью с автором книги «Writing for Developers» о том, как писать инженерные тексты, которые реально читают.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/why-streaming-is-a-pain-in-the-a][Why streaming is a pain in the a** for table formats?]]
+:SCORE: 8/10
+:WHY: Дает инженеру точную модель издержек метаданных при потоковой записи в таблицные форматы — знание, которое сэкономит недели отладки latency в продакшене.
+**** [[https://dataengineeringcentral.substack.com/p/what-the-is-ontology][What the !@#$% is Ontology?]]
+:SCORE: 7/10
+:WHY: Помогает отделить реальную техническую ценность онтологий от хайпа вендоров до того, как вы выберете архитектуру для агентных систем.
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Полезно для инженеров, которые хотят превратить внутренний опыт в технический блог или книгу с реальной аудиторией.
+
+** Engineers
+
+- [[https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes][Software engineering after code becomes cheap with Satya Nadella]] (The Pragmatic Engineer) — Наделла объясняет, почему Microsoft отстала от Cursor и Claude Code в Copilot и почему спецификации и верификация становятся важнее написания кода.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes][Software engineering after code becomes cheap with Satya Nadella]]
+:SCORE: 9/10
+:WHY: Редкий взгляд CEO-инженера на то, как меняется роль инженера при дешевом коде, включая честный разбор провала лидерства Copilot и концепцию «software factory».
+
+** Vendors
+
+- [[https://neo4j.com/blog/news/neo4j-virtual-graph-is-now-generally-available/][Neo4j Virtual Graph is now generally available]] (Neo4j) — Zero-ETL графы поверх Snowflake, Databricks, BigQuery и Iceberg: Cypher детерминированно транслируется в SQL прямо в вашем хранилище.
+- [[https://neo4j.com/blog/developer/euler-meets-codd/][Euler meets Codd]] (Neo4j) — Доступное объяснение, когда графовая модель реально выигрывает у реляционной: сильно связанные данные и транзакции по связям.
+- [[https://www.databricks.com/blog/clean-data-was-never-enough-how-ifs-copperleaf-taught-ai-its-business-databricks-genie-one-0][Clean data was never enough: How IFS Copperleaf taught AI its business with Databricks Genie One]] (Databricks) — Кейс о том, почему чистых данных недостаточно и как «обучить» ИИ бизнес-логике через Genie One.
+- [[https://www.databricks.com/blog/talk-your-clinical-data-unlocking-aws-healthlake-opensharing-and-genie-one][Talk to your clinical data: unlocking AWS HealthLake with OpenSharing and Genie One]] (Databricks) — Интеграция клинических данных HealthLake с Genie One для запросов на естественном языке в здравоохранении.
+- [[https://www.databricks.com/blog/build-real-time-next-best-offer-recommender-using-databricks-feature-views][Build a real-time next-best-offer recommender using Databricks Feature Views]] (Databricks) — Практический рецепт построения real-time рекомендера на Feature Views.
+- [[https://www.databricks.com/blog/introducing-databricks-ai-index-state-enterprise-ai-tokenomics][Introducing the Databricks AI Index: The state of enterprise AI tokenomics]] (Databricks) — Эмпирические данные о том, как предприятия расходуют токены и какие модели и агенты реально выбирают.
+- [[https://www.databricks.com/blog/tabular-foundation-models-databricks-ai-runtime][Tabular foundation models on Databricks AI Runtime]] (Databricks) — Фундаментальные модели для табличных данных в AI Runtime: что это меняет для классического ML.
+- [[https://www.databricks.com/blog/teach-genie-one-your-workflows-ultimate-guide-skills-genie-one][Teach Genie One your workflows: The ultimate guide for skills in Genie One]] (Databricks) — Гайд по формализации командных процессов в виде «skills» для Genie One.
+- [[https://aws.amazon.com/blogs/database/postgresql-large-objects-best-practices-for-amazon-aurora-and-rds/][PostgreSQL large objects: Best practices for Amazon Aurora and RDS]] (AWS) — Критичные operational-знания про orphaned large objects, vacuumlo и риски апгрейдов, которые всплывают только после инцидента.
+- [[https://aws.amazon.com/blogs/database/exploring-new-features-of-apache-tinkerpop-3-8-x-in-amazon-neptune/][Exploring new features of Apache TinkerPop 3.8.x in Amazon Neptune]] (AWS) — Разбор семантических изменений Gremlin 3.8.x, которые могут тихо изменить результаты запросов без ошибок компиляции.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/postgresql-large-objects-best-practices-for-amazon-aurora-and-rds/][PostgreSQL large objects: Best practices for Amazon Aurora and RDS]]
+:SCORE: 8/10
+:WHY: Автовакуум не чистит orphaned large objects, а мажорные апгрейды могут падать — это те грабли, о которых узнают поnton уже в проде.
+**** [[https://neo4j.com/blog/news/neo4j-virtual-graph-is-now-generally-available/][Neo4j Virtual Graph is now generally available]]
+:SCORE: 8/10
+:WHY: Реальный zero-copy паттерн для GraphRAG поверх мультитерабайтных хранилищ без миграции данных и с сохранением governance.
+**** [[https://www.databricks.com/blog/introducing-databricks-ai-index-state-enterprise-ai-tokenomics][Introducing the Databricks AI Index: The state of enterprise AI tokenomics]]
+:SCORE: 7/10
+:WHY: Данные о реальном потреблении токенов в enterprise — основа для обоснования бюджета и выбора модели в ваших проектах.
+
+** Artificial Intelligence
+
+- [[https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/][TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient]] (Microsoft Research) — Open-source плагин учится на прошлых сессиях агента в репозитории и снижает стоимость на 18-31% без изменения модели.
+- [[https://www.kdnuggets.com/2026/11/collibra/5-things-that-break-when-ai-agents-start-acting-on-their-own][5 Things That Break When AI Agents Start Acting on Their Own]] (KDnuggets) — Пять проблем governance для автономных агентов: от неуправляемого доступа до узких мест в согласованиях.
+- [[https://www.kdnuggets.com/how-to-give-claude-code-up-to-date-documentation-with-context7][How to Give Claude Code Up-to-Date Documentation With Context7]] (KDnuggets) — Практический способ перестать тратить токены на отладку устаревшего кода через актуальную документацию.
+- [[https://www.kdnuggets.com/agentic-system-design-a-self-study-roadmap][Agentic System Design: A Self-Study Roadmap]] (KDnuggets) — Структурированный 7-шаговый роадмап по проектированию агентных систем: инструменты, память, циклы управления, мультиагентная координация.
+- [[https://aws.amazon.com/blogs/machine-learning/build-memory-aware-ai-agents-with-agentic-retrieve-on-amazon-bedrock-managed-knowledge-base/][Build memory-aware AI agents with Agentic Retrieve on Amazon Bedrock Managed Knowledge Base]] (AWS) — Рецепт интеграции долгосрочной памяти AgentCore с knowledge base с изоляцией памяти и ACL на уровне пользователей.
+- [[https://aws.amazon.com/blogs/machine-learning/how-duco-transforms-financial-data-automation-with-amazon-bedrock-agentcore/][How Duco transforms financial data automation with Amazon Bedrock AgentCore]] (AWS) — Кейс миграции с классического ML на агентную архитектуру в регулируемой финтех-среде с изоляцией данных банков.
+- [[https://aws.amazon.com/blogs/machine-learning/taxonomy-of-multi-agent-design-patterns-anti-patterns-and-lessons-from-manufacturing/][Taxonomy of multi-agent design patterns, anti-patterns, and lessons from manufacturing]] (AWS) — Систематизация паттернов координации мультиагентных систем с честной математикой: 10 шагов по 95% надежности дают лишь 59.9% end-to-end.
+- [[https://aws.amazon.com/blogs/machine-learning/how-moengage-built-agentic-customer-engagement-on-amazon-bedrock-agentcore/][How MoEngage built agentic customer engagement on Amazon Bedrock AgentCore]] (AWS) — Паттерн превращения существующих API в MCP-инструменты для агентов с tenant-scoped изоляцией данных.
+- [[https://aws.amazon.com/blogs/machine-learning/modernizing-mainframe-assembler-to-java-using-amazon-bedrock-and-aws-transform/][Modernizing mainframe Assembler to Java using Amazon Bedrock and AWS Transform]] (AWS) — Методология миграции Assembler в Java через промежуточный COBOL-этап с валидационными точками для SME.
+- [[https://aws.amazon.com/blogs/machine-learning/novo-nordisk-modernizes-manufacturing-process-documents-with-amazon-bedrock-agentcore/][Novo Nordisk modernizes manufacturing process documents with Amazon Bedrock AgentCore]] (AWS) — GraphRAG-архитектура для управления тысячами регулируемых документов в фарме с цитируемыми ответами.
+- [[https://aws.amazon.com/blogs/machine-learning/get-answers-from-tables-with-tabular-search-in-amazon-bedrock-managed-knowledge-base/][Get answers from tables with tabular search in Amazon Bedrock Managed Knowledge Base]] (AWS) — Табличный поиск решает главную проблему RAG над таблицами: код исполняется над всем файлом, а не над случайными passage.
+- [[https://aws.amazon.com/blogs/machine-learning/best-practices-for-writing-denied-topics-in-amazon-bedrock-guardrails/][Best practices for writing Denied Topics in Amazon Bedrock Guardrails]] (AWS) — Восемь практик формулировки Denied Topics, чтобы guardrail блокировал то, что нужно, а не «когда зачисляется зарплата».
+- [[https://aws.amazon.com/blogs/machine-learning/customize-answers-per-tenant-in-amazon-bedrock-managed-knowledge-base/][Customize answers per tenant in Amazon Bedrock Managed Knowledge Base]] (AWS) — Управляемые retrieval instructions для персонализации ответов по тенантам с версионированием.
+- [[https://aws.amazon.com/blogs/machine-learning/use-prompt-caching-with-open-weight-models-on-amazon-bedrock/][Use prompt caching with open-weight models on Amazon Bedrock]] (AWS) — Сравнение implicit и explicit кэширования промптов с открытыми моделями и практические советы по структуре префиксов.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/taxonomy-of-multi-agent-design-patterns-anti-patterns-and-lessons-from-manufacturing/][Taxonomy of multi-agent design patterns, anti-patterns, and lessons from manufacturing]]
+:SCORE: 9/10
+:WHY: Дает инженеру готовую таксономию для решения «нужен ли вообще мультиагент» и выбора паттерна координации, с честной арифметикой надежности цепочек.
+**** [[https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/][TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient]]
+:SCORE: 8/10
+:WHY: Показывает конкретные источники waste агентов (30% повторных tool calls, 16 из 23 неиспользуемых инструментов) и open-source способ их устранения.
+**** [[https://www.kdnuggets.com/agentic-system-design-a-self-study-roadmap][Agentic System Design: A Self-Study Roadmap]]
+:SCORE: 7/10
+:WHY: Сжатый структурированный роадмап по всем слоям агентного дизайна — хорошая база для систематизации знаний senior-инженера.
+
+** AI Consciousness
+
+- [[https://www.lesswrong.com/posts/JHKgn673RFTzPac9E/learning-by-doing-moore-s-law-wright-s-law-arrow-s-law][Learning by doing: Moore's law, Wright's law, Arrow's law]] (LessWrong) — Разбор различий между законом Мура и законом Райта и их значения для прогнозирования стоимости ИИ-вычислений.
+- [[https://www.lesswrong.com/posts/xyFdGGJ6Ckdnrqnsp/read-more-facts-and-fewer-theories][Read More Facts and Fewer Theories]] (LessWrong) — Аргумент в пользу накопления эмпирических фактов вместо рассуждений через большие нарративы, включая оценку AI-таймлайнов.
+- [[https://www.lesswrong.com/posts/mYDKEXXY4HjGnMHvo/what-do-kill-switches-buy-us][What do kill switches buy us?]] (LessWrong) — Трезвый анализ того, что реально дают kill switches в датацентрах: чуть меньше риска потери контроля, но с риском снижения срочности других мер.
+- [[https://www.lesswrong.com/posts/jfJR3LSgXP3TxfFB4/safety-cases-have-an-agent-foundations-problem][Safety Cases Have an Agent Foundations Problem]] (LessWrong) — Автор утверждает, что применение инженерных методов safety assurance к ИИ упирается в нерешенные научные проблемы о природе агентов.
+- [[https://www.lesswrong.com/posts/SaqXZbsLKjrSw6cwM/it-is-mildly-frustrating-that-people-will-now-respect-my][It is mildly frustrating that people will now respect my faction less if ASI doesn't happen by 2028]] (LessWrong) — Критика смешения позиций «AI safety» и «короткие таймлайны» и роли проекта AI 2027 в этом стереотипе.
+- [[https://www.lesswrong.com/posts/b385ixi597ywpED7G/empirical-feelings][Empirical feelings]] (LessWrong) — Эксперимент по интроспективному каталогизированию чувств без опоры на готовый словарь эмоций — материал для дискуссий о machine consciousness.
+- [[https://www.lesswrong.com/posts/qJrhEoNbzKRQYhybh/thoughts-on-safety-bad-bc-warning-shots-good][Thoughts on "safety bad bc warning shots good"]] (LessWrong) — Разбор «аргумента предупредительного выстрела»: почему рассуждения высших порядков о вреде безопасности до изумления неустойчивы.
+- [[https://www.lesswrong.com/posts/qHztdHtoXixCWAr7z/a-nother-look-at-metr-s-time-horizon-tasks-of-the-same][A(nother) look at METR's time horizon: tasks of the same duration get solved months apart]] (LessWrong) — Уточнение интерпретации метрики METR: задачи одной длительности решаются с разбросом в месяцы, что важно для оценок вытеснения труда.
+- [[https://www.lesswrong.com/posts/PD8Hmzro4N3piJSMP/a-closer-look-at-sparks-of-weight-space-programming][A closer look at "Sparks of Weight-Space Programming"]] (LessWrong) — Техническое опровержение хайпового поста: «нативное редактирование весов» GPT-6 Astra оказывается activation steering на синтетических данных.
+- [[https://www.lesswrong.com/posts/qNivEw2dxrFvNSPWi/california-state-politics-ai-safety-overview][California State Politics AI Safety Overview]] (LessWrong) — Обзор текущего состояния калифорнийского законодательства по ИИ: SB 53, SB 813, AB 1405 и приоритеты дальнейшего регулирования.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/PD8Hmzro4N3piJSMP/a-closer-look-at-sparks-of-weight-space-programming][A closer look at "Sparks of Weight-Space Programming"]]
+:SCORE: 8/10
+:WHY: Пример качественного технического разбора вирусного заявления: понимание, что за «революцией» стоит известная техника, — ценный навык оценки ИИ-новостей.
+**** [[https://www.lesswrong.com/posts/qHztdHtoXixCWAr7z/a-nother-look-at-metr-s-time-horizon-tasks-of-the-same][A(nother) look at METR's time horizon: tasks of the same duration get solved months apart]]
+:SCORE: 7/10
+:WHY: Уточняет, как правильно читать ключевую метрику агентных возможностей — критично для планирования автоматизации команд.
+**** [[https://www.lesswrong.com/posts/mYDKEXXY4HjGnMHvo/what-do-kill-switches-buy-us][What do kill switches buy us?]]
+:SCORE: 7/10
+:WHY: Честный расчет физических ограничений kill switches (время эксфильтрации весов ~6.7 минут при 400 Гб/с) вместо лозунгов.
+
+** Non Engineering
+
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (ssp.sh) — Интервью о рабочем процессе написания пяти технических книг, включая «Writing for Developers: Blogs that get read».
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Конкретные приемы технического писательства от практика — полезно каждому инженеру, который хочет, чтобы его тексты читали.

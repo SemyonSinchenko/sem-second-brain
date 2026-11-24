@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:          dcb56291-838b-4f5e-9b5a-2cbfe2edda65
+:END:
+#+title: SIMD in Rust: state of the ecosystem 2026
+#+ROAM_REFS: https://shnatsel.github.io/state-of-simd-rust-2026/
+#+filetags: :article:
+
+* Summary
+Source: [[https://shnatsel.github.io/state-of-simd-rust-2026/][https://shnatsel.github.io/state-of-simd-rust-2026/]]
+A deep survey of the [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] SIMD ecosystem in 2026, written by a maintainer of =fearless_simd= with review from authors of =std::simd=, =wide=, =pulp=, and =macerator=. It covers the three programming models (autovectorization, portable SIMD abstractions, and platform intrinsics), compares production crates feature-by-feature, discusses multiversioning and safe intrinsic access, lists compiler-feature wishes, and closes with a critical look at SIMD hardware across x86, ARM, RISC-V, and beyond.
+
+* Key Takeaways
+- Three ways to SIMD in Rust: automatic vectorization, portable SIMD abstractions (=std::simd=, =fearless_simd=, =wide=, =pulp=, =macerator=), and raw platform intrinsics.
+- Function multiversioning (compile for multiple SIMD levels, dispatch at runtime) is essential for x86 distribution because not all x86_64 CPUs have AVX2; ARM NEON is mandatory on 64-bit, so no dispatch needed there.
+- =fearless_simd= is the standout all-in-one crate: safe, ergonomic multiversioning via =#[simd]=, safe intrinsic access, and AVX-512 gated to Ice Lake+ to avoid downclocking CPUs. Its gap is trigonometry.
+- =std::simd= is nightly-only and works only where LLVM has a matching op, making many operations fall back to slow scalar code; the =sleef= crate partially fills the trig gap but doesn't compose with =multiversion=.
+- =wide= is v1.0 with good coverage but fundamentally incompatible with multiversioning; =pulp= (faer) and =macerator= (burn) are math-oriented, with =macerator= adding element-type generics.
+- Safe intrinsic access (=#[target_feature]=, =archmage=, =fearless_simd= =kernel!=, =pulp= contexts) removes the =unsafe= burden but has pitfalls like function-call overhead from misused =pulp= CPU-feature structs.
+- Intrinsics remain an "endless tug of war" between exact instruction lowering and compiler optimization; compiler instruction-selection bugs still exist in LLVM, GCC, and worse in MSVC.
+- Hardware commentary: AVX2 is cursed but still not universal (15% of Firefox x86 CPUs lack it in 2026); AVX-512 suffered from downclocking until Ice Lake (2019); AMD's Zen 4 mapping 512-bit ops to 256-bit hardware was strategically superior. NEON is simpler and surprisingly competitive (1.5–2x faster than AVX2 for SIMD base64). RISC-V vectors and SVE2 are not practically relevant yet.
+
+* Notes
+** Programming models
+- Autovectorization: easiest, zero dependencies, supports all instruction sets, but unreliable and version-sensitive; use =as_chunks()= and verify assembly. Rust 1.98 stabilized algebraic ops (e.g. =algebraic_add()=) to allow float vectorization, a "less dangerous =-ffast-math=".
+- =multiversion= crate: annotate with =#[multiversion(targets = "simd")]=; has per-call overhead so only apply to functions with loops (=#[inline(always)]= on tiny helpers).
+- Portable SIMD abstractions table: =fearless_simd= wins on features; =wide= lacks multiversioning and generics (macro workaround via =paste=); =pulp= prioritizes native-width, math-heavy ops; =macerator= adds element-type generics but limited docs and SSE4.2 default.
+- Intrinsics: Rust 1.87+ safe intrinsic calls with =#[target_feature]=; memory load/store still =unsafe=, solved by =safe_unaligned_simd= wrappers and type-level CPU feature tokens (=archmage=, =fearless_simd= =kernel!=, =pulp= contexts).
+
+** Compiler feature wishlist (by importance)
+1. =min_generic_const_args= for arrays with hardware-width vectors.
+2. Struct Target Features RFC to remove manual =#[simd]= annotations.
+3. Iterator compatibility with multiversioning (RFC or GCC-style =flatten=).
+4. Full =generic_const_args= for build times and =std::simd= ergonomics.
+
+** Hardware state
+- x86: three coexisting extension eras (SSE4.2 / AVX2 / AVX-512), Intel downclocking pre-Ice Lake, scatter/gather being slow on AMD Zen, and LLVM auto-emitting bad scatter/gather (1.75x slower on Intel, 4x on AMD). AVX 10.2 (rebranded AVX-512) becomes mandatory on upcoming Intel CPUs.
+- ARM: NEON mandatory, better-designed than AVX2 (ILP across 128-bit ops, adequate register space); downside is heterogeneous performance/efficiency cores with different characteristics. SVE/SVE2 not worth targeting at 128-bit widths.
+- RISC-V: vector hardware uneconomical in 2026; spec issues make some instructions unusable to compilers without obscure flags.
+- Obscure architectures (POWER, s390x, LoongArch) only matter if banks or governments pay you.
+
+**Related umbrella nodes:** [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]], [[id:64af6fec-eab1-46bf-8ea9-f411ba2cc5ad][WASM]] (SIMD is one of its shipping extensions).

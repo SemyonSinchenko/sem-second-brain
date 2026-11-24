@@ -1,0 +1,73 @@
+#+TITLE: Daily Digest: 2026-07-21
+#+FROM: [2026-07-20 Mon]
+#+TO: [2026-07-21 Tue]
+#+DATE: [2026-07-21 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Ключевой тренд — интеграция агентного ИИ в enterprise-workflow через Amazon Q и NVIDIA NeMo. Базы данных становятся AI-нативными: SQL Server 2025 позволяет вызывать модели напрямую из T-SQL. Несмотря на рост абстракций, сохранение фундаментальных знаний (Arrow, Parquet) остается критичным для инженеров данных. Вендоры фокусируются на снижении задержек хранения и упрощении миграцииlegacy-систем.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/adbc][ADBC?]] (Data Engineering Central) — Разбор Arrow Database Connectivity как colonnaрной альтернативы JDBC/ODBC для аналитики без лишних копирований.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/adbc][ADBC?]]
+:SCORE: 9/10
+:WHY: Критично для понимания будущего низкоуровневого обмена данными между БД и аналитическими движками без накладных расходов.
+
+** Engineers
+- [[hxxps://vutr.substack.com/p/learn-these-3-to-gain-80-of-the-technical][Learn these 3 to gain 80% of the fundamentals of data engineering infrastructure]] (Vu Tr) — Аргументация важности изучения Parquet, Arrow и Spark вместо поверхностного использования высокоуровневых инструментов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/learn-these-3-to-gain-80-of-the-technical][Learn these 3 to gain 80% of the fundamentals of data engineering infrastructure]]
+:SCORE: 10/10
+:WHY: Напоминает senior-инженерам о необходимости глубокого понимания физики данных amidst растущей автоматизации.
+
+** Vendors
+- [[hxxps://www.warpstream.com/blog/one-weird-trick-to-make-rapid-storage-40x-faster][One Weird Trick to Make Rapid Storage 40x Faster]] (WarpStream) — Оптимизация GCP Rapid Buckets через预-proгрев пулов писателей снижает P99 latency в 3 раза.
+- [[hxxps://neo4j.com/blog/developer/seeds-of-science-visuals-in-bloom-introudcing-whole-graph-projections/][Seeds of Science, Visuals in Bloom: Introudcing Whole-Graph Projections]] (Neo4j) — Запуск алгоритмов data science на всем графе напрямую из UI Bloom без локальных ограничений сцены.
+- [[hxxps://engineering.atspotify.com/2026/7/content-ingestion-and-podcast-video-incident-report/][Content Ingestion & Podcast Video Incident Report]] (Spotify Engineering) — Отчет о надежности инджеста подкастов и мерах по устранению серийных сбоев.
+- [[hxxps://www.databricks.com/blog/branching-databases-code-cicd-pattern-lakebase-production-glaspoort][Branching databases like code: a CI/CD pattern for Lakebase, in production at Glaspoort]] (Databricks) — Паттерн ветвления баз данных по аналогии с кодом для безопасного CI/CD в продакшене.
+- [[hxxps://aws.amazon.com/blogs/database/invoke-aws-services-directly-from-amazon-rds-for-sql-server-2025/][Invoke AWS services directly from Amazon RDS for SQL Server 2025]] (AWS) — Хранимая процедура sp_invoke_external_rest_endpoint позволяет вызывать HTTPS API прямо из транзакции БД.
+- [[hxxps://aws.amazon.com/blogs/database/connection-pooling-strategies-in-amazon-aurora-dsql/][Connection pooling strategies in Amazon Aurora DSQL]] (AWS) — Четыре стратегии управления пулами соединений для серверной архитектуры Aurora DSQL с учетом лимитов.
+- [[hxxps://aws.amazon.com/blogs/database/migrate-from-aix-or-windows-db2-to-amazon-rds-for-db2/][Migrate from AIX or Windows Db2 to Amazon RDS for Db2]] (AWS) — Руководство по миграции legacy Db2 на управляемый сервис с использованием нативных инструментов db2look и db2move.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/one-weird-trick-to-make-rapid-storage-40x-faster][One Weird Trick to Make Rapid Storage 40x Faster]]
+:SCORE: 9/10
+:WHY: Практический кейс оптимизации объектного хранения, полезный для архитекторов высоконагруженных систем.
+**** [[hxxps://aws.amazon.com/blogs/database/invoke-aws-services-directly-from-amazon-rds-for-sql-server-2025/][Invoke AWS services directly from Amazon RDS for SQL Server 2025]]
+:SCORE: 8/10
+:WHY: Меняет паттерны интеграции, позволяя исключить middleware слой для вызова внешних сервисов из БД.
+**** [[hxxps://aws.amazon.com/blogs/database/connection-pooling-strategies-in-amazon-aurora-dsql/][Connection pooling strategies in Amazon Aurora DSQL]]
+:SCORE: 8/10
+:WHY: Специфичные знания по пулингу для серверных БД essential для избежания throttling в продакшене.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/a-beginners-guide-to-setting-up-claude-code-for-high-performance-agentic-programming][A Beginner's Guide to Setting Up Claude Code for High Performance Agentic Programming]] (KDnuggets) — Конфигурация прав и хуков для устойчивой работы агентного программирования в реальной нагрузке.
+- [[hxxps://www.kdnuggets.com/top-5-mcp-servers-for-high-performance-agentic-development][Top 5 MCP Servers for High-Performance Agentic Development]] (KDnuggets) — Подборка MCP серверов, реально расширяющих возможности агентов, а не просто популярных по звездам.
+- [[hxxps://huggingface.co/blog/nvidia/cosmos3edge][Introducing Cosmos 3 Edge]] (NVIDIA/Hugging Face) — Новая модель для edge-устройств, расширяющая возможности локального инференса.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/][Custom OS installation now available on AWS DeepRacer devices]] (AWS) — Возможность установки кастомных ОС на DeepRacer через bootloader продлевает жизнь железу для экспериментов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-specialized-agent-workflows-for-your-business-with-amazon-quick-and-nvidia-nemo-agent-toolkit/][Build specialized agent workflows for your business with Amazon Quick and NVIDIA NeMo Agent Toolkit]] (AWS) — Архитектура агентских.workflow для supply-chain с использованием Amazon Q и NeMo.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-couchbase-built-a-multi-model-ai-architecture-for-capella-iq-with-amazon-bedrock/][How Couchbase built a multi-model AI architecture for Capella iQ with Amazon Bedrock]] (AWS) — Опыт построения отказоустойчивой AI-архитектуры с мульти-модельным инференсом для助手 разработчика.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/evolving-from-legacy-bi-to-agentic-ai-at-tradeshift-with-amazon-quick/][Evolving from legacy BI to agentic AI at Tradeshift with Amazon Quick]] (AWS) — Кейс замены legacy BI на агентский ИИ с ускорением запросов в 30 раз.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/a-beginners-guide-to-setting-up-claude-code-for-high-performance-agentic-programming][A Beginner's Guide to Setting Up Claude Code for High Performance Agentic Programming]]
+:SCORE: 9/10
+:WHY: Конкретные настройки окружения для агентов, которые часто упускаются в общих гайдах.
+**** [[hxxps://www.kdnuggets.com/top-5-mcp-servers-for-high-performance-agentic-development][Top 5 MCP Servers for High-Performance Agentic Development]]
+:SCORE: 8/10
+:WHY: Помогает выбрать инфраструктурные компоненты для расширения контекста и возможностей AI-агентов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-specialized-agent-workflows-for-your-business-with-amazon-quick-and-nvidia-nemo-agent-toolkit/][Build specialized agent workflows for your business with Amazon Quick and NVIDIA NeMo Agent Toolkit]]
+:SCORE: 8/10
+:WHY: Demonstrates production-ready pattern связки бизнес-интерфейса и backend-агентов для enterprise.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/war-in-ukraine-x][War in Ukraine X]] (Peter Turchin) — Анализ динамики потерь и attritional модели конфликта с оценкой текущих прогнозов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/war-in-ukraine-x][War in Ukraine X]]
+:SCORE: 7/10
+:WHY: Контекстуальный анализ геополитической ситуации, влияющей на глобальные рынки и риски.

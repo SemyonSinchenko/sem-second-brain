@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-08-02
+#+FROM: [2026-08-01 Sat]
+#+TO: [2026-08-02 Sun]
+#+DATE: [2026-08-02 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Фокус смещается на практическое внедрение автономных AI-агентов и актуальные ML-алгоритмы. Сообщество графовых баз данных активизируется с очной встречей в рамках конференции VLDB. Инженерные блоги продолжают агрегировать полезные ресурсы, даже без подробного контента. Важно отслеживать как инструменты для анализа данных, так и события индустриальных сообществ. Для senior-инженеров приоритетом остаются применимые на практике гайды и нетворкинг.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/kdnuggets-weekly-roundup-2026-07-27][KDnuggets Weekly Roundup: Build and Deploy Your First Autonomous Agent • 7 Machine Learning Algorithms That Still Matter]] (KDnuggets) — Обзор инструментов для автономных агентов и подборка книг по LLM для углубления знаний.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/kdnuggets-weekly-roundup-2026-07-27][KDnuggets Weekly Roundup: Build and Deploy Your First Autonomous Agent • 7 Machine Learning Algorithms That Still Matter]]
+:SCORE: 7/10
+:WHY: Содержит практические рекомендации по внедрению агентов и актуальный стек ML-алгоритмов.
+
+** Инженеры
+- [[hxxps://rossabaker.com/blogroll/masson.us/][A Citizen's Guide to Indiana]] (Ross Baker) — Личная подборка ссылок инженера без подробного описания, полезна для поиска нишевых ресурсов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rossabaker.com/blogroll/masson.us/][A Citizen's Guide to Indiana]]
+:SCORE: 4/10
+:WHY: Позволяет оценить круг интересов коллег, несмотря на отсутствие детального контента.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDB Council) — Анонс встречи сообщества по управлению графовыми данными в Бостоне совместно с VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 8/10
+:WHY: Возможность прямого взаимодействия с исследователями и практиками в области графовых СУБД.

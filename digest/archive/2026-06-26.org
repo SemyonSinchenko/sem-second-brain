@@ -1,0 +1,99 @@
+#+TITLE: Daily Digest: 2026-06-26
+#+FROM: [2026-06-25 Thu]
+#+TO: [2026-06-26 Fri]
+#+DATE: [2026-06-26 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние 24 часа ключевым трендом стала интеграция агентных систем в существующую инфраструктуру без полной перестройки legacy-сервисов. Вендоры фокусируются на оптимизации затрат и производительности (NVIDIA Blackwell, pgvector), одновременно решая вопросы безопасности и приватности данных в AI-эру. Наблюдается сдвиг в роли инженера: от написания кода к архитектурному надзору и строгой проверке гипотез ИИ перед релизом. Открытые модели становятся мультимодальными, а инструменты для их запуска — доступнее для локального использования.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/how-to-10x-the-100x-claude-engineer][How to 10x the 100x Claude Engineer]] (Data Engineering Central) — Рефлексия о влиянии ИИ на роль разработчика: переход от отрицания к адаптации и новому определению продуктивности.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-agentic-ai-applications-with-a-modern-data-mesh-strategy-on-aws/][Building agentic AI applications with a modern data mesh strategy on AWS]] (AWS) — Архитектура управляемого доступа к данным для агентов через S3 Tables и Lake Formation с детализированным контролем безопасности.
+- [[hxxps://www.databricks.com/blog/test-bench-lakehouse-how-avl-modernizes-measurement-data-analytics-impulse][From test bench to lakehouse: how AVL modernizes measurement data analytics with Impulse]] (Databricks) — Кейс модернизации аналитики данных измерений в автомобилестроении с использованием lakehouse-подхода.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/building-agentic-ai-applications-with-a-modern-data-mesh-strategy-on-aws/][Building agentic AI applications with a modern data mesh strategy on AWS]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов данных: показывает, как обеспечитьGovernance для автономных агентов, работающих с распределенными источниками.
+**** [[hxxps://dataengineeringcentral.substack.com/p/how-to-10x-the-100x-claude-engineer][How to 10x the 100x Claude Engineer]]
+:SCORE: 8/10
+:WHY: Честный взгляд на трансформацию рынка труда и навыков, помогающий senior-инженерам скорректировать стратегию развития.
+**** [[hxxps://www.databricks.com/blog/test-bench-lakehouse-how-avl-modernizes-measurement-data-analytics-impulse][From test bench to lakehouse: how AVL modernizes measurement data analytics with Impulse]]
+:SCORE: 7/10
+:WHY: Практический пример внедрения современных данных-платформ в промышленный IoT-контекст с высокими требованиями к времени.
+
+** Инженеры и практики
+- [[hxxps://rushter.com/blog/hexora-update/][Hexora v0.3: New features and improvements]] (Rushter) — Обновление библиотеки для статического анализа Python: добавлен ML-модуль для фильтрации ложных срабатываний при детекции малвари.
+- [[hxxps://medium.com/towards-data-engineering/one-shot-one-chance-training-databricks-genie-for-the-cfo-fight-cd04bb2e346c][One Shot, One Chance: Training Databricks Genie for the CFO Fight]] (Towards Data Engineering) — Методология red-teaming для ИИ-аналитики: подготовка ответов на сложные бизнес-вопросы до демонстрации руководству.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/one-shot-one-chance-training-databricks-genie-for-the-cfo-fight-cd04bb2e346c][One Shot, One Chance: Training Databricks Genie for the CFO Fight]]
+:SCORE: 9/10
+:WHY: Уникальный инсайт о тестировании AI-продуктов на реальных бизнес-кейсах, а не только на технических метриках.
+**** [[hxxps://rushter.com/blog/hexora-update/][Hexora v0.3: New features and improvements]]
+:SCORE: 8/10
+:WHY: Полезный инструмент для безопасности цепочки поставок Python, особенно пригодный для внедрения в CI/CD пайплайны.
+
+** Вендоры и платформы
+- [[hxxps://neo4j.com/blog/digital-twin/digital-twin-airplane/][I built a digital twin of my amateur-built airplane]] (Neo4j) — Личный опыт создания цифрового двойника самолета на графовой БД для управления обслуживанием и полетными данными.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/optimize-model-training-on-amazon-sagemaker-ai-with-nvidia-blackwell/][Optimize model training on Amazon SageMaker AI with NVIDIA Blackwell]] (AWS) — Гайд по настройке тренировочных джобов на новых GPU Blackwell: выбор батчей, точности и стратегий чекпоинтинга.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/implementing-super-resolution-by-deploying-seedvr2-on-amazon-sagemaker-][Implementing super resolution by deploying SeedVR2 on Amazon SageMaker AI]] (AWS) — Решение для апскейлинга видео с помощью модели SeedVR2 на управляемой инфраструктуре AWS.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-self-service-aws-health-analytics-to-find-actionable-health-insights-with-ai-agents-powered-by-amazon-bedrock/][Build self-service AWS Health analytics to find actionable health insights with AI agents powered by Amazon Bedrock]] (AWS) — Открытое решение Chaplin для анализа событий здоровья AWS через的自然 language запросы к агентам.
+- [[hxxps://aws.amazon.com/blogs/database/running-pgvector-in-production-on-amazon-aurora-postgresql/][Running pgvector in production on Amazon Aurora PostgreSQL]] (AWS) — Операционные практики для pgvector в продакшене: индексация HNSW, квантование и мониторинг памяти.
+- [[hxxps://aws.amazon.com/blogs/database/centralized-traffic-inspection-for-oracle-databaseaws/][Centralized traffic inspection for Oracle Database@AWS]] (AWS) — Паттерны централизованной инспекции трафика для Oracle Database на AWS через Transit Gateway и Cloud WAN.
+- [[hxxps://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/][Privacy-Aware Infrastructure in the AI-Native Era: An Asset Classification Case Study]] (Meta) — Кейс Meta по классификации данных: гибридный подход с использованием LLM для разметки и детерминированных правил для enforcement.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества графовых баз данных в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/running-pgvector-in-production-on-amazon-aurora-postgresql/][Running pgvector in production on Amazon Aurora PostgreSQL]]
+:SCORE: 9/10
+:WHY: Must-read для тех, кто внедряет RAG: конкретные параметры настройки индексов и управления памятью в Aurora.
+**** [[hxxps://engineering.fb.com/2026/06/25/security/privacy-aware-infrastructure-in-the-ai-native-era-an-asset-classification-case-study/][Privacy-Aware Infrastructure in the AI-Native Era: An Asset Classification Case Study]]
+:SCORE: 9/10
+:WHY: Архитектурный паттерн от Meta для масштабирования приватности в AI-эру через комбинацию вероятностных и детерминированных систем.
+**** [[hxxps://neo4j.com/blog/digital-twin/digital-twin-airplane/][I built a digital twin of my amateur-built airplane]]
+:SCORE: 8/10
+:WHY: Наглядный пример применения графовых моделей для сложных связанных данных вне корпоративного контекста.
+
+** Open Source
+- [[hxxps://www.kdnuggets.com/5-open-source-omni-ai-models-that-handle-text-images-audio-and-video][5 Open Source Omni AI Models That Handle Text, Images, Audio, and Video]] (KDnuggets) — Обзор мультимодальных моделей с открытым весом для локального развертывания и работы с разными типами данных.
+- [[hxxps://huggingface.co/blog/vllm-jobs][Run a vLLM Server on HF Jobs in One Command]] (Hugging Face) — Инструкция по быстрому запуску сервера вывода vLLM через платину Hugging Face Jobs.
+- [[hxxps://huggingface.co/blog/allenai/hybrid-token-prediction][Which tokens does a hybrid model predict better?]] (Hugging Face) — Исследование производительности гибридных моделей на предсказании специфических типов токенов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/5-open-source-omni-ai-models-that-handle-text-images-audio-and-video][5 Open Source Omni AI Models That Handle Text, Images, Audio, and Video]]
+:SCORE: 9/10
+:WHY: Экономит время на поиск актуальных мультимодальных моделей для внедрения в продукты без зависимости от облачных API.
+**** [[hxxps://huggingface.co/blog/vllm-jobs][Run a vLLM Server on HF Jobs in One Command]]
+:SCORE: 8/10
+:WHY: Упрощает инфраструктуру для инференса, позволяя быстро поднимать высокопроизводительные сервера вывода.
+**** [[hxxps://huggingface.co/blog/allenai/hybrid-token-prediction][Which tokens does a hybrid model predict better?]]
+:SCORE: 7/10
+:WHY: Глубокое понимание внутренней работы моделей, полезное для выбора архитектуры под конкретные задачи NLP.
+
+** Искусственный интеллект
+- [[hxxps://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/][Understanding the brain with AI-driven explanations and experiments]] (Microsoft) —框架 GCT использует LLM для генерации проверяемых гипотез о активности коры головного мозга.
+- [[hxxps://www.kdnuggets.com/using-gemini-to-create-google-sheets][Using Gemini to Create Google Sheets]] (KDnuggets) — Туториал по использованию Gemini для генерации таблиц, формул и анализа данных в Spreadsheet.
+- [[hxxps://www.kdnuggets.com/the-roadmap-to-becoming-an-ai-architect-in-2026][The Roadmap to Becoming an AI Architect in 2026]] (KDnuggets) — Дорожная карта развития навыков от инженера до архитектора ИИ-систем с упором на лидерство.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/retrofit-dont-rebuild-agentic-overlays-for-transforming-legacy-enterprise-services/][Retrofit, don't rebuild: Agentic overlays for transforming legacy enterprise services]] (AWS) — Паттерн агетных оверлеев для интеграции legacy REST-API в среду автономных агентов без переписывания логики.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments/][Understanding the brain with AI-driven explanations and experiments]]
+:SCORE: 10/10
+:WHY: Прорывная методология объяснимого ИИ (XAI), превращающая black-box модели в научные гипотезы.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/retrofit-dont-rebuild-agentic-overlays-for-transforming-legacy-enterprise-services/][Retrofit, don't rebuild: Agentic overlays for transforming legacy enterprise services]]
+:SCORE: 9/10
+:WHY: Решает главную проблему внедрения агентов в энтерпрайзе: интеграция со старыми системами без риска и затрат на рефакторинг.
+**** [[hxxps://www.kdnuggets.com/the-roadmap-to-becoming-an-ai-architect-in-2026][The Roadmap to Becoming an AI Architect in 2026]]
+:SCORE: 8/10
+:WHY: Структурированный план карьерного роста для senior-разработчиков в условиях смены технологического уклада.
+
+** Не инженерное
+- [[hxxps://peterturchin.substack.com/p/indias-youth-bge][India's Youth Bulge]] (Peter Turchin) — Демографический анализ влияния избытка молодежи на рынок труда и социальную стабильность.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/indias-youth-bulge][India's Youth Bulge]]
+:SCORE: 7/10
+:WHY: Контекст для понимания макроэкономических рисков, влияющих на глобальные IT-рынки и аутсорсинг.

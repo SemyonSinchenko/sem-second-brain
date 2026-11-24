@@ -1,0 +1,87 @@
+#+TITLE: Daily Digest: 2026-08-13
+#+FROM: [2026-08-12 Wed]
+#+TO: [2026-08-13 Thu]
+#+DATE: [2026-08-13 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия движется к суверенному ИИ и оптимизации инфраструктуры: кейсы показывают развертывание агентных систем внутри границ юрисдикций и новые методы кэширования KV для снижения затрат на инференс. В инженерии данных растет fokus на контрактах и бесшовной миграции CDC без простоев, что становится критичным для платформ реального времени. Open Source модели продолжают набирать популярность, сокращая разрыв в производительности с проприетарными решениями при значительном снижении стоимости. Инженерам рекомендуется пересмотреть отношение к ИИ-инструментам не как к замене, а как к фундаментальному сдвигу в процессах надежности и верификации кода.
+
+* 📂 Категории
+** Инженерия Данных
+- [[hxxps://vutr.substack.com/p/what-is-a-data-contract][[FREE] What Is a Data Contract?]] (vutr.substack.com) — Разбор концепции дата-контрактов для стабилизации интерфейсов между OLTP и OLAP системами.
+- [[hxxps://aws.amazon.com/blogs/database/migrate-amazon-aurora-postgresql-across-major-versions-with-active-debezium-cdc-connectors-using-native-logical-replication/][Migrate Amazon Aurora PostgreSQL across major versions with active Debezium CDC connectors using native logical replication]] (aws.amazon.com) — Практическое руководство по миграции мажорных версий Aurora без прерывания CDC-пайплайнов Debezium.
+- [[hxxps://www.junaideffendi.com/p/inside-data-engineering-with-dipankar][Inside Data Engineering with Dipankar Mazumdar]] (junaideffendi.com) — Интервью о эволюции роли дата-инженера и переходе от стандартизации платформ к представлению данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/what-is-a-data-contract][[FREE] What Is a Data Contract?]]
+:SCORE: 9/10
+:WHY: Критически важно для сеньоров, проектирующих устойчивые архитектуры данных в условиях частых изменений источников.
+**** [[hxxps://aws.amazon.com/blogs/database/migrate-amazon-aurora-postgresql-across-major-versions-with-active-debezium-cdc-connectors-using-native-logical-replication/][Migrate Amazon Aurora PostgreSQL across major versions with active Debezium CDC connectors using native logical replication]]
+:SCORE: 9/10
+:WHY: Решает сложную операционную проблему миграции баз данных без потери событий в реальном времени.
+**** [[hxxps://www.junaideffendi.com/p/inside-data-engineering-with-dipankar][Inside Data Engineering with Dipankar Mazumdar]]
+:SCORE: 8/10
+:WHY: Дает стратегическое понимание трендов в lakehouse и агентных рабочих нагрузках для планирования карьеры.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/stop-being-skeptical-about-ai-for][Stop being skeptical about AI for development with Charity Majors]] (newsletter.pragmaticengineer.com) — Charity Majors объясняет, почему ИИ стал фундаментальной частью инженерии надежности и требует новой дисциплины.
+- [[hxxps://www.kdnuggets.com/building-an-end-to-end-data-science-portfolio-project][Building an End-to-End Data Science Portfolio Project]] (kdnuggets.com) — Рекомендации по выходу за рамки ноутбуков при создании портфолио специалиста по данным.
+- [[hxxps://rossabaker.com/notes/top4-unicode-characers/][Top 4 Unicode characters]] (rossabaker.com) — Подборка редко используемых символов Unicode для расширения технического кругозора.
+- [[hxxps://www.kdnuggets.com/5-easy-ways-to-install-python-on-windows][5 Easy Ways to Install Python on Windows]] (kdnuggets.com) — Обзор методов установки Python для выбора оптимального окружения разработки.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (clojurecivitas.org) — Материал по основам линейной регрессии для укрепления математической базы.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/stop-being-skeptical-about-ai-for][Stop being skeptical about AI for development with Charity Majors]]
+:SCORE: 10/10
+:WHY: Обязательное чтение для понимания изменения экономики разработки и роли надежности в эпоху ИИ.
+**** [[hxxps://www.kdnuggets.com/building-an-end-to-end-data-science-portfolio-project][Building an End-to-End Data Science Portfolio Project]]
+:SCORE: 8/10
+:WHY: Практический совет по выделению среди кандидатов через демонстрацию полных циклов разработки.
+**** [[hxxps://rossabaker.com/notes/top4-unicode-characers/][Top 4 Unicode characters]]
+:SCORE: 7/10
+:WHY: Нестандартная заметка, полезная для понимания тонкостей кодировки и обработки текста.
+
+** Вендоры
+- [[hxxps://engineering.fb.com/2026/08/12/security/how-were-building-scam-alert-whatsapp/][How We're Building Scam Alert on WhatsApp With End-to-End Encryption and Verifiability Guarantees]] (engineering.fb.com) — Технический обзор он--device ML модели для детектирования мошенничества с сохранением E2E шифрования.
+- [[hxxps://www.warpstream.com/blog/the-road-to-100pibs-and-hundreds-of-thousands-of-partitions-goldsky-case-study][The Road to 100PiBs and Hundreds of Thousands of Partitions: Goldsky Case Study - WarpStream]] (warpstream.com) — Кейс масштабирования блокчейн-данных до 100 PiB на WarpStream как альтернативе Kafka.
+- [[hxxps://www.databricks.com/blog/how-amtrak-building-data-backbone-its-largest-transformation-over-50-years][How Amtrak is building the data backbone for its largest transformation in over 50 years]] (databricks.com) — Пример построения единой платформы данных для крупнейшей трансформации железной дороги за 50 лет.
+- [[hxxps://aws.amazon.com/blogs/database/introducing-oracle-exadata-on-exascale-for-oracle-ai-databaseaws/][Introducing Oracle Exadata on Exascale for Oracle AI Database@AWS]] (aws.amazon.com) — Announcement новой модели потребления Exadata с независимым масштабированием compute и storage.
+- [[hxxps://www.databricks.com/blog/databricks-network-configuration-delivery-tens-millions-serverless-vms][Databricks Network Configuration delivery to Tens of Millions of Serverless VMs]] (databricks.com) — Описание архитектуры доставки сетевых конфигураций для миллионов серверless VM ежедневно.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/08/12/security/how-were-building-scam-alert-whatsapp/][How We're Building Scam Alert on WhatsApp With End-to-End Encryption and Verifiability Guarantees]]
+:SCORE: 9/10
+:WHY: Уникальный пример баланса между безопасностью, приватностью и машинным обучением на клиенте.
+**** [[hxxps://www.warpstream.com/blog/the-road-to-100pibs-and-hundreds-of-thousands-of-partitions-goldsky-case-study][The Road to 100PiBs and Hundreds of Thousands of Partitions: Goldsky Case Study - WarpStream]]
+:SCORE: 9/10
+:WHY: Демонстрирует реальную масштабируемость альтернатив Kafka для экстремальных нагрузок.
+**** [[hxxps://www.databricks.com/blog/how-amtrak-building-data-backbone-its-largest-transformation-over-50-years][How Amtrak is building the data backbone for its largest transformation in over 50 years]]
+:SCORE: 8/10
+:WHY: Показывает подход к модернизации legacy-инфраструктуры в масштабах национального транспорта.
+
+** Open Source
+- [[hxxps://opensource.org/blog/the-ai-era-arcs-toward-openness][The AI Era Arcs Toward Openness]] (opensource.org) — Отчет о росте open-source ИИ моделей и их экономическом влиянии в 2026 году.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/the-ai-era-arcs-toward-openness][The AI Era Arcs Toward Openness]]
+:SCORE: 9/10
+:WHY: Ключевой анализ трендов открытости, влияющих на стратегию выбора моделей и лицензирование.
+
+** Искусственный Интеллект
+- [[hxxps://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/][MindTopo reveals VLMs' spatial reasoning abilities]] (microsoft.com) — Новый бенчмарк MindTopo выявляет слабые места мультимодальных моделей в пространственном планировании.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-oneadvanced-deployed-over-50-ai-agents-on-uk-sovereign-aws/][How OneAdvanced deployed over 50 AI agents on UK-sovereign AWS]] (aws.amazon.com) — Архитектура суверенного ИИ в Великобритании с self-hosting моделей Llama на SageMaker.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/tiered-kv-cache-for-large-llms-on-amazon-sagemaker-hyperpod-with-curvine/][Tiered KV cache for large LLMs on Amazon SageMaker HyperPod with Curvine]] (aws.amazon.com) — Оптимизация инференса больших моделей через трехуровневое кэширование KV на SageMaker HyperPod.
+- [[hxxps://deepmind.google/blog/putting-sign-language-ai-into-users-hands/][Putting sign language AI into users' hands]] (deepmind.google) — Презентация модели SL2T для перевода жестового языка в текст на устройстве.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/pay-with-confidence-how-solv-labs-built-verifiable-auditable-agent-payments-on-amazon-bedrock-agentcore-payments/][Pay with confidence: How Solv Labs built verifiable, auditable agent payments on Amazon Bedrock AgentCore payments]] (aws.amazon.com) — Реализация аудита платежей ИИ-агентов с использованием Nitro Enclaves для верификации.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/][MindTopo reveals VLMs' spatial reasoning abilities]]
+:SCORE: 9/10
+:WHY: Важно для понимания текущих ограничений VLM в задачах робототехники и планирования.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-oneadvanced-deployed-over-50-ai-agents-on-uk-sovereign-aws/][How OneAdvanced deployed over 50 AI agents on UK-sovereign AWS]]
+:SCORE: 9/10
+:WHY: Практический шаблон для развертывания ИИ в регулируемых отраслях с требованиями к резидентности данных.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/tiered-kv-cache-for-large-llms-on-amazon-sagemaker-hyperpod-with-curvine/][Tiered KV cache for large LLMs on Amazon SageMaker HyperPod with Curvine]]
+:SCORE: 8/10
+:WHY: Техническое решение для снижения стоимости инференса за счет оптимизации памяти и кэширования.

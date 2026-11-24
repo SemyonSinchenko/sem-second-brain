@@ -1,0 +1,88 @@
+#+TITLE: Daily Digest: 2026-08-18
+#+FROM: [2026-08-17 Mon]
+#+TO: [2026-08-18 Tue]
+#+DATE: [2026-08-18 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия streaming данных делает резкий сдвиг в сторону diskless-архитектур на базе S3, обещая кратное снижение затрат по сравнению с традиционным Kafka. В секторе ИИ фокус смещается на экономичные агентные модели (MoE) и решение проблемы платежей для автономных агентов. Инженеры данных получают новые инструменты для работы с Iceberg и CDC, упрощающие построение real-time пайплайнов.
+
+* 📂 Категории
+** Вендоры
+- [[hxxps://www.warpstream.com/blog/kafka-is-dead-long-live-kafka][Kafka Is Dead, Long Live Kafka: The Case for Diskless, S3-Native Streaming]] (WarpStream) — аргументация перехода на stateless-агенты и объектное хранение для устранения узких мест дисковых брокеров.
+- [[hxxps://www.dremio.com/blog/hands-on-with-apache-iceberg-using-dremio-cloud/][Hands-On with Apache Iceberg Using Dremio Cloud]] (Dremio) — практическое руководство по созданию таблиц,_ingestion_ данных и оптимизации Iceberg в облаке.
+- [[hxxps://www.warpstream.com/blog/warpstream-benchmarks-and-tco][How WarpStream Reduces Kafka Infrastructure Costs: A TCO Breakdown]] (WarpStream) — сравнение затрат: устранение межзональных тарифов и замена EBS на object storage снижает расходы в 4 раза.
+- [[hxxps://www.databricks.com/blog/how-databricks-feature-store-serves-features-sub-second-freshness][How Databricks Feature Store serves features with sub-second freshness]] (Databricks) — обеспечение свежести признаков для ML-моделей с задержкой менее секунды.
+- [[hxxps://aws.amazon.com/blogs/database/amazon-aurora-dsql-observability-concepts-and-usage-with-amazon-cloudwatch/][Amazon Aurora DSQL observability concepts and usage with Amazon CloudWatch]] (AWS) — модель наблюдаемости на основе времени сессий для оптимизации затрат DPU.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/kafka-is-dead-long-live-kafka][Kafka Is Dead, Long Live Kafka: The Case for Diskless, S3-Native Streaming]]
+:SCORE: 9/10
+:WHY: Критический обзор архитектурного сдвига, который может устранить необходимость в управлении состоянием брокеров и снизить costs.
+**** [[hxxps://www.dremio.com/blog/hands-on-with-apache-iceberg-using-dremio-cloud/][Hands-On with Apache Iceberg Using Dremio Cloud]]
+:SCORE: 8/10
+:WHY: Конкретные шаги по внедрению Iceberg, включая скрытое партиционирование и работу с каталогами, без абстрактной теории.
+**** [[hxxps://www.warpstream.com/blog/warpstream-benchmarks-and-tco][How WarpStream Reduces Kafka Infrastructure Costs: A TCO Breakdown]]
+:SCORE: 8/10
+:WHY: Четкие метрики экономии для обоснования миграции инфраструктуры перед руководством.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-5-lightning-now-available-in-amazon-sagemaker-jumpstart/][NVIDIA Nemotron 3.5 Lightning now available in Amazon SageMaker JumpStart]] (AWS) — модель 30B параметров (3B активные) оптимизирована для высоконагруженных агентных рабочих нагрузок с высокой пропускной способностью.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-openclaw-agents-that-transact-with-amazon-bedrock-agentcore-payments/][Build OpenClaw agents that transact with Amazon Bedrock AgentCore payments]] (AWS) — реализация безопасных платежей для агентов через HTTP 402 с ограничением бюджетов и изоляцией кредов.
+- [[hxxps://huggingface.co/blog/Dharma-AI/gpu-management-pt2][Same Cluster, 33 Points More Utilization: What Changed Was the Order]] (HuggingFace) — изменение порядка планирования задач позволило显著提升 утилизацию GPU без добавления железа.
+- [[hxxps://www.kdnuggets.com/what-can-i-actually-do-with-a-small-language-model][What Can I Actually Do with a Small Language Model?]] (KDnuggets) — обзор реалистичных сценариев использования локальных моделей с учетом их ограничений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-openclaw-agents-that-transact-with-amazon-bedrock-agentcore-payments/][Build OpenClaw agents that transact with Amazon Bedrock AgentCore payments]]
+:SCORE: 9/10
+:WHY: Решает проблему монетизации и платежей для автономных агентов, что станет критичным стандартом в ближайшем будущем.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-5-lightning-now-available-in-amazon-sagemaker-jumpstart/][NVIDIA Nemotron 3.5 Lightning now available in Amazon SageMaker JumpStart]]
+:SCORE: 8/10
+:WHY: Доступ к специализированной MoE модели для агентов напрямую через SageMaker ускоряет разработку production-решений.
+**** [[hxxps://huggingface.co/blog/Dharma-AI/gpu-management-pt2][Same Cluster, 33 Points More Utilization: What Changed Was the Order]]
+:SCORE: 8/10
+:WHY: Демонстрирует, как оптимизация планировщика дает бесплатный прирост производительности инфраструктуры.
+
+** Инженерия данных
+- [[hxxps://aws.amazon.com/blogs/database/unlocking-real-time-analytics-streaming-aurora-dsql-changes-into-apache-iceberg/][Unlocking real-time analytics: Streaming Aurora DSQL changes into Apache Iceberg]] (AWS) — паттерн CDC из Aurora DSQL в Iceberg через Kinesis и Firehose для аналитики в реальном времени.
+- [[hxxps://vutr.substack.com/p/a-stream-processing-project-right][A stream processing project right on your laptop: Kafka, Flink, and ClickHouse]] (Vu Tran) — готовый проект для локального изучения стриминга с Docker, метриками и четырьмя сценариями нагрузки.
+- [[hxxps://www.kdnuggets.com/5-python-libraries-that-make-data-cleaning-more-enjoyable][5 Python Libraries That Make Data Cleaning More Enjoyable]] (KDnuggets) — подборка библиотек, превращающих рутинную очистку данных в выразительный процесс.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/unlocking-real-time-analytics-streaming-aurora-dsql-changes-into-apache-iceberg/][Unlocking real-time analytics: Streaming Aurora DSQL changes into Apache Iceberg]]
+:SCORE: 9/10
+:WHY: Готовая архитектура для объединения транзакционных данных и озерной аналитики с гарантией доставки.
+**** [[hxxps://vutr.substack.com/p/a-stream-processing-project-right][A stream processing project right on your laptop: Kafka, Flink, and ClickHouse]]
+:SCORE: 8/10
+:WHY: Практический песочница для отладки концептов стриминга (watermarks, windowing) без облачных затрат.
+**** [[hxxps://www.kdnuggets.com/5-python-libraries-that-make-data-cleaning-more-enjoyable][5 Python Libraries That Make Data Cleaning More Enjoyable]]
+:SCORE: 7/10
+:WHY: Инструменты для ускорения ежедневной рутины data engineer при работе с сырыми данными.
+
+** Инженеры
+- [[hxxps://rossabaker.com/configs/website/style/reset/][CSS reset]] (Ross Baker) — современный подход к сбросу стилей браузера с акцентом на box-sizing и системные шрифты.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — реализация метода наименьших квадратов для понимания статистических основ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rossabaker.com/configs/website/style/reset/][CSS reset]]
+:SCORE: 7/10
+:WHY: Полезный референс для фронтенд-задач, показывающий эволюцию стандартных сбросов стилей.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Напоминание о математических основах, важных для понимания алгоритмов ML и обработки данных.
+
+** Открытое ПО
+- [[hxxps://opensource.org/blog/osi-governance-survey][OSI Governance Survey]] (OSI) — опрос сообщества о будущем управлении советом директоров OSI и выборе представителей.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/osi-governance-survey][OSI Governance Survey]]
+:SCORE: 6/10
+:WHY: Возможность повлиять на управление ключевой организацией, защищающей определение Open Source.
+
+** Не инженерное
+- [[hxxps://www.graphgeeks.org/blog/graphcon-followup][The Future of Tech Events is Small, Squeezed, and Unfiltered (I Hope!)]] (GraphGeeks) — рефлексия о ценности камерных конференций против массовых ивентов для нетворкинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.graphgeeks.org/blog/graphcon-followup][The Future of Tech Events is Small, Squeezed, and Unfiltered (I Hope!)]]
+:SCORE: 6/10
+:WHY: Инсайт о том, как формат мероприятий влияет на качество профессиональных связей и обмен знаниями.

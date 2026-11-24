@@ -1,0 +1,80 @@
+#+TITLE: Daily Digest: 2026-07-31
+#+FROM: [2026-07-30 Thu]
+#+TO: [2026-07-31 Fri]
+#+DATE: [2026-07-31 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Инфраструктура ИИ становится ключевым фокусом: от кэширования промтов в Bedrock до оптимизации GPU через WarpStream. Открытые модели уровня Kimi K3 (2.8 трлн параметров) становятся доступными для самохостинга, меняя ландшафт развертывания. Агенты обучаются в симуляциях (Echoverse) и накапливают опыт (EvoLib), переходя от простой памяти к эволюционирующим знаниям. Инженерам данных важно не забывать про профилирование (SDA 05) и фундаментальные знания (книги), чтобы поддерживать качество пайплайнов.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/a-beginners-guide-to-working-with-claude-design][A Beginner's Guide to Working with Claude Design]] (KDnuggets) — обзор исследовательского превью Claude Design для генерации интерактивных прототипов с навигацией и медиа.
+- [[hxxps://www.kdnuggets.com/7-machine-learning-algorithms-that-still-matter][7 Machine Learning Algorithms That Still Matter]] (KDnuggets) — напоминание о классических алгоритмах ML, которые остаются релевантными перед использованием LLM.
+- [[hxxps://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/][Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration]] (Google DeepMind) — модель для робототехники с улучшенным пониманием видео и координацией группы роботов.
+- [[hxxps://huggingface.co/blog/Dharma-AI/gpu-management][GPU Management: Why Idle GPUs Are the New Grounded Aircraft]] (Hugging Face) — анализ проблемы простоя GPU и сравнение с неэффективным использованием авиационной техники.
+- [[hxxps://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/][EvoLib: Turning experience into evolving knowledge]] (Microsoft Research) — фреймворк для трансформации опыта агентов в переиспользуемые знания без обновления весов модели.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-yahoo-enhances-search-retargeting-using-amazon-bedrock/][How Yahoo enhances search retargeting using Amazon Bedrock]] (AWS) — кейс Yahoo по улучшению таргетинга рекламы через семантическое расширение ключевых слов на Bedrock.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/inference-meta-monitoring-for-amazon-sagemaker-ai-endpoints-with-amazon-quick/][Inference meta-monitoring for Amazon SageMaker AI endpoints with Amazon Quick]] (AWS) — руководство по мониторингу качества предсказаний и дрейфа данных для продакшн-моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-explicit-prompt-caching-for-openai-gpt-5-6-models-on-amazon-bedrock/][Introducing explicit prompt caching for OpenAI GPT-5.6 models on Amazon Bedrock]] (AWS) — введение явного кэширования промтов для снижения затрат на агентов в Bedrock.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/migrate-your-prompts-to-new-models-and-optimize-them-on-amazon-bedrock/][Migrate your prompts to new models and optimize them on Amazon Bedrock]] (AWS) — инструмент Advanced Prompt Optimization для автоматизации миграции и тестирования промтов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-explicit-prompt-caching-for-openai-gpt-5-6-models-on-amazon-bedrock/][Introducing explicit prompt caching for OpenAI GPT-5.6 models on Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Прямое снижение затрат на 90% для кэшируемого ввода критично для экономии бюджета в агентных workflow.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/][EvoLib: Turning experience into evolving knowledge]]
+:SCORE: 9/10
+:WHY: Новый подход к обучению агентов во время инференса без дообучения модели, что важно для production-систем.
+**** [[hxxps://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/][Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration]]
+:SCORE: 8/10
+:WHY: Демонстрирует качественный скачок в применении мультимодальных моделей для физической робототехники и координации.
+
+** Open Source
+- [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-kimi-k3-on-aws/][Deploying Kimi K3 on AWS]] (AWS) — инструкция по развертыванию открытой MoE-модели на 2.8 трлн параметров на инфраструктуре AWS.
+- [[hxxps://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/][Echoverse: Deep, evolving environments for computer-use agents]] (Microsoft Research) — выпуск кода и данных для 12 сред тренировки агентов с высоким уровнем симуляции.
+- [[hxxps://www.kdnuggets.com/7-machine-learning-algorithms-that-still-matter][7 Machine Learning Algorithms That Still Matter]] (KDnuggets) — подборка классических алгоритмов с примерами кода на Python для понимания базы перед LLM.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-kimi-k3-on-aws/][Deploying Kimi K3 on AWS]]
+:SCORE: 10/10
+:WHY: Доступ к открытым весам модели уровня 3 трлн параметров меняет возможности самохостинга для предприятий.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/][Echoverse: Deep, evolving environments for computer-use agents]]
+:SCORE: 9/10
+:WHY: Открытые среды тренировки с высокой точностью симуляции решают проблему нехватки данных для компьютерных агентов.
+**** [[hxxps://www.kdnuggets.com/7-machine-learning-algorithms-that-still-matter][7 Machine Learning Algorithms That Still Matter]]
+:SCORE: 7/10
+:WHY: Напоминание о фундаментальных алгоритмах предотвращает использование LLM там, где достаточно простого ML.
+
+** Vendors
+- [[hxxps://www.warpstream.com/blog/boring-by-design-character-ai-run-5-gib-s-on-warpstream-and-cut-costs-90][Boring by Design: How Character.AI Runs 5 GiB/s on WarpStream and Cut Costs ~90%]] (WarpStream) — кейс Character.AI по снижению затрат на инфраструктуру потоков данных через WarpStream.
+- [[hxxps://www.databricks.com/blog/foundations-ai-forward-healthcare-organization][Foundations for an AI-forward healthcare organization]] (Databricks) — рекомендации для руководителей здравоохранения по внедрению ИИ поверх шумных данных.
+- [[hxxps://www.databricks.com/blog/agentic-media-buying-cannot-scale-without-right-foundation-see-how-buyers-and-sellers-get][Agentic media buying cannot scale without the right foundation. See how buyers and sellers get there on Databricks.]] (Databricks) — анализ необходимости надежной платформы данных для масштабирования агентных закупок медиа.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — анонс встречи сообщества по управлению графовыми данными в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/boring-by-design-character-ai-run-5-gib-s-on-warpstream-and-cut-costs-90][Boring by Design: How Character.AI Runs 5 GiB/s on WarpStream and Cut Costs ~90%]]
+:SCORE: 10/10
+:WHY: Реальный кейс снижения затрат на 90% при высокой нагрузке демонстрирует зрелость альтернатив Kafka.
+**** [[hxxps://www.databricks.com/blog/foundations-ai-forward-healthcare-organization][Foundations for an AI-forward healthcare organization]]
+:SCORE: 8/10
+:WHY: Стратегический взгляд на внедрение ИИ в регулируемой отрасли с акцентом на качество данных.
+**** [[hxxps://www.databricks.com/blog/agentic-media-buying-cannot-scale-without-right-foundation-see-how-buyers-and-sellers-get][Agentic media buying cannot scale without the right foundation. See how buyers and sellers get there on Databricks.]]
+:SCORE: 7/10
+:WHY: Подтверждает, что агентные системы требуют надежной основы данных, а не только сложных моделей.
+
+** Data Engineering
+- [[hxxps://www.ssp.sh/books/][Book Recommendations and Notes]] (ssp.sh) — коллекция рекомендаций книг по поддержанию систем, управлению временем и писательскому мастерству для инженеров.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/books/][Book Recommendations and Notes]]
+:SCORE: 8/10
+:WHY: Подборка литературы по maintenance и тайм-менеджменту полезна для долгосрочного профессионального развития.
+
+** Engineers
+- [[hxxps://medium.com/towards-data-engineering/sda-05-profiling-source-data-distributions-nulls-formats-and-outliers-505a8a578c93?source=rss-6e4a30cbb0e1------2][SDA 05: Profiling Source Data — Distributions, Nulls, Formats, and Outliers]] (Towards Data Engineering) — практическое руководство по профилированию данных через Spark/SQL для понимания реального распределения значений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/sda-05-profiling-source-data-distributions-nulls-formats-and-outliers-505a8a578c93?source=rss-6e4a30cbb0e1------2][SDA 05: Profiling Source Data — Distributions, Nulls, Formats, and Outliers]]
+:SCORE: 9/10
+:WHY: Детальный разбор профилирования данных критичен для построения надежных пайплайнов и синтетических данных.

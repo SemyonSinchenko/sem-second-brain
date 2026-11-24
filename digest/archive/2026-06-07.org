@@ -1,0 +1,41 @@
+#+TITLE: Daily Digest: 2026-06-07
+#+FROM: [2026-06-06 Sat]
+#+TO: [2026-06-07 Sun]
+#+DATE: [2026-06-07 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Инженеры ищут эффективные альтернативы тяжелым инструментам для обработки данных, предпочитая локальные решения вместо кластеров. Географическая независимость становится конкурентным преимуществом для работы над физическими продуктами вне кремниевой долины. Сообщество графовых баз данных планирует очную встречу в рамках конференции VLDB для обмена опытом. Эксперименты с ансамблями малых моделей ИИ показывают потенциал в специфичных доменах вместо использования гигантских моделей.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://rushter.com/blog/clickhouse-data-processing/][Using local ClickHouse for data processing]] (rushter.com) — Использование локального ClickHouse для обработки холодных данных напрямую из S3 эффективнее запуска Spark-кластеров для разовых задач.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rushter.com/blog/clickhouse-data-processing/][Using local ClickHouse for data processing]]
+:SCORE: 9/10
+:WHY: Эффективный паттерн для обработки холодных данных без развертывания кластера.
+
+** Инженеры
+- [[hxxps://joereis.substack.com/p/life-outside-the-bay-area-bubble][Life Outside the Bay Area Bubble - Atoms, Bits, and the Resurgence of Detroit]] (joereis.substack.com) — Жизнь вне технологических хабов обеспечивает лучшую концентрацию и перспективу при работе над продуктом, связанным с физическим миром.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/life-outside-the-bay-area-bubble][Life Outside the Bay Area Bubble - Atoms, Bits, and the Resurgence of Detroit]]
+:SCORE: 8/10
+:WHY: Критический взгляд на карьерные траектории и влияние локации на фокус.
+
+** Искусственный интеллект
+- [[hxxps://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2][Five labs, five minds: building a multi-model finance drama on small models]] (huggingface.co) — Пример использования ансамбля малых моделей для создания сложных сценариев в финансовой области вместо одной большой модели.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/build-small-hackathon/thousand-token-wood-sim-v2][Five labs, five minds: building a multi-model finance drama on small models]]
+:SCORE: 7/10
+:WHY: Инсайт по архитектуре многомодельных систем для финансовых задач.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — LDBC проводит очную встречу пользователей в Бостоне совместно с конференцией VLDB, открыт прием докладов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Информация о ключевом отраслевом событии для специалистов по графам.

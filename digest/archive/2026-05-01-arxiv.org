@@ -1,0 +1,142 @@
+#+TITLE: Arxiv Digest: 2026-05-01
+#+FROM: [2026-04-30 Thu]
+#+TO: [2026-05-01 Fri]
+#+DATE: [2026-05-01 Fri]
+#+STARTUP: showall
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+За последние сутки наблюдается значительный прогресс в области распределенных систем для машинного обучения, особенно в оптимизации коллективных коммуникаций и_acceleration_ на уровне аппаратуры. Исследования фокусируются на перекрытии реконфигурации сети и передачи данных, а также на использовании Processing-in-Memory (PIM) для криптографических операций. Актуальными становятся задачи безопасного федеративного обучения и эффективного планирования гетерогенных агентных рабочих нагрузок.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2510.19322][Enabling Reconfiguration-Communication Overlap for Collective Communication in Optical Networks]]
+:WHAT: Фреймворк SWOT для оптических сетей, использующий внутримодульную реконфигурацию и асинхронное перекрытие для скрытия задержек.
+:IMPACT: Снижает время завершения коммуникации до 89.7% по сравнению со статическими базовыми линиями в распределенном ML.
+- [[hxxps://arxiv.org/abs/2602.12433][DRAMatic Speedup: Accelerating HE Operations on a Processing-in-Memory System]]
+:WHAT: Реализация операций гомоморфного шифрования на архитектуре UPMEM PIM с арифметическими оптимизациями.
+:IMPACT: Ускорение в 334 раза по сравнению с предыдущими реализациями HE на PIM, закрывает разрыв с CPU-библиотеками.
+- [[hxxps://arxiv.org/abs/2604.19053][CHRONOS: A Hardware-Assisted Phase-Decoupled Framework for Secure Federated Learning in IoT]]
+:WHAT: Аппаратно-ассистированный фреймворк, разделяющий криптографическую настройку и фазу обучения в TrustZone.
+:IMPACT: Снижает задержку агрегации на 74% и обеспечивает устойчивость к компрометации ОС на устройствах IoT.
+- [[hxxps://arxiv.org/abs/2604.22092][FlashSpread: IO-Aware GPU Simulation of Non-Markovian Epidemic Dynamics via Kernel Fusion]]
+:WHAT: GPU-фреймворк для симуляции эпидемий с объединением ядерных операций и оптимизацией памяти.
+:IMPACT: Достигает 217x ускорения относительно CPU методов на графах с миллионами узлов.
+- [[hxxps://arxiv.org/abs/2604.26963][MARS: Efficient, Adaptive Co-Scheduling for Heterogeneous Agentic Systems]]
+:WHAT: Система ко-планирования для гетерогенных нагрузок агентов (GPU-CPU) с единым потоком информации.
+:IMPACT: Снижает end-to-end задержку до 5.94x и ускоряет выполнение задач агентов до 1.87x.
+- [[hxxps://arxiv.org/abs/2604.23979][SDSL-Solver: Scalable Distributed Sparse Linear Solvers for Large-Scale Interior Point Methods]]
+:WHAT: Распределенный решатель разреженных линейных систем для методов внутренней точки с предобуславливанием.
+:IMPACT: Ускорение до 97.54x относительно одноузлового PARDISO на кластерах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.19243][A Simple Communication Scheme for Distributed Fast Multipole Methods]]
+:ALGO: Иерархическая схема коммуникации для распределенных FMM на основе MPI и равномерных деревьев.
+:IMPACT: Позволяет масштабировать существующие shared-memory реализации на распределенную память с сохранением оптимизаций.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Тренды смещаются в сторону системной оптимизации инференса LLM, включая управление памятью KV-cache и специализированные архитектуры для длинного контекста. Одновременно растет внимание к безопасности, выравниванию (alignment) и методам сжатия моделей без потери производительности на сложных задачах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.26103][AMMA: A Multi-Chiplet Memory-Centric Architecture for Low-Latency 1M Context Attention Serving]]
+:WHAT: Архитектура на основе чиплетов с памятью HBM-PNM вместо GPU compute для attention.
+:IMPACT: Снижает задержку attention в 15.5 раз и энергопотребление в 6.9 раз по сравнению с H100.
+- [[hxxps://arxiv.org/abs/2604.26968][Predictive Multi-Tier Memory Management for KV Cache in Large-Scale GPU Inference]]
+:WHAT:Unified система управления KV-cache с шестиярусной иерархией памяти и байесовским предиктором.
+:IMPACT: Увеличивает пропускную способность в 1.7-2.9 раза и снижает затраты на 47% за счет эффективного использования памяти.
+- [[hxxps://arxiv.org/abs/2604.27085][Efficient Training on Multiple Consumer GPUs with RoundPipe]]
+:WHAT: Расписание конвейерного параллелизма RoundPipe для потребительских GPU с динамической диспетчеризацией.
+:IMPACT: Позволяет тонкую настройку моделей до 235B параметров на одном сервере с ускорением до 2.16x.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2410.15272][Performance-Driven QUBO for Recommender Systems on Quantum Annealers]]
+:ALGO: Метод отбора признаков PDQUBO на основе квадратичной оптимизации для квантовых аннилеров.
+:IMPACT: Превосходит классические базовые линии в задачах предсказания CTR, интегрируя квантовую оптимизацию.
+- [[hxxps://arxiv.org/abs/2411.18929][VIPaint: Image Inpainting with Pre-Trained Diffusion Models via Variational Inference]]
+:ALGO: Иерархический алгоритм вариационного вывода для инпейнтинга в диффузионных моделях.
+:IMPACT: Генерирует высококачественные изображения даже для больших масок в латентных моделях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2306.10407][FP-IRL: Fokker--Planck Inverse Reinforcement Learning]] — Физически-ограниченный подход к обратному обучению с подкреплением через уравнения Фоккера-Планка.
+- [[hxxps://arxiv.org/abs/2310.02277][Junk DNA Hypothesis: Pruning Small Pre-Trained Weights]] — Гипотеза о важности малых весов в LLM для сложных задач, противоречащая стандартному прунингу.
+- [[hxxps://arxiv.org/abs/2412.16720][OpenAI o1 System Card]] — Отчет о безопасности и возможностях модели o1 с цепочкой рассуждений.
+- [[hxxps://arxiv.org/abs/2102.05231][Culture-inspired Multi-modal Color Palette Generation]] — Генерация цветовых палитр на основе китайской молодежной субкультуры.
+- [[hxxps://arxiv.org/abs/2304.14352][Epistemic reflections on AI answering our questions]] — Эпистемологический анализ доверия к ответам ИИ и ошибок классификации.
+- [[hxxps://arxiv.org/abs/2408.13122][Semantic Variational Bayes Based on Semantic Information G Theory]] — Метод SVB для решения скрытых переменных через семантическую информацию.
+- [[hxxps://arxiv.org/abs/2410.05284][Hypnopaedia-Aware Machine Unlearning]] — Механизм разучивания для удаления бэкдоров через психометрику искусственных образовцов.
+
+* cs.DB (Databases)
+** 🧐 Обзор
+Развиваются инструменты бенчмаркинга для пространственно-временных данных и синтеза тестовых баз для Text-to-SQL. Важным направнением остается ускорение запросов через внешние планировщики и индексацию для онлайн-агрегации.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.28079][Tailwind: A Practical Framework for Query Accelerators]]
+:WHAT: Внешний планировщик запросов, использующий абстрактные логические планы для интеграции акселераторов.
+:IMPACT: Ускоряет запросы TPC-H в 1.38x (до 29x) на Redshift и DuckDB без изменения ядра СУБД.
+- [[hxxps://arxiv.org/abs/2604.27223][Graphify: Automated Synthesis of Type-Safe Graph Backends via O(S) GraphQL-to-Gremlin Transpilation]]
+:WHAT: Фреймворк для синтеза типобезопасных графовых бэкендов из GraphQL схем.
+:IMPACT: Автоматически генерирует оптимизированные Gremlin запросы за линейное время от числа полей.
+- [[hxxps://arxiv.org/abs/2604.28141][Index-Assisted Stratified Sampling for Online Aggregation]]
+:WHAT: Двухфазная стратегия стратифицированной выборки с использованием индексов.
+:IMPACT: Ускорение до 3x относительно равномерной выборки и до 98708x относительно сканирования для онлайн-агрегации.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.27252][Unified Data Discovery across Query Modalities and User Intents]]
+:ALGO: Единая модель представлений для обнаружения таблиц на основе гетерогенных графов запросов и данных.
+:IMPACT: Поддерживает поиск по NL и таблицам без специфичных моделей релевантности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.09398][GeoBenchr: An Application-Centric Benchmarking Suite for Spatiotemporal Database Platforms]] — Бенчмарк для пространственно-временных СУБД на реальных сценариях.
+- [[hxxps://arxiv.org/abs/2604.27261][SynSQL: Synthesizing Relational Databases for Robust Evaluation of Text-to-SQL Systems]] — Синтез тестовых баз для стресс-теста Text-to-SQL моделей.
+- [[hxxps://arxiv.org/abs/2604.27974][FineState-Bench: Benchmarking State-Conditioned Grounding for Fine-grained GUI State Setting]] — Бенчмарк для точного управления состоянием GUI агентами.
+- [[hxxps://arxiv.org/abs/2202.07980][Querying Inconsistent Prioritized Data with ORBITS]] — Алгоритмы для запросов к приоритизированным знаниям с использованием SAT-солверов.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Основные результаты касаются отказоустойчивости графов, потоковых алгоритмов для метрических пространств и дерандомизации вероятностных конструкций. Наблюдается прогресс в аппроксимации задач маршрутизации и раскраски.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2410.01048][The Telephone k-Multicast Problem]]
+:ALGO: Алгоритмы аппроксимации для мультикаста в телефонной модели на графах.
+:IMPACT: Улучшает факторы аппроксимации для направленных и ненаправленных графов.
+- [[hxxps://arxiv.org/abs/2501.13596][New Oracles and Labeling Schemes for Vertex Cut Queries]]
+:ALGO: Схемы маркировки и оракулы для запросов вершинных разрезов.
+:IMPACT: Достигает почти оптимальной длины меток и времени запроса для f-вершинных разрезов.
+- [[hxxps://arxiv.org/abs/2504.17868][Color Fault-Tolerant Distance Preservers: ~{O}ptimal Size in Conditionally ~{O}ptimal Time]]
+:ALGO: Построение сохранхранителей расстояний при цветных отказах ребер.
+:IMPACT: Оптимальная разрежкость и время работы при условии гипотезы BMM.
+- [[hxxps://arxiv.org/abs/2510.04435][Streaming Max-Cut in General Metrics]]
+:ALGO: Алгоритм для Max-Cut в скользящем окне для общих метрик.
+:IMPACT: Первый алгоритм с полилогарифмической памятью для неевклидовых пространств.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2412.17193][Online coloring of short interval graphs] — Анализ конкурентности для интервальных графов.
+- [[hxxps://arxiv.org/abs/2510.01107][Perfect Fractional Matchings in Bipartite Graphs] — Условия существования пропорциональных распределений.
+- [[hxxps://arxiv.org/abs/2510.07439][Quantum Filtering and Analysis of Multiplicities] — Квантовый алгоритм для спектров Гамильтонианов.
+- [[hxxps://arxiv.org/abs/2601.08111][Derandomizing Matrix Concentration Inequalities] — Детерминированные алгоритмы на основе свободной вероятности.
+- [[hxxps://arxiv.org/abs/2602.09948][Non-Additive Discrepancy: Coverage Functions] — Теория дискрепансии для неаддитивных функций.
+- [[hxxps://arxiv.org/abs/2603.12995][Extending Exact Integrality Gap Computations for the Metric TSP] — Верификация гипотезы 4/3 для малых n.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования фокусируются на взаимодействии климата и социального поведения, а также на динамике мнений в модульных сетях. Актуальны моделирования финансовых рисков и коллективных действий на основе цифровых следов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2505.24831][Optimising cryptocurrency portfolios through stable clustering of price correlation networks]]
+:ALGO: Кластеризация корреляционных сетей криптовалют с использованием Louvain и консенсуса.
+:IMPACT: Позволяет строить устойчивые портфели с контролем хвостовых рисков.
+- [[hxxps://arxiv.org/abs/2510.05831][Phase locking and multistability in the topological Kuramoto model on cell complexes]]
+:ALGO: Топологическая модель Курамото для симплицальных комплексов.
+:IMPACT: Описывает фазовую синхронизацию и мультистабильность через высшие порядки взаимодействий.
+- [[hxxps://arxiv.org/abs/2512.17810][Biswas-Chatterjee-Sen (BChS) kinetic exchange opinion model on modular networks]]
+:ALGO: Модель обмена мнениями на стохастических блочных моделях.
+:IMPACT: Демонстрирует влияние модульности на формирование консенсуса и анти-ферромагнитный порядок.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.24324][Mitigating Financial Risk from Climate-Induced Agricultural Price Volatility] — Моделирование волатильности цен на культуры с учетом климата.
+- [[hxxps://arxiv.org/abs/2511.05538][Tipping to Climate Action] — Социально-климатическая модель с преданным меньшинством.
+- [[hxxps://arxiv.org/abs/2604.27188][Nothing Deceives Like Success: Social Learning and the Illusion of Understanding] — Иллюзия понимания в научном сообществе при социальном обучении.
+- [[hxxps://arxiv.org/abs/2604.27226][Ratio-Dependent Contrarian Activation in Opinion Dynamics] — Влияние контрарианцев на динамику мнений.
+- [[hxxps://arxiv.org/abs/2604.27312][Epidemic Extinction in a Continuous SIRS Model] — Условия вымирания эпидемии в модели SIRS.
+- [[hxxps://arxiv.org/abs/2604.27330][Twitter climate discourse as a signal of pro-environmental behaviors] — Связь дискурса в Twitter и оффлайн поведения.
+- [[hxxps://arxiv.org/abs/2604.27737][Crowd Dynamics in Historical Perspective] — Агентное моделирование массовых событий на примере Амритсара.

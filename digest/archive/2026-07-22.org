@@ -1,0 +1,84 @@
+#+TITLE: Daily Digest: 2026-07-22
+#+FROM: [2026-07-21 Tue]
+#+TO: [2026-07-22 Wed]
+#+DATE: [2026-07-22 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Вендоры активно внедряют нативные AI-функции в базы данных, упрощая интеграцию агентов через hosted MCP и автоматизированный анализ инцидентов. Инженерия данных фокусируется на обслуживании таблиц Iceberg и миграции критических нагрузок на серверless-решения для глобальной консистентности. В сообществе растет интерес к локальным AI-агентам и оптимизации производительности через профилирование JVM и «математику на салфетке». Безопасность доменов остается уязвимым местом из-за ограниченного доступа к данным регистрации WHOIS.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dremio.com/blog/maintaining-apache-iceberg-tables-compaction-expiry-and-cleanup/][Maintaining Apache Iceberg Tables: Compaction, Expiry, and Cleanup]] (Dremio) — руководство по четырем операциям обслуживания таблиц Iceberg для предотвращения деградации производительности.
+- [[hxxps://aws.amazon.com/blogs/database/building-a-multi-region-api-with-prisma-orm-and-amazon-aurora-dsql/][Building a multi-Region API with Prisma ORM and Amazon Aurora DSQL]] (AWS) — пример построения active-active API с сильной консистентностью без управления инфраструктурой.
+- [[hxxps://aws.amazon.com/blogs/database/migrating-mission-critical-payments-at-nubank-to-amazon-aurora-postgresql/][Migrating mission-critical payments at Nubank to Amazon Aurora PostgreSQL]] (AWS) — кейс миграции платежной системы с улучшением производительности запросов до 1900 раз.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/maintaining-apache-iceberg-tables-compaction-expiry-and-cleanup/][Maintaining Apache Iceberg Tables: Compaction, Expiry, and Cleanup]]
+:SCORE: 9/10
+:WHY: Критически важно для поддержания здоровья озер данных, объясняет конкретные операции compaction и expiry.
+**** [[hxxps://aws.amazon.com/blogs/database/building-a-multi-region-api-with-prisma-orm-and-amazon-aurora-dsql/][Building a multi-Region API with Prisma ORM and Amazon Aurora DSQL]]
+:SCORE: 8/10
+:WHY: Демонстрирует паттерн глобальной распределенной БД без шардирования, актуально для архитекторов.
+**** [[hxxps://aws.amazon.com/blogs/database/migrating-mission-critical-payments-at-nubank-to-amazon-aurora-postgresql/][Migrating mission-critical payments at Nubank to Amazon Aurora PostgreSQL]]
+:SCORE: 8/10
+:WHY: Реальный пример миграции high-load системы с метриками производительности и преодоления регуляторных ограничений.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/exploring-self-distilled-reasoning-for-supervised-fine-tuning-with-amazon-nova/][Exploring self-distilled reasoning for supervised fine-tuning with Amazon Nova]] (AWS) — метод Self-Distilled Reasoning помогает сохранить способности модели при дообучении без дорогих цепочек рассуждений.
+- [[hxxps://deepmind.google/blog/introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber/][Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber]] (Google) — анонс новых оптимизированных моделей Gemini для различных сценариев использования, включая кибербезопасность.
+- [[hxxps://www.kdnuggets.com/run-the-mythos-enhanced-coding-model-locally-with-llama-cpp-and-pi/][Run the Mythos Enhanced Coding Model Locally with llama.cpp and Pi]] (KDnuggets) — инструкция по запуску локальной модели кодирования на Raspberry Pi с использованием llama.cpp.
+- [[hxxps://huggingface.co/blog/nvidia/state-of-simulation-for-physical-ai/][The State of Simulation for Physical AI: An Overview]] (Nvidia) — обзор текущего состояния симуляций для обучения физического ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/exploring-self-distilled-reasoning-for-supervised-fine-tuning-with-amazon-nova/][Exploring self-distilled reasoning for supervised fine-tuning with Amazon Nova]]
+:SCORE: 9/10
+:WHY: Решает проблему catastrophic forgetting при fine-tuning, важное исследование для ML-инженеров.
+**** [[hxxps://deepmind.google/blog/introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber/][Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber]]
+:SCORE: 8/10
+:WHY: Обновление модельного ряда влияет на выбор инструментов для продакшн-приложений.
+**** [[hxxps://www.kdnuggets.com/run-the-mythos-enhanced-coding-model-locally-with-llama-cpp-and-pi/][Run the Mythos Enhanced Coding Model Locally with llama.cpp and Pi]]
+:SCORE: 7/10
+:WHY: Показывает возможность запуска мощных coding-моделей на локальном железе для приватности.
+
+** Вендоры
+- [[hxxps://neo4j.com/blog/genai/introducing-mcp-for-aura/][Introducing MCP for Aura: Hosted MCP, built into every Aura instance]] (Neo4j) — hosted MCP сервер устраняет накладные расходы на инфраструктуру для подключения AI-клиентов к графам.
+- [[hxxps://www.warpstream.com/blog/one-weird-trick-to-make-rapid-storage-40x-faster/][One Weird Trick to Make Rapid Storage 40x Faster - WarpStream]] (WarpStream) — оптимизация записи в GCP Rapid Buckets снижает P99 латентность за счет预-warmed пулов.
+- [[hxxps://www.databricks.com/blog/announcing-public-preview-discover-and-domains-powered-unity-catalog/][Announcing the Public Preview of Discover and Domains, powered by Unity Catalog]] (Databricks) — новые функции управления доменами данных и поиска в Unity Catalog.
+- [[hxxps://aws.amazon.com/blogs/database/ai-powered-incident-analysis-for-amazon-rds-using-automated-forensic-artifacts/][AI-powered incident analysis for Amazon RDS using automated forensic artifacts]] (AWS) — серверless-подход к сбору форензик-артефактов БД для анализа инцидентов через AI.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/genai/introducing-mcp-for-aura/][Introducing MCP for Aura: Hosted MCP, built into every Aura instance]]
+:SCORE: 9/10
+:WHY: Убирает барьер входа для интеграции AI с БД, решая проблему хостинга MCP серверов.
+**** [[hxxps://www.warpstream.com/blog/one-weird-trick-to-make-rapid-storage-40x-faster/][One Weird Trick to Make Rapid Storage 40x Faster - WarpStream]]
+:SCORE: 8/10
+:WHY: Глубокий технический разбор оптимизации хранилища, полезный для инженеров инфраструктуры.
+**** [[hxxps://aws.amazon.com/blogs/database/ai-powered-incident-analysis-for-amazon-rds-using-automated-forensic-artifacts/][AI-powered incident analysis for Amazon RDS using automated forensic artifacts]]
+:SCORE: 8/10
+:WHY: Практический паттерн использования AI для постмортем-анализа баз данных без доработки引擎.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/pushing-software-engineering-limits/][Pushing software engineering limits with "napkin math"]] (Pragmatic Engineer) — интервью с Саймоном Эскильдсеном о поиске теоретических пределов производительности через быстрые расчеты.
+- [[hxxps://joereis.substack.com/p/to-every-agent-its-own-database][To Every Agent Its Own Database]] (Joe Reis) — архитектурная концепция выделения встроенного аналитического движка для каждого AI-агента.
+- [[hxxps://medium.com/towards-data-engineering/madlava-feel-the-lava-ac32d4be8ad4?source=rss-6e4a30cbb0e1------2][MadLava: Feel The Lava ☕]] (Medium) — создание собственного профайлера JVM для отладки Spark задач без удаленных исполнителей.
+- [[hxxps://xenodium.com/agent-shell-0-63-updates/][agent-shell 0.63 updates]] (Xenodium) — обновление Emacs-режима для работы с AI-агентами, включая поддержку MCP и рендеринг изображений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/pushing-software-engineering-limits/][Pushing software engineering limits with "napkin math"]]
+:SCORE: 10/10
+:WHY: Меняет подход к оптимизации систем, учат оценивать пределы производительности до написания кода.
+**** [[hxxps://joereis.substack.com/p/to-every-agent-its-own-database][To Every Agent Its Own Database]]
+:SCORE: 9/10
+:WHY: Свежий взгляд на архитектуру данных для эры агентов, инвертирует традиционную модель warehouses.
+**** [[hxxps://medium.com/towards-data-engineering/madlava-feel-the-lava-ac32d4be8ad4?source=rss-6e4a30cbb0e1------2][MadLava: Feel The Lava ☕]]
+:SCORE: 8/10
+:WHY: Пример глубокой кастомизации инструментов отладки для специфичных задач Spark/JVM.
+
+** Не инженерия
+- [[hxxps://rushter.com/blog/domain-whois-information/][Domain registration information should be transparent]] (Rushter) — проблема ограниченного доступа к данным регистрации доменов затрудняет выявление фишинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rushter.com/blog/domain-whois-information/][Domain registration information should be transparent]]
+:SCORE: 7/10
+:WHY: Важный сигнал для безопасности, объясняет риски скрытия данных WHOIS для инженеров безопасности.

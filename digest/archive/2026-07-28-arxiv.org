@@ -1,0 +1,162 @@
+#+TITLE: Arxiv Digest: 2026-07-28
+#+FROM: [2026-07-27 Mon]
+#+TO: [2026-07-28 Tue]
+#+DATE: [2026-07-28 Tue]
+#+STARTUP: showall
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+За последние сутки наблюдается активное развитие моделей неравенства в информетрике и сетевых представлениях. Особый интерес представляет эквивалентность индексов неравенства в трёхмерных моделях и применение квантовых подходов к динамике мнений. Практически значимы работы по анализу корпоративных сетей и экологической справедливости.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2510.13392][The Price-Pareto growth model of networks with community structure]]
+:WHAT: Новая аналитическая модель для степени распределения в сообществах реальных сетей с учётом гетерогенности научных доменов.
+:IMPACT: Позволяет точно моделировать цитирование в различных кластерах и оценивать неравенство через индекс Джини.
+
+- [[hxxps://arxiv.org/abs/2603.29722][Globally distributed environmental justice resistance against extractive corporate networks]]
+:WHAT: Сетевой анализ 3396 конфликтов с участием 6244 компаний и 11231 экологических организаций.
+:IMPACT: Выявляет структурные асимметрии между корпоративными сетями и движением за экологическую справедливость.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2304.07479][Equivalence of inequality indices in the three-dimensional model of informetric impact]]
+:ALGO: Доказана эквивалентность индексов Джини, Бонферрони, Де Верготтини и Гувера для выборок схожего размера в агентной модели.
+:IMPACT: Позволяет восстанавливать значения одного индекса по другому и понимать зависимость от размера выборки.
+
+- [[hxxps://arxiv.org/abs/2607.01452][A quantum model of opinion dynamics on networks]]
+:ALGO: Квантовая модель динамики мнений с матрицами плотности, кодирующими когнитивную амбивалентность и эффекты порядка.
+:IMPACT: Объясняет феномены, не описываемые классическими моделями, включая квантовую когерентность в социальных сетях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.14053][Trade-offs between structural richness and perceptual robustness in music network representations]] — Анализ восьми кодировок фортепианной музыки показывает, как выбор признаков влияет на топологию сети переходов.
+- [[hxxps://arxiv.org/abs/2601.04074][Multi-Dimensional Opinion Formation]] — Многомерная модель динамики мнений с весами важности для различных тем.
+- [[hxxps://arxiv.org/abs/2607.02821][From graphons to real-world networks: kinetic opinion dynamics under selective media influence]] — Кинетическая модель с управлением через медиавоздействие на графонах и реальных сетях Twitter.
+- [[hxxps://arxiv.org/abs/2604.26726][Swap distance minimization shapes the order of subject, object and verb in languages of the world]] — Минимизация дистанции перестановок формирует порядок слов в языках мира.
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+Тенденции показывают рост интереса к интеграции LLM-агентов с СУБД и оптимизации I/O через io_uring. Ключевые направления включают би-темпоральные графовые системы, векторный поиск с фильтрами и валидацию текстовых интерфейсов к базам данных. Практическая ценность работ высока для современных AI+DB систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.10265][TGMS: An Agent-Native Bi-Temporal Graph Management System]]
+:WHAT: Би-темпоральная система управления графами с 13 верифицированными операторами для LLM-агентов.
+:IMPACT: Достигает 0.409 exact match на бенчмарке, превосходя Vector-RAG и text-to-Cypher (0.045-0.182).
+
+- [[hxxps://arxiv.org/abs/2512.04859][High-Performance DBMSs with io_uring: When and How to use it]]
+:WHAT: Исследование эффективного использования Linux io_uring в современных СУБД для буферных менеджеров и сетевых рабочих нагрузок.
+:IMPACT: Практические руководители дали 14% улучшение производительности в PostgreSQL.
+
+- [[hxxps://arxiv.org/abs/2607.22922][iFVS: Towards Instance-Optimized Filtered Vector Search]]
+:WHAT: Техника инстанс-оптимизированного векторного поиска с фильтрами, адаптирующая кодбуки под конкретные запросы.
+:IMPACT: Улучшает tradeoff QPS-recall при различных селективностях фильтров по сравнению с фиксированными кодбуками.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.23085][Common-Neighbor-Count-Based Representative Possible World Finding on Uncertain Graphs]]
+:ALGO: Двухэтапный алгоритм для нахождения представительного возможного мира с сохранением ожидаемого числа общих соседей.
+:IMPACT: Позволяет применять детерминированные алгоритмы майнинга к неопределённым графам без дорогостоящей выборки.
+
+- [[hxxps://arxiv.org/abs/2507.19802][CleANN: Efficient Full Dynamism in Graph-based Approximate Nearest Neighbor Search]]
+:ALGO: Система с workload-aware linking, query-adaptive consolidation и semi-lazy cleaning для полной динамичности ANNS.
+:IMPACT: Достигает 7-1200x улучшения throughput при сохранении качества на динамических рабочих нагрузках.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2506.07552][Quantum Information-Theoretical Size Bounds for Conjunctive Queries with Functional Dependencies]] — Применение квантовой энтропии Реньи для оценки верхних границ размеров конъюнктивных запросов.
+- [[hxxps://arxiv.org/abs/2511.14718][Natural Language Interfaces for Databases: What Changes for SQL-Literate Users?]] — NLIDB перераспределяет работу пользователей: время сокращается на 31%, но точность падает с 64% до 46%.
+- [[hxxps://arxiv.org/abs/2607.17515][Extending Elle for Transaction Workloads with Duplicate Values]] — Расширение валидатора изоляции Elle для транзакций с дублирующимися значениями.
+- [[hxxps://arxiv.org/abs/2607.22843][Queryable Self-Organizing Maps: A Database Abstraction for Topology-Driven Data Exploration]] — Абстракция queryable data map делает SOM-артифакты запрашиваемыми внутри СУБД.
+- [[hxxps://arxiv.org/abs/2607.23340][ABISS: Evaluating Text-to-SQL Systems Through Agent Interaction]] — Динамический бенчмарк для оценки Text-to-SQL через симуляцию многошаговых диалогов с агентами.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+Заметен прогресс в комбинаторных алгоритмах для обнаружения подграфов и оптимизации квантовых компиляций. Особенно значим первый субкубический комбинаторный алгоритм для индуцированных 4-циклов. Работы по потоковым моделям с истечением срока и планированию coflow имеют практическую ценность для распределённых систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2507.19802][CleANN: Efficient Full Dynamism in Graph-based Approximate Nearest Neighbor Search]]
+:WHAT: Первый конкурентный ANNS-индекс с полной динамичностью (вставка, удаление, поиск) без деградации качества.
+:IMPACT: 7-1200x улучшение throughput на миллионных датасетах при сохранении recall.
+
+- [[hxxps://arxiv.org/abs/2406.14330][Promise of Graph Sparsification and Decomposition for Noise Reduction in QAOA]]
+:WHAT: Схемы компиляции QAOA на основе разрежения и декомпозиции графов для trapped-ion симуляторов.
+:IMPACT: Сокращает число импульсов с O(n²) до O(n log(n/ε)), значительно снижая квантовый шум.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2507.18845][A Truly Subcubic Combinatorial Algorithm for Induced 4-Cycle Detection]]
+:ALGO: Первый комбинаторный алгоритм со временем O(n^2.84) для обнаружения индуцированных 4-циклов.
+:IMPACT: Отделяет задачу от обнаружения треугольников, даёт первый нетривиальный детерминированный алгоритм.
+
+- [[hxxps://arxiv.org/abs/2509.07587][The Expiration Streaming Model: Diameter, k-Center, Counting, Sampling, and Friends]]
+:ALGO: Новая модель потоковой обработки с произвольным временем истечения элементов и алгоритмы для диаметра и k-center.
+:IMPACT: Значительно расширяет результаты для sliding-window потоков с лучшим фактором аппроксимации.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.05871][A General Framework for Low Soundness Homomorphism Testing]] — Фреймворк для тестирования гомоморфизмов между конечными группами с постоянным числом запросов.
+- [[hxxps://arxiv.org/abs/2511.12854][Indirect Coflow Scheduling]] — Алгоритмы планирования coflow для малых объёмов данных с использованием непрямой маршрутизации.
+- [[hxxps://arxiv.org/abs/2602.22874][Flip Distance Between Triangulations of Convex Polygons is NP-Complete]] — Доказана NP-полнота задачи о минимальном числе флипов между триангуляциями выпуклых многоугольников.
+- [[hxxps://arxiv.org/abs/2603.18699][A more accurate rational non-commutative algorithm for multiplying 4x4 matrices using 48 multiplications]] — Более точный алгоритм умножения матриц 4x4 с 48 умножениями.
+- [[hxxps://arxiv.org/abs/2605.26908][On the Detection of Commutative Factors in Factor Graphs]] — Исправленный алгоритм обнаружения коммутативных факторов в факторных графах для lifted inference.
+- [[hxxps://arxiv.org/abs/2605.27098][Improved Hardness Results for Nash Social Welfare]] — Улучшенные результаты неаппроксимируемости для Nash welfare, бюджетного распределения и GAP.
+
+* cs.DC (Распределённые вычисления)
+** 🧐 Обзор
+Актуальные темы включают взаимное исключение в многопоточных системах, поиск чёрных дыр в динамических сетях и справедливость в блокчейн-аукционах. Особый интерес представляют работы по само-стабилизирующимся вычислениям в анонимных динамических сетях и анализу координации в мульти-агентных AI системах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2102.03863][Hemlock: Compact and Scalable Mutual Exclusion]]
+:WHAT: Новый алгоритм взаимного исключения с одним словом на поток и одним на блокировку, с local spinning и FIFO.
+:IMPACT: Конкурентная производительность с лучшими масштабируемыми spin lock при минимальной памяти.
+
+- [[hxxps://arxiv.org/abs/2602.01404][BOA Constrictor: Squeezing Performance out of GPUs in the Cloud via Budget-Optimal Allocation]]
+:WHAT: Планировщик ML-заданий с бюджет-оптимальным распределением GPU в облаке.
+:IMPACT: Сокращает среднее время выполнения заданий в 1.6-2 раза по сравнению с эвристическими планировщиками.
+
+- [[hxxps://arxiv.org/abs/2604.19053][CHRONOS: A Hardware-Assisted Phase-Decoupled Framework for Secure Federated Learning in IoT]]
+:WHAT: Аппаратно-ассистированный фреймворк с разделением криптографической настройки и активного обучения для FL.
+:IMPACT: Снижает задержку активной фазы на 74% при защите от инверсии градиентов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2404.15132][Black Hole Search by Scattered Agents in Dynamic Rings]]
+:ALGO: Алгоритм поиска чёрной дыры тремя агентами в динамическом 1-интервальном кольце за O(n²) ходов.
+:IMPACT: Доказана оптимальность числа агентов и tightness границы сложности.
+
+- [[hxxps://arxiv.org/abs/2409.00688][Universal Finite-State and Self-Stabilizing Computation in Anonymous Dynamic Networks]]
+:ALGO: Общие само-стабилизирующиеся алгоритмы для анонимных динамических сетей с конечным состоянием.
+:IMPACT: Улучшает предыдущие методы для статических сетей, стабилизируется за O(τn²) раундов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2408.12225][Fair Combinatorial Auctions: Endogenous Best Execution in Blockchain Trade-Intent Markets]] — Справедливые комбинаторные аукционы для блокчейн-рынков с гарантиями fairness через counterfactual механизмы.
+- [[hxxps://arxiv.org/abs/2601.17957][Moded Types for Grassroots Logic Programs, by AI, for AI]] — Типизированная семантика для GLP с модами, разработанная совместно человеком и AI.
+- [[hxxps://arxiv.org/abs/2602.18673][When Coordination Is Avoidable: A Monotonicity Analysis of Organizational Tasks]] — 74% workflows и 42% задач O*NET монотонны, что означает избыточность координации в 24-57% случаев.
+- [[hxxps://arxiv.org/abs/2603.05666][Why Ethereum Needs Fairness Mechanisms that Do Not Depend on Participants' Altruism]] — Эмпирический анализ показывает не более 1.55% альтруистичных proposers в Ethereum.
+- [[hxxps://arxiv.org/abs/2603.20317][Which Workloads Belong in Orbit?]] — Фреймворк для выбора рабочих нагрузок для орбитальных дата-центров с семантической абстракцией.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+Наблюдается рост работ по интеграции LLM с графовыми базами кода, нейросимволическим цифровым двойникам и бенчмаркингу MoE-архитектур. Практически значимы исследования по обнаружению адверсарных примеров через каузальный вывод и адаптивным инструментам для студентов с особенностями обучения.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2408.03910][CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases]]
+:WHAT: Система интеграции LLM-агентов с графовыми базами данных, извлечёнными из репозиториев кода.
+:IMPACT: Позволяет точный context retrieval с учётом структуры кода, показывает конкурентные результаты на SWE-bench.
+
+- [[hxxps://arxiv.org/abs/2501.08561][ANSR-DT: A Neuro-Symbolic Framework for Adaptive and Explainable Digital Twins]]
+:WHAT: Адаптивный нейросимволический фреймворк с CNN-LSTM, Prolog-рассуждениями и PPO-адаптацией.
+:IMPACT: Конкурентная предсказательная точность с извлекаемыми правилами и объяснимыми решениями для индустриальных систем.
+
+- [[hxxps://arxiv.org/abs/2411.00918][LIBMoE: A Library for comprehensive benchmarking Mixture of Experts in Large Language Models]]
+:WHAT: Унифицированный фреймворк для воспроизводимого бенчмаркинга MoE с инструментами анализа routing dynamics.
+:IMPACT: Снижает барьер входа в MoE-исследования и стандартизирует оценку архитектур.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2411.00839][CausAdv: A Causal-based Framework for Detecting Adversarial Examples]]
+:ALGO: Каузальный фреймворк для детектирования адверсарных примеров через counterfactual reasoning и анализ CI фильтров.
+:IMPACT: Улучшает обнаружение без обучения отдельного детектора через визуализацию каузальных признаков.
+
+- [[hxxps://arxiv.org/abs/2410.02596][Beyond Squared Error: Exploring Loss Design for Enhanced Training of Generative Flow Networks]]
+:ALGO: Теоретический анализ связи регрессионных потерь с дивергенциями, предложение трёх новых потерь (Shifted-Cosh, Linex).
+:IMPACT: Значительно улучшает скорость сходимости, разнообразие выборки и робастность GFlowNets.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2307.14544][Speed Reading Tool Powered by Artificial Intelligence for Students with ADHD, Dyslexia, and Short Attention Span]] — Инструмент с LLM-суммаризацией и адаптивным форматированием текста для студентов с особенностями обучения.
+- [[hxxps://arxiv.org/abs/2407.09013][Procedural Content Generation via Generative Artificial Intelligence]] — Обзор применения генеративного AI для PCG с фокусом на проблеме ограниченных тренировочных данных.
+- [[hxxps://arxiv.org/abs/2407.14766][Fairness Interventions in Classification: A Study on AI Explainability]] — Сравнение Demographic Parity и Equalized Odds с пакетом FairDream для коррекции смещений.
+- [[hxxps://arxiv.org/abs/2502.05925][Sign-Symmetry Learning Rules are Robust Fine-Tuners]] — Fine-tuning предобученных моделей правилами Sign-Symmetry сохраняет производительность BP с улучшенной робастностью.
+- [[hxxps://arxiv.org/abs/1805.11546][Like a Baby: Visually Situated Neural Language Acquisition]] — Мультимодальное обучение языковых моделей с визуальным контекстом снижает perplexity на 2-3.5%.

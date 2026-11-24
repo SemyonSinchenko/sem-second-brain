@@ -1,0 +1,141 @@
+#+TITLE: Arxiv Digest: 2026-10-12
+#+FROM: [2026-10-11 Sun]
+#+TO: [2026-10-12 Mon]
+#+DATE: [2026-10-12 Mon]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+** 🧐 Обзор
+Основной сюжет дня — сближение СУБД и LLM: семантические операторы получают полноценный движок с глобальными гарантиями точности (Stretto), а оценка ИИ-генерируемых спецификаций — утечко-устойчивый бенчмарк (LRFB). Зреет интеграция данных: MetaJoin делает выбор стратегии джойна label-free и адаптирует её уже после выполнения, показывая результат на уровне оракула. Практически значимы провенанс для декларативного ML (ProvQML) и конформный скрининг ансамблевых конфигураций одним mergeable-агрегатом (CALQA) на панелях в ~10^8 строк.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2512.02444][MetaJoin: Adaptive Join Selections for Heterogeneous Tables]]
+  :WHAT: Label-free фреймворк адаптивного выбора джойна над портфелем специалистов (точное совпадение, синтаксические преобразования, семантическая близость, entity matching) плюс MNN Join — специалист по строковым преобразованиям на взаимных ближайших соседях; решение пересматривается после выполнения (retain/сравнить/эскалировать/починить).
+  :IMPACT: 0.817 macro row-F1 на 670 датасетах — выше бенчмарк-оракула (0.812); точность почти не зависит от размера контроллера (3B→14B), что даёт практичную интеграцию гетерогенных таблиц без разметки.
+- [[https://arxiv.org/abs/2602.04430][The Stretto Execution Engine for Semantic Data Systems]]
+  :WHAT: Движок семантических операторов: планирование запроса как задача условной оптимизации с градиентным распределением бюджетов ошибки по всему плану и спектр физических стратегий исполнения на основе KV-cache-компрессии.
+  :IMPACT: Глобальные (а не пооператорные) гарантии точности при оптимизации производительности — ключ к предсказуемому LLM-over-data сервису; обгоняет SOTA-системы.
+- [[https://arxiv.org/abs/2610.13249][CALQA: Conformal Screening of Forecast-Ensemble Configurations from One Mergeable State]]
+  :WHAT: Компактный целочисленный агрегат на группу/панель — гистограммы нормированных блоковых оценок по сетке весов; строится одним GROUP BY, складывается/вычитается и скорит любого кандидата без чтения строк с гарантиями конформного покрытия.
+  :IMPACT: Двухэтапный скрининг (агрегат + точный пересчёт top-100) на 44–54× быстрее точного поиска при 99.98–100% его Winkler-скоринга на реальных панелях ~10^8 строк — практичный слой для AutoML прогнозных ансамблей.
+- [[https://arxiv.org/abs/2610.13756][ProvQML: Efficient Provenance Capture for Machine Learning as Recursive Aggregate SQL]]
+  :WHAT: Провенанс-осведомлённый движок рекурсивных агрегатных SQL-запросов: локальный провенанс (вклад каждого обучающего примера в градиент при заданном состоянии модели) и глобальный (последовательность обновлений параметров по итерациям).
+  :IMPACT: Первая масштабируемая поддержка провенанса для ML-as-SQL — объяснимость декларативного обучения на распределённых системах без переписывания алгоритмов.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2610.12692][Distributed Datalog at Scale with Worst-Case Optimal Joins]]
+  :ALGO: Первый Datalog-движок для распределённой памяти с WCOJ в рекурсивном semi-naive fixpoint: HyperCube-партиционирование расширено на итеративное исполнение — репартиционируются только новые кортежи (MPI all-to-all, all-gather по субкубным коммутаторам), раскладка переиспользуется, пересечения остаются rank-local.
+  :IMPACT: Циклические многовходовые джойны — ядро graph mining и program analysis; strong scalability на Aurora и Polaris (Argonne), обгон SOTA Datalog-движков на большинстве бенчмарков.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2610.12778][Leakage-Resistant Evaluation of AI-Generated Database Specifications in Specification-Driven Migration]] — Утечко-устойчивый бенчмарк LRFB (494 пары, 19 метрик) показывает, что LLM-судьи не превосходят тривиальный baseline по длине, но дают типизированные findings со связанными свидетельствами.
+- [[https://arxiv.org/abs/2610.13573][MatQuery: Execution-Grounded Natural-Language Querying over Heterogeneous Materials Databases]] — Прототип NL-запросов к шести материаловедческим БД с execution-верифицированным бенчмарком (82.4% strict execution accuracy) пока в smoke-тестировании.
+- [[https://arxiv.org/abs/2610.13593][Time-Varying Favorite-Longshot Bias in Polymarket Weather Markets]] — Смещение цен предикшн-маркетов зависит от горизонта: longshot переоценён на больших горизонтах, фавориты — в последние 1–12 часов перед расчётом.
+
+* cs.AI — Искусственный интеллект
+** 🧐 Обзор
+Тема дня — измеримая эффективность: Shapley-объяснения с доказуемыми гарантиями за O(n log n) вычислений модели, controllable retrieval, деплоенный на 400+ млн пользователей Kuaishou, и клиентский сэмплинг для федеративного обучения с устранением objective inconsistency. Зреет аудит LLM-безопасности: стресс-тестирование защит от prompt injection и модерация reasoning-трейсов показывают, что текущие практики оценки завышают робастность. Отдельная линия — корректные метрики разнообразия генеративных моделей (Conditional Vendi/RKE).
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2410.01917][Provably Accurate Shapley Value Estimation via Leverage Score Sampling]]
+  :WHAT: Leverage SHAP — лёгкая модификация Kernel SHAP с leverage-score sampling, дающая доказуемо точные оценки Shapley-значений за O(n log n) вычислений модели.
+  :IMPACT: ~50% снижение ошибки против оптимизированной реализации в библиотеке SHAP — дешёвая и надёжная атрибуция признаков в продовых ML-пайплайнах.
+- [[https://arxiv.org/abs/2412.13844][CRM: Retrieval Model with Controllable Condition]]
+  :WHAT: Outcome-conditioned retrieval: watch time подаётся на вход user tower (включая вариант на Decision Transformer с condition-токенами «watch time to go»), item tower не зависит от условия, поэтому item-эмбеддинги остаются ANN-индексируемыми.
+  :IMPACT: Задеплоен в рекомендации коротких видео Kuaishou (400+ млн пользователей): +0.372%/+0.457% watch time в онлайн A/B; управление выдачей под целевой исход без переобучения.
+- [[https://arxiv.org/abs/2505.11304][Heterogeneity-Aware Client Sampling for Optimal and Efficient Federated Learning]]
+  :WHAT: FedACS — первый единый теоретический анализ совместного искажения оптимизации гетерогенностью коммуникаций и вычислений плюс метод сэмплирования клиентов, устраняющий objective inconsistency со сходимостью O(1/√R) к верному оптимуму.
+  :IMPACT: +4.3–36% к SOTA-бейслайнам при снижении коммуникаций на 22–89% и вычислительной нагрузки на 14–105% — прямые операционные выгоды для федеративных деплоев.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2411.02817][Conditional Vendi Score: Prompt-Aware Diversity Evaluation for Generative AI Models and LLMs]] — Prompt-зависимые метрики разнообразия, отделяющие model-induced вариативность от prompt-induced, с масштабируемой truncated-spectrum оценкой.
+- [[https://arxiv.org/abs/2412.06534][Understanding Transformer-based Vision Models through Inversion]] — Модульная feature-inversion методика сравнивает ViT/DETR/Swin по слоям: сохранение контекстной формы, деталей и чувствительность к цвету.
+- [[https://arxiv.org/abs/2504.06185][WoundAmbit: Bridging State-of-the-Art Semantic Segmentation and Real-World Wound Care]] — Бенчмарк сегментации хронических ран и интеграция оценки размера раны в телемедицинскую систему.
+- [[https://arxiv.org/abs/2505.15738][Auditing Prompt Injection Defenses Before They Reach Users: What Strong Adversaries Reveal]] — Аудит через промежуточные чекпоинты fine-tuning поднимает success rate атак на SOTA-защиты с почти нуля до 96%.
+- [[https://arxiv.org/abs/2505.17244][ReasoningShield: Safety Detection over Reasoning Traces of Large Reasoning Models]] — Бенчмарк (9.2K пар) и лёгкие 1B/3B-модели модерации CoT: 91.8% F1, +35.6% над LlamaGuard-4.
+- [[https://arxiv.org/abs/2505.22184][Breaking the Cloak! Unveiling Chinese Cloaked Toxicity with Homophone Graph and Toxic Lexicon]] — Метод без обучения и промптов C2TU раскрывает омофонные маскировки токсичности: до +71% F1 к лучшему конкуренту.
+- [[https://arxiv.org/abs/2505.22193][Physics-inspired Generative AI models via real hardware-based noisy quantum diffusion]] — Квантовые диффузионные модели на реальном железе IBM, где шум используется как ресурс, а не устраняется.
+
+* physics.soc-ph — Социальная физика и сети
+** 🧐 Обзор
+День прошёл под знаком сетевого моделирования с контролируемыми контрфактурами: maximum-entropy null-модели отделяют системный риск межбанковских сетей от балансов банков, а confound-controlled Ising-эксперименты разводят структурный баланс и выравнивание лагерей в знаковых сетях. Зреет учёт скрытых механизмов — ненаблюдаемого внимания в моделях социального влияния и ограниченного внимания в каскадах дезинформации. Практически значимы выводы для стресс-тестирования отдельных банков и для модерации дезинформации: гетерогенные сети «легко воспламенить, трудно насытить».
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2109.14360][Systemic risk in interbank networks: disentangling balance sheets and network effects]]
+  :ALGO: Maximum-entropy ансамбль сетей, сохраняющий балансы и паттерны диверсификации, но рандомизирующий двусторонние экспозиции; сравнение наблюдаемого и ожидаемого системного риска для нескольких моделей заражения на данных e-MID (2005–2012).
+  :IMPACT: Агрегатный риск хорошо оценивается по балансам, но точный стресс-тест отдельного банка требует полной топологии — расхождение резко растёт после дефолта Lehman и VLTRO ЕЦБ.
+- [[https://arxiv.org/abs/2610.12578][Separating Field–Camp Alignment from Structural Balance in a Frustrated Random-Field Ising Model of Social Networks]]
+  :ALGO: Контролируемое сравнение трёх схем расстановки знаков на идентичном графе и полях: выравнивание лагерей с полем даёт значимый сдвиг распределения energy gap (p = 7.3e-8), тогда как чистая триадная сбалансированность — нет.
+  :IMPACT: Предостережение для анализа знаковых сетей (Epinions, Slashdot, Wikipedia): избыток сбалансированных триад может проксировать выравнивание лагерей, а не структурный баланс.
+- [[https://arxiv.org/abs/2610.12616][Learning Social Influence with Unobserved Attention]]
+  :ALGO: Агентная вероятностная модель с латентными механизмами selection (взаимодействие с одним агентом за раз) и retention (игнорирование мнения) плюс эффективный MLE-алгоритм, восстанавливающий ядро влияния без наблюдения этих механизмов.
+  :IMPACT: На 14 из 15 эмпирических датасетов учёт латентного внимания улучшает предсказательную likelihood сильнее, чем выбор ядра взаимодействия, — важная поправка для фиттинга моделей влияния по трейсам платформ.
+- [[https://arxiv.org/abs/2610.12775][Credit Attribution in Timestamped Soccer Networks Using Multivariate Hawkes Processes]]
+  :ALGO: Многомерные Hawkes-процессы на временных сетях пасов/ударов: ветвящийся механизм распределяет вклад каждого паса по последующим событиям, формируя метрику xGI (expected goal involvements).
+  :IMPACT: Переносимый аппарат атрибуции вклада для event-сетей произвольной природы — вместо учёта лишь финального паса.
+- [[https://arxiv.org/abs/2610.13839][Modelling the complex dynamics of online disinformation cascades]]
+  :ALGO: Модель каскадов с дебанкинг-реакциями, гетерогенностью степеней и ограниченным вниманием (с опосредованием рекомендательными алгоритмами), анализируемая Монте-Карло и mean-field на случайных графах и эмпирической сети Twitter.
+  :IMPACT: Дебанкинг обоюдоострый — срезает охват привлекательных сюжетов, но доносит непривлекательные; гетерогенные сети легко «поджечь», но трудно насытить, а ограниченное внимание гасит эффекты гетерогенности, если рекомендации их не восстанавливают.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2601.00460][Coupling with opinion dynamics promotes prosocial behavior in multilayer networks]] — Связывание слоя дилеммы заключённого со слоем constant-selection динамики устойчиво усиливает кооперацию в многослойных сетях.
+- [[https://arxiv.org/abs/2610.12472][Quantum-like Architecture of the Social Atom: Mental Marker Coherence and the Triple-Resonance Mechanism of Cognitive Activation]] — Спекулятивная «квантоподобная» формализация когнитивной активации в рамках Social Laser Theory.
+- [[https://arxiv.org/abs/2610.12473][Insurance perspectives on climate-related risks]] — Интервью со страховщиками о сценарном анализе и роли прайсинга как сигнала при климатических рисках.
+- [[https://arxiv.org/abs/2610.12519][Voluntary nonpharmaceutical intervention as a feedback-evolving game]] — Эпидемиологическая обратная связь перестраивает структуру игры соблюдения мер, порождая циклы «эпидемия–поведение» и альтернативные нормы.
+- [[https://arxiv.org/abs/2610.13595][A data-driven heuristic-ensemble method for behavioural inference in collective-risk dilemma experiments]] — Непараметрический ансамбль эвристик воспроизводит поведение агентов из эмпирических данных (пример — эксперимент xAire в Барселоне).
+
+* cs.DS — Структуры данных и алгоритмы
+** 🧐 Обзор
+Классические графовые задачи получили обновлённые карты сложности: upper clique transversal классифицирован по классам графов, а distance to unique vertex cover оказался Σ2P-полным, но FPT по (treewidth, max degree). Зреет комбинаторная генерация: обход 0/1-политопов теперь даёт амортизированную задержку с константным оверхедом над оптимизационным оракулом, улучшая листинг остовных деревьев, паросочетаний и независимых множеств. Практически интересны tight-границы exploration временных орграфов и прорывной фреймворк для немонотонной k-субмодулярной максимизации.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2309.14103][The Upper Clique Transversal Problem: Hardness and Algorithms]]
+  :ALGO: NP-полнота задачи о верхнем кликовом трансверсале на chordal, chordal bipartite, кубических планарных биграфах и line graphs биграфов; линейное время на split, proper interval и cographs, полином на ограниченном cliquewidth.
+  :IMPACT: Первая систематическая карта «верхнего» варианта параметра — ориентир для задач, где минимальный трансверсаль уже найден, а нужен максимальный минимальный.
+- [[https://arxiv.org/abs/2502.05059][Exact Algorithms for Distance to Unique Vertex Cover]]
+  :ALGO: Σ2P-полнота даже для планарных графов с max degree 5; линейный алгоритм для деревьев, FPT по (treewidth + max degree) и по размеру решения, XP по cliquewidth.
+  :IMPACT: Твёрдые границы для генерации инстансов с единственным минимальным vertex cover — полезно при построении бенчмарков и параметризованном препроцессинге.
+- [[https://arxiv.org/abs/2607.17590][Faster and simpler traversal of 0/1-polytopes]]
+  :ALGO: Hamilton-путь по скелету любого 0/1-политопа с амортизированной задержкой в константу раз больше времени одного вызова оптимизационного оракула (убран множитель log n) плюс O(t_LP) vertex enumeration.
+  :IMPACT: Единым ходом ускоряется листинг баз матроидов, остовных деревьев, лесов, паросочетаний, вершинных и независимых множеств, антицепей — базовые примитивы перечисления для графовых пайплайнов.
+- [[https://arxiv.org/abs/2509.15294][Classical and Quantum Heuristics for the Binary Paint Shop Problem]]
+  :ALGO: Сведение BPSP к взвешенному MaxCut (точная Ising-формулировка) и бенчмарк XQAOA1/RQAOA1 против четырёх классических эвристик: XQAOA1 даёт ratio 0.357 и выигрывает на каждом инстансе, впервые зафиксирована деградация RQAOA1 с ростом размера.
+  :IMPACT: Прикладной производственный scheduling (автомобильная окраска) и трезвый взгляд на квантовые эвристики: MaxCut-формулировка остаётся сильным базовым инструментом.
+- [[https://arxiv.org/abs/2609.15677][Breaking the 1/3 Barrier for constrained k-Submodular Maximization]]
+  :ALGO: Proportional top-2 randomized фреймворк: гарантия √2−1 ≈ 0.4142 под matroid/knapsack ограничениями (взлом барьера 1/3) и 1/2 под кардинальностью — оракульно-оптимально для k=2.
+  :IMPACT: Более сильные гарантии для немонотонной максимизации с разметкой элементов — фундамент для задач типа influence maximization и выбора данных.
+- [[https://arxiv.org/abs/2609.34339][The directed temporal exploration problem]]
+  :ALGO: Tight-границы времени жизни для temporal exploration орграфов: O(n²) достаточно и необходимо для always-unilateral, 4n/3−1 для semicomplete; полиномиальный 4/3-алгоритм с совпадающей нижней оценкой по аппроксимации.
+  :IMPACT: Фундаментальные пределы обхода временных сетей — ориентир для маршрутизации и мониторинга в time-varying графах.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2509.08503][Checking and producing word attractors]] — Линейная проверка аттракторов через суффиксные автоматы/DAWG и жадный генератор очень малых аттракторов для сжатия строк.
+- [[https://arxiv.org/abs/2609.30992][Deterministic Linear-Time Modular Subset Sum]] — Детерминированный O(m)-алгоритм modular subset sum со свидетелями и O(m) вспомогательной памяти на word-RAM.
+- [[https://arxiv.org/abs/2610.07623][Explicit Asymptotic Bounds for Sequential Calibration Beyond T^{2/3}]] — Первая явная экспонента ниже 2/3 для ошибки последовательной калибровки: O(T^{0.662942288}).
+- [[https://arxiv.org/abs/2610.03205][Hamiltonian locality testing and certification do not achieve the Heisenberg limit]] — Нижние оценки Ω(1/ε²) для проверки локальности и тождества гамильтонианов, исключающие гейзенберговское масштабирование.
+
+* cs.DC — Распределённые вычисления
+** 🧐 Обзор
+Доминанта дня — MoE-инференс: CoMoE переносит expert parallelism на потребительские GPU без NVLink через host-centric routing, а Zepp переосмысляет балансировку как ограничение, а не цель, разгоняя слой MoE до 6.68×. Зреет адаптивная инфраструктура LLM-сервинга: давление префилла управляет бюджетом токенов (P-PAS), а частый чекпоинтинг и swapping активаций становятся бюджетно-осознанными. Практически ценен производственный опыт ByteDance по RDMA (ByteExpress) и первый DAG-based CFT-консенсус для WAN (Nemo-Nemo).
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2509.04084][Optimizing Frequent Checkpointing via Low-Cost Differential for Distributed Training Systems]]
+  :WHAT: Переиспользование (сжатых) градиентов как дифференциальных чекпоинтов; расширенный вариант с layer-wise-reuse снапшотами и incremental-merging персистентностью, перекрывающей чекпоинтинг с обучением.
+  :IMPACT: Чекпоинт каждую итерацию становится реальным: сокращение времени обучения до 89.2%/81.2% на нагрузках вплоть до миллиардных моделей.
+- [[https://arxiv.org/abs/2604.08914][Finding Nemo-Nemo: CFT DAG-based Consensus in the WAN]]
+  :WHAT: CFT-консенсус с причинно-упорядоченным DAG, мультилидерностью и разделением диссеминации от логики консенсуса; просроченные предложения детерминированно откладываются, коммит за два сетевых хопа.
+  :IMPACT: Первое зафиксированное превосходство DAG-based CFT над SOTA в WAN по пропускной способности при равной задержке — устойчивость к транзиентным задержкам без потери throughput.
+- [[https://arxiv.org/abs/2608.15171][P-PAS: Prefill-Pressure Adaptive Scheduling for Long-Context LLM Serving]]
+  :WHAT: Лёгкая политика, динамически меняющая глобальный бюджет батчированных токенов (MBT) в vLLM по давлению одновременных prefill/decode; P-PAS+ учитывает гетерогенные формы запросов.
+  :IMPACT: Низкая end-to-end задержка во всех режимах нагрузки; −3.0–3.1% средней задержки против лучшего статического бюджета на смешанных нагрузках, код и артефакты открыты.
+- [[https://arxiv.org/abs/2610.09424][Democratizing MoE inference on commodity GPUs with CoMoE]]
+  :WHAT: Host-centric routing для MoE без P2P: host-backed multicast токенов (общие токены пишутся на хост ровно один раз) и token-level агрегация через staging-буферы вместо жёстких глобальных синхронизаций.
+  :IMPACT: До 1.46× throughput на RTX 5090 — уровень NVLink-системы на A800 при 23.4% стоимости железа; локальные и приватные MoE-деплои становятся реальными.
+- [[https://arxiv.org/abs/2610.11158][Zepp: Accelerating Distributed MoE Serving under Relaxed Balance Constraints]]
+  :WHAT: Балансировка как ограничение, а не цель оптимизации: размещение реплик экспертов под GPU-ограничениями, reshape коммуникаций (split/merge) под NIC-ограничениями и оверлап вычислений с коммуникацией, с покоитерационной координацией.
+  :IMPACT: До 6.68× ускорения слоя MoE и геометрическое среднее 1.86× против 7 SOTA-систем — прямой выигрыш в стоимости сервисинга MoE.
+- [[https://arxiv.org/abs/2610.12815][Deploying RDMA for Large-Scale Inference and Training Workloads]]
+  :WHAT: ByteExpress — софтверный коммуникационный слой над аппаратным RDMA в production ByteDance: RDMA-aware аллокатор, zero-copy, QP multiplexing, receive-credit flow control, software send window и RPC-assisted recovery.
+  :IMPACT: −35.7%/−43.7% (mean/P99) задержки фетча параметров в инференсе и −74% P99 push в обучении против TCP — практические уроки для любого RDMA-деплоя.
+- [[https://arxiv.org/abs/2610.13003][SlackSwap: Bandwidth-Aware Activation Swapping and Recomputation for Memory-Efficient DNN Training]]
+  :WHAT: Время host-линка как явный бюджет: связывающий бюджет отдаётся тензорам, дорогим в пересчёте, дешёвые пересчитываются; FIFO offload и earliest-deadline-first prefetch без пер-слойных барьеров.
+  :IMPACT: 96–100% throughput неограниченной памяти при половине памяти активаций на A100; план за <0.4 с в пределах 0.5% от генетического поиска по тысячам кандидатов.
+- [[https://arxiv.org/abs/2610.12970][Minions: A Dynamic and Distributed Virtual GPU Cloud Built on Idle Apple Silicon Devices]]
+  :WHAT: Динамическое виртуальное GPU-облако, агрегирующее простаивающие GPU устройств на Apple Silicon с отказоустойчивостью и эластичным исполнением инференс-задач.
+  :IMPACT: Практичный путь нарастить инференс-мощность без закупки GPU — превращает парк macOS-устройств в распределённую платформу.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2509.05511][Efficient Fault Localization in a Cloud Stack Using End-to-End Application Service Topology]]
+  :ALGO: TA-RCD — локализация первопричин по end-to-end топологии сервиса плюс topology-guided отбор наиболее информативных метрик со всех слоёв стека.
+  :IMPACT: Минимум 2×/4× роста AC@5/AC@3 на контролируемом тестбеде и +18%/+19% метрик-уровня на RCAEval — топологические графы сервисов становятся субстратом автоматизированной диагностики микросервисов.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2610.12911][Coexponential Exploration in the Clef Programming Language]] — Теоретико-языковой формализм stateful-сервисов через коэкспоненциалы с верификацией композиции и доказательствами сохранения владения состоянием при компиляции.

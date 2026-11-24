@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-05-24
+#+FROM: [2026-05-23 Sat]
+#+TO: [2026-05-24 Sun]
+#+DATE: [2026-05-24 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Apache Iceberg обновляет спецификацию до V3 с поддержкой векторов удаления и новой точностью времени, что меняет подход к управлению таблицами. Сообщество LDBC планирует встречу в Бостоне, синхронизированную с VLDB, для обсуждения стандартов графовых данных. Анализ социально-экономических показателей Китая предлагает макроэкономический контекст для долгосрочного планирования. Фокус смещается на эффективность хранения данных и взаимодействие внутри индустриальных сообществ.
+
+* 📂 Категории
+** Инженерия Данных
+- [[hxxps://www.dremio.com/blog/apache-iceberg-v2-vs-v3-what-changed-and-what-it-means-for-your-tables/][Apache Iceberg V2 vs V3: What Changed and What It Means for Your Tables]] (Dremio) — Разбор различий между версиями формата Iceberg, включая векторы удаления и точность временных меток, что критично для архитектуры хранилищ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-iceberg-v2-vs-v3-what-changed-and-what-it-means-for-your-tables/][Apache Iceberg V2 vs V3: What Changed and What It Means for Your Tables]]
+:SCORE: 9/10
+:WHY: Прямое влияние на проектирование таблиц и совместимость движков обработки данных при масштабировании.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества GDC в Бостоне, совмещенной с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность нетворкинга и обсуждения стандартов графовых баз данных с ключевыми игроками рынка.
+
+** Не Инженерия
+- [[hxxps://peterturchin.substack.com/p/well-being-and-immiseration-in-contemporary][Well-being and Immiseration in Contemporary China]] (Peter Turchin) — Количественный анализ благосостояния и социальных механизмов в КНР на основе больших данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/well-being-and-immiseration-in-contemporary][Well-being and Immiseration in Contemporary China]]
+:SCORE: 6/10
+:WHY: Контекстуальное понимание глобальных социально-экономических трендов для стратегического планирования.

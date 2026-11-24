@@ -1,0 +1,141 @@
+#+TITLE: Arxiv Digest: 2026-09-01
+#+FROM: [2026-08-31 Mon]
+#+TO: [2026-09-01 Tue]
+#+DATE: [2026-09-01 Tue]
+#+STARTUP: showall
+
+* cs.DB — Базы данных (Databases)
+** 🧐 Обзор
+В свежем срезе по Databases заметен сдвиг к прикладным системам на стыке данных и агентов: ускоряются векторный поиск, верификация аутсорсинговых трансформаций, retrieval-Augmented workflows и текстово-реляционная QA-оценка. Материализуется линия “execution-grounded”: системы и бэнчмарки всё сильнее опираются на проверку состояния, а не только на правдоподобный ответ. Практически важны индексы для sparse MIPS, к-анонимизация с криптографической верификацией, бандл-рetrieval и надёжность агентов в stateful бизнес-процессах.
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.08395][SINDI: An Efficient Index for Sparse Vector Approximate Maximum Inner Product Search]]
+  :WHAT: Sparse inverted non-redundant distance index с SIMD-ускорением, последовательным доступом к инвертированным спискам и прунингом низких величин sparse-векторов.
+  :IMPACT: Повышает QPS и эффективность sparse MIPS для multi-path retrieval и RAG; уже интегрирован в открытую библиотеку VSAG.
+- [[hxxps://arxiv.org/abs/2604.12431][VeriX-Anon: A Multi-Layered Framework for Mathematically Verifiable Outsourced Target-Driven Data Anonymization]]
+  :WHAT: Многоуровневая верификация outsourced k-anonymization через Merkle-дерево решений, boundary sentinels, twins и SHAP/Wasserstein XAI-отпечатки.
+  :IMPACT: Даёт владельцу данных способ проверить корректность выполнения приватизации в облаке с низким overhead на client side.
+- [[hxxps://arxiv.org/abs/2605.19246][Example-Driven Intent Synthesis for Constrained Data Bundle Retrieval: Focused Text Snippet Extraction and Beyond]]
+  :WHAT: Framework Ex2Bundle, который из примеров bundle’ов синтезирует aggregate package queries и мягко ослабляет несовместимые ограничения.
+  :IMPACT: Упрощает constrained retrieval и text snippet extraction, сохраняя согласование с пользовательским intent.
+- [[hxxps://arxiv.org/abs/2606.23667][The Table Says Otherwise: Testing LLMs with Counterfactual Relational Data]]
+  :WHAT: ContraTable — парный original/counterfactual бэнчмарк для проверки того, что LLM отвечают по данным таблицы, а не по предтренировочным фактам.
+  :IMPACT: Практичен для database QA и NL2SQL-приложений, где таблица должна быть источником истины, а не памятью модели.
+- [[hxxps://arxiv.org/abs/2608.19741][One Success Isn't Reliability: Thinkingbox, a Sandbox and Benchmark for Agents in Stateful Business Workflows]]
+  :WHAT: Thinkingbox — MCP-совместимый sandbox и бэнчмарк из 507 workflow с проверкой финального состояния backend.
+  :IMPACT: Выявляет разрыв между “иногда успешной” траекторией агента и надёжным выполнением enterprise-процессов с реальными副作用.
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.07653][Large-scale spatial variable gene atlas for spatial transcriptomics]] — большой бэнчмарк и атлас spatial variable genes для пространственной транскриптомики и data-driven biology.
+
+* cs.AI — Искусственный интеллект (Artificial Intelligence)
+** 🧐 Обзор
+В AI-срезе для data systems особенно заметны production-ориентированные агентные пайплайны: autonomous coding agents, memory-augmented critic-generator схемы для Text-to-SQL и унификация агентных бэнчмарков. Одновременно остаётся большой пласт прикладных оценок: bias, trust, fairness, энергетические симуляции и сравнение generative models без likelihood-а. Практическая ценность смещается от одного ответа к исполнению, валидации и повторяемой надёжности.
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.19319][Data Intelligence Agents: Interpreting, Modeling, and Querying Enterprise Data via Autonomous Coding Agents]]
+  :WHAT: Система из трёх агентов (Data Interpreter, Schema Creator, Query Generator), генерирующих, исполняющих, валидирующих и чинящих артефакты, а не только текст.
+  :IMPACT: Сжимает production data integration workflow; autonomous Query Generator показывает SOTA-уровень на SQL-бэнчмарках и внедрена для enterprise-клиентов.
+- [[hxxps://arxiv.org/abs/2607.20489][EvoSQL: Memory-Augmented Critic-Generator Co-Evolution for Text-to-SQL]]
+  :WHAT: Итеративный co-evolution framework для SQL synthesis с contextual memory, execution-верификацией, LLM-critic и SDPO fine-tuning.
+  :IMPACT: Улучшает надёжность сложных Text-to-SQL на Spider и BIRD, особенно в задачах с multi-step decomposition и correction.
+- [[hxxps://arxiv.org/abs/2607.25891][Messier: A High-Resolution Corpus for Cross-Benchmark Agent Evaluation]]
+  :WHAT: Единый corpus из 957 611 записей по 30 benchmark, 745 agents, 11 891 tasks и 74 263 verifiers со стандартной схемой.
+  :IMPACT: Делает агентные оценки сопоставимыми, выявляет разную скорость прогресса по доменам и позволяет строить capability scores без costly reruns.
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2202.06853][Agent-Based Model Framework for the North Carolina Modeling Infectious Diseases Program (NC MInD ABM) Overview, Design Concepts, and Details Protocol]] — ODD-протокол для агентной симуляции перемещений пациентов в healthcare facilities.
+- [[hxxps://arxiv.org/abs/2301.12569][A Mental Model Based Framework of Trust]] — формальная ментально-модельная основа для оценки и эволюции доверия человека к AI-агенту.
+- [[hxxps://arxiv.org/abs/2308.08025][Simulation-Based Evaluation of Energy-Constrained Quantum-Classical Competition]] — симуляция конкуренции quantum и classical compute компаний с ограниченной энергией.
+- [[hxxps://arxiv.org/abs/2311.13892][General Phrase Debiaser: Debiasing Masked Language Models at a Multi-Token Level]] — автоматический много-token pipeline для снятия phrase-level bias у MLM.
+- [[hxxps://arxiv.org/abs/2402.03741][SUB-PLAY: Adversarial Policies against Partially Observed Multi-Agent Reinforcement Learning Systems]] — black-box attack и защита для MARL при частичной наблюдаемости жертвы.
+- [[hxxps://arxiv.org/abs/2402.04355][PQMass: Probabilistic Assessment of the Quality of Generative Models using Probability Mass Estimation]] — likelihood-free chi-squared оценка качества, новизны и diversity generative models.
+- [[hxxps://arxiv.org/abs/2407.20371][Gender, Race, and Intersectional Bias in Resume Screening via Language Model Retrieval]] — audit study bias у text embedding retrieval в сценариях отбора резюме.
+- [[hxxps://arxiv.org/abs/2408.02111][Understanding Deep Learning via Notions of Rank]] — диссертационный обзор low-rank regularization, expressiveness и связей NN с tensor factorization.
+- [[hxxps://arxiv.org/abs/2412.15957][Learning Personalized Prompts for Healthcare Guidance]] — reinforcement learning персонализированных hard prompts для медицинских рекомендаций LLM.
+- [[hxxps://arxiv.org/abs/2502.10577][Man Made Language Models? Evaluating LLMs' Perpetuation of Masculine Generics Bias]] — показывает, что masculine generics bias сохраняется в ответах LLM на generic instructions.
+
+* physics.soc-ph — Социальная физика и сети (Social Physics & Networks)
+** 🧐 Обзор
+В soc-ph свежий срез смещён к higher-order и adaptive сетям: статистические фильтры для групповых взаимодействий, гиперграфная информация contagion, спектральные размеры модульных сетей. Зрелость появляется на стороне алгоритмов кластеризации и modularity из hierarchical representations. Для графовых систем наиболее релевантны методы бэкбоун-извлечения, спектральной диагностики и интервенций в гиперграфах.
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2209.12712][Identifying maximal sets of significantly interacting nodes in higher-order networks]]
+  :ALGO: Статистический filtering метод для higher-order networks, выделяющий значимо взаимодействующие максимальные множества узлов.
+  :IMPACT: Улучшает извлечение backbone в гиперграфах и выявляет topic-coherent кластеры при “разбавленных” групповых взаимодействиях.
+- [[hxxps://arxiv.org/abs/2510.20520][Asymptotic versus mesoscopic spectral dimensions in networks and inhomogeneous structures]]
+  :ALGO: Показывает, что модульная композиция сетей расцепляет spectral и Fiedler dimensions, приводя к разным динамикам equilibration при одинаковых thermodynamic exponents.
+  :IMPACT: Полезно для спектрального анализа и симуляции гетерогенных графов, где локальная модульность меняет эффективную “размерность”.
+- [[hxxps://arxiv.org/abs/2605.26268][Detecting Hierarchical Clusters and Estimating their Modularity Directly from Dendrograms]]
+  :ALGO: Метод детектирует иерархические кластеры и modularity по density mergings из dendrogram, с equalization, peak detection и recursive detection.
+  :IMPACT: Даёт практический инструмент для graph mining и cluster validation, когда доступны только иерархические представления похожести.
+- [[hxxps://arxiv.org/abs/2608.07874][Control of Harmful Information Spreading on Adaptive Higher-Order Networks via Group Dissolution]]
+  :ALGO: Adaptive higher-order contagion model, объединяющий group dissolution и user rewiring; выводятся критические окна и discontinuous transitions.
+  :IMPACT: Задаёт условия, при которых платформенные меры на гиперграфах подавляют вредную информацию или непреднамеренно усиливают её.
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2406.19204][CoDiNG -- Naming Game with Continuous Latent Opinions of Individual Agents]] — гибридная continuous-discrete модель opinion dynamics с reinforcement и forgetting.
+- [[hxxps://arxiv.org/abs/2501.17300][Dilemmas and trade-offs in the diffusion of conventions]] — статистико-физическая рамка для локально/глобально конкурирующих координационных процессов.
+- [[hxxps://arxiv.org/abs/2604.13885][Role of volatility mixing in wealth condensation transition]] — показывает, как heterogeneous volatility в networked wealth dynamics меняет tail exponent и condensation.
+- [[hxxps://arxiv.org/abs/2608.11652][Twenty-Five Years of Air Quality in Bangladesh: Trends, Seasonality, and Spatial Pollution Regimes]] — долгосрочный анализ air quality по 103 городам с clustering pollution regimes.
+- [[hxxps://arxiv.org/abs/2608.22497][Reflexivity from Hierarchical Causality]] — формулировка reflexivity в дискретной hierarchical causal system с endogenous constraint loop.
+- [[hxxps://arxiv.org/abs/2608.27509][The Mechanics of Democratic Dominance: A System Dynamics Paradigm for Dynamic Consent Engineering]] — system dynamics модель политической dominance и feedback-структур коммуникации.
+
+* cs.DS — Структуры данных и алгоритмы (Data Structures & Algorithms)
+** 🧐 Обзор
+Для Data Structures и Algorithms в этом срезе доминируют графовые и параметризованные задачи: recognition near-bipartite графов, treewidth/pathwidth визуализация, s-club clustering, fault-tolerant hyperspanners и T-join algorithms. Появляется и прикладная структура данных для geometric queries на плоскости. Практическая ценность — в алгоритмах, которые можно использовать для graph analytics, routing и индексирования пространственных данных.
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.00743][Smallest Enclosing Disk Queries Using Farthest-Point Voronoi Diagrams]]
+  :WHAT: Более простая 2D-структура для smallest enclosing disk queries внутри axis-aligned rectangle, основанная на farthest-point Voronoi diagrams.
+  :IMPACT: Даёт детерминированный и рандомизированный query bounds с меньшим архитектурным overhead, полезен для spatial DB/GIS query engines.
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/1707.09817][Recognizing Graphs Close to Bipartite Graphs with an Application to Colouring Reconfiguration]]
+  :ALGO: Алгоритмы recognition для разбиения A, B где B — k-degenerate class: O(n) для k=1, O(n^2) для k≥2 на bounded degree графах.
+  :IMPACT: Закрывает complexity classification для near-bipartite recognition и цветовой реконфигурации, важно для практических графовых эвристик.
+- [[hxxps://arxiv.org/abs/2508.19935][Visualizing Treewidth]]
+  :ALGO: Witness drawings path/tree decompositions через tree of bags, induced subgraphs и tracks для вершин; DP и heuristic layout для crossing minimization.
+  :IMPACT: Помогает интерпретировать низкую ширину графа и отлаживать tree-decomposition algorithms.
+- [[hxxps://arxiv.org/abs/2510.07065][On the Parameterized Complexity of s-Club Cluster Edge Deletion]]
+  :ALGO: Parameterized analysis s-Club Cluster Edge Deletion: W[1]-hardness по pathwidth/treewidth, FPT по treedepth/neighborhood diversity, bicriteria approximation.
+  :IMPACT: Задаёт tractability границы для graph clustering с diameter constraints.
+- [[hxxps://arxiv.org/abs/2510.26975][Constructive Characterization and Recognition Algorithm for Grafts with a Connected Minimum Join]]
+  :ALGO: Конструктивная характеристика и алгоритм решения существования connected minimum join в graft за O(n(m + n log n)).
+  :IMPACT: Расширяет алгоритмическую теорию T-joins и shortest paths, применимо к network optimization.
+- [[hxxps://arxiv.org/abs/2511.22803][Sublinear Edge Fault-Tolerant Hyperspanners for Hypergraphs]]
+  :ALGO: Гиперграфная clustering для edge fault-tolerant hyperspanners с sublinear в f размером и lower bounds для vertex/edge FT случаев.
+  :IMPACT: Первый систематический шаг к FT spanners для гиперграфов, релевантен routing и distributed network design.
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/1803.07199][Twelve Simple Algorithms to Compute Fibonacci Numbers]] — учебное сравнение алгоритмов и концепций dynamic programming.
+- [[hxxps://arxiv.org/abs/2504.10389][Diversity-Fair Online Selection]] — competitive online selection под diversity fairness с маргинальной информацией по измерениям.
+- [[hxxps://arxiv.org/abs/2511.09703][Spectral and combinatorial methods for efficiently computing the rank of unambiguous finite automata]] — алгоритмы и complexity для minimum rank в monoids из zero-one matrices.
+- [[hxxps://arxiv.org/abs/2603.26943][Bridging the Gap Between Stable Marriage and Stable Roommates: A Parameterized Algorithm for Optimal Stable Matchings]] — FPT-алгоритм для optimal stable matching по structural distance от stable marriage.
+
+* cs.DC — Распределённые вычисления (Distributed Computing)
+** 🧐 Обзор
+В Distributed Computing срез особенно плотный на system impact: компиляция и планирование для GPU/PIM, адаптивная маршрутизация внешних API, BFT консенсус и репликационные пайплайны. Заметны topological co-design для reconfigurable interconnects и distributed learning в нетипичных инфраструктурах вроде спутников. Практически важны оптимизации communication, fault tolerance и joint scheduling compute + data movement.
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2506.17471][Code Generation for Near-Roofline Finite Element Actions on GPUs from Symbolic Variational Forms]]
+  :WHAT: Параллелизация FEM variational forms на GPU через space of scheduling candidates, heuristic cost model и pruning; прототип в Firedrake.
+  :IMPACT: Достигает >50% roofline на значительной части kernel’ов, полезна для scientific computing и HPC на GPU.
+- [[hxxps://arxiv.org/abs/2511.03286][Characterising Global Platforms: Centralised, Decentralised, Federated, and Grassroots]]
+  :WHAT: Формальная multiagent atomic transaction framework, классифицирующая global platforms по cardinality essential agents.
+  :IMPACT: Даёт unified язык для safety, liveness и архитектурного сравнения Facebook/Bitcoin/Mastodon/Scuttlebutt-подобных систем.
+- [[hxxps://arxiv.org/abs/2511.15503][DCC: Data-Centric Compilation of Machine Learning Kernels for Processing-In-Memory Architectures]]
+  :WHAT: Data-centric ML compiler для PIM, co-optimizing data rearrangement, partitioning и compute schedule с multi-backend abstraction и performance model.
+  :IMPACT: Ускорения до 7.68x на HBM-PIM и до 4.52x в end-to-end LLM inference на AttAcc против GPU-only.
+- [[hxxps://arxiv.org/abs/2605.26404][From Conventional Multi-Vendor Failover to Adaptive API Routing: An Industrial Experience Report on Resilient Third-Party Service Integration]]
+  :WHAT: Промышленный переход от статического multi-vendor failover к configuration-driven adaptive API routing с scoring, telemetry и traffic-shift controls.
+  :IMPACT: Практический blueprint для resilient integration SMS/payments/auth API при региональных, quota и partial degradations.
+- [[hxxps://arxiv.org/abs/2605.26930][Revisiting Bruck: Phase-Efficient All-to-All Collective Communication in Reconfigurable Networks]]
+  :WHAT: ReTri — bidirectional all-to-all schedule для optical reconfigurable networks с balanced ternary block propagation и амортизацией reconfiguration delay.
+  :IMPACT: Улучшает completion time до 10x против pairwise all-to-all, важно для distributed ML/HPC interconnects.
+- [[hxxps://arxiv.org/abs/2607.09882][Benchmarking Zero-Setup Quantum Circuit Simulators]]
+  :WHAT: Систематический GPU benchmark hosted quantum simulators для MPS и Pauli path simulation против AWS Braket, Quantum Rings и других.
+  :IMPACT: Даёт практическую карту tradeoffs infrastructure, accuracy и setup effort для approximate quantum simulation.
+- [[hxxps://arxiv.org/abs/2608.16504][Vantage: Availability-Graded Broadcast for Signature-Free BFT]]
+  :WHAT: Partially synchronous BFT protocol с hash-linked author lanes, core/tip manifests и Availability-Graded Broadcast без цифровых подписей.
+  :IMPACT: Показывает 250k TPS и низкую p50 latency на WAN, снижая overhead evidence transfer в high-throughput BFT.
+- [[hxxps://arxiv.org/abs/2608.24516][SatDL: Jointly Optimizing Data Redistribution and Training for Satellite-Based Distributed Learning]]
+  :WHAT: Distributor-Critic framework для satellite-based distributed learning, минимизирующий суммарную data-transfer + training time при non-IID labels.
+  :IMPACT: Сокращает end-to-end training time до 18.6% и onboard energy до 88%, важен для orbital ML и edge/satellite systems.
+- [[hxxps://arxiv.org/abs/2608.27091][Sintr: Safe Interactive Transactions in the Presence of Byzantine Clients]]
+  :WHAT: Framework для BFT databases с redundant execution и flexible heterogeneous policy checks, предотвращающий compromised database от Byzantine clients.
+  :IMPACT: Даёт практичное усиление client-centric BFT transactional systems с modest overhead по throughput и latency.
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.28955][Algorithmic Simplification for Million-Vertex Diffusion History Reconstruction]]
+  :ALGO: Упрощает diffusion history reconstruction до deterministic mean-field forward-backward inference, threshold decoding и fixed rates вместо learned proposal, MCMC и fitting.
+  :IMPACT: Масштабируется на million-vertex graph histories через CUDA и ускоряет алгоритмическую фазу, полезно для event/network reconstruction.

@@ -1,0 +1,61 @@
+#+TITLE: Daily Digest: 2026-05-16
+#+FROM: [2026-05-15 Fri]
+#+TO: [2026-05-16 Sat]
+#+DATE: [2026-05-16 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+AI-agents переходят от простых запросов к действиям, требуя чистой идентификации entities, а не только семантических слоев. Надежность LLM в длинных цепочках задач вызывает вопросы: исследования Microsoft показывают деградацию fidelity на 19–34% при делегировании. Безопасность RAG становится критичной — Amazon Quick внедряет document-level ACLs для敏感 documents. Проблемы data modeling вызваны отсутствием ownership, а не недостатком инструментов (4.8% blame tools). Вендоры фокусируются на sales intelligence и миграции инфраструктуры metadata stores.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.learningfromdata.zingg.ai/p/the-semantic-layer-does-not-have][The Semantic Layer Does Not Have All The Answers]] (Learning From Data) — Семантический слой решает определение метрик, но чистота entities критична для действий AI-agents.
+- [[hxxps://joereis.substack.com/p/why-90-of-data-teams-are-failing][Why 90% of Data Teams Are Failing at Data Modeling]] (Joe Reis) — Кризис data modeling вызван отсутствием ownership, инструменты не решают проблему (4.8% respondents).
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.learningfromdata.zingg.ai/p/the-semantic-layer-does-not-have][The Semantic Layer Does Not Have All The Answers]]
+:SCORE: 9/10
+:WHY: Critical for architecting data stacks для agentic AI, где actions depend on entity resolution.
+**** [[hxxps://joereis.substack.com/p/why-90-of-data-teams-are-failing][Why 90% of Data Teams Are Failing at Data Modeling]]
+:SCORE: 9/10
+:WHY: Highlights cultural bottlenecks over tooling in data teams, essential for leadership strategy.
+
+** Engineers
+- [[hxxps://www.kdnuggets.com/5-must-know-python-concepts][5 Must-Know Python Concepts]] (KDnuggets) — Five фундаментальных концептов Python для toolkit разработчика.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/5-must-know-python-concepts][5 Must-Know Python Concepts]]
+:SCORE: 5/10
+:WHY: Core skills refresh для senior engineers, хотя content базовый.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/pipelineiq-forward-looking-sales-intelligence-drives-action][PipelineIQ: Forward‑Looking Sales Intelligence That Drives Action]] (Databricks) — Forward-looking sales intelligence для messy CRM data.
+- [[hxxps://www.databricks.com/blog/backstage-lakebase-part-2][Backstage with Lakebase, part 2]] (Databricks) — Migration underlying database Backstage to Lakebase.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — Announcement Technical User Community meeting in Boston.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/backstage-lakebase-part-2][Backstage with Lakebase, part 2]]
+:SCORE: 7/10
+:WHY: Infrastructure pattern для metadata stores, relevant для platform engineering.
+**** [[hxxps://www.databricks.com/blog/pipelineiq-forward-looking-sales-intelligence-drives-action][PipelineIQ: Forward‑Looking Sales Intelligence That Drives Action]]
+:SCORE: 6/10
+:WHY: Use case для sales data pipelines в enterprise context.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 4/10
+:WHY: Community networking opportunity для LDB stack users.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/turboquant-is-the-compression-and-performance-worth-the-hype][TurboQuant: Is the Compression and Performance Worth the Hype?]] (KDnuggets) — Evaluation compression and performance hype of TurboQuant.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/restrict-access-to-sensitive-documents-in-your-amazon-quick-knowledge-bases-for-amazon-s3/][Restrict access to sensitive documents in your Amazon Quick knowledge bases for Amazon S3]] (AWS) — Document-level ACLs для restrictions sensitive documents в Amazon Quick.
+- [[hxxps://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/][Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability]] (Microsoft) — Research on AI delegation shows 19-34% fidelity degradation в long-horizon workflows.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/further-notes-on-our-recent-research-on-ai-delegation-and-long-horizon-reliability/][Further Notes on Our Recent Research on AI Delegation and Long-Horizon Reliability]]
+:SCORE: 9/10
+:WHY: Quantifies risk of AI delegation в production, critical для reliability engineering.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/restrict-access-to-sensitive-documents-in-your-amazon-quick-knowledge-bases-for-amazon-s3/][Restrict access to sensitive documents in your Amazon Quick knowledge bases for Amazon S3]]
+:SCORE: 8/10
+:WHY: Essential для RAG security compliance и governance в enterprise.
+**** [[hxxps://www.kdnuggets.com/turboquant-is-the-compression-and-performance-worth-the-hype][TurboQuant: Is the Compression and Performance Worth the Hype?]]
+:SCORE: 6/10
+:WHY: Performance trade-off analysis для AI infrastructure optimization.

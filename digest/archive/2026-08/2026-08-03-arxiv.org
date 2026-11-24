@@ -1,0 +1,134 @@
+#+TITLE: Arxiv Digest: 2026-08-03
+#+FROM: [2026-08-02 Sun]
+#+TO: [2026-08-03 Mon]
+#+DATE: [2026-08-03 Mon]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается рост интереса к системам извлечения данных из неструктурированных источников и оптимизации индексов для динамических рабочих нагрузок. Особое внимание уделяется бенчмаркам для оценки end-to-end методов и эффективным алгоритмам удаления в графовых индексах. Практическая значимость связана с внедрением RAG-систем и обработкой гетерогенных научных документов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2511.16134][Benchmarking Table Extraction from Heterogeneous Scientific PDF Documents]]
+:WHAT: Новый бенчмарк для оценки end-to-end методов извлечения таблиц из PDF на 86k страницах с двумя новыми датасетами (39k сэмплов).
+:IMPACT: Позволяет сравнивать TE-инструменты по единой метрике, выявляя проблемы обобщаемости на гетерогенных данных.
+
+- [[hxxps://arxiv.org/abs/2607.29173][MERIT: Efficient In-Place Deletion for Dynamic Graph-Based Approximate Nearest Neighbor Indexes]]
+:WHAT: Фреймворк MERIT для эффективного удаления векторов в графовых ANNS-индексах через bounded search-based recovery и versioned-edge invalidation.
+:IMPACT: Ускорение удаления в 3-19 раз по сравнению с SOTA при сохранении recall, критично для RAG и рекомендательных систем.
+
+- [[hxxps://arxiv.org/abs/2607.29070][Query Density-Driven Partitioning for Spatiotemporal Load Balancing on Processing-in-Memory Systems]]
+:WHAT: Схема партиционирования на основе плотности запросов для PIM-систем с индексом B+-Forest.
+:IMPACT: Балансировка нагрузки между процессорами PIM при эффективной поддержке range-aggregate запросов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.29120][Curriculum Matters: Data-Efficient Relational PFN Pretraining with Synthetic Data]] — Прогрессивный curriculum для предобучения relational PFN достигает 88% производительности RDB-PFN при 220x меньшем объёме синтетических данных.
+- [[hxxps://arxiv.org/abs/2607.29134][InferQ: A Database-Oriented Benchmark for Quantum Circuits Simulation]] — Бенчмарк для симуляции квантовых схем через SQL-ворклоады с 202k цепями и ML-моделями для предсказания оптимального движка.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Основные тренды связаны с оптимизацией GPU-ускоренных систем поиска ближайших соседей и архитектур памяти для LLM-агентов. Наблюдается зрелость подходов к квантованию векторов и параллельному извлечению контекста. Практически значимы работы по совместному обслуживанию inference и fine-tuning, а также гибридные системы символического и нейросетевого планирования.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.07048][GPU-Accelerated ANNS: Quantized for Speed, Built for Change]]
+:WHAT: Система Jasper для GPU-native ANNS с CUDA batch-parallel construction, RaBitQ квантованием (8x сжатие) и оптимизированным greedy search kernel.
+:IMPACT: До 1.84x выше throughput чем CAGRA, 10-74x быстрее чем BANG, с поддержкой streaming insertions без перестройки индекса.
+
+- [[hxxps://arxiv.org/abs/2605.23986][MemForest: An Efficient Agent Memory System with Hierarchical Temporal Indexing]]
+:WHAT: Фреймворк MemForest с иерархическим временным индексом MemTree и параллельным извлечением памяти через dirty-path refresh.
+:IMPACT: Скорость построения памяти в 6-9.5 раз выше чем EverMemOS при сопоставимом качестве ответов на LongMemEval-S и LoCoMo.
+
+- [[hxxps://arxiv.org/abs/2607.28848][DeltaServe: Host-Agnostic Co-Serving of Inference and Fine-Tuning for LLMs]]
+:WHAT: Дизайн co-serving для использования idle inference capacity под LoRA fine-tuning с SLO-aware scheduler.
+:IMPACT: 2.9x выше throughput fine-tuning чем LLMStation при 100% compliance inference SLO без дополнительного оборудования.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2407.02025][On the Expressive Power of Sparse Geometric MPNNs]]
+:ALGO: Доказательство разделимости неизоморфных геометрических графов message-passing сетями при связном underlying графе и rotation equivariant features.
+:IMPACT: Теоретические гарантии для sparse geometric GNN в химических и научных приложениях с архитектурой EGENNET.
+
+- [[hxxps://arxiv.org/abs/2410.06665][Revisiting Multi-Permutation Equivariance through the Lens of Irreducible Representations]]
+:ALGO: Характеризация equivariant linear layers через irreducible representations и лемму Шура с расширением на unaligned symmetric sets.
+:IMPACT: Новые non-Siamese слои улучшают performance в graph anomaly detection и weight space alignment.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.28778][Stratified Negation in RDF Rules: A Correct Approach (Extended Version)]] — Chain stratification гарантирует уникальную семантику для RDF правил с отрицанием и existential rules.
+- [[hxxps://arxiv.org/abs/2502.19135][Combining Large Language Models and Symbolic Reasoning for Multi-Robot Temporal Planning through Explainable Knowledge Bases]] — Фреймворк PLANTOR генерирует Prolog knowledge-base через LLM для multi-robot планирования с проверкой согласованности.
+- [[hxxps://arxiv.org/abs/2411.19537][Deepfake Media Generation and Detection in the Generative AI Era: A Survey and Outlook]] — Обзор методов генерации и детекции deepfake с новым multimodal бенчмарком, показывающим проблемы generalization на unseen generators.
+- [[hxxps://arxiv.org/abs/2506.13862][StaQ: a Finite Memory Approach to Discrete Action Policy Mirror Descent]] — PMD-алгоритмы с хранением последних M Q-функций достигают performance близкого к exact PMD на MinAtar бенчмарках.
+- [[hxxps://arxiv.org/abs/2209.05838][SATViz: Real-Time Visualization of Clausal Proofs]] — Инструмент визуализации CNF формул через variable interaction graph с force-directed layout для анализа community structure.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования фокусируются на анализе научных карьер, культурных вариаций концептов и влияния AI на рынок труда. Наблюдается зрелость агентных моделей для изучения формирования common ground и динамики знаний. Практическая релевантность связана с картированием бедности, оптимизацией вмешательств в кризисы и анализом геоэкономики орбитальных ресурсов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.29242][How null-model constraints affect statistical validation in projected bipartite networks]]
+:ALGO: Сравнение четырёх null моделей (Curveball, BiCM, BiPCM, Hypergeometric) через анализ распределения статистики co-occurrence.
+:IMPACT: Показано, что Hypergeometric модель точно воспроизводит variance microcanonical ensemble несмотря на игнорирование degree heterogeneity.
+
+- [[hxxps://arxiv.org/abs/2605.26268][Detecting Hierarchical Clusters and Estimating their Modularity Directly from Dendrograms]]
+:ALGO: Метод обнаружения кластеров через анализ плотности слияний в дендрограммах с equalization и peak detection.
+:IMPACT: Прямая оценка иерархической модулярности без предварительных предположений о структуре данных.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2306.16643][Conservative adventurers have more future academic impact]] — Учёные, переключающиеся между близкими темами, получают на 19% больше цитирований, балансируя exploration и exploitation.
+- [[hxxps://arxiv.org/abs/2607.07267][Billions of Sketches Reveal Hidden Cultural Variation in Human Concepts]] — Анализ 2.6 млрд скетчей из 236 стран показывает, что визуальные представления сохраняют культурную структуру лучше текстовых эмбеддингов.
+- [[hxxps://arxiv.org/abs/2607.28798][Occupational Convergence or Divergence? Mapping Labor Market Structural Shifts Driven by AI Penetration]] — AI-навыки концентрируются в техническом ядре (STEM), усиливая occupational stratification вместо демократизации.
+- [[hxxps://arxiv.org/abs/2601.03105][Computationally Efficient Estimation of Localized Treatment Effects for Multi-Level, Multi-Component Interventions to Address the Opioid Crisis]] — Двухэтапный metamodel с GPR оценивает эффекты вмешательств с <5% ошибкой при <2% симуляций от exhaustive.
+- [[hxxps://arxiv.org/abs/2607.28915][An agent-based model of the formation and evolution of common ground]] — ABM моделирует формирование communal common ground через repeated grounding attempts с различными контекстами взаимодействия.
+- [[hxxps://arxiv.org/abs/2607.29179][Autocatalytic knowledge dynamics in the AI era]] — Макродинамическая модель знаний показывает, что AI усиливает autocatalysis, но counteracting факторы могут привести к phase transition.
+- [[hxxps://arxiv.org/abs/2606.25283][Competitive satellite placement and the economic geography of the geostationary orbit]] — Пространственная модель показывает, что коммерческие спутники размещаются пропорционально доходу с spatial discount rate.
+- [[hxxps://arxiv.org/abs/2607.29457][Poverty Mapping: Data, Models and Applications]] — Обзор методов картирования бедности через satellite imagery, mobile phone и social media данные для SDG 1 мониторинга.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Актуальные работы сосредоточены на approximation schemes для задач partitioning, условных lower bounds и дифференциальной приватности в streaming. Наблюдается прогресс в succinct hash tables с практической производительностью. Теоретические результаты имеют системную релевантность через оптимизацию структур данных для high-throughput приложений.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.07595][Induced packing treewidth]]
+:ALGO: Введён параметр induced-H-packing treewidth, обобщающий tree-independence number и induced matching treewidth через forbidden induced subgraphs.
+:IMPACT: Новые алгоритмические последствия для MWIS на графах с bounded induced packing treewidth, включая случаи H={P3} и всех циклов.
+
+- [[hxxps://arxiv.org/abs/2606.25875][An Exponent-Tight Conditional Lower Bound for Global Label Min-Cut]]
+:ALGO: Детерминированная редукция укрепляет conditional lower bound до (np)^{o(log n)} под ETH для edge-labeled графов.
+:IMPACT: Lower bound matching exponent randomized quasi-polynomial upper bound, применяется к bounded-error randomized алгоритмам под rETH.
+
+- [[hxxps://arxiv.org/abs/2607.29016][Nonlinear Exchange Dynamics for Independent Sets]]
+:ALGO: foundation tools для анализа nonlinear dynamics в hard-core модели с almost linear convergence через coupling arguments.
+:IMPACT: Новые алгоритмы сэмплирования с specified density/marginal vector проще в реализации чем традиционные подходы через learning parameters.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.18241][Approximation Schemes for k-Subset Sum Ratio and k-way Number Partitioning Ratio]] — Первый FPTAS для k-SSR при k>2 со сложностью O(n^{2k}/ε^{k-1}), улучшает bound для Minimum Envy-Ratio при identical valuations.
+- [[hxxps://arxiv.org/abs/2507.11681][Finite Pinwheel Scheduling: the k-Visits Problem]] — 2-Visits сильно NP-полон через редукцию из N3DM, но решается за линейное время при distinct deadlines.
+- [[hxxps://arxiv.org/abs/2607.04886][Strong ILP Formulations for the p-Regions Problem]] — Модель ER-S-Tree доминирует state-of-the-art по polyhedral strength, решая ранее intractable instances для европейских стран.
+- [[hxxps://arxiv.org/abs/2607.26388][Sensitivity and Differential Privacy in Metric Voting with Distortion below Three]] — Рандомизированное правило с distortion ≤3-ε и worst-case sensitivity O((log m+1)/n) с (ε,δ)-DP гарантиями.
+- [[hxxps://arxiv.org/abs/2607.28703][Costs of Arbitrary Real Matrix Factorizations for Pure-DP Continual Counting]] — Доказано Θ((log n)^{3/2}) для factorization costs prefix-sum матрицы в pure-ε-DP matrix mechanism.
+- [[hxxps://arxiv.org/abs/2607.28819][A Matrix Factorization Approach in Turnstile Streaming]] — Фреймворк для M-point query problem обобщает dyadic CountSketch с lower bound Ω(ε^{-1} log U) для quantiles.
+- [[hxxps://arxiv.org/abs/2607.28892][Succinct and Fast Tiny Pointer Hash Tables]] — TPHT достигает 105.4% space efficiency (Chained) и 89.3% выше throughput (Flattened) через сжатие pointers до байта.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Ключевые направления включают децентрализованное обучение диффузионных моделей, оптимизацию LLM serving на multi-partition GPU и scheduling для distributed quantum computing. Наблюдается зрелость подходов к co-serving inference и fine-tuning. Практически значимы работы по NUMA balancing для HPC симуляций и safety checking для IoT smart spaces.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2510.03434][Paris: A Decentralized Trained Open-Weight Diffusion Model]]
+:WHAT: Первая publicly released diffusion модель, обученная полностью через децентрализованные вычисления без синхронизации градиентов между 8 экспертами.
+:IMPACT: Качество генерации сравнимо с centrally coordinated baselines при 14x меньше данных и 16x меньше compute, работает на heterogeneous hardware.
+
+- [[hxxps://arxiv.org/abs/2607.28824][Characterizing LLM Kernel Access and Memory Interaction in Multi-Partition NUMA GPUs]]
+:WHAT: Анализ паттернов доступа к памяти для LLM kernels на multi-partition GPU с categorization operands на global/partial/private sharing patterns.
+:IMPACT: Требует placement-aware kernel programming и smarter architectural support для work/data locality в multi-partition GPU.
+
+- [[hxxps://arxiv.org/abs/2607.29069][Rethinking AI Cloud Infrastructure for Agentic Serving Systems with the Aries Experimentation Framework]]
+:WHAT: Full-stack фреймворк Aries для экспериментов с agent serving, разделяющий task semantics от execution configurations с correlated telemetry.
+:IMPACT: Показано, что token-centric metrics пропускают non-inference bottlenecks, а tool sandboxes требуют elastic resource management.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.28880][LayoutBench: Performance Benchmarking of Cloud Storage Layouts for Multimedia Data]] — Первый бенчмарк для cloud storage layouts (L1/L2/L3) показывает L2 быстрее для малых retrievals, L3 для больших, но L3 дороже на порядок.
+- [[hxxps://arxiv.org/abs/2602.24152][Advanced Scheduling Strategies for Distributed Quantum Computing Jobs]] — Сcheduling стратегии для DQC с RL-based PPO, heuristics для QPU utilization и heterogeneous network connectivity.
+- [[hxxps://arxiv.org/abs/2607.22275][NUMA balancing hampering performance of spiking network simulations]] — Отключение automatic NUMA balancing снижает энергопотребление на 30% для spiking network симуляций на суперкомпьютерах.
+- [[hxxps://arxiv.org/abs/2607.28897][High-Level Big Integer Arithmetic in Futhark for GPUs]] — GPU реализации big integer arithmetic в Futhark достигают конкурентной производительности с C++/CUDA при automated register placement.
+- [[hxxps://arxiv.org/abs/2607.28957][Beyond Byzantine: An Organizational Consensus Algorithm for Self-Interested Agents Under Information Asymmetry]] — OCA моделирует inter-departmental negotiation как incomplete information game с token staking и confidence-weighted consensus.
+- [[hxxps://arxiv.org/abs/2607.29198][Knox: Fortifying Smart Spaces With Safety Guarantees]] — Первая система safety checking для IoT smart spaces с новым языком спецификаций и static verification алгоритмами.
+- [[hxxps://arxiv.org/abs/2607.29303][Allocation Tracking and Parameter Checking for Parallel Programming Models using Contracts]] — Расширение CoVer framework с generic parameter checking и allocation tracking для multiple parallel programming models.

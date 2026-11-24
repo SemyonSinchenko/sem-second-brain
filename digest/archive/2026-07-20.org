@@ -1,0 +1,45 @@
+#+TITLE: Daily Digest: 2026-07-20
+#+FROM: [2026-07-19 Sun]
+#+TO: [2026-07-20 Mon]
+#+DATE: [2026-07-20 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Регулирование ИИ выходит на новый уровень: закон ЕС определяет конкретные критерии высокого риска для систем. Индустрия переходит от эйфории к экономической ответственности, осознавая инфраструктурные затраты и пузырь на рынке полупроводников. Инженеры данных фокусируются на фундаментальных платформах, семантических слоях и миграции Kafka без потерь. Параллельно продолжается углубленное изучение Rust и развитие сообщества графовых баз данных.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/2026/07/airia/could-your-ai-systems-already-be-high-risk-under-the-eu-ai-act][Could Your AI Systems Already Be High-Risk Under the EU AI Act?]] (KDnuggets) — Разбор критериев высокого риска для соблюдения регуляторики и влияния на governace.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/2026/07/airia/could-your-ai-systems-already-be-high-risk-under-the-eu-ai-act][Could Your AI Systems Already Be High-Risk Under the EU AI Act?]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов, внедряющих ИИ в Европе, чтобы избежать юридических рисков.
+
+** Инженеры и практика
+- [[hxxps://joereis.substack.com/p/the-ai-party-isnt-over-but-the-bill][The AI Party Isn't Over. But the Bill Will Show Up Soon]] (Joe Reis) — Анализ экономического пузыря, затрат на ЦОДы и перехода от хайпа к окупаемости.
+- [[hxxps://rossabaker.com/blog/rust-book-ch05/][Rust Book, Chapter 5: Using Structs to Structure Related Data]] (Ross Baker) — Сравнение структур Rust и Scala для понимания системы владения и продуктных типов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/the-ai-party-isnt-over-but-the-bill][The AI Party Isn't Over. But the Bill Will Show Up Soon]]
+:SCORE: 9/10
+:WHY: Трезвый взгляд на экономику ИИ необходим техлидам для планирования бюджетов и инфраструктуры.
+**** [[hxxps://rossabaker.com/blog/rust-book-ch05/][Rust Book, Chapter 5: Using Structs to Structure Related Data]]
+:SCORE: 7/10
+:WHY: Полезно для инженеров, изучающих системное программирование и сравнение моделей памяти.
+
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-279][Data Engineering Weekly #279]] (Data Engineering Weekly) — Подборка статей о платформах данных, семантике Apache Ossie и миграции Kafka в Kubernetes.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-279][Data Engineering Weekly #279]]
+:SCORE: 8/10
+:WHY: Концентрированная польза по архитектуре платформ и управлению качеством данных в эпоху ИИ.
+
+** Вендоры и сообщества
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDB Council) — Анонс встречи сообщества по управлению графовыми данными в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность для нетворкинга и обмена опытом для специалистов по графовым базам данных.

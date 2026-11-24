@@ -1,0 +1,52 @@
+:PROPERTIES:
+:ID:          8153383e-d72f-498b-8f64-5f9a2ee94b82
+:END:
+#+title: Trusting compilers to optimize: a mental model
+#+ROAM_REFS: https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html
+#+filetags: :article:
+
+* Summary
+Source: [[https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html][https://matklad.github.io/2023/04/09/can-you-trust-a-compiler-to-optimize-your-code.html]]
+An essay building a practical mental model for reasoning about optimizing compilers in static languages like [[id:89437d82-4e84-41a3-a924-ee279fc7bd00][Rust]] and C++. The core insight: compilers are myopic tools that reason primarily about /local variables/ (as mathematical integers, not bytes) within a single function, and rely on two key optimizations — inlining and scalar replacement of aggregates (SROA) — to extend their reasoning reach. The author applies this framework to auto-vectorization, showing that compilers reliably vectorize code only when written in an amenable form, and concludes that zero-cost abstractions work by encoding guaranteed optimization opportunities in the type system.
+
+* Key Takeaways
+- Compilers reason about *local variables* as numbers, not memory; =load=/=store= are the only bridge between the memory world and the optimizable locals world.
+- *Inlining* substitutes a callee's body so caller and callee locals share a frame — this is the real benefit, not just removing call overhead.
+- *SROA* (scalar replacement of aggregates) is like inlining for memory: it loads a struct into scalar locals to gain precise reasoning power.
+- Most impactful "standard" optimizations look like removing dumb code that only appears /after/ inlining general-case functions at concrete call sites.
+- Indirect calls (function pointers, dynamic dispatch) and separate compilation block inlining; Rust's unique zero-sized function types statically guarantee inlinability, making abstractions zero-cost.
+- Compilers cannot change the overall memory layout of structs because layout is shared across functions.
+- For SIMD auto-vectorization: express the algorithm in terms of processing *chunks* of elements with *no branching* within a chunk (disable short-circuiting); mismatches must be detected without per-element dependencies.
+- Compilers are tools, not magic: the bulk of real impact comes from *guaranteed* optimizations with specific preconditions, not optimistic auto-vectorization.
+
+* Notes
+The essay is a valuable epistemic correction to the "compilers are smart / compilers are dumb" pendulum — landing on: compilers are tools you write /for/.
+
+** The compiler's worldview
+- Optimization unit = a single function.
+- Two kinds of entities: program memory (shared bytes, hard to reason about) and local variables (mathematical integers, easy to reason about).
+- =load= interprets a byte range as an integer into a local; =store= does the reverse. Loading lets the compiler reason precisely, so it only needs to prove /when/ a load/store is safe.
+- It never tracks general memory contents — just safety of loads/stores.
+
+** Bringing code closer to the compiler
+- Inlining: conflates caller/callee locals → lets dead-code elimination of general-case guards. E.g. Rust's =xs[i]= bound check vanishes after inlining into =sum= because the compiler sees constraints.
+- Many "dumb" optimizations (removing unreachable branches) only pay off because inlining exposes them.
+- SROA generalizes the load idea: replace a memory-resident aggregate struct (=ptr/len/cap=) with scalar locals for reasoning.
+- De-virtualization exists but depends on successful optimization elsewhere — not guaranteed.
+
+** Impossible vs possible
+- Direct calls → reliably inlinable. Indirect calls (fn pointers, vtables) → not in general.
+- Rust's one-unique-zero-sized-type-per-fn makes inlining a static guarantee; higher-level languages with always-function-pointer representation lose this signal in the source.
+- Indirection in memory (=Box=) is not clear-cut: proving things about =Foo='s memory doesn't transfer to =Bar='s, though uniqueness often lets the compiler reason through. Not guaranteed.
+- Homework: Rust iterators look the way they do (=map= signature/definition) because of these constraints.
+
+** Applying the framework to SIMD
+- Naive longest-common-prefix (LCP) processes one byte at a time — no parallelism.
+- Processing 16-byte chunks helps a bit but a =break= on mismatch creates a per-element dependency → blocks vectorization.
+- Fix: disable short-circuiting — check whether the /whole chunk/ matches, not /which/ byte mismatched.
+- Result: vectorization kicks in, ~10x speedup.
+- The final code is written differently /by design/ to trigger specific optimizations, not by blindly trusting the compiler.
+
+** Related nodes
+- Backend/IR reading refs: *The SSA Book*, LLVM *Language Reference*, *WebAssembly Specification* (structurally similar, readable). See also [[id:64af6fec-eab1-46bf-8ea9-f411ba2cc5ad][WASM]].
+- Further reading: /A Catalogue of Optimizing Transformations/ by Frances Allen.

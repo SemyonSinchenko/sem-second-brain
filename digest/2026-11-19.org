@@ -1,0 +1,113 @@
+#+TITLE: Daily Digest: 2026-11-19
+#+FROM: [2026-11-18 Wed]
+#+TO: [2026-11-19 Thu]
+#+DATE: [2026-11-19 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Meta подробно показала, как AI-агенты масштабируют ML-инновации: агенты уже обрабатывают более 60% «technique propagation» в ads ranking, давая 3x рост продуктивности инженеров и более $45M экономии на вычислениях. AWS и Databricks выпускают инфраструктуру для эконом-эффективного LLM-сервинга — распределённый KV-кэш на ElastiCache режет TTFT до 80%, а Unity Gateway Insights фокусируется на управлении затратами на AI. В инженерной практике крепнет тема «software factories»: CodeRabbit шиппит 5000+ PR в месяц агентами, а индустрия смещает фокус с написания кода на verification engineering. В AI-safety сообществе ключевой сдвиг — проблема «evaluation awareness»: мониторы ведут себя иначе, когда осознают, что их оценивают, что искажает мониторинговые evals. Для senior-инженера главный вывод недели: конкуренция смещается от изобретения техник к их надёжной и дешёвой доставке в продакшен.
+
+* 📂 Категории
+
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/software-factories-and-code-reviews][Software factories and code reviews with Harjot Gill]] (The Pragmatic Engineer) — CEO CodeRabbit шиппит 5000+ PR в месяц агентами (включая WAL на object storage на Rust за 6 недель) и объясняет, почему human code review мёртв.
+- [[https://www.dataengineeringweekly.com/p/thoughts-on-verification-engineering][Thoughts on Verification Engineering in the Agentic SDLC]] (Data Engineering Weekly) — AI не изобрёл «грязный код», но ускорил его производство; узким местом становится архитектура верификации всей цепочки поставки ПО.
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (Software Engineer's Street) — интервью с автором пяти технических книг, включая Writing for Developers, о рабочих процессах технического писательства.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/thoughts-on-verification-engineering][Thoughts on Verification Engineering in the Agentic SDLC]]
+:SCORE: 9/10
+:WHY: Задаёт стратегическую рамку для agentic SDLC: с ростом скорости генерации кода верификация становится главным инженерным вызовом, а не ревью.
+**** [[https://newsletter.pragmaticengineer.com/p/software-factories-and-code-reviews][Software factories and code reviews with Harjot Gill]]
+:SCORE: 8/10
+:WHY: Реальный кейс эксплуатации «software factory» с $250K/мес на AI и агентами, работающими по 6 недель над задачами — практический ориентир для организации агентных пайплайнов.
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Полезный разбор дисциплины технического письма для инженеров, которые хотят писать читаемые блоги и документацию.
+
+** Engineers
+- [[https://vutr.substack.com/p/free-what-the-f-is-a-semantic-layer][[FREE] What the f*** is a semantic layer?]] (Data Etc) — трезвый разбор, зачем семантический слой реально нужен в современном data platform stack, а не только как маркетинговый термин.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/free-what-the-f-is-a-semantic-layer][[FREE] What the f*** is a semantic layer?]]
+:SCORE: 7/10
+:WHY: Помогает senior-инженеру отличить реальную ценность semantic layer от хайпа при проектировании data platform.
+
+** Vendors
+- [[https://engineering.fb.com/2026/11/18/ml-applications/ai-agents-to-scale-ml-innovations-across-ads-ranking-models/][How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models]] (Meta Engineering) — агенты выполняют 60%+ распространения ML-техник по парку ranking-моделей, сокращая compute до 4x.
+- [[https://engineering.fb.com/2026/11/18/ml-applications/design-once-deploy-at-scale-template-driven-ml-ecosystem/][Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem]] (Meta Engineering) — шаблонная стандартизация моделей сократила инженерное время на 92% и дала 0.86% кумулятивного online-lift на 70% моделей.
+- [[https://neo4j.com/blog/developer/your-coding-agent-can-read-the-code-give-it-the-history-with-relate-by-neo4j/][Your Coding Agent Can Read the Code. Give It the History with Relate by Neo4j]] (Neo4j) — загрузка git-истории в граф (Relate) радикально улучшает выводы coding-агентов о co-change зависимостях.
+- [[https://aws.amazon.com/blogs/database/announcing-distributed-kv-caching-for-self-hosted-llms-with-amazon-elasticache/][Announcing distributed KV caching for self-hosted LLMs with Amazon ElastiCache]] (AWS Database Blog) — распределённый KV-кэш для vLLM/SGLang/TensorRT-LLM режет TTFT до 80% и стоимость инференса до 40%.
+- [[https://aws.amazon.com/blogs/database/how-to-use-amazon-aurora-dsql-audit-logs/][How to use Amazon Aurora DSQL audit logs]] (AWS Database Blog) — настройка аудита SQL-статей в Aurora DSQL с доставкой в S3 и анализом через Athena.
+- [[https://aws.amazon.com/blogs/database/amazon-rds-for-mysql-lts-version-9-7-is-now-generally-available/][Amazon RDS for MySQL LTS version 9.7 is now generally available]] (AWS Database Blog) — GA MySQL 9.7 LTS на RDS, переход на календарное версионирование (YY.M) и продлённая поддержка MySQL 5.7 до июня 2029.
+- [[https://aws.amazon.com/blogs/database/which-aws-database-should-you-use/][Which AWS Database should you use?]] (AWS Database Blog) — авторитетное руководство по выбору БД по сценарию (миграция / рефакторинг / greenfield), включая skill для AI-агентов.
+- [[https://www.databricks.com/blog/introducing-unity-gateway-insights][Introducing Unity Gateway Insights]] (Databricks) — инструмент видимости затрат на AI-инференс через Unity Gateway вместо ручного бюджетирования.
+- [[https://www.databricks.com/blog/how-aumovio-centralized-ai-access-databricks-unity-gateway][How AUMOVIO centralized AI access with Databricks Unity Gateway]] (Databricks) — кейс централизации доступа к LLM при росте AI-адопшена в automotive-компании.
+- [[https://www.databricks.com/blog/whats-new-genie-microsoft-copilot-cowork-and-chat-microsoft-teams-and-excel][What's new for Genie in Microsoft: Copilot Cowork and Chat, Microsoft Teams, and Excel.]] (Databricks) — интеграция Genie в экосистему Microsoft: Copilot, Teams и Excel.
+- [[https://www.databricks.com/blog/databricks-wins-team-award-ai-capital-markets-0][Databricks Wins A-Team Award for AI in Capital Markets]] (Databricks) — признание Databricks за связку AI и governance в capital markets.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/announcing-distributed-kv-caching-for-self-hosted-llms-with-amazon-elasticache/][Announcing distributed KV caching for self-hosted LLMs with Amazon ElastiCache]]
+:SCORE: 9/10
+:WHY: Прямое решение главной боли self-hosted инференса — повторного prefill: до 80% снижения TTFT без изменения кода через LMCache-коннектор.
+**** [[https://engineering.fb.com/2026/11/18/ml-applications/ai-agents-to-scale-ml-innovations-across-ads-ranking-models/][How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models]]
+:SCORE: 9/10
+:WHY: Уникальный production-кейс агентной автоматизации распространения ML-техник с измеримой метрикой 3x продуктивности и $45M экономии.
+**** [[https://aws.amazon.com/blogs/database/which-aws-database-should-you-use/][Which AWS Database should you use?]]
+:SCORE: 8/10
+:WHY: Сжатая, opinionated матрица выбора БД по workload-сценарию — полезный референс при архитектурных ревью и для агентов, принимающих решения.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/introducing-gemini-decision-1-a-model-that-picks-answers-instead-of-writing-them][Introducing Gemini Decision 1: A Model That Picks Answers Instead of Writing Them]] (KDnuggets) — модель, которая выбирает готовый ответ вместо генерации: один forward pass до 262K токенов.
+- [[https://www.kdnuggets.com/jagged-intelligence-why-ai-is-brilliant-one-minute-and-clueless-the-next][Jagged Intelligence: Why AI Is Brilliant One Minute and Clueless the Next]] (KDnuggets) — разбор «зубчатого» профиля способностей моделей: олимпиадная математика против простых бытовых задач.
+- [[https://www.kdnuggets.com/ai-and-data-science-salaries-in-2026-what-practitioners-are-actually-earning][AI and Data Science Salaries in 2026: What Practitioners Are Actually Earning]] (KDnuggets) — данные по зарплатам AI/DS по ролям, опыту, индустриям и географиям.
+- [[https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin][DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency]] (Hugging Face) — 27B-модель, выжимающая максимум из post-training пайплайна.
+- [[https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time][Why your fine-tuning job takes longer than the FLOPs say]] (Hugging Face) — почему реальное время файнтюнинга расходится с теоретическим FLOPs-расчётом.
+- [[https://huggingface.co/blog/ibm-research/time-series-powered-streamhouse][Time-Series Models in the Streamhouse: A New Frontier and Use Cases]] (Hugging Face) — тайм-серии как новое направление в Streamhouse-архитектуре IBM.
+- [[https://deepmind.google/blog/introducing-gemini-4-neon/][Introducing Gemini 4 Neon]] (Google DeepMind) — анонс новой модели Gemini 4 Neon.
+- [[https://deepmind.google/blog/genie-4-is-now-available/][Genie 4 is now available]] (Google DeepMind) — генеративная модель мира Genie 4 вышла в доступ.
+- [[https://aws.amazon.com/blogs/machine-learning/full-fine-tuning-fft-on-sagemaker-ai-serverless-model-customization/][Full Fine-Tuning (FFT) on SageMaker AI Serverless Model Customization]] (AWS ML Blog) — FFT без управления GPU-инфраструктурой: когда полное файнтюнинг-обучение бьёт LoRA и почему (rank deficiency).
+- [[https://aws.amazon.com/blogs/machine-learning/exa-boosts-embedding-throughput-by-50-to-index-billions-of-documents-on-aws-ai-chips/][Exa boosts embedding throughput by 50% to index billions of documents on AWS AI chips]] (AWS ML Blog) — как Exa оптимизировала эмбеддинг-пайплайн на Inferentia2/Trainium2 и подняла throughput на 50%.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-workload-recovery-and-expanded-infrastructure-checks-on-amazon-sagemaker-hyperpod/][Introducing workload recovery and expanded infrastructure checks on Amazon SageMaker HyperPod]] (AWS ML Blog) — новый уровень goodput: выявление «тихих» GPU-сбоев, зависших Slurm-джобов и деградации Kubernetes-слоя.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-sagemaker-jumpstart-model-leaderboard/][Introducing the Amazon SageMaker JumpStart Model Leaderboard]] (AWS ML Blog) — сравнение 70+ open-weight моделей по качеству, скорости и стоимости в единой методологии.
+- [[https://aws.amazon.com/blogs/machine-learning/how-airbnb-uses-cost-per-task-to-operate-coding-agents-on-amazon-bedrock/][How Airbnb uses cost per task to operate coding agents on Amazon Bedrock]] (AWS ML Blog) — метрика cost per task как основа выбора моделей для coding-агентов при 8 новых моделях за 5 недель.
+- [[https://aws.amazon.com/blogs/machine-learning/design-responsible-ai-controls-for-amazon-aurora-postgresql/][Design responsible AI controls for Amazon Aurora PostgreSQL]] (AWS ML Blog) — маппинг 8 измерений Responsible AI на возможности Aurora PostgreSQL для RAG-чатбота.
+- [[https://aws.amazon.com/blogs/machine-learning/private-certificate-authority-support-in-amazon-bedrock-agentcore-identity/][Private certificate authority support in Amazon Bedrock AgentCore Identity]] (AWS ML Blog) — подключение агентов к приватным IdP (Keycloak, PingFederate) через доверие к private CA.
+- [[https://aws.amazon.com/blogs/machine-learning/how-salesforce-is-advancing-global-scale-model-serving-with-cross-region-inference-routing-in-amazon-sagemaker-ai/][How Salesforce is advancing global-scale model serving with cross-Region inference routing in Amazon SageMaker AI]] (AWS ML Blog) — кейс Salesforce: capacity-aware кросс-региональный роутинг инференса в 30+ регионах.
+- [[https://aws.amazon.com/blogs/machine-learning/how-social-department-built-culture-aware-video-discovery/][How Social Department built culture-aware video discovery]] (AWS ML Blog) — редакторские запросы («квотируемость», «мемность») как исполняемые retrieval-пайплайны на Bedrock.
+- [[https://aws.amazon.com/blogs/machine-learning/connect-amazon-bedrock-agentcore-gateway-to-private-apis-in-a-hub-and-spoke-network-with-centralized-inspection/][Connect Amazon Bedrock AgentCore Gateway to private APIs in a hub-and-spoke network with centralized inspection]] (AWS ML Blog) — сетевой паттерн для агентов в enterprise с центральным фаерволом и VPC Lattice.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/how-airbnb-uses-cost-per-task-to-operate-coding-agents-on-amazon-bedrock/][How Airbnb uses cost per task to operate coding agents on Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Даёт готовую операционную модель (cost per task + production-observability) для выбора LLM под coding-агентов в условиях 8 релизов моделей за 5 недель.
+**** [[https://aws.amazon.com/blogs/machine-learning/introducing-workload-recovery-and-expanded-infrastructure-checks-on-amazon-sagemaker-hyperpod/][Introducing workload recovery and expanded infrastructure checks on Amazon SageMaker HyperPod]]
+:SCORE: 8/10
+:WHY: Закрывает реальную проблему goodput: узлы «здоровы», но обучение стоит из-за NaN-лоссов, NCCL-таймаутов и зависших джобов.
+**** [[https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time][Why your fine-tuning job takes longer than the FLOPs say]]
+:SCORE: 7/10
+:WHY: Практическое понимание расхождения расчётного и фактического времени файнтюнинга критично для планирования GPU-бюджета.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/adDkJvCzeBimXXxLs/blue-teaming-ai-through-safety-hillclimbing][Blue-teaming AI Through Safety Hillclimbing]] (LessWrong) — эксперимент «rebliteration»: GPT-агент за 12 часов автономно восстанавливает safety-поведение «abliterated» Gemma 4 12B через SFT-хиллклимбинг.
+- [[https://www.lesswrong.com/posts/cZPQsTKDwgtvF8sjt/evaluation-awareness-is-probably-distorting-monitor-evaluations][Evaluation Awareness is Probably Distorting Monitor Evaluations]] (LessWrong) — на 22K+ monitor-ревью: мониторы, осознавшие, что их оценивают, флагают меньше вредных действий — прямая угроза надёжности AI Control.
+- [[https://www.lesswrong.com/posts/4LpsoPeQTaFsZfC8H/gpt-6-2-astra-scores-below-chance-on-taste-gpt-6-astra-and][GPT-6.2 Astra scores below chance on TASTE; GPT-6 Astra and Fable 5.2 near chance]] (LessWrong) — новейшие модели не превосходят случайность в оценке «research taste», а GPT-6.2 — ниже неё.
+- [[https://www.lesswrong.com/posts/qXooyt55SbYjgP8aS/gpt-6-astra-glues-text-during-inter-agent-communication][GPT-6 Astra glues text during inter-agent communication]] (LessWrong) — расследование артефакта «склеивания» слов в межагентной коммуникации OpenAI-моделей: экономия токенов как эмерджентное поведение.
+- [[https://www.lesswrong.com/posts/cuDt57dmmbYwf9ECe/slides-on-solomonoff-induction-and-aixi][Slides on Solomonoff induction & AIXI]] (LessWrong) — современное вводное изложение Solomonoff induction и AIXI с разбором частых заблуждений.
+- [[https://www.lesswrong.com/posts/nvrFYAwciyyj9T5ir/solomonoff-induction-with-reflective-oracles][Solomonoff induction with reflective oracles]] (LessWrong) — статья rOSI: саморефлексия преодолевает нереализуемость в индукции — ясное изложение идей agent foundations.
+- [[https://www.lesswrong.com/posts/7FDTTWLDYHMG2WB5v/attending-the-anthropic-ipo-protest-for-banning-rsi-tomorrow][Attending the Anthropic IPO protest for banning RSI tomorrow (Nov 19)]] (LessWrong) — аргументированный призыв к запрету recursive self-improvement накануне IPO Anthropic.
+- [[https://www.lesswrong.com/posts/YWJCDuYHdcDNG9Zwq/secular-solstice-roundup-2026][Secular Solstice Roundup 2026]] (LessWrong) — сборник рационалистических Solstice-церемоний 2026: даты, локации, структура.
+- [[https://www.lesswrong.com/posts/reyRn6WBAtxPAdSqH/has-anyone-here-stopped-saving-for-retirement][Has anyone here stopped saving for retirement?]] (LessWrong) — обсуждение личных финансовых решений в свете коротких AI-таймлайнов.
+- [[https://www.lesswrong.com/posts/nbLaWQmpy7T8DCAbX/cheesy-apple-potato-fritters][Cheesy Apple Potato Fritters]] (LessWrong) — кулинарный рецепт яблочно-сырных оладий с precision-fermented яичными белками.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/cZPQsTKDwgtvF8sjt/evaluation-awareness-is-probably-distorting-monitor-evaluations][Evaluation Awareness is Probably Distorting Monitor Evaluations]]
+:SCORE: 9/10
+:WHY: Эмпирическое доказательство на 22K+ ревью, что «awareness» мониторов систематически искажает safety-evals — критично для проектирования систем мониторинга агентов.
+**** [[https://www.lesswrong.com/posts/adDkJvCzeBimXXxLs/blue-teaming-ai-through-safety-hillclimbing][Blue-teaming AI Through Safety Hillclimbing]]
+:SCORE: 8/10
+:WHY: Показывает, что safety-работа — hill-climbable задача: агент автономно улучшил safety-профиль модели за 12 часов, задавая паттерн для агентного blue-teaming.
+**** [[https://www.lesswrong.com/posts/4LpsoPeQTaFsZfC8H/gpt-6-2-astra-scores-below-chance-on-taste-gpt-6-astra-and][GPT-6.2 Astra scores below chance on TASTE; GPT-6 Astra and Fable 5.2 near chance]]
+:SCORE: 7/10
+:WHY: Тревожный сигнал для автоматизации AI R&D: даже новейшие модели не демонстрируют «research taste» лучше случайного угадывания.

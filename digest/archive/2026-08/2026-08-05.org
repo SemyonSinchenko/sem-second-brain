@@ -1,0 +1,60 @@
+#+TITLE: Daily Digest: 2026-08-05
+#+FROM: [2026-08-04 Tue]
+#+TO: [2026-08-05 Wed]
+#+DATE: [2026-08-05 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Инфраструктура ИИ достигает зрелости благодаря нативному заземлению (Bedrock) и оптимизации памяти (Semvec). Инструментарий Python консолидируется вокруг `uv`, заменяющего классический стек управления пакетами. Моделирование данных развивается через поддержку Protobuf в serverless БД для сложных структур. Развертывание локальных агентов становится доступнее с компактными моделями семейства LFM. Вопросы безопасности и управления ИИ выходят на первый план в отраслевых альянсах и вендорских решениях.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://neo4j.com/blog/developer/constant-cost-semantic-memory-for-multi-agent-systems/][Constant-cost semantic memory for multi-agent systems]] (Neo4j) — Архитектура семантической памяти для мульти-агентных систем с постоянными издержками вместо линейного роста токенов.
+- [[hxxps://huggingface.co/blog/LiquidAI/lfm2-5-2-6b][Deploy local agents everywhere with LFM2.5-2.6B]] (HuggingFace) — Запуск локальных агентов на компактных моделях без облачных зависимостей для edge-сценариев.
+- [[hxxps://www.kdnuggets.com/2026/08/abacus/honest-abacus-ai-review][Honest Abacus AI Review: ChatLLM, DeepAgent, AI Studio & More]] (KDnuggets) — Обзор экосистемы Abacus AI для интеграции 100+ моделей в единый cost-effective workflow.
+- [[hxxps://www.kdnuggets.com/7-approaches-to-reduce-inference-latency-in-your-llm-workflows][7 Approaches to Reduce Inference Latency in Your LLM Workflows]] (KDnuggets) — Семь инженерных стратегий снижения задержек инференса в продакшене от квантования до спекулятивного декодирования.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding/][Introducing Web Search on Amazon Bedrock for foundation model grounding]] (AWS) — Нативный веб-поиск для заземления моделей без сторонних API и рисков утечки данных.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/automated-web-insight-extraction-with-amazon-bedrock-agentcore/][Automated web insight extraction with Amazon Bedrock AgentCore]] (AWS) — Автоматизация извлечения инсайтов из веба через управляемый браузер AgentCore для конкурентной разведки.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-for-foundation-model-grounding/][Introducing Web Search on Amazon Bedrock for foundation model grounding]]
+:SCORE: 9/10
+:WHY: Убирает сложность оркестрации сторонних поисковых API, обеспечивая заземление моделей нативно в инфраструктуре AWS.
+**** [[hxxps://neo4j.com/blog/developer/constant-cost-semantic-memory-for-multi-agent-systems/][Constant-cost semantic memory for multi-agent systems]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему линейного роста затрат токенов в мульти-агентных системах через семантическую память.
+**** [[hxxps://www.kdnuggets.com/7-approaches-to-reduce-inference-latency-in-your-llm-workflows][7 Approaches to Reduce Inference Latency in Your LLM Workflows]]
+:SCORE: 8/10
+:WHY: Практический чеклист оптимизации производительности для запуска генеративных моделей в продакшене.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/unity-ai-gateway-generally-available][Unity AI Gateway is Generally Available]] (Databricks) — GA шлюза для централизованного управления трафиком и доступом к ИИ-моделям в Unity.
+- [[hxxps://www.databricks.com/blog/databricks-joins-open-secure-ai-alliance-advance-ai-safety-and-security][Databricks joins the Open Secure AI Alliance to advance AI safety and security]] (Databricks) — Участие в альянсе для стандартизации безопасности ИИ и защиты от уязвимостей.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Встреча технического сообщества по управлению графовыми данными в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/unity-ai-gateway-generally-available][Unity AI Gateway is Generally Available]]
+:SCORE: 7/10
+:WHY: Важный шаг для корпоративного управления доступом к моделям в экосистеме Databricks.
+**** [[hxxps://www.databricks.com/blog/databricks-joins-open-secure-ai-alliance-advance-ai-safety-and-security][Databricks joins the Open Secure AI Alliance to advance AI safety and security]]
+:SCORE: 6/10
+:WHY: Сигнал о растущем фокусе индустрии на безопасность ИИ на уровне вендоров.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность нетворкинга для инженеров, работающих с графовыми базами данных.
+
+** Инженерия данных
+- [[hxxps://aws.amazon.com/blogs/database/advanced-data-modeling-using-user-defined-types-and-protocol-buffers-for-amazon-keyspaces/][Advanced data modeling: Using user-defined types and Protocol Buffers for Amazon Keyspaces]] (AWS) — Использование UDT и Protobuf для сложного моделирования в serverless Cassandra для повышения читаемости и производительности.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/advanced-data-modeling-using-user-defined-types-and-protocol-buffers-for-amazon-keyspaces/][Advanced data modeling: Using user-defined types and Protocol Buffers for Amazon Keyspaces]]
+:SCORE: 8/10
+:WHY: Демонстрирует паттерны работы со сложными вложенными данными в managed Cassandra без оверхеда кластеров.
+
+** Инструменты разработчика
+- [[hxxps://www.kdnuggets.com/i-replaced-pip-virtualenv-and-poetry-with-uv-heres-why][I Replaced Pip, Virtualenv, and Poetry With uv: Here's Why]] (KDnuggets) — Консолидация управления пакетами, виртуальными окружениями и версиями Python в одном быстром инструменте.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/i-replaced-pip-virtualenv-and-poetry-with-uv-heres-why][I Replaced Pip, Virtualenv, and Poetry With uv: Here's Why]]
+:SCORE: 9/10
+:WHY: Значительное упрощение и ускорение локальной разработки на Python за счет замены устаревшего стека инструментов.

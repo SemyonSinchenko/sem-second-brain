@@ -1,0 +1,48 @@
+#+TITLE: Daily Digest: 2026-08-17
+#+FROM: [2026-08-16 Sun]
+#+TO: [2026-08-17 Mon]
+#+DATE: [2026-08-17 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Наблюдается сдвиг в сторону декларативных фреймворков для инженерии данных, что упрощает поддержку бизнес-логики. Исследования Anthropichighlightруют проблемы координации в мультиагентных системах, где изоляция состояния становится критической. Uber демонстрирует важность неизменяемых моделей данных и двойной записи для масштабируемости платежных платформ. Экосистема графовых баз данных развивается вокруг стандарта GQL и оптимизации workload'ов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.uber.com/us/en/blog/ubers-payments-platform/][Zero Sum by Design 10 Years of Uber's Payments Platform]] (Uber) —Immutable money order и double-entry accounting создают строгий дата-контракт до внедрения микросервисов.
+- [[hxxps://bradcoles.dev/blog/declarative-transformation.html][Data Engineering's Shift from Imperative to Declarative - and Why It Matters More in the Age of AI]] (Brad Coles) —Декларативные пайплайны становятся стандартом для повторяемой бизнес-логики и тестирования.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.uber.com/us/en/blog/ubers-payments-platform/][Zero Sum by Design 10 Years of Uber's Payments Platform]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания проектирования консистентности в финансовых системах высокого масштаба.
+**** [[hxxps://bradcoles.dev/blog/declarative-transformation.html][Data Engineering's Shift from Imperative to Declarative - and Why It Matters More in the Age of AI]]
+:SCORE: 8/10
+:WHY: Объясняет тренд на отказ от императивных нотбуков в пользу управляемых декларативных трансформаций.
+
+** Artificial Intelligence
+- [[hxxps://www.anthropic.com/research/multiagent-systems][Patterns and problems in emerging multiagent systems]] (Anthropic) —Агентные рои сталкиваются с проблемами координации, где стимулы агентов отличаются от человеческих.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.anthropic.com/research/multiagent-systems][Patterns and problems in emerging multiagent systems]]
+:SCORE: 9/10
+:WHY: Раскрывает фундаментальные проблемы изоляции состояния и протоколов для будущих автономных систем.
+
+** Engineers
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) —Практическое руководство по методу наименьших квадратов для инженеров.
+*** 💎 Топ-3 категории
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Напоминание фундаментальной математики, необходимой для понимания алгоритмов машинного обучения.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) —Обсуждение стандарта GQL, ускорения графовых вычислений и схем для агентных миров.
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 8/10
+:WHY: Дает обзор эволюции графовых стандартов и интеграции с OLAP/агентными системами от ключевых вендоров.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/ages-of-religion][Ages of Religion]] (Peter Turchin) —Трансдисциплинарный анализ трансформации религиозных идей и социальной сложности в исторической перспективе.
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/ages-of-religion][Ages of Religion]]
+:SCORE: 6/10
+:WHY: Пример применения вычислительных методов к моделированию социальных изменений и цивилизационных сдвигов.

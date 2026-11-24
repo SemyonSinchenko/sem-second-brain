@@ -1,0 +1,90 @@
+#+TITLE: Daily Digest: 2026-05-08
+#+FROM: [2026-05-07 Thu]
+#+TO: [2026-05-08 Fri]
+#+DATE: [2026-05-08 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия делает ставку на автономность: агенты ИИ теперь могут самостоятельно оплачивать сервисы через Bedrock AgentCore. Инфраструктура данных matured: Valkey отмечает два года роста и релиз 9.0 с поиском и агрегациями, а форматы таблиц становятся стандартом для озер данных. Одновременно инженеры сталкиваются с дефицитом GPU и необходимостью трансформации навыков для работы с ИИ. Ключевой тренд — смещение фокуса с экспериментов на надежные, оплачиваемые и масштабируемые продакшен-пайплайны.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/building-modern-eda-pipelines-with-pingouin][Building Modern EDA Pipelines with Pingouin]] (kdnuggets.com) — Построение статистически строгих пайплайнов EDA для валидации свойств данных.
+- [[hxxps://www.kdnuggets.com/7-everyday-distributions-explained-simply][7 Everyday Distributions Explained Simply]] (kdnuggets.com) — Практический гид по семи распределениям без сложной математики.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/secure-short-term-gpu-capacity-for-ml-workloads-with-ec2-capacity-blocks-for-ml-and-sagemaker-training-plans/][Secure short-term GPU capacity for ML workloads with EC2 Capacity Blocks for ML and SageMaker training plans]] (aws.amazon.com) — Стратегии резервирования GPU на AWS для коротких нагрузок и тестов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/overcoming-reward-signal-challenges-verifiable-rewards-based-reinforcement-learning-with-grpo-on-sagemaker-ai/][Overcoming reward signal challenges: Verifiable rewards-based reinforcement learning with GRPO on SageMaker AI]] (aws.amazon.com) — Использование RLVR и GRPO для улучшения сигналов вознаграждения в обучении LLM.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/][Agents that transact: Introducing Amazon Bedrock AgentCore payments, built with Coinbase and Stripe]] (aws.amazon.com) — Внедрение платежных функций для автономных агентов через Coinbase и Stripe.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agents-that-transact-introducing-amazon-bedrock-agentcore-payments-built-with-coinbase-and-stripe/][Agents that transact: Introducing Amazon Bedrock AgentCore payments, built with Coinbase and Stripe]]
+:SCORE: 10/10
+:WHY: Фундаментальный сдвиг в архитектуре агентов: возможность автономных транзакций меняет экономику API.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/secure-short-term-gpu-capacity-for-ml-workloads-with-ec2-capacity-blocks-for-ml-and-sagemaker-training-plans/][Secure short-term GPU capacity for ML workloads with EC2 Capacity Blocks for ML and SageMaker training plans]]
+:SCORE: 9/10
+:WHY: Критически важно для планирования инфраструктурных затрат в условиях дефицита GPU.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/overcoming-reward-signal-challenges-verifiable-rewards-based-reinforcement-learning-with-grpo-on-sagemaker-ai/][Overcoming reward signal challenges: Verifiable rewards-based reinforcement learning with GRPO on SageMaker AI]]
+:SCORE: 8/10
+:WHY: Глубокий технический разбор методов борьбы с reward hacking при тонкой настройке моделей.
+
+** Инженерия данных
+- [[hxxps://www.databricks.com/blog/how-lakebase-architecture-delivers-5x-faster-postgres-writes][How lakebase architecture delivers 5x faster Postgres writes]] (databricks.com) — Архитектурный паттерн разделения вычислений и хранения для ускорения записи.
+- [[hxxps://www.databricks.com/blog/mean-time-detect-data-access-problem][Mean time to detect is a data access problem]] (databricks.com) — Влияние доступа к данным на эффективность SOC и расследование инцидентов.
+- [[hxxps://www.dremio.com/blog/what-are-table-formats-and-why-were-they-needed/][What Are Table Formats and Why Were They Needed?]] (dremio.com) — Объяснение необходимости форматов таблиц для транзакционности и эволюции схем.
+- [[hxxps://aws.amazon.com/blogs/database/migrating-data-from-an-amazon-aurora-snapshot-into-amazon-aurora-dsql/][Migrating data from an Amazon Aurora snapshot into Amazon Aurora DSQL]] (aws.amazon.com) — Паттерн миграции данных через AWS Glue и快照 в распределенный SQL.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/what-are-table-formats-and-why-were-they-needed/][What Are Table Formats and Why Were They Needed?]]
+:SCORE: 9/10
+:WHY: Базовое понимание метаструктуры озер данных необходимо для проектирования надежных хранилищ.
+**** [[hxxps://www.databricks.com/blog/how-lakebase-architecture-delivers-5x-faster-postgres-writes][How lakebase architecture delivers 5x faster Postgres writes]]
+:SCORE: 8/10
+:WHY: Практическое решение проблемы производительности записи в гибридных архитектурах.
+**** [[hxxps://aws.amazon.com/blogs/database/migrating-data-from-an-amazon-aurora-snapshot-into-amazon-aurora-dsql/][Migrating data from an Amazon Aurora snapshot into Amazon Aurora DSQL]]
+:SCORE: 7/10
+:WHY: Конкретный кейс миграции на серверless распределенные БД с трансформацией данных.
+
+** Инженеры
+- [[hxxps://www.databricks.com/blog/why-talent-transformation-missing-focus-enterprise-ai][Why talent transformation is the missing focus of enterprise AI]] (databricks.com) — Важность переобучения кадров для успешного внедрения ИИ в предприятиях.
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-did-capacity-shortages][The Pulse: Did capacity shortages turn Anthropic hostile to devs?]] (newsletter.pragmaticengineer.com) — Анализ влияния нехватки вычислительных мощностей на политику доступа к инструментам.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-did-capacity-shortages][The Pulse: Did capacity shortages turn Anthropic hostile to devs?]]
+:SCORE: 9/10
+:WHY: Инсайт о скрытых инфраструктурных ограничениях, влияющих на доступность ИИ-инструментов.
+**** [[hxxps://www.databricks.com/blog/why-talent-transformation-missing-focus-enterprise-ai][Why talent transformation is the missing focus of enterprise AI]]
+:SCORE: 8/10
+:WHY: Напоминание, что технологии внедряются людьми, а не только кодом.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/public-health-intelligence-shouldnt-require-data-scientist][Public health intelligence shouldn't require a data scientist]] (databricks.com) — Кейс демократизации данных для мониторинга общественного здоровья.
+- [[hxxps://www.databricks.com/blog/first-party-audience-data-ad-sales-relationship-now][First-party audience data is the ad sales relationship now]] (databricks.com) — Роль данных первой стороны в монетизации рекламы.
+- [[hxxps://aws.amazon.com/blogs/database/enhanced-search-for-amazon-elasticache/][Full-text, exact-match, range, and hybrid search on Amazon ElastiCache]] (aws.amazon.com) — Новые возможности поиска внутри кэша без отдельных сервисов.
+- [[hxxps://aws.amazon.com/blogs/database/announcing-aggregations-on-amazon-elasticache/][Announcing aggregations on Amazon ElastiCache]] (aws.amazon.com) — Поддержка агрегаций на стороне сервера для аналитики в реальном времени.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/enhanced-search-for-amazon-elasticache/][Full-text, exact-match, range, and hybrid search on Amazon ElastiCache]]
+:SCORE: 8/10
+:WHY: Упрощение архитектуры за счет объединения кэширования и поиска в одном сервисе.
+**** [[hxxps://aws.amazon.com/blogs/database/announcing-aggregations-on-amazon-elasticache/][Announcing aggregations on Amazon ElastiCache]]
+:SCORE: 7/10
+:WHY: Возможность строить лидерборды и отчеты напрямую в памяти без нагрузки на БД.
+**** [[hxxps://www.databricks.com/blog/public-health-intelligence-shouldnt-require-data-scientist][Public health intelligence shouldn't require a data scientist]]
+:SCORE: 6/10
+:WHY: Пример использования платформ данных для критически важных социальных задач.
+
+** Open Source
+- [[hxxps://aws.amazon.com/blogs/database/announcing-valkey-9-0-for-amazon-elasticache/][Announcing Valkey 9.0 for Amazon ElastiCache]] (aws.amazon.com) — Релиз Valkey 9.0 с поддержкой полнотекстового поиска и истечением полей.
+- [[hxxps://aws.amazon.com/blogs/database/valkey-turns-two/][Valkey turns two]] (aws.amazon.com) — Итоги двух лет развития сообщества и рост популярности альтернативы Redis.
+- [[hxxps://duckdb.org/2026/05/08/announcing-duckcon7.html][Announcing the Program of DuckCon #7 Amsterdam]] (duckdb.org) — Анонс программы конференции пользователей DuckDB.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Встреча технического сообщества LDBC в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/announcing-valkey-9-0-for-amazon-elasticache/][Announcing Valkey 9.0 for Amazon ElastiCache]]
+:SCORE: 9/10
+:WHY: Значительное расширение функционала ключевой open source альтернативы Redis.
+**** [[hxxps://aws.amazon.com/blogs/database/valkey-turns-two/][Valkey turns two]]
+:SCORE: 8/10
+:WHY: Маркер зрелости проекта и роста экосистемы вендор-нейтрального кэширования.
+**** [[hxxps://duckdb.org/2026/05/08/announcing-duckcon7.html][Announcing the Program of DuckCon #7 Amsterdam]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и изучения roadmap популярной аналитической БД.

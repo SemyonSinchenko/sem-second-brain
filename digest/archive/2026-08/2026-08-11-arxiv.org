@@ -1,0 +1,146 @@
+#+TITLE: Arxiv Digest: 2026-08-11
+#+FROM: [2026-08-10 Mon]
+#+TO: [2026-08-11 Tue]
+#+DATE: [2026-08-11 Tue]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки в области баз данных наблюдается заметный сдвиг в сторону интеграции LLM с традиционными системами управления данными. Ключевой тренд — переход от сложных многоэтапных пайплайнов к прямому fine-tuning с верифицированными данными, что показывает человеческий уровень точности в Text-to-SQL. Параллельно成熟ют системы векторного поиска миллиардного масштаба на commodity-оборудовании и инструменты валидации данных, учитывающие семантику downstream-задач.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2603.20004][Human-Level Text-to-SQL via Reinforcement Learning on Verified Data, Without Pipeline Engineering]]
+:WHAT: Fine-tuning LLM через RLVR на верифицированном датасете BIRD-Platinum с reward shaping (ReViSQL-BIRD), без многоэтапных пайплайнов.
+:IMPACT: Первый метод, достигший человеческого уровня точности (92.96%) на Arcwise-Plat, превосходит top-5 open-source систем на 9-22%, устраняет瓶颈 pipeline engineering.
+
+- [[hxxps://arxiv.org/abs/2608.08751][InSituANN: Revisiting IVF for PCIe-Efficient Billion-Scale Vector Search]]
+:WHAT: IVF-based ANNS движок, выполняющий fine search in situ в host memory, используя GPU только для routing и pruning.
+:IMPACT: Позволяет миллиардный поиск векторов на single commodity GPU, ускорение throughput в 104.9x-4298.2x над PCIe-bound baseline, построение индекса за 5.2 минуты (350x быстрее HNSW).
+
+- [[hxxps://arxiv.org/abs/2608.08261][Scout: Scalable Document Extraction via Data Similarity]]
+:WHAT: Генерация правил извлечения данных через sampling и pareto-optimal selection с теоретической гарантией аппроксимации.
+:IMPACT: Точность уровня frontier LLM при стоимости в 61-1000x ниже, обработка кластеризованных документов с частичной схожестью.
+
+- [[hxxps://arxiv.org/abs/2608.09376]["Will This Data Break My Task?" - Interactive Synthesis of Task-Aware Data Unit Tests]]
+:WHAT: PrismaDV — compound AI система для синтеза data unit tests через совместный анализ данных и downstream task кода.
+:IMPACT: Связывает data constraints с source code через data-code assumption graph, обнаруживает ошибки, которые task-agnostic тесты пропускают.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.25306][JSON Schema Inclusion through Refutational Normalization: Reconciling Efficiency and Completeness]]
+:ALGO: Переработка ядра нормализации полного алгоритма для имитации быстрого rule-based подхода на простых случаях без потери полноты.
+:IMPACT: Делает тривиальными use cases, ранее недоступные для существующих инструментов, критично для version/API compatibility checks и schema refactoring.
+
+- [[hxxps://arxiv.org/abs/2605.31475][A Theoretical Study of DBLog: Certified Virtual Cuts for a Snapshot-Equivalent Replay of Live Databases]]
+:ALGO: Формализация certified virtual cut — конечного evidence bundle для snapshot-equivalent replay без физического snapshot read.
+:IMPACT: Машинно-проверенные доказательства в Isabelle/HOL для CDC механизмов, используемых в Debezium и Apache Flink CDC.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.02764][Stateful Governance for Concurrent Agentic Systems]] — MasuGate предотвращает stale authorizations в stateful policies через policy-state serializability для агентных систем с PostgreSQL backend.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+В социальной физике и анализе сетей выделяется направление моделирования адаптивного поведения пользователей в ответ на платформенные вмешательства. Новые работы исследуют, как group dissolution и rewiring влияют на распространение вредной информации в higher-order сетях, а также как routing stochasticity определяет устойчивость транспортных и коммуникационных инфраструктур к path-based failures.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.07874][Adaptive higher-order contagion of harmful information with platform-induced group dissolution and individual rewiring]]
+:WHAT: Адаптивная higher-order модель контагии, интегрирующая платформенное dissolving групп с adaptive rewiring пользователей.
+:IMPACT: Выявляет эффективное окно для group dissolution — выше критического infection rate вмешательство даёт обратный эффект, критично для дизайна модерационных стратегий.
+
+- [[hxxps://arxiv.org/abs/2608.09479][The impact of the path ensemble on path percolation]]
+:WHAT: Генерализованный path-percolation фреймворк с temperature-controlled routing ensemble между geodesic и noisy transport.
+:IMPACT: Load entropy как мера robustness сетей, path elongation как измеримый прекурсор failures в коммуникационной и транспортной инфраструктуре.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.08343][Space--time message passing for endemic diseases]]
+:ALGO: Иерархия closures для endemic state indexed by radius d, точно обрабатывающая space-time cycles пространственной досягаемости ≤ d.
+:IMPACT: Точное решение для recurrent diseases на trees, где ordinary message passing ломается из-за backtracking, excellent agreement с Monte Carlo.
+
+- [[hxxps://arxiv.org/abs/2602.14894][Connecting Electrical Grid Length and Material Stock to Population Density: Comparison of a French-Calibrated Scaling with 35 Electrified Countries]]
+:ALGO: Моделирование подстанций через non-linear relationship с population density и Kruskal algorithm для proxy network.
+:IMPACT: Multivariate power laws для aggregate network characteristics, country-scale inventories copper mass для prospective assessments grid expansion.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.07819][The friendship paradox: Causal evidence of its behavioral consequences]] — Первое каузальное исследование: friendship paradox генерирует систематическую upward distortion в actions и увеличивается behavioral dispersion в games of complements.
+- [[hxxps://arxiv.org/abs/2608.07588][Workplace dependence in urban economies]] — Пространственно-контингентный 'service trap' в urban core: female-majority и income-diverse локации показывают highest WPD near city center.
+- [[hxxps://arxiv.org/abs/2607.23705][Social learning drives underprioritization of collective challenges]] — Issues, зависящие от social learning, underprioritized когда оба severe, intergroup learning beyond critical threshold снижает bias.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+В распределённых системах доминирует тема эффективного выполнения LLM workloads на гетерогенных edge-cloud инфраструктурах. Появились production-развёртывания децентрализованных хранилищ с erasure-coding нового поколения и serverless middleware для long-running agentic workflows. Квантово-классические гибридные алгоритмы получают специализированные schedulers для минимизации Time-to-Next-Shot latency.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2505.05370][Walrus: An Efficient Decentralized Storage Network]]
+:WHAT: Red Stuff — two-dimensional erasure-coding с 4.5x replication factor и self-healing, multi-stage epoch-change protocol для node churn.
+:IMPACT: Production с марта 2025, 686 TB secured к июлю 2026, outperforms Arweave, recovery без centralized coordination с bandwidth proportional to lost data.
+
+- [[hxxps://arxiv.org/abs/2512.22137][HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference]]
+:WHAT: Dependency-aware DAG для query с parallel execution unlocked subtasks, learned benefit-cost utility model для online routing.
+:IMPACT: Улучшает cost-accuracy trade-off на GPQA, MMLU-Pro, AIME24, снижает latency и cloud API usage при конкурентной accuracy.
+
+- [[hxxps://arxiv.org/abs/2601.14735][FAME: QoS-aware Async Service Orchestration for Agentic Workflows]]
+:WHAT: Service-oriented middleware с FaaS-based agent roles, S3 handle passing, tool-output caching и checkpointing для long-running MCP tools.
+:IMPACT: Снижение infrastructure cost в 8-12x против VM и 43-106x против managed runtimes, latency до 17x ниже, completion long-running workloads где Step Functions timeout.
+
+- [[hxxps://arxiv.org/abs/2605.27540][EFaaS: A Quantum-Classical Serverless Entangled Scheduler for Hybrid Variational Algorithms]]
+:WHAT: Calibration-Aware placement, Dual-Resource Fair Queuing scheduler, EF-QuantumFuture primitive для classical speculative execution.
+:IMPACT: TTNS reduction 11.4%-94.3%, convergence speedup 83.2%-98.3%, устраняет drift penalties в hybrid quantum workflows.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2205.06257][Coded Data Rebalancing for Distributed Data Storage Systems with Cyclic Storage]]
+:ALGO: Coded rebalancing schemes для cyclic balanced database с time-complexity polynomial in system parameters, file-size cubic in number of nodes.
+:IMPACT: Order-optimal rebalancing loads (within 2x от lower bound) для node removal/addition, practically deployable в отличие от exponential file-size требований prior work.
+
+- [[hxxps://arxiv.org/abs/2504.12742][Decentralized Nonconvex Composite Federated Learning with Gradient Tracking and Momentum]]
+:ALGO: DEPOSITUM с momentum-filtered stochastic gradient estimates via tracking, multiple local updates между communication rounds.
+:IMPACT: $\mathcal{O}(1/\epsilon^2)$ iteration complexity без bounded gradient heterogeneity assumptions, $\mathcal{O}(1/\sqrt{nT})$ rate после network-dependent transient.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2512.05372][Breaking the Capacity Bottleneck in Model-Heterogeneous Federated Learning via Gradual Model Restoration]] — FedGMR прогрессивно увеличивает client sub-model density, improving convergence при severe heterogeneity и non-IID data.
+- [[hxxps://arxiv.org/abs/2604.12673][Intelligent resource prediction for SAP HANA continuous integration build workloads]] — LightGBM-XGBoost quantile regression ensemble даёт 36GB average memory savings per build, under-allocation < 0.3%.
+- [[hxxps://arxiv.org/abs/2604.27985][Exploring Sparse Matrix Multiplication Kernels on the Cerebras CS-3]] — CS-3 kernels outperform CPU до 100× для SpMM на 90% sparse матрицах, деградация при sparsity > 99%.
+- [[hxxps://arxiv.org/abs/2606.00501][Joint Optimization of Qubit Leasing and Quantum Circuit Distribution]] — ILP formulation для JQLQCD, greedy algorithm с local search в 15% от simulated annealing, 8-40× быстрее.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В алгоритмах и структурах данных выделяются практические результаты для динамических графов и high-dimensional search. Unified framework для dynamic graph coloring работает в sequential, parallel и distributed settings с O(1) expected time per update. Locality Sensitive Filtering получает педагогически прозрачное изложение для spherical case с explicit probabilistic bounds.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.09218][Dynamic Graph Coloring: Sequential, Parallel, and Distributed]]
+:WHAT: Randomized algorithm для $(\Delta+1)$ coloring при edge insertion/deletion, обрабатывает many updates simultaneously.
+:IMPACT: Unified framework: O(1) expected time worst-case sequentially, O(1) work per update в parallel с poly(log n) depth, O(1) message complexity в distributed.
+
+- [[hxxps://arxiv.org/abs/2604.24323][A Tour of Locality Sensitive Filtering on the Sphere]]
+:WHAT: Self-contained treatment angular distance на unit sphere под symmetric Gaussian filters с elementary calculus.
+:IMPACT: Transparent proof asymptotic optimality, efficient implementation без technical machinery general LSF, entry point для practitioners.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.04081][Exact Matching in Matrix Multiplication Time]]
+:ALGO: Randomized algorithm для exact matching problem через random evaluation Tutte matrix, O(n^ω) field operations.
+:IMPACT: Decides одновременно для всех k是否存在 perfect matching веса exactly k, extension к exact linear matroid parity и shortest cycle through three vertices.
+
+- [[hxxps://arxiv.org/abs/2604.23169][A Linear-Time Algorithm for Finding an Odd/Even Cycle Through Two Specified Vertices]]
+:ALGO: Deterministic linear-time algorithm для Γ-labeled graph где every element порядка ≤ 2, нахождение two cycles с distinct labels.
+:IMPACT: Generalized form покрывает odd/even cycle через two specified vertices/edges в undirected graph.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.20183][Dequantization and Hardness of Spectral Sum Estimation]] — Classical algorithm для log-determinant в polylog(N)·s^{O(√κ log(κ/ε))}, exponential improvement в некоторых regimes, PP-completeness для unnormalized spectral sums.
+- [[hxxps://arxiv.org/abs/2511.15709][Tokenisation over Bounded Alphabets is Hard]] — NP-complete и APX-hard даже для binary alphabets, объясняет почему BPE и UnigramLM остаются heuristic.
+- [[hxxps://arxiv.org/abs/2606.17285][An Adaptive Proximal Framework for Stochastic Weakly Convex Optimization]] — APS framework с online bidirectional adaptation proximal parameter, O(ε^{-2}) iteration bound для Moreau-envelope stationarity.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В прикладном ML для систем выделяются работы по multi-agent collaboration для robotic manipulation и benchmarking пространственного_reasoning в MLLM. REMAC демонстрирует 40% boost success rates через self-reflection и self-evolution modules. LEGO-Puzzles benchmark выявляет критические ограничения текущих моделей в multi-step spatial planning.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2503.22122][REMAC: Self-Reflective and Self-Evolving Multi-Agent Collaboration for Long-Horizon Robot Manipulation]]
+:WHAT: Adaptive multi-agent planning с pre/post-condition checks и dynamic plan adaptation на scene-specific reasoning.
+:IMPACT: Boost average success rates на 40% и execution efficiency на 52.7% над single robot baseline, benchmarked на DeepSeek-R1, o3-mini, QwQ, Grok3.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2503.19990][LEGO-Puzzles: How Good Are MLLMs at Multi-Step Spatial Reasoning?]]
+:ALGO: Benchmark с Elementary set (11 VQA tasks, 1,100 samples) и Planning set (planning horizons до 8 steps).
+:IMPACT: Выявляет что strongest models на 20% ниже human performance на elementary tasks, planning accuracy drops до 0% с ростом steps, критично для robotic control и autonomous driving.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.06211][LF${}^{2}$AR: Accounting for Layerwise Dynamics to Improve Multimodal Adaptation of Language Models]] — Late fusion/fission с attention residuals даёт 1.9× generation speedup через early-exit decoding, улучшает cross-modal alignment на text-as-images и speech.
+- [[hxxps://arxiv.org/abs/2406.14373][Artificial Leviathan: Exploring Social Evolution of LLM Agents Through the Lens of Hobbesian Social Contract Theory]] — LLM agent society эволюционирует от state of nature к authorization of absolute sovereign, alignment с Hobbes's Social Contract Theory.

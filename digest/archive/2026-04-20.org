@@ -1,0 +1,45 @@
+#+TITLE: Daily Digest: 2026-04-20
+#+FROM: [2026-04-19 Sun]
+#+TO: [2026-04-20 Mon]
+#+DATE: [2026-04-20 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+За последний день наметилась чёткая тенденция к переосмыслению архитектуры данных под требования ИИ, а не просто миграции технологий. Ключевой инсайт — различие между данными, готовыми для аналитики (стабильные, агрегированные) и данными, готовыми для ИИ (контекстные, своевременные), требует разделения стратегий их подготовки. Параллельно укрепляется аналогия развития ИИ с электрификацией, где настоящая продуктивность приходит только после полного перепроектирования процессов, а не простой замены "двигателей". Вокруг LLM-платформ фокус смещается с самих моделей на инфраструктуру для обеспечения надёжности, доверия и управления контекстом в агентских системах.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-266][Data Engineering Weekly #266]] (Data Engineering Weekly) — Обзорный выпуск с акцентом на необходимость разделения стратегий подготовки аналитически-готовых и ИИ-готовых данных, а также лучшие практики построения надёжных LLM-платформ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-266][Data Engineering Weekly #266]]
+:SCORE: 8/10
+:WHY: Концентрированный дайджест ключевых тем: различия данных для AI и аналитики, инфраструктура для LLM и управление контекстом в агентских системах.
+
+** Engineers
+- [[hxxps://joereis.substack.com/p/were-in-1905-why-electricity-not][We're in 1905: Why Electricity (Not Dot-Com) Is the Right AI Analogy]] (Substack) — Аналогия с электричеством показывает, что реальный выигрыш от ИИ наступит только после полного перепроектирования архитектур и процессов, а не простого внедрения новых моделей.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/were-in-1905-why-electricity-not][We're in 1905: Why Electricity (Not Dot-Com) Is the Right AI Analogy]]
+:SCORE: 9/10
+:WHY: Историческая аналогия даёт мощную ментальную модель для стратегического планирования трансформации бизнес-архитектур под ИИ, выходящую за рамки хайпа.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/what-is-a-transactional-database][What Is a Transactional Database?]] (Databricks) — Объяснение концепции транзакционных баз данных, обрабатывающих большие объёмы коротких операций с гарантиями ACID.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — Анонс встречи технического сообщества LDBC, посвящённой графовым данным, с возможностью подачи докладов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/what-is-a-transactional-database][What Is a Transactional Database?]]
+:SCORE: 6/10
+:WHY: Чёткое разъяснение фундаментальной концепции от вендора, полезное для общения с менее техническими заинтересованными сторонами.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность для инженеров, работающих с графовыми данными, узнать о передовом опыте и поучаствовать в формировании отраслевых стандартов.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/below-the-surface-the-structural][Below the Surface: the Structural-Demographic Roots of the Current Political Crisis]] (Substack) — Анализ структурно-демографических корней политической нестабильности, где перепроизводство элит рассматривается как системная причина, а не идеология.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/below-the-surface-the-structural][Below the Surface: the Structural-Demographic Roots of the Current Political Crisis]]
+:SCORE: 7/10
+:WHY: Системный взгляд на долгосрочные социальные циклы и дисбалансы, влияющие на среду, в которой работают технологические компании.

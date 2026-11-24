@@ -1,0 +1,167 @@
+#+TITLE: Arxiv Digest: 2026-04-28
+#+FROM: [2026-04-27 Mon]
+#+TO: [2026-04-28 Tue]
+#+DATE: [2026-04-28 Tue]
+#+STARTUP: showall
+
+* cs.DB (Базы Данных)
+** 🧐 Обзор
+За последние сутки наблюдается сильный тренд на интеграцию LLM с традиционными СУБД через семантические операторы и гибридные планы запросов. Системы векторного поиска активно оптимизируются для GPU, а конфиденциальные вычисления на зашифрованных данных становятся практичнее благодаря новым методам агрегации. Также растёт интерес к агентам данных, работающим через привычные интерфейсы мессенджеров.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.09944][PLOP: Cost-Based Placement of Semantic Operators in Hybrid Query Plans]]
+:WHAT: Оптимизатор планов запросов, балансирующий стоимость LLM-вызовов и реляционной обработки через динамическое размещение семантических фильтров.
+:IMPACT: До 4.29× снижение стоимости при сохранении точности, критично для продакшена гибридных LLM+SQL систем.
+
+- [[hxxps://arxiv.org/abs/2604.20121][A GPU-Accelerated Framework for Multi-Attribute Range Filtered Approximate Nearest Neighbor Search]]
+:WHAT: Фреймворк Garfield с лёгким индексом GMG и конвейером out-of-core для GPU-ускоренного векторного поиска с фильтрацией.
+:IMPACT: 119.8× выше пропускная способность и 4.4× меньше размер индекса по сравнению с SOTA RFANNS методами.
+
+- [[hxxps://arxiv.org/abs/2604.23477][SEMA-SQL: Beyond Traditional Relational Querying with Large Language Models]]
+:WHAT: Система автоматической генерации гибридных запросов (HRA), объединяющих реляционные операторы с LLM-функциями.
+:IMPACT: Сокращение LLM-вызовов на 93% через интеллектуальное батчинг, устраняет ручной конвейер для семантических запросов.
+
+- [[hxxps://arxiv.org/abs/2604.24067][DataClaw: An Autonomous Data Agent with Instant Messaging Integration]]
+:WHAT: Автономный агент данных с ReAct-движком, интегрированный в мессенджеры для выполнения аналитических пайплайнов.
+:IMPACT: Делает анализ данных доступным для нетехнических пользователей через привычные чат-интерфейсы.
+
+- [[hxxps://arxiv.org/abs/2506.03308][Hermes: Efficient Global Homomorphic Aggregation over Mutable Packed Ciphertexts]]
+:WHAT: Прототип системы для агрегации и обновлений кортежей на гомоморфно зашифрованных данных с SIMD-упаковкой.
+:IMPACT: Константное время глобальных агрегаций и in-place обновления, реализовано как C++ функции для MySQL.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.10243][Efficient Mining of Low-Utility Sequential Patterns]]
+:ALGO: Три алгоритма (LUSPM_b/s/e) с структурой sequence-utility chain для добычи низкополезных последовательных паттернов.
+:IMPACT: Заполняет пробел в SPM для задач обнаружения аномалий и геномного анализа, превосходит baseline по памяти и времени.
+
+- [[hxxps://arxiv.org/abs/2604.24122][Exact Mining of Dense Patterns via Direct Evaluation of Local Interval Frequency Using a Sliding Window]]
+:ALGO: Алгоритм Apriori-window для точного поиска локально плотных паттернов через скользящее окно без параметра gap.
+:IMPACT: Решает проблему одновременной точности идентификации паттернов и детекции интервалов для сезонного анализа.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2210.02534][Time travel for knowledge graphs: live queries over RDF change histories]] — Библиотека для временных SPARQL-запросов live на любом triplestore с поддержкой concurrent обновлений.
+- [[hxxps://arxiv.org/abs/2503.04338][In-depth Analysis of Graph-based RAG in a Unified Framework]] — Систематическое сравнение графовых RAG методов в едином фреймворке с выявлением новых вариантов.
+- [[hxxps://arxiv.org/abs/2603.17573][HeiSD: Hybrid Speculative Decoding for Embodied Vision-Language-Action Models with Kinematic Awareness]] — Гибридное спекулятивное декодирование для VLA-моделей с кинематическим определением границы.
+
+* cs.AI (Искусственный Интеллект)
+** 🧐 Обзор
+В фокусе — эффективность и безопасность LLM в распределённых сценариях: защита от кражи моделей на edge, оптимизация dataloader для мультисорс обучения, и ускорение inference через pipeline parallelism. Также заметен рост работ по предсказанию latency микросервисов и RCA инцидентов с использованием графовых зависимостей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2504.09844][MegaScale-Data: Scaling Dataloader for Multisource Large Foundation Model Training]]
+:WHAT: Распределённая архитектура dataloader с дезинтегрированной предобработкой и централизованным data plane для мультисорс LFM.
+:IMPACT: 4.5× улучшение throughput и 13.5× снижение CPU памяти, решает дисбаланс нагрузки при разнородных источниках данных.
+
+- [[hxxps://arxiv.org/abs/2509.21275][InfiniPipe: Elastic Pipeline Parallelism for Efficient Variable-Length Long-Context LLM Training]]
+:WHAT: Эластичный pipeline parallelism (EPP) с адаптивным чекпоинтингом для тренировки long-context LLM с переменной длиной последовательностей.
+:IMPACT: 1.69× ускорение над SOTA системами, решает проблему skewed distribution длин последовательностей.
+
+- [[hxxps://arxiv.org/abs/2508.01635][Reliable Microservice Tail Latency Prediction via Decoupled Dual-Stream Learning and Gradient Modulation]]
+:WHAT: Dual-stream фреймворк USRFNet с GNN для трафика и MLP для ресурсов, плюс Reliability-Aware Gradient Modulation.
+:IMPACT: 15.62%-26.11% снижение MAPE для P95 tail latency, критично для соблюдения SLO в cloud-native приложениях.
+
+- [[hxxps://arxiv.org/abs/2512.22113][PRAXIS: Integrating Program Analysis with Observability for Root-Cause Analysis]]
+:WHAT: Оркестратор с LLM-driven обходом графа зависимостей сервисов (SDG) и графа зависимостей программы (PDG) для RCA.
+:IMPACT: 6.3× точность RCA и 5.3× меньше токенов над ReAct baseline, снижает стоимость инцидентов ($2M/час).
+
+- [[hxxps://arxiv.org/abs/2410.13903][CoreGuard: Safeguarding Foundational Capabilities of LLMs Against Model Stealing in Edge Deployment]]
+:WHAT: Протокол защиты edge-развёрнутых LLM с минимальными накладными расходами на вычисления и коммуникацию.
+:IMPACT: Верхнеграничная безопасность с пренебрежимым overhead, решает критическую угрозу кражи весов и архитектур.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2506.23210][FedRef: Bayesian Fine-Tuning using a Reference Model to Mitigate Catastrophic Forgetting for Heterogeneous Federated Learning]]
+:ALGO: Байесовская донастройка с reference model из предыдущих глобальных моделей и MAP-регуляризацией на сервере.
+:IMPACT: Снижение client-side вычислений и улучшение стабильности при heterogeneous non-IID данных для реальных FL сценариев.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2303.05330][Cloudless-Training: A Framework to Improve Efficiency of Geo-Distributed ML Training]] — Serverless фреймворк для гео-распределённого ML с эластичным скедулингом и новыми стратегиями синхронизации.
+- [[hxxps://arxiv.org/abs/2309.06020][Text Tells the Cost: Predicting and Analyzing Repayment Effort of Self-Admitted Technical Debt]] — PRESTI подход для предсказания усилий по погашению SATD через текстовую информацию с BERT/TextCNN.
+- [[hxxps://arxiv.org/abs/2312.15020][Self-Admitted Technical Debt Detection Approaches: A Decade Systematic Review]] — Систематический обзор методов детекции SATD 2014-2025 с анализом эволюции от heuristic к Transformer-моделям.
+- [[hxxps://arxiv.org/abs/2402.19088][Survey in Characterizing Semantic Change]] — Обзор подходов к характеризации семантических изменений слов с формальным определением трёх классов изменений.
+- [[hxxps://arxiv.org/abs/2405.16730][Noisier Noise Contrastive Estimation is (Almost) Maximum Likelihood]] — Модификация NCE с увеличенной magnitude шума для приближения к MLE градиенту, ускоряет сходимость.
+- [[hxxps://arxiv.org/abs/2406.05984][Explainable AI for Mental Disorder Detection via Social Media: A survey and outlook]] — Обзор XAI методов для детекции ментальных расстройств через соцсети с акцентом на интерпретируемость.
+- [[hxxps://arxiv.org/abs/2407.14974][Out of Spuriousity: Improving Robustness to Spurious Correlations without Group Annotations]] — Извлечение подсети из обученной модели через supervised contrastive loss для устранения spurious корреляций.
+- [[hxxps://arxiv.org/abs/2408.00923][Reclaiming Residual Knowledge: A Novel Paradigm to Low-Bit Quantization]] — CoRa фреймворк, рассматривающий квантование как поиск архитектуры low-rank адаптеров для восстановления residual knowledge.
+- [[hxxps://arxiv.org/abs/2408.08686][MVIGER: Multi-View Variational Integration of Complementary Knowledge for Generative Recommender]] — Вариационный фреймворк для интеграции комплементарных знаний из различных prompt templates и индексов в generative recommender.
+- [[hxxps://arxiv.org/abs/2409.01579][AdaComp: Extractive Context Compression with Adaptive Predictor for Retrieval-Augmented Large Language Models]] — Адаптивное сжатие контекста RAG через predictor compression rate на основе сложности запроса и качества retrieval.
+
+* physics.soc-ph (Социальная Физика и Сети)
+** 🧐 Обзор
+Работы охватывают широкий спектр: от эпидемиологического моделирования на сетях с bridging nodes до макроэкономических уравнений движения капитала. Заметен интерес к эмпирическим исследованиям на масштабных данных (20M+ EV регистраций в Китае) и графовым методам для обработки траекторий UAV swarm.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.21954][The Swarm Intelligence Freeway-Urban Trajectories (SWIFTraj) Dataset -- Part II: A Graph-Based Approach for Trajectory Connection]]
+:WHAT: Графовый подход для соединения_vehicle_ траекторий из UAV swarm с автоматическим time alignment через Hungarian algorithm.
+:IMPACT: Ошибка alignment в пределах 3 кадров (~0.1с) и F1=0.99 для matching, критично для крупномасштабного сбора траекторий.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.12787][Impacts of bridging nodes on the epidemic activation mechanisms]]
+:ALGO: Анализ роли bridging nodes degree-2 в опосредовании обратной связи между hubs для эпидемических процессов с рекуррентными инфекциями.
+:IMPACT: Показывает переход от collective activation к localized activation с vanishing threshold в power-law сетях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2506.06927][An elementary method to determine the critical mass of a sphere of fissile material based on a separation of neutron transport and nuclear reaction processes]] — Педагогический метод расчёта критической массы через разделение транспорта нейтронов и ядерных реакций.
+- [[hxxps://arxiv.org/abs/2511.20742][City-level energy and emission assessment based on 20+ million electric vehicle registrations in China]] — Высокоразрешающая оценка EV adoption в 295 городах Китая с проекциями эмиссий до 2035.
+- [[hxxps://arxiv.org/abs/2604.01938][How to measure the optimality of word or gesture order with respect to the principle of swap distance minimization]] — Математический фреймворк для измерения оптимальности порядка слов/жестов через minimization swap distance в permutohedron.
+- [[hxxps://arxiv.org/abs/2604.22815][On Common Misconceptions in Classical Vehicle Dynamics]] — Критический пересмотр распространённых заблуждений в классической динамике транспортных средств.
+- [[hxxps://arxiv.org/abs/2604.22908][Electric potential of insulated conducting objects in presence of electric charges -- some exact and approximate results]] — Новый $J$-формализм для расчёта потенциала изолированных проводящих объектов без вычисления распределения заряда.
+- [[hxxps://arxiv.org/abs/2604.22976][Statistical Mechanics of Household Income and Wealth: Derivation from Firm Dynamics via Maximum Entropy and Mixture Aggregation]] — Вывод двухклассовой структуры распределения дохода/богатства из динамики фирм через maximum entropy.
+- [[hxxps://arxiv.org/abs/2604.22995][Equations of Motion for an Economy: Capital Deepening, Technology, and Firm Survival]] — Уравнения движения для capital deepening из accounting identities без production function с калибровкой по BEA данным.
+- [[hxxps://arxiv.org/abs/2604.23026][AI Hastens Limits to Exponential Growth]] — Анализ того, как AI может ускорить рост спроса на энергию до 15%/год, сжимая многовековые timelines до десятилетий.
+
+* cs.DS (Структуры Данных и Алгоритмы)
+** 🧐 Обзор
+Сильный акцент на parameterized complexity для fair variants графовых задач и эффективные алгоритмы для потоковых двудольных графов. Также выделяются работы по entropy-optimal sampling и квантовым алгоритмам для топологического анализа данных с экспоненциальным ускорением.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2412.11488][Counting Butterflies over Streaming Bipartite Graphs with Duplicate Edges]]
+:WHAT: Метод DEABC с bucket-based priority sampling для подсчёта butterfly в потоковых двудольных графах с дубликатами рёбер.
+:IMPACT: Значительно снижает память и variance по сравнению с FABLE, критично для fraud detection и community detection на реальных стримах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2410.14421][Fair Division in a Variable Setting]]
+:ALGO: Алгоритмы для EF1-Restoration при изменяющемся множестве агентов/предметов с анализом сложности для различных классов оценок.
+:IMPACT: Даёт landscape сложности для fair division в динамических сценариях, показывает PSPACE-полноту для monotone binary valuations.
+
+- [[hxxps://arxiv.org/abs/2502.01400][Fair Vertex Problems Parameterized by Cluster Vertex Deletion]]
+:ALGO: FPT алгоритмы для fair MSO₁ задач параметризованных по cluster vertex deletion number с условием достаточности.
+:IMPACT: Решает fair variants Vertex Cover, Feedback Vertex Set, Dominating Set с ограничениями на neighbourhood.
+
+- [[hxxps://arxiv.org/abs/2509.02520][A Simple and Fast Reduction from Gomory-Hu Trees to Polylog Maxflows]]
+:ALGO: Tight reduction от Gomory-Hu деревьев к polylog maxflow вычислениям с $\tilde{O}(m)$ размером инстансов для невзвешенных графов.
+:IMPACT: Первый reduction tight до polylog факторов, расширяется на взвешенные графы и гиперграфы.
+
+- [[hxxps://arxiv.org/abs/2510.00331][One-Sided Local Crossing Minimization]]
+:ALGO: Подтверждение NP-трудности one-sided local crossing minimization для лесов звёзд и quadratic-time алгоритм для degree≤2.
+:IMPACT: Закрывает открытую проблему сложности, даёт 3-аппроксимацию через median heuristic с tie-breaking.
+
+- [[hxxps://arxiv.org/abs/2511.15849][Connectivity-Preserving Important Separators: A Framework for Cut-Uncut Problems]]
+:ALGO: Новый фреймворк connectivity-preserving important separators с $2^{O(k \log k)}$ enumerations для cut-uncut задач.
+:IMPACT: Улучшает FPT алгоритмы для Node Multiway Cut-Uncut с $2^{O(k^2 \log k)}$ до $2^{O(k \log k)}$.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.04267][Efficient Rejection Sampling in the Entropy-Optimal Range]] — Новый сэмплер с linearithmic space и negligible overhead в entropy-optimal range $[H(P), H(P)+2)$.
+- [[hxxps://arxiv.org/abs/2506.01432][New aspects of quantum topological data analysis: Betti number estimation, and testing and tracking of homology and cohomology classes]] — Квантовые алгоритмы для оценки Betti numbers и homology testing с polylog сложностью.
+- [[hxxps://arxiv.org/abs/2506.14062][Exact and Efficient Sampling from Dynamic Discrete Distributions with Finite-Precision Weights]] — EBUS сэмплер для динамических распределений с конечной точностью, exact by construction в word RAM модели.
+- [[hxxps://arxiv.org/abs/2510.27330][A Simple Deterministic Reduction From Gomory-Hu Tree to Maxflow and Expander Decomposition]] — Детерминированный reduction от Gomory-Hu деревьев к maxflow и expander decomposition.
+
+* cs.DC (Распределённые Вычисления)
+** 🧐 Обзор
+Исследования фокусируются на практических аспектах serverless workflow платформ с детальным бенчмаркингом AWS/Azure и новых языках программирования для spatial dataflow архитектур. Также представлена работа о неожиданной эффективности single global merging в децентрализованном обучении.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.23013][Characterizing FaaS Workflows on Public Clouds: The Good, the Bad and the Ugly]]
+:WHAT: Принципиальное исследование трёх FaaS workflow платформ (AWS Step Functions, Azure Durable Functions) на 132k инвокациях.
+:IMPACT: Выявляет уникальные инсайты по orchestration, cold-start scaling и costs, помогает разработчикам конфигурировать платформы.
+
+- [[hxxps://arxiv.org/abs/2511.09447][SpaDA: A Spatial Dataflow Architecture Programming Language]]
+:WHAT: Язык программирования для spatial dataflow архитектур (Cerebras WSE) с контролем data placement и asynchronous operations.
+:IMPACT: 14.09× меньше строк кода чем CSL, 260+ TFlop/s на 730k PE, работает как high-level интерфейс и IR для DSL.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2507.06542][On the Surprising Effectiveness of a Single Global Merging in Decentralized Learning]]
+:ALGO: Теоретическое обоснование эффективности single global merging на финальном шаге децентрализованного SGD при высокой гетерогенности данных.
+:IMPACT: Показывает, что globally merged model может matching convergence rate параллельного SGD, открывает новые направления для model merging.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2303.05330][Cloudless-Training: A Framework to Improve Efficiency of Geo-Distributed ML Training]] — Serverless фреймворк для гео-распределённого ML с двухуровневой архитектурой и стратегиями ASGD-GA/MA синхронизации.

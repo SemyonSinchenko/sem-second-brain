@@ -1,0 +1,61 @@
+#+TITLE: Daily Digest: 2026-07-03
+#+FROM: [2026-07-02 Thu]
+#+TO: [2026-07-03 Fri]
+#+DATE: [2026-07-03 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с экспериментов с ИИ на надежную инфраструктуру, безопасность и внедрение агентов в продакшн. Вендоры представляют готовые решения для RL-обучения агентов и защиты от фишинга на базе генеративных моделей. В инженерии данных возвращается интерес к фундаментальным практикам и симуляции реальных задач, несмотря на рост автоматизации кода. Операции с базами данных переходят на автоматизированные blue/green деплои для минимизации рисков при масштабировании.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dataengineeringweekly.com/p/announcing-leetdataai-a-practice][Announcing leetdata.ai — A Practice Ground for Data Engineers]] (Data Engineering Weekly) — Платформа для отработки навыков моделирования данных и проектирования пайплайнов, заполняющая пробел между алгоритмическими задачами и реальной инженерией.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/announcing-leetdataai-a-practice][Announcing leetdata.ai — A Practice Ground for Data Engineers]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему отсутствия практики для дата-инженеров, фокусируясь на системном дизайне вместо стандартных алгоритмов.
+
+** Инженеры
+- [[hxxps://medium.com/towards-data-engineering/sda-03-bootstrapping-with-declarative-automation-bundles-d0a9a0b58589?source=rss-6e4a30cbb0e1------2][SDA 03: Bootstrapping with Declarative Automation Bundles]] (Medium) — Практический гайд по переходу от хаотичных ноутбуков к структурированному проекту с декларативным управлением окружениями и правами.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/sda-03-bootstrapping-with-declarative-automation-bundles-d0a9a0b58589?source=rss-6e4a30cbb0e1------2][SDA 03: Bootstrapping with Declarative Automation Bundles]]
+:SCORE: 8/10
+:WHY: Демонстрирует зрелый подход к инфраструктуре кода данных, разделяя dev/stage/prod через декларативные конфигурации.
+
+** Вендоры
+- [[hxxps://www.dremio.com/blog/modern-semantic-layer-ai-agents/][The Semantic Layer: From Human Shortcut to Agent Guardrail]] (Dremio) — Семантический слой эволюционирует из инструмента для людей в необходимый контекст для корректной работы AI-агентов с данными.
+- [[hxxps://www.databricks.com/blog/3-questions-answer-take-ai-experimentation-impact][The 3 questions to answer to take AI from experimentation to impact]] (Databricks) — Фреймворк для перехода от пилотных проектов к реальному бизнес-воздействию через правильные метрики и инфраструктуру.
+- [[hxxps://www.databricks.com/blog/inside-infrastructure-strategies-propelling-ai-leaders][Inside the infrastructure strategies propelling AI leaders]] (Databricks) — Анализ инфраструктурных паттернов компаний, которые уже получают рентабельность от внедрения ИИ.
+- [[hxxps://aws.amazon.com/blogs/database/data-masking-in-amazon-rds-for-oracle/][Data masking in Amazon RDS for Oracle]] (AWS) — Инструкция по маскировке данных в облачных Oracle DB для безопасного тестирования без нарушения комплаенса.
+- [[hxxps://aws.amazon.com/blogs/database/how-cred-uses-amazon-rds-blue-green-deployments-at-scale][How CRED uses Amazon RDS Blue/Green Deployments at scale]] (AWS) — Кейс автоматизации обновлений БД без простоя на примере финтеха с сотнями кластеров.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества по графовым базам данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/modern-semantic-layer-ai-agents/][The Semantic Layer: From Human Shortcut to Agent Guardrail]]
+:SCORE: 9/10
+:WHY: Переосмысливает роль семантического слоя как критического компонента для надежности генеративных агентов.
+**** [[hxxps://aws.amazon.com/blogs/database/how-cred-uses-amazon-rds-blue-green-deployments-at-scale][How CRED uses Amazon RDS Blue/Green Deployments at scale]]
+:SCORE: 8/10
+:WHY: Реальный пример оркестрации обновлений БД с нулевым даунтаймом, применимый для высоконагруженных систем.
+**** [[hxxps://www.databricks.com/blog/3-questions-answer-take-ai-experimentation-impact][The 3 questions to answer to take AI from experimentation to impact]]
+:SCORE: 8/10
+:WHY: Помогает сеньорам задать правильные вопросы для вывода AI-проектов из стадии прототипа.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/10-agentic-ai-frameworks-you-should-know-in-2026][10 Agentic AI Frameworks You Should Know in 2026]] (KDNuggets) — Обзор фреймворков для разработки агентов, включая LangGraph и CrewAI, актуальных для ближайших лет.
+- [[hxxps://www.kdnuggets.com/humanitys-last-exam-is-a-distraction][Humanity's Last Exam is a Distraction]] (KDNuggets) — Критический взгляд на бенчмарки оценки ИИ, предостерегающий от излишнего фокуса на тестах вместо реальных задач.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/][How Amazon Bedrock catches AI-generated phishing]] (AWS) — Использование фундаментальных моделей для detections фишинга на основе поведенческих паттернов, а не сигнатур.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/][Best practices for multi-turn reinforcement learning in Amazon SageMaker AI]] (AWS) — Лучшие практики обучения агентов с множественными шагами, включая управление наградами и окружением.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/best-practices-for-multi-turn-reinforcement-learning-in-amazon-sagemaker-ai/][Best practices for multi-turn reinforcement learning in Amazon SageMaker AI]]
+:SCORE: 9/10
+:WHY: Технические детали обучения RL-агентов для сложных сценариев, критичные для разработки автономных систем.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-amazon-bedrock-catches-ai-generated-phishing/][How Amazon Bedrock catches AI-generated phishing]]
+:SCORE: 8/10
+:WHY: Пример защиты инфраструктуры от новых угроз, созданных с помощью генеративного ИИ.
+**** [[hxxps://www.kdnuggets.com/10-agentic-ai-frameworks-you-should-know-in-2026][10 Agentic AI Frameworks You Should Know in 2026]]
+:SCORE: 7/10
+:WHY: Актуальная карта инструментов для выбора стека при разработке агентных систем.

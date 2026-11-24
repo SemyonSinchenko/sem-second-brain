@@ -1,0 +1,41 @@
+#+TITLE: Daily Digest: 2026-08-24
+#+FROM: [2026-08-23 Sun]
+#+TO: [2026-08-24 Mon]
+#+DATE: [2026-08-24 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия данных движется к конвергенции: разрозненные моделирования и хранилища уступают место унифицированным архитектурам. Databricks представляет LTAP для сближения транзакционных и аналитических нагрузок без дублирования данных. DuckDB эволюционирует в сетевой сервис, а сообщество графовых данных утверждает стандарты GQL для AI-агентов. Инженерам предлагается пересмотреть устаревшие методологии моделирования в пользу гибких манифестов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-284][Data Engineering Weekly #284]] (Data Engineering Weekly) — DuckDB v2.0 становится сетевым сервисом, а StreamFusion адаптирует потоковую обработку под AI.
+- [[hxxps://medium.com/towards-data-engineering/%EF%B8%8F-leaving-the-lakehouse-of-pain-f2daf5e7c7ab?source=rss-6e4a30cbb0e1------2][☘️ Leaving The Lakehouse Of Pain]] (Medium) — Разбор архитектуры Databricks LTAP: единое хранилище для транзакций и аналитики без дублирования данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/%EF%B8%8F-leaving-the-lakehouse-of-pain-f2daf5e7c7ab?source=rss-6e4a30cbb0e1------2][☘️ Leaving The Lakehouse Of Pain]]
+:SCORE: 9/10
+:WHY: Критический анализ архитектуры LTAP помогает избежать типичных ошибок при интеграции OLTP и OLAP систем.
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-284][Data Engineering Weekly #284]]
+:SCORE: 8/10
+:WHY: Обзор DuckDB v2.0 и StreamFusion показывает вектор развития легких аналитических движков в эпоху AI.
+
+** Engineers
+- [[hxxps://joereis.substack.com/p/why-data-modeling-needs-a-manifesto][Why Data Modeling Needs a Manifesto]] (Joe Reis) — Призыв преодолеть разобщенность дисциплин моделирования и объединить практики для современной архитектуры.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Практическая реализация линейной регрессии методом наименьших квадратов на Clojure.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/why-data-modeling-needs-a-manifesto][Why Data Modeling Needs a Manifesto]]
+:SCORE: 9/10
+:WHY: Необходимое чтение для пересмотра устаревших практик моделирования в условиях конвергенции данных.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 6/10
+:WHY: Полезно для углубления понимания математических основ ML при реализации на функциональных языках.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Повестка встречи GDC: стандарты GQL, графовые ускорители и интеграция с Oracle и PuppyGraph.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Дает представление о-roadmap стандартов графовых данных и вендорских решениях для масштабирования.

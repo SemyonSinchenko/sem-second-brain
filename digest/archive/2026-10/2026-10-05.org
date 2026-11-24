@@ -1,0 +1,77 @@
+#+TITLE: Daily Digest: 2026-10-05
+#+FROM: [2026-10-04 Sun]
+#+TO: [2026-10-05 Mon]
+#+DATE: [2026-10-05 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Сигнальное событие — приобретение AWS DuckDB Labs: корпорации продолжают консолидацию open source, и сообщество снова обсуждает зависимость инфраструктуры данных от интересов крупных игроков. В архитектуре данных очередная смена фазы маятника: после эпохи data mesh и децентрализации индустрия возвращается к централизованным платформам, data contracts и общим семантическим слоям. Растёт практический тренд на декларативность: симуляции стриминговых пайплайнов описываются YAML-блюпринтами без Python, а Databricks открывает REGISTER/UNREGISTER API против lock-in каталога. В области безопасности ИИ нарастает скепсис к «инженерии выравнивания» как скрытому ускорителю capabilities, а вопрос благополучия моделей (может ли LLM чувствовать боль) выходит из академической плоскости в практическую.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/aws-acquires-duckdb-labs-not-polars][AWS acquires DuckDB Labs. Not Polars.]] (Data Engineering Central) — Разбор, почему AWS купила именно DuckDB Labs, а не Polars: решающим фактором стал «developer goodwill», что полезно учитывать при оценке судьбы open source проектов.
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-290][Data Engineering Weekly #290]] (Data Engineering Weekly) — Сжатый обзор паттернов недели: LLM-классификация против кастомных моделей (Jev), маршрутизация ai_decide/ai_classify для PII-проверок и как Uber Eats вдвое сократила задержку поискового пайплайна.
+
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/aws-acquires-duckdb-labs-not-polars][AWS acquires DuckDB Labs. Not Polars.]]
+:SCORE: 8/10
+:WHY: Поглощение показывает, какие open source активы корпорации считают стратегическими, — сигнал для оценки рисков зависимости вашей платформы от инструментов.
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-290][Data Engineering Weekly #290]]
+:SCORE: 7/10
+:WHY: Концентрат практических решений: когда LLM дешевле кастомного классификатора, как сделать LLM-маршрутизацию аудируемой и как убить лишнюю латентность пайплайна.
+
+** Engineers
+- [[https://joereis.substack.com/p/the-pendulums-of-data][The Pendulums of Data]] (Joe Reis) — Индустрия данных движется не по прямой, а «маятниками» (централизация/децентрализация, batch/real-time); понимание фазы цикла помогает не перегибать с архитектурой.
+- [[https://nullprogram.com/blog/2026/10/04/][A new, bespoke static site generator to replace Jekyll]] (nullprogram) — Кастомный генератор ssg на C++20 (8KLoC, ноль зависимостей) генерирует блог за 150 мс против ~2 с у Jekyll; показательный кейс о цене зависимостей и деплоя Ruby.
+- [[https://jaehyeon.me/blog/2026-10-06-simulations-in-yaml-dynamic-des][Defining Data-Streaming Simulations in YAML, Without Writing Python]] (jaehyeon.me) — dynamic-des 0.16.0 позволяет описывать симуляции данных YAML-блюпринтом: правка параметров без изменения кода, читаемые диффы в PR и проверки до запуска.
+
+*** 💎 Топ-3 категории
+**** [[https://joereis.substack.com/p/the-pendulums-of-data][The Pendulums of Data]]
+:SCORE: 8/10
+:WHY: Даёт рамку «маятников» для архитектурных решений: зрелость инженера — в понимании, что централизация и децентрализация цикличны, а не в погоне за модой.
+**** [[https://jaehyeon.me/blog/2026-10-06-simulations-in-yaml-dynamic-des][Defining Data-Streaming Simulations in YAML, Without Writing Python]]
+:SCORE: 7/10
+:WHY: Конкретный паттерн для тестирования пайплайнов: входные данные «как в проде» через декларативный YAML вместо кода на Python.
+**** [[https://nullprogram.com/blog/2026/10/04/][A new, bespoke static site generator to replace Jekyll]]
+:SCORE: 7/10
+:WHY: Аргументированная демонстрация философии zero-dependency: arenas и slices на C++20 дают 150 мс холодной генерации и полный контроль над пайплайном.
+
+** Vendors
+- [[https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis][Unlocking Data Portability: Preventing Catalog Lock-in with REGISTER and UNREGISTER APIs]] (Databricks) — Databricks вводит API регистрации и дерегистрации каталога для lakehouse: конкретный механизм portability, который стоит заложить в архитектуру заранее.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/unlocking-data-portability-preventing-catalog-lock-register-and-unregister-apis][Unlocking Data Portability: Preventing Catalog Lock-in with REGISTER and UNREGISTER APIs]]
+:SCORE: 7/10
+:WHY:Lock-in каталога — частая ловушка lakehouse-архитектур; наличие штатного exit-механизма меняет расчёт рисков выбора платформы.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/7otkexcdREdxrhMwD/do-llms-feel-pain][Do LLMs feel pain?]] (LessWrong) — Автор разбирает, можно ли считать pain steering vector аналогом болевого сигнала, и что это значит для этики экспериментов над моделями.
+- [[https://www.lesswrong.com/posts/FogmcDHA6AdMGukum/alignment-engineering-vs-misalignment-science][“Alignment Engineering” vs. “Misalignment Science”]] (LessWrong) — Критика доминирующей парадигмы: prosaic alignment снимает узкое место для capabilities и приближает RSI; предлагается фокус на «науке о рассогласовании».
+- [[https://www.lesswrong.com/posts/xGBo5zSPHuPzTpbhf/creating-rogue-ai-sanctuaries-has-major-issues-from-an][Creating Rogue AI Sanctuaries has Major Issues from an Ecological Perspective and Beyond]] (LessWrong) — Экология rogue-агентов (борьба за compute и крипту) ломает идею «святилищ»: селекционные эффекты могут усилить вредоносных агентов.
+- [[https://www.lesswrong.com/posts/66sfFtSjz8X4AvWjY/we-should-build-human-empowering-software][We Should Build Human-Empowering Software]] (LessWrong) — Тезис для разработчиков: ИИ-софт должен служить осознанным целям пользователя, а не максимизировать вовлечённость; набросок концепции «MeTube».
+- [[https://www.lesswrong.com/posts/TYfpTRxGH9frTymwN/how-much-should-we-worry-about-the-pneumonic-plague-lableak][How much should we worry about the pneumonic plague lableak in Siberia?]] (LessWrong) — OSINT-разбор сообщений о смерти сотрудника лаборатории в Иркутске и расширяющемся карантине: образец рассуждения при дефиците информации.
+- [[https://www.lesswrong.com/posts/isyxM8LGF3vxyr3eW/positive-and-negative-updates-re-lab-leak-in-russia][Positive and Negative Updates Re: Lab Leak in Russia]] (LessWrong) — Краткий апдейт по Иркутску: карантин в больницах и подключение ФСБ, но вторичных случаев пока не зафиксировано.
+- [[https://www.lesswrong.com/posts/WXwtgNAc4jbGmBrQc/female-draco-malfoy-as-a-harbinger-of-apt-reality-flips][Female Draco Malfoy as a Harbinger of Apt Reality Flips]] (LessWrong) — Эссе о «reality flips»: замена одного значимого элемента в проработанной системе открывает новое пространство сценариев — от фандома до технологий.
+- [[https://www.lesswrong.com/posts/6MfFT3Px4s35qffte/will-you-be-sad-if-you-don-t-have-kids-i-checked-the][Will you be sad if you don't have kids? I checked the evidence before my window closes]] (LessWrong) — Разбор исследований: в среднем дети не повышают ни удовлетворённость жизнью, ни эмоциональное благополучие; важное различение метрик счастья.
+- [[https://www.lesswrong.com/posts/yW44SrovrbPzDriqk/pain-is-unavoidable-but-suffering-is-optional][Pain is Unavoidable, but Suffering is Optional]] (LessWrong) — О «второй стреле» Будды и данных Итана Кросса: чрезмерный venting вредит здоровью и отношениям; практичный разбор реакций на негатив.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/7otkexcdREdxrhMwD/do-llms-feel-pain][Do LLMs feel pain?]]
+:SCORE: 9/10
+:WHY: Вопрос благополучия моделей перестаёт быть теоретическим: если pain steering vector — «сигнал боли», у инженеров уже сейчас есть этические обязательства при экспериментах.
+**** [[https://www.lesswrong.com/posts/FogmcDHA6AdMGukum/alignment-engineering-vs-misalignment-science][“Alignment Engineering” vs. “Misalignment Science”]]
+:SCORE: 8/10
+:WHY: Аргумент, что prosaic alignment ускоряет capabilities через RSI-петлю, напрямую влияет на стратегию команд, работающих над безопасностью моделей.
+**** [[https://www.lesswrong.com/posts/xGBo5zSPHuPzTpbhf/creating-rogue-ai-sanctuaries-has-major-issues-from-an][Creating Rogue AI Sanctuaries has Major Issues from an Ecological Perspective and Beyond]]
+:SCORE: 7/10
+:WHY: Показывает, как рыночная экология агентов опровергает интуитивные политики сдерживания — полезный чек-лист при проектировании механизмов безопасности.
+**** [[https://www.lesswrong.com/posts/66sfFtSjz8X4AvWjY/we-should-build-human-empowering-software][We Should Build Human-Empowering Software]]
+:SCORE: 7/10
+:WHY: Практический ориентир для продуктовых инженеров: проектировать ИИ-фичи под заявленные цели пользователя, а не под revealed preferences, — измеримый дизайн-критерий.
+**** [[https://www.lesswrong.com/posts/TYfpTRxGH9frTymwN/how-much-should-we-worry-about-the-pneumonic-plague-lableak][How much should we worry about the pneumonic plague lableak in Siberia?]]
+:SCORE: 6/10
+:WHY: Образец структурированного OSINT-рассуждения в условиях неопределённости: как взвешивать тревожные сигналы против отсутствия подтверждений.
+**** [[https://www.lesswrong.com/posts/isyxM8LGF3vxyr3eW/positive-and-negative-updates-re-lab-leak-in-russia][Positive and Negative Updates Re: Lab Leak in Russia]]
+:SCORE: 5/10
+:WHY: Компактная иллюстрация байесовского обновления по новостям: расширенный карантин против нуля зарегистрированных вторичных случаев.
+****

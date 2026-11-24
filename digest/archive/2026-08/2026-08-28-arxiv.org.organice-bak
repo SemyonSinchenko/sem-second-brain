@@ -1,0 +1,201 @@
+#+TITLE: Arxiv Digest: 2026-08-28
+#+FROM: [2026-08-27 Thu]
+#+TO: [2026-08-28 Fri]
+#+DATE: [2026-08-28 Fri]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За день базовые системы смещаются к практическим механизмам самонастройки и гарантии качества данных: от LLM-агента AgenticDB до self-sizing IBLT для синхронизации. Зрели подсистемы многовекторного поиска и объяснений запросов, а DeQL показывает, как decision-making встраивается в SQL-поток. Наиболее применимы технологии, снижающие стоимость tuning, верификации и поиска при высоких SLA.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.20318][AgenticDB: Self-Evolving Reconfiguration Framework for Database Workloads]]
+:WHAT: LLM-based self-evolving DBA planner, который jointly перенастраивает DBMS- и OS-параметры через контекстную диагностику узких мест, closed-loop feedback, validation и восстановление после сбоев.
+:IMPACT: На MySQL/PostgreSQL показывает +118.1% над SOTA в среднем и сокращает time-to-best на 22.6%, что важно для автономного tuning реальных баз.
+
+- [[hxxps://arxiv.org/abs/2608.23553][Chimera: Efficient Multi-Vector Retrieval via GPU-CPU Co-Processing]]
+:WHAT: GPU-CPU co-processing для multi-vector retrieval: сжатые quantization codes на GPU, high-precision данные в CPU, candidate generation/filtering и collaborative scoring без transfer vector data.
+:IMPACT: Устраняет CPU-GPU bottleneck и даёт до 59.5x QPS при том же recall, что критично для низкозадержечного векторного/мульти-векторного поиска.
+
+- [[hxxps://arxiv.org/abs/2608.26930][Incremental Delta-Shapley: A Standalone Runtime for Predicate Attribution on Sliding Windows]]
+:WHAT: IDS — standalone runtime для predicate attribution в скользящих окнах, обновляющий summaries за delta-входы и оценивающий closed-form Shapley за константное время.
+:IMPACT: Делает объяснения непрерывных агрегатов first-class оператором; flat maintenance и ускорение до 4.3e5x против per-window scans важны для streaming analytics.
+
+- [[hxxps://arxiv.org/abs/2608.26537][IBLTs Measure Before They Decode: Self-Sizing Set Reconciliation from Pre-Peeling Counts]]
+:WHAT: Само-калибруемый IBLT-протокол, оценивающий кардинальность symmetric difference из cell counts до декодирования и определяющий capacity второго раунда.
+:IMPACT: Снижает риск undersizing/oversizing в синхронизации БД; профиль 41,603 runs и деплой в Redis/Pika подтверждают production relevance.
+
+- [[hxxps://arxiv.org/abs/2606.19751][DeQL: A Decision Query Language for Prescriptive Analytics over Relational Data]]
+:WHAT: Расширение SQL с CREATE CANDIDATES и DECIDE для decision queries: кандидаты из реляционных данных, ограничения, objective и solver-agnostic execution model.
+:IMPACT: Интегрирует prescriptive optimization в SQL-workflow для allocation, scheduling, subset selection и multi-level decisions.
+
+- [[hxxps://arxiv.org/abs/2603.08612][Query-Guided Analysis and Mitigation of Data Verification Errors (Extended Version)]]
+:WHAT: Framework и prototype для оценки влияния ошибок верификации на query results через Maximal Error Score, risky tuples и algorithm MESReduce.
+:IMPACT: Позволяет направлять дополнительные verification steps так, чтобы снижать worst-case uncertainty результатов запросов.
+
+- [[hxxps://arxiv.org/abs/2608.26464][VoS: Variate Ordering Strategies for Skyline Query Optimization]]
+:WHAT: Стратегии упорядочивания attribute/variates для минимизации redundant per-attribute и per-tuple dominance checks в skyline запросах.
+:IMPACT: Повышает эффективность skyline query execution на scalar/SIMD-архитектурах, где доминирующие проверки определяют latency.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.08612][Query-Guided Analysis and Mitigation of Data Verification Errors (Extended Version)]]
+:ALGO: Эффективные алгоритмы вычисления MES и детектирования risky tuples, плюс generic MESReduce, взаимодействующий с внешними verifiers для выбора дополнительных верификаций.
+:IMPACT: Даёт алгоритмическую основу для data-quality pipelines, где ошибки labeling нелинейно искажают downstream query results.
+
+- [[hxxps://arxiv.org/abs/2608.26464][VoS: Variate Ordering Strategies for Skyline Query Optimization]]
+:ALGO: Оптимизация order attributes для skyline, минимизирующая суммарные attribute dominance checks; учитывает разрыв между tuple-pair dominance и реальным execution cost.
+:IMPACT: Практически ускоряет skyline queries на синтетических и реальных данных, что важно для multi-criteria selection и ranking.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.26335][Realistic Counterfactual Explanations via Denial Constraints]] — Использует denial constraints и data-cleaning ideas, чтобы counterfactuals были реалистичными и сохраняли distance/diversity.
+- [[hxxps://arxiv.org/abs/2608.26775][Size Bounds for CQs Under Acyclic Constraints]] — Изучает gap между entropic и polymatroid bounds для CQ при acyclic constraints и проекциях, характеризируя случаи tightness.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+cs.AI сосредоточен на LLM-системах, где важны память, верификация и retrieval: появляется batching на основе моноидов, устойчивые верификаторы для RLVR и proof-sketch гибриды. Одновременно видны границы применения: LLM-рои дают роение только ценой огромного времени вычислений. Прикладные работы по health communication и real-time VLM подчёркивают разрыв между удобством восприятия и строгостью.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2402.09900][Recurrent Reinforcement Learning with Memoroids]]
+:WHAT: Переформулирует linear recurrent models как memoroids на моноидной структуре и предлагает batching для recurrent RL.
+:IMPACT: Улучшает sample efficiency, return и упрощает реализацию recurrent losses, что важно для длинных POMDP-траекторий.
+
+- [[hxxps://arxiv.org/abs/2406.14429][CollaFuse: Collaborative Diffusion Models]]
+:WHAT: Distributed collaborative diffusion по split-learning: дешёвые процессы остаются у clients, ресурсоёмкие вычислительные части выносятся на shared server.
+:IMPACT: Снижает client burden при image synthesis и уменьшает раскрытие raw data, актуально для privacy-sensitive и edge-систем.
+
+- [[hxxps://arxiv.org/abs/2504.05216][Unleashing the Power of LLMs in Dense Retrieval with Query Likelihood Modeling]]
+:WHAT: LLM-QL добавляет query likelihood maximization как auxiliary task для dense retriever, с Attention Block и Document Corruption.
+:IMPACT: Улучшает semantic retrieval на MS MARCO/BEIR и усиливает backbone для re-ranking/RAG pipeline.
+
+- [[hxxps://arxiv.org/abs/2505.11326][Temporally-Grounded Language Generation: Towards Real-Time Vision-Language Models]]
+:WHAT: Предлагает benchmark TGLG, metric TRACE и модель VLM-TSI, time-synchronized interleaving visual/linguistic tokens для real-time responses.
+:IMPACT: Фокусируется на timing, а не только semantic accuracy, что важно для streaming video assistants и интерактивных VLM systems.
+
+- [[hxxps://arxiv.org/abs/2505.15740][HybridProver: Augmenting Theorem Proving with LLM-Driven Proof Synthesis and Refinement]]
+:WHAT: Объединяет whole-proof synthesis и tactic-based generation через proof sketches в Isabelle/HOL с post-trained 7B LLMs.
+:IMPACT: Даёт 73.8% на miniF2F, показывая, что более лёгкие модели могут быть практичными для formal verification workflows.
+
+- [[hxxps://arxiv.org/abs/2505.22203][From Accuracy to Robustness: A Study of Rule- and Model-based Verifiers in Mathematical Reasoning]]
+:WHAT: Систематически сравнивает rule-based и model-based verifiers в static evaluation и RL training для mathematical reasoning.
+:IMPACT: Показывает false negatives у правил и reward hacking у моделей, критично для проектирования надёжных RLVR reward systems.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2411.15361][Designing Cellular Manufacturing Systems in the Presence of Alternative Process Plans]]
+:ALGO: Четыре integer programming formulations для simultaneous cell formation и operational routing с альтернативными process plans и flexible machines.
+:IMPACT: Позволяет глобально оптимизировать grouping частей и машин, снижая inter-/intra-cell movements и инвестиционные решения в manufacturing systems.
+
+- [[hxxps://arxiv.org/abs/2506.14496][LLM-Powered Swarms: A New Frontier or a Conceptual Stretch?]]
+:ALGO: Реализует Boids и Ant Colony Optimization на LLM-агентах через OpenAI Swarm и сравнивает их с классическими swarm algorithms.
+:IMPACT: Количественно показывает, что LLM-роение воспроизводит динамику, но требует ~300x больше compute, ограничивая real-time systems.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2411.15129][The BS-meter: Detecting Politics and Labour through ChatGPT's Language]] — Статистическая модель связывает «bullshit» язык ChatGPT с политическими и workplace-коммуникациями.
+- [[hxxps://arxiv.org/abs/2505.08143][Communication styles and reader preferences of LLM- and human-authored COVID-19 information explanations: a case study]] — Сопоставляет стили LLM и человека в health fact-checking и показывает, что reader preference не всегда соответствует quality metrics.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+В social physics заметен переход от феноменологических описаний к микромоделям и структурам выше парных связей: bayesian opinion dynamics, random recursive simplicial complexes и фазовые переходы в пространственных системах. Прикладной уровень представлен district-level food-environment моделью, но ограниченной малыми наблюдениями. Практическая ценность — в предсказании каскадов, интерпретации сетевых механизмов и использовании городских данных.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.26299][District-Level Food Environment Indicators and Social Vulnerability in São Paulo]]
+:WHAT: Exploratory ML classification district-level социальной уязвимости по densities healthy/unhealthy food establishments, street markets и свежим продуктам в 76 районах Сан-Паулу.
+:IMPACT: Показывает, что публичные food-environment indicators содержат сигнал для urban equity analysis, но ecological sample и class imbalance ограничивают generalization.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.16539][A Bayesian framework for opinion dynamics models]]
+:ALGO: Subjective Bayesian framework для opinion update: prior center, posterior mean, perceived likelihood/bias; генерирует linear update, saturation, tail rejection и signal tracking.
+:IMPACT: Даёт микрооснования для «иррациональных» opinion dynamics, полезные при моделировании сетевых распространений и поляризации.
+
+- [[hxxps://arxiv.org/abs/2608.26547][Random Recursive Simplicial Complexes]]
+:ALGO: Рост random recursive simplicial complexes добавлением new vertex, joined к existing simplex, с analysis asymptotic growth, degree distribution и extreme outcomes.
+:IMPACT: Обеспечивает модели higher-order network topology beyond pairwise graphs для social and technological systems.
+
+- [[hxxps://arxiv.org/abs/2608.27204][Distinct routes to phase transitions in spatial activation systems]]
+:ALGO: Unified phase diagram по interaction range, различающий continuous, first-order и mixed-order transitions через nucleation-driven front propagation и critical branching.
+:IMPACT: Объясняет metastability и чувствительность к localized triggers, что важно для cascade prevention в spatial networks и collective systems.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В алгоритмах день отмечен ускорением практических структур данных — SIMD-heap и к-PHF для хэш-таблиц — и продолжением точных/приближённых методов на графах: групповая closeness центральность и онлайн-бисекция. Зрели алгоритмы сэмплирования раскрасок и биоминимальных якорей, важные для индексирования и выравнивания. Теоретические sketch bounds сохраняют relevance для approximate query processing.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.25681][SimdQuickHeap: The QuickHeap Reconsidered]]
+:WHAT: Priority queue QuickHeap с adjacent pivots и bucket layout для efficient SIMD partitioning и scanning.
+:IMPACT: 1.2–2.8x быстрее конкурентов и стабильно лидирует на Dijkstra/MST, что важно для graph data systems и low-latency scheduling.
+
+- [[hxxps://arxiv.org/abs/2607.07257][Non-Minimal k-Perfect Hashing: Tight Lower Bounds and an Application to Fast Static Hash Tables]]
+:WHAT: PtrHash-based k-PHF mapping keys к cache-line-sized bins capacity k для static hash tables.
+:IMPACT: Даёт branchless lookups, high load factors и до 1.5x speedup для n≥30M, где 1-PHF не помещается в cache.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2305.01420][An Improved Subquadratic Bound for Online Bisection]]
+:ALGO: Randomized online bisection с competitive ratio O~(n^{11/6}) без resource augmentation для произвольных request sequences.
+:IMPACT: Прерывает quadratic barrier в dynamic partitioning, важно для online clustering и load balancing на графах.
+
+- [[hxxps://arxiv.org/abs/2508.13458][Online Stochastic Packing and Combinatorial Allocation with General Correlations]]
+:ALGO: On-the-fly/recursive stochastic gradient method для massive deterministic-equivalent LPs с general correlations и sparse columns.
+:IMPACT: Даёт near-optimal policies для network revenue management, bipartite matching и independent set без плохого scaling с horizon/states.
+
+- [[hxxps://arxiv.org/abs/2511.10777][Support Recovery in One-bit Compressed Sensing with Near-Optimal Measurements and Sublinear Time]]
+:ALGO: 1bCS schemes с group testing для exact/approx support recovery при sublinear decoding complexity.
+:IMPACT: Подходит для large-scale sparse signal sketches, где Ω(n) decoding было практическим ограничением.
+
+- [[hxxps://arxiv.org/abs/2603.25642][Advances in Exact and Approximate Group Closeness Centrality Maximization]]
+:ALGO: Data reduction для ILP, bootstrap exact solver approximate solution, plus reduction в 1/5-approximation; доказывает произвольно плохое поведение greedy.
+:IMPACT: Ускоряет выбор центральных k-узлов на 4.5x–34.1x, важно для social networks, communication graphs и facility location.
+
+- [[hxxps://arxiv.org/abs/2604.11938][Sampling Colorings Close to the Maximum Degree: Non-Markovian Coupling and Local Uniformity]]
+:ALGO: Refined non-Markovian coupling и local-uniformity results для Glauber dynamics при k≥(1+δ)Δ и girth≥7.
+:IMPACT: Оптимальное mixing O(|V| log|V|) близко к Δ+2, ключевой шаг для approximate counting и sampling graph structures.
+
+- [[hxxps://arxiv.org/abs/2606.01190][The Anti-Lexicographic SUS-Anchor: An Empirically Optimal Selection Scheme]]
+:ALGO: Linear-time streaming алгоритм для anti-lexicographic smallest unique substring anchors.
+:IMPACT: Плотность sampling <1% away from lower bound на σ=4, что может улучшить low-memory indexing и sketching.
+
+- [[hxxps://arxiv.org/abs/2606.03929][Revisiting O(n log log n) chaining for anchored edit distance]]
+:ALGO: O(n log log n) time, O(n) space chaining, объединяющее gap cost и overlap cost, с реализацией llchain.
+:IMPACT: Масштабируется до миллионов anchors и ~10x быстрее на instances 3M anchors, важно для read mapping и genome comparison.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.22247][Near-Optimal Bounds for Sketching the Schatten Norms]] — Закрывает polylog gap для linear sketches Schatten-p norms и дополняет classification sketching lower bounds.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+cs.DC концентрируется на разрыве CPU/communication bottlenecks в multi-GPU LLM serving, NoC reduction и гетерогенных HPC трассировках. Зрели runtime-оптимизации: VPP для chunked prefill, ReLATE для sparse tensors, network-aware distributed training. Для графовых систем интересны constant-round распределённые matching-алгоритмы, а агентный benchmark остаётся скорее методологической вехой.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.00280][ReLATE: Accelerating Tensor Decomposition via Safe and Efficient Learning of Sparse Encodings]]
+:WHAT: Reinforcement-learned adaptive sparse tensor encoding с elastic training, action masking и dynamics-informed filtering для tensor decomposition.
+:IMPACT: До 2x быстрее expert-designed formats, 1.38–1.41x mean speedup и low inference overhead, что важно для high-dimensional sparse analytics.
+
+- [[hxxps://arxiv.org/abs/2603.22774][Characterizing CPU-Induced Slowdowns in Multi-GPU LLM Inference]]
+:WHAT: Empirical study CPU bottlenecks в multi-GPU LLM serving: delayed kernel launch, stalled communication, tokenization latency, agentic context effects.
+:IMPACT: Показывает, что добавление недорогих CPU cores снижает TTFT в 1.47–7.11x, критично для capacity planning LLM systems.
+
+- [[hxxps://arxiv.org/abs/2603.26691][SCALE-TRACK: Asynchronous Euler-Lagrange particle tracking on heterogeneous computing architecture]]
+:WHAT: Scalable two-way coupled Euler-Lagrange particle tracking с asynchronous coupling, cache-friendly data structures и chunk-based partitioning.
+:IMPACT: Open-source implementation масштабируется до 256 GPUs и 256 миллиардов particles, важно для high-fidelity multiphase simulations.
+
+- [[hxxps://arxiv.org/abs/2608.26220][MeshReduce-U: Compiler-Guided Communication Reduction for Irregular Neural Reductions on Mesh NoCs]]
+:WHAT: Compiler-guided framework для mesh-NoC accelerators, coalescing sources, forming aggregation islands, capacity-feasible sinks и fused routing.
+:IMPACT: Снижает mean latency, TLU и FusedTLU на 40.3%, 56.0% и 48.7%, демонстрируя пользу rewriting communication before routing.
+
+- [[hxxps://arxiv.org/abs/2608.26453][Distributed Training using an Intelligent Network]]
+:WHAT: Делает WAN active participant: multicast для outbound replication, in-line FPGAs для inbound aggregation, и optimization framework с rotating cliques synchronization.
+:IMPACT: Сужает разрыв до colocated training при geographically distributed islands, что может снизить стоимость WAN ML training.
+
+- [[hxxps://arxiv.org/abs/2608.26523][VPP: Virtual Pipeline Parallelism for Efficient Chunked Prefill in Long-Context LLM Inference]]
+:WHAT: Virtual Pipeline Parallelism с fixed chunks, V-shaped virtual-stage traversal, asynchronous communication и pipelined packing в vLLM-Ascend.
+:IMPACT: На long-context MoE снижает pipeline bubble с 6.4% до 0.1% и даёт +13.1% throughput, важно для 512K–1M token serving.
+
+- [[hxxps://arxiv.org/abs/2608.26283][Multi-Dataset Inverse Problem Solving with Distributed Generative AI]]
+:WHAT: Расширяет SAGIPS для non-identically distributed datasets: per-dataset forward operator/discriminator и shared generator для global parameter consistency.
+:IMPACT: Даёт robustness к different detector fidelities и scaling на multi-GPU leadership systems, полезно для distributed scientific inference.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.24102][A Few Shared Random Bits Suffice for Constant-Round Almost Stable Matching]]
+:ALGO: Constant-round distributed almost stable matching в CONGEST с degree-guarded freezing и few shared random bits; также MPC corollary.
+:IMPACT: Убирает polylog n dependence для general bipartite graphs, что важно для large-scale distributed matching и graph analytics.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.06075][MemGUI-Bench: Benchmarking Memory of Mobile GUI Agents in Dynamic Environments]] — Memory-centric benchmark показывает 4–10x capability gap на memory-intensive GUI tasks и важность cross-session learning.

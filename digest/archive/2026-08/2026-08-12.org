@@ -1,0 +1,87 @@
+#+TITLE: Daily Digest: 2026-08-12
+#+FROM: [2026-08-11 Tue]
+#+TO: [2026-08-12 Wed]
+#+DATE: [2026-08-12 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия движется к глубокой интеграции ИИ в инфраструктуру: от NL2SQL в Oracle 26ai до специализированных моделей кибербезопасности на Bedrock. В инженерии данных ключевой темой остается баланс между свежестью данных и производительностью при стриминге в Lakehouse (Iceberg, CDC). Операционная надежность не отступает на второй план: автоматизация ротации сертификатов и оптимизация_COST_ логов критичны для.production.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/approaches-to-streaming-data-into-apache-iceberg-tables/][Approaches to Streaming Data into Apache Iceberg Tables]] (Dremio) — Сравнение архитектурных паттернов стриминга в Iceberg через Spark и Flink с разбором проблемы мелких файлов.
+- [[hxxps://www.databricks.com/blog/taking-auto-cdc-next-level-solving-hardest-real-world-use-cases][Taking AUTO CDC to the next level: Solving the hardest real-world use cases]] (Databricks) — Решение сложных кейсов захвата изменений данных (CDC) в распределенных системах.
+- [[hxxps://www.databricks.com/blog/modern-risk-demands-real-time-foundation-cros-mandate][Modern Risk Demands a Real-Time Foundation: The CRO's Mandate]] (Databricks) — Обоснование перехода на реальное время для систем управления рисками предприятия.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/approaches-to-streaming-data-into-apache-iceberg-tables/][Approaches to Streaming Data into Apache Iceberg Tables]]
+:SCORE: 9/10
+:WHY: Критический разбор компромиссов между латентностью и здоровьем таблицы при стриминге в Lakehouse.
+**** [[hxxps://www.databricks.com/blog/taking-auto-cdc-next-level-solving-hardest-real-world-use-cases][Taking AUTO CDC to the next level: Solving the hardest real-world use cases]]
+:SCORE: 8/10
+:WHY: Практические решения для надежной синхронизации данных в гетерогенных окружениях.
+**** [[hxxps://www.databricks.com/blog/modern-risk-demands-real-time-foundation-cros-mandate][Modern Risk Demands a Real-Time Foundation: The CRO's Mandate]]
+:SCORE: 7/10
+:WHY: Демонстрирует бизнес-ценность real-time архитектуры для управления рисками.
+
+** Инженеры и Карьера
+- [[hxxps://newsletter.pragmaticengineer.com/p/optiver][Software engineering at a proprietary trading company: Optiver]] (The Pragmatic Engineer) — Взгляд изнутри на инженерию в HFT: приоритет латентности, кастомное железо и культура без внешних клиентов.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Интерактивное объяснение метода наименьших квадратов для понимания статистической основы алгоритмов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/optiver][Software engineering at a proprietary trading company: Optiver]]
+:SCORE: 9/10
+:WHY: Уникальный кейс инженерной культуры, где наносекунды важнее фич, полезен для понимания пределов оптимизации.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Напоминание фундаментальной математики, необходимой для работы с ML и анализом данных.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/natural-language-queries-on-oracle-database-26ai-getting-started-with-select-ai-on-amazon-rds-for-oracle-with-amazon-bedrock][Natural language queries on Oracle Database 26ai: Getting started with Select AI on Amazon RDS for Oracle with Amazon Bedrock]] (AWS) — Обзор нативной интеграции генеративного ИИ в СУБД для выполнения запросов на естественном языке (NL2SQL).
+- [[hxxps://aws.amazon.com/blogs/database/enforcing-tls-and-managing-certificate-rotation-for-rds-and-amazon-aurora-postgresql][Enforcing TLS and managing certificate rotation for RDS and Amazon Aurora PostgreSQL]] (AWS) — Руководство по предотвращению простоев из-за истечения сертификатов и обеспечению шифрования трафика.
+- [[hxxps://aws.amazon.com/blogs/database/migrate-rds-and-aurora-logs-to-cloudwatch-infrequent-access][Migrate RDS and Aurora logs to CloudWatch Infrequent Access]] (AWS) — Стратегия снижения затрат на логирование баз данных на 50% без потери доступности данных.
+- [[hxxps://aws.amazon.com/blogs/database/building-search-experiences-for-json-data-with-amazon-opensearch-service][Building search experiences for JSON data with Amazon OpenSearch Service]] (AWS) — Построение мультимодального поиска (текст, векторы, гео) поверх JSON-документов.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Повестка встречи сообщества графовых баз данных: стандарты GQL и ускорение графовых вычислений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/natural-language-queries-on-oracle-database-26ai-getting-started-with-select-ai-on-amazon-rds-for-oracle-with-amazon-bedrock][Natural language queries on Oracle Database 26ai: Getting started with Select AI on Amazon RDS for Oracle with Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Показывает тренд на встраивание ИИ-возможностей непосредственно в ядро СУБД, минуя внешние сервисы.
+**** [[hxxps://aws.amazon.com/blogs/database/enforcing-tls-and-managing-certificate-rotation-for-rds-and-amazon-aurora-postgresql][Enforcing TLS and managing certificate rotation for RDS and Amazon Aurora PostgreSQL]]
+:SCORE: 9/10
+:WHY: Предотвращение критических инцидентов доступности из-за истечения сертификатов — обязанность каждого Senior Engineer.
+**** [[hxxps://aws.amazon.com/blogs/database/building-search-experiences-for-json-data-with-amazon-opensearch-service][Building search experiences for JSON data with Amazon OpenSearch Service]]
+:SCORE: 7/10
+:WHY: Практический паттерн использования OpenSearch как слоя обнаружения данных для сложных JSON-структур.
+
+** Open Source
+- [[hxxps://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases][Open-sourcing Metals v2: Databricks' Java and Scala language server for multi‑million line codebases]] (Databricks) — Релиз улучшенного语言服务器 (LSP) для работы с огромными кодовыми базами на JVM.
+- [[hxxps://www.kdnuggets.com/the-ultimate-guide-to-contributing-to-open-source-projects][The Ultimate Guide to Contributing to Open Source Projects]] (KDnuggets) — Пошаговое руководство по выбору проекта и механике внесения вкладов в Open Source.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/open-sourcing-metals-v2-databricks-java-and-scala-language-server-multi-million-line-codebases][Open-sourcing Metals v2: Databricks' Java and Scala language server for multi‑million line codebases]]
+:SCORE: 8/10
+:WHY: Важное обновление инструментария для разработчиков, работающих с масштабируемыми Scala/Java проектами.
+**** [[hxxps://www.kdnuggets.com/the-ultimate-guide-to-contributing-to-open-source-projects][The Ultimate Guide to Contributing to Open Source Projects]]
+:SCORE: 6/10
+:WHY: Полезно для инженеров, желающих систематизировать участие в сообществе и улучшить репутацию.
+
+** Искусственный Интеллект
+- [[hxxps://huggingface.co/blog/ibm-research/altk-evolve-sldd][Thinking of ACE? We Can Do It with Fewer Tokens]] (Hugging Face / IBM) — Исследование эффективности моделей и сокращения токенизации для оптимизации вычислений.
+- [[hxxps://www.kdnuggets.com/3-visual-proofs-of-the-central-limit-theorem-to-build-your-intuition][3 Visual Proofs of the Central Limit Theorem to Build Your Intuition]] (KDnuggets) — Визуализация центральной предельной теоремы для лучшего понимания статистических основ ИИ.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-cyber-defense-with-openai-and-aws-daybreak-red-daybreak-blue-now-available-to-eligible-customers-on-amazon-bedrock][Accelerate cyber defense with OpenAI and AWS: Daybreak Red & Daybreak Blue now available to eligible customers on Amazon Bedrock]] (AWS) — Специализированные модели ИИ для кибербезопасности и поиска уязвимостей в коде.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-onestruction-built-the-ishigaki-ids-foundation-model-with-aws-genaiic][How ONESTRUCTION built the Ishigaki-IDS foundation model with AWS GenAIIC]] (AWS) — Кейс создания доменной фундаментальной модели для строительства в условиях нехватки данных.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-pixieset-achieved-35-ai-feature-adoption-by-solving-the-right-problem-with-amazon-bedrock][How Pixieset achieved 35% AI feature adoption by solving the right problem with Amazon Bedrock]] (AWS) — Стратегия внедрения ИИ-фич через решение рутинных задач пользователей (генерация alt-текста).
+- [[hxxps://aws.amazon.com/blogs/machine-learning/first-orion-accelerates-qa-automation-using-amazon-nova-act][First Orion accelerates QA automation using Amazon Nova Act]] (AWS) — Использование ИИ-агентов для автоматизации тестирования UI вместо скриптов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-anthropic-claude-apps-gateway-for-aws-for-enterprise-workloads][Deploying Anthropic Claude apps gateway for AWS for enterprise workloads]] (AWS) — Архитектура шлюза для безопасного корпоративного использования Claude Code и Desktop.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-pixieset-achieved-35-ai-feature-adoption-by-solving-the-right-problem-with-amazon-bedrock][How Pixieset achieved 35% AI feature adoption by solving the right problem with Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Кейс о том, как достигать реального внедрения ИИ, решая боли пользователей, а не следуя хайпу.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-cyber-defense-with-openai-and-aws-daybreak-red-daybreak-blue-now-available-to-eligible-customers-on-amazon-bedrock][Accelerate cyber defense with OpenAI and AWS: Daybreak Red & Daybreak Blue now available to eligible customers on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Демонстрирует сдвиг в безопасности: использование специализированных ИИ-моделей для защиты кода.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-anthropic-claude-apps-gateway-for-aws-for-enterprise-workloads][Deploying Anthropic Claude apps gateway for AWS for enterprise workloads]]
+:SCORE: 8/10
+:WHY: Практическая архитектура для безопасного внедрения ИИ-ассистентов в энтерпрайз-среде.

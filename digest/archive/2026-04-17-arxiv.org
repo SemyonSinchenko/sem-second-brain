@@ -1,0 +1,98 @@
+#+TITLE: Arxiv Digest: 2026-04-17
+#+FROM: [2026-04-16 Thu]
+#+TO: [2026-04-17 Fri]
+#+DATE: [2026-04-17 Fri]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+В последние дни основные тенвды в области баз данных связаны с развитием надежных и эффективных систем. Наблюдается рост интереса к машинному обучению для оптимизации выполнения запросов, где акцент смещается от чисто теоретических моделей к практической устойчивости (robustness) и консистентности производительности. Также отмечается усиление внимания к приватности данных на уровне SQL-интерфейса и к сложным задачам поиска в графах, учитывающих как структуру, так и атрибуты. Архитектурные паттерны для управления данными в крупных предприятиях становятся более стандартизированными и ориентированными на соответствие регуляторным требованиям.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.14725][RELOAD: A Robust and Efficient Learned Query Optimizer for Database Systems]]
+:WHAT: Представлена система learned query optimizer, использующая reinforcement learning для оптимизации планов запросов, с особым вниманием к устойчивости (минимальные регрессии) и скорости обучения.
+:IMPACT: Это важный шаг к практическому внедрюению оптимизаторов на основе ML в реальных системах, устраняя основные барьеры: нестабильность и долгое обучение.
+
+- [[hxxps://arxiv.org/abs/2602.22699][DPSQL+: A Differentially Private SQL Library with a Minimum Frequency Rule]]
+:WHAT: Практическая SQL библиотека, обеспечивающая дифференциальную приватность (DP) и дополнительно гарантирующая правило минимальной частоты (minimum frequency rule) для групп в результатах запросов.
+:IMPACT: Делает DP более применимым в реальных аналитических задачах, соответствуя одновременно требованиям приватности и регуляторным правилам управления данными.
+
+- [[hxxps://arxiv.org/abs/2604.15108][Data Engineering Patterns for Cross-System Reconciliation in Regulated Enterprises: Architecture, Anomaly Detection, and Governance]]
+:WHAT: Предлагается архитектурный framework (GERA) для reconciliation данных между разнородными системами в регулируемых предприятиях, включающий детерминистическое сопоставление, статистическое обнаружение аномалий и governance.
+:IMPACT: Предоставляет структурированные, проверенные в практике паттерны для решения критической проблемы согласования данных в сложных, регулируемых IT-ландшафтах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.14988][Efficient Community Search on Attributed Public-Private Graphs]]
+:WHAT: Алгоритм для поиска сообществ (community search) в attributed public-private графах, использующий комбинированный индекс (PP-FP-tree) для эффективного поиска k-core сообществ с общими атрибутами.
+:IMPACT: Расширяет возможности анализа графов для реальных социальных и финансовых сетей, где приватность данных и атрибуты пользователей являются ключевыми.
+
+- [[hxxps://arxiv.org/abs/2411.10229][Optimally Rewriting Formulas and Database Queries: A Confluence of Term Rewriting, Structural Decomposition, and Complexity]]
+:ALGO: Алгоритм, основанный на теории term rewriting, для минимизации ширины (width) логических формул и запросов первого порядка с помощью синтаксических rewriting rules.
+:IMPACT: Предоставляет полное алгоритмическое решение для важной задачи минимизации ширины запросов, что напрямую связано с эффективностью их оценки в базах данных и конечных моделях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.15163][DPC: Training-Free Text-to-SQL Candidate Selection via Dual-Paradigm Consistency]] — Тренинг-фри метод для выбора корректного SQL кандидата из вариантов LLM путем проверки консистентности исполнения между SQL и Python/Pandas парадигмами.
+
+* cs.DC (Распределенные вычисления)
+** 🧐 Обзор
+В распределенных системах наблюдается устойчивый фокус на эффективность, масштабируемость и снижение затрат на коммуникацию и перемещение данных. Тренды включают в себя оптимизацию запросов с помощью Processing-in-Memory (PIM), повышение плотности и энергоэффективности в serverless вычислениях через прозрачное разделение I/O и compute, а также разработку планировщиков для сложных многомодальных моделей. Работа с большими кластерами GPU на открытых сетевых технологиях показывает зрелость экосистемы. Также появляются новые алгоритмы для децентрализованной оптимизации в условиях heavy-tailed noise.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.06682][Nexus: Transparent I/O Offloading for High-Density Serverless Computing]]
+:WHAT: Гипервизор Nexus для serverless вычислений, который прозрачно отделяет обработку I/O от логики приложения, перемещая её в shared backend, чтобы уменьшить дублирование коммуникационного стека в VM.
+:IMPACT: Значительно повышает плотность размещения функций и снижает latency и затраты CPU/memory в serverless платформах, сохраняя экосистемную совместимость с традиционным VM подходом.
+
+- [[hxxps://arxiv.org/abs/2604.14445][Parallel R-tree-based Spatial Query Processing on a Commercial Processing-in-Memory System]]
+:WHAT: Метод выполнения пространственных запросов range queries на основе R-tree на коммерческой PIM системе (UPMEM DPUs), использующий broadcast-based подход для распределения дерева и параллельной обработки.
+:IMPACT: Демонстрирует практическую энергоэффективность и масштабируемость обработки сложных (не только линейных) запросов на PIM аппаратуре, что важно для научных данных и геоинформационных систем.
+
+- [[hxxps://arxiv.org/abs/2512.14098][Cornfigurator: Automated Planning for Any-to-Any Multimodal Model Serving]]
+:WHAT: Система автоматического планирования deployment для generic Any-to-Any мультимодальных моделей, которая исследует стратегии от colocation до disaggregation для максимизации throughput (goodput).
+:IMPACT: Позволяет эффективно и без ручной настройки обслуживать сложные мультимодальные модели с разнородными computational paths, что критично для практического использования таких моделей.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.14530][Fast Concurrent Primitives Despite Contention]]
+:ALGO: Алгоритмы построения concurrent объектов (read/write, CAS регистры и др.) в условиях write contention, гарантирующие latency O(log P) и использующие лишь O(1) hardware регистров.
+:IMPACT: Предоставляет эффективные, консистентные базовые примитивы для высококонкурентных распределенных систем, что важно для построения более сложных структур данных и алгоритмов.
+
+- [[hxxps://arxiv.org/abs/2604.15033][Efficient calculation of available space for multi-NUMA virtual machines]]
+:ALGO: Закрытые формулы для вычисления максимального числа multi-NUMA VM заданного типа (flavor), которые можно разместить на физическом сервере с заданной NUMA топологией.
+:IMPACT: Решает практическую проблему оптимизации размещения VM в облаках с multi-NUMA серверами, что важно для планировщиков и систем управления ресурсами.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.08055][From Tokens to Layers: Redefining Stall-Free Scheduling for MoE Serving with Layered Prefill]] — Новый scheduling paradigm (layered prefill) для serving MoE моделей, который уменьшает overhead от redundant expert weight loads и улучшает TTFT/TBT.
+- [[hxxps://arxiv.org/abs/2604.13600][SAKURAONE: An Open Ethernet-Based AI HPC System and Its Observed Workload Dynamics in a Single-Tenant LLM Development Environment]] — Описание и анализ workload dynamics на крупном GPU кластере с открытой Ethernet сетью, используемом для разработки LLM.
+- [[hxxps://arxiv.org/abs/2505.03736][Decentralized Nonconvex Optimization under Heavy-Tailed Noise: Normalization and Optimal Convergence]] — Алгоритм GT-NSGDm для децентрализованной неконвексной оптимизации под heavy-tailed noise, достигающий оптимальной скорости convergence.
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+Тренды в социальной физике и сетях за последние дни включают применение методов стохастической динамики и физики (Fokker-Planck уравнения) для моделирования сложных социально-экономических процессов, таких как распределение богатства и налогообложение. Также наблюдается активное изучение влияния структуры сети (например, смешивание volatility групп) на макроскопические явления (wealth condensation). Прикладные работы анализируют влияние инфраструктуры (например, общественного транспорта) на социальное смешивание в городах. Использование топологических методов (persistent homology) для анализа графов и решения задач изоморфизма также демонстрирует рост интереса.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.13885][Role of volatility mixing in wealth condensation transition]]
+:ALGO: Расширение модели Bouchaud–Mézard с учетом heterogeneous volatility в сетях (stochastic block model) для изучения влияния смешивания групп с разной volatility на tail exponent распределения богатства и переход к condensation.
+:IMPACT: Предоставляет новый механизм контроля для wealth condensation в сетевых динамических моделях, что важно для понимания неравенства в социальных и экономических системах.
+
+- [[hxxps://arxiv.org/abs/2604.15265][Motif-based filtrations for persistent homology: A framework for graph isomorphism and property prediction]]
+:ALGO: Метод использования motif-based filtrations (на основе плотности треугольников, chordless квадратов и pentagons) для построения persistent homology графов и решения задач изоморфизма и предсказания свойств.
+:IMPACT: Предлагает эффективный и вычисляемо tractable подход из topological data analysis для сравнения и характеризации графов, который может быть полезен в сетевом анализе и машинном обучении на графах.
+
+- [[hxxps://arxiv.org/abs/2604.14778][Nonlinear dynamics of information overload: Impact on source localization in complex networks]]
+:ALGO: Модель Generalized Fractional SIR (GFSIR), включающая phenomenon information overload (IOL), для изучения распространения информации и последующего использования алгоритма Pearson correlation для локализации источника в сложных сетях.
+:IMPACT: Исследует влияние overload на качество локализации источника информации (например, misinformation), что важно для анализа распространения информации в социальных и коммуникационных сетях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.14348][Where diverse populations gather: Transit accessibility and the spatial structure of social mixing]] — Эмпирический анализ влияния доступности общественного транспорта на разнообразие посетителей POIs в городах, показывающий роль транспорта как spatial bridge для социального смешивания.
+- [[hxxps://arxiv.org/abs/2604.14772][A convex-geometric framework for fully phase-locked states in the finite Kuramoto model]] — Геометрическая (convex) характеристика условий существования fully phase-locked states в Kuramoto модели, предоставляющая явные верхние границы для critical coupling.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+В области структур данных и алгоритмов последние работы демонстрируют прогресс в фундаментальных задачах, имеющих прямое практическое применение в системах. Это включает улучшение алгоритмов поиска максимального потока (maximum flow) для directed графов, достижение нового рекорда времени для задачи PAC обучения polyhedra с margin, а также разработку высокоэффективных структур для IPv6 lookup. Также актуальны исследования онлайн алгоритмов для geometric independent set и sublinear spectral clustering oracles с низкими требованиями к памяти.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.14633][Balancing Weights, Directed Sparsification, and Augmenting Paths]]
+:ALGO: Новый randomized алгоритм на основе augmenting paths для вычисления maximum flow в directed uncapacitated графах с временем почти m + nF, улучшающий предыдущие результаты для directed случаев.
+:IMPACT: Представляет первое улучшение комбинаторных алгоритмов augmenting paths для directed графов после Dinic, что важно для сетевых оптимизаций и практических задач потоков.
+
+- [[hxxps://arxiv.org/abs/2604.14650][PlanB: Efficient Software IPv6 Lookup with Linearized B+-Tree]]
+:ALGO: Алгоритм IPv6 lookup (Longest Prefix Match), преобразующий 2D поиск в 1D над elementary intervals и использующий linearized B+-tree

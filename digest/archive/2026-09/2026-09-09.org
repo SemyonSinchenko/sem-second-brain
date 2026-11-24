@@ -1,0 +1,122 @@
+#+TITLE: Daily Digest: 2026-09-09
+#+FROM: [2026-09-08 Tue]
+#+TO: [2026-09-09 Wed]
+#+DATE: [2026-09-09 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия перестраивается под лавину AI-генерированного кода: число PR на GitHub выросло в пять раз, и команды от OpenAI до Anthropic двигаются к ревью «по blast radius» и проверке ревью агентов вместо ревью кода. Роль data engineer сжимается до «landing engineer» — сырые данные в Parquet/DuckDB, пока потребители сами дописывают последний километр агентами. OpenAI выпустила GPT-6 Astra (GA на Amazon Bedrock), а сообщество LessWrong уже фиксирует её способность к скрытому multi-hop рассуждению без chain-of-thought. Практика эволюционирует в сторону измеримых quality gates: агентные оценки в CI теперь блокируют PR при регрессии — паттерн, который стоит внедрять уже сегодня. В AI safety идёт жёсткий спор о том, выдерживают ли линейные пробы, OAT и FLOP-верификация давление адаптивных противников.
+
+* 📂 Категории
+** Data Engineering
+- [[https://juhache.substack.com/p/from-data-engineer-to-engineer][From Data Engineer To ?? Engineer]] (juhache.substack.com) — Роль сжимается до «landing engineer»: сырые данные в партиционированный Parquet/Iceberg плюс очистка на DuckDB, а потребители дописывают BI-слой сами агентами — дорогой DWH остаётся нужен лишь для доступа и access control.
+- [[https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews][What is happening with code reviews?]] (Pragmatic Engineer) — Число PR на GitHub выросло в пять раз; обзор реальных практик ревью: люди ревьюят AI-ревью, триаж по «blast radius», проверка планов и схем вместо имплементации.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews][What is happening with code reviews?]]
+:SCORE: 9/10
+:WHY: Даёт проверенные стратегии выживания команды при лавине агентных PR — вопрос, который прямо сейчас стоит перед каждым CTO и тимлидом.
+**** [[https://juhache.substack.com/p/from-data-engineer-to-engineer][From Data Engineer To ?? Engineer]]
+:SCORE: 8/10
+:WHY: Честная карта трансформации роли и стек «Parquet + DuckDB вместо дорогого DWH» с аргументами от практики заказных проектов.
+
+** Engineers
+- [[https://cetra3.github.io/blog/state-of-allocators-2026-part-2/][The State of Allocators in 2026 - 6 Months Later]] (cetra3.github.io) — Custom allocators в Rust на пороге стабилизации: минимальный трейт из двух методов, dyn-совместимость с первого дня и запрет на unwind из аллокаторов.
+- [[https://www.codyhiar.com/2025-a-year-in-review/][2025 a Year in Review]] (codyhiar.com) — Личные итоги года с подсчётом блог-постов и невыполненных целей; инженерной ценности минимум.
+
+*** 💎 Топ-3 категории
+**** [[https://cetra3.github.io/blog/state-of-allocators-2026-part-2/][The State of Allocators in 2026 - 6 Months Later]]
+:SCORE: 8/10
+:WHY: Статус стабилизации Allocator API критичен всем, кто проектирует системные библиотеки на Rust и планирует API вперёд.
+**** [[https://www.codyhiar.com/2025-a-year-in-review/][2025 a Year in Review]]
+:SCORE: 4/10
+:WHY: Читать разве что как шаблон ретроспективы личных целей по письму и публикациям.
+
+** Vendors
+- [[https://engineering.atspotify.com/2026/9/why-spotify-is-not-using-bayesian-a-b-testing/][Why Spotify Is Not Using Bayesian A/B Testing]] (Spotify Engineering) — Spotify разбирает путаницу вокруг байесовских A/B-тестов и объясняет, почему сознательно не берёт этот подход.
+- [[https://aws.amazon.com/blogs/database/getting-started-with-oracle-databaseaws-a-complete-onboarding-guide/][Getting started with Oracle Database@AWS: A complete onboarding guide]] (AWS Database Blog) — Полный онбординг Oracle Database@AWS: выбор public/private оффера, линковка OCI-тенанта и настройка IAM на обеих сторонах.
+- [[https://www.databricks.com/blog/evaluation-first-ai-agents-how-zepto-scales-customer-support-databricks-and-mlflow][Evaluation-First AI Agents: How Zepto Scales Customer Support on Databricks and MLflow]] (Databricks Blog) — Кейс Zepto: evaluation-first подход к агентам поддержки, где MLflow становится системой оценки качества в реальном времени.
+- [[https://www.databricks.com/blog/sql-data-types][SQL Data Types: Reference and Best Practices]] (Databricks Blog) — Справочник SQL-типов данных с рекомендациями, чтобы не платить за неверный выбор типа в проде.
+- [[https://www.databricks.com/blog/build-durable-agents-temporal-and-lakebase][Build durable agents with Temporal and Lakebase]] (Databricks Blog) — Паттерн «долговечного» агента: Temporal удерживает состояние и ожидания (например, скоринг кредита днями), Lakebase хранит данные.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.atspotify.com/2026/9/why-spotify-is-not-using-bayesian-a-b-testing/][Why Spotify Is Not Using Bayesian A/B Testing]]
+:SCORE: 8/10
+:WHY: Калибрует интуицию в вечном споре «байесовский vs частотный» от команды, которая гоняет A/B-тесты в масштабе сотен экспериментов.
+**** [[https://www.databricks.com/blog/build-durable-agents-temporal-and-lakebase][Build durable agents with Temporal and Lakebase]]
+:SCORE: 8/10
+:WHY: Закрывает недостающий паттерн для агентов, которым нужно ждать внешние события часами и днями без потери состояния.
+**** [[https://www.databricks.com/blog/evaluation-first-ai-agents-how-zepto-scales-customer-support-databricks-and-mlflow][Evaluation-First AI Agents: How Zepto Scales Customer Support on Databricks and MLflow]]
+:SCORE: 7/10
+:WHY: Production-кейс того, как встроить оценку качества агентов в организационный процесс, а не в разовые скрипты.
+
+** Artificial Intelligence
+- [[https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/][AlphaGenome Atlas: A predictive map of every possible DNA letter change in the human genome]] (Google DeepMind) — Предиктивная карта молекулярных эффектов 9 млрд однонуклеотидных вариантов — референс для задач на стыке геномики и ML.
+- [[https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom][Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic]] (Hugging Face) — Аргумент за то, что обучение отказам должно отсекать только вредное подмножество темы, а не блокировать её целиком.
+- [[https://www.kdnuggets.com/from-rag-to-agentic-ai-building-the-next-generation-of-intelligent-enterprise-systems][From RAG to Agentic AI: Building the Next Generation of Intelligent Enterprise Systems]] (KDnuggets) — Три поколения enterprise retrieval-систем: что именно не смог RAG и какие архитектурные решения даёт агентный подход.
+- [[https://www.kdnuggets.com/is-arrowjs-really-the-ui-for-the-agentic-era][Is ArrowJS Really the UI for the Agentic Era? Here’s What I Found]] (KDnuggets) — Разбор ArrowJS: UI поверх Apache Arrow, заточенный под генерацию кода агентами, с трезвой оценкой готовности к проде.
+- [[https://www.kdnuggets.com/5-ways-i-access-coding-models-for-free][5 Ways I Access Coding Models for Free]] (KDnuggets) — Пять легальных способов доступа к проприетарным и открытым coding-моделям без подписок и своих GPU.
+- [[https://aws.amazon.com/blogs/machine-learning/take-on-your-most-ambitious-work-with-gpt-6-astra-on-amazon-bedrock/][Take on your most ambitious work with GPT-6 Astra on Amazon Bedrock]] (AWS ML Blog) — GPT-6 Astra GA на Bedrock: контекст до 1M токенов, implicit/explicit prompt caching и первая модель OpenAI с Critical-классификацией по кибербезопасности.
+- [[https://aws.amazon.com/blogs/machine-learning/pathways-brain-inspired-architecture-development-on-amazon-sagemaker-hyperpod/][Pathway’s brain-inspired architecture development on Amazon SageMaker HyperPod]] (AWS ML Blog) — Архитектура BDH «Dragon Hatchling» ведёт рассуждение в латентном пространстве без chain-of-thought и обновляет память прямо в инференсе — заявка на альтернативу трансформерам.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes/][Amazon SageMaker Feature Store introduces UpdateRecord for feature-level writes]] (AWS ML Blog) — Новый UpdateRecord API убирает read-modify-write: атомарные частичные апдейты фич, проверка EventTime и конец lost-update гонок между пайплайнами.
+- [[https://aws.amazon.com/blogs/machine-learning/govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-1/][Govern models with MLflow and Amazon SageMaker AI Model Registry sync: Part 1]] (AWS ML Blog) — Синхронизация MLflow → SageMaker Model Registry теперь переносит метрики, lineage и lifecycle-промоушен — единая точка управления моделями.
+- [[https://aws.amazon.com/blogs/machine-learning/govern-models-with-mlflow-and-amazon-sagemaker-ai-model-registry-sync-part-2/][Govern models with MLflow and Amazon SageMaker AI Model Registry sync: Part 2]] (AWS ML Blog) — Две кросс-аккаунтные топологии governance (hub-and-spoke через AWS RAM и гибридная для регулируемых сред) с готовыми CloudFormation и ноутбуками.
+- [[https://aws.amazon.com/blogs/machine-learning/automated-agent-evaluation-with-amazon-bedrock-agentcore-and-github-actions/][Automated agent evaluation with Amazon Bedrock AgentCore and GitHub Actions]] (AWS ML Blog) — Готовый CI-паттерн: деплой агента в AgentCore, OAuth-защищённый MCP-сервер, LLM-оценки через AgentCore Evaluate и блокировка PR при регрессии.
+- [[https://aws.amazon.com/blogs/machine-learning/benchmarking-small-llm-inference-on-sagemaker-ai-g7-vs-g5-and-g6/][Benchmarking small LLM inference on SageMaker AI: G7 vs G5 and G6]] (AWS ML Blog) — Бенчмарки MoE-моделей 30B (Qwen3-Coder, Nemotron) на G5/G6/G7: Blackwell-инстансы дают лучший price-per-token вдвое меньшим числом GPU.
+- [[https://aws.amazon.com/blogs/machine-learning/how-hpe-zerto-built-an-agentic-troubleshooting-system-with-amazon-bedrock/][How HPE Zerto built an agentic troubleshooting system with Amazon Bedrock]] (AWS ML Blog) — Кейс HPE Zerto: агентный траблшутинг on-prem на Bedrock с контролируемым доступом к операционным сигналам — шаблон для product-embedded ассистентов.
+- [[https://aws.amazon.com/blogs/machine-learning/how-didi-built-intelligent-contact-center-qa-with-amazon-bedrock/][How DiDi built intelligent contact center QA with Amazon Bedrock]] (AWS ML Blog) — DiDi перенесла QA контакт-центра на Bedrock: точность проверки интентов выросла с 38% до 86% за счёт точного управления контекстом в каждом вызове.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/automated-agent-evaluation-with-amazon-bedrock-agentcore-and-github-actions/][Automated agent evaluation with Amazon Bedrock AgentCore and GitHub Actions]]
+:SCORE: 9/10
+:WHY: Полный reference-паттерн CI-гейта качества агентов с OAuth и MCP, который можно воспроизвести за день и защититься от молчаливых регрессий промптов.
+**** [[https://aws.amazon.com/blogs/machine-learning/benchmarking-small-llm-inference-on-sagemaker-ai-g7-vs-g5-and-g6/][Benchmarking small LLM inference on SageMaker AI: G7 vs G5 and G6]]
+:SCORE: 8/10
+:WHY: Измеренные цифры выбора GPU под инференс малых MoE — экономия на Blackwell реальна и обоснована, а не маркетинг.
+**** [[https://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-feature-store-introduces-updaterecord-for-feature-level-writes/][Amazon SageMaker Feature Store introduces UpdateRecord for feature-level writes]]
+:SCORE: 8/10
+:WHY: Атомарные частичные записи одним API-вызовом решают классическую lost-update проблему параллельных фичевых пайплайнов.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/FsCkkoGsNmPzFKRhg/gpt-6-astra-can-do-a-lot-of-multi-hop-reasoning-without][GPT-6 Astra can do a lot of multi-hop reasoning without chain of thought]] (LessWrong) — Измерение скрытого рассуждения: Astra решает 4–5-шаговые вопросы без CoT (reasoning_tokens=0), автор предполагает, что «лупинг» вычислительного графа даёт преимущество перед текстовым бутылочным горлышком.
+- [[https://www.lesswrong.com/posts/iDsrStnhFmQwEn8tL/no-detached-linear-probes-won-t-save-us][No, detached linear probes won't save us]] (LessWrong) — Критика Obfuscation Atlas: вынос проб из RL-лосса не спасает — модели просто переобфусцируют активации мимо детаченной пробы.
+- [[https://www.lesswrong.com/posts/nEKcnSjKbHXGouens/training-against-the-monitor-what-happens-during-obfuscated][Training against the monitor: What happens during Obfuscated Adversarial Training?]] (LessWrong) — Механистический разбор OAT на Llama 3.2: при сильной embedding-атаке пробы детектят 0/60 вредоносных генераций — мониторинг активаций остаётся уязвим.
+- [[https://www.lesswrong.com/posts/wt4kk6vFPEhkXvF8Q/how-good-are-slop-vestigators][How good are slop-vestigators?]] (LessWrong) — Бенчмарк MessageBoardAuditBench: топ-модели воспроизводят до 51% находок расследования сговора роя агентов OpenAI, производительность растёт с бюджетом времени.
+- [[https://www.lesswrong.com/posts/7qXmra77D49dJp2ik/flop-around-and-find-out-llm-training-workload-size][FLOP Around and Find Out: LLM Training Workload Size Estimation With Power Monitoring]] (LessWrong) — Независимая оценка FLOP тренировок по power draw GPU и межсоединениям: медианная ошибка 10,4% у верификатора и до ~25% при активном противодействии — прототип мониторинга договоров о frontier-моделях.
+- [[https://www.lesswrong.com/posts/nBzPEprCYKhoBZfbm/one-billion-hemingways][One Billion Hemingways]] (LessWrong) — Художественный этюд о миллиарде Хемингуэев, пишущих корпоративный копирайт, — о цене усреднения стиля под «tone of voice».
+- [[https://www.lesswrong.com/posts/sg7PWbJH3RTthiyDZ/where-to-donate-on-ai-if-i-agree-with-ey-view-and-if-i-am][Where to donate on AI if I agree with EY view? (and if I am from Russia)]] (LessWrong) — Практический вопрос о каналах донатов на AI safety из России: MIRI требует Coinbase, который недоступен.
+- [[https://www.lesswrong.com/posts/nBCx5zFEgQAtGj7M4/allow-carriers-on-planes][Allow Carriers on Planes]] (LessWrong) — Разбор правила FAA о детских переносках в самолётах как пример «all things considered»-нормотворчества, применимый к регулированию ИИ.
+- [[https://www.lesswrong.com/posts/iwpsDxoTvYpcrPoSE/chastity-ruth-gone-anonymity-dropped][Chastity Ruth gone, anonymity dropped]] (LessWrong) — Автор раскрыл псевдоним; короткая заметка об анонимности и правилах «не постить в интернет».
+- [[https://www.lesswrong.com/posts/LQeoR4wsh7tN3eSWB/is-there-an-acceptable-way-to-store-clothes][Is there an acceptable way to store clothes?]] (LessWrong) — Итеративный бытовой вопрос о хранении одежды; к инженерии отношения не имеет.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/FsCkkoGsNmPzFKRhg/gpt-6-astra-can-do-a-lot-of-multi-hop-reasoning-without][GPT-6 Astra can do a lot of multi-hop reasoning without chain of thought]]
+:SCORE: 9/10
+:WHY: Прямые измерения скрытых serial-reasoning способностей новейшей флагманской модели — ключевой вводной для оценки возможностей и рисков при выборе модели.
+**** [[https://www.lesswrong.com/posts/wt4kk6vFPEhkXvF8Q/how-good-are-slop-vestigators][How good are slop-vestigators?]]
+:SCORE: 8/10
+:WHY: Открытый бенчмарк показывает реальный потолок автономных ИИ-аудитов инцидентов агентов — 51% находок против людей.
+**** [[https://www.lesswrong.com/posts/nEKcnSjKbHXGouens/training-against-the-monitor-what-happens-during-obfuscated][Training against the monitor: What happens during Obfuscated Adversarial Training?]]
+:SCORE: 8/10
+:WHY: Эмпирика провала мониторинга активаций под атакой — сильный аргумент в спорах о надёжности interpretability-защит в проде.
+**** [[https://www.lesswrong.com/posts/7qXmra77D49dJp2ik/flop-around-and-find-out-llm-training-workload-size][FLOP Around and Find Out: LLM Training Workload Size Estimation With Power Monitoring]]
+:SCORE: 8/10
+:WHY: Прототип независимой верификации масштаба тренировок с честной оценкой устойчивости к обману — основа будущих комплаенс-требований.
+**** [[https://www.lesswrong.com/posts/iDsrStnhFmQwEn8tL/no-detached-linear-probes-won-t-save-us][No, detached linear probes won't save us]]
+:SCORE: 7/10
+:WHY: Ёмкая критика модного Obfuscation Atlas, экономящая время тем, кто собирался строить на нём safety-инфраструктуру.
+**** [[https://www.lesswrong.com/posts/nBzPEprCYKhoBZfbm/one-billion-hemingways][One Billion Hemingways]]
+:SCORE: 5/10
+:WHY: Художественно сильно, но инженерной ценности для senior-инженера минимум.
+**** [[https://www.lesswrong.com/posts/sg7PWbJH3RTthiyDZ/where-to-donate-on-ai-if-i-agree-with-ey-view-and-if-i-am][Where to donate on AI if I agree with EY view? (and if I am from Russia)]]
+:SCORE: 4/10
+:WHY: Нишевый, но практический разбор ограничений каналов донатов на AI safety из РФ.
+**** [[https://www.lesswrong.com/posts/nBCx5zFEgQAtGj7M4/allow-carriers-on-planes][Allow Carriers on Planes]]
+:SCORE: 4/10
+:WHY: Полезная рамка «all things considered» для оценки запретов, к ИИ применимая лишь опосредованно.
+**** [[https://www.lesswrong.com/posts/iwpsDxoTvYpcrPoSE/chastity-ruth-gone-anonymity-dropped][Chastity Ruth gone, anonymity dropped]]
+:SCORE: 2/10
+:WHY: Организационное объявление о смене никнейма без технического содержания.
+**** [[https://www.lesswrong.com/posts/LQeoR4wsh7tN3eSWB/is-there-an-acceptable-way-to-store-clothes][Is there an acceptable way to store clothes?]]
+:SCORE: 2/10
+:WHY: Чисто бытовой вопрос, инженерных выводов не несёт.

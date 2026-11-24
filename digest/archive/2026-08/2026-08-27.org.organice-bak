@@ -1,0 +1,61 @@
+#+TITLE: Daily Digest: 2026-08-27
+#+FROM: [2026-08-26 Wed]
+#+TO: [2026-08-27 Thu]
+#+DATE: [2026-08-27 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия смещает фокус с экспериментов на внедрение AI-агентов в регулируемые сферы, где критичны аудируемость и трассируемость решений. Вендоры графовых баз предлагают индуктивные методы встраивания для решения проблемы холодного старта без полного переобучения. В инженерии данных растёт интерес к операционным онтологиям, позволяющим не только читать, но и безопасно записывать данные через семантический слой. Параллельно возвращается дискуссия о производительности кода как о бизнес-критичном параметре, а не просто оптимизации.
+
+* 📂 Категории
+** Инженерия Данных
+- [[hxxps://juhache.substack.com/p/data-agents-in-regulated-industries][Data Agents in Regulated Industries]] (juhache.substack.com) — разбор рисков внедрения LLM-агентов в фармакологии и финансах с требованиями к трассировке данных (21 CFR, DORA).
+- [[hxxps://www.dataengineeringweekly.com/p/building-an-operational-ontology][Building an Operational Ontology: An E-Commerce Walkthrough]] (dataengineeringweekly.com) — практический паттерн создания онтологии, позволяющей делать аудированные записи в legacy-системы через единый слой.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://juhache.substack.com/p/data-agents-in-regulated-industries][Data Agents in Regulated Industries]]
+:SCORE: 9/10
+:WHY: Критично для архитекторов, планирующих AI в финтехе или медтехе: объясняет требования к неизменности логов и воспроизводимости выводов агента.
+**** [[hxxps://www.dataengineeringweekly.com/p/building-an-operational-ontology][Building an Operational Ontology: An E-Commerce Walkthrough]]
+:SCORE: 8/10
+:WHY: Показывает эволюцию семантического слоя из read-only модели в operational, что решает проблему разрозненных систем записи.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/why-performant-code-matters-but-gets][Why performant code matters (but gets widely ignored), with Casey Muratori]] (newsletter.pragmaticengineer.com) — интервью о том, почему индустрия игнорирует производительность и как это влияет на итоговую стоимость владения системой.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/why-performant-code-matters-but-gets][Why performant code matters (but gets widely ignored), with Casey Muratori]]
+:SCORE: 9/10
+:WHY: Напоминает сеньорам, что оптимизация производительности на этапе дизайна часто выгоднее рефакторинга и напрямую влияет на margins бизнеса.
+
+** Вендоры
+- [[hxxps://neo4j.com/blog/aura-graph-analytics/train-once-embed-forever-graphsage-and-the-model-repository-in-aura-graph-analytics/][Train once, embed forever: GraphSAGE and the model repository in Aura Graph Analytics]] (neo4j.com) — описание индуктивного подхода GraphSAGE в Neo4j, позволяющего генерировать эмбеддинги для новых узлов без переобучения графа.
+- [[hxxps://aws.amazon.com/blogs/database/cortos-billion-scale-legal-semantic-search-with-aurora-postgresql-pgvector/][CORTO's billion-scale legal semantic search with Aurora PostgreSQL pgvector]] (aws.amazon.com) — кейс использования Aurora PostgreSQL с pgvector для поиска по миллиардам юридических документов вместо специализированных векторных БД.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — повестка сообщества LDBC: стандарт GQL, ускорение GNN и графовые вычисления на петабайтных масштабах.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/aura-graph-analytics/train-once-embed-forever-graphsage-and-the-model-repository-in-aura-graph-analytics/][Train once, embed forever: GraphSAGE and the model repository in Aura Graph Analytics]]
+:SCORE: 8/10
+:WHY: Решает классическую проблему холодного старта в рекомендательных системах на графах, что актуально для высоконагруженных сервисов.
+**** [[hxxps://aws.amazon.com/blogs/database/cortos-billion-scale-legal-semantic-search-with-aurora-postgresql-pgvector/][CORTO's billion-scale legal semantic search with Aurora PostgreSQL pgvector]]
+:SCORE: 9/10
+:WHY: Доказывает возможность масштабирования векторного поиска на стандартном PostgreSQL, что упрощает архитектуру и снижает стоимость владения.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Дает обзор будущего стандарта GQL и трендов в графовых вычислениях от лидеров индустрии.
+
+** Искусственный Интеллект
+- [[hxxps://www.kdnuggets.com/10-rules-for-getting-better-results-from-ai-coding-agents][10 Rules for Getting Better Results from AI Coding Agents]] (kdnuggets.com) — набор практических правил для повышения полезности AI-агентов в написании кода beyond novelty.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/evaluate-any-agent-framework-with-amazon-bedrock-agentcore-evaluations/][Evaluate any agent framework with Amazon Bedrock AgentCore Evaluations]] (aws.amazon.com) — решение проблемы фрагментации инструментов оценки агентов через стандартизацию телеметрии OpenTelemetry.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/preparing-data-for-supervised-fine-tuning-part-2-advanced-data-strategies/][Preparing data for supervised fine-tuning Part 2: Advanced data strategies]] (aws.amazon.com) — продвинутые стратегии подготовки данных для SFT: анализ кривых обучения, аугментация и микширование датасетов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/evaluate-any-agent-framework-with-amazon-bedrock-agentcore-evaluations/][Evaluate any agent framework with Amazon Bedrock AgentCore Evaluations]]
+:SCORE: 10/10
+:WHY: Унификация оценки агентов через OpenTelemetry снимает вендор-лок и позволяет сравнивать эффективность разных фреймворков объективно.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/preparing-data-for-supervised-fine-tuning-part-2-advanced-data-strategies/][Preparing data for supervised fine-tuning Part 2: Advanced data strategies]]
+:SCORE: 9/10
+:WHY: Объясняет, как экономить вычислительные ресурсы через выбор подмножества данных и оценку готовности датасета до полноценного обучения.
+**** [[hxxps://www.kdnuggets.com/10-rules-for-getting-better-results-from-ai-coding-agents][10 Rules for Getting Better Results from AI Coding Agents]]
+:SCORE: 8/10
+:WHY: Конкретные гайдлайны для внедрения coding agents в рабочий процесс команды без потери качества кода.

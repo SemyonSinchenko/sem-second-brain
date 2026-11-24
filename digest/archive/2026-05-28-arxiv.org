@@ -1,0 +1,138 @@
+#+TITLE: Arxiv Digest: 2026-05-28
+#+FROM: [2026-05-27 Wed]
+#+TO: [2026-05-28 Thu]
+#+DATE: [2026-05-28 Thu]
+#+STARTUP: showall
+
+* Базы Данных (cs.DB)
+** 🧐 Обзор
+В последние сутки наблюдается смещение фокуса в векторном поиске: производительность on-disk индексов ограничивается не I/O, а вычислениями, что открывает новые пути оптимизации. Параллельно, в сфере OLAP систем критической становится устойчивость (resilience) и изоляция workload'ов в условиях отказов. Также值得关注 интеграция диффузионных моделей для задач NL2SQL, что предлагает альтернативу авторегрессионным подходам.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2603.07382][Enhancing OLAP Resilience at LinkedIn]]
+:WHAT: Комплексная框架 устойчивости для Apache Pinot: изоляция запросов, ребалансировка без влияния на SLA и адаптивный выбор серверов.
+:IMPACT: Обеспечивает предсказуемую латентность и высокую доступность при петабайтных масштабах данных в продакшене LinkedIn.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.23342][AlayaLaser: Efficient Index Layout and Search Strategy for Large-scale High-dimensional Vector Similarity Search]]
+:ALGO: Новая layout-структура для on-disk графовых индексов, использующая SIMD инструкции для снижения вычислительных затрат.
+:IMPACT: Превосходит существующие on-disk системы и конкурирует с in-memory решениями за счет оптимизации compute-bound узких мест.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.27791][Are Diffusion Language Models Good Database Analysts?]] — Предложен унифицированный фреймворк для оценки диффузионных моделей в задачах NL2SQL с агетным подходом SQL-D1.
+
+* Искусственный Интеллект (cs.AI)
+** 🧐 Обзор
+Основные тренды сосредоточены на эффективности обслуживания LLM (роутинг, батчинг) и создании специализированных фундаментальных моделей (Apple Intelligence). Заметен рост применения RL и XAI в прикладных областях, таких как медицина и управление роями дронов, а также развитие графовых автоэнкодеров как контрастных learners.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2407.21075][Apple Intelligence Foundation Language Models]]
+:WHAT: Описание архитектуры и обучения фундаментальных языковых моделей Apple (~3B параметров для устройств и серверные модели).
+:IMPACT: Эффективные и безопасные модели для персонального AI, оптимизированные для inference на устройствах и в私有 облаке.
+- [[hxxps://arxiv.org/abs/2605.28268][Towards Cost-effective LLMs Routing with Batch Prompting]]
+:WHAT: Фреймворк RoBatch, jointly оптимизирующий роутинг запросов к моделям и размер батчей для минимизации Costs.
+:IMPACT: Достигает superior cost-performance Pareto frontier по сравнению с baselines на benchmarks Qwen3 и Gemma3.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2410.10241][Revisiting Graph Autoencoders as Implicit Contrastive Learners]]
+:ALGO: Единая формулировка GAE и GCL, показывающая, что GAE являются неявными контрастными learners.
+:IMPACT: Предоставляет практические guidance для designing эффективных и масштабируемых графовых автоэнкодеров через дизайн contrastive views.
+- [[hxxps://arxiv.org/abs/2405.09689][Generalized Holographic Reduced Representations]]
+:ALGO: Расширение FHRR с некоммутиативной операцией binding для кодирования сложных структур.
+:IMPACT: Позволяет реализовывать механизмы attention в трансформерах через GHRR, улучшая performance на tasks language modeling.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.27845][Snippet-Driven Supply Chain Discovery with LLMs: Scaling Visibility in China]] — Масштабное извлечение знаний о supply chain из веба для построения графа отношений фирм.
+- [[hxxps://arxiv.org/abs/2605.28253][Building Community-Centred NLP Resources for Puno Quechua]] — Первый корпус и benchmark для ASR на кечуа (Пuno), собраный participatory design.
+- [[hxxps://arxiv.org/abs/2304.12986][Measuring Massive Multitask Chinese Understanding]] —Benchmark для оценки multitask accuracy больших китайских языковых моделей.
+- [[hxxps://arxiv.org/abs/2305.06426][Planning a Community Approach to Diabetes Care in Low- and Middle-Income Countries Using Optimization]] — Оптимизация визитов health workers для управления диабетом в условиях ограниченных ресурсов.
+- [[hxxps://arxiv.org/abs/2307.06240][DSSE: a drone swarm search environment]] — Среда для RL на основе PettingZoo для поиска целей роем дронов.
+- [[hxxps://arxiv.org/abs/2309.17057][Tell Me a Story! Narrative-Driven XAI with Large Language Models]] — Использование LLM для генерации нарративных объяснений (XAIstories) решений AI.
+- [[hxxps://arxiv.org/abs/2403.11852][Delay-Aware Reinforcement Learning for Highway On-Ramp Merging under Stochastic Communication Latency]] — RL框架 для слияния на highways, устойчивый к стохастическим задержкам связи V2I.
+- [[hxxps://arxiv.org/abs/2410.04096][Sinc Kolmogorov-Arnold network and its application for solving PDEs with singularities]] — Использование Sinc интерполяции в KAN для решения PDE с сингулярностями.
+- [[hxxps://arxiv.org/abs/2411.18502][Isometry pursuit]] — Convex алгоритм для identification ортонормальных подматриц и isometric embeddings.
+
+* Социальная Физика и Сети (physics.soc-ph)
+** 🧐 Обзор
+Исследования фокусируются на реконструкции и анализе динамических сетей, включая supply chain и temporal networks. Важным направлением остается изучение влияния структуры сети на неравенство, диффузию и социальные взаимодействия в реальных условиях.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.28178][The Steel Scrap Age: Bridging the Quality Gap through Structural Supply Chain Reorganization]]
+:WHAT: Анализ перехода от transactional рынков к вертикально интегрированным альянсам в steel industry для контроля качества scrap.
+:IMPACT: Выявляет геополитический contest за material control и изменение topology global trade networks.
+- [[hxxps://arxiv.org/abs/2602.21869][A Bayesian approach to out-of-sample network reconstruction]]
+:WHAT: Байесовский подход к реконструкции сетей, использующий информацию о past snapshots для prediction future configurations.
+:IMPACT: Позволяет self-sustained реконструкцию evolving networks с minimal amount of additional data.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.28086][Efficient Shapley-Based Influence Attribution in Social Networks]]
+:ALGO: Framework для ex-ante attribution влияния на базе Shapley values с polynomial-time algorithms для single-step activation.
+:IMPACT: Решает проблему fair estimation contribution seeds для budget allocation без reliance on ex-post cascade logs.
+- [[hxxps://arxiv.org/abs/2511.17108][Modeling memory in time-respecting paths on temporal networks]]
+:ALGO: Framework для quantification memory в time-respecting paths и generative model для synthetic temporal graphs.
+:IMPACT: Показывает, что memory decreases diffusion speed, affecting dynamics of spreading processes.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.17420][Exploring the impact of multi-agent wealth exchange model on inequality reduction]] — Многоагентные взаимодействия lead to более uniform wealth distribution compared to binary models.
+- [[hxxps://arxiv.org/abs/2605.28284][Contact, conflict, or opportunity? Out-group exposure creates tie opportunity, not tolerance]] — Diversity создает opportunities для cross-group interactions, но не necessarily меняет intrinsic preferences.
+- [[hxxps://arxiv.org/abs/2605.28672][Population size and centrality effects on NO2 air pollution across and within European cities]] — NO2 concentrations increase with population size as a power law и decrease with distance from center.
+
+* Структуры Данных и Алгоритмы (cs.DS)
+** 🧐 Обзор
+Развиваются абстракции для графовых алгоритмов (EDGE language) и методы оптимизации под ограничения (privacy, curvature). Learning-augmented алгоритмы показывают promise для search на trees, а также исследуется complexity sampling из high-dimensional distributions.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2404.11591][The EDGE Language: Extended General Einsums for Graph Algorithms]]
+:WHAT: Unified abstraction для graph algorithms на базе tensor algebra и Extended General Einsums.
+:IMPACT: Позволяет researchers easier compare algorithms и developers factor complexity между what и how to compute.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.00254][Uncrossed Multiflows and Applications to Disjoint Paths]]
+:ALGO: Investigation utility of uncrossed flows в planar graphs и constant-factor approximation algorithms.
+:IMPACT: Расширяет family planar instances с constant integral flow-multicut gap.
+- [[hxxps://arxiv.org/abs/2602.04463][Simple Algorithms for Bad Triangle Transversals with Applications to Correlation Clustering]]
+:ALGO: 2-approximations для Bad Triangle Transversal problem и связь с Correlation Clustering.
+:IMPACT: Улучшает понимание hardness и approximation limits для signed graphs clustering.
+- [[hxxps://arxiv.org/abs/2605.14112][Fast Leaf-to-Ancestor Minimum Query in the Oracle Model]]
+:ALGO: Static data structure для leaf-to-ancestor path-minimum queries с O(1) query time.
+:IMPACT: Combines ladder decomposition и sparse-table RMQ для optimal preprocessing in comparison model.
+- [[hxxps://arxiv.org/abs/2605.27490][Tree Search With Predictions]]
+:ALGO: Search algorithm на trees с predictions, achieving O(k log η) queries where k is pathwidth.
+:IMPACT: Demonstrates limits and possibilities of learning-augmented search beyond sorted arrays.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.26838][Solving Positive Linear Programs with Differential Privacy]] — Private solvers для positive LPs с controlled constraint violation.
+- [[hxxps://arxiv.org/abs/2605.17540][One-Shot Klein Cutting Planes for Lipschitz Geodesically Convex Optimization in Hyperbolic Space]] — Решение open problem COLT 2023 для deterministic first-order methods в hyperbolic space.
+- [[hxxps://arxiv.org/abs/2605.19871][Threshold Rules for the Classical Prophet Inequality]] — Note on threshold/surplus decomposition для single-threshold stopping rules.
+- [[hxxps://arxiv.org/abs/2605.27594][Proper Agnostic Learning of Functions of Halfspaces under Gaussian Marginals]] — First efficient proper agnostic learning algorithm для Boolean functions of K halfspaces.
+- [[hxxps://arxiv.org/abs/2605.27769][Smoothed Score Queries and the Complexity of Sampling]] — Smoothed scores как более informative oracle для sampling из high-dimensional Gaussian distributions.
+
+* Распределенные Вычисления (cs.DC)
+** 🧐 Обзор
+Ключевые темы включают надежность распределенного ML (checkpointing, federated learning) и оптимизацию costs (spot instances). Также значимое внимание уделяется формальной верификации параллелизма (OpenMP) и scheduling для hybrid quantum-classical workflows.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.23066][Orbax: Distributed Checkpointing with JAX]]
+:WHAT: Modular, JAX-native checkpointing library абстрагирующая сложности distributed accelerator systems.
+:IMPACT: Performance exceeding PyTorch competitors до 3.5x для saving и 2x для loading.
+- [[hxxps://arxiv.org/abs/2605.27540][EFaaS: A Quantum-Classical Serverless Entangled Scheduler for Hybrid Variational Algorithms]]
+:WHAT: Serverless middleware для hybrid quantum workflows с calibration-aware placement и dual-resource fair queuing.
+:IMPACT: Reduces TTNS до 94.3% и convergence time до 98.3%, eliminating drift penalties.
+- [[hxxps://arxiv.org/abs/2604.16457][Ding-Dong Ditch: Peeking Into Spot Instance Availability]]
+:WHAT: Cost-efficient method для collecting spot instance availability signals без running instances.
+:IMPACT: Enables accurate availability modeling и prediction для cost savings up to 90% on cloud workloads.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.18673][When Coordination Is Avoidable: A Monotonicity Analysis of Organizational Tasks]]
+:ALGO: Decision rule для when coordination is required based on monotonicity criterion из distributed systems theory.
+:IMPACT: Shows that up to 24-57% of coordination spending is unnecessary for correctness в multi-agent systems.
+- [[hxxps://arxiv.org/abs/2605.22661][A Generalized Nash Equilibrium-Seeking Scheme for Trauma Resuscitation]]
+:ALGO: Formulation trauma resuscitation as distributed GNE-seeking game с coupled inequality constraints.
+:IMPACT: Facilitates best possible resuscitation outcome given HCWs workloads и limited resources.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2512.09800][Ariel-ML: Computing Parallelization with Embedded Rust for Neural Networks on Heterogeneous Multi-core Microcontrollers]] — Toolkit для parallel inference на multi-core MCUs с использованием embedded Rust.
+- [[hxxps://arxiv.org/abs/2604.15919][Continuous benchmarking: Keeping pace with an evolving ecosystem of models and technologies]] — Automated benchmarking pipeline для high performance applications с user-agnostic operations.
+- [[hxxps://arxiv.org/abs/2605.26527][A Formal Semantics of C with OpenMP Parallelism (Extended Version)]] — Formal semantics для C code с OpenMP directives для detection race conditions.
+- [[hxxps://arxiv.org/abs/2605.27446][Context-aware Simopt-Power: Using structural data with simulation metadata to optimise FPGA designs]] — Simulator-guided optimisation framework для FPGA designs с activity metadata.
+- [[hxxps://arxiv.org/abs/2605.27601][A Methodology to Assess Power Modeling in Energy-Aware Federated Learning on Heterogeneous Mobile Devices]] — Reproducible CPU power estimation methodology для energy-aware Federated Learning.

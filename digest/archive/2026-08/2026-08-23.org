@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-08-23
+#+FROM: [2026-08-22 Sat]
+#+TO: [2026-08-23 Sun]
+#+DATE: [2026-08-23 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Обсуждается предел предсказуемости человеческого поведения в противовес теориям хаоса и клиодинамике. Инженерам предлагаются материалы по линейному методу наименьших квадратов на Clojure для углубления в математику. Индустрия графовых баз данных обсуждает стандарты GQL и оптимизацию workload'ов на встрече LDBC. Вендоры демонстрируют решения для работы с графами на петабайтных масштабах и в реальном времени. Эти материалы полезны для понимания как фундаментальной математики, так и трендов инфраструктурного рынка.
+
+* 📂 Категории
+** Инженеры
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Практическое руководство по реализации линейной регрессии, укрепляющее понимание фундаментальных алгоритмов машинного обучения.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Базовое понимание регрессии критично для работы с данными и алгоритмами.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Повестка встречи охватывает стандарты GQL, ускорение графовых вычислений и кейсы от Oracle и PuppyGraph.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 8/10
+:WHY: Влияет на выбор инструментов для графовых нагрузок в enterprise-среде.
+
+** Не инженерное
+- [[hxxps://peterturchin.substack.com/p/human-unpredictability-is-overrated][Human Unpredictability is Overrated]] (Peter Turchin) — Анализ предсказуемости человеческого поведения через призму клиодинамики и теории игр, важный для понимания социальных систем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/human-unpredictability-is-overrated][Human Unpredictability is Overrated]]
+:SCORE: 6/10
+:WHY: Расширяет контекст для работы в социально-технических системах и продуктах.

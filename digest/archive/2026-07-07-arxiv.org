@@ -1,0 +1,146 @@
+#+TITLE: Arxiv Digest: 2026-07-07
+#+FROM: [2026-07-06 Mon]
+#+TO: [2026-07-07 Tue]
+#+DATE: [2026-07-07 Tue]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+В категории баз данных наблюдается сильный тренд на возвращение контроля над данными пользователям через архитектуры эскроу и децентрализованные хранилища. Параллельно matures экосистема стандартов запросов к графам (GQL/SQL/PGQ), сопровождающаяся глубоким теоретическим анализом их выразительной силы. Практически значимые работы фокусируются на гарантиях точности для векторного поиска и оптимизации запросов через матричные операции.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2408.01580][Enabling Personal Dataflow Sovereignty via Bolt-on Data Escrow]]
+:WHAT: Архитектура данных эскроу через делегированные вычисления, позволяющая пользователям контролировать цель использования данных.
+:IMPACT: Решает проблему асимметрии власти между платформами и пользователями, обеспечивая прозрачность без полной смены инфраструктуры.
+- [[hxxps://arxiv.org/abs/2607.02677][SpendableStore: A UTXO-based Decentralized Data Store]]
+:WHAT: Гибридное он/офф-чейн хранилище на базе UTXO, поддерживающее CRUD операции через Spendable Data Objects.
+:IMPACT: Достигает истинной децентрализации данных с производительностью в 16 раз выше существующих блокчейн-баз данных.
+- [[hxxps://arxiv.org/abs/2607.02338][HNSW with Accuracy Guarantees Using Graph Spanners]]
+:WHAT: Фреймворк "Certify-then-Rectify", комбинирующий эвристический поиск HNSW с точным восстановлением на основе графовых спаннеров.
+:IMPACT: Обеспечивает гарантию корректности поиска ближайших соседей в худшем случае при сохранении средней скорости HNSW.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2409.01102][GQL and SQL/PGQ: Theoretical Models and Expressive Power]]
+:ALGO: Формальные модели Core GQL и Core PGQ, выявляющие различия в подходах оценки (bottom-up vs pipelined).
+:IMPACT: Clarifies фундаментальные ограничения новых стандартов запросов к графам, указывая на необходимость расширения языка.
+- [[hxxps://arxiv.org/abs/2412.06189][Fast Matrix Multiplication meets the Submodular Width]]
+:ALGO: Общая рамка, объединяющая комбинаторные методы и быстрое умножение матриц через omega-submodular width.
+:IMPACT: Позволяет систематически выводить оптимальные алгоритмы для произвольных булевых конъюнктивных запросов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2412.00393][Advancing Object-Centric Process Mining with Multi-Dimensional Data Operations]] — Операции drill-down/roll-up для объектно-ориентированных логов событий, улучшающие точность моделей процессов.
+- [[hxxps://arxiv.org/abs/2607.02895][Selectivity Estimation for Linear Queries via Online Learning]] — Алгоритмическая框架 для оценки селективности в динамически меняющихся базах данных через онлайн-обучение.
+- [[hxxps://arxiv.org/abs/2607.03049][Alignment-Guided Largest Table Overlap Size Estimation]] — Масштабируемый оценщик перекрытия таблиц ALORE, устойчивый к разнородным доменам.
+- [[hxxps://arxiv.org/abs/2003.05746][Querying and Repairing Inconsistent Prioritized Knowledge Bases: Complexity Analysis and Links with Abstract Argumentation]] — Анализ сложности запросов к неконсистентным базам знаний с приоритетами и связь с аргументацией.
+
+* cs.DC (Распределенные вычисления)
+** 🧐 Обзор
+В распределенных системах доминируют темы масштабирования блокчейнов через специализацию подсистем и шардинг, а также ускорение обучения больших моделей. Заметен рост интереса к FPGA-акселерации транзакций и синтезу параллельного кода для нерегулярных данных с помощью агентов ИИ. Федеративное обучение эволюционирует в сторону учета гетерогенности данных и защиты от batch-эффектов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2511.15361][BlueBottle: Fast and Robust Blockchains through Subsystem Specialization]]
+:WHAT: Двухуровневая архитектура консенсуса с быстрым ядром и децентрализованным слоем защиты (guard layer).
+:IMPACT: Достигает финальности менее чем за секунду при высокой пропускной способности, сохраняя безопасность против сильных противников.
+- [[hxxps://arxiv.org/abs/2512.23439][Bitcoin-IPC: Scaling Bitcoin with a Network of Proof-of-Stake Subnets]]
+:WHAT: Протокол масштабирования Bitcoin через сеть взаимосвязанных PoS подсетей (Layer-2), закрепленных на L1.
+:IMPACT: Увеличивает пропускную способность транзакций в 23 раза без модификации основного блокчейна Bitcoin.
+- [[hxxps://arxiv.org/abs/2603.08003][SafarDB: FPGA-Accelerated Distributed Transactions via Replicated Data Types]]
+:WHAT: Сетевой FPGA-движок репликации для CRDT и WRDT, выполняющий транзакции near-network.
+:IMPACT: Ускоряет латентность и пропускную способность репликации в 5-12 раз по сравнению с CPU/RDMA решениями.
+- [[hxxps://arxiv.org/abs/2602.08923][DynamiQ: Accelerating Gradient Synchronization using Compressed Multi-hop All-reduce]]
+:WHAT: Фреймворк квантования градиентов, оптимизированный для многоузловой агрегации в обучении больших моделей.
+:IMPACT: Ускоряет обучение LLM до 34% при сохранении точности baseline, решая проблему частичного суммирования.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.02510][ParEVO: Synthesizing Code for Irregular Data: High-Performance Parallelism through Agentic Evolution]]
+:ALGO: Эволюционный агент для синтеза параллельного кода на нерегулярных структурах данных с использованием ParlayLib.
+:IMPACT: Автоматизирует создание высокопроизводительных параллельных алгоритмов для графов и деревьев, превосходя ручные реализации.
+- [[hxxps://arxiv.org/abs/2510.15747][GLP: A Grassroots, Multiagent, Concurrent, Logic Programming Language for AI]]
+:ALGO: Язык логического программирования для grassroots-платформ с многоагентной семантикой и атомарными транзакциями.
+:IMPACT: Предоставляет математический фундамент для децентрализованных социальных систем, управляемых людьми и машинами.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2406.07925][FDLoRA: Personalized Federated Learning of Large Language Model via Dual LoRA Tuning]] — Персонализированное FL для LLM через двойную настройку LoRA для глобальных и локальных знаний.
+- [[hxxps://arxiv.org/abs/2412.05894][Batch effects can impair federated learning in multi-center omics studies]] — Исследование влияния batch-эффектов на FL в биомедицине и метод федеративной коррекции fedRBE.
+- [[hxxps://arxiv.org/abs/2604.25596][Volition-Guarded Multiagent Atomic Transactions: Describing People and their Machines]] — Математическая модель транзакций, охраняемых волей людей, для спецификации социальных платформ.
+- [[hxxps://arxiv.org/abs/2603.20364][DGNNFlow: A Streaming Dataflow Architecture for Real-Time Edge-based Dynamic GNN Inference in HL-LHC Trigger Systems]] — FPGA-архитектура для динамических GNN в триггерных системах физических экспериментов.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+Раздел демонстрирует сближение квантовых и классических вычислений, где предлагаются эффективные классические симуляции и оптимальные квантовые оценщики. В классических алгоритмах достигнут прогресс в аппроксимации задач маршрутизации и фундаментальном анализе протоколов доступа к каналу. Особое внимание уделено компактным представлениям строк и расписаниям.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2410.21201][Sample-Optimal Quantum Estimators for Pure-State Trace Distance and Fidelity via Samplizer]]
+:WHAT: Квантовый алгоритм с оптимальной сложностью выборки для оценки расстояния и fidelty между состояниями.
+:IMPACT: Улучшает сложность выборки с O(1/ε^4) до Θ(1/ε^2), что критично для верификации квантовых устройств.
+- [[hxxps://arxiv.org/abs/2411.06822][Efficient Classical Computation of Single-Qubit Marginal Measurement Probabilities to Simulate Certain Classes of Quantum Algorithms]]
+:WHAT: Модифицированный метод QC-DFT с нейросетевым функционалом CNOT для классической симуляции квантовых цепей.
+:IMPACT: Позволяет эффективно симулировать определенные классы квантовых алгоритмов (Шора, Гровера) на классических hardware.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2503.19631][Multiplication of 0-1 matrices via clustering]]
+:ALGO: Детерминированные алгоритмы умножения матриц через кластеризацию строк/столбцов (k-center).
+:IMPACT: Предлагает эффективные приближенные и точные методы для разреженных бинарных матриц, актуальных в анализе графов.
+- [[hxxps://arxiv.org/abs/2602.21315][The Instability of all Backoff Protocols]]
+:ALGO: Доказательство гипотезы Олдуса о нестабильности любого backoff-протокола при положительной скорости поступления заявок.
+:IMPACT: Закрывает фундаментальный вопрос теории распределенных систем о пределах стабильности случайного доступа.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2507.15549][An n^{O(\log\log n)} time approximation scheme for capacitated VRP in the Euclidean plane]] — Квазиполиномиальная схема аппроксимации для задачи маршрутизации транспорта с вместимостью.
+- [[hxxps://arxiv.org/abs/2508.14384][Almost succinct representation of maximal palindromes]] — Компактное представление максимальных палиндромов в строке с O(1) временем доступа.
+- [[hxxps://arxiv.org/abs/2510.24068][Pinwheel Scheduling with Real Periods]] — Обобщение задачи расписания Pinwheel на вещественные периоды с подтверждением гипотезы плотности 5/6.
+- [[hxxps://arxiv.org/abs/2505.07681][Verified Purely Functional Catenable Real-Time Deques]] — Машинно-проверенная реализация функциональных дек с конкатенацией в реальном времени.
+- [[hxxps://arxiv.org/abs/2203.00813][An Accelerated Stochastic Variance-Reduced Algorithm for Entropic Wasserstein Barycenters]] — Ускоренный алгоритм для вычисления барицентров Вассерштейна с энтропийной регуляризацией.
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+В социальной физике ключевыми темами стали устойчивость сетевых каскадов в мультиплексных сетях и динамика мнений под влиянием медиа. Появились работы по управлению транспортными потоками через стохастический контроль и анализу справедливости турнирных систем. Теоретические исследования связывают термодинамику с социальным подражанием и выявляют скрытые законы масштабирования.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.04073][Noise-induced stop-and-go traffic dynamics: Modelling and control]]
+:WHAT: Модель управления транспортным потоком, компенсирующая шумовые измерения для предотвращения волн "стоп-старт".
+:IMPACT: Предлагает простой линейный контроль для восстановления стабильности потока без изменения инфраструктуры дорог.
+- [[hxxps://arxiv.org/abs/2607.02844][Overload-Based Cascades in Multiplex Flow Networks with Partial Functionality]]
+:WHAT: Анализ каскадных отказов в сетях, где узлы могут частично сохранять функциональность across layers.
+:IMPACT: Показывает, что частичная функциональность повышает робастность, и предлагает стратегии распределения емкости.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.03010][Community structure of the pseudofractal web]]
+:ALGO: Аналитический расчет числа сообществ Ramsey для псевдофрактального веб-графа с учетом коррекции степеней.
+:IMPACT: Разделяет истинную иерархическую структуру сообществ и гетерогенность степеней в масштабно-инвариантных сетях.
+- [[hxxps://arxiv.org/abs/2607.02821][From graphons to real-world networks: kinetic opinion dynamics under selective media influence]]
+:ALGO: Кинетическая модель динамики мнений на графонах и реальных сетях с модельно-прогнозным управлением медиа.
+:IMPACT: Связывает теорию графонов с реальными данными Twitter для оценки влияния медиа на поляризацию.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2410.19333][Swiss-system chess tournaments and unfairness]] — Эмпирическое исследование несправедливости швейцарской системы при нечетном числе раундов из-за цвета фигур.
+- [[hxxps://arxiv.org/abs/2507.15320][The uncertainty of a tournament draw: Insights from the Champions League]] — Метод квантования неопределенности жеребьевки турниров на примере Лиги Чемпионов.
+- [[hxxps://arxiv.org/abs/2511.14006][Stochastic Thermodynamics of Social Imitation beyond Energetics]] — Вывод "второго закона" для социальных систем и связь энтропии мнений с термодинамикой.
+- [[hxxps://arxiv.org/abs/2605.08669][Modeling Decision-Making with Will for Cooperation in Social Dilemmas]] — Модель "волевых" агентов, игнорирующих локальные флуктуации utility для ускорения кооперации.
+- [[hxxps://arxiv.org/abs/2607.03297][Scaling laws in complex component systems as consequences of heterogeneous sampling]] —Unified null model, объясняющий законы Ципфа и Хипса через гетерогенность выборки.
+- [[hxxps://arxiv.org/abs/2605.19917][Spin-Induced Non-Markovian Time-Crystal-Like Dynamics and Fractal Scaling in the Bateman Dual Oscillator]] — Квантовая модель временных кристаллов без внешнего драйвера в диссипативных системах.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+В прикладном ИИ акцент смещается на стабильность графовых нейросетей и эффективность выбора состояний в обучении с подкреплением. Развиваются методы самообучения представлений для специфичных доменов (спорт, жесты) с малым количеством размеченных данных. Теоретические работы исследуют связь аргументации с базами знаний и устойчивость рекомендаций.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2202.14019][Domain Knowledge-Informed Self-Supervised Representations for Workout Form Assessment]]
+:WHAT: Самообучаемые представления для оценки техники упражнений, использующие контрастивное обучение позы.
+:IMPACT: Позволяет детектировать ошибки формы на малых размеченных датасетах, превосходя офф-шелл оценщики поз.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2403.11199][Graph Unitary Message Passing]]
+:ALGO: Фреймворк GUMP с унитарным оператором распространения на трансформированном графе для стабилизации GNN.
+:IMPACT: Предотвращает экспоненциальное затухание сигналов в глубоких графовых сетях, улучшая производительность на длинных зависимостях.
+- [[hxxps://arxiv.org/abs/2401.11512][TERC: A Transfer Entropy Redundancy Criterion for State Variable Selection in Reinforcement Learning]]
+:ALGO: Информационно-теоретический критерий для исключения избыточных переменных состояния в RL через трансферную энтропию.
+:IMPACT: Сокращает время инференса до 2.6 раз за счет компактных представлений состояния без потери политики.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2204.02803][A Transformer-Based Contrastive Learning Approach for Few-Shot Sign Language Recognition]] — Контрастивный трансформер для распознавания жестового языка в режиме few-shot.
+- [[hxxps://arxiv.org/abs/2208.00657][SiamixFormer: a fully-transformer Siamese network with temporal Fusion for accurate building detection and change detection in bi-temporal remote sensing images]] — Сиамская сеть на трансформерах для детекции зданий и изменений по спутниковым снимкам.
+- [[hxxps://arxiv.org/abs/2310.00505][Unveiling the Unborn: Advancing Fetal Health Classification through Machine Learning]] — Классификация здоровья плода с точностью 98.31% на основе LightGBM и комплексных признаков.
+- [[hxxps://arxiv.org/abs/2401.10805][Learning to Visually Connect Actions and their Effects]] — Задача self-supervised обучения для связи действий и их визуальных эффектов в видео (CATE).
+- [[hxxps://arxiv.org/abs/2210.10619][Restricted Bernoulli Matrix Factorization: Balancing the trade-off between prediction accuracy and coverage in classification based collaborative filtering]] — Модель матричной факторизации для рекомендательных систем с балансом точности и покрытия.
+- [[hxxps://arxiv.org/abs/2111.15255][Double Fuzzy Probabilistic Interval Linguistic Term Set and a Dynamic Fuzzy Decision Making Model based on Markov Process with tts Application in Multiple Criteria Group Decision Making]] — Нечеткая модель принятия решений на основе марковских процессов для группового выбора.

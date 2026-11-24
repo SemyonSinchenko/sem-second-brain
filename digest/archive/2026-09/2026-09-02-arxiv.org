@@ -1,0 +1,152 @@
+#+TITLE: Arxiv Digest: 2026-09-02
+#+FROM: [2026-09-01 Tue]
+#+TO: [2026-09-02 Wed]
+#+DATE: [2026-09-02 Wed]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки в databases виден переход к production-scale AI retrieval: векторные индексы масштабируются до триллионов объектов, а ключевыми становятся память при построении граф-индексов и стоимость хранения. Одновременно растёт практический интерес к корректности результатов SQL-агрегатов и к disk-aware профилированию данных. Для графовых и data-систем важны векторно-графовые индексы с временным затуханием relevance и low-memory алгоритмы обнаружения ключей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.30607][ByteX: A Unified AI Search Engine at ByteDance]]
+:WHAT: Единая AI search система ByteDance с quantization-aware векторным ядром SymRaBitQ и hybrid storage engine для memory/hybrid/SSD развертываний.
+:IMPACT: Позволяет строить и эксплуатировать триллионные векторные индексы с меньшим потреблением памяти, выше throughput и радикально ниже operating cost в production.
+- [[hxxps://arxiv.org/abs/2609.00381][Bounded, Indeterminate, or a Bug: A Condition-Aware Oracle for Differential Testing of SQL Aggregates]]
+:WHAT: Oracle для дифференциального тестирования SQL-агрегатов над floating-point, который классифицирует расхождения как exact, bounded или indeterminate по condition number и алгоритму движка.
+:IMPACT: Устраняет ложные баги и пропущенные баги в агрегатах, раскрывает engine-specific numerical issues и полезен для тестирования СУБД и аналитических систем.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2609.00548][Time-Decayed Vector Search in the Rhythm of TANGO: Jointly Modeling Semantic Similarity and Temporal Freshness]]
+:ALGO: Формализует time-decayed vector search, вводит Score-Preserving Temporal Reduction, точную метрику Chronos и hierarchical graph index TANGO с layer-specific TimeLift, caching временных факторов и online insertion.
+:IMPACT: Ускоряет queries и построение индексов в temporal vector databases, где relevance меняется со временем и нужен компромисс между семантикой и freshness.
+- [[hxxps://arxiv.org/abs/2609.00783][Efficient discovery of unique column combinations on disk-resident data with limited memory]]
+:ALGO: DUD строит partial difference sets как гиперграф, перечисляет минимальные hitting sets, пропускает валидацию для части кандидатов по теореме и использует hash-based batch validation.
+:IMPACT: Делает возможным discovery unique column combinations на disk-resident данных при малом RAM, что важно для data profiling, schema evolution и качества данных.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2609.01292][Relational Task Generation Language: A Declarative Specification Framework for Relational Deep Learning]] — декларативный язык RTGL скрывает ручные SQL-детали и помогает формулировать задачи relational deep learning без утечек и несогласованностей.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+За последние сутки в AI заметен фокус на прикладной надёжности и эффективности: защита federated learning от poisoned updates, низкозатратная дистилляция малых языковых моделей и симуляторы пользователей для оценки AI-тьюторов. Меньше новых graph/vector результатов, но есть алгоритмические методы для распределения ресурсов и обучения квантованных сетей. Для graph/data systems особенно полезны механизмы оценки, безопасности обновлений и сжатия моделей под edge/systems workloads.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2402.16934][FedReview: Review and Dispose Poisoned Updates without Validation Datasets or Historic Knowledge]]
+:WHAT: Сервер выбирает подмножество клиентов-рецензентов, ранжирует обновления по локальным данным и через majority voting отбраковывает подозрительные обновления в federated learning.
+:IMPACT: Повышает устойчивость FL к poisoning атакам без серверного validation dataset и без фиксированного знания о клиентах, что важно для privacy-preserving distributed ML.
+- [[hxxps://arxiv.org/abs/2505.12781][A Token is Worth over 1,000 Tokens: Efficient Knowledge Distillation through Low-Rank Clone]]
+:WHAT: Low-Rank Clone обучает low-rank проекции и clone активаций, включая FFN-сигналы, чтобы компактные модели близко соответствовали поведению teacher-LLM без дополнительных alignment-модулей.
+:IMPACT: Снижает потребность в обучающих токенах до уровня, пригодного для создания SLM под on-device и resource-constrained системы.
+- [[hxxps://arxiv.org/abs/2507.12674][ParaStudent: Closing the Sim2Real Gap in User Simulators for AI Tutor Evaluation]]
+:WHAT: Fine-tuned симулятор novice programmer revisions, обученный на реальных данных, чтобы заранее оценивать engagement и полезность feedback от AI tutor.
+:IMPACT: Даёт воспроизводимый способ triage feedback перед развёртыванием, сокращая стоимость реальных user studies.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2408.12845][Keep Everyone Happy: Online Fair Division of Numerous Items with Few Copies]]
+:ALGO: Ставит online fair division с редкими копиями items как contextual bandit над feature-based utility functions и даёт sublinear regret.
+:IMPACT: Применимо к платформам распределения сервисов/ресурсов, где у agent-item пар мало повторных наблюдений и нужна онлайн-справедливость.
+- [[hxxps://arxiv.org/abs/2506.18240][Towards Provable and Scalable Training of Quantized Neural Networks with Ising Optimization]]
+:ALGO: Компилирует обучение квантованных сетей в bounded QCBO, вводит sample-wise DLBO для снижения масштаба Ising-оптимизации и восстанавливает дискретные веса через Spectral-ADMM и randomized rounding.
+:IMPACT: Обещает глобальные гарантии для low-bit neural training и может быть полезно для embedded ML и систем с жёсткими ограничениями на память.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2609.00207][Rock, Paper, Scissors, ... Dynamite - A Model of Disruption from New Technologies]] — игровой анализ показывает, что добавление мощного универсального инструмента не всегда увеличивает ценность и может делать старые стратегии устаревшими.
+- [[hxxps://arxiv.org/abs/2402.00759][Building Expressive and Tractable Probabilistic Generative Models: A Review]] — обзор trade-off между expressivity и tractability в probabilistic circuits и гибридных deep PC.
+- [[hxxps://arxiv.org/abs/2412.12144][Automatic Item Generation for Personality Situational Judgment Tests with Large Language Models]] — LLM-генерация ситуационных тестов личности с проверкой психометрических свойств.
+- [[hxxps://arxiv.org/abs/2502.10475][X-SG$^2$S: Safe and Generalizable Gaussian Splatting with X-dimensional Watermarks]] — feed-forward встраивание мультимодальных watermark в 3D Gaussian Splatting без fine-tuning и изменений pipeline.
+- [[hxxps://arxiv.org/abs/2505.01950][SARTM: Segment Any RGB Thermal Model with Language aided Distillation]] — адаптация SAM к RGB-thermal semantic segmentation через LoRA, language guidance и cross-modal distillation.
+- [[hxxps://arxiv.org/abs/2505.13180][ViPlan: A Benchmark for Visual Planning with Symbolic Predicates and Vision-Language Models]] — открытый бенчмарк для сравнения VLM-as-grounder и VLM-as-planner в визуально-символическом планировании.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+За последние сутки в social physics и network models доминируют сетевые модели сложных систем: выбор репортёров для классификации возмущений, совместные внутри-хостовые и меж-хостовые передачи, калибровка mobility данных и агентные транспортные сценарии. Часть результатов — инфраструктурные модели, но практическая ценность для data systems проявляется в мониторинге, mobility analytics и behavioral data quality. Материализуется тема поведенческих смещений: смещения GPS/мобильных данных меняют downstream метрики и инфраструктурные выводы.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2609.01042][Behavioral calibration of mobile-phone GPS data for population-representative analyses]]
+:WHAT: BePop калибрует мобильные GPS-данные не только по демографии и географии, но и по поведенческим распределениям, встраивая sequences в behavioral profiles и подбирая person-level weights.
+:IMPACT: Делает mobility analytics population-representative; без такой калибровки downstream metrics по времени, переходам и mobility motifs могут быть систематически искажены.
+- [[hxxps://arxiv.org/abs/2609.00327][Modeling of Mobility and Energy Policies in an Agent-Based Framework: Case Studies for Chicago Region in 2050]]
+:WHAT: POLARIS со-симулирует activity-based passenger demand, endogenous freight, multimodal traffic, transit и charging infrastructure для нескольких policy scenarios Chicago-региона.
+:IMPACT: Даёт integrated view на transport/energy planning: показывает пиковые power demand, эффект road pricing, parking reform, freight management и transit expansion в одной сетевой модели.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2609.00725][Efficiently classifying shocks in complex systems requires dormant reporters]]
+:ALGO: Эффективный algorithm сборки sparse reporter panels из promiscuous и dormant reporters для classification shocks в динамических сетях при неточном повторении начальных условий.
+:IMPACT: Низкозатратный принцип мониторинга больших complex network systems, особенно когда наблюдаемы лишь отдельные узлы и есть noise.
+- [[hxxps://arxiv.org/abs/2609.00320][Modeling microbiome dynamics on social networks: how between-host transmission shapes within-host evolution]]
+:ALGO: Соединяет generalized Lotka-Volterra внутри хостов с social-network-driven microbial sharing и индивидуальной вариативностью в малых dyadic/небольших сетях.
+:IMPACT: Показывает условия, при которых межхостовая передача через social network долгосрочно меняет stability и evolution микробных сообществ, релевантно для network epidemiology и biological graph data.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.05990][Direct Air Capture in Europe's 2050 Energy System: Integration, Storage and Cost Drivers]] — энергосистемная модель показывает, что ограничение CO2 storage до North Sea и изоляция DACCS от electricity system повышают cost примерно на 10% и до 30%.
+- [[hxxps://arxiv.org/abs/2604.28168][Phase Transitions in Economic Inequality:Taxation and Extremal Replacement Dynamics]] — минимальная agent-based модель выявляет discontinuous переход к неравенству и hysteresis при регрессивном налогообложении.
+- [[hxxps://arxiv.org/abs/2608.21505][Earth as a Closed Life-Support System: Finite Buffers, Dynamical Thresholds, and Planetary Sustainability]] — рассматривает sustainability как конфликт конечных буферов ресурсов и waste-processing capacity с soft/hard thresholds.
+- [[hxxps://arxiv.org/abs/2609.00009][Toward a social psychology of AI: language-model agents reproduce human-like minimal-group bias]] — LLM-агенты демонстрируют in-group favoritism в minimal-group task, что даёт инструмент измерения социального поведения AI.
+- [[hxxps://arxiv.org/abs/2609.00010][Bridging Dependence: From Opinion Leader Influence to Standard Correlation Measures]] — переносит opinion-leader модель из Condorcet voting в стандартные covariance/correlation, связывая разные модели зависимости в социальных сетях.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+За сутки в cs.DS сильные позиции у графовых алгоритмов: компактные ILP для параметризованных задач, точные результаты для sparse networks и bidirectional Dijkstra, а также алгоритмы справедливой временной активации в сетях. Часть работ остаётся теоретической, но имеет прямой путь к query engines, routing, network design и assignment systems. Наиболее практически значимы результаты, связывающие graph structure с solvability, fairness и instance-оптимальностью поиска.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.14995][Optimality of Random Regular Graphs in Sparse Network Designs]]
+:WHAT: Показывает, что random regular graph достигает sharp theoretical limit average degree для sparse bipartite и unipartite network designs при неопределённости demand и случайных удалениях узлов.
+:IMPACT: Даёт практический guideline для production flexibility, middle-mile delivery и supply-demand networks: regular degree plus dispersed edges обеспечивает near-optimal устойчивость.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2509.25445][Designing Compact ILPs via Fast Witness Verification]]
+:ALGO: Связывает compact ILP preprocessing с классом WK[1] через witness verification protocols и строит такие протоколы для r-Way Cut, Vertex Multiway Cut, Steiner Tree, Minimum Common String Partition; даёт явные ILP/MILP для Weighted Vertex Cover с малым vertex cover number.
+:IMPACT: Систематизирует путь от parameterized graph algorithms к компактным ILP/MILP, что полезно для industrial solvers и graph processing systems.
+- [[hxxps://arxiv.org/abs/2510.03899][Fair Minimum Labeling: Efficient Temporal Network Activations for Reachability and Equity]]
+:ALGO: Вводит Fair Minimum Labeling как минимум-cost temporal edge activation plan для equitable reachability; показывает связь с rooted Covering Steiner, даёт approximation algorithms и graph-native shortest-path-tree reduction.
+:IMPACT: Применимо к distributed data collection, update dissemination в edge-cloud системах и fair service restoration, где edge activations дороги и важен баланс групп.
+- [[hxxps://arxiv.org/abs/2603.26943][Bridging the Gap Between Stable Marriage and Stable Roommates: A Parameterized Algorithm for Optimal Stable Matchings]]
+:ALGO: Определяет structural distance minimum crossing distance от Stable Roommates к Stable Marriage и даёт FPT-алгоритм $2^{O(k)}n^{O(1)}$ для optimal stable matching.
+:IMPACT: Позволяет эксплуатировать структуру в roommate/matching системах, близких к bipartite, для оптимального распределения resources, workers, tasks или users.
+- [[hxxps://arxiv.org/abs/2608.26952][On the Instance Optimality of Bidirectional Dijkstra's Algorithm]]
+:ALGO: Находит дыры в анализах instance optimality unidirectional/bidirectional Dijkstra, предлагает минимальную простую модификацию bidirectional Dijkstra, оптимальную в weighted setting, и анализирует unweighted lower bound $O(\Delta)$.
+:IMPACT: Укрепляет теоретическую базу shortest-path query engines, graph search и route planning; результат важен для design near-optimal index/routing heuristics.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2512.14390][Finding $b$-colorings Using Feedback Edges]] — показывает FPT для $b$-coloring по feedback edge number и distance to co-cluster, расширяя knowledge about graph-coloring parameters beyond tree-width.
+- [[hxxps://arxiv.org/abs/2604.24132][Finding Shortest Reconfiguration Sequences on Independent Set Polytopes]] — исследует shortest reconfiguration на 1-skeleton independent set polytope, даёт hardness и positive algorithms for block graphs, cographs, bipartite chain graphs.
+- [[hxxps://arxiv.org/abs/2510.06316][Quantum matrix arithmetics with Hamiltonian evolution]] — развивает Hamiltonian block encodings для matrix multiplication, inversion и singular value transformation с малым числом ancillas, но пока слабо связано с database/graph systems.
+- [[hxxps://arxiv.org/abs/2607.08997][Improved lower bounds of the time complexity of shellsort]] — использует generating polynomial framework для lower bounds Shellsort с Tokuda gap sequence и анализирует требования к fast gap sequences.
+- [[hxxps://arxiv.org/abs/2608.25032][Fuzzy Pattern Matching in Ordered Structures]] — вводит trajectory как обобщение KMP prefix function для fuzzy matching в sequences и partially ordered labeled structures.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+За последние сутки в cs.DC фокус на операционных деталях heterogeneous systems: NVM durable storage, client-side caching, GPU/TEE benchmarking, routing к leader-based consensus, split federated fine-tuning и control plane для physical neural networks. Практическая ценность состоит в throughput, latency, cost, fault handling и воспроизводимой оценке распределённых AI workloads. Есть также специализированные GPU quantum simulator и scientific data reduction workloads, где распределение вычислений снижает стоимость итераций.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2508.10349][FlexP-SFT: A Flexible Aggregation-Free Framework for On-Device Personalized Split Federated Fine-Tuning of LLMs]]
+:WHAT: Aggregation-free split federated fine-tuning для LLM с layer-flexible alignment и resource-aware выбором split ratio, устраняя client-side aggregation bottleneck и straggler problem.
+:IMPACT: Делает personalized LLM fine-tuning на edge devices практичнее за счёт lower communication overhead, better latency и устойчивости к гетерогенности клиентов.
+- [[hxxps://arxiv.org/abs/2602.06498][Emulating Heterogeneous Client Execution in Federated Learning]]
+:WHAT: Lightweight framework эмуляции heterogeneous client hardware для FL, воспроизводя compute capacity, memory-feasibility и workload-dependent runtime/failure behavior в одной host system.
+:IMPACT: Даёт scalable, reproducible и workload-aware benchmarking FL-методов вместо дорогих real-device deployments или uncertain trace/probabilistic simulations.
+- [[hxxps://arxiv.org/abs/2604.14435][Distributed Variational Quantum Linear Solver]]
+:WHAT: Distributed VQLS на CUDA-Q плюс FWHT Pauli decomposition с coefficient pruning для structured Toeplitz systems, распределяя $O(L^2)$ evaluations на multi-node/multi-GPU ресурсы.
+:IMPACT: Сильно снижает circuit cost и улучшает scaling квантово-классических linear solver workloads на HPC, с near-ideal strong scaling и validated high fidelity.
+- [[hxxps://arxiv.org/abs/2605.04256][CP$^2$N$^2$: A Control Plane for Heterogeneous Physical Neural Networks]]
+:WHAT: Substrate-aware control plane с three-plane orchestration, twin-state synchronisation, Physical Neural Resource Contracts, leases, telemetry freshness verification и fail-closed safety.
+:IMPACT: Интегрирует stateful physical AI substrates в edge/fog/cloud agentic workflows, обеспечивая typed contention и безопасное восстановление при planner-level inconsistencies.
+- [[hxxps://arxiv.org/abs/2607.02401][FlintKV: A Fast Durable Storage Engine for Modern Databases]]
+:WHAT: NVM-optimized skiplist KV engine с atomic batch writes, snapshot-consistent iterators, durable linearizability и flat-combining concurrency control плюс multi-versioning.
+:IMPACT: Закрывает gap между NVM KV stores и production DB API requirements, достигая до 75% higher end-to-end throughput и применима как standalone или embedded durable index.
+- [[hxxps://arxiv.org/abs/2607.09882][Benchmarking Zero-Setup Quantum Circuit Simulators]]
+:WHAT: Систематический GPU benchmarking hosted и local quantum simulators для MPS и Pauli path simulation, включая BlueQubit против AWS Braket, Qiskit и Julia stack.
+:IMPACT: Помогает practitioners выбирать backend и конфигурации для approximate quantum simulation, где GPU даёт large advantage на fine truncation thresholds.
+- [[hxxps://arxiv.org/abs/2608.26575][Benchmarking Confidential Computing Performance on NVIDIA Blackwell GPUs]]
+:WHAT: Paired measurement LLM inference/training overhead в TEE на NVIDIA B200 с Intel TDX и Blackwell Confidential Computing, локализует fixed per-host и per-NVLink encrypted traffic costs.
+:IMPACT: Показывает, что при правильной конфигурации overhead inference может быть 1-3%, а stock stacks ошибочно платят 30-40%; даёт deployment guidance для secure AI serving.
+- [[hxxps://arxiv.org/abs/2609.00205][BlockMGARD: Accelerating Adaptive Scientific Data Reduction with Region-of-Interest Error Control on GPUs]]
+:WHAT: GPU lossy compressor с In-cache Block decomposition, hybrid hierarchy, end-to-end pipeline и fine-grained ROI error control для scientific data reduction.
+:IMPACT: Повышает compression/decompression throughput и compression ratio при сохранении features, сокращая storage/I/O pressure для large scientific datasets.
+- [[hxxps://arxiv.org/abs/2609.00392][Operation-Type-Aware Client Routing for Leader-Based Consensus Datastores]]
+:WHAT: Client routing для etcd/ZooKeeper, pinning writes к leader и равномерное распределение reads по healthy read pool с detection/degradation follower.
+:IMPACT: Снижает write P50, P99 read/write tails и повышает throughput за счёт учёта role-operation mismatch в leader-based consensus datastores.
+- [[hxxps://arxiv.org/abs/2609.00400][Client-side transparent caching for remote ROOT data analysis]]
+:WHAT: uCache, transparent XRootD client plugin, кэширует реально читаемые bytes и перестраивает их в branch-aligned recompressed form на local storage.
+:IMPACT: Ускоряет повторные high-energy physics analysis passes от 1.6x до 15.7x, снижая network latency, bandwidth и decompression cost при remote data.

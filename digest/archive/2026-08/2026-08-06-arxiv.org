@@ -1,0 +1,148 @@
+#+TITLE: Arxiv Digest: 2026-08-06
+#+FROM: [2026-08-05 Wed]
+#+TO: [2026-08-06 Thu]
+#+DATE: [2026-08-06 Thu]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+Наблюдается активная интеграция больших языковых моделей (LLM) в задачи тестирования СУБД и очистки данных. Системы становятся агент-ориентированными, способными самостоятельно генерировать SQL-запросы и управлять конвейерами обработки временных рядов без опоры на размеченные данные. Также растет интерес к инкрементальной материализации в динамических средах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2505.02012][Automated Database Testing via LLM-Synthesized SQL Features]]
+:WHAT: Подход ShQveL, использующий LLM для синтеза SQL-фрагментов и расширения покрытия функций в генераторах тестов.
+:IMPACT: Позволяет находить ранее неизвестные баги в зрелых СУБД за счет автоматического расширения функционального покрытия тестов.
+
+- [[hxxps://arxiv.org/abs/2603.03589][stratum: A System Infrastructure for Massive Agent-Centric ML Workloads]]
+:WHAT: Инфраструктура для выполнения масштабируемых агентных поисковых конвейеров ML, компилирующая пакеты пайплайнов в оптимизированные графы.
+:IMPACT: Решает проблему несоответствия между исследовательскими агентами на Python и высокопроизводительными системами, ускоряя поиск до 16.6x.
+
+- [[hxxps://arxiv.org/abs/2605.04902][AegisTS: An Agent-Driven Hierarchical Reinforcement Learning System for Multivariate Time Series Data Cleaning]]
+:WHAT: Агентная система с иерархическим обучением с подкреплением для очистки многомерных временных рядов от множественных ошибок качества.
+:IMPACT: Улучшает качество очистки данных на 96% без необходимости наличия ground truth, оптимизируя порядок обработки ошибок.
+
+- [[hxxps://arxiv.org/abs/2308.04214][On The Suitability of Differential Dataflow For Datalog Interpretation In Highly Dynamic Settings]]
+:WHAT: Анализ эффективности материализации Datalog с использованием Differential Dataflow в сравнении с реляционными движками.
+:IMPACT: Подтверждает преимущества модели дифференциального потока данных для инкрементальных вычислений при частых обновлениях и удалениях.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.20163][Plausibility-Driven Prioritization of Candidate Biomedical Annotations]]
+:ALGO: Фреймворк оценки правдоподобия аннотаций на основе встраиваний биомедицинских графов знаний (bioKGs) и классификаторов отношений.
+:IMPACT: Повышает эффективность курирования данных за счет приоритизации кандидатов, учитывая семантический контекст сущностей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.04390][EdgeLM: Edge Demonstrations for Language Models' Table Understanding]] — Метод выбора демонстраций для LLM на основе граничных примеров для улучшения понимания таблиц.
+- [[hxxps://arxiv.org/abs/2608.04536][From Research Questions to Columns: Operationalization-Aware Data Discovery]] — Бенчмарк и агенты для поиска колонок данных, соответствующих абстрактным исследовательским вопросам.
+- [[hxxps://arxiv.org/abs/2607.24093][TCellAlign: Cross-study T-cell Populations Alignment with Nomenclature-Guided Multi-Agent Workflow]] — Мульти-агентный фреймворк для стандартизации_labels_ клеточных популяций across исследований.
+
+* cs.DC (Распределенные вычисления)
+** 🧐 Обзор
+Основной тренд — оркестрация ресурсов для распределенных рабочих нагрузок ИИ и квантовых интерфейсов. Исследования фокусируются на снижении задержек связи, детерминизме при совместном использовании GPU и федеративном обучении в чувствительных доменах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2511.11843][TD-Orch: Efficient Task-Data Orchestration for Distributed Systems with Application to Graph Processing]]
+:WHAT: Абстракция оркестрации задач и данных с использованием двунаправленного push-pull для балансировки нагрузки.
+:IMPACT: Обеспечивает ускорение до 4.1x в распределенной обработке графов за счет эффективной ко-локации задач и данных.
+
+- [[hxxps://arxiv.org/abs/2603.15042][Determinism-Preserving GPU Spatial Sharing with Vitamin-E]]
+:WHAT: Механизм позднего связывания неизменяемых запусков GPU для сохранения битовой детерминированности при пространственном разделении.
+:IMPACT: Позволяет увеличить пропускную способность обучения LLM до 3.5x без потери воспроизводимости результатов.
+
+- [[hxxps://arxiv.org/abs/2601.22124][Toward Federated Large Language Models in Medicine: A Parameter-Efficient Framework for Privacy-Preserving, Multi-Institutional Adaptation]]
+:WHAT: Фреймворк Fed-MedLoRA для федеративной адаптации LLM с передачей только низко ранговых адаптеров.
+:IMPACT: Enables совместное обучение моделей на медицинских данных без нарушения конфиденциальности и с учетом гетерогенности учреждений.
+
+- [[hxxps://arxiv.org/abs/2608.04450][CommBench: Can LLMs Write Correct and Efficient GPU Communication Code?]]
+:WHAT: Бенчмарк из 100+ задач для оценки способности LLM генерировать код коммуникации GPU (NVLink, RDMA).
+:IMPACT: Выявляет значительный разрыв между текущими LLM и экспертным кодом, задавая стандарт для развития AI-assisted systems programming.
+
+- [[hxxps://arxiv.org/abs/2608.04413][Zero-Instrumentation Dependency Discovery for Guided Microservice Migration Using eBPF]]
+:WHAT: Использование eBPF для обнаружения зависимостей микросервисов без инструментации кода приложения.
+:IMPACT: Позволяет строить планы миграции с учетом трафика, снижая cross-VM нагрузку на 27%.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/1708.04290][Distributed Edge Coloring with Small Palettes and a Special Case of the Constructive Lov\'asz Local Lemma]]
+:ALGO: Рандомизированный алгоритм раскраски ребер в модели LOCAL с размером палитры $\Delta + \tilde{O}(\sqrt{\Delta})$.
+:IMPACT: Предлагает эффективные границы времени выполнения для распределенных задач на графах, используя конструктивную лемму Ловаса.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.18642][HI-HCQC: A Tightly-Coupled Hardware Interface with High-Efficiency Communication for Hybrid Classical-Quantum Computing]] — Аппаратный интерфейс на базе RFSoC для снижения задержек в гибридных квантово-классических системах.
+- [[hxxps://arxiv.org/abs/2608.04159][A Distributed Quantum Approximate Optimization Algorithm For Unit Commitment]] — Распределенный DQAOA для задач_commitment_ единиц энергии на нескольких квантовых процессорах.
+- [[hxxps://arxiv.org/abs/2607.09207][Bidirectional Resource Scheduling for Disaggregated and Asynchronous RL Post-Training]] — Архитектура BiDiRL для уменьшения простоя ресурсов при пост-обучении RL с переключением rollout/training.
+- [[hxxps://arxiv.org/abs/2608.04443][MCHA: A Memory-Centric Hierarchical Architecture for Parallel-Sequential Computing]] — Иерархическая архитектура для снижения瓶颈 памяти в задачах типа MARL.
+- [[hxxps://arxiv.org/abs/2608.04338][GPU-Resident CUDA Acceleration for OCUDU 5G PHY and O-RAN Fronthaul]] — Ускорение физического уровня 5G на GPU с сохранением данных в памяти акселератора.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+Развиваются алгоритмы аппроксимации для задач на графах и_matching_. Значительный прогресс достигнут в анализе структурных свойств графов без индуцированных путей и сжатии строк.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2307.07330][Sparse induced subgraphs in P_6-free graphs]]
+:ALGO: Доказательство полиномиальной разрешимости задач поиска разреженных индуцированных подграфов (например, Feedback Vertex Set) в классах $P_6$-free графов.
+:IMPACT: Обобщает результаты для независимых множеств, используя обобщение потенциальных максимальных клик.
+
+- [[hxxps://arxiv.org/abs/2504.07725][An Approximation Algorithm for the Connected Maximum Coverage Problem in Directed Graphs]]
+:ALGO: Алгоритм аппроксимации для задачи связанного максимального покрытия с бюджетом в ориентированных графах.
+:IMPACT: Улучшает фактор аппроксимации для задач типа Steiner в ориентированных графах.
+
+- [[hxxps://arxiv.org/abs/2608.04223][Bicriteria Approximation Algorithms for Demand Matching]]
+:ALGO: Итеративный алгоритм релаксации для задачи matching спроса с двукритериальной аппроксимацией.
+:IMPACT: Полностью характеризует компромисс между весом решения и нарушением пропускной способности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/1501.00014][Optimal rounding under integer constraints]] — Детерминированный алгоритм оптимального округления с сохранением суммы за линейное время.
+- [[hxxps://arxiv.org/abs/2604.04377][String Representation Based on Substring Equation Systems]] — Схема сжатия строк на основе систем уравнений подстрок, эквивалентная bidirectional macro schemes.
+- [[hxxps://arxiv.org/abs/2302.12136][Warehouse Problem with Bounds, Fixed Costs and Complementarity Constraints]] — Полиномиальные алгоритмы для задачи управления складом с фиксированными издержками.
+- [[hxxps://arxiv.org/abs/2601.01550][Time-Dependent Low-Energy Simulation Accelerates Adiabatic State Preparation]] — Ускорение симуляции гамильтонианов в низкоэнергетическом секторе.
+- [[hxxps://arxiv.org/abs/2607.02241][Partition Rank and Algebraic Circuit Lower Bounds]] — Связь рангов разбиений со сложностью арифметических схем.
+- [[hxxps://arxiv.org/abs/2608.04125][Concentration from Product Moments via an Additional Element of Randomness]] — Метод доказательства концентрационных неравенств через продуктные моменты.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+Доминируют агентные фреймворки для научных задач (биоинформатика) и безопасности LLM. Растет интерес к коллаборации больших и малых моделей на границе сети (edge-cloud).
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2411.04440][AutoProteinEngine: A Large Language Model Driven Agent Framework for Multimodal AutoML in Protein Engineering]]
+:WHAT: Агентный фреймворк AutoPE для автоматизации ML в инженерии белков с использованием естественного языка.
+:IMPACT: Снижает порог входа для биологов, автоматизируя выбор моделей и гиперпараметров для последовательностей и графов белков.
+
+- [[hxxps://arxiv.org/abs/2503.10367][Large-Small Model Collaboration for Enhancing Edge-Deployed Small Models]]
+:WHAT: Фреймворк G-Boost для адаптивной коллаборации между малыми моделями на edge и большими в облаке через слияние логитов.
+:IMPACT: Улучшает производительность рассуждений на edge-устройствах без обновления параметров, используя поиск по дереву.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2503.06396][GRALS: GCN-Guided Redundancy-Aware Local Search for Minimum Vertex Cover]]
+:ALGO: Локальный поиск для задачи о вершинном покрытии, направляемый вероятностными приорами от графовой сверточной сети (GCN).
+:IMPACT: Находит лучшие решения на 335 из 346 бенчмарков, эффективно устраняя избыточные вершины на крупных графах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.15560][Temporal Context Awareness: A Defense Framework Against Multi-turn Manipulation Attacks on Large Language Models]] — Фреймворк защиты TCA от многоходовых атак манипуляции на LLM через анализ семантического дрейфа.
+- [[hxxps://arxiv.org/abs/2504.01407][ZoomV: Temporal Zoom-in for Efficient Long Video Understanding]] — Метод временного приближения (zoom-in) для эффективного понимания длинных видео языковыми моделями.
+- [[hxxps://arxiv.org/abs/2411.06024][TourSynbio-Search: A Large Language Model Driven Agent Framework for Unified Search Method for Protein Engineering]] — Агент поиска по литературе и базам данных белков на основе мультимодальной LLM.
+- [[hxxps://arxiv.org/abs/2503.14833][Curiosity-Diffuser: Curiosity Guide Diffusion Models for Reliability]] — Использование модуля любопытства для повышения надежности политик в диффузионных моделях робототехники.
+- [[hxxps://arxiv.org/abs/2504.14053][Review Text as a Leading Indicator of Displayed Reputation in Platform Rating Systems]] — Анализ текста отзывов как опережающего индикатора изменений рейтинга на платформах аренды.
+- [[hxxps://arxiv.org/abs/2507.06506][Pun Intended: Multi-Agent Translation of Wordplay with Contrastive Learning and Phonetic-Semantic Embeddings]] — Мульти-агентный перевод каламбуров с использованием контрастного обучения.
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+Фокус на стандартизации датасетов сетей высшего порядка и анализе структурных метрик (ранг, слой). Модели энергосистем переосмысливаются как диагностические инструменты.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.03491][A repository for discovery and reuse of higher-order network datasets]]
+:WHAT: Репозиторий AHORN для курированных стандартизированных датасетов сетей высшего порядка с метаданными и кодом конвертации.
+:IMPACT: Упрощает обнаружение и повторное использование сложных сетевых данных для исследований.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.04131][Efficient generation of networks with minimal average shortest-path distance]]
+:ALGO: Быстрый алгоритм построения сетей с минимальным средним расстоянием кратчайшего пути при заданной последовательности степеней.
+:IMPACT: Позволяет снижать длину путей в реальных структурах на 20% с низкими вычислительными затратами.
+
+- [[hxxps://arxiv.org/abs/2608.04303][The rank and layer distributions in random recursive trees]]
+:ALGO: Вывод точных рекурсивных выражений для распределений ранга и слоя в случайных рекурсивных деревьях.
+:IMPACT: Предоставляет универсальный фреймворк для анализа глубины узлов без зависимости от корня или меток.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.19676][Energy systems models are diagnostic tools, not projection machines]] — Аргументация в пользу использования моделей энергосистем как диагностических, а не прогнозных инструментов.
+- [[hxxps://arxiv.org/abs/2608.04943][Exact moment equivalence and structural nonidentifiability in nonlinear epidemics]] — Эквивалентность моментов в моделях эпидемий SIS/SIR и пределы вывода распределения размеров групп.
+- [[hxxps://arxiv.org/abs/2608.04749][Stochastic Non-Linear Influence in Synchronisation Dynamics]] — Модель влияния внешнего актора на синхронизацию сети через стохастические веса связей.
+- [[hxxps://arxiv.org/abs/2608.04064][The Astronomy of Halakhic Nightfall: Calculating Ts'eit HaKokhavim and Motsa'ei Shabbat]] — Астрономические расчеты времени наступления ночи для религиозных целей с учетом загрязнения светом.

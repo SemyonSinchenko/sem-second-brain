@@ -1,0 +1,136 @@
+#+TITLE: Arxiv Digest: 2026-08-07
+#+FROM: [2026-08-06 Thu]
+#+TO: [2026-08-07 Fri]
+#+DATE: [2026-08-07 Fri]
+#+STARTUP: showall
+
+* cs.DB (Базы Данных)
+** 🧐 Обзор
+За последние сутки наблюдается смещение фокуса на оптимизацию памяти для LLM и дезагрегированные архитектуры баз данных. Исследования предлагают новые методы ускорения запросов без глубокой модификации ядра СУБД, а также механизмы приватности для потоковых данных. Особое внимание уделяется эффективному использованию KV-cache и управлению памятью в распределенных средах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.28079][Tailwind: A Practical Framework for Query Accelerators]]
+:WHAT: Ненавязчивый планировщик запросов, интегрирующий специализированные акселераторы в любую СУБД через абстрактные логические планы.
+:IMPACT: Позволяет достигать ускорения выполнения специфичных запросов до 1.76x без модификации движка базы данных.
+
+- [[hxxps://arxiv.org/abs/2607.26227][Two-sided RDMA Striking Back for Disaggregated Memory Databases]]
+:WHAT: Система Lotus, использующая двухсторонний RDMA с кэшированием и батчингом для дезагрегированных баз памяти.
+:IMPACT: Превосходит одноступенчатые подходы в 8.2 раза по пропускной способности, решая проблемы планирования и индексации.
+
+- [[hxxps://arxiv.org/abs/2603.26269][Query-Specific Pruning of RML Mappings (Extended Version)]]
+:WHAT: Метод обрезки маппингов RML для частичной материализации графов знаний под конкретный SPARQL запрос.
+:IMPACT: Значительно сокращает время материализации и размер графа, ускоряя ответ в динамических средах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.09054][Personalized w-Event Privacy for Infinite Stream Estimation]]
+:ALGO: Механизмы персонализированного распределения и поглощения бюджета приватности для скользящих окон.
+:IMPACT: Снижает ошибку оценки потоковых данных на 53.6% при соблюдении дифференциальной приватности для каждого пользователя.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.01707][Memory in the LLM Era: Modular Architectures and Strategies in a Unified Framework]] — Систематизация методов памяти для LLM-агентов и сравнительный анализ их эффективности на бенчмарках.
+
+* cs.DC (Распределенные Вычисления)
+** 🧐 Обзор
+В распределенных системах доминируют темы надежности рабочих процессов, безопасности микросервисов и аппаратной оптимизации. Появляются решения для квантовой коррекции ошибок и эффективного использования CXL-памяти для сервисов LLM. Также заметен прогресс в алгоритмах самостабилизации и кластеризации графов на GPU.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.18141][A CXL Memory Rack for Multi-Turn LLM Serving]]
+:WHAT: HyMCache — стойка памяти на базе CXL-hybrid для хранения и повторного использования KV-cache масштаба ТБ.
+:IMPACT: Обеспечивает эффективность DRAM при стоимости SSD, уменьшая объем необходимой DRAM в 16 раз для многопользовательских сценариев.
+
+- [[hxxps://arxiv.org/abs/2608.03836][Resume Means Resume: A Machine-Checked Conformance Contract for Checkpoint, Interrupt, and Resume Semantics in Workflow Persistence Layers]]
+:WHAT: Формальная спецификация контракта восстановления (RESUME CONTRACT) для систем Persistence Layers с верификацией в TLA+.
+:IMPACT: Выявляет несоответствия в популярных фреймворках и предлагает эталонную реализацию для гарантированного восстановления после сбоев.
+
+- [[hxxps://arxiv.org/abs/2608.05300][eMicro: Real-Time Multi-Hop Access Control for Microservices with eBPF]]
+:WHAT: Система контроля доступа eMicro, использующая eBPF и автоматы для предотвращения многошаговых атак в микросервисах.
+:IMPACT: Выполняет проверки политик за 1 микросекунду с накладными расходами близкими к нулю, защищая сложные пути запросов.
+
+- [[hxxps://arxiv.org/abs/2604.16613][GreenPeas: Unlocking adaptive quantum error correction with just-in-time decoding hypergraphs]]
+:WHAT: JIT-компилятор для декодирования гиперграфов квантовых ошибок, адаптирующийся к изменению схемы во время выполнения.
+:IMPACT: Ускоряет декодирование в 13.2 раза на GPU, позволяя реализовывать адаптивные квантовые цепи с низкой задержкой.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.03695][Accelerating Dynamic Graph Clustering on GPU Architectures with cuGraph]]
+:ALGO: GPU-ускоренные расширения спектральной кластеризации и модульности для временных графов в экосистеме RAPIDS.
+:IMPACT: Дает ускорение до трех порядков по сравнению с CPU для анализа сообществ в динамических сетях.
+
+- [[hxxps://arxiv.org/abs/2607.08244][Self-Stabilizing Algorithms in the Uniform Port Model]]
+:ALGO: Эффективные самостабилизирующиеся алгоритмы для задач нарушения симметрии в унифицированной модели портов.
+:IMPACT: Впервые демонстрирует возможность решения фундаментальных задач распределенной симметрии в полностью унифицированной модели.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.27625][P-ARC: Exploiting Subproblem Independence for Parallel Multi-Robot Motion Planning]] — Параллельная формулировка планирования движения роботов, использующая независимость подзадач для ускорения.
+- [[hxxps://arxiv.org/abs/2607.09814][A Guess and Determine Attack on the Elliptic Curve Discrete Logarithm Problem]] — Развитие алгоритма Лас-Вегаса для решения задачи дискретного логарифмирования на эллиптических кривых.
+- [[hxxps://arxiv.org/abs/2608.05358][DG-FedReuse: Proxy-Gradient-Gated Cached-Update Reuse with Matched Sparse Uplink Accounting]] — Механизм повторного использования кэшированных обновлений в федеративном обучении для экономии трафика.
+
+* cs.AI (Искусственный Интеллект)
+** 🧐 Обзор
+Исследования смещаются в сторону инфраструктуры для агентных систем и обеспечения надежности моделей (галлюцинации, согласованность). Оптимизация поиска ближайших соседей (ANNS) с помощью RL и бенчмарки для квантового моделирования на СУБД становятся практически значимыми направлениями.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2608.05332][Hierarchical Server Architecture for Agentic Science]]
+:WHAT: Иерархическая архитектура и ПО для обнаружения ресурсов и координации агентов в научных пайплайнах.
+:IMPACT: Обеспечивает высокую точность переговоров (87.71%) при распределении задач между разнородными вычислительными средами.
+
+- [[hxxps://arxiv.org/abs/2607.21910][TRW: TRACE-RealWorld---An Auditable Consistency Contract for World Models as Materialized Views]]
+:WHAT: Контракты согласованности для моделей мира, рассматривающие предсказанное состояние как материализованное представление.
+:IMPACT: Позволяет аудировать нарушения согласованности и управлять обновлением состояния в физических симуляторах.
+
+- [[hxxps://arxiv.org/abs/2607.29134][InferQ: A Database-Oriented Benchmark for Quantum Circuits Simulation]]
+:WHAT: Бенчмарк для симуляции квантовых цепей на СУБД, генерирующий SQL-нагрузки и извлекающий признаки для оптимизации.
+:IMPACT: Позволяет точно предсказывать эффективность SQL-выполнения для симуляции, экономя память по сравнению со специализированными симуляторами.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.02091][CRINN: Contrastive Reinforcement Learning for Approximate Nearest Neighbor Search]]
+:ALGO: Подход к оптимизации ANNS как задачи обучения с подкреплением, где скоростью выполнения является награда.
+:IMPACT: Автоматически генерирует быстрые реализации поиска соседей, превосходящие state-of-the-art на ряде датасетов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2601.16592][FI-TW: An Open Train-Weather Dataset for Railway Delay Analysis in Finland]] — Открытый датасет, объединяющий данные о ж/д операциях и погоде для анализа задержек.
+- [[hxxps://arxiv.org/abs/2605.16411][Reducing Hallucination in Vision-Language Models via Stage-wise Preference Optimization under Distribution Shift]] — Метод снижения галлюцинаций в VLM через поэтапную оптимизацию предпочтений.
+- [[hxxps://arxiv.org/abs/2509.06861][Test-Time Scaling in Reasoning Models Is Not Effective for Knowledge-Intensive Tasks Yet]] — Анализ ограничений масштабирования вычислений во время инференса для задач, требующих знаний.
+- [[hxxps://arxiv.org/abs/2509.10482][AegisShield: Democratizing Cyber Threat Modeling with Generative AI]] — Инструмент на базе GenAI для автоматизации моделирования угроз по стандартам STRIDE и MITRE ATT&CK.
+
+* physics.soc-ph (Социальная Физика и Сети)
+** 🧐 Обзор
+Основные тенденции касаются обобщения теории баланса на групповые графы и анализа распространения на временных сетях. Наблюдается рост интереса к применению физических моделей (термодинамика, степенные законы) для анализа исторических и социальных данных.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2505.22802][From Signed Networks to Group Graphs]]
+:ALGO: Определение групповых графов, обобщающих знаковые сети и позволяющих меткам ребер принадлежать произвольной группе.
+:IMPACT: Унифицирует findings по балансу в сетях и показывает, что эволюция процессов определяется топологией, а не структурой группы.
+
+- [[hxxps://arxiv.org/abs/2608.06175][The Structure of Spreading on Temporal Networks]]
+:ALGO: Отображение динамики распространения на временных сетях в задачу достижимости в графах событий.
+:IMPACT: Позволяет вычислять пороги эпидемий и превалентность без явного моделирования, обеспечивая вычислительное преимущество.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.28065][Assessing the Role of Intersection Proximity in Pedestrian Crashes: Insights from Data Mining Approach]] — Анализ аварий с пешеходами вне перекрестков с использованием майнинга ассоциативных правил.
+- [[hxxps://arxiv.org/abs/2606.25303][Zipf's law before the monetary economy and written administration: volume distribution of kofun, ancient Japanese burial mounds]] — Проверка закона Ципфа на распределении объемов древних японских курганов.
+- [[hxxps://arxiv.org/abs/2608.04731][An improved car-oriented mean-field theory for stochastic traffic flow models]] — Улучшенная теория среднего поля для моделей трафика с учетом корреляций.
+- [[hxxps://arxiv.org/abs/2608.05789][Interaction size and dissent tolerance in majority-rule dynamics with collective reversal]] — Модель правила большинства с допуском инакомыслия и коллективным разворотом.
+- [[hxxps://arxiv.org/abs/2608.06048][Thermodynamic statistics of given names in USA and France]] — Термодинамический анализ распределений имен через кривые Лоренца и явление конденсации.
+
+* cs.DS (Структуры Данных и Алгоритмы)
+** 🧐 Обзор
+В области алгоритмов преобладают теоретические результаты о сложности аппроксимации и неразрешимости. Однако присутствуют значимые улучшения в алгоритмах匹配 регулярных выражений и задачах на графах, имеющие потенциальное практическое применение.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.09311][Improved Extended Regular Expression Matching]]
+:ALGO: Новый алгоритм matching расширенных регулярных выражений, использующий умножение матриц и кластеризацию деревьев разбора.
+:IMPACT: Улучшает временную сложность с O(n^3) до O(n^omega) для доминирующих членов, что важно для систем поиска и обработки текста.
+
+- [[hxxps://arxiv.org/abs/2608.04279][Bottleneck Paths Reduce to Deterministic Graphical Games and a Counterexample to a Claimed Linear-Time Algorithm]]
+:ALGO: Линейная редукция задачи о узких местах (bottleneck paths) к детерминированным графическим играм и контрпример к известному алгоритму.
+:IMPACT: Связывает открытые вопросы сложности для графических игр и путей в графах, указывая на ошибки в предыдущих работах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2402.15076][Tight Inapproximability of Target Set Reconfiguration]] — Доказательство NP-трудности аппроксимации реконфигурации целевых наборов в графах.
+- [[hxxps://arxiv.org/abs/2509.14509][Spin Glass Transitions Obstruct Decoded Quantum Interferometry]] — Анализ препятствий для квантовых алгоритмов оптимизации со стороны фазовых переходов спиновых стекол.
+- [[hxxps://arxiv.org/abs/2607.28703][Costs of Arbitrary Real Matrix Factorizations for Pure-DP Continual Counting]] — Оценка стоимости факторизации матриц для механизмов дифференциальной приватности.
+- [[hxxps://arxiv.org/abs/2608.00451][Robust Polynomial Freiman-Ruzsa from Corrupted Set Observations]] — Восстановление структурных свойств множеств из зашумленных наблюдений в конечных полях.
+- [[hxxps://arxiv.org/abs/2608.00848][A Consistency-Robustness Framework for Robust Optimization: Integrating Predictions into Robust Scheduling]] — Фреймворк объединения предсказаний и робастной оптимизации для планирования задач.
+- [[hxxps://arxiv.org/abs/2608.05327][Computationally Efficient Collaborative Communication Via Regularity-Based Coarsening]] — Алгоритмы эффективной коммуникации в играх на основе леммы о регулярности.
+- [[hxxps://arxiv.org/abs/2608.05331][On the Approximability of Boolean Max-$k$-CSP]] — Улучшение аппроксимации для задач удовлетворения булевых ограничений.
+- [[hxxps://arxiv.org/abs/2608.05468][Hardness of A/E-Design under Partition Constraints]] — Результаты о трудности задач дизайна матриц под ограничениями разбиения.

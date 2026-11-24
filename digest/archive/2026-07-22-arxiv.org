@@ -1,0 +1,123 @@
+#+TITLE: Arxiv Digest: 2026-07-22
+#+FROM: [2026-07-21 Tue]
+#+TO: [2026-07-22 Wed]
+#+DATE: [2026-07-22 Wed]
+#+STARTUP: showall
+
+* cs.DB
+** 🧐 Обзор
+В категории баз данных наблюдается renewed интерес к методам анонимизации данных для больших объемов информации. Основное внимание уделяется практической применимости k-анонимности на реальных датасетах с большим количеством атрибутов, где традиционные методы не масштабируются.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2204.01533][Real-world K-Anonymity Applications: the \textsc{KGen} approach and its evaluation in Fraudulent Transactions]]
+:WHAT: Подход KGen с использованием генетических алгоритмов для k-анонимности на больших датасетах.
+:IMPACT: Позволяет гарантировать высокий уровень анонимности без потери энтропии информации на данных с десятками атрибутов и тысячами наблюдений.
+
+* cs.DC
+** 🧐 Обзор
+В распределенных системах доминируют темы масштабирования исполнения смарт-контрактов и эффективного-serving для больших языковых моделей (MoE/LLM). Заметен тренд на разделение фаз prefill/decode, улучшение консенсус-протоколов и оптимизацию коммуникации в федеративном обучении.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.02817][Remora: Scale-out Deterministic Execution for Smart Contracts]]
+:WHAT: Масштабируемый движок исполнения смарт-контрактов с асимметричной архитектурой и версионированием объектов.
+:IMPACT: Увеличивает пропускную способность до 250k TPS и снижает задержку, согласуя исполнение с производительностью современного консенсуса.
+- [[hxxps://arxiv.org/abs/2607.18002][ExpertPlex: A High-Goodput Disaggregated Serving System for MoE LLMs with Adaptive Persistent Kernels]]
+:WHAT: Система serving для MoE моделей с разделением экспертов и внимания, использующая адаптивные персистентные ядра.
+:IMPACT: Улучшает goodput до 2.01x за счет устранения дублирования весов и оптимизации коммуникации между фазами.
+- [[hxxps://arxiv.org/abs/2602.14516][Efficient Multi-round LLM Inference over Disaggregated Serving]]
+:WHAT: Фреймворк AMPD для координации workload'ов prefill/decode при многораундовом инференсе LLM.
+:IMPACT: Существенно повышает достижение SLO за счет адаптивного планирования ресурсов между фазами.
+- [[hxxps://arxiv.org/abs/2502.20692][MonadBFT: Fast, Responsive, Fork-Resistant Streamlined Consensus]]
+:WHAT: BFT консенсус-протокол с устойчивостью к tail-forking и спекулятивной финальностью.
+:IMPACT: Снижает задержку для пользователей и предотвращает атаки MEV, связанные с отбрасыванием блоков лидерами.
+- [[hxxps://arxiv.org/abs/2501.00216][FedCod: An Efficient Communication Protocol for Cross-Silo Federated Learning with Coding]]
+:WHAT: Коммуникационный протокол для кросс-сило федеративного обучения с использованием кодирования.
+:IMPACT: Сокращает время коммуникации на 62% за счет использования idle bandwidth и динамики избыточности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.20128][The Correctness Illusion in LLM-Generated GPU Kernels]] — Анализ иллюзии корректности в бенчмарках GPU ядер, генерируемых LLM, с предложением улучшенных орккулов.
+- [[hxxps://arxiv.org/abs/2607.18541][What Governs Decode Throughput in Absolute-Offset GPU LZ77? A Work-Granularity Mechanism and an Encode-Time Min-Match-Length Lever]] — Исследование механизмов гранулярности работы для ускорения декодирования LZ77 на GPU.
+- [[hxxps://arxiv.org/abs/2603.23942][The Missing Adapter Layer for Research Computing]] — Предложение слоя-адаптера для упрощения развертывания исследовательских сред на облачных VM.
+- [[hxxps://arxiv.org/abs/2606.13266][Seamless Execution of Malleable Applications in Controlled and Production HPC Environments]] — Методология MPI malleability для гибкого управления ресурсами в production HPC.
+- [[hxxps://arxiv.org/abs/2607.18631][Searching for Plans You Can Actually Build: A Realizability-Aware Full-Space Optimizer for MoE Training and Serving]] — Оптимизатор moefs, учитывающий реализуемость планов обучения и serving для MoE систем.
+- [[hxxps://arxiv.org/abs/2607.18273][Predictive RTO for CoAP using Lightweight Support Vector Regression in Internet of Things]] — Легковесный подход на SVR для предсказания таймаутов ретрансмиссии в IoT сетях.
+
+* cs.AI
+** 🧐 Обзор
+В искусственном интеллекте выделяются работы по управлению агентами (provenance, GUI), оценке безопасности в клинических приложениях и непрерывному обучению. Также присутствует значительный пласт исследований на стыке графовых нейросетей и рекомендательных систем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.18816][AgentTrails: Towards Trust and Reuse for Agentic Tasks]]
+:WHAT: Прототип системы для provenance агентских задач, конвертирующий логи в графы происхождения.
+:IMPACT: Позволяет сравнивать исполнения, отлаживать сбои и выявлять скрытые зависимости в действиях агентов.
+- [[hxxps://arxiv.org/abs/2409.07314][MEDIC: Comprehensive Evaluation of Leading Indicators for LLM Safety and Utility in Clinical Applications]]
+:WHAT: Фреймворк оценки клинических LLM по пяти измерениям, включая безопасность и utilidad.
+:IMPACT: Выявляет разрыв между статическими знаниями и функциональным исполнением в медицинских задачах.
+- [[hxxps://arxiv.org/abs/2506.14079][FormGym: Doing Paperwork with Agents]]
+:WHAT: Бенчмарк и инструмент FieldFinder для заполнения форм агентами в image-domain.
+:IMPACT: Повышает точность заполнения форм с 2% до 56% за счет улучшения локализации полей.
+- [[hxxps://arxiv.org/abs/2506.17913][Learning, Reasoning, Refinement: A Framework for Kahneman's Dual-System Intelligence in GUI Agents]]
+:WHAT: Когнитивный фреймворк CogniGUI с двойной системой для автоматизации GUI.
+:IMPACT: Позволяет агентам обучаться на опыте и адаптировать стратегии навигации через итеративные циклы.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2505.11552][GSPRec: On Improving Item Representations in Graph Signal Processing for Collaborative Filtering]]
+:ALGO: Фреймворк коллаборативной фильтрации, использующий спектральную обработку графов и item-item proximity.
+:IMPACT: Улучшает представление предметов за счет усиления промежуточных частот, превышая базовые графовые методы.
+- [[hxxps://arxiv.org/abs/2505.18934][Chi-Square Wavelet Graph Neural Networks for Heterogeneous Graph Anomaly Detection]]
+:ALGO: Спектральная GNN ChiGAD с Chi-Square фильтрами для обнаружения аномалий в гетерогенных графах.
+:IMPACT: Эффективно捕捉вает аномальные сигналы и сохраняет высокочастотную информацию в разнородных сетях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.22840][The Cognitive Kardashev Scale: Quantifying the Material Envelope of Civilisational Computation]] — Оценка вычислительных возможностей цивилизаций по шкале Кардашева через призму энергопотребления.
+- [[hxxps://arxiv.org/abs/2504.06176][A Self-Supervised Framework for Space Object Behaviour Characterisation]] — Self-supervised фреймворк для анализа поведения космических объектов по световым кривым.
+- [[hxxps://arxiv.org/abs/2504.13822][Parameter-Efficient Continual Fine-Tuning: A Survey]] — Обзор методов параметрически эффективной донастройки для непрерывного обучения.
+- [[hxxps://arxiv.org/abs/2309.01271][Bayesian inference of composition-dependent phase diagrams]] — Байесовский вывод фазовых диаграмм на основе данных молекулярной динамики.
+- [[hxxps://arxiv.org/abs/2402.18121][Saving the legacy of Hero Ibash: Evaluating Four Language Models for Aminoacian]] — Оценка языковых моделей на низкоресурсном языке Aminoacian.
+
+* physics.soc-ph
+** 🧐 Обзор
+В социальной физике преобладают модели эпидемий с учетом поведенческих факторов и усталости, а также исследования транспортных потоков и экономической автоматизации. Наблюдается сдвиг от простой мобильности к риск-ориентированным моделям передачи заболеваний.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.06083][Second-order multilane traffic flow models: from the microscopic to the macroscopic scale]] — Макроскопические модели трафика второго порядка для многополосного движения.
+- [[hxxps://arxiv.org/abs/2512.10389][The $k$-flip Ising game]] — Анализ игры Изинга с одновременным принятием решений несколькими агентами.
+- [[hxxps://arxiv.org/abs/2603.13715][Measuring Primitive Accumulation: An Information-Theoretic Approach to Capitalist Enclosure in PIK2, Indonesia]] — Информационно-теоретический подход к измерению земельной enclosure в Индонезии.
+- [[hxxps://arxiv.org/abs/2607.12108][Stop using Media Bias/Fact Check in research]] — Критика методологии MBFC и призыв прекратить ее использование в академических исследованиях.
+- [[hxxps://arxiv.org/abs/2607.14017][The Wulff bio-heat transfer model revisited: directional blood enthalpy transport, the biological Peclet number, and implications for laser-induced thermal therapy]] — Пересмотр модели био-теплопередачи Вульфа с учетом направления потока крови.
+- [[hxxps://arxiv.org/abs/2607.17015][Alignment of a Total Automation Economy]] — Экономическая теория тотальной автоматизации и вопрос децентрализации производства.
+- [[hxxps://arxiv.org/abs/2607.18276][Improving Punching "Power": Reconsidering the roles of initial strike velocity and effective mass]] — Анализ эффективности удара в боевых искусствах через призму эффективной массы.
+- [[hxxps://arxiv.org/abs/2607.18277][Risk-mediated transmission dynamics govern epidemic trajectories beyond physical mobility]] — Модель эпидемий, управляемая динамикой передачи рисков, а не только мобильностью.
+- [[hxxps://arxiv.org/abs/2607.18301][Long-term Coexistence of Epidemics and Risk Awareness: Impacts of Adaptive Human Response and Fatigue]] — Моделирование долгосрочного сосуществования эпидемий и осведомленности о рисках.
+
+* cs.DS
+** 🧐 Обзор
+В алгоритмах и структурах данных ключевыми темами являются аппроксимационные алгоритмы для связности, разрезов и кратчайших путей. Значительный прогресс достигнут в практической реализации задач_matching и оракулов расстояний.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.20351][Blossom VI: A Practical Minimum Weight Perfect Matching Algorithm]]
+:WHAT: Практический алгоритм Blossom VI для минимального паросочетания с минимальным весом.
+:IMPACT: Значительно быстрее Blossom V на сложных инстансах за счет сокращения глубины контракций.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2407.10526][9/7-Approximation for Two-Edge-Connectivity and Two-Vertex-Connectivity]]
+:ALGO: Алгоритмы аппроксимации с коэффициентом 9/7 для 2-связности по ребрам и вершинам.
+:IMPACT: Улучшает предыдущие границы аппроксимации для фундаментальных задач связности.
+- [[hxxps://arxiv.org/abs/2512.09080][Almost-Optimal Approximation Algorithms for Global Minimum Cut in Directed Graphs]]
+:ALGO: Почти оптимальные алгоритмы аппроксимации глобального минимального разреза в ориентированных графах.
+:IMPACT: Достигает времени выполнения O(m^{1+o(1)}) для взвешенных графов, улучшая предыдущие квадратичные оценки.
+- [[hxxps://arxiv.org/abs/2507.06721][Faster Algorithms for $(2k-1)$-Stretch Distance Oracles]]
+:ALGO: Новые алгоритмы построения distance oracles с растяжением (2k-1).
+:IMPACT: Ускоряет построение оракулов для больших k и плотных графов по сравнению с Thorup-Zwick.
+- [[hxxps://arxiv.org/abs/2607.00938][Tighter bounds for weighted and unweighted shortest cycle approximation]]
+:ALGO: Алгоритмы аппроксимации гирта графа с улучшенными границами для взвешенных и невзвешенных случаев.
+:IMPACT: Достигает компромисса время/точность 2k/3 для взвешенных графов за время O(m+n^{1+2/k}).
+- [[hxxps://arxiv.org/abs/2607.02443][Improved Approximation Algorithms for n-Pairs Shortest Paths]]
+:ALGO: Алгоритмы аппроксимации кратчайших путей для n пар вершин во взвешенных графах.
+:IMPACT: Улучшает коэффициент аппроксимации до 1.622k с использованием техники heavy-edge.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/1702.02891][Sparse Approximation by Semidefinite Programming]] — Подход к разреженной аппроксимации через полyопределенное программирование.
+- [[hxxps://arxiv.org/abs/2410.22717][Efficient Uniform Negative Edge Weights]] — Модель весов ребер с отрицательными значениями и MCMC процесс для сэмплирования.
+- [[hxxps://arxiv.org/abs/2603.22147][Optimal-Time Move Structure Construction]] — Оптимальный по времени алгоритм построения move structure для перестановок.
+- [[hxxps://arxiv.org/abs/2605.12450][Simulation of Non-Hermitian Hamiltonians with Bivariate Quantum Signal Processing]] — Квантовая симуляция неэрмитовых гамильтонианов через бивариантную обработку сигналов.

@@ -1,0 +1,78 @@
+#+TITLE: Daily Digest: 2026-06-19
+#+FROM: [2026-06-18 Thu]
+#+TO: [2026-06-19 Fri]
+#+DATE: [2026-06-19 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Основные тенденции недели сосредоточены на промышленной эксплуатации ИИ-агентов и улучшении наблюдаемости в SageMaker и Bedrock. Apache Spark 4.0 приносит критические изменения в управлении памятью и метриками, требующие внимания инженеров данных. В сфере инженерной культуры обсуждаются структурные изменения в Meta и геополитическое влияние на доступ к моделям. Инициативы OSI в Бразилии подчеркивают растущее внимание регуляторов к открытому ПО.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-the-spark-4-freak-show-7271c9620267?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? The Spark 4 Freak Show]] (Medium) — Критические изменения в метриках и управлении памятью драйвера требуют аудита конфигураций перед обновлением.
+- [[hxxps://www.databricks.com/blog/how-stagwell-built-privacy-safe-id-matching-databricks][How Stagwell built privacy-safe ID matching on Databricks]] (Databricks) — Практический кейс безопасного матчинга идентификаторов на Databricks без утечки PII.
+- [[hxxps://www.kdnuggets.com/advanced-join-techniques-lateral-joins-semi-joins-anti-joins][Advanced Join Techniques: LATERAL Joins, Semi Joins, Anti Joins]] (KDnuggets) — Разбор продвинутых техник SQL (LATERAL, Semi, Anti) для оптимизации запросов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-the-spark-4-freak-show-7271c9620267?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? The Spark 4 Freak Show]]
+:SCORE: 9/10
+:WHY: Глубокий анализ breaking changes в Spark 4.0, критичный для планирования миграции и стабильности продакшена.
+**** [[hxxps://www.databricks.com/blog/how-stagwell-built-privacy-safe-id-matching-databricks][How Stagwell built privacy-safe ID matching on Databricks]]
+:SCORE: 8/10
+:WHY: Реальный архитектурный паттерн для работы с чувствительными данными в распределенных системах.
+**** [[hxxps://www.kdnuggets.com/advanced-join-techniques-lateral-joins-semi-joins-anti-joins][Advanced Join Techniques: LATERAL Joins, Semi Joins, Anti Joins]]
+:SCORE: 7/10
+:WHY: Напоминание о мощных инструментах SQL для сложной логики соединений без избыточных данных.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-big-implications-of-us][The Pulse: Big implications of US banning Anthropic's new model, Fable]] (Pragmatic Engineer) — Анализ сокращений в Meta, бана моделей Anthropic и сдвигов на рынке ИИ-инструментов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-big-implications-of-us][The Pulse: Big implications of US banning Anthropic's new model, Fable]]
+:SCORE: 9/10
+:WHY: Ключевая сводка индустриальных сдвигов, влияющих на стратегию найма и выбор стека в Big Tech.
+
+** Vendors
+- [[hxxps://gdotv.com/blog/compare-gdotv-graph-db-workbench/][Comparing gdotv vs GraphDB Workbench]] (gdotv) — Сравнение функциональности IDE gdotv и GraphDB Workbench для работы с графами.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества VLDB в Бостоне для обсуждения графовых баз.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://gdotv.com/blog/compare-gdotv-graph-db-workbench/][Comparing gdotv vs GraphDB Workbench]]
+:SCORE: 7/10
+:WHY: Полезное сравнение инструментов для выбора оптимального IDE при работе с графовыми базами данных.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обмена опытом в сообществе графовых технологий перед VLDB.
+
+** Open Source
+- [[hxxps://opensource.org/blog/engaging-on-age-attestation-policy-in-brazil][Engaging on Age Attestation Policy in Brazil]] (Open Source Initiative) — Комментарий OSI к регуляторам Бразилии о защите открытого ПО в законах о детской безопасности.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/engaging-on-age-attestation-policy-in-brazil][Engaging on Age Attestation Policy in Brazil]]
+:SCORE: 8/10
+:WHY: Важный прецедент защиты лицензий и моделей разработки Open Source от избыточного регулирования.
+
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-harness-is-now-generally-available-go-from-idea-to-production-grade-agent-in-minutes/][Amazon Bedrock AgentCore harness is now generally available: Go from idea to production-grade agent in minutes]] (AWS) — GA релиз AgentCore Harness упрощает вывод ИИ-агентов в продакшен через managed абстракции.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/monitor-and-debug-generative-ai-inference-with-sagemaker-detailed-metrics-and-insights-dashboard-on-cloudwatch/][Monitor and debug generative AI inference with SageMaker detailed metrics and Insights dashboard on CloudWatch]] (AWS) — Новые детальные метрики и дашборды CloudWatch для отладки генеративных моделей на продакшене.
+- [[hxxps://huggingface.co/blog/ServiceNow/mosaicleaks][MosaicLeaks: Can your research agent keep a secret?]] (HuggingFace) — Исследование уязвимостей безопасности в исследовательских ИИ-агентах при работе с конфиденциальными данными.
+- [[hxxps://www.databricks.com/blog/what-is-artificial-intelligence][What is artificial intelligence (AI)?]] (Databricks) — Базовое определение ИИ от Databricks для выравнивания терминологии в команде.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-harness-is-now-generally-available-go-from-idea-to-production-grade-agent-in-minutes/][Amazon Bedrock AgentCore harness is now generally available: Go from idea to production-grade agent in minutes]]
+:SCORE: 9/10
+:WHY: Значительное упрощение оркестрации агентов, снижающее порог входа для production-разработки.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/monitor-and-debug-generative-ai-inference-with-sagemaker-detailed-metrics-and-insights-dashboard-on-cloudwatch/][Monitor and debug generative AI inference with SageMaker detailed metrics and Insights dashboard on CloudWatch]]
+:SCORE: 9/10
+:WHY: Критически важная наблюдаемость для поддержания SLA и стоимости при масштабировании LLM.
+**** [[hxxps://huggingface.co/blog/ServiceNow/mosaicleaks][MosaicLeaks: Can your research agent keep a secret?]]
+:SCORE: 8/10
+:WHY: Предупреждение о новых векторах утечек данных через автономных ИИ-агентов в исследовательской среде.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/does-china-covet-siberia][Does China Covet Siberia?]] (Peter Turchin) — Геополитический анализ отношений Китая и России в контексте ресурсов Сибири.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/does-china-covet-siberia][Does China Covet Siberia?]]
+:SCORE: 7/10
+:WHY: Контекст для понимания макроэкономических рисков и цепочек поставок в регионе.

@@ -1,0 +1,167 @@
+#+TITLE: Arxiv Digest: 2026-06-09
+#+FROM: [2026-06-08 Mon]
+#+TO: [2026-06-09 Tue]
+#+DATE: [2026-06-09 Tue]
+#+STARTUP: showall
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+За последние сутки в категории social physics наблюдается рост интереса к сетевым моделям городской мобильности и климатического воздействия. Исследователи активно применяют графовые frameworks для анализа неравенства в экспозиции тепла и оптимизации энергетических систем. Зрелость методов network-based анализа позволяет выявлять системные паттерны в транспортных потоках и экологических рисках.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2603.24782][Mobility shapes heat exposure inequalities in cities]]
+:WHAT: Network-based framework для квантификации тепловой экспозиции через daily mobility patterns с использованием mobile phone records.
+:IMPACT: Позволяет городским планировщикам выявлять income-related inequalities в климатических рисках и разрабатывать climate-resilient стратегии.
+
+- [[hxxps://arxiv.org/abs/2606.09083][Characterizing and modeling the patterns of vehicle movement on road networks]]
+:WHAT: Double-layered network model, воспроизводящий three-phase movement patterns транспортных средств на иерархических дорожных сетях.
+:IMPACT: Улучшает моделирование трафика и оптимизацию routing algorithms для urban mobility systems.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.00196][Evolution of cooperation in the multiplex]]
+:ALGO: General framework для evolution of cooperation в multiplex networks с multi-phenotype homophily и layer-specific σ-rules.
+:IMPACT: Объясняет механизмы cooperation в heterogeneous populations, применимо к social network analysis и distributed systems.
+
+- [[hxxps://arxiv.org/abs/2606.07584][Symbiosis as a systemic catalyst and the impossibility of coalitions in optimal networks]]
+:ALGO: Strategic network interactions на основе anti-coordination с proof что globally optimal configuration = Strong Nash Equilibrium.
+:IMPACT: Formalizes топологические барьеры против collective deviations, релевантно для stability analysis в distributed systems.
+
+- [[hxxps://arxiv.org/abs/2606.08326][Enabling quantum communication in ultra-large-scale networks]]
+:ALGO: Family of quantum communication protocols для networks с arbitrary topology до hundreds of millions nodes, с proof для random scale-free graphs.
+:IMPACT: Доказывает scalability Quantum Internet, критично для future network infrastructure planning.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.12310][Reflective Empiricism: Bias Reflection and Introspection as a Scientific Method]] — Методология bias recognition через systematic introspection для научного познания.
+- [[hxxps://arxiv.org/abs/2603.26719][Diverse efforts in the same direction: A multi-model comparison of climate-neutrality power sector pathways for the Nordic countries]] — Сравнительный assessment 8 energy system models для Nordic power sector transition.
+- [[hxxps://arxiv.org/abs/2606.07572][Forecasting Japanese elections: A nonlinear machine-learning approach]] — Nonlinear ML models для prediction Japanese elections с improved accuracy vs classical linear methods.
+- [[hxxps://arxiv.org/abs/2606.07637][On an Airborne Proton Accelerator for Enhancing Cloud Formation or Inducing their Precipitation]] — Концепция airborne proton accelerator для weather control через cloud formation enhancement.
+- [[hxxps://arxiv.org/abs/2606.08972][Three-dimensional Fundamental Diagrams of Five-neighbor Particle Cellular Automata]] — Анализ 3D fundamental diagrams для particle cellular automata с mean flow determination.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+В distributed computing доминируют темы GPU-acceleration для memory-bound workloads и decentralized AI frameworks. Наблюдается сдвиг paradigms в сторону grassroots platforms с egalitarian архитектурой вместо centralized систем. Практическая значимость растёт в области satellite-terrestrial HetNets и energy-efficient federated learning.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2510.12705][Accelerating Bidiagonalization of Banded Matrices through Memory-Aware Bulge-Chasing on GPUs]]
+:WHAT: Первый GPU-accelerated algorithm для reduction banded matrix to bidiagonal form с hardware-aware performance model.
+:IMPACT: Достигает 100x speed-up на 32k×32k матрицах vs multithreaded CPU libraries, критично для scientific computing и AI workloads.
+
+- [[hxxps://arxiv.org/abs/2602.21788][Efficient Scaling of LLM Training with Flexible Context Parallelism]]
+:WHAT: Flexible Context Parallelism (FCP) с adaptive reconfiguration communication groups для heterogeneous sequence lengths.
+:IMPACT: До 2.24x speedup для extremely unbalanced batches, решает load imbalance в large-scale LLM training clusters.
+
+- [[hxxps://arxiv.org/abs/2602.21949][Energy Efficient Federated Learning with Hyperdimensional Computing over Wireless Communication Networks]]
+:WHAT: FL-HDC-DP framework заменяет neural updates на hypervector operations с differential privacy для edge users.
+:IMPACT: 83.3% energy reduction и 3.5x fewer communication rounds при 90% accuracy, критично для resource-constrained edge devices.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.15747][GLP: A Grassroots, Multiagent, Concurrent, Logic Programming Language for AI (Full Version)]]
+:ALGO: Concurrent operational semantics для grassroots platforms с multiagent atomic transactions и egalitarian architecture.
+:IMPACT: Foundation для decentralized social graphs и currencies, альтернатива centralized/plutocratic platforms.
+
+- [[hxxps://arxiv.org/abs/2602.03682][Improved Analysis of the Accelerated Noisy Power Method with Applications to Decentralized PCA]]
+:ALGO: Улучшенный analysis accelerated noisy power method с milder conditions на perturbations для decentralized PCA.
+:IMPACT: Первый decentralized PCA algorithm с provably accelerated convergence, снижает communication costs.
+
+- [[hxxps://arxiv.org/abs/2512.20163][Efficient Stable Population Protocols for Parity and Beyond]]
+:ALGO: Novel computing paradigm с population weights, robust clocking mechanism и anomaly detection для parity/congruence protocols.
+:IMPACT: O(log³n) states и silent stabilisation в O(log³n) time, универсальный design для stable population protocols.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2511.05972][DWM-RO: Decentralized World Models with Reasoning Offloading for SWIPT-enabled Satellite-Terrestrial HetNets]] — Decentralized world model с uncertainty-aware offloading gate для satellite-terrestrial networks, 5x faster convergence.
+- [[hxxps://arxiv.org/abs/2601.17957][Moded Types for Grassroots Logic Programs, by AI, for AI (Full Version)]] — Moded-atom semantics для GLP typing, type checker implemented by AI в Dart.
+- [[hxxps://arxiv.org/abs/2602.05458][Emergence-as-Code as a Foundation for Self-Governing Reliable Systems]] — Declarative contract для journey-level SLI bounds и governance artifacts из intent и evidence.
+- [[hxxps://arxiv.org/abs/2602.19802][Fast Linear Reservoirs via Diagonalization]] — Diagonalization-based optimization для Linear ESNs снижает complexity с quadratic до linear per-step.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В data structures наблюдается прорыв в compressed indexes для structured retrieval и robust algorithms для adversarial settings. Learning-augmented algorithms достигают near-optimal robustness bounds. Graph algorithms фокусируются на differentially private subgraph counting и directed graph diameter computation.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2508.12536][jXBW: A Compressed Index for Structure-Aware JSONL Retrieval in Structured RAG]]
+:WHAT: Compressed index с merged tree representation и XBW-based succinct index для JSONL substructure search.
+:IMPACT: До 2,800× быстрее tree-based baselines, sub-millisecond queries для million-record JSONL collections в structured RAG.
+
+- [[hxxps://arxiv.org/abs/2505.05847][Smaller and More Flexible Cuckoo Filters]]
+:WHAT: Улучшения Cuckoo filters: removed power-of-2 bucket restriction и reduced space overhead до 1.06(1+2/k) через overlapping windows.
+:IMPACT: Smallest filters supporting online insertions с comparable query speed, критично для approximate set membership в databases.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2412.16457][Robust Random Graph Matching in Dense Graphs via an Approximate Message Passing Type Algorithm]]
+:ALGO: AMP-type iterative algorithm с time-dependent matrix multiplication для robust graph matching под adversarial perturbations до n^(1-o(1)) size.
+:IMPACT: Первый efficient random graph matching algorithm robust под любыми adversarial perturbations, релевантно для graph database alignment.
+
+- [[hxxps://arxiv.org/abs/2606.08179][Differentially Private Range Subgraph Counting]]
+:ALGO: Subgraph projection reduces DPRSC к weighted orthogonal range counting с range trees и local sensitivity estimation.
+:IMPACT: Первый efficient algorithm для differentially private subgraph counting на induced subgraphs с small additive error.
+
+- [[hxxps://arxiv.org/abs/2606.08217][Revisiting Diameter in Directed Graphs]]
+:ALGO: Fine-grained complexity analysis reachability diameter с algorithmic upper bounds для additive approximation в unweighted graphs.
+:IMPACT: Strong separation weighted/unweighted cases, connections к shortcut sets и hopsets computation.
+
+- [[hxxps://arxiv.org/abs/2506.14081][The Parametrised Complexity of Counting Small Sub-Hypergraphs]]
+:ALGO: Complete complexity classification для #Sub(H) и #IndSub(H) с novel parameter — bounded fractional co-independent edge-cover number.
+:IMPACT: Subsumes pre-existing graph results, показывает separation с graphs где FPT cases ∈ polynomial time.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.01342][Towards Optimal Robustness in Learning-Augmented Paging]] — Новый framework достигает H_k + O(1) robustness для learning-augmented paging, best-possible up to additive constant.
+- [[hxxps://arxiv.org/abs/2511.20397][Model-Based Learning of Whittle indices]] — BLINQ algorithm learns Whittle indices для indexable MDP с proof of convergence и lower computational cost vs Q-learning.
+- [[hxxps://arxiv.org/abs/2606.03991][The Grothendieck Constant is Less Than π/(2 log(1+√2)) - 10⁻⁵]] — Improved upper bound для Grothendieck constant K_G.
+- [[hxxps://arxiv.org/abs/2606.07820][A note on rounding fractional matchings with constant-factor strong negative correlation]] — New dependent-rounding algorithms для bipartite graphs с strong negative-correlation E[X_e1 X_e2] ≤ 0.79751·x_e1·x_e2.
+- [[hxxps://arxiv.org/abs/2606.07844][Counting Hamiltonian Paths in 3-Regular Planar Graphs]] — Two infinite families 3-regular planar graphs с closed form calculation числа Hamiltonians.
+- [[hxxps://arxiv.org/abs/2507.03980][Functional design of efficient and parallelizable combinatorial generators using convolution]] — Functional programming techniques для hardware-compatible parallelizable combinatorial generators.
+- [[hxxps://arxiv.org/abs/2411.03253][Discovering Data Structures: Nearest Neighbor Search and Beyond]] — Framework для end-to-end learning data structures, reverse-engineers binary search, k-d trees, LSH.
+- [[hxxps://arxiv.org/abs/2603.04689][Generalizing Fair Top-k Selection: An Integrative Approach]] — Fair scoring function с multiple protected groups и disparity minimization, hardness analysis для small k.
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В databases растёт интерес к semantic caching для LLM-based KGQA и text-based representations для chemical flowsheets. Incremental view maintenance исследуется через semiring theory с dichotomy results. Data sharing barriers в government sectors анализируются через Innovation Resistance Theory.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.26176][CacheRAG: A Semantic Caching System for Retrieval-Augmented Generation in Knowledge Graph Question Answering]]
+:WHAT: Cache-augmented architecture для LLM-based KGQA с schema-agnostic UI, diversity-optimized cache retrieval и bounded heuristic expansion.
+:IMPACT: +13.2% accuracy и +17.5% truthfulness на CRAG dataset, transforms stateless planners в continual learners.
+
+- [[hxxps://arxiv.org/abs/2501.06659][Visual Template Inference for Data Extraction from Documents]]
+:WHAT: TWIX tool infers underlying templates из templatized documents через consistent location patterns и visual constraints.
+:IMPACT: 520× faster и 3,786× cheaper vs competitive tools, +25% precision/recall на 34 real-world datasets.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.07795][The Role of Semirings in Incremental View Maintenance]]
+:ALGO: Dichotomy для insert-only maintenance conjunctive queries: amortized constant update time iff α-acyclic p-hierarchical query.
+:IMPACT: Fundamental result для IVM complexity на K-databases, applicable к provenance и tropical semirings.
+
+- [[hxxps://arxiv.org/abs/2604.18011][Topology-Aware LLM-Driven Social Simulation: A Unified Framework for Efficient and Realistic Agent Dynamics]]
+:ALGO: TopoSim framework интегрирует structural reasoning в agent interactions с backbone units и structure-induced social influence signals.
+:IMPACT: 50-90% token reduction при comparable simulation fidelity, accurately reproduces structural phenomena в social systems.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2208.00778][SFILES 2.0: An extended text-based flowsheet representation]] — Extended notation для chemical process flowsheets с open-source software для automated conversion, goal: FAIR database.
+- [[hxxps://arxiv.org/abs/2306.04353][Reversible Numeric Composite Key (RNCK)]] — Single non-negative integer encoding multiple normalized attributes с reversible decoding для relational databases.
+- [[hxxps://arxiv.org/abs/2407.10883][Data Want to be Free: An Innovation Resistance Theory Model for Identifying Barriers to Government Data Sharing]] — IRT4DS model идентифицирует 39 barriers и 23 countermeasures для government data sharing resistance.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В AI доминируют surveys large models для temporal data и game agents с unified architectures. Generative AI применяется для autocorrection chemical flowsheets и TSP solving через diffusion models. Organizational research выявляет emerging role Chief AI Officer для strategic AI integration.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2312.02873][Toward autocorrection of chemical process flowsheets using large language models]]
+:WHAT: Generative AI methodology для automatic identification errors и suggestions corrections в PFDs/P&IDs через LLMs.
+:IMPACT: 80% top-1 accuracy на synthetic flowsheets, reduces manual verification time для chemical engineers.
+
+- [[hxxps://arxiv.org/abs/2412.13858][IDEQ -- Improving Diffusion Models for the Traveling Salesman Problem (TSP) by Leveraging the Structure of the Solution Space]]
+:WHAT: Diffusion model для TSP с uniform distribution over Hamiltonian tours чьи 2-opt orbits converge к optimal solution.
+:IMPACT: Matches LKH3 performance на TSPlib, 0.3% optimality gap на 500 cities, new SOTA для neural-based TSP methods.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2412.00508][Graph-to-SFILES: Control structure prediction from process topologies using generative artificial intelligence]]
+:ALGO: Graph encoder (включая GNN) для prediction control structures из flowsheet topologies в SFILES 2.0 notation.
+:IMPACT: 73.2% top-5 accuracy на 10,000 flowsheets, graph-based approach outperforms sequence-based в small-data regimes.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2310.10196][Large Models for Time Series and Spatio-Temporal Data: A Survey and Outlook]] — Comprehensive survey large models для temporal data по 4 dimensions: data types, model categories, scopes, applications.
+- [[hxxps://arxiv.org/abs/2402.13425][Investigating the Histogram Loss in Regression]] — Analysis Histogram Loss показывает benefits от improvements в optimization а не modeling extra information.
+- [[hxxps://arxiv.org/abs/2404.02039][A Survey on Large Language Model-Based Game Agents]] — Survey LLMGAs с unified architecture: memory, reasoning, perception-action для single/multi-agent levels.
+- [[hxxps://arxiv.org/abs/2407.10247][Strategic Integration of Artificial Intelligence in the C-Suite: The Role of the Chief AI Officer]] — Role-design theory для CAIO emergence с three properties: distributed accountability, upstream governance, non-stationarity.
+- [[hxxps://arxiv.org/abs/2411.19504][TQA-Bench: Evaluating LLMs for Multi-Table Question Answering]] — Benchmark для multi-table QA с 8K-64K tokens context, evaluates LLMs от 2B до 671B parameters.
+- [[hxxps://arxiv.org/abs/2412.19754][Complement or substitute? How AI increases the demand for human skills]] — Analysis 30M job postings показывает AI adoption increases demand для complementary human skills (analytical thinking, resilience) с wage premiums.

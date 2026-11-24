@@ -1,0 +1,37 @@
+#+TITLE: Daily Digest: 2026-07-06
+#+FROM: [2026-07-05 Sun]
+#+TO: [2026-07-06 Mon]
+#+DATE: [2026-07-06 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Основной тренд периода — глубокая интеграция ИИ в рабочие процессы инженеров данных, от валидации концепций до оптимизации кода. Наблюдается сдвиг в архитектуре хранилищ: Databricks предлагает LTAP для унификации OLTP и Lakehouse, что меняет подход к гарантиям согласованности. Инженеры фокусируются на надежности инфраструктуры: Uber публикует детали борьбы с OOM ошибками в Spark, а Hugging Face обновляет ядра для ускорения инференса.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-277][Data Engineering Weekly #277]] (Data Engineering Weekly) — Обзор внедрения ИИ в Dagster для ускорения разработки и анализ архитектуры Databricks LTAP для унификации хранения.
+- [[hxxps://vutr.substack.com/p/free-how-does-uber-deal-with-spark][[FREE] How does Uber deal with Spark Out-Of-Memory (OOM)?]] (vutr.substack.com) — Разбор стратегии Uber по динамическому изменению размеров исполнителей Spark для предотвращения сбоев в продакшене.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/free-how-does-uber-deal-with-spark][[FREE] How does Uber deal with Spark Out-Of-Memory (OOM)?]]
+:SCORE: 9/10
+:WHY: Критически важное руководство по стабилизации Spark в высоконагруженных средах на примере реальной архитектуры Uber.
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-277][Data Engineering Weekly #277]]
+:SCORE: 8/10
+:WHY: Содержит анализ архитектурных изменений в Databricks (LTAP), влияющих на проектирование будущих платформ данных.
+
+** Искусственный интеллект
+- [[hxxps://huggingface.co/blog/revamped-kernels][🤗 Kernels: Major Updates]] (Hugging Face) — Обновление низкоуровневых ядер модели для повышения производительности и эффективности запуска инференса.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/revamped-kernels][🤗 Kernels: Major Updates]]
+:SCORE: 7/10
+:WHY: Понимание изменений в ядрах важно для оптимизации затрат и задержек при масштабировании ML-моделей.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества GDC в рамках VLDB для обсуждения стандартов графовых баз данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность влияния на стандарты индустрии и нетворкинг с архитекторами графовых систем.

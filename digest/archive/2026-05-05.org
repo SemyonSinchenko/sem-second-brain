@@ -1,0 +1,71 @@
+#+TITLE: Daily Digest: 2026-05-05
+#+FROM: [2026-05-04 Mon]
+#+TO: [2026-05-05 Tue]
+#+DATE: [2026-05-05 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+SAP приобретает Dremio, усиливая позиции агентной lakehouse-архитектуры и стандарта Apache Iceberg. AWS фокусируется на надежности и оптимизации AI-агентов: внедрены циклы качества AgentCore и автоматический fallback инстансов в SageMaker. BI-инструменты эволюционируют в сторону natural language querying (Amazon QuickSight). Инженеры данных пересматривают подход к инфраструктуре и проектированию систем в эпоху LLM.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/the-age-of-infra-and-containers-ai][The Age of Infra and Containers (AI, that is) ... and Humans?]] (Data Engineering Central) — размышления о влиянии LLM на инфраструктуру, контейнеры и роль инженера в условиях автогенерации кода.
+- [[hxxps://vutr.substack.com/p/data-engineering-system-design-9-4c5][Data engineering system design: 9 data processing problems]] (vutr.substack.com) — глубокий разбор проблем проектирования слоя обработки данных, от батчей до наблюдаемости.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/the-age-of-infra-and-containers-ai][The Age of Infra and Containers (AI, that is) ... and Humans?]]
+:SCORE: 8/10
+:WHY: Критический взгляд на изменение роли инженера инфраструктуры под давлением AI-инструментов.
+**** [[hxxps://vutr.substack.com/p/data-engineering-system-design-9-4c5][Data engineering system design: 9 data processing problems]]
+:SCORE: 9/10
+:WHY: Практическая модель для проектирования надежных пайплайнов обработки данных.
+
+** Engineers
+- [[hxxps://vutr.substack.com/p/data-engineering-system-design-9-4c5][Data engineering system design: 9 data processing problems]] (vutr.substack.com) — системный подход к решению проблем обработки данных: качество, логика, отказказы и бэкфилл.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/data-engineering-system-design-9-4c5][Data engineering system design: 9 data processing problems]]
+:SCORE: 9/10
+:WHY: Must-read для архитеторов, проектирующих слой обработки данных с нуля.
+
+** Vendors
+- [[hxxps://www.dremio.com/blog/sap-intends-to-acquire-dremio/][SAP Intends to Acquire Dremio]] (Dremio) — интеграция агентной lakehouse-архитектуры и Apache Iceberg в экосистему SAP.
+- [[hxxps://aws.amazon.com/blogs/database/how-amazon-documentdb-on-aws-graviton4-r8g-instances-delivers-63-better-sysbench-benchmark-results/][How Amazon DocumentDB on AWS Graviton4 R8g instances delivers 63% better Sysbench benchmark results]] (AWS) — бенчмарк производительности: переход на Graviton4 дает прирост до 63% при росте стоимости на 5%.
+- [[hxxps://aws.amazon.com/blogs/database/troubleshoot-amazon-rds-for-oracle-to-amazon-redshift-dms-migrations-with-aws-devops-agent/][Troubleshoot Amazon RDS for Oracle to Amazon Redshift DMS migrations with AWS DevOps Agent]] (AWS) — автономный агент для диагностики проблем миграции данных и анализа корневых причин.
+- [[hxxps://aws.amazon.com/blogs/database/connect-to-amazon-rds-for-db2-from-your-laptop/][Connect to Amazon RDS for Db2 from your laptop]] (AWS) — безопасное подключение через Session Manager без SSH-ключей и публичных IP.
+- [[hxxps://www.databricks.com/blog/foundation-ai-scalability-one-team-one-platform-one-operating-model][The foundation of AI scalability: one team, one platform, one operating model]] (Databricks) — операционная модель для масштабирования AI в ритейле.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — встреча технического сообщества GDC в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/sap-intends-to-acquire-dremio/][SAP Intends to Acquire Dremio]]
+:SCORE: 9/10
+:WHY: Стратегическое поглощение изменит ландшафт enterprise data platform.
+**** [[hxxps://aws.amazon.com/blogs/database/how-amazon-documentdb-on-aws-graviton4-r8g-instances-delivers-63-better-sysbench-benchmark-results/][How Amazon DocumentDB on AWS Graviton4 R8g instances delivers 63% better Sysbench benchmark results]]
+:SCORE: 8/10
+:WHY: Конкретные данные для обоснования миграции на новые инстансы.
+**** [[hxxps://aws.amazon.com/blogs/database/troubleshoot-amazon-rds-for-oracle-to-amazon-redshift-dms-migrations-with-aws-devops-agent/][Troubleshoot Amazon RDS for Oracle to Amazon Redshift DMS migrations with AWS DevOps Agent]]
+:SCORE: 8/10
+:WHY: Автоматизация триажа инцидентов миграции экономит часы инженерного времени.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/testing-sql-like-a-software-engineer-unit-testing-ci-cd-and-data-quality-automation][Testing SQL Like a Software Engineer: Unit Testing, CI/CD, and Data Quality Automation]] (KDnuggets) — превращение SQL-запросов в тестируемый workflow с версионированием.
+- [[hxxps://www.kdnuggets.com/how-to-deploy-your-first-app-on-fastapi-cloud][How to Deploy Your First App on FastAPI Cloud]] (KDnuggets) — гайд по деплою и мониторингу FastAPI приложения.
+- [[hxxps://www.kdnuggets.com/7-practical-ways-to-reduce-claude-code-token-usage][7 Practical Ways to Reduce Claude Code Token Usage]] (KDnuggets) — тактики оптимизации контекста для снижения затрат на токены.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/beyond-bi-how-the-dataset-qa-feature-of-amazon-quick-powers-the-next-generation-of-data-decisions/][Beyond BI: How the Dataset Q&A feature of Amazon Quick powers the next generation of data decisions]] (AWS) — natural language querying для преодоления bottlenecks BI-команд.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-the-agent-quality-loop-agentcore-optimization-now-in-preview/][Introducing the agent quality loop: AgentCore Optimization now in preview]] (AWS) — цикл оптимизации агентов через A/B тесты и трассировку.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agent-guided-workflows-to-accelerate-model-customization-in-amazon-sagemaker-ai/][Agent-guided workflows to accelerate model customization in Amazon SageMaker AI]] (AWS) — агенты для кастомизации моделей и fine-tuning.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/generate-dashboards-from-natural-language-prompts-in-amazon-quick/][Generate dashboards from natural language prompts in Amazon Quick]] (AWS) — генерация дашбордов по текстовому промпту.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-data-lake-to-ai-ready-analytics-introducing-direct-query-with-s3-tables-in-amazon-quick/][From data lake to AI-ready analytics: Introducing new data source with S3 Tables in Amazon Quick]] (AWS) — прямой запрос к Iceberg таблицам в S3.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-dataset-qa-expanding-natural-language-querying-for-structured-datasets-in-amazon-quick/][Introducing Dataset Q&A: Expanding natural language querying for structured datasets in Amazon Quick]] (AWS) — расширенный NL-поиск по датасетам без предобработки.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/capacity-aware-inference-automatic-instance-fallback-for-sagemaker-ai-endpoints/][Capacity-aware inference: Automatic instance fallback for SageMaker AI endpoints]] (AWS) — автоматический выбор инстансов при нехватке_capacity.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-the-agent-quality-loop-agentcore-optimization-now-in-preview/][Introducing the agent quality loop: AgentCore Optimization now in preview]]
+:SCORE: 9/10
+:WHY: Закрывает критический габ продуктовизации агентов: непрерывное улучшение качества.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/capacity-aware-inference-automatic-instance-fallback-for-sagemaker-ai-endpoints/][Capacity-aware inference: Automatic instance fallback for SageMaker AI endpoints]]
+:SCORE: 9/10
+:WHY: Решает проблему доступности GPU в продакшене автоматически.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-dataset-qa-expanding-natural-language-querying-for-structured-datasets-in-amazon-quick/][Introducing Dataset Q&A: Expanding natural language querying for structured datasets in Amazon Quick]]
+:SCORE: 8/10
+:WHY: Снимает нагрузку с BI-инженеров через автономный NL-поиск по данным.

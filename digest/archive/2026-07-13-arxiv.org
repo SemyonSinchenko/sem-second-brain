@@ -1,0 +1,127 @@
+#+TITLE: Arxiv Digest: 2026-07-13
+#+FROM: [2026-07-12 Sun]
+#+TO: [2026-07-13 Mon]
+#+DATE: [2026-07-13 Mon]
+#+STARTUP: showall
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+За последние сутки наблюдается рост интереса к топологическим методам анализа исторических и экономических сетей. Исследователи активно применяют персистентную гомологию для обнаружения ранних признаков системных кризисов, а также изучают самоподобие мобильных сетей на разных масштабах. Практическая значимость заключается в возможности предсказания фрагментации систем до формального распада.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.08853][Self-similarity of mobility networks]]
+:WHAT: Метод Neighbor-Limited Box Covering для ренормализации взвешенных мобильных сетей.
+:IMPACT: Позволяет переносить инсайты с одного масштаба на другой, выявляя пространственную когезию без явного использования географической информации.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.09010][Topological Signatures of Imperial Collapse and Fragmentation: Administrative Dissolution, Territorial Reorganization and Early-Warning Observables in the Han Dynasty Network]]
+:ALGO: Расширение формализма персистентной гомологии на исторические сети с использованием расстояния Вассерштейна как индикатора распада.
+:IMPACT: Топологические сигнатуры позволяют предсказывать коллапс имперских систем за 45-50 лет до формального распада, что применимо к анализу устойчивости современных организаций.
+
+- [[hxxps://arxiv.org/abs/2410.21019][Beyond Trade Openness: Network-Based Evidence on African Economic Integration]]
+:ALGO: Комбинация PageRank, betweenness centrality и k-core для измерения структурной интеграции в торговых сетях.
+:IMPACT: Показывает, что интеграция зависит не только от объёмов торговли, но и от позиционирования стран в континентальной сети.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2505.24631][Cascades on Networks with Functional Structure]] — анализ каскадов в мультиплексных сетях с функциональной структурой через модель порогов Watts.
+- [[hxxps://arxiv.org/abs/2607.09174][Heterogeneous Network Topology Induces the Widom Line]] — обнаружение линии Widom в спиновых моделях на scale-free сетях вследствие гетерогенности степеней.
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+Векторные базы данных остаются в фокусе внимания: GPU-ускорение для ANNS с фильтрацией по диапазону показывает революционные улучшения пропускной способности. Одновременно растёт критическое переосмысление практик обслуживания графовых индексов — обнаружены методологические ловушки в сравнениях бюджетов ремонта. Пространственные соединения получают новые теоретические основы через закон декодирования.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.20121][A GPU-Accelerated Framework for Multi-Attribute Range Filtered Approximate Nearest Neighbor Search]]
+:WHAT: Garfield — GPU-фреймворк с лёгким индексом GMG и конвейером out-of-core для RFANNS.
+:IMPACT: Уменьшает размер индекса в 4.4 раза и даёт в 119.8 раз более высокую пропускную способность than state-of-the-art CPU методы.
+
+- [[hxxps://arxiv.org/abs/2607.08956][Accelerating Point-in-Polygon Predicates via Algebraic Hash-Joins and Discrete Global Grids at Scale]]
+:WHAT: Использование DGGS (H3, S2, A5, ISEA4H) для трансформации пространственных отношений в hash-join операции.
+:IMPACT: При пре-индексации все DGGS сходятся к суб-секундным задержкам join, раскрывая пропускную способность векторных движков.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.00728][When to Repair a Graph ANN Index: A Matched-Budget Negative Result, and the Interpolated-Baseline Trap That Hid It]]
+:ALGO: Доказательство отсутствия преимуществ триггерного ремонта графа перед фиксированным расписанием при равном бюджете.
+:IMPACT: Критически важно для production систем — выявлена методологическая ловушка интерполированного baseline, которая создавала ложные положительные результаты.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.01182][The Decode-Work Law: Margin-Governed, Provably-Exact Spatial Joins over Compressed Geometry]] — закон decode-work показывает, что стоимость декодирования определяется margin до границы предиката, а не размером объекта.
+- [[hxxps://arxiv.org/abs/2607.09149][Taxonomy Maintenance In The Wild Over Evolving Scholarly Data]] — GIST поддерживает эволюционирующие таксономии через box-embedding с 11% F1 улучшением.
+- [[hxxps://arxiv.org/abs/2607.09251][SQL-RewriteBench: A Correctness-Gated, Full-Denominator Benchmark for Statement-Level SQL Rewriting]] — бенчмарк показывает, что все существующие методы имеют отрицательный CGOQ score.
+- [[hxxps://arxiv.org/abs/2607.09528][TSAI-MetaFraud: A Benchmark Dataset for Financial Fraud Transaction and Behavioral Risk Detection in Metaverse Ecosystems]] — мультимодальный датасет для обнаружения фрода в виртуальных экономиках.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+Теоретические работы сосредоточены на улучшении границ для классических задач: декодирование кодов Таннера, space-time tradeoffs для перестановочных задач, динамические spanner'ы. Особый интерес представляет нижняя граница сложности матрично-векторных алгоритмов для Ax=b, подтверждающая оптимальность методов Крылова.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.25397][A dynamic (1+ε)-spanner for disk intersection graphs]]
+:WHAT: Динамическое поддержание spanner'а с использованием персистентных структур данных.
+:IMPACT: Полилогарифмическое время обновления для постоянного ε и Ψ, улучшает space usage для connectivity queries.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.18157][Reducing Prize-Collecting Stroll and Related Routing Problems to Prize-Collecting TSP]]
+:ALGO: Сведение prize-collecting stroll к prize-collecting TSP с аппроксимацией ρ+ε.
+:IMPACT: Улучшает аппроксимацию для prize-collecting stroll до better-than-1.6, предыдущий best был 1.6662.
+
+- [[hxxps://arxiv.org/abs/2604.05661][Improved Space-Time Tradeoffs for Permutation Problems via Extremal Combinatorics]]
+:ALGO: Новый параметр chain efficiency для set systems, дающий S·T ≤ 3.1861^N для TSP.
+:IMPACT: Преодолевает барьер предыдущей работы (3.9271^N) и опровергает гипотезу Johnson et al.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.04842][The matrix-vector complexity of Ax=b]] — нижние границы Ω(κ log(1/ε)) подтверждают оптимальность Krylov subspace методов.
+- [[hxxps://arxiv.org/abs/2501.12293][Improved Decoding of Tanner Codes]] — детерминированный linear-time декодер улучшает радиус декодирования при δd₀ > 2.
+- [[hxxps://arxiv.org/abs/2404.05664][BFS versus DFS for fixed-level targets in ordered trees]] — существует порог λ≈0.789√n, ниже которого BFS асимптотически быстрее DFS.
+- [[hxxps://arxiv.org/abs/2604.14530][Fast Concurrent Primitives Despite Contention]] — алгоритмы разрешения коллизий дают latency O(log P) для concurrent registers.
+
+* cs.DC (Распределённые вычисления)
+** 🧐 Обзор
+Коллективные коммуникации остаются узким местом для distributed ML: новые алгоритмы AllReduce и All-to-All сокращают количество шагов через ternary propagation. Конфиденциальные вычисления на GPU показывают неожиданные потери производительности из-за serialized bridge между VM и GPU. Децентрализованное федеративное обучение выигрывает от кластеризации устройств с меж-кластерными backhaul ссылками.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.17254][Trivance: Latency-Optimal AllReduce by Shortcutting Multiport Networks]]
+:WHAT: Алгоритм AllReduce за log₃n шагов через одновременную тройную передачу в обоих направлениях bidirectional ring.
+:IMPACT: Улучшение на 50% против Swing/Recursive Doubling, 5-30% выигрыш в симуляциях SST для torus топологий.
+
+- [[hxxps://arxiv.org/abs/2606.23969][The Serialized Bridge: Understanding and Recovering LLM Serving Performance under Blackwell GPU Confidential Computing]]
+:WHAT: Анализ потерь производительности LLM serving при GPU Confidential Computing на Blackwell платформах.
+:IMPACT: 13-27% потерь throughput вызваны serialized VM-GPU bridge, не GPU вычислениями; патчи восстанавливают до 92% потерь.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2502.18497][LD-Leiden: Local Parallel Community Detection in Large Dynamic Networks]]
+:ALGO: Локальное обновление Leiden с affected-frontier rule и conflict-filtered parallel moves.
+:IMPACT: В 48.77 раз быстрее warm-started Leidenalg на графах до 214M вершин при сохранении 0.996 modularity ratio.
+
+- [[hxxps://arxiv.org/abs/2501.04236][SHARE: Optimizing Secure Hub Allocation and Routing Efficiency in Payment Channel Networks]]
+:ALGO: Multi-PCH routing с TEE-assisted privacy-preserving протоколом и supermodular optimization для allocation.
+:IMPACT: 43.6% улучшение success ratio и 181.5% улучшение throughput против state-of-the-art PCN решений.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.26930][Revisiting Bruck: Phase-Efficient All-to-All Communication in Reconfigurable Networks]] — ReTri завершает All-to-All за ⌈log₃n⌉ фаз с амортизацией reconfiguration delays.
+- [[hxxps://arxiv.org/abs/2602.21196][Untied Ulysses: Memory-Efficient Context Parallelism via Headwise Chunking]] — UPipe уменьшает activation memory на 87.5% для 32B Transformers через head-level chunking.
+- [[hxxps://arxiv.org/abs/2501.11794][SPID-Chain: Verifiable Polar-Coded State Validation for Cross-Chain DAG Settlement]] — верифицируемый settlement layer с coded validation для cross-chain transfers.
+- [[hxxps://arxiv.org/abs/2607.08797][Wireless Decentralized Federated Learning via Device Clustering and Inter-Cluster Link Enhancement]] — двухуровневый протокол даёт O(1/t) convergence rate с минимальными backhaul ссылками.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+Inference-time steering становится зрелым направлением: методы атрибуции градиентов позволяют точечное вмешательство без fine-tuning. Для клинических задач RAG остаётся конкурентоспособным против long-context подходов при меньшей токенизации. Механистический анализ white-box мониторов выявил уязвимости через geometric shifting и covariance manipulation.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2507.18043][GrAInS: Gradient-based Attribution for Inference-Time Steering of LLMs and VLMs]]
+:WHAT: Контрастная атрибуция через Integrated Gradients для построения steering vectors на уровне токенов.
+:IMPACT: 13.22% gain на TruthfulQA, снижение hallucination на MMHal-Bench с 0.624 до 0.514 без переобучения.
+
+- [[hxxps://arxiv.org/abs/2508.14817][Evaluating Retrieval-Augmented Generation vs. Long-Context Input for Clinical Reasoning over EHRs]]
+:WHAT: Сравнение RAG против long-context prompting для трёх клинических задач на реальных EHR данных.
+:IMPACT: RAG превосходит long-context на 0.17-9.83 F1 для извлечения imaging procedures при использовании <8K токенов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2409.05559][IFAR: Multi-Perspective and Multi-Level Causal Discovery with LLMs]]
+:ALGO: Inverse-Forward Abductive Reasoning сочетает backward reasoning с forward verification relation-by-relation.
+:IMPACT: 40% улучшение F1 score против существующих методов, работает на non-reasoning LLMs лучше чем на reasoning-trained.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2505.14300][Beyond Black-Box Obfuscation: Mechanistic Analysis and Defense of White-Box Monitors]] — SafetyNet ensemble достигает ~100% AUROC против evasion через geometric shifting.
+- [[hxxps://arxiv.org/abs/2506.01692][A Descriptive and Normative Theory of Human Beliefs in RLHF]] — человеческие beliefs об agent capabilities значительно влияют на preferences в RLHF.
+- [[hxxps://arxiv.org/abs/2506.10915][M4V: Multimodal Mamba for Efficient Text-to-Video Generation]] — MM-DiM блоки уменьшают FLOPs на 45% против attention-based альтернатив.
+- [[hxxps://arxiv.org/abs/2504.18902][Transformer-Empowered Actor-Critic Reinforcement Learning for Sequence-Aware Service Function Chain Partitioning]] — self-attention моделирует inter-dependencies между VNFs для SFC partitioning.

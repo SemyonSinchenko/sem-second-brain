@@ -1,0 +1,129 @@
+#+TITLE: Arxiv Digest: 2026-07-30
+#+FROM: [2026-07-29 Wed]
+#+TO: [2026-07-30 Thu]
+#+DATE: [2026-07-30 Thu]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+За последние сутки наблюдается рост интереса к архитектуре disaggregated memory с использованием RDMA для ускорения транзакций. Параллельно развиваются подходы к пересмотру фундаментальных основ реляционных данных через алгебру Тарского. Заметен практический интерес к датасетам для анализа децентрализованных AI-агентов на блокчейне.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.26227][Two-sided RDMA Striking Back for Disaggregated Memory Databaases]]
+:WHAT: Система Lotus, использующая двухсторонний RDMA с лёгким кэшированием и эффективным батчингом для memory servers.
+:IMPACT: До 8.2× выше пропускная способность и 42.9× ниже p999 tail latency по сравнению с one-sided RDMA в YCSB.
+
+- [[hxxps://arxiv.org/abs/2607.26356][Revisiting the Algebraic Foundation of Relational Data]]
+:WHAT: Язык запросов Prela на основе алгебры отношений Тарского (TAR) вместо алгебры Кодда.
+:IMPACT: Более чёткая семантика на уровне приложения и физической архитектуры, композициональность запросов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.22652][A dataset of early blockchain-registered AI agents on Ethereum]] — структурированный датасет из 10 000 AI-агентов с ончейн-идентификаторами для анализа репутационных систем.
+- [[hxxps://arxiv.org/abs/2607.26384][An ER-Model-Based Framework for Case Notion Selection in Object-Centric Processes]] — ER-фреймворк для выбора case notion в object-centric process mining с автоматическим транзитивным замыканием.
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+Активно развивается тематика реконструкции и анализа сложных сетей с байесовскими методами для предсказания эволюции структур. Появляются работы по спектральной топологии глобальных дисбалансов и системных рисков. Исследования городской мобильности показывают, что proximity-планирование недостаточно без учёта реального поведения посетителей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.21869][A Bayesian approach to out-of-sample network reconstruction]]
+:WHAT: Байесовский метод реконструкции сетей, использующий прошлые снапшоты как prior для предсказания будущих конфигураций.
+:IMPACT: Самодостаточная out-of-sample реконструкция эволюционирующих сетей с минимальными дополнительными данными, превосходит probabilistic benchmarks.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.02541][The Spectral Topology of Global Imbalances:A Graph-Theoretic Framework for Systemic Risk in the Balance of Payments]]
+:ALGO: Спектральный критерий стабильности для направленных взвешенных сетей платёжных балансов с мерами риска на основе Perron-Frobenius и PageRank.
+:IMPACT: Системный риск как топологическое свойство глобальной сети, а не набор изолированных индикаторов стран.
+
+- [[hxxps://arxiv.org/abs/2601.10224][The hidden structure of innovation networks]]
+:ALGO: Сравнение modularity maximization и Bayesian Information Criterion в Stochastic Block Model для выявления мезоструктуры патентных сетей.
+:IMPACT: Локальные иерархии в сетях изобретателей требуют байесовского вывода, modularity неcaptures распространение инновационного влияния.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.00919][Recurrent visitations reveal selectivity beyond the 15-Minute City vision]] — анализ 720 000 пользователей показывает, что люди регулярно обходят ближайшие опции, особенно в плотных городских ядрах.
+- [[hxxps://arxiv.org/abs/2505.10373][Reproducing the first and second moments of empirical degree distributions]] — fitness-induced variant двухзвёздной ERG-модели воспроизводит дисперсию эмпирического распределения степеней.
+- [[hxxps://arxiv.org/abs/2607.26217][Mobility and Contact Networks Shape Epidemic Outcomes: A Large-Scale Agent-Based Modeling Study]] — предположения о мобильности в ABM существенно влияют на структуру контактных сетей и траектории эпидемий.
+- [[hxxps://arxiv.org/abs/2607.26109][The Attention-Directing Ability of Teams]] — латентная метрика ADA предсказывает мобилизацию коллективных усилий в 79 командах на основе 30 000 сообщений Slack.
+
+* cs.DC (Распределённые вычисления)
+** 🧐 Обзор
+Наблюдается сильный фокус на оптимизации коммуникации для AI-workloads: MoE-архитектуры, LLM-инференс, GPU-CXL фабрики. Консенсус-протоколы с prefix-based finality возвращают интерес к expired views. Растёт зрелость eBPF-политик для cross-layer управления fabric.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.26444][StrataCL: Fabric-Native Communication Library for Production Supernodes]]
+:WHAT: Zero-redundancy communication библиотека с registration-on-allocation и NPU-driven SDMA offloading.
+:IMPACT: До 1.9× выше LLM inference throughput, 2.2× ниже P99 TTFT на Huawei CloudMatrix384.
+
+- [[hxxps://arxiv.org/abs/2607.26475][DualDecoder: Accelerate Long Context LLM Inference by Predictive Prefetch]]
+:WHAT: Dual-token decoding pipeline с predictive prefetch критических KV-записей из host memory.
+:IMPACT: До 2.62× выше decoding throughput без потери качества модели, устраняет overhead auxiliary states.
+
+- [[hxxps://arxiv.org/abs/2607.25916][Hermes: Low Tail-Latency Via Prefix Consensus]]
+:WHAT: Two-round rotating-leader BFT протокол с prefix consensus для finality expired views.
+:IMPACT: Честный лидер финализирует за 2δ, иначе финализируется heaviest common prefix без wasted views.
+
+- [[hxxps://arxiv.org/abs/2607.26503][Safety-Gated Autoscaling: A Multi-Layered Defense Architecture for Kubernetes Vertical Resource Optimization]]
+:WHAT: Пятиуровневый safety pipeline с memory-leak detector как blocking gate для Kubernetes VPA.
+:IMPACT: 20-40% экономия затрат в what-if проекциях, 83% точность детекции утечек памяти.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.26340][Incast-Free MoE Rate-Based Scheduling]]
+:ALGO: Proactive fair scheduling framework для MoE workloads, предотвращающий exponential incast от round-robin.
+:IMPACT: Устраняет incast, поддерживает ~100% link utilization, снижает Collective Completion Time.
+
+- [[hxxps://arxiv.org/abs/2607.18879][Mapping Without Graphs: Learning Coherence Traffic for Task Placement]]
+:ALGO: CoTM framework строит task graphs из динамического coherence behavior с multi-start оптимизацией.
+:IMPACT: До 47.85% снижение average link utilization и 10.30% энергии в many-core NoC системах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.26231][ProFlow: RL-Driven and Performance-Aware Proactive Flow Placement in Datacenter Networks]] — RL-based proactive rerouting использует early congestion signals, на 40% выше throughput чем reactive baseline.
+- [[hxxps://arxiv.org/abs/2607.26335][The Fabric Is the Cluster Driver: Cross-Layer eBPF Policies for GPU-CXL Fabrics]] — fabric_ext компилирует semantic movement graph в per-device eBPF программы для GPU-CXL фабрик.
+- [[hxxps://arxiv.org/abs/2607.26087][Framework Implementation Maturity in Blockchain-Based Third-Party Compliance Assessment]] — blockchain-based TPRA framework для longitudinal assessment state в multi-vendor ecosystems.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+Сильные результаты в алгоритмической теории: PTAS для 2D knapsack с ротациями, почти линейное время для mountain prominence, O(n^5) для optimal broadcast domination. Развиваются методы sparse factorization для forest proximities и k-means++ с рандомизированным числом центров.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.02735][Revisiting Forest Proximities via Sparse Leaf-Incidence Kernels]]
+:WHAT: SWLC kernels с exact finite-sample sparse factorization proximity matrix через leaf collisions.
+:IMPACT: Near-linear scaling по времени и памяти, memory-efficient Python библиотека для kernel pipelines.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2507.08685][Beer Path Problems in Temporal Graphs]]
+:ALGO: Алгоритмы для earliest-arrival, latest-departure, fastest и shortest temporal beer paths с preprocessing для динамических условий.
+:IMPACT: Сохраняет эффективность соответствующих temporal pathfinding алгоритмов, применимо к транзитным сетям с расписанием.
+
+- [[hxxps://arxiv.org/abs/2605.20526][An $O(n^5)$-Time Algorithm for Optimal Broadcast Domination]]
+:ALGO: Single DAG с oriented broadcast balls states вместо per-endpoint auxiliary graphs.
+:IMPACT: Решает quintic-time conjecture для general graphs, O(n^3) для path-case.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.23970][Approximation Schemes and Structural Barriers for the Two-Dimensional Knapsack Problem with Rotations]] — PTAS для cardinality case 2DKR, (1.497+ε)-approximation для weighted case.
+- [[hxxps://arxiv.org/abs/2607.26496][An Efficient Algorithm for Computing Mountain Prominence in Almost Linear Time]] — почти линейный алгоритм для вычисления prominence всех пиков на Earth usando SRTM DEMs.
+- [[hxxps://arxiv.org/abs/2607.26202][Randomizing the Number of Centers in k-means++]] — budget-smoothed setup с k из {K,...,2K-1} даёт O(1)-approximation с константной вероятностью.
+- [[hxxps://arxiv.org/abs/2607.26388][Sensitivity and Differential Privacy in Metric Voting with Distortion below Three]] — randomized rule с distortion ≤3-ε и O((log m+1)/n) sensitivity bound.
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+Фокус смещается к оценке клинической надёжности LLM и safe deployment в production. Развиваются методы low-precision training и cross-functional collaboration для Responsible AI. Появляются работы по joint human-AI adaptation с task-structural contingency logic.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2409.07314][MEDIC: Comprehensive Evaluation of Leading Indicators for LLM Safety and Utility in Clinical Applications]]
+:WHAT: Фреймворк оценки across 5 dimensions с Cross-Examination Framework для quantification hallucination rates.
+:IMPACT: Выявляет knowledge-execution gap и divergence между passive/active safety для portfolio approach к clinical deployment.
+
+- [[hxxps://arxiv.org/abs/2505.01043][Low-Precision Training of Large Language Models: Methods, Challenges, and Opportunities]]
+:WHAT: Survey систематизирует low-precision training по numerical formats: fixed-point, floating-point, customized.
+:IMPACT: Unified overview для hardware compatibility и computational efficiency, включает quantization-aware training.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2406.12413][Pushing the Frontier on Approximate EFX Allocations]]
+:ALGO: Доказательство существования 2/3-EFX allocations для ≤7 агентов, ≤3 values, или multigraph representations.
+:IMPACT: Преодолевает barrier 0.618, даёт insights для existence exact EFX allocations.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.10647][The Reliability of LLMs for Medical Diagnosis: An Examination of Consistency, Manipulation, and Contextual Awareness]] — 100% consistency на rephrased inputs, но 30-40% diagnosis changes от irrelevant details.
+- [[hxxps://arxiv.org/abs/2504.20903][When Should AI Follow? Task Structure and Joint Adaptation by Human and AI Agents]] — uniform memory amplifies inherited trajectories, recency weighting volatile at scale, stochastic adaptation как escape mechanism.
+- [[hxxps://arxiv.org/abs/2505.10300][AI LEGO: Scaffolding Cross-Functional Collaboration in Industrial Responsible AI Practices during Early Design Stages]] — web-based prototype с modular blocks и persona simulations для harm identification в early design.
+- [[hxxps://arxiv.org/abs/2504.17901][Task and Skill Planning: Hierarchical Robot Planning with Black-Box Skills]] — TASP интегрирует heterogeneous skills через Composable Interaction Primitives для long-horizon tasks.

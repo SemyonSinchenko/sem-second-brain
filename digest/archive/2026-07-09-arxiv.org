@@ -1,0 +1,154 @@
+#+TITLE: Arxiv Digest: 2026-07-09
+#+FROM: [2026-07-08 Wed]
+#+TO: [2026-07-09 Thu]
+#+DATE: [2026-07-09 Thu]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается сдвиг в сторону синтеза GPU-кода для запросов и инженерии бенчмарков для эволюционирующих схем данных. Исследуется устойчивость реляционного глубокого обучения к adversarial-атакам на уровне целостности данных. Практический фокус смещается на преодоление_lock-in_ существующих драйверов через прямой доступ к файлам хранения.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.07632][From Custom-Fit to Portable: Bridging the Gap Between Synthesized and Engineered GPU Query Execution]]
+:WHAT: Фреймворк SHADB для синтеза CUDA/HIP ядер под конкретные запросы и оптимизированный движок SYCLDB.
+:IMPACT: Позволяет достичь производительности близкой к пределу пропускной способности памяти, сохраняя портативность кода.
+- [[hxxps://arxiv.org/abs/2607.07175][Benchmark Engineering as a Design Instrument for Heterogeneous Information Systems]]
+:WHAT: Фреймворк TransforMMer для создания эволюционно-ориентированных бенчмарков в гетерогенных системах.
+:IMPACT: Превращает бенчмаркинг в инструмент проектирования, позволяя оценивать влияние редизайна схем на производительность.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2506.16121][On the Efficient Discovery of Maximum $k$-Defective Biclique]]
+:ALGO: Новый алгоритм branch-and-bound с техниками pivoting для поиска максимальных k-дефектных биклик.
+:IMPACT: Ускорение до 1000x по сравнению с SOTA, что важно для анализа зашумленных bipartite графов.
+- [[hxxps://arxiv.org/abs/2607.07089][Structural Adversarial Attacks on Relational Deep Learning under Integrity Constraints]]
+:ALGO: Исследование уязвимостей RDL через переподключение foreign-key с сохранением ограничений целостности.
+:IMPACT: Выявляет риски безопасности в конвейерах машинного обучения на реляционных данных.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.07103][A knowledge-augmented dataset of high-risk driving scenarios with LLM annotations for autonomous driving]] — Датасет K-Risk с аннотациями рисков для обучения автономного вождения.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основное внимание уделено инфраструктуре для больших языковых моделей: от трейсинга в кластерах на 10 000 GPU до оптимизации serving'а и компиляции DNN. Критически важными становятся вопросы синхронизации градиентов и управления памятью на edge-устройствах. Наблюдается тренд на снижение оверхеда наблюдаемости без потери детализации.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.20374][ARGUS: Production-Scale Tracing and Performance Diagnosis for over 10,000-GPU Clusters]]
+:WHAT: Система трейсинга с оверхедом <2% и сжатием данных в 3700 раз для диагностики кластеров.
+:IMPACT: Делает возможным постоянный мониторинг аномалий в продакшене на масштабе сверхбольших кластеров.
+- [[hxxps://arxiv.org/abs/2607.06202][UBEP: Re-architecting Expert Parallelism Communication Library for Production Superpods]]
+:WHAT: Библиотека коммуникации UBEP для оптимизации All-to-All операций в MoE моделях.
+:IMPACT: Снижает задержку All-to-All до 52.4%, устраняя бутылочные горлышка в суперподах.
+- [[hxxps://arxiv.org/abs/2607.05876][Think Before You Grid-Search: Floor-First Triage for LLM Serving]]
+:WHAT: Аналитический workflow Floor First для оценки ресурсов LLM before профилирования.
+:IMPACT: Позволяет вычислять ограничения ресурсов (KV capacity, FLOPs) без дорогого grid-search конфигураций.
+- [[hxxps://arxiv.org/abs/2604.09558][VTC: DNN Compilation with Virtual Tensors for Data Movement Elimination]]
+:WHAT: Фреймворк компиляции VTC, устраняющий лишние перемещения данных через виртуальные тензоры.
+:IMPACT: Ускорение инференса до 1.93x и экономия памяти до 60% на GPU.
+- [[hxxps://arxiv.org/abs/2606.16106][Edge-Inference Governors Need Memory-Clock State]]
+:WHAT: Анализ необходимости учета тактовой частоты памяти (EMC) в governors для edge SoCs.
+:IMPACT: Предотвращает пропуск дедлайнов на 25-28% за счет корректного моделирования латентности.
+- [[hxxps://arxiv.org/abs/2602.08923][DynamiQ: Accelerating Gradient Synchronization using Compressed Multi-hop All-reduce]]
+:WHAT: Фреймворк квантования DynamiQ для многопрыжковой агрегации градиентов.
+:IMPACT: Ускорение обучения до 34.2% с сохранением точности baseline на больших масштабах.
+- [[hxxps://arxiv.org/abs/2604.28073][Akita: A High Usability Simulation Framework for Computer Architecture]]
+:WHAT: Симулятор Akita с разделением движка и моделей hardware для улучшения UX разработчиков.
+:IMPACT: Упрощает разработку симуляторов и позволяет писать single-threaded код для параллельного исполнения.
+- [[hxxps://arxiv.org/abs/2605.19887][DAG-Based QoS-Aware Dynamic Task Placement for Networked Multi-Stage Control Pipelines]]
+:WHAT: Фреймворк динамического размещения задач на основе DAG для робототехники.
+:IMPACT: Балансирует задержку и надежность в конвейерах восприятия-планирования-контроля.
+- [[hxxps://arxiv.org/abs/2606.29483][Fog Computing and Large Language Models: A vision for mutual beneficiaries]]
+:WHAT: Обзор взаимной выгоды Fog computing и LLM (оптимизация моделей и генерация кода).
+:IMPACT: Задает направление для размещения LLM на периферии сети для снижения латентности.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Растет интерес к агентным средам данных и использованию LLM для генерации низкоуровневых компонентов СУБД. В алгоритмическом треке представлены улучшения для кластеризации и причинных бандитов. Наблюдается интеграция агентного моделирования с когнитивными модулями для социальных симуляций.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.07696][Breaking Database Lock-in: Agentic Regeneration of High Performance Storage Readers for Database Bypass]]
+:WHAT: Подход Jailbreak для синтеза читателей файлов хранения СУБД через LLM без драйверов.
+:IMPACT: Ускорение аналитических workload'ов до 27x за счет прямого доступа к колонкам.
+- [[hxxps://arxiv.org/abs/2607.07397][Agentic Data Environments]]
+:WHAT: Концепция активных сред данных для исполнения автономных агентов с гарантиями безопасности.
+:IMPACT: Превращает системы данных из пассивных хранилищ в субстрат для надежной автоматизации.
+- [[hxxps://arxiv.org/abs/2604.25605][Health System Scale Semantic Search Across Unstructured Clinical Notes]]
+:WHAT: Система семантического поиска по 166 млн клинических заметок с HIPAA-соответствием.
+:IMPACT: Снижает время абстракции данных на 24-89% и улучшает поиск пациентов с редкими заболеваниями.
+- [[hxxps://arxiv.org/abs/2601.06425][HiDVFS: Hierarchical Multi-Agent DVFS for Real-Time OpenMP DAG Workloads]]
+:WHAT: Иерархический DVFS планировщик на основе мульти-агентов для multicore систем.
+:IMPACT: Снижение энергопотребления на 32.9% при соблюдении дедлайнов для нерегулярных workload'ов.
+- [[hxxps://arxiv.org/abs/2505.01584][Silent Neuron Theory and Plasticity Preservation for Deep Reinforcement Learning in Adaptive Video Streaming]]
+:WHAT: Теория Silent Neuron и метод ReSiN для сохранения пластичности нейросетей в стриминге.
+:IMPACT: Улучшение QoE на 108% в гетерогенных сетевых условиях за счет сброса нейронов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2407.11217][Faster and Simpler Greedy Algorithm for $k$-Median and $k$-Means]]
+:ALGO: Упрощенный рекурсивный жадный алгоритм для задач кластеризации.
+:IMPACT: Улучшает состояние искусства в графовых и евклидовых метриках с меньшей сложностью реализации.
+- [[hxxps://arxiv.org/abs/2502.06577][The Minimal Search Space for Conditional Causal Bandits]]
+:ALGO: Графовая характеристика минимального набора узлов для оптимального причинного вмешательства.
+:IMPACT: Ускоряет сходимость бандитов за счет pruning пространства поиска на основе causal graph.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.02150][Named-Entity Recognition in the Crime Domain (CrimeNER): Case Study and Dataset]] — Датасет и кейс стади для NER в криминальной domaines.
+- [[hxxps://arxiv.org/abs/2411.17077][ContrastiveCFG: Guiding Diffusion Sampling by Contrasting Positive and Negative Concepts]] — Метод контрастивного loss для управления диффузионными моделями.
+- [[hxxps://arxiv.org/abs/2501.18784][Successor-Generator Planning with LLM-generated Heuristics]] — Генерация эвристик для планирования через LLM.
+- [[hxxps://arxiv.org/abs/2506.08630][Shared Modular Recurrence in Contextual MDPs for Universal Morphology Control]] — Управление роботами с разной морфологией через transformer.
+- [[hxxps://arxiv.org/abs/2507.05116][VOTE: Vision-Language-Action Optimization with Trajectory Ensemble Voting]] — Оптимизация VLA моделей через ансамблирование траекторий.
+- [[hxxps://arxiv.org/abs/2507.14177][Understanding Two-Layer Neural Networks with Smooth Activation Functions]] — Теоретический анализ решений обучения двухслойных сетей.
+- [[hxxps://arxiv.org/abs/2507.23615][L-GTA: Latent Generative Modeling for Time Series Augmentation]] — Генеративная аугментация временных рядов через VAE.
+- [[hxxps://arxiv.org/abs/2508.01109][Platonic Representations for Poverty Mapping: Unified Vision-Language Codes or Agent-Induced Novelty?]] — Предсказание благосостояния через мультимодальные данные.
+- [[hxxps://arxiv.org/abs/2508.10956][A Study of Commonsense Reasoning over Visual Object Properties]] — Бенчмарк для.reasoning о свойствах объектов в VQA.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Значительный прогресс в динамических сжатых индексах и алгоритмах сортировки с эффективным использованием памяти. Разработаны новые фреймворки для поиска разнообразных решений в комбинаторных задачах. Теоретические работы подтверждают гипотезы о динамическом усреднении на циклах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.24080][Dynamic Grammar-Compressed Self-Index in $\delta$-Optimal Space]]
+:ALGO: Динамический self-index на основе RLSLP с оптимальным пространством.
+:IMPACT: Ускорение обновлений до 77x и locate запросов до 11x для повторяющихся строк.
+- [[hxxps://arxiv.org/abs/2607.06968][Layer-Respecting Linear Graph Layouts]]
+:ALGO: FPT алгоритмы для визуализации графов с минимальным числом пересечений.
+:IMPACT: Позволяет эффективно визуализировать слоистые графы с сохранением порядка слоев.
+- [[hxxps://arxiv.org/abs/2201.08940][Frameworks to Design Approximation Algorithms for Finding Diverse Solutions in Combinatorial Problems]]
+:ALGO: Фреймворк для аппроксимации поиска разнообразных решений (matching, cuts).
+:IMPACT: Предоставляет константные аппроксимации для задач где单一 решение недостаточно.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.27147][Virtual-Memory Powersort]] — Адаптивная mergesort с уменьшенным потреблением памяти.
+- [[hxxps://arxiv.org/abs/2606.02263][Exact Sampling of Permutations with a Fixed Longest Increasing Subsequence]] — Точный сэмплер перестановок с фиксированной LIS.
+- [[hxxps://arxiv.org/abs/2607.00966][Sharp Bounds for Dynamic Averaging on Cycles]] — Подтверждение гипотезы о gap $O(\sqrt n)$ в динамическом усреднении.
+- [[hxxps://arxiv.org/abs/2607.06894][A simple algorithmic framework for disambiguation of finite automata]] — Фреймворк для дизамбигуации конечных автоматов.
+- [[hxxps://arxiv.org/abs/2607.07085][Is Randomness Necessary for Adaptive Data Analysis?]] — Исследование необходимости случайности в адаптивном анализе данных.
+- [[hxxps://arxiv.org/abs/2607.07098][Improved Algorithms and Lower Bounds for Parametrized Metrical Service Systems]] — Улучшенные границы для параметризованных MSS задач.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Развиваются методы pruning гиперграфов и мониторинга городской активности через телеком данные. Agent-based моделирование дополняется модулями когнитивной обработки на базе LLM. Физические аналогии используются для описания неравенства в распределении энергии и ресурсов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.07417][Hyperlocal monitoring of urban activity reveals responses to heat exposure]]
+:WHAT: Анализ городской активности с разрешением 100м x 155м на основе телеком данных.
+:IMPACT: Позволяет планировать адаптацию к жаре на основе реального перемещения людей.
+- [[hxxps://arxiv.org/abs/2607.07152][Link-Based Multimodal Traffic Dynamics Model in Continuous-Time Framework]]
+:WHAT: Модель передачи трафика M-LTM для взаимодействия автомобилей и трамваев.
+:IMPACT: Точное моделирование заторов и приоритета трамваев на уровне сети.
+- [[hxxps://arxiv.org/abs/2607.07387][A Large Language Model-Driven Agent-Based Modeling Framework with Multi-Round Communication for Simulating Vaccine Opinion Dynamics]]
+:WHAT: Фреймворк ABM с интеграцией LLM для симуляции когнитивных процессов агентов.
+:IMPACT: Воспроизводит нелинейные паттерны социального влияния с валидацией уровня 3.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.00893][Hypergraph backboning]]
+:ALGO: Информационно-теоретический метод pruning избыточных структур в гиперграфах.
+:IMPACT: Позволяет выделять структурный backbone в системах с higher-order взаимодействиями.
+- [[hxxps://arxiv.org/abs/2607.07399][Forced condensation and anti-condensation on heavy-tailed networks]]
+:ALGO: Анализ механизма селекции на heavy-tailed сетях через нелинейный Perron-Frobenius.
+:IMPACT: Разделяет эффекты локализации и наклона степени в нестационарных профилях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.12558][Involution game with migration and spatial heterogeneity of social resources]] — Эволюционная модель инволюции с миграцией агентов.
+- [[hxxps://arxiv.org/abs/2607.06803][Unified Framework for Binary-Choice Dynamics: Analysis and Applications]] —Unified фреймворк для динамики бинарного выбора.
+- [[hxxps://arxiv.org/abs/2607.06806][Will AstroForge Collapse the PGM Market?]] — Системная динамика рынка металлов платиновой группы.
+- [[hxxps://arxiv.org/abs/2607.07267][Billions of Sketches Reveal Hidden Cultural Variation in Human Concepts]] — Анализ культурных различий через 2.6 млрд скетчей.
+- [[hxxps://arxiv.org/abs/2607.07315][Thermodynamic description of worldwide distribution of energy and carbon emission]] — Термодинамическое описание неравенства в энергии.

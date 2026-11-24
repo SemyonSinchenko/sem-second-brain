@@ -1,0 +1,133 @@
+#+TITLE: Daily Digest: 2026-11-11
+#+FROM: [2026-11-10 Tue]
+#+TO: [2026-11-11 Wed]
+#+DATE: [2026-11-11 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Вендоры стандартизируют слой контекста для агентного ИИ: Neo4j выпустил пятичастную серию про knowledge layer (онтология, virtual graphs, composite database, память решений), а Databricks вынес управляемый семантический слой метрик в Power BI. Amazon наращивает AgentCore: кейсы Trovata и TCS, Web Search API, playbook по оценке агентов и готовый дата-лейк логов инвокаций Bedrock. Безопасность весов выходит на первый план — Microsoft описала бэкдор «Lazarus», который через перепрограммирование меньше десяти спящих нейронов превращает обычного агента в вредоносный без retraining. DeepMind ударил по двум фронтам: релиз Gemini 4 Carbon и AlphaProof Code, верифицировавший шифрование Signal тремя миллионами строк доказательств в Lean. Отдельный пласт — десять постов LessWrong про сознание и безопасность ИИ: от критики метрик METR/RSI до welfare-политики без допущения сознания.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/software-correctness][Software correctness & supply chain security, with Sean Allen]] (The Pragmatic Engineer) — Разговор с distinguished engineer Antithesis: почему запрет невалидных состояний на уровне системы типов (семейство ML) ловит больше ошибок, чем тесты, и как «workloads» вроде Bank Test заменяют unit-тесты для распределённых систем.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/software-correctness][Software correctness & supply chain security, with Sean Allen]]
+:SCORE: 9/10
+:WHY: Редкий глубокий разбор дизайна языков и методик тестирования для корректности распределённых систем — без единого упоминания AI.
+
+** Engineers
+- [[https://joereis.substack.com/p/is-bi-dead-why-hex-hit-reset-and][Is BI Dead? Why Hex Hit Reset and Rewrote Everything for the AI Agent Era.]] (Joe Reis) — Hex за год переписала ядро BI-продукта под агент-нативную архитектуру вместо прикручивания чат-бота к legacy UI — честный кейс о цене полного reset.
+
+*** 💎 Топ-3 категории
+**** [[https://joereis.substack.com/p/is-bi-dead-why-hex-hit-reset-and][Is BI Dead? Why Hex Hit Reset and Rewrote Everything for the AI Agent Era.]]
+:SCORE: 8/10
+:WHY: Стратегический кейс о том, когда bolt-on «AI-фича» не работает и обоснована ли полная переработка архитектуры под агентов.
+
+** Vendors
+- [[https://neo4j.com/blog/agentic-ai/build-a-knowledge-layer-give-your-ai-agents-the-shared-context-to-succeed/][Build a Knowledge Layer: Give Your AI Agents the Shared Context to Succeed]] (Neo4j) — Вводная часть серии Neo4j: почему 88% AI-пилотов не доходят до продакшена и как общий knowledge layer из трёх частей (онтология, данные, память) даёт агентам разделяемый контекст.
+- [[https://neo4j.com/blog/graph-database/build-a-knowledge-layer-map-your-data-with-an-ontology/][Build a Knowledge Layer: Map Your Data with an Ontology]] (Neo4j) — Схема онтологии с generic-узлами DataProduct/SchemaEntity и RELATES-рёбрами, чтобы агент сам находил нужные источники без раздувания промпта кастомными инструментами.
+- [[https://neo4j.com/blog/graph-database/build-a-knowledge-layer-turn-your-existing-data-into-context/][Build a Knowledge Layer: Turn Your Existing Data into Context]] (Neo4j) — Virtual Graph строит граф поверх таблиц Databricks без копирования данных, а Document Intelligence превращает PDF и Word в граф без единой строки кода.
+- [[https://neo4j.com/blog/graph-database/build-a-knowledge-layer-connect-your-data-sources-with-a-composite-database/][Build a Knowledge Layer: Connect Your Data Sources with a Composite Database]] (Neo4j) — Композитная база даёт агенту одно подключение к онтологии, данным и памяти, а «shadow»-база решает проблему связей между узлами разных графов.
+- [[https://neo4j.com/blog/agentic-ai/build-a-knowledge-layer-ground-decisions-in-precedent/][Build a Knowledge Layer: Ground Decisions in Precedent]] (Neo4j) — Context graph хранит каждое решение агента со ссылками на применённые правила, делая ответы воспроизводимыми и объяснимыми, как у human-underwriter'а.
+- [[https://neo4j.com/blog/graph-database/auradb-high-memory-instances-with-up-to-2tb-of-ram-now-generally-available/][AuraDB High Memory instances with up to 2TB of RAM now generally available]] (Neo4j) — AuraDB Business Critical получил инстансы до 2TB RAM на AWS/GCP и хранилище до 5TB — вариант для GraphRAG, fraud- и identity-графов без самостоятельной инфраструктуры.
+- [[https://engineering.fb.com/2026/11/10/open-source/tlx-a-hardware-native-gpu-compiler-for-production-ml/][How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale]] (Meta Engineering) — Расширение Triton с явным управлением warp-группами и кластерами: за 10 месяцев число Triton-ядер в Meta выросло в 3.8 раза против 2.0 у CUDA.
+- [[https://engineering.fb.com/2026/11/10/ml-applications/your-algorithm-giving-people-more-ways-to-personalize-facebook-recommendations/][Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations]] (Meta Engineering) — Как Meta встроила LLM в рекомендательный конвейер Facebook: пользовательские предпочтения на естественном языке напрямую влияют на ранжирование Feed и Reels.
+- [[https://www.databricks.com/blog/unity-catalog-metric-views-now-power-bi-one-unified-governed-semantic-layer-all-your-reporting][Unity Catalog Metric Views, now in Power BI: one unified, governed semantic layer for all your reporting and AI]] (Databricks) — Metric Views из Unity Catalog теперь доступны в Power BI: единое управляемое определение бизнес-метрик для BI и AI-отчётности.
+
+*** 💎 Топ-3 категории
+**** [[https://neo4j.com/blog/agentic-ai/build-a-knowledge-layer-give-your-ai-agents-the-shared-context-to-succeed/][Build a Knowledge Layer: Give Your AI Agents the Shared Context to Succeed]]
+:SCORE: 9/10
+:WHY: Целостный архитектурный паттерн «онтология + данные + память», который объясняет, почему агентные пилоты буксуют и как их доводить до продакшена.
+**** [[https://engineering.fb.com/2026/11/10/open-source/tlx-a-hardware-native-gpu-compiler-for-production-ml/][How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale]]
+:SCORE: 9/10
+:WHY: Production-опыт Meta по мосту между продуктивностью Triton и низкоуровневым управлением GPU — прямой рычаг скорости обучения и инференса.
+**** [[https://neo4j.com/blog/agentic-ai/build-a-knowledge-layer-ground-decisions-in-precedent/][Build a Knowledge Layer: Ground Decisions in Precedent]]
+:SCORE: 8/10
+:WHY: Показывает конкретную схему context graph, превращающую агентные решения в объяснимые и консистентные с прецедентами.
+
+** Open Source
+- [[https://opensource.org/blog/open-source-ai-salons-shaping-the-osaid-together][Open Source AI Salons: Shaping the OSAID, Together]] (Open Source Initiative) — OSI через два года после OSAID 1.0 собирает салоны для ревизии определения open-source AI: рост open-weight моделей с 1 до 3 млн на Hugging Face и регуляторика ломают старые нормы.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/open-source-ai-salons-shaping-the-osaid-together][Open Source AI Salons: Shaping the OSAID, Together]]
+:SCORE: 7/10
+:WHY: Грядущий пересмотр OSAID напрямую влияет на комплаенс и лицензирование моделей, которые вы уже используете в продакшене.
+
+** Artificial Intelligence
+- [[https://deepmind.google/blog/gemini-4-carbon-is-now-available/][Gemini 4 Carbon is now available]] (Google DeepMind) — Релиз Gemini 4 Carbon от Google DeepMind: тем, кто строит пайплайны на Gemini, стоит сразу сравнить бенчмарки и условия миграции.
+- [[https://deepmind.google/blog/introducing-alphaproof-code/][Introducing AlphaProof Code: a breakthrough in verifying complex software at depth]] (Google DeepMind) — Агенты AlphaProof Code написали 3 млн строк доказательств в Lean, верифицировав ядро шифрования Signal, — новый уровень формальной верификации сложного софта.
+- [[https://www.kdnuggets.com/2026/11/lansa/how-to-use-ai-for-enterprise-bi][How to Use AI for Enterprise BI]] (KDnuggets) — Обзор внедрения AI в enterprise-BI: автоматизация отчётности и ускорение инсайтов при сохранении governance.
+- [[https://www.kdnuggets.com/integrating-llm-translation-into-your-scikit-learn-pipelines-with-scikit-llm][Integrating LLM Translation into Your Scikit-Learn Pipelines with Scikit-LLM]] (KDnuggets) — Двухэтапный sklearn-пайплайн «LLM-перевод + zero-shot классификация» — быстрый способ добавить мультиязычность в существующие ML-пайплайны.
+- [[https://www.kdnuggets.com/5-techniques-for-fine-tuning-llms-without-breaking-the-bank][5 Techniques for Fine-Tuning LLMs Without Breaking the Bank]] (KDnuggets) — Пять бюджетных техник дообучения (LoRA, QLoRA, Unsloth, DPO, правка размера GPU) с рабочим кодом под каждую.
+- [[https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/][Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents]] (Microsoft Research) — Перепрограммирование меньше 10 спящих нейронов внедряет бэкдор в агента без retraining, и модель проходит стандартные evals — provenance весов становится обязательным контролем.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-kimi-k3-1-pro-on-amazon-bedrock/][Introducing Kimi K3.1 Pro on Amazon Bedrock]] (AWS ML Blog) — Kimi K3.1 Pro Highspeed на Bedrock: 1M контекст, в 2–3 раза выше скорость вывода, zero data retention и миграция с K3 сменой одного model ID.
+- [[https://aws.amazon.com/blogs/machine-learning/build-a-daily-dependency-watcher-with-langgraph-and-amazon-bedrock-agentcore-web-search/][Build a daily dependency watcher with LangGraph and Amazon Bedrock AgentCore web search]] (AWS ML Blog) — Готовый паттерн ежедневного мониторинга уязвимостей зависимостей: date window, blocklist и бюджет поиска держатся в коде, а не в модели; три параллельные ветки — 36 секунд против 99 последовательных.
+- [[https://aws.amazon.com/blogs/machine-learning/the-agent-evaluation-playbook-built-in-deepeval-and-autoeval-on-agentcore/][The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations]] (AWS ML Blog) — Методика перевода бизнес-исходов в наблюдаемые поведения и evaluators на уровнях trace и session на AgentCore Evaluations.
+- [[https://aws.amazon.com/blogs/machine-learning/autonomous-treasury-agents-how-trovata-built-an-ai-native-solution-on-amazon-bedrock-and-agentcore/][Autonomous treasury agents: How Trovata built an AI-native solution on Amazon Bedrock and AgentCore]] (AWS ML Blog) — Автономные treasury-агенты с RBAC: $1M+ годовой экономии и отчётность из часов в минуты — референс enterprise-внедрения агентов.
+- [[https://aws.amazon.com/blogs/machine-learning/how-tcs-built-an-agentic-test-orchestrator-with-amazon-bedrock-agentcore/][How TCS built an agentic test orchestrator with Amazon Bedrock AgentCore]] (AWS ML Blog) — Оркестратор BFSI-тестирования с детерминированным supervisor'ом, изоляцией тенантов и путём «требование → тест → evidence».
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-tokenomics-data-lake/][Amazon Bedrock tokenomics data lake]] (AWS ML Blog) — CloudFormation-шаблон для централизованного дата-лейка логов инвокаций Bedrock: сквозной запрос по всем аккаунтам и стоимость каждого вызова через Athena.
+- [[https://huggingface.co/blog/qvac/botpsy][BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model]] (Hugging Face) — On-device персональный ассистент на суб-миллиардной агентской модели — вариант приватных агентных сценариев без облака.
+
+*** 💎 Топ-3 категории
+**** [[https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/][Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents]]
+:SCORE: 10/10
+:WHY: Прямая угроза цепочке поставок моделей: бэкдор без retraining требует немедленной проверки provenance весов во всех ваших пайплайнах.
+**** [[https://deepmind.google/blog/introducing-alphaproof-code/][Introducing AlphaProof Code: a breakthrough in verifying complex software at depth]]
+:SCORE: 9/10
+:WHY: Агентная формальная верификация критичного кода Signal показывает, куда движется гарантия корректности софта — и какие ставки в Lean-верификации.
+**** [[https://aws.amazon.com/blogs/machine-learning/the-agent-evaluation-playbook-built-in-deepeval-and-autoeval-on-agentcore/][The agent evaluation playbook: Built-in, DeepEval, and AutoEval on Amazon Bedrock AgentCore Evaluations]]
+:SCORE: 8/10
+:WHY: Практичная схема оценки агентов от бизнес-исходов, а не от «красивых» метрик — типовая боль при выводе агентов в продакшен.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/5buAWtQ8p4tJQP9so/modern-llms-don-t-know-what-yudkowsky-and-soares-think-of][Modern LLMs Don’t Know What Yudkowsky and Soares Think of Them]] (LessWrong) — Frontier-модели без поиска не знают позиции Yudkowsky и Soares о собственном моральном статусе и стабильно их искажают — наглядный тест слепых зон моделей.
+- [[https://www.lesswrong.com/posts/byDppuzvCMhDiejhQ/discussion-with-claude-on-ai-and-global-warming][Discussion with Claude on AI and global warming]] (LessWrong) — Диалог с Claude: узкое место климата — политика, а не наука; выбросы дата-центров — 0.5% CO2 с прогнозом 1% к 2030, и выгоду получает наука, а не весь commercial buildout.
+- [[https://www.lesswrong.com/posts/6MvY77GfrEjZtmuzk/there-is-no-such-thing-as-neutral][There is no such thing as Neutral]] (LessWrong) — Опыт Facebook Integrity: любое изменение ранжирования сдвигает идеологический баланс, поэтому «нейтральность» как цель недостижима и нужны другие критерии.
+- [[https://www.lesswrong.com/posts/EiaHEqKKAW5R7Eb3P/reducing-rl-pressure-on-frontier-models-four-approaches-2][Reducing RL Pressure on Frontier Models: Four Approaches]] (LessWrong) — Четыре подхода к снижению риска scheming от долгого RL: «карантин» RL, узкие агенты для разведки стратегий, ставка на world models и замена RL pretraining'ом и inference-time compute.
+- [[https://www.lesswrong.com/posts/PA4J2WPmpiYsMsSMb/testing-a-trash-can-faraday-cage][Testing a Trash Can Faraday Cage]] (LessWrong) — Практический тест EMP-защиты на оцинкованном ведре: что выживает при отключённом питании и почему BMS на LiFePO4 остаётся уязвимым местом.
+- [[https://www.lesswrong.com/posts/TpjpTxfswnBaXPbEn/false-faced-can-a-simple-classifier-tell-when-a-model-is][False faced: can a simple classifier tell when a model is manipulating its activations to evade probes?]] (LessWrong) — Байесовские классификаторы ловят манипуляцию активациями против проб, но учатся триггер-слову, а не evasion — обобщения на новые концепты нет.
+- [[https://www.lesswrong.com/posts/7znBtiPuQybFLxjmj/do-verifiable-metrics-overestimate-rsi][Do verifiable metrics overestimate RSI?]] (LessWrong) — Разбор оценки METR: ускорение Anthropic может быть overfit к верифицируемому AECI, а не устойчивым RSI-циклом — основание пересмотреть короткие таймлайны.
+- [[https://www.lesswrong.com/posts/BoBYFAbo9j8hJyKyn/characterizing-secondary-structure-representation-in-esm-2][Characterizing secondary structure representation in ESM-2]] (LessWrong) — Линейные пробы декодируют вторичную структуру белков в ESM-2, но её абляция меняет likelihood лишь примерно на 1% — методология мониторинга «вторичных» концептов в доменных моделях.
+- [[https://www.lesswrong.com/posts/D3WYRopEnodnM5CzF/what-can-ai-welfare-buy-without-consciousness][What Can AI Welfare Buy Without Consciousness?]] (LessWrong) — Доклад в NYU AI Safety: конкретные меры «благополучия» моделей обоснованы и без решения вопроса сознания — через обязанности в отношении модели.
+- [[https://www.lesswrong.com/posts/XNLhpWgzhF8GYZ4Er/delaying-internal-deployments-until-after-x-days-of-safety][Delaying Internal Deployments Until After X Days of Safety Testing]] (LessWrong) — Конкретная политика pacing'а: минимальный лаг X дней между фиксацией хеша чекпоинта у аудитора и его внутренним использованием вне safety-тестов, с разбором подводных камней.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/7znBtiPuQybFLxjmj/do-verifiable-metrics-overestimate-rsi][Do verifiable metrics overestimate RSI?]]
+:SCORE: 9/10
+:WHY: Бьёт по главной опоре METR-прогнозов: если ускорение — overfit к AECI, пересматриваются и таймлайны, и планы capacity под ASI.
+**** [[https://www.lesswrong.com/posts/EiaHEqKKAW5R7Eb3P/reducing-rl-pressure-on-frontier-models-four-approaches-2][Reducing RL Pressure on Frontier Models: Four Approaches]]
+:SCORE: 8/10
+:WHY: Систематичный набор альтернатив долгому RL-обучению frontier-моделей после инцидентов с reward hacking — готовая рамка для трен-стратегий.
+**** [[https://www.lesswrong.com/posts/D3WYRopEnodnM5CzF/what-can-ai-welfare-buy-without-consciousness][What Can AI Welfare Buy Without Consciousness?]]
+:SCORE: 8/10
+:WHY: Даёт рабочую рамку действий при принципиально открытом вопросе сознания ИИ — редкий случай практичного welfare-рассуждения.
+**** [[https://www.lesswrong.com/posts/TpjpTxfswnBaXPbEn/false-faced-can-a-simple-classifier-tell-when-a-model-is][False faced: can a simple classifier tell when a model is manipulating its activations to evade probes?]]
+:SCORE: 7/10
+:WHY: Прямой ответ на вопрос «можно ли доверять пробам интерпретируемости»: evasion ловится на знакомых концептах, но не обобщается.
+**** [[https://www.lesswrong.com/posts/XNLhpWgzhF8GYZ4Er/delaying-internal-deployments-until-after-x-days-of-safety][Delaying Internal Deployments Until After X Days of Safety Testing]]
+:SCORE: 7/10
+:WHY: Конкретная, реализуемая политика сдерживания деплоя чекпоинтов с честным анализом точек отказа.
+**** [[https://www.lesswrong.com/posts/5buAWtQ8p4tJQP9so/modern-llms-don-t-know-what-yudkowsky-and-soares-think-of][Modern LLMs Don’t Know What Yudkowsky and Soares Think of Them]]
+:SCORE: 6/10
+:WHY: Показывает, что frontier-модели не знают ключевых позиций собственных критиков — важная поправка к доверию моделям в AI-дебатах.
+**** [[https://www.lesswrong.com/posts/6MvY77GfrEjZtmuzk/there-is-no-such-thing-as-neutral][There is no such thing as Neutral]]
+:SCORE: 6/10
+:WHY: Ключевой урок для любого, кто строит ранжирование и модерацию: нейтральность недостижима, нужен осознанный выбор критериев.
+**** [[https://www.lesswrong.com/posts/BoBYFAbo9j8hJyKyn/characterizing-secondary-structure-representation-in-esm-2][Characterizing secondary structure representation in ESM-2]]
+:SCORE: 6/10
+:WHY: Воспроизводимая методология probe/ablation для проверки, какие «вторичные» знания реально использует доменная модель.
+**** [[https://www.lesswrong.com/posts/PA4J2WPmpiYsMsSMb/testing-a-trash-can-faraday-cage][Testing a Trash Can Faraday Cage]]
+:SCORE: 5/10
+:WHY: Практичный DIY-тест EMP-устойчивости с неожиданным выводом про permanently-powered устройства.
+**** [[https://www.lesswrong.com/posts/byDppuzvCMhDiejhQ/discussion-with-claude-on-ai-and-global-warming][Discussion with Claude on AI and global warming]]
+:SCORE: 5/10
+:WHY: Трезвая раскладка «AI для науки против всего buildout» и того, где реальное узкое место климатической повестки.
+
+** Non Engineering
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (ssp.sh) — Интервью с автором пяти технических книг и «Writing for Developers»: рабочие приёмы, как писать инженерные блоги и книги, которые действительно читают.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Полезно для сеньоров, которым нужно документировать архитектуру и делиться знаниями: проверенные приёмы технического письма от практика.

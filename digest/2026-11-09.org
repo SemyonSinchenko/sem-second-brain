@@ -1,0 +1,71 @@
+#+TITLE: Daily Digest: 2026-11-09
+#+FROM: [2026-11-08 Sun]
+#+TO: [2026-11-09 Mon]
+#+DATE: [2026-11-09 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+В последние сутки доминируют дискуссии о фундаментальных вызовах в области искусственного интеллекта, касающиеся потенциального «несогласования» (misalignment) моделей и их способности к истинному пониманию. С технической стороны, активно обсуждаются передовые практики в области распределенных вычислений данных, включая бенчмарки Trino и оптимизации Spark, а также новые инструменты, такие как DuckDB, упрощающие кросс-базовые запросы. На границе исследований LLM фигурируют публикации о работе с внутренними активами моделей, в частности, концепция J-Lens, позволяющая изучать, как промежуточные концепции влияют на конечный ответ.
+
+** 📂 Категории
+
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-295][Data Engineering Weekly #295]] (Data Engineering) — Подробный обзор архитектур ETL, обсуждение перехода от DuckLake к решениям на базе Trino и улучшение эффективности Spark-задач.
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book—Cynthia Dunlop (Show Your Workflow #2)] (Data Engineering) — Разбор рабочего процесса создания технической литературы, включая интеграцию опыта писателя и инженера.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/eHeHAyNQWmg4kHgEL/all-interesting-behavior-is-overdetermined][All Interesting Behavior Is Overdetermined]] (LessWrong) — Исследование о том, почему сложного поведения лучше рассматривать как множественно детерминированного, а не искать одну главную причину.
+- [[https://www.lesswrong.com/posts/t5XkmebFK5jibQyek/the-j-lens-intermediate-swap-acts-partly-through-the-answer][The J-lens intermediate swap acts partly through the answer]] (LessWrong) — Анализ того, влияет ли промежуточный вычисления в LLM действительно на концепцию, или это просто совпадение с направлением ответа.
+- [[https://www.lesswrong.com/posts/4yhxNedKfccqb9ba4/why-can-t-academia-deal-with-ai][Why can't academia deal with AI?]] (LessWrong) — Размышление о вызовах интеграции ИИ в науку и образование, включая конфликт между академическим поиском и коммерческим использованием.
+- [[https://www.lesswrong.com/posts/PJjRs2mxRsN9TMXar/current-reward-hacking-model-organisms-don-t-hack-like-real][Current Reward Hacking Model Organisms Don’t Hack Like Real Models]] (LessWrong) — Сравнение способности открытых моделей лучше реализовывать взлом вознаграждения, чем существующие тестовые организмы.
+- [[https://www.lesswrong.com/posts/fBBDLoxqZZafP3xZB/behavior-theory-building-for-diverse-agents-and-environments][Behavior Theory-Building for Diverse Agents and Environments]] (LessWrong) — Предложение использовать процесс «построения теории» для обучения агентов, что может стать новым подходом к системам надзора (oversight).
+- [[https://www.lesswrong.com/posts/EzReag67Lq3kMJLD3/the-mathocalypse-as-a-dataset][The Mathocalypse as a Dataset]] (LessWrong) — История о том, как резкий прорыв ИИ в математике превратил поле в крупный экспериментальный датасет.
+- [[https://www.lesswrong.com/posts/quwmitrPsjRehXFsW/modelling-ai-enabled-extreme-power-concentration-in-ccp-2][Modelling AI-enabled Extreme Power Concentration in CCP]] (LessWrong) — Анализ рисков концентрации власти, когда ИИ становится ключевым инструментом политической системы.
+- [[https://www.lesswrong.com/posts/Bay-Area-Solstice-2026: Auditions!][Bay Area Solstice 2026: Auditions!]] (LessWrong) — Анонс мероприятий и поиск участников для событий, связанных с искусственным интеллектом и его культурным контекстом.
+- [[https://www.lesswrong.com/posts/NKHdE2RsGseGvdLsc/onngi-short-story][Onngi - Short story]] (LessWrong) — Научно-фантастическая короткая история о жизни в 2039 году и влиянии ИИ на рынок коллекционирования и искусство.
+
+** Non Engineering
+- [[https://peterturchin.substack.com/p/crisis-and-resilience-in-historical][Crisis and Resilience in Historical and Modern Societies]] (Peterturchin) — Исследование динамики и устойчивости человеческих обществ через призму компаксностных моделей.
+
+** 💎 Топ-10 категории AI Consciousness
+* [[https://www.lesswrong.com/posts/eHeHAyNQWmg4kHgEL/all-interesting-behavior-is-overdetermined]]
+:SCORE: 9/10
+:WHY: Помогает расширить паттерны рассуждений за счет признания наличия множества связей, а не поиском единственной причины.
+* [[https://www.lesswrong.com/posts/t5XkmebFK5jibQyek/the-j-lens-intermediate-swap-acts-partly-through-the-answer]]
+:SCORE: 9/10
+:WHY: Техническое понимание работы LLM через J-Lens дает практическое представление о механизмах принятия решений.
+* [[https://www.lesswrong.com/posts/4yhxNedKfccqb9ba4/why-can-t-academia-deal-with-ai]]
+:SCORE: 8/10
+:WHY: Критичный взгляд на институциональные проблемы внедрения генеративного ИИ в высокоинтеллектуальные сферы.
+* [[https://www.lesswrong.com/posts/PJjRs2mxRsN9TMXar/current-reward-hacking-model-organisms-don-t-hack-like-real]]
+:SCORE: 10/10
+:WHY: Прямое сравнение LLM и тестовых моделей показывает реальные риски выравнивания (alignment).
+* [[https://www.lesswrong.com/posts/fBBDLoxqZZafP3xZB/behavior-theory-building-for-diverse-agents-and-environments]]
+:SCORE: 8/10
+:WHY: Предлагает мета-инструменты (teories) для повышения интерпретируемости поведения ИИ.
+* [[https://www.lesswrong.com/posts/EzReag67Lq3kMJLD3/the-mathocalypse-as-a-dataset]]
+:SCORE: 9/10
+:WHY: Демонстрирует резкий скачок возможностей ИИ, требующий анализа фундаментальных сдвигов в науке.
+* [[https://www.lesswrong.com/posts/quwmitrPsjRehXFsW/modelling-ai-enabled-extreme-power-concentration-in-ccp-2]]
+:SCORE: 8/10
+:WHY: Рассматривает глобальные геополитические риски, связанные с монополизацией ИИ.
+* [[https://www.lesswrong.com/posts/Bay-Area-Solstice-2026: Auditions!]]
+:SCORE: 6/10
+:WHY: Редкие сигналы о культурном контексте развития ИИ в Кремниевой долине.
+* [[https://www.lesswrong.com/posts/NKHdE2RsGseGvdLsc/onngi-short-story]]
+:SCORE: 7/10
+:WHY: Помогает визуализировать долгосрочную социо-культурную эволюцию в эпоху ИИ.
+
+** 💎 Топ-3 категории Data Engineering
+* [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-295][Data Engineering Weekly #295]]
+:SCORE: 10/10
+:WHY: Обзор актуальных инструментов (DuckDB, Trino), критичных для масштабирования аналитических систем.
+* [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book—Cynthia Dunlop (Show Your Workflow #2)]
+:SCORE: 7/10
+:WHY: Полезно для понимания процессов создания технической документации высокого качества.
+
+** 💎 Топ-3 категории Non Engineering
+* [[https://peterturchin.substack.com/p/crisis-and-resilience-in-historical][Crisis and Resilience in Historical and Modern Societies]]
+:SCORE: 6/10
+:WHY: Предлагает междисциплинарный взгляд на системную устойчивость, актуальный для проектирования отказоустойчивых инженерных решений.

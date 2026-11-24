@@ -1,0 +1,76 @@
+#+TITLE: Daily Digest: 2026-07-16
+#+FROM: [2026-07-15 Wed]
+#+TO: [2026-07-16 Thu]
+#+DATE: [2026-07-16 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия движется к зрелости AI-агентов: ключевыми темами стали контекст-инженерия, маршрутизация моделей и визуальное восприятие через MCP. Вендоры (Databricks, AWS, Meta) усиливают интеграцию данных и ИИ, предлагая решения для глубокой оптимизации и документооборота. В инженерии данных наблюдается сдвиг фокуса с чистых технологий на бизнес-ценность и предпринимательство.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://newsletter.pragmaticengineer.com/p/context-engineering-with-dex-horthy][Context engineering with Dex Horthy]] (The Pragmatic Engineer) — разбор принципов управления контекстом LLM для создания надёжных агентных приложений.
+- [[hxxps://dataengineeringcentral.substack.com/p/what-happens-when-a-software-engineer][What Happens When a Software Engineer Builds a Company Alone?]] (Data Engineering Central) — кейс создания B2B-продукта в одиночку без венчурного финансирования.
+- [[hxxps://www.ssp.sh/blog/on-creation/][The Act and the Outcome of Creation]] (ssp.sh) — философский взгляд на творчество как процесс решения незавершённых задач и поиска потока.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/context-engineering-with-dex-horthy][Context engineering with Dex Horthy]]
+:SCORE: 10/10
+:WHY: Критически важно для понимания ограничений LLM и построения устойчивых архитектур агентных систем.
+**** [[hxxps://dataengineeringcentral.substack.com/p/what-happens-when-a-software-engineer][What Happens When a Software Engineer Builds a Company Alone?]]
+:SCORE: 9/10
+:WHY: Практический опыт перехода от найма к солорpreneurship с фокусом на маркетинг и поиск клиентов.
+**** [[hxxps://www.ssp.sh/blog/on-creation/][The Act and the Outcome of Creation]]
+:SCORE: 8/10
+:WHY: Полезно для ментального здоровья и переосмысления мотивации в технической работе.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-vision-building-visual-intelligence-with-amazon-bedrock-and-mcp-servers/][Agentic vision: Building visual intelligence with Amazon Bedrock and MCP servers]] (AWS) — унификация компьютерного зрения и агентов через Model Context Protocol.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/built-technologies-builds-an-ai-powered-document-intelligence-solution-on-aws-to-power-agents-across-real-estate-finance/][Built Technologies builds an AI-powered document intelligence solution on AWS]] (AWS) — архитектура обработки сложных документов в финансах недвижимости на Bedrock.
+- [[hxxps://huggingface.co/blog/ibm-research/model-routing-is-simple-until-it-isnt][Model Routing Is Simple. Until It Isn't.]] (Hugging Face) — скрытые сложности маршрутизации запросов между моделями в продакшене.
+- [[hxxps://www.kdnuggets.com/7-python-frameworks-for-orchestrating-local-ai-agents][7 Python Frameworks for Orchestrating Local AI Agents]] (KDnuggets) — обзор инструментов для запуска агентов на локальной инфраструктуре в 2026 году.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/monitor-amazon-sagemaker-pipelines-cross-account-with-custom-amazon-cloudwatch-dashboards/][Monitor Amazon SageMaker Pipelines cross-account with custom Amazon CloudWatch dashboards]] (AWS) — решение для централизованного мониторинга MLOps пайплайнов across аккаунтов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agentic-vision-building-visual-intelligence-with-amazon-bedrock-and-mcp-servers/][Agentic vision: Building visual intelligence with Amazon Bedrock and MCP servers]]
+:SCORE: 9/10
+:WHY: Демонстрирует конвергенцию зрения и действий агентов через стандартизированный протокол MCP.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/built-technologies-builds-an-ai-powered-document-intelligence-solution-on-aws-to-power-agents-across-real-estate-finance/][Built Technologies builds an AI-powered document intelligence solution on AWS]]
+:SCORE: 9/10
+:WHY: Реальный кейс внедрения AI для сложной документоориентированной предметной области.
+**** [[hxxps://huggingface.co/blog/ibm-research/model-routing-is-simple-until-it-isnt][Model Routing Is Simple. Until It Isn't.]]
+:SCORE: 8/10
+:WHY: Предостережение от упрощённого подхода к балансировке нагрузки между моделями.
+
+** Вендоры
+- [[hxxps://engineering.fb.com/2026/07/15/ai-research/exploring-hierarchical-interest-representation-for-meta-ads-deep-funnel-optimization/][Exploring Hierarchical Interest Representation For Meta Ads Deep Funnel Optimization]] (Meta Engineering) — исследование представлений интересов для оптимизации рекламных воронок.
+- [[hxxps://www.databricks.com/blog/data-native-ai-agents-why-agents-must-move-your-data][Data-Native AI Agents: Why Agents Must Move to Your Data]] (Databricks) — аргументация необходимости переноса агентов ближе к данным предприятия.
+- [[hxxps://www.databricks.com/blog/inkling-thinking-machines-lab-now-databricks][Inkling model from Thinking Machines Lab now on Databricks]] (Databricks) — анонс доступности новой модели TML в экосистеме Databricks.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — встреча сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/data-native-ai-agents-why-agents-must-move-your-data][Data-Native AI Agents: Why Agents Must Move to Your Data]]
+:SCORE: 9/10
+:WHY: Стратегический взгляд на эволюцию архитектуры AI-агентов в enterprise-секторе.
+**** [[hxxps://engineering.fb.com/2026/07/15/ai-research/exploring-hierarchical-interest-representation-for-meta-ads-deep-funnel-optimization/][Exploring Hierarchical Interest Representation For Meta Ads Deep Funnel Optimization]]
+:SCORE: 8/10
+:WHY: Глубокий технический разбор современных методов ранжирования и эмбеддингов в рекламе.
+**** [[hxxps://www.databricks.com/blog/inkling-thinking-machines-lab-now-databricks][Inkling model from Thinking Machines Lab now on Databricks]]
+:SCORE: 7/10
+:WHY: Важно для отслеживания появления новых моделей в популярных платформах данных.
+
+** Open Source
+- [[hxxps://aws.amazon.com/blogs/database/introducing-open-source-bulk-executor-for-amazon-dynamodb/][Introducing open source Bulk Executor for Amazon DynamoDB]] (AWS) — утилита для массовых операций с данными DynamoDB без написания кода.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/introducing-open-source-bulk-executor-for-amazon-dynamodb/][Introducing open source Bulk Executor for Amazon DynamoDB]]
+:SCORE: 8/10
+:WHY: Практический инструмент для администрирования и миграции данных в DynamoDB.
+
+** Инженеры
+- [[hxxps://vutr.substack.com/p/free-do-work-that-matters][[FREE] Solve higher-impact problems]] (vutr.substack) — совет фокусироваться на задачах с высокой бизнес-ценностью вместо чистого кодинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/free-do-work-that-matters][[FREE] Solve higher-impact problems]]
+:SCORE: 9/10
+:WHY: Напоминание сеньорам о приоритете бизнес-impact над техническим совершенством ради самого себя.

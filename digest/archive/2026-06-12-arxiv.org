@@ -1,0 +1,143 @@
+#+TITLE: Arxiv Digest: 2026-06-12
+#+FROM: [2026-06-11 Thu]
+#+TO: [2026-06-12 Fri]
+#+DATE: [2026-06-12 Fri]
+#+STARTUP: showall
+
+* cs.DB
+** 🧐 Обзор
+В последние сутки наблюдается рост интереса к эффективным механизмам защиты конфиденциальности в базах данных и параллельной обработке запросов. Исследования сосредоточены на масштабируемых решениях для дифференциальной приватности и оптимизации работы с реляционной алгеброй в параллельных моделях. Практическая значимость смещается в сторону поддержки сложных рабочих нагрузок без потери производительности.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2305.08175][ResidualPlanner+: a scalable matrix mechanism for marginals and beyond]]
+:WHAT: Предложены масштабируемые механизмы матриц (ResidualPlanner+) для ответов на запросы маргиналов с гауссовским шумом.
+:IMPACT: Позволяет оптимизировать точность приватных данных на наборах с сотнями атрибутов за секунды, превосходя предыдущие методы по памяти и скорости.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2301.08178][Work-Efficient Query Evaluation in Constant Time with PRAMs]]
+:ALGO: Алгоритмы оценки запросов реляционной алгебры за константное время в модели CRCW PRAM с эффективностью по работе.
+:IMPACT: Теоретическое обоснование эффективного параллелизма для ациклических и соединений запросов, важное для разработки высокопроизводительных СУБД.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.12435][Auditing Discriminatory Patterns in Mortgage Lending Through Association Rules and Fair Binning]] — Исследование влияния методов биннинга данных на выявление расовых предубеждений в ипотечном кредитовании.
+
+* cs.AI
+** 🧐 Обзор
+В области искусственного интеллекта акцент смещается на эффективность обслуживания моделей (LLM serving) и интеграцию графовых структур в архитектуры нейросетей. Наблюдается тренд на снижение энергопотребления и памяти при инференсе, а также на создание интерпретируемых моделей для временных рядов. Прикладные исследования охватывают геопространственный анализ и симуляцию энергосистем.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2505.04021][Prism: Cost-Efficient Multi-LLM Serving via GPU Memory Ballooning]]
+:WHAT: Фреймворк Prism использует "раздувание" памяти (memory ballooning) для балансировки загрузки нескольких LLM на GPU.
+:IMPACT: Позволяет динамически перераспределять память между моделями, повышая утилизацию ресурсов в продакшене на 10K+ GPU.
+- [[hxxps://arxiv.org/abs/2507.02921][PlaceRep: Geospatial Place Representation Learning from Large-Scale Point-of-Interest Data]]
+:WHAT: Метод PlaceRep строит эмбеддинги городских регионов через кластеризацию графов точек интереса (POI).
+:IMPACT: Ускоряет генерацию представлений регионов в 100 раз по сравнению с аналогами, улучшая задачи прогнозирования цен и плотности населения.
+- [[hxxps://arxiv.org/abs/2301.12538][On Approximating the Dynamic Response of Synchronous Generators via Operator Learning]]
+:WHAT: Применение Deep Operator Network (DeepONet) для аппроксимации динамики синхронных генераторов в энергосетях.
+:IMPACT: Позволяет создавать быстрые нейросетевые симуляторы для взаимодействия с компонентами энергосистемы без тяжелых физических расчетов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2505.13102][Lightweight and Interpretable Transformer via Mixed Graph Algorithm Unrolling for Traffic Forecast]]
+:ALGO: Архитектура трансформера, полученная разворачиванием алгоритма оптимизации на смешанных графах (пространство-время).
+:IMPACT: Снижает количество параметров при прогнозировании трафика, обеспечивая интерпретируемость через структуру графа зависимостей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.06573][WildIFEval: Instruction Following in the Wild]] — dataset из 7K реальных инструкций для оценки следования множественным ограничениям в LLM.
+- [[hxxps://arxiv.org/abs/2506.01274][ReFoCUS: Reinforcement-guided Frame Optimization for Contextual Understanding]] — фреймворк оптимизации выбора кадров для видео-LLM через обучение с подкреплением.
+- [[hxxps://arxiv.org/abs/2304.13836][On Pitfalls of $\textit{RemOve-And-Retrain}$: Data Processing Inequality Perspective]] — критика бенчмарка ROAR для оценки атрибуции признаков с позиции теории информации.
+- [[hxxps://arxiv.org/abs/2412.08610][Competition and Diversity in Generative AI]] — теоретический анализ влияния конкуренции на разнообразие контента генеративных моделей.
+- [[hxxps://arxiv.org/abs/2507.05019][Meta-Learning Transformers to Improve In-Context Generalization]] — исследование мета-обучения трансформеров на коллекциях малых датасетов.
+- [[hxxps://arxiv.org/abs/2507.07947][Reconstructing Template-Memorized Images from Natural Prompts]] — демонстрация уязвимости диффузионных моделей к восстановлению обучающих данных через простые промпты.
+
+* physics.soc-ph
+** 🧐 Обзор
+В социальной физике и анализе сетей преобладает применение сетевых моделей к критической инфраструктуре и эпидемиологии. Исследования переходят от парных взаимодействий к анализу гиперграфов и многослойных сетей для более точного моделирования. Особое внимание уделяется устойчивости систем и выявлению скрытых зависимостей в социально-экономических данных.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.12456][Network-Based Multi-Layer Model Using Machine Learning for Optimal Vaccine Prioritization in Heterogeneous Populations]]
+:WHAT: Многослойная модель вакцинации, использующая графовые нейросети (GNN) и обучение с подкреплением на контактных сетях.
+:IMPACT: Стратегии на основе GNN значительно снижают пик инфекции по сравнению с классическими метриками центральности в гетерогенных популяциях.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.27411][Information theory for hypergraph similarity]]
+:ALGO: Информационно-теоретический фреймворк для измерения сходства гиперграфов с учетом взаимодействий высшего порядка.
+:IMPACT: Предоставляет инструменты для сравнения сложных сетей за пределами парных связей, что важно для анализа системных взаимодействий.
+- [[hxxps://arxiv.org/abs/2606.12460][Sovereign Stress Avalanches and Network Amplification in Latin America]]
+:ALGO: Анализ лавин суверенного стресса и сетевого усиления на основе корреляционных сетей кредитных спредов.
+:IMPACT: Выявляет режимы синхронизации кризисов и структурные свойства сетей, усиливающих финансовые шоки в регионе.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.26719][Planning for climate neutrality in the Nordic power sector: Insights from a non-harmonised comparison of eight energy system models]] — сравнение восьми моделей энергосистем для планирования климатической нейтральности в Северной Европе.
+- [[hxxps://arxiv.org/abs/2605.02926][Towards Geostrategic Critical Minerals and Materials Resilience: Secure Supply-Chain and Criticality Analyses for Quantum Technologies in Arctic and Space Environments]] — анализ рисков цепочек поставок критических минералов для квантовых технологий.
+- [[hxxps://arxiv.org/abs/2606.12465][A systematic review of COVID-19 epidemic models with endogenous human behaviour. What's next?]] — систематический обзор эпидемиологических моделей с учетом эндогенного поведения людей.
+- [[hxxps://arxiv.org/abs/2606.12564][SCAR dynamics of adolescent substance use: peer influence, dropout, and bifurcation structure in a school-based model]] — модель динамики употребления веществ подростками с учетом влияния сверстников и школьной среды.
+- [[hxxps://arxiv.org/abs/2606.12752][Beyond Resilience -- A Conceptual Framework for Civic Ascent]] — концептуальная框架ика "гражданского восхождения" городов после шоков.
+- [[hxxps://arxiv.org/abs/2606.13027][Exploring fair access to quantum computing]] — обсуждение справедливого доступа к квантовым вычислениям в контексте европейской политики.
+- [[hxxps://arxiv.org/abs/2606.13386][Mathematical Modeling of HDV RNA, HBV DNA, and HBsAg Dynamics during Lonafarnib-Based Therapy: Insights from the LOWR HDV-1 Study]] — математическое моделирование вирусной динамики при терапии гепатита.
+
+* cs.DS
+** 🧐 Обзор
+В структурах данных и алгоритмах доминируют работы по параметризованной сложности и аппроксимационным алгоритмам для задач на графах. Значительный прогресс достигнут в подсчете подгиперграфов и детекции циклов, а также в построении робастных корсетов. Наблюдается интерес к обучаемым алгоритмам (learning-augmented) для классических задач оптимизации.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2506.14081][The Parametrised Complexity of Counting Small Sub-Hypergraphs]]
+:ALGO: Полная классификация сложности подсчета подгиперграфов в зависимости от параметризованных характеристик семейства гиперграфов.
+:IMPACT: Закрывает пробел в теории сложности для гиперграфов, обобщая результаты для обычных графов и определяя границы FPT.
+- [[hxxps://arxiv.org/abs/2507.02061][New algorithms for girth and cycle detection]]
+:ALGO: Рандомизированные алгоритмы для поиска циклов с улучшенным балансом между временем работы и длиной найденного цикла.
+:IMPACT: Предлагает гибкие параметры для детекции циклов в разреженных графах, что полезно для анализа структуры сетей.
+- [[hxxps://arxiv.org/abs/2507.11260][Towards Tight Robust Coresets for $k$-Medians Clustering]]
+:ALGO: Новые конструкции корсетов для робастной кластеризации k-медиан с выбросами в метрических пространствах.
+:IMPACT: Достигает оптимального размера корсета с линейной зависимостью от числа выбросов, улучшая масштабируемость кластеризации.
+- [[hxxps://arxiv.org/abs/2606.12692][Random Proposals: A Softmax-Based Local-Improvement Framework for Maximum Weighted Matching]]
+:ALGO: Рандомизированный алгоритм локального улучшения для максимального паросочетания с использованием softmax-выборки.
+:IMPACT: Обеспечивает настраиваемый компромисс между скоростью сходимости и качеством аппроксимации в задачах匹配ния.
+- [[hxxps://arxiv.org/abs/2606.12879][Diffusion-Network Alignment: An Efficient Algorithm and Explicit Probability Bounds]]
+:ALGO: Алгоритм выравнивания диффузионного дерева и сети на основе тестов корреляции деревьев.
+:IMPACT: Решает задачу выравнивания при асимметрии информации, обеспечивая вероятностные гарантии правильности сопоставления.
+- [[hxxps://arxiv.org/abs/2606.13133][Learning-Augmented Approximation for Unrelated-Machines Makespan Scheduling]]
+:ALGO: Обучаемый алгоритм аппроксимации для минимизации makespan на неоднородных машинах с использованием предсказаний.
+:IMPACT: Достигает (1+ε)-аппроксимации при точных предсказаниях с плавной деградацией до 2-аппроксимации при ошибке.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.12694][A unified complexity bound for logconcave sampling]] — единая граница сложности для сэмплирования логарифмически вогнутых распределений.
+- [[hxxps://arxiv.org/abs/2606.12763][Adaptive Weighted Averaging]] — стратегии выбора максимального значения из неизвестных величин с гарантиями относительно базового уровня.
+- [[hxxps://arxiv.org/abs/2606.12970][Binary Search Variants: A Comprehensive Analysis]] — унифицированный анализ вариантов бинарного поиска с формальными верификациями.
+
+* cs.DC
+** 🧐 Обзор
+В распределенных вычислениях ключевыми темами стали эффективность инференса ИИ, оптимизация компиляции для гетерогенных систем и динамика консенсуса на эволюционирующих сетях. Исследования демонстрируют переход к низкоуровневой оптимизации (kernel fusion) и управлению памятью для масштабных развертываний. Теоретические работы касаются ограничений линейзуемости и сложности локальных проверок в графах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.20241][Energy Use of AI Inference, Efficiency Pathways, and Test-Time Scaling]]
+:WHAT: Bottom-up фреймворк для оценки энергопотребления инференса ИИ на основе пропускной способности токенов и мощности узлов.
+:IMPACT: Показывает, что публичные оценки энергии завышены в 4-20 раз, и предлагает пути снижения потребления на уровне датацентров.
+- [[hxxps://arxiv.org/abs/2512.22219][MPK: A Compiler and Runtime for Mega-Kernelizing Tensor Programs]]
+:WHAT: Компилятор и рантайм MPK трансформируют инференс на нескольких GPU в единый мега-кернел с планированием на уровне SM.
+:IMPACT: Снижает задержку инференса LLM в 1.7 раза за счет слияния ядер и перекрытия вычислений с коммуникацией.
+- [[hxxps://arxiv.org/abs/2603.09555][Compiler-First State Space Duality and Portable $O(1)$ Autoregressive Caching for Inference]]
+:WHAT: Реализация рекуррентности state space duality в JAX без кастомных ядер для портативного кэширования при инференсе.
+:IMPACT: Достигает высокой утилизации пропускной способности на TPU и GPU, обеспечивая переносимость кода без потери производительности.
+- [[hxxps://arxiv.org/abs/2510.18058][A New Broadcast Model for Several Network Topologies]]
+:WHAT: Алгоритм Broadcast by Balanced Saturation (BBS) для оптимизации широковещательной рассылки в различных топологиях сетей.
+:IMPACT: Превосходит существующие алгоритмы по пропускной способности в топологиях Mesh, Dragonfly и Fat-Tree для больших сообщений.
+- [[hxxps://arxiv.org/abs/2512.13666][SEDULity: A Proof-of-Learning Framework for Distributed and Secure Blockchains with Efficient Useful Work]]
+:WHAT: Фреймворк Proof-of-Learning (PoL) для блокчейнов, заменяющий майнинг на обучение ML моделей с верификацией.
+:IMPACT: Обеспечивает безопасность и децентрализацию блокчейна при выполнении полезной работы, стимулируя честное обучение узлов.
+- [[hxxps://arxiv.org/abs/2603.09738][Ensuring Data Freshness in Multi-Rate Task Chains Scheduling]]
+:WHAT: Фреймворк планирования задач с ограничениями на свежесть данных для автономных систем.
+:IMPACT: Гарантирует актуальность данных в цепочках задач без искусственной задержки буферизации, сохраняя планируемость EDF.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2209.03999][Consensus on Dynamic Stochastic Block Models: Fast Convergence and Phase Transitions]]
+:ALGO: Модели консенсуса по правилу большинства на эволюционирующих стохастических блочных моделях (SBM).
+:IMPACT: Доказывает быструю сходимость и выявляет пороги фазовых переходов для консенсуса в динамических сетях с сообществами.
+- [[hxxps://arxiv.org/abs/2506.18401][Impossibility Results for Strong Linearizability: The Difficulty of Consistent Refereeing]]
+:ALGO: Результаты о невозможности сильно линейзуемых реализаций конкурентных объектов без полного консенсуса.
+:IMPACT: Определяет фундаментальные ограничения координации для lock-free и wait-free систем, важные для разработчиков распределенных примитивов.
+- [[hxxps://arxiv.org/abs/2602.02340][LCLs Beyond Bounded Degrees]]
+:ALGO: Исследование локально проверяемых разметок (LCL) на деревьях с неограниченной степенью вершин.
+:IMPACT: Восстанавливает полиномиальные разрывы сложности через введение Locally Finite Labelings (LFL), уточняя ландшафт распределенной сложности.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.25018][Internet of Everything in the 6G Era: Paradigms, Enablers, Potentials and Future Directions]] — обзор концепции IoE, технологий и вызовов для сетей 6G.

@@ -1,0 +1,166 @@
+#+TITLE: Arxiv Digest: 2026-08-04
+#+FROM: [2026-08-03 Mon]
+#+TO: [2026-08-04 Tue]
+#+DATE: [2026-08-04 Tue]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается сильный тренд на интеграцию LLM в процессы управления данными, особенно для работы с неструктурированными озерами данных (EcoTable). Параллельно развивается инфраструктура векторного поиска внутри OLAP-систем для аналитических workload'ов с большим k (TEngineDB-V) и методы эффективного обновления графовых индексов (MERIT). Также значимы работы по сжатию временных рядов и оптимизации джоинов в поисковых движках.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.26613][EcoTable: Cost-effective Table Integration in Data Lakes for Natural Language Queries]]
+:WHAT: Фреймворк интеграции данных на основе естественного языка, использующий граф пространств поиска и LLM для генерации SQL.
+:IMPACT: Снижает стоимость вызовов LLM в 5 раз и повышает точность на 30%, устраняя необходимость ручного определения схемы для озер данных.
+
+- [[hxxps://arxiv.org/abs/2608.00650][TEngineDB-V: An OLAP-Native Vector Search System for Large-$k$ Workloads at Tencent]]
+:WHAT: OLAP-система с нативной поддержкой векторного поиска для больших объемов выборки (k=10^3--10^5), использующая глобальный сегментированный индекс.
+:IMPACT: Ускорение до 145 раз по сравнению с конкурентами, устранение amplification при чтении и поддержка аналитических запросов в продакшене Tencent.
+
+- [[hxxps://arxiv.org/abs/2607.13947][PRomop: A Decision-Ready Longitudinal Patient Health Record on the OMOP Common Data Model]]
+:WHAT: Сплющенная проекция longitudinal записей пациентов поверх модели OMOP, вычисляющая состояния один раз при записи.
+:IMPACT: Ускорение скрининга критериев Eligibility в 36.8 раз за счет устранения джоинов во время выполнения запроса.
+
+- [[hxxps://arxiv.org/abs/2608.01173][Join Indices for Search Engines: a Prunable Parallel Semijoin over Lucene Segments]]
+:WHAT: Реализация join-index для Lucene/Solr, материализующаяordinal-to-ordinal связи между сегментами для параллельного семиджойна.
+:IMPACT: Снижение латентности запросов в 5.4–8.3 раза по сравнению со встроенными механизмами джойнов в Solr.
+
+- [[hxxps://arxiv.org/abs/2607.22433][VIREL: Route-Local Lattice Residual Compression for Exact and Error-Bounded Floating-Point Time Series]]
+:WHAT: Page codec для баз данных, предсказывающий остатки в координатах решетки для точного или ограниченного по ошибке сжатия.
+:IMPACT: Уменьшение объема данных на 22.4% по сравнению с лучшими baseline и ускорение сканирования в Apache TsFile.
+
+- [[hxxps://arxiv.org/abs/2608.01192][A Unified Benchmark for Privacy-preserving Vector Search]]
+:WHAT: Унифицированный бенчмарк для схем приватного векторного поиска (SAP, EMVP, BNTM, Tiptoe) с одинаковыми метриками.
+:IMPACT: Позволяет сравнивать компромиссы между приватностью и производительностью, показывая, что SAP сопоставим с Plaintext по скорости.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.29173][MERIT: Efficient In-Place Deletion for Dynamic Graph-Based Approximate Nearest Neighbor Indexes]]
+:ALGO: Фреймворк обновлений на месте для графовых индексов (HNSW/Vamana) с использованием MST для локального восстановления связности.
+:IMPACT: Удаление векторов почти за стоимость вставки, сохранение recall при накоплении удалений, важно для RAG и рекомендательных систем.
+
+- [[hxxps://arxiv.org/abs/2608.01039][Using Lower-Bound Representations for Trajectory Similarity Learning]]
+:ALGO: Фреймворк представлений нижних границ (LB-TrajRep) для схожести траекторий, независимый от нейросетевых эмбеддингов.
+:IMPACT: Улучшение точности ранжирования на 20–60% для метрик DTW и Hausdorff при совместимости с векторными пайплайнами.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2407.20754][Cost-Based Semantics for Querying Inconsistent Weighted Knowledge Bases]] — Анализ сложности запросов к неконсистентным взвешенным базам знаний с описанием логики между ELbot и ALCO.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основные новости касаются систем для обучения и инференса ML: дизагрегированные архитектуры для RL пост-тренировки (StaleFlow) и компиляция для Processing-In-Memory (DCC). Также представлены улучшения в протоколах консенсуса для блокчейна (Multimmit) и распределенном инференсе на граничных устройствах (EdgeCoInfer).
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.12784][StaleFlow: Staleness-Aware Data Management for Mitigating Data Skewness in Fully Disaggregated RL Post-Training]]
+:WHAT: Система управления данными для RL, контролирующая устаревание траекторий и сглаживающая перекос нагрузки в дизагрегированной архитектуре.
+:IMPACT: Пропускная способность выше в 1.42–2.68 раза без потери сходимости модели за счет глобального протокола консистентности.
+
+- [[hxxps://arxiv.org/abs/2511.15503][DCC: Data-Centric Compilation of Machine Learning Kernels for Processing-In-Memory Architectures]]
+:WHAT: Компилятор ML ядер для PIM, совместно оптимизирующий перестановку данных и вычисления с учетом специфики устройств.
+:IMPACT: Ускорение инференса LLM до 7.71 раз по сравнению с GPU за счет устранения узких мест перемещения данных.
+
+- [[hxxps://arxiv.org/abs/2607.17143][EdgeCoInfer: Hierarchical Collaborative Inference for On-Device Multimodal Large Models]]
+:WHAT: Фреймворк коллаборативного инференса MLLM на edge-устройствах с иерархическим разделением слоев и модулей.
+:IMPACT: Снижение потребления памяти на 53.53% и предотвращение OOM ошибок при высокой конкуренции задач.
+
+- [[hxxps://arxiv.org/abs/2607.21021][Multimmit: Extending Blocks for Faster Finality]]
+:WHAT: Протокол SMR для блокчейна с мульти-цепочечной диссеминацией данных и голосованием за префиксы предложений.
+:IMPACT: Упорядочивание транзакций за t+3δ, устойчивое к задержкам отдельных производителей блоков, с низким трафиком консенсуса.
+
+- [[hxxps://arxiv.org/abs/2608.00501][Machine-Checked Dual-Write Recovery from a Committed Log]]
+:WHAT: Машино-проверяемая теория восстановления после сбоев при двойной записи в распределенных системах (Isabelle/HOL).
+:IMPACT: Точное определение границ гарантий exactly-once доставки и условий, при которых восстановление возможно без дублирования.
+
+- [[hxxps://arxiv.org/abs/2010.05222][Partial FC: Training 10 Million Identities on a Single Machine]]
+:WHAT: Масштабируемая аппроксимация softmax для обучения распознавания лиц, активирующая подмножество негативных классов.
+:IMPACT: Обучение на 64 млн классов на 8 GPU с сохранением точности и устойчивостью к шуму в метках.
+
+- [[hxxps://arxiv.org/abs/2605.30359][Kernel Foundry: A Diagnosis-driven Evolutionary Kernel Optimizer with Multi-Experts]]
+:WHAT: Эволюционный фреймворк оптимизации GPU ядер с использованием диагностики и библиотеки опыта для LLM.
+:IMPACT: 100% корректность на сложных бенчмарках и автоматическое улучшение производительности ядер.
+
+- [[hxxps://arxiv.org/abs/2606.08852][Parallel SMT Solving via Dynamic Partitioning, Core-Guided Pruning, and Backbone Detection]]
+:WHAT: Фреймворк параллельного решения SMT с динамическим разбиением пространства поиска и pruning на основе статистики VSIDS.
+:IMPACT: Масштабируемость на многоядерных CPU, превосходящая последовательный Z3 и другие параллельные решатели.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.00495][Error-bounded Point Cloud Compression Using Truncated Octahedron Quantization]] — Компрессор облаков точек для научных данных, дающий сжатие в 3 раза лучше state-of-the-art при той же дисторсии.
+- [[hxxps://arxiv.org/abs/2607.28290][FAIR-Compute: A Roadmap for Fair and Efficient Allocation of Federated Digital Research Infrastructure]] — Исследование алгоритмического распределения ресурсов HPC в федеративной инфраструктуре.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В секции преобладают алгоритмические результаты с потенциальным применением в распределенных системах и защите данных. Выделяются работы по gossip-протоколам с маленькими сообщениями, оптимизации с субмодулярными функциями и дифференциальной приватности для статистических запросов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.14376][Fast Gossip-based Rumor Spreading using Small Messages]]
+:ALGO: Gossip-алгоритмы распространения слухов с размером сообщения polylog(n), использующие графовые скетчи.
+:IMPACT: Достигает оптимального времени распространения без тяжеловесных сообщений, применимо для MST и распределенных вычислений.
+
+- [[hxxps://arxiv.org/abs/2602.16240][Submodular Maximization under Supermodular Constraint: Greedy Guarantees]]
+:ALGO: Жадный алгоритм для максимизации субмодулярной функции с супермодулярными ограничениями стоимости.
+:IMPACT: Гарантии аппроксимации для задач выбора агентов или данных, превосходящие эвристики в симуляциях LLM.
+
+- [[hxxps://arxiv.org/abs/2607.20418][Pure-DP Statistical Query Release at the Conjectured Square-Root Rate]]
+:ALGO: Механизм чистой дифференциальной приватности для k статистических запросов с ошибкой порядка квадратного корня.
+:IMPACT: Доказательство гипотезы о верхней границе ошибки, важное для приватных систем анализа данных.
+
+- [[hxxps://arxiv.org/abs/2203.05888][Moser-Tardos Algorithm with small number of random bits]]
+:ALGO: Вариант параллельного алгоритма Moser-Tardos с константным числом случайных бит для графов с субэкспоненциальным ростом.
+:IMPACT: Детерминированный алгоритм поиска assignment за O(n), применим в задачах выполнения ограничений.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/1707.06606][Improved bounds for testing Dyck languages]] — Улучшенные границы для тестирования свойств языков Dyck в настройке property testing.
+- [[hxxps://arxiv.org/abs/2608.00203][A Subsampling Theorem for Constraint Satisfaction Problems with Large Arity]] — Теорема сэмплирования для CSP с большой арностью, применимая в интерактивных доказательствах.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования фокусируются на фундаментальных моделях роста сетей и сравнении физических подходов с машинным обучением. Значимый интерес представляют работы по предсказанию связей, обнаружению сообществ и анализу структурных ролей в исторических сетях.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.23061][Missing links prediction: comparing machine learning with physics-rooted approaches]]
+:ALGO: Сравнение методов предсказания связей на основе статистической физики (максимальная энтропия) и градиентного бустинга.
+:IMPACT: Показано, что интерпретируемые физические модели конкурентоспособны с black-box ML и быстрее в вычислениях.
+
+- [[hxxps://arxiv.org/abs/2606.04972][Non-Supervised Community Detection and Hierarchical Modularity Estimation in Complex Networks]]
+:ALGO: Метод обнаружения иерархических кластеров через центральность посредничества ребер и дендрограммы.
+:IMPACT: Позволяет оценивать модульность без обучения с учителем для фрактальных и модульных сетей.
+
+- [[hxxps://arxiv.org/abs/2608.01853][Local network growth: How simple rules drive network complexity]]
+:ALGO: Книга-монография о том, как глобальные свойства сетей возникают из локальных правил роста без глобального обзора.
+:IMPACT: Объясняет универсальность структур (интернет, белки, соцсети) через простые механизмы предпочтительного присоединения.
+
+- [[hxxps://arxiv.org/abs/2608.00534][Gendered Structural Roles in Indian Epics]]
+:ALGO: Сетевой анализ ролей персонажей в Махабхарате и Рамаяне с учетом гендерной принадлежности и связности.
+:IMPACT: Выявление структурных различий в участии сообществ и влиянии удаления узлов на целостность нарративной сети.
+
+- [[hxxps://arxiv.org/abs/2608.01929][Markov and lattice bases for Forman-Ricci curvature of graphs]]
+:ALGO: Алгебраическая теория базисов Маркова для дискретной кривизны Формана-Риччи на графах.
+:IMPACT: Инструмент для анализа локальной геометрии сетей и сэмплирования графов с заданной кривизной.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.00602][Beyond Lanes: Traffic Flow Dynamics in Disordered Conditions Based on High-Resolution Trajectory Data]] — Эмпирическое исследование трафика без полос движения с использованием данных UAV и 2D диаграмм.
+- [[hxxps://arxiv.org/abs/2608.01514][The Production of Policy Knowledge in the United States]] — Анализ сетей производства политическойKnowledge и поляризации think tanks на основе 2 млн документов.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Ключевые работы касаются безопасности и устойчивости ML систем: защита от jailbreak-атак для малых языковых моделей, стабилизация градиентов при обучении и защита от membership inference. Также представлены исследования по активному локализационному обучению с подкреплением.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2502.17055][GradientStabilizer:Fix the Norm, Not the Gradient]]
+:WHAT: Метод трансформации градиентов, стабилизирующий норму обновления параметров без слепого обрезания (clipping).
+:IMPACT: Повышение устойчивости обучения LLM и RL, расширение диапазона стабильных learning rate и снижение чувствительности к weight decay.
+
+- [[hxxps://arxiv.org/abs/2503.06519][Can Small Language Models Reliably Resist Jailbreak Attacks? A Comprehensive Evaluation]]
+:WHAT: Систематическая оценка уязвимости 59 малых языковых моделей (SLM) к 12 методам jailbreak-атак.
+:IMPACT: Выявлено, что 61% SLM имеют высокий риск взлома, что требует подхода security-by-design при развертывании на edge.
+
+- [[hxxps://arxiv.org/abs/2410.06814][Defending Membership Inference Attacks via Privacy-aware Sparsity Tuning]]
+:WHAT: Метод регуляризации L1 с адаптивными штрафами для параметров, влияющих на утечку приватности.
+:IMPACT: Улучшение баланса приватность-производительность за счет разреженности критических для атаки весов.
+
+- [[hxxps://arxiv.org/abs/2501.13084][Belief-Contraction-Driven Active Inverse Source Localization and Characterization]]
+:WHAT: Агент RL для локализации источников в динамических полях, использующий сжатие.belief как награду и критерий остановки.
+:IMPACT: Более быстрая конвергенция и точность локализации по сравнению с баслайнами планирования и RL+Bayes.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2403.14606][The Elements of Differentiable Programming]] — Книга о фундаментальных концепциях дифференцируемого программирования, оптимизации и вероятности.
+- [[hxxps://arxiv.org/abs/2407.12288][Information-Theoretic Foundations for Machine Learning]] — Теоретический фреймворк на основе байесовской статистики и теории информации для анализа ML.

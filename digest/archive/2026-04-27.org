@@ -1,0 +1,37 @@
+#+TITLE: Daily Digest: 2026-04-27
+#+FROM: [2026-04-26 Sun]
+#+TO: [2026-04-27 Mon]
+#+DATE: [2026-04-27 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Вендоры предлагают переходить к Iceberg через федерацию данных, избегая долгих миграций ETL. В Data Engineering набирает силу подход с формализованными контрактами данных для снижения затрат и зависимости между командами. Обучение Spark становится практичнее благодаря CLI- инструментам для локальной работы без интернета. Сообщество GDC анонсировало встречу TUC в波士顿, фокусируясь на технических стандартах баз данных.
+
+* 📂 Категории
+** Vendors
+- [[hxxps://www.dremio.com/blog/the-journey-from-scattered-data-to-an-apache-iceberg-lakehouse-with-governed-agentic-analytics/][The Journey from Scattered Data to an Apache Iceberg Lakehouse with Governed Agentic Analytics]] (Dremio) — предлагает поэтапную миграцию к Iceberg через федерацию запросов, позволяя получать ценность сразу без полного ETL.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (GDC) — announces free technical user community meeting in Boston co-located with VLDB, call for proposals open until May 15.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/the-journey-from-scattered-data-to-an-apache-iceberg-lakehouse-with-governed-agentic-analytics/][The Journey from Scattered Data to an Apache Iceberg Lakehouse with Governed Agentic Analytics]]
+:SCORE: 9/10
+:WHY: Практическая схема миграции lakehouse без остановки текущих процессов, критично для архитектурных решений.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность влияния на стандарты БД и networking с экспертами VLDB для senior инженеров.
+
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-267][Data Engineering Weekly #267]] (Data Engineering Weekly) — Monzo сократил costs на 40% через интерфейсы данных, а AI- агенты требуют управления контектом как системной дисциплины.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-267][Data Engineering Weekly #267]]
+:SCORE: 9/10
+:WHY: Конкретные метрики эффективности data contracts и patterns для AI- assisted development в production.
+
+** Engineers
+- [[hxxps://vutr.substack.com/p/the-fastest-way-to-learn-apache-spark][The fastest way to learn Apache Spark]] (vutr.substack) — CLI tool allows running and verifying Spark code locally without internet, accelerating internals mastery through 32 exercises.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/the-fastest-way-to-learn-apache-spark][The fastest way to learn Apache Spark]]
+:SCORE: 8/10
+:WHY: Инструмент для глубокого понимания internals Spark без overhead cloud environments, useful for optimization tasks.

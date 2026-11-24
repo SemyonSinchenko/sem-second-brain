@@ -1,0 +1,196 @@
+#+TITLE: Arxiv Digest: 2026-11-18
+#+FROM: [2026-11-17 Tue]
+#+TO: [2026-11-18 Wed]
+#+DATE: [2026-11-18 Wed]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+
+** 🧐 Обзор
+За последние сутки cs.DB прошёл под знаком векторного поиска: представлены два графовых индекса — SIMQ для multi-vector (ColBERT-стиль) поиска и Pelorus для гиперболических эмбеддингов, причём SIMQ уже интегрирован в открытую библиотеку VSAG от Ant Group. Зреет «критическая» инфраструктура качества: AuxBench показывает, что изолированные бенчмарки индексов плохо предсказывают поведение в реальных приложениях, а Errpedia фиксирует математически неверные результаты «точного» k-NN во всех 20 проверенных системах. Практически значим и тренд LLM↔БД: DisGuAD улучшает интерактивный text-to-SQL, MoL-SQL стандартизирует мультиязычные запросы, а Readie снижает задержку кодовых песочниц для агентов.
+
+** 🛠 Практика и Системы
+
+- [[https://arxiv.org/abs/2611.21645][Asking What Matters: Disagreement-Guided Ambiguity Detection for Interactive Text-to-SQL]]
+:WHAT: Фреймворк DisGuAD: выбирает, что уточнить у пользователя, оценивая расхождения между правдоподобными интерпретациями SQL и атрибутируя повторяющиеся различия к пользовательским clarification-целям с приоритизацией по влиянию на итоговый запрос.
+:IMPACT: Прибавка 4.40–8.97 Reward на BIRD-Interact и покрытие до 85% критических двусмысленностей; clarification-сигналы улучшают и «статические» text-to-SQL фреймворки (до +13.97), не трогая их SQL-генераторы — готовая надстройка для LLM-агентов поверх БД.
+
+- [[https://arxiv.org/abs/2611.21835][Revisiting Index Performance under High Cache-Miss Penalties]]
+:WHAT: AuxBench — микробенчмарк, оценивающий байтоадресуемые индексы (DCPMM/CXL) как вспомогательные пути доступа внутри полноценных рабочих нагрузок с пост-lookup активностью, конкуренцией за кэш и меняющимся приходом запросов.
+:IMPACT: Относительный рейтинг индексов меняется при добавлении «полезной» работы приложения, а конкурентно-ориентированные дизайны теряют преимущества — индекс-оnly бенчмарки ненадёжно предсказывают прод-поведение.
+
+- [[https://arxiv.org/abs/2611.22171][Readie: Low-Latency Code Sandboxes for AI Agents]]
+:WHAT: Система песочниц с набором обученных startup-снапшотов: покрытие агентного кода набором компактных снапшотов формулируется как оптимизационная задача и решается приближённым алгоритмом на 15K скриптов.
+:IMPACT: Старт песочницы быстрее в 3–22× и end-to-end выполнение агентного кода в 1.3–3.3× при том же бюджете хранения — прямой выигрыш для пайплайнов «генерация→исполнение».
+
+- [[https://arxiv.org/abs/2611.22485][Growing Clusters Lower the Bar: Profile Accretion in LLM-Based Incremental Entity Resolution]]
+:WHAT: Эмпирический анализ LLM-матчеров в инкрементальном entity resolution: порог принятия записи падает с ростом кластера (false match rate растёт у всех шести открытых моделей при 16 членах против одного) плюс простая коррекция порога онлайн.
+:IMPACT: Практическое правило для ER-пайплайнов с LLM: калибровка порога с учётом размера кластера заметно поднимает recall без потери precision и лишних LLM-вызовов; учтён и каскадный эффект — один ложный merge повышает приём последующих записей «интрудера».
+
+** 🕸 Графы и Алгоритмы
+
+- [[https://arxiv.org/abs/2611.22079][SIMQ: A Single Graph-based Index for Multi-Vector Query]]
+:WHAT: Единый графовый индекс над кластероидами токен-векторов: data-aware сэмплинг-кластеризация плюс навигация по графу на уровне токенов аппроксимирует MaxSim без материализации матрицы взаимодействия и без GPU; теоретически доказана меньшая ошибка аппроксимации data-aware разбиения против data-oblivious.
+:IMPACT: Снимает бутылочные горлышки PLAID-подобных систем multi-vector поиска (полная матрица на запрос, GPU-кластеризация, нестабильный recall); код уже влита в open-source векторную библиотеку VSAG.
+
+- [[https://arxiv.org/abs/2611.22159][Pelorus: Warped-Product Graph Indexing for Hyperbolic Vector Search]]
+:WHAT: Proximity-граф для гиперболических эмбеддингов: несжатые FP32 радиусы/конформные масштабы отделены от 2-битных сферических кодов направлений, с tangent-cone residuals, Conformal Jacobian gating и AVX2-траверсом на одностраничной раскладке записей.
+:IMPACT: На Cohere-1M — 4.30× (1 поток) и 6.31× (24 потока) прирост QPS при 99% Recall@10 и построение индекса в 5.44× быстрее полноточных полярных графов; на узких кластеризованных оболочках recall поднимается с 34% до 99% — практичный ANNS для иерархических данных.
+
+** 📄 Остальное
+
+- [[https://arxiv.org/abs/2603.05542][Human-Data Interaction, Exploration, and Visualization Systems in the AI Era: Challenges and Opportunities]] — обзорная статья о вызовах интерактивного анализа данных в эпоху LLM/VLM: латентность, масштабируемость, недостоверность AI-инсайтов и пересмотр ролей человека и машины.
+
+- [[https://arxiv.org/abs/2611.21914][A Temporal Algebraic Framework for Data Stream Evaluation Under Delayed Labels and Distribution Shifts]] — алгебраическая основа оценки потоков с запаздывающими метками и дрейфом (маски наблюдения, разделение prior shift и concept drift); 25 утверждений проверены в Lean 4, код в aggmetrics.
+
+- [[https://arxiv.org/abs/2611.22333][MoL-SQL: A Controlled Benchmark for Mixture-of-Language Text-to-SQL]] — бенчмарк, независимо переключающий язык вопроса, схемы и значений: хранение значений на «чужом» языке стоит до 23 пунктов, и лечится доступом к значениям целевой БД, а не переводом вопроса.
+
+- [[https://arxiv.org/abs/2611.22474][Errpedia: Is Your Exact k-NN Vector Search Really Exact?]] — датасет из 1616 запросов в 21 категории ошибок с ground truth через точную рациональную арифметику: все 20 проверенных конфигураций библиотек и СУБД вернули математически неверный top-10 хотя бы на одном запросе.
+
+* cs.AI — Искусственный интеллект
+
+** 🧐 Обзор
+В cs.AI за сутки заметен сдвиг от архитектур к воспроизводимости и «доверию»: обновлены тулкиты quanda (оценка training data attribution) и NS-Gym (симуляция нестационарных MDP), а также системная критика plausibility как критерия XAI. На стыке с данными ключевая новость — SPECTRUM: линейный по размеру данных майнинг логических правил с формальными гарантиями, обгоняющий нейросетевые методы на порядки. LLM-симуляции людей показывают, что обогащение промптов self-report данными заметно сокращает статистические искажения, но не устраняет их полностью.
+
+** 🛠 Практика и Системы
+
+- [[https://arxiv.org/abs/2409.16238][Linear-time Rule Mining Under Formal Guarantees]]
+:WHAT: SPECTRUM — фреймворк линейного по данным обучения логических теорий: вводится линейно вычислимая «utility» правила (precision/recall для правил), майнятся повторяющиеся паттерны и доказываются гарантии качества итоговой теории.
+:IMPACT: Масштабируется на реляционные БД с на порядки большим числом связей/сущностей и учит более точные теории на CPU за <1% рантайма GPU-нейросетевых аналогов — практичный выбор для neurosymbolic пайплайнов на больших данных.
+
+** 📄 Остальное
+
+- [[https://arxiv.org/abs/1702.07189][Analyzing Learned Convnet Features with Dirichlet Process Gaussian Mixture Models]] — кластеризация внутренних представлений ConvNet через DP-GMM для визуализации и анализа transfer learning.
+
+- [[https://arxiv.org/abs/2106.14186][An XAI Approach to Deep Learning Models in the Detection of DCIS]] — proof-of-concept применения XAI к обнаружению протоканцеромы DCIS как отправная точка для клинического внедрения ассистивного AI.
+
+- [[https://arxiv.org/abs/2303.17707][Stop Using Plausibility as the Criterion for Explainable AI]] — аргументированная критика plausibility как критерия XAI: это эквивалентно «подкупу аудитора» на положительные отчёты вместо выявления проблем.
+
+- [[https://arxiv.org/abs/2304.04308][Ensemble Modeling for Time Series Forecasting: an Adaptive Robust Optimization Approach]] — ансамбли прогнозов с весами, адаптируемыми через ARO: −16–26% RMSE против лучшего участника на реальных задачах энергетики и метеорологии.
+
+- [[https://arxiv.org/abs/2312.10181][Integrating Fairness and Model Pruning Through Bi-level Optimization]] — fair pruning как задача bi-level оптимизации: сохраняет точность и справедливость при >94% экономии итераций обучения.
+
+- [[https://arxiv.org/abs/2406.05364][Could Mobile AI be Exploited?: Understanding the Exploitations of Trust and Ethics Gap in On-Device Small Language Models]] — систематический аудит on-device SLM: они заметно слабее облачных по этическим фильтрам и отвечают на небезопасные «ванильные» промпты без джейлбрейка.
+
+- [[https://arxiv.org/abs/2410.07158][quanda: An Interpretability Toolkit for Training Data Attribution Evaluation]] — Python-тулкит, стандартизирующий оценку TDA-методов: метрики, готовые бенчмарки и единый интерфейс (открытый код на PyPI).
+
+- [[https://arxiv.org/abs/2411.10109][AI Simulations Grounded in Rich Self-Reports Increase Accuracy and Reduce Distortion]] — AI-симуляции людей на self-report данных: 72.8% точности против 60.4% у демографических промптов и закрытие ~53.5% искажений на уровне выборки.
+
+- [[https://arxiv.org/abs/2501.09646][NS-Gym: A Comprehensive and Open-Source Simulation Framework for Non-Stationary Markov Decision Processes]] — первый стандартизированный тулкит нестационарных MDP на базе Gymnasium с модульным разделением динамики среды и агента и бенчмарками.
+
+* physics.soc-ph — Социальная физика и сети
+
+** 🧐 Обзор
+Сутки прошли под знаком сетевых моделей динамики и устойчивости: новая теория переходных сигналов в гетерогенных сетях через резольвенты и направленные маршруты и перколация кратчайших путей для оценки робастности топологии квантового интернета. Продолжают зреть модели коллективного поведения: эрозия навыков делает массовое принятие AI бистабильным и трудно обратимым, а мультигрупповые Curie-Weiss-модели получают практичный асимптотический оценщик для анализа голосования. Прикладная веха — расчёт «видов на море» для 158 тыс. зданий по открытым кадастровым данным за час на двух ядрах.
+
+** 🕸 Графы и Алгоритмы
+
+- [[https://arxiv.org/abs/2510.19481][Transient Signal Propagation in Heterogeneous Networks under Various Inputs]]
+:WHAT: Теория узловой реакции конечных гетерогенных сетей на импульсные, стационарные и стохастические входы: канонический набор усилений и таймскейлов выражается через матричные резольвенты, спектры и направленные маршруты, с пертурбативными критериями выхода за положительный режим.
+:IMPACT: Механистическая основа для анализа влияния структуры направленного графа (включая возбуждающе-тормозной баланс) на времена отклика узлов — полезный аппарат сетевого анализа, продемонстрированный на кортикальной модели Wilson–Cowan.
+
+- [[https://arxiv.org/abs/2611.21855][Shortest-path percolation and structural robustness of quantum internet networks]]
+:WHAT: Перколация кратчайших путей как модель деградации пространственных сетей квантового интернета при «расходовании» запутанных связей; MC-сэмплирование распределения длин путей даёт эквивалентную «стоимость пути» — конечный bounds, воспроизводящий unrestricted-режим.
+:IMPACT: Показывает, когда ограничение длины пути безопасно (эквивалентная стоимость растёт как √n при фиксированной средней степени) — готовый инструмент оценки робастности коммуникационных графов без лишних вычислений.
+
+** 📄 Остальное
+
+- [[https://arxiv.org/abs/2601.07142][Exploration stabilizes learning dynamics and promotes cooperation in stochastic games]] — аналитика энтропийно-регуляризованного actor-critic: исследование подавляет хаос обучения и расширяет бассейн кооперативного равновесия в дилемме заключённого с фидбеком среды.
+
+- [[https://arxiv.org/abs/2607.21662][Reconstructing the Probability Measure of a Multi-group Curie-Weiss Model with Interacting Groups]] — асимптотический оценщик параметров сплочённости мультигрупповой mean-field модели по выборкам голосования, пригодный для политологии и агрегации предпочтений.
+
+- [[https://arxiv.org/abs/2611.04886][Skill erosion, individual memory and the reversibility of AI adoption]] — модель популяции с эрозией навыков: принятие AI бистабильно, а временный рост выгоды (низкие цены) оставляет популяцию на AI — история-зависимая стоимость переключения.
+
+- [[https://arxiv.org/abs/2611.08956][A Jump-Diffusion Model of Home Price Dynamics and Neighborhood Change]] — jump-diffusion SDE для цен домов с параметрами по времени и району, уравнение Fokker–Planck для распределения и сравнение районов через Wasserstein-2; валидация на Бостоне.
+
+- [[https://arxiv.org/abs/2611.19957][On the richness of metamaterials generated by recursive cell division]] — характеризация шести правил рекурсивного деления ячеек через три сетевых отображения (cell tree, dual graph, frame graph) и упруго-волновые свойства.
+
+- [[https://arxiv.org/abs/2611.21656][Cycles of Arbitrary Period in Multidimensional Heterogeneous Hegselmann-Krause Dynamics]] — доказано: в multidimensional opinion dynamics HK при d≥3 и нормах q≠2 существуют периодические траектории любого периода m≥2 уже для пяти агентов, а при ≤4 агентах периодичности нет.
+
+- [[https://arxiv.org/abs/2611.21672][Who sees the sea? Sea-view potential by facade and floor from cadastral LoD1 models on the Costa del Sol]] — открытый пайплайн оценки «вида на море» для фасадов 158 060 зданий за <1 часа на двух ядрах; AUC 0.80 против фотообъявлений.
+
+- [[https://arxiv.org/abs/2611.21687][Different Stories: European Astronomy as a Tool of Colonization in the Americas and Hawai'i]] — гуманитарный разбор роли астрономических инструментов и знаний (хронометр, квадрант, Nautical Almanac, Maunakea) в колониальной экспансии.
+
+* cs.DS — Структуры данных и алгоритмы
+
+** 🧐 Обзор
+Сутки в cs.DS — про структуры и алгоритмы с доказуемыми гарантиями, доведённые до промышленного масштаба: PHastR строит минимальные совершенные хэши за 1.94 бита/ключ и хэширует триллион ключей за 9.3 часа на одной машине. Зреет и понимание вычислительной сложности экономико-сетевых задач: приближённые равновесия в сетях Бертрана и коррелированные равновесия polytope-игр доказанно PPAD-сложны. Для графовиков — универсальный EPTAS через single-vertex Metropolis на графах без фиксированного минора и сдвиг competitive ratio онлайн-задачи о ремонтниках с 4 до 3.877.
+
+** 🛠 Практика и Системы
+
+- [[https://arxiv.org/abs/2602.11476][Bounded Local Generator Classes for Deterministic State Evolution]]
+:WHAT: Формальная модель ограниченного локального состояния (BLGC) и рабочий persistent-state движок OPAL с инкрементальным receipt-индексированием, проверенный на контролируемом прод-переходе: байт-идентичные чекпоинты, восстановление после сбоя, 18 прошедших correctness-gates процессов масштабирования.
+:IMPACT: Инкрементальный путь держит P50 ~0.083 мкс на resident-update и 4.5–6.5 мкс на receipt-event против ~180 мс у оригинального пути при миллионе узлов — измеренный рецепт durable state для систем с persistent memory.
+
+** 🕸 Графы и Алгоритмы
+
+- [[https://arxiv.org/abs/2610.17833][PHastR: Faster Minimal Perfect Hashing with Rotated Layouts]]
+:WHAT: Минимальная совершенная хэш-функция с повёрнутой раскладкой: 1.94 бита/ключ, построение за 37% времени PHast+, запросы на 34% быстрее на 10^9 ключей и практическая неуязвимость к self-collisions.
+:IMPACT: Строит MPHF на триллионе ключей за 9.3 часа на одной машине и лучше масштабируется по потокам — готовый строительный блок для статических хэш-таблиц, фильтров и сжатых индексов.
+
+- [[https://arxiv.org/abs/2611.22023][Single-Vertex Metropolis on Minor-Free Graphs: A General EPTAS]]
+:WHAT: Доказано, что простой single-vertex Metropolis-процесс даёт эффективную PTAS для широкого класса задач о максимальном индуцированном подграфе (MIS, индуцированный лес, индуцированный двудольный подграф и др.) на графах без фиксированного минора H.
+:IMPACT: Единый локальный алгоритм с гарантией (1−ε)-аппроксимации за exp(O_H(ε^{-2}))·n(n+log(1/δ)) шагов — универсальная замена специализированным аппроксиматорам на minor-free графах, типичных для реальных сетевых данных.
+
+- [[https://arxiv.org/abs/2611.21943][Beyond 4: Improved Competitive Traveling Repairperson]]
+:WHAT: Детерминированный 3.877-конкурентный алгоритм для онлайн traveling repairperson на произвольной метрике (и 3+ε для zero-residual-случаев), улучшающий давний барьер 4.
+:IMPACT: Результаты расширяются на варианты online dial-a-ride — базовые модели диспетчеризации запросов и задач с прибытием в реальном времени.
+
+- [[https://arxiv.org/abs/2507.14812][A Black-Box Approach for Exogenous Replenishment in Online Resource Allocation]]
+:WHAT: Чёрно-ящиковая обёртка, превращающая любой онлайн-алгоритм распределения ресурсов в устойчивый к произвольному (враждебному или стохастическому) пополнению инвентаря, с сохранением competitive ratio при больших начальных запасах.
+:IMPACT: Позволяет переиспользовать огромный корпус известных результатов online allocation в сценариях ad allocation, кэшей и запасов, где ресурсы пополняются во времени.
+
+** 📄 Остальное
+
+- [[https://arxiv.org/abs/2609.17650][Tight Lower Bounds for Differentially Private Continual Counting]] — асимптотически точные нижние оценки сразу по трём метрикам ошибки, устанавливающие оптимальность (blocked) Binary Tree Mechanism.
+
+- [[https://arxiv.org/abs/2610.28141][Fixed Sets and the Hardness of Computing Correlated Equilibria]] — вычисление приближённого коррелированного равновесия в polytope-играх PPAD-полно и, значит, полиномиально эквивалентно поиску равновесия Нэша.
+
+- [[https://arxiv.org/abs/2611.22216][Settling the Time and Structural Complexity of Bertrand Networks]] — PPAD-полнота приближённых равновесий в сетевой игре Бертрана даже на разреженных двудольных графах степени 5 + EPTAS при ограниченной степени; структурная сложность равновесий Θ(2^n) и точный алгоритм с двойной экспонентой.
+
+- [[https://arxiv.org/abs/2611.22303][A faster algorithm for commutator length in free groups]] — детерминированный алгоритм O(M^{3g}) для проверки cl(w)≤g и декомпозиции на коммутаторы в свободных группах.
+
+- [[https://arxiv.org/abs/2611.22352][Fair Bubble Sort: Provably Optimal Fair Ranking with Continuous Sensitive Attributes]] — пост-обработка рейтингов целевыми соседними свопами: точно оптимален по Кемени-дистанции при заданной парной паритетности (BPP) по непрерывному признаку, без дискретизации атрибутов.
+
+* cs.DC — Распределённые вычисления
+
+** 🧐 Обзор
+Главный мотив суток — инфраструктура LLM: JigSLO совмещает prefill/decode-инстансы на общих GPU с аналитической моделью контеншена полосы памяти, AInfer-PD мультиплексирует фазы в распределённых MoE-rollout'ах, а Flux планирует оптические коммутаторы с учётом таймлайна вычислений. Второй пласт — edge-to-datacenter: пер-сенсорная MAC-изоляция в O-RAN (SLED) и кластерный сбор энергетических метрик на 1 Гц в проде. На классической стороне Angelfish предлагает гибридный BFT-консенсус, плавающий между leader-based и DAG-архитектурами, а разбор lazy-pulling кэшей в Kubernetes закрывает класс тихих отказов model-serving.
+
+** 🛠 Практика и Системы
+
+- [[https://arxiv.org/abs/2509.06261][JigSLO: Solving the Resource Puzzle for Efficient Multi-LLM Serving]]
+:WHAT: Контеншен-aware система мульти-LLM-сервинга: time-shared модель задержки при разделении полосы памяти между co-located инстансами + совместный выбор tensor parallelism, compute share и батчевой конфигурации; общий менеджер шарит веса и пулит KV-кэш между prefill/decode.
+:IMPACT: +2.3× по SLO attainment и +1.2× по throughput против SOTA, тот же attainment на вдвое меньшем числе GPU для long-context — прямой выигрыш в стоимости GPU-кластеров.
+
+- [[https://arxiv.org/abs/2509.15847][Angelfish: Leader, DAG, or Anywhere in Between]]
+:WHAT: Гибридный BFT-консенсус: динамически подстраиваемое подмножество узлов шлёт лёгкие best-effort-голоса вместо дорогих DAG-вершин, плавно скользя по спектру «leader-based ↔ DAG (Sailfish)».
+:IMPACT: Держит SOTA-пиковую пропускную способность DAG-протоколов, но радикально снижает latency при умеренной нагрузке — типичном режиме боевых блокчейн-систем.
+
+- [[https://arxiv.org/abs/2609.00993][AInfer-PD: Communication-Safe In-Place Prefill-Decode Multiplexing for Distributed MoE Rollouts]]
+:WHAT: Безопасное in-place мультиплексирование prefill/decode для распределённых MoE: rank-согласованный порядок коллективов на безопасных границах и раздельные буферы/состояние протокола внутри одного DeepEP-рантайма (normal path для P, low-latency для D).
+:IMPACT: Сокращает время завершения rollout'ов агентного RL на 24.8–32.9% против SGLang (один узел) при общем KV-хранилище и весах — ключевой механизм для асинхронных multi-turn RL.
+
+- [[https://arxiv.org/abs/2609.25949][Flux: Optimal Scheduling of Optical Circuit Switches for LLM Training]]
+:WHAT: Планировщик OCS, строящий расписание коммутаторов по структуре всей рабочей нагрузки: переиспользование схем и амортизация reconfiguration delay за вычислениями и коммуникациями.
+:IMPACT: До 10× короче итерация обучения и на 3+ порядка меньше пиковые NIC-буферы против традиционных периодических планировщиков.
+
+- [[https://arxiv.org/abs/2611.11739][Why Kubernetes Cannot Contain a Full Lazy-Pulling Cache: Two Impossibility Results and a Bounded, Honest Design for Model Serving]]
+:WHAT: Два экспериментально доказанных результата невозможности для нод-левел кэша lazy-pulling в K8s (готовность «зелёная» при 272 из 280 нечитаемых файлах; 0 байт освобождения image GC) + bounded-дизайн: байтовый бюджет по «файловой правде» и pass-through семантика сбоев записи.
+:IMPACT: Лечит тихие отказы чтения моделей (273 из 280 файлов у stargz-snapshotter при 90% заполнении кэша): предложенная система читает все 150.3 ГБ с нулём ошибок при +18.5% стоимости; реализация открыта и предложена апстриму (проблема обобщается на SOCI и Nydus).
+
+- [[https://arxiv.org/abs/2611.19669][IA-MoE: An Intensity-Aware Mixture of Experts for DNN Inference]]
+:WHAT: Интенсивность-aware MoE-фреймворк для edge-cloud инференса: послойное размещение на VM по score задержки/энергии, обученное на остаточном времени запроса (снимает миопию пер-слойных меток).
+:IMPACT: −12–56% средней задержки на перегруженных workload'ах и минимальная задержка среди всех методов при полосе 150–600 Мбит/с и колебаниях; обходит DQN-агента в 19/19 сценариях и обучается за минуты.
+
+- [[https://arxiv.org/abs/2611.21937][SLED: Sensor SLicing from Edge to Datacenter]]
+:WHAT: Пер-сенсорная MAC-изоляция (Sensor Slicing) внутри одного UE в O-RAN и сквозной фреймворк SLED для изоляции радиосети и транспорта от датчиков до HPC-тира; реализация через agentic coding (2 ч 40 мин вместо 6.5 недель).
+:IMPACT: Под высокой нагрузкой обычный network slicing увеличивает задержку критичной телеметрии более чем в 2300 раз, SLED держит её стабильной; код и датасеты открыты.
+
+** 📄 Остальное
+
+- [[https://arxiv.org/abs/2611.03181][Multi-GPU Acceleration of Interface Problems in FEniCS, with Application to Cardiac Modeling]] — GPU-сборка смешанноразмерных интерфейсных задач в cuDOLFINx: один узел GH200 ≈ двум 144-ядерным CPU-узлам по сборке; открытый код.
+
+- [[https://arxiv.org/abs/2611.06374][Corralling AI Risks with Grassroots Contracts]] — предложение «низовых» контрактов и платформ, управляемых участниками, для подотчётности AI-агентов и подписного провенанса контента; есть работающие смартфон-приложения.
+
+- [[https://arxiv.org/abs/2611.22160][Collecting Infrastructure-Level Measures for Energy Analysis in Modern Computing Infrastructures]] — конвейер синхронного сбора 1 Гц метрик со всего кластера (HPC, Kubernetes, distributed storage) за месяц в проде; кейсы distributed I/O и LLM-инференс показывают динамику, невидимую локальной инструментировке.

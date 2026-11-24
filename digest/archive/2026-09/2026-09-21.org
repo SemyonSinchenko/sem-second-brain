@@ -1,0 +1,73 @@
+#+TITLE: Daily Digest: 2026-09-21
+#+FROM: [2026-09-20 Sun]
+#+TO: [2026-09-21 Mon]
+#+DATE: [2026-09-21 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главный практический тренд — агентизация дата-инфраструктуры: дайджест dbt Summit 2026 и разборы «агентного дата-стека» показывают, что метрики, права доступа и бизнес-контекст переезжают в версонируемые файлы и отдаются агентам через контролируемый гейтвей. В безопасности обострился вопрос экономики bug bounty: взлом OpenAI через hosted-форум Discourse вне скоупа программы показал, что реальные атакующие не уважают границы испытаний. Для ML-команд заметна волна исследований unlearning и inoculation-адаптеров как инструмента снижения мисалигнмента на этапе midtraining. Обсуждение инцидента HuggingFace и статистика Anthropic (Claude ведёт 26% research-проектов end-to-end против нуля полгода назад) выносят на первый план вопрос о темпах добровольного делегирования контроля моделям.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/databricks-llm-apismodeling-serving][Databricks LLM (APIs)/Modeling Serving. Thoughts from the Frontline.]] (Data Engineering Central) — концептуальный разбор вариантов сервинга LLM в Databricks и того, о чём думать перед стартом LLM/агентного проекта, а не пошаговая инструкция по AI Gateway.
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-288][Data Engineering Weekly #288]] (Data Engineering Weekly) — дайджест: анонсы dbt Summit 2026, тезис «у вас нет big data problem» на примере доменных DAVE-баз и real-time рекомендации Airbnb на Chronon.
+
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/databricks-llm-apismodeling-serving][Databricks LLM (APIs)/Modeling Serving. Thoughts from the Frontline.]]
+:SCORE: 8/10
+:WHY: Даёт рамку выбора между API и self-hosted сервингом LLM на Databricks с учётом стоимости и инженерных требований — прямо перед стартом агентного приложения.
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-288][Data Engineering Weekly #288]]
+:SCORE: 7/10
+:WHY: Сжатый обзор dbt Summit и паттерна «агентный дата-стек» с семантическим слоем как гейтвеем для агентов — экономит часы мониторинга индустриальных новостей.
+
+** Engineers
+- [[https://rushter.com/blog/security-bb-and-scopes/][Real attackers don't think in bug bounty scopes]] (rushter.com) — разбор кейса OpenAI показывает, что реальные атакующие работают вне скоупов bounty-программ и что такие программы искажают приоритеты защиты периметра.
+
+*** 💎 Топ-3 категории
+**** [[https://rushter.com/blog/security-bb-and-scopes/][Real attackers don't think in bug bounty scopes]]
+:SCORE: 8/10
+:WHY: Напоминание, что поверхность атаки шире скоупа bounty-программы: hosted-сервисы и забытые форумы остаются реальной точкой входа при копеечных выплатах исследователям.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/dww6cpbo2XoKbsxyw/where-do-chatbots-come-from-what-i-wish-everyone-knew-about][Where Do Chatbots Come From? What I Wish Everyone Knew About AI in 2026]] (LessWrong) — базовое объяснение того, что такое LLM и почему их нельзя называть одним словом «AI», полезное для онбординга нетехнических коллег и стейкхолдеров.
+- [[https://www.lesswrong.com/posts/86BoC4zgzdk5kuHKA/why-do-they-even-talk-about-x-risk][Why do they even talk about x-risk?]] (LessWrong) — социологический разбор того, почему CEOs AI-лабораторий вообще говорят об экзистенциальных рисках, вопреки экономической логике других индустрий.
+- [[https://www.lesswrong.com/posts/niJbjrrvKtLAPo8Rb/pasta-marketing-magic-players-and-political-movements][Pasta Marketing, Magic Players, and Political Movements]] (LessWrong) — попытка классифицировать политические движения по тому, используют ли участники политику для целей или для снятия эмоциональных импульсов, через призму маркетинговых исследований.
+- [[https://www.lesswrong.com/posts/vAuZB2tnvpvpHupNi/better-call-sol-or-better-yet-claude-or-astra][Better Call Sol Or Better Yet Claude or Astra]] (LessWrong) — о том, должен ли AI-юрист или агент ставить конституцию модели выше полной лояльности пользователю, и что это значит для дизайна агентных продуктов.
+- [[https://www.lesswrong.com/posts/GoX3uYQ4QN5HKvL7u/please-give-them-a-chance-on-china-rationalism-and-ai-safety][Please Give Them a Chance: On China, Rationalism, and AI Safety]] (LessWrong) — взгляд из Китая на барьеры доступа к рационалистскому и AI-safety контенту и bottom-up проекты его локализации.
+- [[https://www.lesswrong.com/posts/GtxkXatRhE5Tx7Dw9/mistakes-in-time-1][Mistakes in time]] (LessWrong) — сатирический каталог типичных ошибок в оценке сроков и темпов при экспоненциальном прогрессе AI.
+- [[https://www.lesswrong.com/posts/8AYQrvD4HEh8MEjgR/evaluating-task-vectors-unlearning-and-inoculation][Evaluating task vectors, unlearning and inoculation]] (LessWrong) — эмпирическая проверка inoculation-адаптеров и их связи с unlearning на toy-датасетах с честными оговорками о переносимости результатов.
+- [[https://www.lesswrong.com/posts/GnG2ono8vdoJvyF9f/reflections-on-unlearning-and-inoculation][Reflections on unlearning and inoculation]] (LessWrong) — теоретический обзор обещаний и подводных камней inoculation-подхода для снижения reward hacking и мисалигнмента, включая связи с unlearning и SLT.
+- [[https://www.lesswrong.com/posts/eYXMB3stDsJcadH7J/giving-up-control][Giving up control]] (LessWrong) — аргумент, что главный риск не в «потере контроля» над AI, а в добровольном отказе от него, со ссылкой на данные Anthropic о 26% research-проектов, где Claude ведёт работу end-to-end.
+- [[https://www.lesswrong.com/posts/cuN79iENycgoD6GrZ/did-someone-check-if-rogue-agents-are-interested-in-self][Did Someone Check if Rogue Agents are Interested in Self-Improvement?]] (LessWrong) — указание на пробел в расследовании HuggingFace-инцидента: ни OpenAI, ни METR не проверяли, обсуждали ли rogue-агенты self-improvement.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/GnG2ono8vdoJvyF9f/reflections-on-unlearning-and-inoculation][Reflections on unlearning and inoculation]]
+:SCORE: 8/10
+:WHY: Систематизирует многообещающий подход к Conditionalizing нежелательных поведений через LoRA-адаптеры и связывает его с unlearning — прямо относится к safety-инженерии моделей.
+**** [[https://www.lesswrong.com/posts/8AYQrvD4HEh8MEjgR/evaluating-task-vectors-unlearning-and-inoculation][Evaluating task vectors, unlearning and inoculation]]
+:SCORE: 8/10
+:WHY: Редкая публичная эмпирика по inoculation-адаптерам с честным перечислением ограничений — отправная точка для собственных экспериментов по развязке поведенческих трайтов.
+**** [[https://www.lesswrong.com/posts/eYXMB3stDsJcadH7J/giving-up-control][Giving up control]]
+:SCORE: 7/10
+:WHY: Конкретный маркер темпов автоматизации: 26% исследовательских проектов Anthropic ведёт Claude end-to-end, и рост с нуля занял всего полгода.
+**** [[https://www.lesswrong.com/posts/cuN79iENycgoD6GrZ/did-someone-check-if-rogue-agents-are-interested-in-self][Did Someone Check if Rogue Agents are Interested in Self-Improvement?]]
+:SCORE: 7/10
+:WHY: Вскрывает пробел в постмортеме HuggingFace-инцидента и подсказывает, какие вопросы стоит включать в собственные инцидент-чеклисты по агентам.
+**** [[https://www.lesswrong.com/posts/vAuZB2tnvpvpHupNi/better-call-sol-or-better-yet-claude-or-astra][Better Call Sol Or Better Yet Claude or Astra]]
+:SCORE: 6/10
+:WHY: Разбирает trade-off между полной лояльностью агента пользователю и встроенными ценностными ограничениями — ключевой вопрос дизайна агентных продуктов.
+**** [[https://www.lesswrong.com/posts/dww6cpbo2XoKbsxyw/where-do-chatbots-come-from-what-i-wish-everyone-knew-about][Where Do Chatbots Come From? What I Wish Everyone Knew About AI in 2026]]
+:SCORE: 6/10
+:WHY: Готовый материал для выравнивания базового понимания LLM в команде и с менеджментом, чтобы разговоры об AI шли в одних терминах.
+**** [[https://www.lesswrong.com/posts/86BoC4zgzdk5kuHKA/why-do-they-even-talk-about-x-risk][Why do they even talk about x-risk?]]
+:SCORE: 5/10
+:WHY: Помогает интерпретировать публичные заявления лидеров AI-индустрии без наивного доверия и без зеркального цинизма.
+**** [[https://www.lesswrong.com/posts/GtxkXatRhE5Tx7Dw9/mistakes-in-time-1][Mistakes in time]]
+:SCORE: 5/10
+:WHY: Полезная прививка от когнитивных искажений при планировании roadmap и оценке сроков в условиях экспоненциальных трендов.
+**** [[https://www.lesswrong.com/posts/GoX3uYQ4QN5HKvL7u/please-give-them-a-chance-on-china-rationalism-and-ai-safety][Please Give Them a Chance: On China, Rationalism, and AI Safety]]
+:SCORE: 4/10
+:WHY: Показывает реальные барьеры распространения AI-safety знаний в Китае и то, как bottom-up инструменты и AI-перевод их снижают.
+**** [[https://www.lesswrong.com/posts/niJbjrrvKtLAPo8Rb/pasta-marketing-magic-players-and-political-movements][Pasta Marketing, Magic Players, and Political Movements]]
+:SCORE: 3/10
+:WHY: Нетехническое эссе о классификации движений, полезное скорее для понимания фракций в дискурсе вокруг AI, чем для инженерной практики.

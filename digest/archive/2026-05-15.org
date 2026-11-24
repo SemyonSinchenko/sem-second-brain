@@ -1,0 +1,87 @@
+#+TITLE: Daily Digest: 2026-05-15
+#+FROM: [2026-05-14 Thu]
+#+TO: [2026-05-15 Fri]
+#+DATE: [2026-05-15 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+AWS анонсировала ключевые обновления инфраструктуры: CDC для Aurora DSQL, упрощенное обновление RDS MySQL и кросс-аккаунтный доступ в Athena для устранения изоляции данных. Фокус смещается на автономных агентов: от голосовых интерфейсов с низкой задержкой до контроля браузеров через политики Chrome в Bedrock. Инженеры данных исследуют синтетические данные и новые роли (FDE), чтобы справиться с ростом сложности систем и требованиями к приватности.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/5-small-language-models-for-agentic-tool-calling][5 Small Language Models for Agentic Tool Calling]] (kdnuggets.com) — Обзор компактных моделей с открытыми весами, поддерживающих структурированные вызовы инструментов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/real-time-voice-agents-with-stream-vision-agents-and-amazon-nova-2-sonic/][Real-time voice agents with Stream Vision Agents and Amazon Nova 2 Sonic]] (aws.amazon.com) — Архитектура голосовых агентов с низкой задержкой на базе Nova 2 Sonic.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/control-where-your-ai-agents-can-browse-with-chrome-enterprise-policies-on-amazon-bedrock-agentcore/][Control where your AI agents can browse with Chrome enterprise policies on Amazon Bedrock AgentCore]] (aws.amazon.com) — Безопасность веб-навигации агентов через политики Chrome.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/improve-bot-accuracy-with-amazon-lex-assisted-nlu/][Improve bot accuracy with Amazon Lex Assisted NLU]] (aws.amazon.com) — Улучшение классификации интентов с помощью LLM в Amazon Lex.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/5-small-language-models-for-agentic-tool-calling][5 Small Language Models for Agentic Tool Calling]]
+:SCORE: 9/10
+:WHY: Критично для разработки локальных или экономичных агентов со структурированным вызовом функций.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/real-time-voice-agents-with-stream-vision-agents-and-amazon-nova-2-sonic/][Real-time voice agents with Stream Vision Agents and Amazon Nova 2 Sonic]]
+:SCORE: 8/10
+:WHY: Решает сложную инженерную проблему задержек в голосовых пайплайнах.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/control-where-your-ai-agents-can-browse-with-chrome-enterprise-policies-on-amazon-bedrock-agentcore/][Control where your AI agents can browse with Chrome enterprise policies on Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Обязательное чтение для внедрения агентов в корпоративной среде с требованиями безопасности.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/getting-started-with-change-data-capture-in-amazon-aurora-dsql/][Getting started with Change Data Capture in Amazon Aurora DSQL]] (aws.amazon.com) — Нативная потоковая передача изменений БД в Kinesis.
+- [[hxxps://aws.amazon.com/blogs/database/best-practices-for-upgrading-amazon-rds-for-mysql-8-0-to-8-4-with-prechecks-blue-green-and-rollback/][Best practices for upgrading Amazon RDS for MySQL 8.0 to 8.4 with prechecks, Blue/Green, and rollback]] (aws.amazon.com) — Стратегия обновления с минимальным простоем.
+- [[hxxps://www.databricks.com/blog/expanded-interoperability-unity-catalog-open-apis/][Expanded interoperability with Unity Catalog Open APIs]] (databricks.com) — Открытые API для интеграции каталога данных.
+- [[hxxps://aws.amazon.com/blogs/database/upgrade-strategies-for-amazon-rds-for-mysql-8-0-to-8-4/][Upgrade strategies for Amazon RDS for MySQL 8.0 to 8.4]] (aws.amazon.com) — Обзор сроков поддержки и затрат на продление.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/getting-started-with-change-data-capture-in-amazon-aurora-dsql/][Getting started with Change Data Capture in Amazon Aurora DSQL]]
+:SCORE: 9/10
+:WHY: Внедрение CDC без операционных накладных расходов критично для современных пайплайнов.
+**** [[hxxps://aws.amazon.com/blogs/database/best-practices-for-upgrading-amazon-rds-for-mysql-8-0-to-8-4-with-prechecks-blue-green-and-rollback/][Best practices for upgrading Amazon RDS for MySQL 8.0 to 8.4 with prechecks, Blue/Green, and rollback]]
+:SCORE: 9/10
+:WHY: Снижение рисков при обновлении продакшен-БД до 2026 года.
+**** [[hxxps://www.databricks.com/blog/expanded-interoperability-unity-catalog-open-apis/][Expanded interoperability with Unity Catalog Open APIs]]
+:SCORE: 7/10
+:WHY: Упрощает интеграцию инструментов вокруг Lakehouse.
+
+** Инженерия данных
+- [[hxxps://www.kdnuggets.com/time-series-feature-engineering-with-python-itertools][Time-Series Feature Engineering with Python Itertools]] (kdnuggets.com) — Эффективное создание признаков через itertools.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-siloed-data-to-unified-insights-cross-account-athena-access-for-amazon-quick/][From siloed data to unified insights: Cross-account Athena Access for Amazon Quick]] (aws.amazon.com) — Доступ к данным Athena across аккаунтов без дублирования.
+- [[hxxps://medium.com/towards-data-engineering/sda-01-why-build-a-synthetic-data-agent-on-databricks-1c1b4e0738b7?source=rss-6e4a30cbb0e1------2][SDA 01: Why Build a Synthetic Data Agent on Databricks?]] (medium.com) — Генерация синтетических данных на основе метаданных Unity Catalog.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/sda-01-why-build-a-synthetic-data-agent-on-databricks-1c1b4e0738b7?source=rss-6e4a30cbb0e1------2][SDA 01: Why Build a Synthetic Data Agent on Databricks?]]
+:SCORE: 9/10
+:WHY: Решает проблему тестирования на реальных данных без нарушения приватности.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/from-siloed-data-to-unified-insights-cross-account-athena-access-for-amazon-quick/][From siloed data to unified insights: Cross-account Athena Access for Amazon Quick]]
+:SCORE: 8/10
+:WHY: Архитектурный паттерн для централизованной аналитики в мультиаккаунте.
+**** [[hxxps://www.kdnuggets.com/time-series-feature-engineering-with-python-itertools][Time-Series Feature Engineering with Python Itertools]]
+:SCORE: 7/10
+:WHY: Оптимизация производительности при подготовке данных для ML.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-forward-deployed-engineering][The Pulse: Forward deployed engineering heats up again]] (newsletter.pragmaticengineer.com) — Рост спроса на роль FDE в Big Tech.
+- [[hxxps://vutr.substack.com/p/how-to-learn-dbt-cheap-and-fast][How to learn dbt cheap and fast?]] (vutr.substack.com) — CLI-инструмент для изучения dbt на практике.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-forward-deployed-engineering][The Pulse: Forward deployed engineering heats up again]]
+:SCORE: 8/10
+:WHY: Важный тренд в карьерных траекториях и структуре команд.
+**** [[hxxps://vutr.substack.com/p/how-to-learn-dbt-cheap-and-fast][How to learn dbt cheap and fast?]]
+:SCORE: 7/10
+:WHY: Практический ресурс для повышения квалификации в ELT.
+
+** Открытое ПО
+- [[hxxps://huggingface.co/blog/ibm-granite/granite-embedding-multilingual-r2][Granite Embedding Multilingual R2: Open Apache 2.0 Multilingual Embeddings with 32K Context — Best Sub-100M Retrieval Quality]] (huggingface.co) — Новые эмбеддинги IBM с лицензией Apache 2.0.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/ibm-granite/granite-embedding-multilingual-r2][Granite Embedding Multilingual R2: Open Apache 2.0 Multilingual Embeddings with 32K Context — Best Sub-100M Retrieval Quality]]
+:SCORE: 8/10
+:WHY: Высокое качество retrieval-моделей малого размера для RAG систем.
+
+** Не техническое
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Встреча сообщества LDBC в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность нетворкинга в сообществе графовых БД.

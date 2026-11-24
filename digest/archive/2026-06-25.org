@@ -1,0 +1,89 @@
+#+TITLE: Daily Digest: 2026-06-25
+#+FROM: [2026-06-24 Wed]
+#+TO: [2026-06-25 Thu]
+#+DATE: [2026-06-25 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дня
+ИИ-агенты переходят от контролируемых сессий MCP к автономной работе через CLI-интерфейсы. Голосовой ИИ совершает рывок в latency благодаря нативным speech-to-speech моделям (Nova 2 Sonic). Инфраструктура данных фокусируется на семантических слоях для устранения рассинхрона между BI и AI. Инженеры сталкиваются с тонкими проблемами производительности в Kafka Share Groups и управлении ресурсами Lakebase. Локальные модели кодирования становятся стандартом для приватной разработки в 2026 году.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-loka-built-a-natural-low-latency-voice-agent-with-amazon-nova-2-sonic/][How Loka Built a Natural, Low-Latency Voice Agent with Amazon Nova 2 Sonic]] (AWS) — Кейс внедрения нативной speech-to-speech модели для снижения задержки голосового агента.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/][Huntington Bank: Redacting sensitive data from 400M+ documents with AWS]] (AWS) — Архитектура масштабного пайплайна красакции чувствительных данных с использованием Textract и SageMaker.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/ai-powered-bi-with-snowflake-and-amazon-quick/][AI-powered BI with Snowflake and Amazon Quick]] (AWS) — Интеграция семантических представлений Snowflake с QuickSight для единой бизнес-логики в AI и BI.
+- [[hxxps://deepmind.google/blog/introducing-computer-use-in-gemini-3-5-flash/][Introducing computer use in Gemini 3.5 Flash]] (DeepMind) — Обновление модели с возможностью управления компьютером для автономных задач.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-healthcare-appointment-agent-with-amazon-nova-2-sonic/][Build a healthcare appointment agent with Amazon Nova 2 Sonic]] (AWS) — Пример создания голосового агента для записи пациентов с аутентификацией и планированием.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-loka-built-a-natural-low-latency-voice-agent-with-amazon-nova-2-sonic/][How Loka Built a Natural, Low-Latency Voice Agent with Amazon Nova 2 Sonic]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания архитектуры современных voice-агентов и борьбы с задержками.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/huntington-bank-redacting-sensitive-data-from-400m-documents-with-aws/][Huntington Bank: Redacting sensitive data from 400M+ documents with AWS]]
+:SCORE: 8/10
+:WHY: Практический паттерн обработки миллионов документов с гарантиями compliance и безопасности.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/ai-powered-bi-with-snowflake-and-amazon-quick/][AI-powered BI with Snowflake and Amazon Quick]]
+:SCORE: 8/10
+:WHY: Решает проблему рассинхрона метрик между разными аналитическими инструментами через семантический слой.
+
+** Вендоры
+- [[hxxps://www.dremio.com/blog/dremio-developer-cli-ai-agents/][Why AI Agents Need a CLI, Not Just an MCP Server]] (Dremio) — Аргументация в пользу CLI для автономных агентов вместо только MCP для контролируемых сессий.
+- [[hxxps://neo4j.com/blog/graph-database/enterprise-studio/][A workbench for teams to query, explore, and visualize graph data]] (Neo4j) — Запуск Enterprise Studio для безопасной работы с графами в self-hosted окружениях.
+- [[hxxps://www.warpstream.com/blog/harnessing-data-at-scale-character-ais-transition-to-warpstream/][Character.AI's Transition to WarpStream]] (WarpStream) — Кейс миграции пайплайна на 3 GiB/с с нулевым кодом для масштабирования на 20M+ пользователей.
+- [[hxxps://aws.amazon.com/blogs/database/build-a-spring-boot-rest-api-with-amazon-aurora-dsql/][Build a Spring Boot REST API with Amazon Aurora DSQL]] (AWS) — Гайд по настройке Spring Boot с Aurora DSQL для active-active репликации между регионами.
+- [[hxxps://aws.amazon.com/blogs/database/automating-cross-account-refresh-for-amazon-rds-multi-az-db-clusters/][Automating cross-account refresh for Amazon RDS Multi-AZ DB clusters]] (AWS) — Автоматизация обновления non-production окружений через серверless пайплайн.snapshot sharing.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/dremio-developer-cli-ai-agents/][Why AI Agents Need a CLI, Not Just an MCP Server]]
+:SCORE: 9/10
+:WHY: Меняет парадигму интеграции агентов с данными: автономность требует CLI, а не только чата.
+**** [[hxxps://www.warpstream.com/blog/harnessing-data-at-scale-character-ais-transition-to-warpstream/][Character.AI's Transition to WarpStream]]
+:SCORE: 8/10
+:WHY: Реальный пример масштабирования data pipeline под высокую нагрузку без управления инфраструктурой.
+**** [[hxxps://neo4j.com/blog/graph-database/enterprise-studio/][A workbench for teams to query, explore, and visualize graph data]]
+:SCORE: 7/10
+:WHY: Важно для команд, требующих безопасного self-hosted инструментария для работы с графами.
+
+** Инженеры
+- [[hxxps://jack-vanlightly.com/blog/2026/6/24/kafka-share-groups-pathological-fetch-waits-with-recordlimit][Kafka Share Groups - Pathological fetch waits with record_limit]] (Jack Vanlightly) — Анализ проблем производительности при использовании record_limit и неравномерном распределении партиций.
+- [[hxxps://medium.com/towards-data-engineering/the-night-of-the-living-lakebases-d1c0410221f3?source=rss-6e4a30cbb0e1------2][The Night Of The Living Lakebases]] (Medium) — Расследование причин, по которым база данных не уходит в sleep mode из-за health checks и пулов соединений.
+- [[hxxps://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode][Tech interviews with NeetCode]] (Pragmatic Engineer) — Интервью о состоянии техсобеседований, ценности глубоких знаний и системном мышлении в эпоху ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/6/24/kafka-share-groups-pathological-fetch-waits-with-recordlimit][Kafka Share Groups - Pathological fetch waits with record_limit]]
+:SCORE: 9/10
+:WHY: Глубокий разбор внутренних механизмов Kafka, необходимый для отладки высоконагруженных потребителей.
+**** [[hxxps://medium.com/towards-data-engineering/the-night-of-the-living-lakebases-d1c0410221f3?source=rss-6e4a30cbb0e1------2][The Night Of The Living Lakebases]]
+:SCORE: 8/10
+:WHY: Предостережение о скрытых источниках трафика, мешающих оптимизации затрат на инфраструктуру.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode][Tech interviews with NeetCode]]
+:SCORE: 8/10
+:WHY: Инсайт о том, какие навыки realmente остаются ценными для инженеров несмотря на рост автоматизации.
+
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/semantic-layers-agents-and-the-future][Semantic Layers, Agents, and the Future of Analytics]] (Data Engineering Central) — Подкаст о роли семантических слоев в эпоху агентов и будущем профессии дата-инженера.
+- [[hxxps://www.databricks.com/blog/how-daikin-applied-americas-builds-consistent-data-pipelines-scale-genie-code][How Daikin Applied Americas builds consistent data pipelines at scale with Genie Code]] (Databricks) — Опыт построения согласованных пайплайнов данных с использованием агентных инструментов.
+- [[hxxps://vutr.substack.com/p/i-spent-12-hours-rebuilding-my-junior-26f][I spent 12 Hours rebuilding my Junior year project: Part 2 - The Transformation Layer]] (Substack) — Практический гайд по слою трансформации на dbt и Snowflake с внедрением CI/CD и тестирования.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/semantic-layers-agents-and-the-future][Semantic Layers, Agents, and the Future of Analytics]]
+:SCORE: 9/10
+:WHY: Стратегический взгляд на эволюцию роли инженера данных и важность семантической согласованности.
+**** [[hxxps://vutr.substack.com/p/i-spent-12-hours-rebuilding-my-junior-26f][I spent 12 Hours rebuilding my Junior year project: Part 2 - The Transformation Layer]]
+:SCORE: 8/10
+:WHY: Конкретные практики реализации transformation слоя с использованием современных инструментов (dbt, Terraform).
+**** [[hxxps://www.databricks.com/blog/how-daikin-applied-americas-builds-consistent-data-pipelines-scale-genie-code][How Daikin Applied Americas builds consistent data pipelines at scale with Genie Code]]
+:SCORE: 7/10
+:WHY: Пример внедрения агентной разработки для стандартизации дата-пайплайнов в энтерпрайзе.
+
+** Open Source
+- [[hxxps://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/][Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis]] (Microsoft Research) — Инструмент для автоматического переанализа геномных данных с низким уровнем ложных срабатываний.
+- [[hxxps://www.kdnuggets.com/top-7-coding-models-you-can-run-locally-in-2026][Top 7 Coding Models You Can Run Locally in 2026]] (KDnuggets) — Обзор моделей для локального запуска, поддерживающих приватную разработку и GGUF инференс.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis/][Talos: Scaling rare disease diagnosis with automated, iterative genomic reanalysis]]
+:SCORE: 9/10
+:WHY: Пример устойчивой автоматизации сложного ML-пайплайна в open-source инструменте.
+**** [[hxxps://www.kdnuggets.com/top-7-coding-models-you-can-run-locally-in-2026][Top 7 Coding Models You Can Run Locally in 2026]]
+:SCORE: 8/10
+:WHY: Актуальный список моделей для организации приватного рабочего места разработчика без облачных зависимостей.

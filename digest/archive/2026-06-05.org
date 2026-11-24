@@ -1,0 +1,76 @@
+#+TITLE: Daily Digest: 2026-06-05
+#+FROM: [2026-06-04 Thu]
+#+TO: [2026-06-05 Fri]
+#+DATE: [2026-06-05 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Эра агентного ИИ наступает: модели вроде Nemotron 3 Ultra оптимизируют долгосрочные задачи, а инженеры переходят от со-интеллекта к со-существованию с автономными системами. Инфраструктура данных адаптируется через стандарт MCP для подключения агентов и графовые технологии поверх реляционных хранилищ. Классические инженерные проблемы остаются актуальными: параллелизм в Kafka и точность чисел в Spark требуют глубокого понимания архитектуры. Исторический контекст энергетических шоков предлагает взгляд на текущую экономическую волатильность и устойчивость систем.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://aws.amazon.com/blogs/database/understanding-how-backups-work-in-amazon-aurora/][Understanding how backups work in Amazon Aurora]] (AWS) — разбор архитектуры бэкапов Aurora для оптимизации затрат через сегменты и protection groups.
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-losing-my-precision-f717fb27078f?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Losing My Precision]] (Medium) — риски потери точности в Float/Double типах, рекомендация использовать DecimalType для финансовых данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/understanding-how-backups-work-in-amazon-aurora/][Understanding how backups work in Amazon Aurora]]
+:SCORE: 8/10
+:WHY: Позволяет сократить затраты на хранение бэкапов через понимание внутренней сегментации Aurora.
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-losing-my-precision-f717fb27078f?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Losing My Precision]]
+:SCORE: 8/10
+:WHY: Критично для избежания ошибок округления в финансовых расчетах на больших данных.
+
+** Engineers
+- [[hxxps://jack-vanlightly.com/blog/2026/6/3/broker-visible-vs-client-local-parallelism][Broker-Visible vs Client-Local Parallelism]] (Jack Van Lightly) — сравнение брокер-видимой и клиентской параллелизации в Kafka Share Groups.
+- [[hxxps://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence][Co-Existence and the End of Co-Intelligence]] (One Useful Thing) — эволюция от со-интеллекта к со-существованию, когда агенты пишут 80% кода.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/6/3/broker-visible-vs-client-local-parallelism][Broker-Visible vs Client-Local Parallelism]]
+:SCORE: 9/10
+:WHY: Глубокий анализ производительности Kafka, необходимый для архитектуры высоких нагрузок.
+**** [[hxxps://www.oneusefulthing.org/p/co-existence-and-the-end-of-co-intelligence][Co-Existence and the End of Co-Intelligence]]
+:SCORE: 9/10
+:WHY: Стратегическое понимание роли инженера в условиях автономных агентных систем.
+
+** Vendors
+- [[hxxps://gdotv.com/blog/weekly-edge-graph-on-relational-neo4j-snowflake-apache-age/][The Weekly Edge: Neo4j Virtual Graphs, Graphing Snowflake, LegalGraphRAG & more]] (gdotv) — обзор графовых технологий поверх реляционных БД (Snowflake, Postgres).
+- [[hxxps://www.databricks.com/blog/3x-faster-search-parallel-test-time-scaling-instructed-retriever-1][3x Faster Search: Parallel Test-Time Scaling with Instructed-Retriever-1]] (Databricks) — ускорение поиска в 3 раза с новой моделью Instructed-Retriever-1.
+- [[hxxps://www.dremio.com/blog/mcp-server-data-lakehouse-connect-ai-agents-to-your-data/][MCP Server Data Lakehouse: Connect AI Agents to Your Data]] (Dremio) — использование открытого MCP сервера для стандартизации доступа агентов к данным.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — анонс встречи технического сообщества графовых баз данных в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/mcp-server-data-lakehouse-connect-ai-agents-to-your-data/][MCP Server Data Lakehouse: Connect AI Agents to Your Data]]
+:SCORE: 8/10
+:WHY: Решает проблему интеграции N×M между агентами и источниками данных через стандарт MCP.
+**** [[hxxps://gdotv.com/blog/weekly-edge-graph-on-relational-neo4j-snowflake-apache-age/][The Weekly Edge: Neo4j Virtual Graphs, Graphing Snowflake, LegalGraphRAG & more]]
+:SCORE: 7/10
+:WHY: Актуальный обзор тренда graph-on-relational для существующей инфраструктуры.
+**** [[hxxps://www.databricks.com/blog/3x-faster-search-parallel-test-time-scaling-instructed-retriever-1][3x Faster Search: Parallel Test-Time Scaling with Instructed-Retriever-1]]
+:SCORE: 7/10
+:WHY: Практическое улучшение производительности поиска для RAG-приложений.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/what-the-agentic-era-means-for-data-science][What the Agentic Era Means for Data Science]] (KDnuggets) — необходимые навыки для data science в эру автономных агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-ultra-now-available-on-amazon-sagemaker-jumpstart/][NVIDIA Nemotron 3 Ultra now available on Amazon SageMaker JumpStart]] (AWS) — новая открытая модель 550B параметров для агентных workflows на SageMaker.
+- [[hxxps://www.kdnuggets.com/7-steps-to-mastering-time-series-analysis-with-python][7 Steps to Mastering Time Series Analysis with Python]] (KDnuggets) — пошаговое руководство по анализу временных рядов на Python.
+- [[hxxps://huggingface.co/blog/nvidia/nemotron-3-5-content-safety][Nemotron 3.5 Content Safety: Customizable Multimodal Safety for Global Enterprise AI]] (Hugging Face) — настройки мультимодальной безопасности для корпоративного ИИ.
+- [[hxxps://huggingface.co/blog/ServiceNow-AI/eva-bench-data][EVA-Bench Data 2.0: 3 Domains, 121 Tools, 213 Scenarios]] (Hugging Face) — новый бенчмарк для оценки агентных систем в различных сценариях.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-ultra-now-available-on-amazon-sagemaker-jumpstart/][NVIDIA Nemotron 3 Ultra now available on Amazon SageMaker JumpStart]]
+:SCORE: 9/10
+:WHY: Доступ к frontier-модели оптимизированной для длинных агентных цепочек рассуждений.
+**** [[hxxps://www.kdnuggets.com/what-the-agentic-era-means-for-data-science][What the Agentic Era Means for Data Science]]
+:SCORE: 8/10
+:WHY: Определяет вектор развития компетенций для дата-сайентистов на 2026 год.
+**** [[hxxps://huggingface.co/blog/ServiceNow-AI/eva-bench-data][EVA-Bench Data 2.0: 3 Domains, 121 Tools, 213 Scenarios]]
+:SCORE: 7/10
+:WHY: Предоставляет стандарт для объективной оценки эффективности автономных агентов.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/the-energy-shock-of-the-14th-century][The Energy Shock of the 14th Century]] (Peter Turchin) — историческая параллель энергетического шока 14 века с современностью.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/the-energy-shock-of-the-14th-century][The Energy Shock of the 14th Century]]
+:SCORE: 7/10
+:WHY: Дает системный взгляд на устойчивость экономики к энергетическим потрясениям.

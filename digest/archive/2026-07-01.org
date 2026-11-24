@@ -1,0 +1,99 @@
+#+TITLE: Daily Digest: 2026-07-01
+#+FROM: [2026-06-30 Tue]
+#+TO: [2026-07-01 Wed]
+#+DATE: [2026-07-01 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия движется к облачным AI-агентам как к новой парадигме разработки, что подтверждается визитами в ведущие лаборатории и интеграциями в Slack. Роль Data Engineering трансформируется: от написания пайплайнов к построению доверия и продуктового мышления в условиях автоматизации кода. Экосистема AWS Bedrock成熟ет с инструментами для резильентности, генеративного UI и управления доступом к моделям. Meta отмечает 10 лет поддержки Python, подчеркивая стратегическую важность языка для AI и инфраструктуры.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://blog.dataexpert.io/p/data-engineering-was-never-about][Junior data engineers build pipelines. Seniors build trust]] (blog.dataexpert.io) — Старшим инженерам данных важно фокусироваться на доверии и продукте, а не только на технической реализации пайплайнов.
+- [[hxxps://newsletter.pragmaticengineer.com/p/impressions-from-visiting-openai][Impressions from visiting OpenAI, Anthropic, & Cursor]] (newsletter.pragmaticengineer.com) — Облачные агенты становятся мейнстримом, требуя от инженеров построения эффективных сред для их выполнения.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://blog.dataexpert.io/p/data-engineering-was-never-about][Junior data engineers build pipelines. Seniors build trust]]
+:SCORE: 9/10
+:WHY: Критическое изменение майндсета для seniors: переход от инструментов к ответственности за продукт и доверие команды.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/impressions-from-visiting-openai][Impressions from visiting OpenAI, Anthropic, & Cursor]]
+:SCORE: 8/10
+:WHY: Инсайт о следующем мега-тренде (cloud agents), который изменит архитектуру инженерных платформ.
+
+** Engineers
+- [[hxxps://jack-vanlightly.com/blog/2026/6/30/benchmarking-hardwood-10-on-a-threadripper-9980x][Benchmarking Hardwood 1.0 on a Threadripper 9980X]] (jack-vanlightly.com) — Детальный бенчмарк Java-библиотеки для Parquet на многоядерном CPU показывает пределы масштабирования потоков декодера.
+- [[hxxps://www.oneusefulthing.org/p/the-twilight-of-the-chatbots][The twilight of the chatbots]] (www.oneusefulthing.org) — Анализ ускоряющихся возможностей AI в выполнении реальной инженерной работы вместо простых чатов.
+- [[hxxps://medium.com/towards-data-engineering/%EF%B8%8F-data-forensics-with-databricks-zingg-and-graphframes-4474b61f3655?source=rss-6e4a30cbb0e1------2][Data Forensics with Databricks, Zingg and GraphFrames]] (medium.com) — Практический подход к Entity Resolution через призму детективного расследования данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.oneusefulthing.org/p/the-twilight-of-the-chatbots][The twilight of the chatbots]]
+:SCORE: 9/10
+:WHY: Оценка реальной производительности AI в задачах разработки помогает планировать внедрение инструментов в команду.
+**** [[hxxps://jack-vanlightly.com/blog/2026/6/30/benchmarking-hardwood-10-on-a-threadripper-9980x][Benchmarking Hardwood 1.0 on a Threadripper 9980X]]
+:SCORE: 8/10
+:WHY: Глубокое понимание производительности обработки Parquet на современном железе для оптимизации data-intensive задач.
+**** [[hxxps://medium.com/towards-data-engineering/%EF%B8%8F-data-forensics-with-databricks-zingg-and-graphframes-4474b61f3655?source=rss-6e4a30cbb0e1------2][Data Forensics with Databricks, Zingg and GraphFrames]]
+:SCORE: 7/10
+:WHY: Полезный паттерн для работы с качеством данных и разрешения дубликатов в распределенных системах.
+
+** Vendors
+- [[hxxps://gdotv.com/blog/introducing-pggraph-support-node-icons-language-aware-terminology-gdotv-v3-63-137-release-notes/][Introducing pgGraph Support, Node Icons & Language-Aware Terminology [gdotv v3.63.137 Release Notes]]] (gdotv.com) — Добавление поддержки графовых запросов к PostgreSQL расширяет возможности анализа связей.
+- [[hxxps://www.databricks.com/blog/lakebase-ltap-rethinking-database-storage][From monolith to Lakebase to LTAP: rethinking the database from storage up]] (databricks.com) — Архитектурный взгляд на эволюцию хранения данных от монолита к разделению вычислений и storage.
+- [[hxxps://aws.amazon.com/blogs/database/enable-self-managed-ad-kerberos-authentication-with-amazon-rds-for-db2/][Enable self-managed AD Kerberos authentication with Amazon RDS for Db2]] (aws.amazon.com) — Инструкция по настройке безопасной аутентификации через Active Directory для управляемых БД.
+- [[hxxps://aws.amazon.com/blogs/database/manage-long-running-transactions-for-aws-dms-performance/][Manage long-running transactions for AWS DMS performance]] (aws.amazon.com) — Методы мониторинга и устранения длительных транзакций, влияющих на latency миграции.
+- [[hxxps://aws.amazon.com/blogs/database/user-authentication-and-session-management-with-amazon-aurora-dsql/][User authentication and session management with Amazon Aurora DSQL]] (aws.amazon.com) — Использование serverless SQL для управления сессиями с гарантией консистентности и IAM-аутентификацией.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/user-authentication-and-session-management-with-amazon-aurora-dsql/][User authentication and session management with Amazon Aurora DSQL]]
+:SCORE: 9/10
+:WHY: Архитектурный паттерн для serverless аутентификации без управления инфраструктурой и с сильной консистентностью.
+**** [[hxxps://www.databricks.com/blog/lakebase-ltap-rethinking-database-storage][From monolith to Lakebase to LTAP: rethinking the database from storage up]]
+:SCORE: 8/10
+:WHY: Стратегический взгляд на будущее хранения данных, важный для планирования архитектуры на годы вперед.
+**** [[hxxps://aws.amazon.com/blogs/database/enable-self-managed-ad-kerberos-authentication-with-amazon-rds-for-db2/][Enable self-managed AD Kerberos authentication with Amazon RDS for Db2]]
+:SCORE: 7/10
+:WHY: Практическое руководство по интеграции корпоративной безопасности с облачными управляемыми сервисами.
+
+** Open Source
+- [[hxxps://engineering.fb.com/2026/06/30/open-source/10-years-of-metas-commitment-to-python/][10 Years of Meta's Commitment to Python]] (engineering.fb.com) — Meta подчеркивает стратегическую важность поддержки PSF для устойчивости стека технологий и AI исследований.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/06/30/open-source/10-years-of-metas-commitment-to-python/][10 Years of Meta's Commitment to Python]]
+:SCORE: 8/10
+:WHY: Понимание мотивации крупных игроков помогает предсказать направление развития языка и экосистемы.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/building-local-ai-systems-qwen3-6-mcps][Building Local AI Systems: Qwen3.6 + MCPs]] (www.kdnuggets.com) — Подход к построению локальных систем с использованием Model Context Protocol для унификации инструментов.
+- [[hxxps://www.kdnuggets.com/7-real-world-python-projects-you-can-build-in-2026-with-guides][7 Real-World Python Projects You Can Build in 2026 (With Guides)]] (www.kdnuggets.com) — Подборка практических проектов для портфолио в области AI automation и data analysis.
+- [[hxxps://deepmind.google/blog/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/][Start building with Nano Banana 2 Lite and Gemini Omni Flash]] (deepmind.google) — Анонс новых легковесных моделей для разработки приложений.
+- [[hxxps://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/][SkillOpt: Agent skills as trainable parameters]] (www.microsoft.com) — Исследование Microsoft об оптимизации навыков агентов как trainable параметров без изменения весов модели.
+- [[hxxps://huggingface.co/blog/ibm-research/scarfbench][ScarfBench: Benchmarking AI Agents for Enterprise Java Framework Migration]] (huggingface.co) — Бенчмарк для оценки способности агентов мигрировать enterprise Java приложения.
+- [[hxxps://huggingface.co/blog/Dharma-AI/why-specialization-is-inevitable][Why Specialization Is Inevitable]] (huggingface.co) — Дискуссия о неизбежности специализации моделей вместо универсальных решений.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/safely-releasing-frontier-models-to-customers/][Safely Releasing Frontier Models to Customers]] (aws.amazon.com) — Подход AWS к безопасному релизу мощных моделей с балансом между доступностью и защитой от уязвимостей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-on-aws-anthropics-most-capable-sonnet-model/][Introducing Claude Sonnet 5 on AWS: Anthropic's most capable Sonnet model]] (aws.amazon.com) — Доступность новой модели Sonnet 5 на Bedrock с улучшенными возможностями кодирования и агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-generative-ui-for-ai-agents-on-amazon-bedrock-agentcore-with-the-ag-ui-protocol/][Build generative UI for AI agents on Amazon Bedrock AgentCore with the AG-UI protocol]] (aws.amazon.com) — Протокол AG-UI для интеграции интерактивных интерфейсов в AI-агенты на AWS.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/simplify-multi-account-access-to-amazon-bedrock-models-with-managed-entitlements/][Simplify multi-account access to Amazon Bedrock models with managed entitlements]] (aws.amazon.com) — Управление доступом к моделям Marketplace в мультиаккаунт окружении через централизованные entitlements.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/implementing-resilience-patterns-with-amazon-bedrock-and-llm-gateway/][Implementing resilience patterns with Amazon Bedrock and LLM gateway]] (aws.amazon.com) — Паттерны обеспечения отказоустойчивости инференса LLM в продакшене.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-outpost-vfx-uses-aws-to-accelerate-ai-model-training-for-visual-effects/][How Outpost VFX Uses AWS to Accelerate AI Model Training for Visual Effects]] (aws.amazon.com) — Кейс ускорения обучения моделей для VFX в 8 раз menggunakan мульти-GPU инфраструктуру.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-bilingual-ner-for-cargo-logistics-with-amazon-bedrock/][Building bilingual NER for cargo logistics with Amazon Bedrock]] (aws.amazon.com) — Опыт создания двуязычной NER системы через дистилляцию моделей для логистики.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/fine-tune-amazon-nova-models-for-accurate-email-data-extraction/][Fine-tune Amazon Nova models for accurate email data extraction]] (aws.amazon.com) — Fine-tuning моделей Nova для извлечения данных из email с высокой точностью и снижением затрат.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters/][SkillOpt: Agent skills as trainable parameters]]
+:SCORE: 10/10
+:WHY: Фундаментальный сдвиг в обучении агентов: навыки как оптимизируемые параметры, а не просто промпты.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/implementing-resilience-patterns-with-amazon-bedrock-and-llm-gateway/][Implementing resilience patterns with Amazon Bedrock and LLM gateway]]
+:SCORE: 9/10
+:WHY: Must-read для прод-инженеров: конкретные паттерны отказоустойчивости для генеративного AI.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-on-aws-anthropics-most-capable-sonnet-model/][Introducing Claude Sonnet 5 on AWS: Anthropic's most capable Sonnet model]]
+:SCORE: 8/10
+:WHY: Информация о новой модели уровня Opus по цене Sonnet важна для архитектурных решений и cost-optimization.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/ac-for-me-not-for-thee][AC for Me, Not for Thee]] (peterturchin.substack.com) — Социальный комментарий о неравенстве в доступе к инфраструктуре (кондиционирование) во время климатических кризисов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/ac-for-me-not-for-thee][AC for Me, Not for Thee]]
+:SCORE: 6/10
+:WHY: Контекст о социальных рисках и инфраструктурной устойчивости, влияющих на глобальную стабильность.

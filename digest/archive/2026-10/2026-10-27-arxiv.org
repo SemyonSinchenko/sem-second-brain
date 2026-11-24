@@ -1,0 +1,180 @@
+#+TITLE: Arxiv Digest: 2026-10-27
+#+FROM: [2026-10-26 Mon]
+#+TO: [2026-10-27 Tue]
+#+DATE: [2026-10-27 Tue]
+#+STARTUP: showall
+
+* cs.DB — Databases
+** 🧐 Обзор
+Главный тренд суток — векторный/ANN-поиск как инфраструктура для AI-нагрузок: LSM-Vec доводит дисковый динамический поиск до сотен миллионов векторов при малом DRAM-бюджете, REACH решает гео-фильтрацию на одном proximity-графе, Holo-NN — приватный поиск через compressive sensing. Зреет инженерия хранения: VIREL даёт кодек с контрактами exact/error-bounded, а разбор learned indexes вскрывает скрытую стоимость конкурентных вставок и предлагает готовые фиксы. Знаковое событие — позиционная атака на MVCC: авторы утверждают, что cloud-native HTAP делает одноверсионный concurrency control предпочтительным.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2505.17152][LSM-Vec: A Memory-Efficient Disk-Based System for Large-Scale Dynamic Vector Search]]
+:WHAT: Дисковый движок динамического векторного поиска: HNSW-база в граф-ориентированном LSM-tree (out-of-place поглощение edge-обновлений) + отдельный paged-сторедж векторов, in-memory tree-based sketches для маршрутизации запросов и HNSW-based reordering для локальности чтений.
+:IMPACT: На потоковых SIFT/SPACEV до 100 млн векторов — до 6.2× меньше памяти и 7.6× диска, чем FreshDiskANN/SPFresh, до 15× меньше записи на вставку; tail latency стабилен там, где конкуренты упираются в DRAM.
+
+- [[https://arxiv.org/abs/2607.22433][VIREL: Route-Local Lattice Residual Compression for Exact and Error-Bounded Floating-Point Time Series]]
+:WHAT: Кодек с route-local решёткой: VIREL-Exact воспроизводит арифметику декодера (гарантия корректности ниже 2^51), VIREL-EB кладёт значения на error-lattice с точностью ≤ ε; один integer-кодер обслуживает оба контракта.
+:IMPACT: На 14 эталонных потоках −27.6% байт против Falcon, Fast обгоняет ALP по ratio и обеим скоростям; в Apache TsFile — 48.7% от ALP; прямая экономия ingest и compaction в TSDB.
+
+- [[https://arxiv.org/abs/2610.15793][The Case for Single-Version Concurrency Control in the Cloud]]
+:WHAT: Позиционная статья: в cloud-native HTAP изоляцию обеспечивает сам деплой-слой (развязанные transactional/analytical движки, облачные примитивы изоляции), поэтому одноверсионный CC (SVCC) проще и эффективнее MVCC; очерчен roadmap next-gen DBMS.
+:IMPACT: Задаёт повестку редизайна транзакционных движков облака — меньше версионных накладных расходов при сохранении требуемой изоляции нагрузок.
+
+- [[https://arxiv.org/abs/2610.33770][Synchronized Rebuilds: The Hidden Cost of Concurrent Inserts in Learned Indexes]]
+:WHAT: Систематическое исследование (13 индексов, >4000 прогонов) синхронных burst-rebuild'ов при конкурентных вставках; предлагаются два системных фикса — буфер, живущий только на время ребилда узла, и фоновые rebuild'ы.
+:IMPACT: На 400M реальных ключей фиксы снижают число вставок с задержкой >100 мкс на 1–2 порядка при 1/3–1/2 времени buffered-дизайнов; стандартные бенчмарки пропускали и burst'ы, и потерю ключей — повод пересмотреть валидацию.
+
+- [[https://arxiv.org/abs/2610.33936][Bridging Search Intent and Tabular Data in Dataset Search]]
+:WHAT: HySE — эмбеддинги «гипотетических схем», сгенерированных LLM под задачу, плюс FlexPrune — трансляция NL-ограничений в SQL-предикаты по кастомизируемому metadata-индексу; представлен корпус KaggleDS (6503 таблицы с task-запросами).
+:IMPACT: Recall@10 +6.0 п.п. над dense retrieval на NQ-Tables и над тег-фильтрацией; практичная замена keyword-поиска по схемам в каталогах датасетов.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2610.34109][Geo-Filtered Approximate Nearest-Neighbor Search on a Single Proximity Graph]]
+:WHAT: REACH — единый proximity-граф вместо партиционных суб-индексов: row-local active-order invariance (соседи в строке отсортированы по векторной дистанции, гео-фильтр лишь маскирует записи), beam search по первым l активным записям; доказаны polylog out-degree, связность для всех дисков и constant-factor сокращение дистанции на компактных дисках.
+:IMPACT: 2.49× среднее геометрическое QPS при Recall@10=0.95 на выборочных гео-запросах, построение в 3.8–11.9× быстрее и на 37–45% компактнее SOTA spatial-graph индекса — базовая операция location-aware веб-поиска.
+
+- [[https://arxiv.org/abs/2610.33224][Holo-NN: Holographic Nearest Neighbor Search via Compressive Sensing]]
+:WHAT: Алгебраический каркас, заменяющий data-dependent ветвление (HNSW/ScaNN) одним линейным проектированием: офлайн база сворачивается в компактную holographic sensing matrix, онлайн-поиск — единственная матрично-векторная операция.
+:IMPACT: Приватный ANN под FHE/blind-сервер без bootstrapping, много раундовых интеракций и клиентского индекса — embarrassingly parallel на CPU/GPU и масштабируем до production-баз.
+
+- [[https://arxiv.org/abs/2610.33499][Translating RDF 1.2 Graphs to Property Graphs]]
+:WHAT: Три алгоритма перевода RDF 1.2 (triple terms, reifiers, descriptions) в labeled property graphs: Structural (lossless, triple terms как узлы), Direct (восстановление аннотированных рёбер через rdf:reifies), Fold (сворачивание описаний в свойства рёбер); проанализированы классы сохраняемых графов.
+:IMPACT: Все варианты масштабируются линейно, Fold существенно сокращает число рёбер на description-heavy данных — практичный мост между RDF- и LPG-стеками.
+
+* cs.AI — Artificial Intelligence
+** 🧐 Обзор
+Ядро повестки — LLM-агенты: ARMS показывает, что runtime-доступ к онтологиям и терминологическим сервисам резко поднимает качество стандартизации метаданных, а EnvLunch учит агента взаимодействию с исполняемой средой вообще без разметки. Системный вектор — мультиагентная оркестрация мультимодальных LLM на мобильном edge с измеримыми задержками и справедливостью. Одновременно растёт массив критической эмпирики: детекторы дипфейков проваливаются на реальных данных, вредная меморизация в кодогенерации требует отдельной диагностики, а причинный поиск выходит на неструктурированные данные через LLM.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2604.08552][Automated Standardization of Legacy Biomedical Metadata Using an Ontology-Constrained LLM Agent]]
+:WHAT: Tool-using агент ARMS, который в runtime подтягивает полные CEDAR-шаблоны и авторитетные biomedical-терминологии вместо фиксированных снапшотов стандартов в промпте.
+:IMPACT: На 839 legacy-записях precision 0.56→0.93, recall 0.51→0.85; для ontology-полей precision 0.36→0.92 — прямой вклад в FAIR-ность репозиториев.
+
+- [[https://arxiv.org/abs/2610.33817][EnvLunch: The Environment as a Free Lunch for Learning to Interact]]
+:WHAT: Разметко-свободный warm-up для агентного RL: сэмплирование валидных траекторий в исполняемой среде (БД) и обучение восстановлению функционально эквивалентной траектории по одному лишь финальному наблюдению.
+:IMPACT: +9 пунктов против baseline по всем бюджетам дообучения; при малом числе меток baseline требует в 8–32× больше размеченных примеров — удешевляет агентный fine-tuning для задач анализа данных.
+
+- [[https://arxiv.org/abs/2602.07215][Multi-Agentic AI for Fairness-Aware and Accelerated Multi-modal Large Model Inference in Real-world Mobile Edge Networks]]
+:WHAT: Мультиагентная оркестрация мультимодальных LLM на edge (глобальный планировщик, агент scheduling промптов, on-node deployment-агенты) поверх city-wide тестбеда с мониторингом сети и контейнеризованным деплоем.
+:IMPACT: −42.9% средней end-to-end задержки против SOTA online-learning baseline при Jain's index 0.925; адаптация без fine-tuning — готовый шаблон для GenAI-сервисов на edge.
+
+- [[https://arxiv.org/abs/2411.00852][EF-LLM: A Continual Learning-Based Framework for AI-Assisted Automation, Enhanced Sparse Prediction, and Hallucination Detection]]
+:WHAT: Energy-специализированный LLM: continual learning с обновляемым LoRA и многоканальной архитектурой для мультимодальных временных рядов, F-PEFT для слияния текста и рядов, детекция галлюцинаций через multi-task learning.
+:IMPACT: Рабочий конвейер прогнозов нагрузки/PV/ветра в условиях разреженных данных с post-forecast поддержкой решений и снижением потребности в экспертах.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2402.03941][Discovering and Reasoning of Causality in the Hidden World with Large Language Models]]
+:WHAT: COAT: LLM предлагает кандидатов скрытых переменных по неструктурированным данным, а цикл обратной связи от causal discovery их уточняет — COAT-MB итеративно вскрывает Markov blanket цели, COAT-PAG достраивает полный Partial Ancestral Graph; есть теоретические гарантии.
+:IMPACT: Автоматизирует построение причинных графов там, где переменные заранее не измерены, и расширяет debiased causal inference на неструктурированные данные.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2404.08164][Budgeted Prompt-Set Expansion and Refinement for Language Models via Simulation Optimization]] — Двухэтапная оптимизация выбора промптов с surrogate-моделью: более высокие скоры при ограниченном бюджете вызовов LLM.
+- [[https://arxiv.org/abs/2406.14373][Artificial Leviathan: Exploring Social Evolution of LLM Agents Through the Lens of Hobbesian Social Contract Theory]] — Симуляция общества LLM-агентов: эволюция от «войны всех против всех» к социальному контракту и абсолютному суверену.
+- [[https://arxiv.org/abs/2406.19195][Estimating Long-term Heterogeneous Dose-response Curve: Generalization Bound Leveraging Optimal Transport Weights]] — Оценка гетерогенных dose-response кривых при скрытых конфаундерах через optimal-transport взвешивание с generalization bound.
+- [[https://arxiv.org/abs/2502.10920][Do Deepfake Detectors Work in Reality?]] — Первый реальный faceswap-датасет: SOTA-детекторы на реальных данных близки к случайному угадыванию, super-resolution постобработка усугубляет деградацию.
+- [[https://arxiv.org/abs/2503.02296][Evaluating Harmful Memorization in LLM Code Generation]] — Пайплайн code rewriting и индекс HMI: вредная меморизация не растёт монотонно с масштабом, SFT может её усиливать, PPO даёт лучший trade-off.
+- [[https://arxiv.org/abs/2503.20084][Can Multi-modal (reasoning) LLMs work as deepfake detectors?]] — Бенчмарк 12 мультимодальных LLM: лучшие сопоставимы с классикой и лучше генерализуют OOD, остальные — на уровне случайности.
+- [[https://arxiv.org/abs/2503.22458][Evaluating LLM-based Agents for Multi-Turn Conversations: A Survey]] — Систематический обзор (~250 источников) с двумя таксономиями: «что оценивать» и «как оценивать» для многоходовых диалоговых агентов.
+- [[https://arxiv.org/abs/2504.11952][Robust and Fine-Grained Detection of AI Generated Texts]] — Токен-классификация на 2.4M соавторских текстов (23 языка): устойчивость к новым генераторам, доменам и adversarial-входам.
+
+* physics.soc-ph — Social Physics & Networks
+** 🧐 Обзор
+Сетевая теория дала два заметных результата: фундаментальные пределы идентифицируемости node/tie-памяти в темпоральных сетях и разведение двух механизмов подавления глобальных каскадов в модели Watts. Практическая ценность — открытый бенчмарк OSM↔Foursquare для унификации POI-таксономий и мульти-масштабная декомпозиция mutual information как индекса сегрегации с open-source реализацией. Остальной массив — прикладные симуляции и эмпирика: VR-риски пешеходов при AV, антиопиоидные интервенции по округам, осцилляции комплаенса в фарме.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2511.13369][An openly available OpenStreetMap-to-Foursquare category benchmark for points of interest]]
+:WHAT: Открытый бенчмарк и маппинг OSM-тегов в иерархию Foursquare: вручную курированная gold-стандарт разметка, оценка pretrained text-эмбеддингов плюс LLM-refinement, пайплайн масштабируемых обновлений вслед за эволюцией OSM.
+:IMPACT: Снимает хроническую проблему несовместимости POI-таксономий — воспроизводимая межисточниковая аналитика для mobility-исследований и smart city сервисов.
+
+- [[https://arxiv.org/abs/2511.23069][From First Principles to Multi-scale Decomposition: Mutual Information as a Segregation Index]]
+:WHAT: Вывод mutual information как индекса сегрегации из общих конструкций + её уникальные свойства при coarse-graining: декомпозиция на вклады регионов и супергрупп; open-source софт для мульти-масштабного анализа.
+:IMPACT: На кейсе Англии и Уэльса показано, когда MI — единственно подходящая метрика; важно при агрегации пространственных и демографических данных на разных уровнях.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.10399][Fundamental limits to identifying node and tie memory in temporal networks: marginal artefacts and spreading dynamics]]
+:WHAT: Два фундаментальных предела: без записи инициатора события оценки node-памяти (self-excitation, n_node) и tie-усиления (κ) связываются missing-information term'ом, а подогнанная n_node может артефактировать из распределения межсобытийных интервалов; перемешивание порядка событий меняет n_node менее чем на 10%.
+:IMPACT: Симуляция от подогнанной node-памяти занижает размеры вспышек до 2×; практические рекомендации — логировать инициатора каждого контакта и валидировать fitted-память против shuffled/model-free бенчмарков.
+
+- [[https://arxiv.org/abs/2610.33927][Interplay Between Network Heterogeneity and Activation Thresholds in Global Cascades]]
+:WHAT: В модели Watts с beta-распределёнными порогами и beta-binomial степенями выделены две границы поведения уязвимого ветвления при большой связности и логарифмическая поправка к скейлингу на стыке двух механизмов подавления.
+:IMPACT: Уточняет, когда рост связности усиливает, а когда подавляет каскады — важно для моделирования диффузии в гетерогенных сетях.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2603.16688][Assessment of Latent Pedestrian-Vehicle Interaction Risk Profiles at Midblock Crossing in VR]] — Крупномасштабные VR-эксперименты (Торонто/Ньюкасл): LPA по surrogate safety measures выделяет профили риска; в Ньюкасле AV-сессии смещают к высоко-urgency профилям, в Торонто разницы нет.
+- [[https://arxiv.org/abs/2605.05713][Quantifying thermal-signature equivalence in infrared breast thermography using a modified Pennes bioheat model]] — Модифицированная модель Pennes (BiCGSTAB + incomplete-LU) показывает, когда разные перфузионные паттерны опухоли наблюдательно неразличимы на поверхности.
+- [[https://arxiv.org/abs/2609.22419][Projected Effects of Naloxone and Buprenorphine Scale-Up on Opioid Overdose Mortality in Six Pennsylvania Counties]] — Калиброванные по округам OUD-симуляции: +30% налоксона даёт от −70% (Allegheny) до −11% (Erie) смертности — эффекты резко гетерогенны.
+- [[https://arxiv.org/abs/2610.24119][From Critical Transitions to Sustainability Transformations: Phenomena, Theory, and Applications Across Disciplines]] — Междисциплинарная сверка терминологии и теории tipping points, regime shifts и sustainability transformations.
+- [[https://arxiv.org/abs/2610.33122][The Digital-Energy Recomposition of the Kitchin Cycle: Exploratory Evidence from U.S. IT and Irish Data-Centre Series (1995-2025)]] — Разлом корреляции IT–ВВП США в 2014Q3; связь ирландских дата-центров с GDP во многом артефакт multinational-структуры (на GNP корреляция исчезает).
+- [[https://arxiv.org/abs/2610.33819][Cutting Corners or Saving Lives? The Evolutionary Stability of Ethics in Pharma Medicine]] — Калиброванная replicator-модель «фирмы–регулятор–общество»: комплаенс — осциллирующее состояние, индекс бюрократического трения пересёк пороги коллапса между 2016 и 2020.
+
+* cs.DS — Data Structures & Algorithms
+** 🧐 Обзор
+Наиболее системно нагруженный результат — сведение раскладки префиксов для KV-cache в LLM-сервинге к оптимизации по бинарным иерархиям: 17–36% экономии prefill на реальных RAG-трейсах. Классические направления дают оптимальные гарантии с прямым выходом на системы: онлайн-агрегация с максимальной задержкой и streaming-раскраска гиперграфов в почти линейной памяти. Теоретический блок — нижние оценки (k-SUM → Treewidth-SETH, ℓ_p-subspace embeddings) и первые нетривиальные точные экспоненциальные алгоритмы для дискретизации.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.13692][Prefix Sharing Is a Sorting Problem]]
+:WHAT: Теорема структуры: минимальная стоимость prefix-trie равна оптимуму по бинарным иерархиям на запросах; точный алгоритм O(3^m), agglomerative-кластеризация как tight 1/2-approximation, а DFS-порядок иерархии делает кэш одного запроса оптимальным без ограничений.
+:IMPACT: На BM25-трейсах по трём корпусам BEIR раскладка режет prefill на 17–36% против production RAG-порядка — прямой рычаг для экономики KV-cache в LLM-сервинге.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2608.06796][Online Multi-Level Aggregation with Maximum Delay]]
+:WHAT: Для агрегации на взвешенных деревьях с ограничением задержки: точный полиномиальный offline-алгоритм, оптимальные 2-competitive детерминированный и e/(e−1)-competitive рандомизированный онлайн-алгоритмы; обобщение на submodular-затраты.
+:IMPACT: Оптимальные гарантии для иерархической агрегации метрик с SLA-ограничениями на задержку — типовая задача мониторинга и телеметрии.
+
+- [[https://arxiv.org/abs/2606.18048][List coloring uncrowded hypergraphs at the shattering threshold]]
+:WHAT: Достигнут coupon-collector-порог: χ_ℓ ≤ (1+o(1))((k−1)Δ/log Δ)^{1/(k−1)} для uncrowded гиперграфов; первый palette sparsification для гиперграфовой раскраски; алгоритмическое следствие — однопроходный streaming-алгоритм с O(n^{1+o(1)}) памяти для uncrowded и линейных гиперграфов.
+:IMPACT: Streaming-раскраска в почти оптимальной памяти — инструмент однопроходной обработки огромных гиперграфов.
+
+- [[https://arxiv.org/abs/2503.09762][Optimal regret for dynamic matching with static priorities]]
+:WHAT: Политика General Priority на базе оптимального невырожденного базисного решения fluid-релаксации: статические приоритеты дают оптимальный all-time regret O(ε^{−1}) на произвольных двусторонних matching-сетях.
+:IMPACT: Закрывает гипотезу о Tree Priority и даёт простые, практически реализуемые политики для динамических matching-платформ.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/1807.05164][On the Number of Circuits in Regular Matroids (with Connections to Lattices and Codes)]] — Оценка m^{O(α²)} на число α-минимальных циклов, обобщающая подсчёт α-минимальных разрезов Каргера, со следствиями для решёток и кодов.
+- [[https://arxiv.org/abs/2108.13061][A New Test for Hamming-Weight Dependencies]] — Новый статистический тест ловит зависимости весов Хэмминга у dSFMT, xoroshiro1024+ и WELL512a, проходящих SOTA-тесты.
+- [[https://arxiv.org/abs/2510.08185][k-SUM Hardness Implies Treewidth-SETH]] — Из hardности k-SUM следует Primal Treewidth-SETH: нижние оценки для Independent Set/Max Cut/k-Coloring верны и при k-SUM/k-XOR гипотезах.
+- [[https://arxiv.org/abs/2602.15285][Tensor Decomposition for Non-Clifford Gate Minimization]] — Тензорная декомпозиция над F₂ минимизирует число CCZ/Toffoli-гейтов; большинство бенчмарков — менее чем за минуту на одном CPU.
+- [[https://arxiv.org/abs/2608.14201][A Near-Optimal Lower Bound for $\ell_p$-Subspace Embeddings, $1\leq p<2$]] — Почти оптимальная нижняя оценка размерности sketching-вложений: N_p ≳ d/(ε²·polylog(d/ε)).
+- [[https://arxiv.org/abs/2608.25197][Exact algorithms for optimal discretization]] — Первые нетривиальные точные алгоритмы: O(1.9602^n) для оптимальной дискретизации и O(1.8899^n) для point separation.
+
+* cs.DC — Distributed Computing
+** 🧐 Обзор
+Обновляются базовые примитивы: Nemo-Nemo предлагает DAG-based CFT-консенсус для WAN с commit за два сетевых хопа, Hapax Locks — мьютекс с константным временем захвата/освобождения и FIFO-порядком. Эксплуатационный кластер практичен: Ripple восстанавливает dependency-графы сервисов сквозь NAT, KubePACS оптимизирует spot-провижининг по цене/производительности, rush приносит shared-state асинхронность в R. Алгоритмический блок — work-efficient параллельные batch-dynamic ориентации графа и сертифицированные точки разреза для параллельного лексинга.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2510.15490][Retrofitting Service Dependency Discovery in Distributed Systems]]
+:WHAT: Runtime-система Ripple строит process-level графы зависимостей сервисов без инструментирования кода: ненавязчивая инжекция метаданных в TCP-заголовки, корректная работа сквозь NAT и безопасность при частичном деплое.
+:IMPACT: Единственный из сравниваемых подходов стабилен во всех сетевых конфигурациях (precision/recall 100% в большинстве сценариев) — практичная основа для локализации причин каскадных отказов в микросервисах.
+
+- [[https://arxiv.org/abs/2511.14608][Hapax Locks : Value-Based Mutual Exclusion]]
+:WHAT: Новый алгоритм локов: константное время arrival/unlock, FIFO-порядок допуска, низкий coherence-трафик при конкуренции, никакие указатели не перемещаются и не меняют владельца между потоками.
+:IMPACT: Производительность на уровне лучших SOTA-локов при минимальных требованиях к runtime — легко встраивается или ретрофитится в существующие системы и API.
+
+- [[https://arxiv.org/abs/2604.08914][Finding Nemo-Nemo: CFT DAG-based Consensus in the WAN]]
+:WHAT: CFT-консенсус для WAN: каузально упорядоченный DAG распространения команд, multi-leader архитектура, отделение диссеминации от логики консенсуса, commit за два сетевых хопа и детерминированное отложенное исполнение просроченных предложений.
+:IMPACT: Первый DAG-based CFT-протокол, обгоняющий SOTA в WAN по throughput и устойчивости к деградации сети — кандидат на замену single-leader deployments.
+
+- [[https://arxiv.org/abs/2604.24027][KubePACS: Kubernetes Cluster Using Performant, Highly Available, and Cost Efficient Spot Instances]]
+:WHAT: Kubernetes-native провижининг spot-инстансов: multi-objective оптимизация выбора узлов (цены, бенчмарки производительности, Spot Placement Score) через ILP с Golden Section Search, интеграция с Karpenter.
+:IMPACT: В среднем +55% (до +81%) performance-per-dollar против Karpenter/SpotVerse/SpotKube при гарантиях высокой доступности.
+
+- [[https://arxiv.org/abs/2606.21430][rush: Scalable Asynchronous Distributed Computing via Shared State in R]]
+:WHAT: R-пакет асинхронной децентрализованной параллельности: Redis как shared key-value store, sub-millisecond overhead на задачу, авто-детект потерянных воркеров, интеграция с экосистемой mlr3 (bbotk, mlr3tuning).
+:IMPACT: Реализация asynchronous decentralized Bayesian optimization и бенчмарк на 448 воркерах — закрывает пробел R-экосистемы для гиперпараметрической и black-box оптимизации.
+
+- [[https://arxiv.org/abs/2603.07949][ActECC: Action Chunk Temporal Harnessing for Edge-Cloud Collaborative VLA Inference System]]
+:WHAT: Edge-cloud инференс VLA-моделей: кинематически обоснованная оценка допустимого диапазона action chunks и delay-aware планирование replanning-запросов с учётом флуктуаций межузловых задержек.
+:IMPACT: До −27.4% задержки на действие и −45.1% облачных вызовов при меньшей ошибке исполнения — конкретный рецепт для реального времени embodied AI.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2602.17811][Faster Parallel Batch-Dynamic Algorithms for Low Out-Degree Orientation]]
+:WHAT: Work-efficient параллельные batch-dynamic алгоритмы ориентации с малой полустепенью: амортизированно O(log n) работы на обновление (оптимально в ожидании) при polylog depth — параллелизация классики Brodal–Fagerberg; worst-case вариант с O(log n) работой и O(c+log n)-ориентацией.
+:IMPACT: Edge-ориентация — примитив, на который опирается адаптация многих динамических графовых алгоритмов; теперь доступна эффективная параллельная батч-обработка вставок/удалений.
+
+- [[https://arxiv.org/abs/2608.03473][Certified Split Points for Parallel Lexing: Exact and Modulo Discarded Tokens]]
+:WHAT: Условия «сертифицированного символа разреза» для DFA-лексера: необходимое и достаточное условие точного параллелизма, ослабленный однобитный тест modulo отбрасываемых токенов и PSPACE-разрешимость безопасности (полином для литеральных словарей).
+:IMPACT: В munch — 92.6–95.3% параллельной эффективности на 8 потоках и ускорение 3.46–3.94× на 4 потоках; параллельный лексинг превращается из языковой эвристики в проверяемое компилятором свойство.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2603.26758][A Density--Delay Law for Event-Driven State Progression in Open Distributed Systems]] — Регенеративный анализ честной longest-chain сети: сетевой-независимый баунд средней LCA-глубины μ_N ≤ e^{2x}+e^x−2 и масштабирование входного потока g(N)=O(1/N).

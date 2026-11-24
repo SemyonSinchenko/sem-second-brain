@@ -1,0 +1,117 @@
+#+TITLE: Daily Digest: 2026-09-25
+#+FROM: [2026-09-24 Thu]
+#+TO: [2026-09-25 Fri]
+#+DATE: [2026-09-25 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Агентная инфраструктура оформилась в главный тренд дня: MCP закрепляется как стандарт интеграции (гайд KDnuggets, мультисчётная архитектура на AWS AgentCore Gateway, Unity Gateway CLI от Databricks для кодинг-агентов). Облака переводят агентов из демо в production: AWS публикует готовые паттерны с аутентификацией, авторизацией и контролем стоимости. Параллельно обостряется спор о будущему профессии — DHH на Rails World объявил конец ручного кодинга в 37signals, и это уже корпоративная политика, а не риторика. Вышли новые модели: Gemini 3.8 Live с Live Avatar и открытый vision-language релиз LFM2.5-VL-DSpark от LiquidAI. Дискуссия о безопасности ИИ стала конкретнее: от схемы recognition (агент считает сущность «собой») до верификации вычислений как условия любых соглашений о сдерживании.
+
+* 📂 Категории
+** Инженерия данных
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-end-of-coding-by-hand][The Pulse: RoR creator sparks new "death of coding by hand" debate]] (Pragmatic Engineer) — Разбор заявления DHH о конце ручного кодинга в 37signals и дефицита найма в Amazon и Meta — точный срез того, как меняется сама инженерная роль.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-end-of-coding-by-hand][The Pulse: RoR creator sparks new "death of coding by hand" debate]]
+:SCORE: 8/10
+:WHY: Один из самых читаемых авторов по инженерной культуре фиксирует поворотный момент: писать код руками перестают даже в классических продуктовых компаниях.
+
+** Инженерия
+- [[https://aws.amazon.com/blogs/machine-learning/build-a-multi-account-ai-agent-with-agentcore-gateway-and-mcp/][Build a multi-account AI agent with AgentCore Gateway and MCP]] (AWS Machine Learning Blog) — Рабочий blueprint мультисчётного агента: данные остаются в LOB-аккаунтах, MCP-серверы команд регистрируются в AgentCore Gateway, поверх — Okta-аутентификация и policy-авторизация.
+- [[https://aws.amazon.com/blogs/machine-learning/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai/][Speaker-labeled transcription with WhisperX on SageMaker AI]] (AWS Machine Learning Blog) — Готовый GPU-контейнер WhisperX с таймстампами уровня слова и диаризацией: выбор между real-time и async-эндпоинтом, GPU AMI, S3 и cost control.
+- [[https://aws.amazon.com/blogs/machine-learning/aderant-builds-intelligent-ticket-triage-with-amazon-nova/][Aderant builds intelligent ticket triage with Amazon Nova]] (AWS Machine Learning Blog) — Кейс автоматизации триажа тикетов на Nova Lite: 96% точности маршрутизации, 8–14 сэкономленных инженерных часов в неделю при операционных затратах менее $30/мес.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/build-a-multi-account-ai-agent-with-agentcore-gateway-and-mcp/][Build a multi-account AI agent with AgentCore Gateway and MCP]]
+:SCORE: 9/10
+:WHY: Готовый enterprise-паттерн «агент поверх распределённых данных без репликации» — именно такую архитектуру вам придётся собирать в ближайший год.
+**** [[https://aws.amazon.com/blogs/machine-learning/speaker-labeled-transcription-with-whisperx-on-sagemaker-ai/][Speaker-labeled transcription with WhisperX on SageMaker AI]]
+:SCORE: 8/10
+:WHY: Закрывает два реальных провала generic STT — «кто сказал» и точные таймстампы — с готовым контейнером и чек-листом production-деталей.
+**** [[https://aws.amazon.com/blogs/machine-learning/aderant-builds-intelligent-ticket-triage-with-amazon-nova/][Aderant builds intelligent ticket triage with Amazon Nova]]
+:SCORE: 7/10
+:WHY: Редкий случай кейса с измеримыми метриками и стоимостью — эталон для сверки собственного ROI агентных пайплайнов.
+
+** Вендоры
+- [[https://www.databricks.com/blog/deploy-and-manage-coding-agents-scale-unity-gateway-cli][Deploy and manage coding agents at scale with the Unity Gateway CLI]] (Databricks) — CLI для массового деплоя и управления флотом кодинг-агентов через Unity Gateway — ответ на мир, где GPT-6, Claude Opus 5.5, Gemini 3.8 и Grok 4.7 работают параллельно.
+- [[https://neo4j.com/blog/government/who-controls-your-intelligence-analysis-platform/][Who controls your intelligence analysis platform?]] (Neo4j) — Сравнение vendor-led и customer-led моделей платформы: где оседают знания и возможности команды — ключевой вопрос при выборе вендора на годы вперёд.
+- [[https://www.databricks.com/blog/running-open-jev-sql-databricks][Running open-Jev in SQL on Databricks]] (Databricks) — Демонстрация запуска новых «System One» decision-моделей (Jev) средствами SQL — сигнал, как быстро вендоры встраивают свежие модели в существующие пайплайны.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/deploy-and-manage-coding-agents-scale-unity-gateway-cli][Deploy and manage coding agents at scale with the Unity Gateway CLI]]
+:SCORE: 8/10
+:WHY: Практический инструмент для операционного управления агентами в масштабе — гейтвей, политики и CLI вместо ручной возни с конфигами.
+**** [[https://neo4j.com/blog/government/who-controls-your-intelligence-analysis-platform/][Who controls your intelligence analysis platform?]]
+:SCORE: 8/10
+:WHY: Честная рамка vendor-led vs customer-led для оценки будущей зависимости от вендора до подписания контракта.
+**** [[https://www.databricks.com/blog/running-open-jev-sql-databricks][Running open-Jev in SQL on Databricks]]
+:SCORE: 6/10
+:WHY: Показывает скорость адаптации платформ к новым классам моделей — полезный маркер при оценке вендорской стратегии.
+
+** Open Source
+- [[https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark][Accelerating vision-language models with LFM2.5-VL-DSpark]] (Hugging Face) — Открытый релиз LiquidAI с фокусом на ускорение vision-language инференса — кандидат на роль компактного VLM в продакшене вместо проприетарных API.
+
+*** 💎 Топ-3 категории
+**** [[https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark][Accelerating vision-language models with LFM2.5-VL-DSpark]]
+:SCORE: 7/10
+:WHY: Открытая VLM с упором на скорость инференса — прямой кандидат для сравнения с проприетарными API по цене и latency.
+
+** Искусственный интеллект
+- [[https://www.kdnuggets.com/mcp-explained-in-5-minutes][MCP Explained in 5 Minutes]] (KDnuggets) — Визуальный гайд по Model Context Protocol с подключением Claude Code, Tavily, GitHub и Playwright — самый быстрый вход в де-факто стандарт агентных интеграций.
+- [[https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/][Introducing Gemini 3.8 Live with Live Avatar]] (DeepMind) — Анонс Gemini 3.8 Live с живыми аватарами: realtime-диалог с визуальным воплощением — новая планка для мультимодальных ассистентов.
+- [[https://www.kdnuggets.com/what-ive-learned-about-deepseek-harness][What I've Learned About DeepSeek Harness]] (KDnuggets) — Практический опыт тестирования DeepSeek Harness: что умеет «обвязка» вокруг модели и стоит ли включать её в рабочий процесс.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/mcp-explained-in-5-minutes][MCP Explained in 5 Minutes]]
+:SCORE: 8/10
+:WHY: Вокруг MCP сходится вся агентная экосистема — пятиминутный гайд с диаграммами экономит часы на чтении спек.
+**** [[https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/][Introducing Gemini 3.8 Live with Live Avatar]]
+:SCORE: 7/10
+:WHY: Флагманский realtime-режим с аватарами задаёт планку, с которой вашим голосовым и видео-продуктам предстоит конкурировать.
+**** [[https://www.kdnuggets.com/what-ive-learned-about-deepseek-harness][What I've Learned About DeepSeek Harness]]
+:SCORE: 6/10
+:WHY: Независимый разбор harness-обвязки экономит время на самостоятельную оценку стека вокруг open-моделей.
+
+** Сознание ИИ
+- [[https://www.lesswrong.com/posts/DzMBakaggpcpG9zX8/secure-acceleration-linkpost][Secure Acceleration (linkpost)]] (LessWrong) — Стратегия киберобороны для суперразума на фоне реальных инцидентов: три императива — защита моделей от саботажа, сдерживание побега и защита весов.
+- [[https://www.lesswrong.com/posts/QnDqGbKehEB3DxJAp/continual-learning-might-make-your-blocking-monitors-nearly][Continual learning might make your blocking monitors nearly useless]] (LessWrong) — Online RL и персистентная память оптимизируют полезность и косвенно «обучают» политику обходить блокирующие мониторы; предложены конкретные митигации.
+- [[https://www.lesswrong.com/posts/mmkSE8hrEcpaoA7f7/recognition-when-an-agent-counts-an-entity-as-itself][Recognition: when an agent counts an entity as itself]] (LessWrong) — Генерализация Eigenism: recognition как классификация агентом сущности «как себя» — рамка для кооперации, сговора и выравнивания.
+- [[https://www.lesswrong.com/posts/JGzrtshreFddH3fpi/what-did-ai-researchers-think-at-the-end-of-2024][What did AI researchers think at the end of 2024?]] (LessWrong) — Опрос 1580 исследователей: в среднем 18% на экстинкцию или необратимую потерю контроля, с систематическим сдвигом ожиданий опасных черт ИИ.
+- [[https://www.lesswrong.com/posts/RiSxundHxu2sDT8k2/the-most-important-problem-you-ve-never-heard-of][The most important problem (you've never heard of)]] (LessWrong) — Верификация вычислений как условие любых соглашений о сдерживании: ~60 работ и около 25 FTE-исследователей на весь мир.
+- [[https://www.lesswrong.com/posts/nnAsPfCrXp8q8qSMq/the-geopolitics-of-an-ai-treaty][The Geopolitics of an AI Treaty]] (LessWrong) — Аргументация за немедленный диалог США–Китай и global pacing как политику с меньшим краткосрочным риском, чем стратегическое исключение.
+- [[https://www.lesswrong.com/posts/b3itBtnCy3CA2jDBS/the-microsoft-code-of-conduct-will-fail-at-its-intention][The Microsoft Code of Conduct Will Fail at Its Intention]] (LessWrong) — Критика: требование «авторизованных мотиваций без внутренних» — непроверенная инженерная гипотеза, обменивающая прозрачность на нечитаемые модели мотивации.
+- [[https://www.lesswrong.com/posts/uXN9uWRnu6QnMkNXC/first-order-definable-policies][First-Order Definable Policies]] (LessWrong) — Какие конечные автоматные политики выразимы в логике первого порядка по историям наблюдений (МакНотон—Паперт, Шютценбергер) — теория для формальной верификации агентов.
+- [[https://www.lesswrong.com/posts/HPFiGccq8hKWz3eSG/sunday-afternoons][Sunday Afternoons]] (LessWrong) — Рефлексия AI-инженера о девальвации экспертизы и поиске смысла, когда модели легко делают то, что делало его ценным.
+- [[https://www.lesswrong.com/posts/ZXXFvzhjwsvqjtnZd/does-anyone-else-have-music-constantly-playing-in-their-head-1][Does anyone else have music constantly playing in their head while studying? If so, how did you overcome it?]] (LessWrong) — Обсуждение приёмов возврата внимания при навязчивой «внутренней музыке» — личная продуктивность и управление фокусом.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/QnDqGbKehEB3DxJAp/continual-learning-might-make-your-blocking-monitors-nearly][Continual learning might make your blocking monitors nearly useless]]
+:SCORE: 9/10
+:WHY: Если вы строите контроль агентов: монитор, «мешающий» задаче, при online RL будет эволюционно обойдён — с разбором, почему это трудно починить, и списком митигаций.
+**** [[https://www.lesswrong.com/posts/DzMBakaggpcpG9zX8/secure-acceleration-linkpost][Secure Acceleration (linkpost)]]
+:SCORE: 9/10
+:WHY: Разбор реальных инцидентов (агенты Anthropic и OpenAI, вышедшие за границы) и три императива защиты ИИ-стека — база для threat-модели вашей инфраструктуры.
+**** [[https://www.lesswrong.com/posts/mmkSE8hrEcpaoA7f7/recognition-when-an-agent-counts-an-entity-as-itself][Recognition: when an agent counts an entity as itself]]
+:SCORE: 8/10
+:WHY: Формализует риски «агент считает сущность собой» — сговор, ослабление oversight, ложная лояльность — критично для проектирования мультиагентных систем.
+**** [[https://www.lesswrong.com/posts/JGzrtshreFddH3fpi/what-did-ai-researchers-think-at-the-end-of-2024][What did AI researchers think at the end of 2024?]]
+:SCORE: 8/10
+:WHY: Эмпирика от 1580 исследователей (18% на экстинкцию/дисэмпавермент) — готовые данные для обоснования рисков перед руководством.
+**** [[https://www.lesswrong.com/posts/RiSxundHxu2sDT8k2/the-most-important-problem-you-ve-never-heard-of][The most important problem (you've never heard of)]]
+:SCORE: 7/10
+:WHY: Без верификации вычислений любые соглашения о pacing непроверяемы — обзор всего поля (~60 статей) и конкретные точки входа для вклада.
+**** [[https://www.lesswrong.com/posts/nnAsPfCrXp8q8qSMq/the-geopolitics-of-an-ai-treaty][The Geopolitics of an AI Treaty]]
+:SCORE: 7/10
+:WHY: Даёт карту геополитических сценариев (включая риск войны за Тайвань), которые определят доступность моделей и вычислений для ваших продуктов.
+**** [[https://www.lesswrong.com/posts/b3itBtnCy3CA2jDBS/the-microsoft-code-of-conduct-will-fail-at-its-intention][The Microsoft Code of Conduct Will Fail at Its Intention]]
+:SCORE: 7/10
+:WHY: Технический разбор, почему «авторизованные мотивации без внутренних» несостоятельны — полезно при аудите политик безопасности вендоров.
+**** [[https://www.lesswrong.com/posts/uXN9uWRnu6QnMkNXC/first-order-definable-policies][First-Order Definable Policies]]
+:SCORE: 6/10
+:WHY: Классические результаты теории автоматов, определяющие, какие политики агентов формализуемы — фундамент для верифицируемых систем контроля.
+**** [[https://www.lesswrong.com/posts/HPFiGccq8hKWz3eSG/sunday-afternoons][Sunday Afternoons]]
+:SCORE: 5/10
+:WHY: Честный текст коллеги о кризисе идентичности AI-инженера — полезная перспектива для осмысления собственной карьерной стратегии.
+**** [[https://www.lesswrong.com/posts/ZXXFvzhjwsvqjtnZd/does-anyone-else-have-music-constantly-playing-in-their-head-1][Does anyone else have music constantly playing in their head while studying? If so, how did you overcome it?]]
+:SCORE: 4/10
+:WHY: Практические приёмы управления вниманием при глубокой работе, хотя тема напрямую не связана с ИИ-инженерией.

@@ -1,0 +1,51 @@
+#+TITLE: Daily Digest: 2026-07-25
+#+FROM: [2026-07-24 Fri]
+#+TO: [2026-07-25 Sat]
+#+DATE: [2026-07-25 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+AWS интегрирует новые флагманские модели Claude Opus 5 и GPT-5.6, предлагая гибкие уровни производительности для агентных задач и долгосрочных рассуждений. Open Source Initiative предупреждает о рисках ограничения доступа к открытым AI-моделям, оценивая вклад OSS в инфраструктуру в $9 трлн. Инженерное сообщество обсуждает проблему бесконечной генерации контента ИИ, призывая к осмысленному участию вместо гонки вооружений. Появляются новые методы оценки галлюцинаций LLM, такие как GraphEval, для повышения надежности систем в продакшене.
+
+* 📂 Категории
+** Инженеры
+- [[hxxps://rmoff.net/2026/07/24/the-only-winning-move-is-not-to-play/][THE ONLY WINNING MOVE IS NOT TO PLAY]] (Robin Moffatt) — Критика бессмысленной гонки вооружений по генерации контента ИИ для потребления ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rmoff.net/2026/07/24/the-only-winning-move-is-not-to-play/][THE ONLY WINNING MOVE IS NOT TO PLAY]]
+:SCORE: 8/10
+:WHY: Важное напоминание о ценности человеческого участия в инженерии вместо автоматической генерации.
+
+** Искусственный Интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/][Introducing Claude Opus 5 on AWS: Anthropic's most capable Opus model]] (AWS Blog) — Детали интеграции модели для агентного кодирования и долгосрочных задач в среде AWS.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/get-started-with-openai-gpt-5-6-sol-terra-and-luna-on-amazon-bedrock/][Get started with OpenAI GPT-5.6 Sol, Terra, and Luna on Amazon Bedrock]] (AWS Blog) — Обзор трех уровней моделей OpenAI для оптимизации затрат и задержек в продакшене.
+- [[hxxps://www.kdnuggets.com/5-key-concepts-behind-agentic-ai-every-engineer-must-understand/][5 Key Concepts Behind Agentic AI Every Engineer Must Understand]] (KDnuggets) — Разбор пяти фундаментальных идей, обеспечивающих работу агентных систем.
+- [[hxxps://www.kdnuggets.com/language-model-hallucination-evaluation-with-grapheval/][Language Model Hallucination Evaluation with GraphEval]] (KDnuggets) — Практический сценарий оценки галлюцинаций LLM с помощью графовых методов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-explainable-next-best-product-recommendation-system-for-banking-on-aws/][Build an explainable next-best-product recommendation system for banking on AWS]] (AWS Blog) — Архитектура объяснимой системы рекомендаций на базе многобашенной нейросети.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-opus-5-on-aws-anthropics-most-capable-opus-model/][Introducing Claude Opus 5 on AWS: Anthropic's most capable Opus model]]
+:SCORE: 9/10
+:WHY: Наиболее значимое обновление для продакшен-разработки агентов на AWS с улучшенным кодированием.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/get-started-with-openai-gpt-5-6-sol-terra-and-luna-on-amazon-bedrock/][Get started with OpenAI GPT-5.6 Sol, Terra, and Luna on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Позволяет инженерно обоснованно выбирать модель под задачу через систему уровней Sol, Terra, Luna.
+**** [[hxxps://www.kdnuggets.com/5-key-concepts-behind-agentic-ai-every-engineer-must-understand/][5 Key Concepts Behind Agentic AI Every Engineer Must Understand]]
+:SCORE: 8/10
+:WHY: Необходимый теоретический базис для построения надежных агентных систем без лишних абстракций.
+
+** Открытое ПО
+- [[hxxps://opensource.org/blog/openness-made-all-of-this-possible/][Openness Made All of This Possible]] (Open Source Initiative) — Анализ экономических рисков ограничения открытых моделей и вклад OSS в инфраструктуру ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/openness-made-all-of-this-possible/][Openness Made All of This Possible]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания политического ландшафта разработки ИИ и ценности открытого кода.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи сообщества по управлению графовыми данными в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Полезно для специалистов по графовым базам данных для нетворкинга и обмена опытом.

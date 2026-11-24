@@ -1,0 +1,25 @@
+#+TITLE: Daily Digest: 2026-05-31
+#+FROM: [2026-05-30 Sat]
+#+TO: [2026-05-31 Sun]
+#+DATE: [2026-05-31 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия сталкивается с растущей неопределенностью из-за энергетических шоков, что влияет на логистику и операционные затраты. Несмотря на макроэкономические сложности, профессиональные сообщества продолжают планировать очные встречи и конференции. Инженерам рекомендуется учитывать физические ограничения инфраструктуры при стратегическом планировании.
+
+* 📂 Категории
+** Engineers
+- [[hxxps://joereis.substack.com/p/notes-from-the-field-ai-energy-shocks][Notes From the Field: AI, Energy Shocks & the End of the Old Playbook (Spring 2026 Edition)]] (Joe Reis Substack) — Анализ влияния энергетического кризиса и дефицита топлива на технологическую отрасль и командировки.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/notes-from-the-field-ai-energy-shocks][Notes From the Field: AI, Energy Shocks & the End of the Old Playbook (Spring 2026 Edition)]]
+:SCORE: 8/10
+:WHY: Понимание макроэкономических рисков критично для стратегического планирования инженерных команд и бюджетов.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDB Council) — Анонс технической встречи сообщества GDC совместно с конференцией VLDB и призыв к подаче докладов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обмена опытом в области графовых данных на престижной конференции VLDB.

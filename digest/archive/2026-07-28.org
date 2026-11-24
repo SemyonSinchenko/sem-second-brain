@@ -1,0 +1,93 @@
+#+TITLE: Daily Digest: 2026-07-28
+#+FROM: [2026-07-27 Mon]
+#+TO: [2026-07-28 Tue]
+#+DATE: [2026-07-28 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия ИИ движется за пределы стандартного RAG: внедряется сжатие знаний под задачи (TAKC) и улучшается безопасность через временную делегацию IAM. В инженерии данных возобновились философские споры о моделировании данных на фоне пересмотра жизненного цикла профессии. Инфраструктурные кейсы показывают переход на специализированные потоковые решения и оптимизацию метаданных озер данных.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/][Beyond RAG: Task-aware knowledge compression for enterprise AI on AWS]] (AWS) — Внедрение TAKC позволяет сжимать базы знаний под конкретные задачи, решая проблему потери контекста в сложных аналитических запросах.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/deepgram-enhances-amazon-sagemaker-ai-support-with-aws-iam-temporary-delegation/][Deepgram enhances Amazon SageMaker AI support with AWS IAM Temporary Delegation]] (AWS) — Интеграция временной делегации IAM сокращает время поддержки с дней до минут без выдачи долгосрочных доступов партнерам.
+- [[hxxps://huggingface.co/blog/nvidia/cosmos-h-dreams][NVIDIA Cosmos-H-Dreams: Bringing Real-Time Generative Simulation to Surgical Robotics]] (Hugging Face) — Генеративная симуляция в реальном времени открывает новые возможности для обучения хирургических роботов без риска для пациентов.
+- [[hxxps://www.kdnuggets.com/is-kimiclaw-a-useful-tool][Is KimiClaw a Useful Tool?]] (KDnuggets) — Сравнение облачной и_self-hosted_ версий агента помогает оценить компромиссы между приватностью и удобством развертывания.
+- [[hxxps://www.kdnuggets.com/7-steps-to-building-and-deploying-your-first-autonomous-agent][7 Steps to Building and Deploying Your First Autonomous Agent]] (KDnuggets) — Пошаговое руководство по созданию автономных агентов охватывает весь цикл от разработки до продакшена.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-guardoc-transforms-medical-document-processing-with-amazon-nova-models/][How Guardoc transforms medical document processing with Amazon Nova models]] (AWS) — Кейс обработки медицинских документов демонстрирует снижение ошибок на 46% благодаря специализированным моделям Amazon Nova.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/beyond-rag-task-aware-knowledge-compression-for-enterprise-ai-on-aws/][Beyond RAG: Task-aware knowledge compression for enterprise AI on AWS]]
+:SCORE: 9/10
+:WHY: Техника TAKC решает фундаментальную проблему потери связей между документами в классическом RAG для сложных enterprise-задач.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/deepgram-enhances-amazon-sagemaker-ai-support-with-aws-iam-temporary-delegation/][Deepgram enhances Amazon SageMaker AI support with AWS IAM Temporary Delegation]]
+:SCORE: 8/10
+:WHY: Практическое решение проблемы аудита и безопасности при предоставлении доступа партнерам для поддержки ML-моделей.
+**** [[hxxps://huggingface.co/blog/nvidia/cosmos-h-dreams][NVIDIA Cosmos-H-Dreams: Bringing Real-Time Generative Simulation to Surgical Robotics]]
+:SCORE: 8/10
+:WHY: Демонстрирует зрелость генеративных симуляций для критических областей применения, выходящих за пределы чат-ботов.
+
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/so-is-data-modeling-dead][So, is data modeling dead?]] (Data Engineering Central) — Философский разбор актуальности моделирования данных в эпоху автоматизации и разнообразия мнений в сообществе.
+- [[hxxps://www.dremio.com/blog/apache-iceberg-metadata-tables-querying-the-internals/][Apache Iceberg Metadata Tables: Querying the Internals]] (Dremio) — Технический гайд по использованию системных таблиц Iceberg для мониторинга здоровья таблиц и отладки производительности через SQL.
+- [[hxxps://vutr.substack.com/p/data-modeling-kimball-vs-inmon][Data Modeling: Kimball vs. Inmon]] (Vutr) — Сравнение подходов Кимбалла и Инмона помогает выбрать стратегию моделирования в зависимости от целей бизнеса и архитектуры.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-iceberg-metadata-tables-querying-the-internals/][Apache Iceberg Metadata Tables: Querying the Internals]]
+:SCORE: 9/10
+:WHY: Конкретные SQL-запросы для диагностики мелких файлов и партиций критически важны для поддержки производительности озер данных.
+**** [[hxxps://dataengineeringcentral.substack.com/p/so-is-data-modeling-dead][So, is data modeling dead?]]
+:SCORE: 8/10
+:WHY: Поднимает важный вопрос о трансформации роли инженера данных в условиях развития инструментов автоматизации.
+**** [[hxxps://vutr.substack.com/p/data-modeling-kimball-vs-inmon][Data Modeling: Kimball vs. Inmon]]
+:SCORE: 7/10
+:WHY: Напоминание о фундаментальных различиях подходов необходимо для принятия архитектурных решений на старте проектов.
+
+** Инженеры
+- [[hxxps://rushter.com/blog/rust-memory-arenas/][Writing arenas in Rust from scratch]] (Rushter) — Глубокое погружение в управление памятью через арены в Rust для оптимизации производительности баз данных и скриптовых движков.
+- [[hxxps://joereis.substack.com/p/the-data-engineering-lifecycle-and][The Data Engineering Lifecycle and Undercurrents, 4 Years Later]] (Joe Reis) — Автор бестселлера FoDE пересматривает жизненный цикл данных и обсуждает место FinOps и AI в современной методологии.
+- [[hxxps://engineering.atspotify.com/2026/7/indexing-the-data-lake-for-online-point-queries/][Indexing the Data Lake for Online Point Queries]] (Spotify Engineering) — Кейс Spotify по обеспечению низких задержек для онлайн-запросов к огромным объемам данных в озеро.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rushter.com/blog/rust-memory-arenas/][Writing arenas in Rust from scratch]]
+:SCORE: 9/10
+:WHY: Понимание аллокации памяти и арен необходимо для написания высокопроизводительного системного ПО на Rust.
+**** [[hxxps://engineering.atspotify.com/2026/7/indexing-the-data-lake-for-online-point-queries/][Indexing the Data Lake for Online Point Queries]]
+:SCORE: 8/10
+:WHY: Решение проблемы гибридных нагрузок (OLAP + онлайн-точки) на уровне озера данных является актуальным вызовом для масштабируемых систем.
+**** [[hxxps://joereis.substack.com/p/the-data-engineering-lifecycle-and][The Data Engineering Lifecycle and Undercurrents, 4 Years Later]]
+:SCORE: 8/10
+:WHY: Рефлексия лидера индустрии помогает скорректировать долгосрочную стратегию развития команды и процессов.
+
+** Вендоры
+- [[hxxps://www.warpstream.com/blog/harnessing-data-at-scale-character-ais-transition-to-warpstream][Character.AI's Transition to WarpStream]] (WarpStream) — Кейс миграции с Pub/Sub на WarpStream позволил обрабатывать 3 ГиБ/с данных без изменения кода и снизил затраты.
+- [[hxxps://aws.amazon.com/blogs/database/migrate-self-managed-postgresql-to-amazon-rds-using-the-rds-console/][Migrate self-managed PostgreSQL to Amazon RDS using the RDS console]] (AWS) — Инструкция по миграции управляемых БД через консоль RDS минимизирует простой и операционную нагрузку на команду.
+- [[hxxps://www.databricks.com/blog/get-started-genie-one-top-ai-cowork-use-cases-for-business-users][Get Started with Genie One: Top AI Cowork Use Cases for Business Users]] (Databricks) — Обзор возможностей AI-ассистента Genie для бизнес-пользователей внутри платформы Databricks.
+- [[hxxps://www.databricks.com/blog/ai-literacy][Building AI Literacy: Frameworks, Tools, and Practices]] (Databricks) — Framework для повышения грамотности сотрудников в области ИИ необходим для эффективного внедрения инструментов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/harnessing-data-at-scale-character-ais-transition-to-warpstream][Character.AI's Transition to WarpStream]]
+:SCORE: 9/10
+:WHY: Реальный кейс масштабирования потоковой обработки данных с метриками производительности и затрат полезен для архитектурных решений.
+**** [[hxxps://aws.amazon.com/blogs/database/migrate-self-managed-postgresql-to-amazon-rds-using-the-rds-console/][Migrate self-managed PostgreSQL to Amazon RDS using the RDS console]]
+:SCORE: 8/10
+:WHY: Практическое руководство по миграции на управляемый сервис снижает риски и операционные издержки для инженерных команд.
+**** [[hxxps://www.databricks.com/blog/get-started-genie-one-top-ai-cowork-use-cases-for-business-users][Get Started with Genie One: Top AI Cowork Use Cases for Business Users]]
+:SCORE: 7/10
+:WHY: Демонстрирует тренд на внедрение AI-ассистентов непосредственно в платформы анализа данных для конечных пользователей.
+
+** Open Source
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи сообщества по графовым данным в рамках конференции VLDB для обмена опытом между академией и индустрией.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Участие в сообществе LDBC полезно для отслеживания стандартов и трендов в области графовых баз данных.
+
+** Неинженерное
+- [[hxxps://www.databricks.com/blog/eu-digital-product-passport-traceability-deadline][The EU Digital Product Passport: a traceability deadline]] (Databricks) — Обзор требований к цифровому паспорту продукта в ЕС важен для планирования соответствия регуляторным нормам.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/eu-digital-product-passport-traceability-deadline][The EU Digital Product Passport: a traceability deadline]]
+:SCORE: 7/10
+:WHY: Знание регуляторных дедлайнов критично для планирования архитектуры систем отслеживания в международных проектах.

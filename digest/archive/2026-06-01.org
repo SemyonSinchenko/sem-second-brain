@@ -1,0 +1,58 @@
+#+TITLE: Daily Digest: 2026-06-01
+#+FROM: [2026-05-31 Sun]
+#+TO: [2026-06-01 Mon]
+#+DATE: [2026-06-01 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия смещает фокус с разработки моделей ИИ на надежность инфраструктуры и безопасность агентов. Ключевые игроки (Slack, Uber) публикуют паттерны для мульти-облачных AI-стеков и решения кризиса идентичности агентов. NVIDIA представляет открытую омни-модель для физического ИИ, расширяющую возможности робототехники. В то же время, вопросы устойчивости инструментальных цепочек (Emacs) и макроэкономические риски (нефтяной шок) остаются важными контекстуальными факторами для инженеров.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-272][Data Engineering Weekly #272]] (Data Engineering Weekly) — Дайджест лучших практик: графовые абстракции, мульти-облако для AI и идентичность агентов.
+- [[hxxps://slack.engineering/slack-ai-the-path-to-multi-cloud/][Slack AI - The Path to Multi-Cloud]] (Slack Engineering) — Опыт построения отказоустойчивой AI-инфраструктуры с балансировкой между провайдерами.
+- [[hxxps://www.uber.com/us/en/blog/solving-the-agent-identity-crisis/][Solving the Identity Crisis for AI Agents]] (Uber Engineering) — Анализ проблем IAM для агентов и переход от ролей пользователей к сервисным идентичностям.
+- [[hxxps://netflixtechblog.com/high-throughput-graph-abstraction-at-netflix-part-i-e88063e6f6d5][High-Throughput Graph Abstraction at Netflix]] (Netflix Tech Blog) — Реализация высокопроизводительной графовой модели поверх реляционных и key-value хранилищ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://slack.engineering/slack-ai-the-path-to-multi-cloud/][Slack AI - The Path to Multi-Cloud]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов, строящих AI-платформы: снижает vendor lock-in и повышает отказоустойчивость.
+**** [[hxxps://www.uber.com/us/en/blog/solving-the-agent-identity-crisis/][Solving the Identity Crisis for AI Agents]]
+:SCORE: 9/10
+:WHY: Решает фундаментальную проблему безопасности агентов, предлагаемую модель нельзя игнорировать при проектировании IAM.
+**** [[hxxps://netflixtechblog.com/high-throughput-graph-abstraction-at-netflix-part-i-e88063e6f6d5][High-Throughput Graph Abstraction at Netflix]]
+:SCORE: 8/10
+:WHY: Практический кейс масштабирования графовых запросов в гетерогенной среде, полезный для высоконагруженных систем.
+
+** Инженеры
+- [[hxxps://rossabaker.com/blog/underappreciated-emacs-built-ins/][Underappreciated Emacs built-ins]] (Ross A. Baker) — Обзор встроенных функций Emacs для повышения продуктивности в изолированных средах.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rossabaker.com/blog/underappreciated-emacs-built-ins/][Underappreciated Emacs built-ins]]
+:SCORE: 7/10
+:WHY: Полезно для инженеров, работающих в airgapped-средах или стремящихся снизить зависимость от внешних пакетов.
+
+** Искусственный интеллект
+- [[hxxps://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai][Welcome NVIDIA Cosmos 3: The First Open Omni-model for Physical AI Reasoning and Action]] (Hugging Face) — Анонс открытой модели для.reasoning и действий физического ИИ в реальном мире.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai][Welcome NVIDIA Cosmos 3: The First Open Omni-model for Physical AI Reasoning and Action]]
+:SCORE: 8/10
+:WHY: Знаковый релиз для разработчиков робототехники и физических AI-систем, открывающий доступ к мощным базовым моделям.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Информация о встрече технического сообщества пользователей GDC в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность для нетворкинга и влияния на стандарты графовых баз данных, полезно для ведущих инженеров данных.
+
+** Не инженерное
+- [[hxxps://peterturchin.substack.com/p/the-oil-shocks-consequences-resilience][The Oil Shock's Consequences: Resilience or Collapse?]] (Peter Turchin) — Анализ влияния энергетических шоков на общество через призму устойчивости систем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/the-oil-shocks-consequences-resilience][The Oil Shock's Consequences: Resilience or Collapse?]]
+:SCORE: 6/10
+:WHY: Дает важный макроэкономический контекст для оценки рисков стабильности глобальных цепочек поставок.

@@ -1,0 +1,128 @@
+#+TITLE: Arxiv Digest: 2026-06-01
+#+FROM: [2026-05-31 Sun]
+#+TO: [2026-06-01 Mon]
+#+DATE: [2026-06-01 Mon]
+#+STARTUP: showall
+
+* Базы Данных (cs.DB)
+** 🧐 Обзор
+В последние сутки наблюдается сильный сдвиг в сторону интеграции инфраструктуры больших языковых моделей непосредственно в системы управления данными, особенно в контексте KV-кэширования и векторного поиска. Одновременно сохраняется интерес к теоретическим основам графовых запросов и оптимизации размещения данных в распределенных средах. Практическая значимость смещается к поддержке миллионных контекстов и обеспечению эффективности бинарной квантизации эмбеддингов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.07721][ParisKV: Fast and Drift-Robust KV-Cache Retrieval for Long-Context LLMs]]
+:WHAT: Фреймворк для извлечения KV-кэша на GPU с использованием коллазионного выбора кандидатов и квантованной переранжировки.
+:IMPACT: Позволяет обрабатывать контексты в миллионы токенов с уменьшением задержки декодирования до 44 раз по сравнению с аналогами, решая проблему распределительного дрейфа.
+- [[hxxps://arxiv.org/abs/2605.17524][Covariance Structure and Coordinate Heterogeneity Govern Binary Quantization of Contrastive Embeddings]]
+:WHAT: Статистический анализ влияния ковариационной структуры на качество бинарной квантизации векторов.
+:IMPACT: Предоставляет принципиальное руководство по дизайну систем векторного поиска, объясняя, когда случайное вращение полезно, а когда вредно.
+- [[hxxps://arxiv.org/abs/2605.31002][Modeling and Optimization for Massive Data Allocation in Database]]
+:WHAT: Модель размещения данных на основе нормализованного разреза спектральной кластеризации.
+:IMPACT: Снижает коммуникационные издержки в распределенных СУБД при сохранении баланса нагрузки, решая задачу 0-1 оптимизации методом Bregman.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.30564][Listing Even Cycles Faster than the Submodular-Width Barrier]]
+:ALGO: Алгоритм перечисления четных циклов со сложностью лучше барьера подмодулярной ширины за счет асимметричного перенасыщения.
+:IMPACT: Реализуем в СУБД через операторы join/project, преодолевая ограничения классических подходов для графовых запросов.
+- [[hxxps://arxiv.org/abs/2406.17871][Revisiting the Expressiveness Landscape of Data Graph Queries]]
+:ALGO: Полный анализ выразительной силы языков графовых запросов на данных графах.
+:IMPACT: Унифицирует подходы регулярных путей и логики первого порядка с транзитивным замыканием для практиков баз данных.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.02473][FDABench: A Benchmark for Data Agents on Analytical Queries over Heterogeneous Data]] — Бенчмарк для оценки агентов данных на гетерогных данных с фреймворком построения PUDDING.
+
+* Искусственный Интеллект (cs.AI)
+** 🧐 Обзор
+Исследования фокусируются на создании специализированных баз данных с помощью LLM и управлении агентами в реляционных системах. Значительное внимание уделяется эффективности инференса на физических устройствах и бенчмаркам для нейронного управления графовыми данными. Наблюдается тренд на снижение галлюцинаций и оптимизацию затрат при использовании агентов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.31097][SpecDB: LLM-Generated Customized Databases via Feature-Oriented Decomposition]]
+:WHAT: Система генерации реляционных СУБД под конкретную нагрузку с помощью LLM и агентской архитектуры.
+:IMPACT: Позволяет создавать СУБД размером ~3% от кода PostgreSQL с сопоставимой производительностью для целевых workload'ов.
+- [[hxxps://arxiv.org/abs/2605.30862][Sophrosyne: Agentic Exploration of Relational Data Systems Needs Moderation]]
+:WHAT: Среда для Text2SQL агентов с директивами для ограничения излишнего исследования API.
+:IMPACT: Снижает переисследование схемы в 4.6 раза и повышаетшает точность генерации SQL на 12.4%.
+- [[hxxps://arxiv.org/abs/2605.30571][Memory-Bound but Not Bandwidth-Limited: The Physical AI Inference Gap in Batch-1 LLM Decode]]
+:WHAT: Анализ узких мест инференса LLM на физических устройствах (роботы, edge).
+:IMPACT: Показывает, что накладные расходы запуска CUDA Graphs критичнее пропускной способности памяти на быстрых GPU для batch-1.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.05529][NGDBench: Towards Neural Graph Data Management]]
+:ALGO: Бенчмарк для нейронного управления графовыми данными с шумом и динамикой.
+:IMPACT: Выявляет чувствительность современных методов Text-to-Cypher к шуму и необходимости инференс-способных СУБД.
+- [[hxxps://arxiv.org/abs/2411.13865][Breaking Information Cocoons: A Hyperbolic Framework for Balancing Exploration and Exploitation in Recommender Systems]]
+:ALGO: Гиперболический фреймворк HERec для баланса исследования и эксплуатации в рекомендациях.
+:IMPACT: Снижает эффект информационных коконов за счет иерархического представления в гиперболическом пространстве.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.13812][DTBench: A Synthetic Benchmark for Document-to-Table Extraction]] — Синтетический бенчмарк для извлечения таблиц из документов через агентский синтез.
+- [[hxxps://arxiv.org/abs/2605.31100][Vector Linking via Cross-Model Local Isometric Consistency]] — Метод связывания векторов разных энкодеров через локальную изометрическую согласованность.
+- [[hxxps://arxiv.org/abs/2411.19463][Understanding the Fundamental Design Decisions of Retrieval-Augmented Generation Systems]] — Исследование инженерных компромиссов при развертывании RAG.
+
+* Социальная Физика и Сети (physics.soc-ph)
+** 🧐 Обзор
+Преобладает моделирование социальной динаминики через аналогии с термодинамикой и механикой, включая инерцию и давление в пространстве позиций. Алгоритмический анализ смещается к многошаговым путям в сетях и взаимодействиям высшего порядка. Практическая ценность заключается в выявлении скрытых структурных паттернов и обучении моделей на данных сетей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.30432][Learning effective models from network dynamics data with multiple initial conditions using weak form SINDy]]
+:WHAT: Применение WSINDy для обучения эффективных моделей динамиамики сетей из данных.
+:IMPACT: Позволяет восстанавливать ОДЕ из стохастических процессов на сетях лучше, чем mean-field аппроксимации.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.30551][Beyond Direct Retweets: Multi-Step Pathways in Italian COVID-19 Twitter]]
+:ALGO: Анализ многошаговых путей через случайные блуждания высшего порядка.
+:IMPACT: Выявляет перераспределение внимания между сообществами, невидимое в анализах первого порядка.
+- [[hxxps://arxiv.org/abs/2605.30948][Competing heterogeneities shape ordering via higher-order interactions]]
+:ALGO: Фреймворк на основе метода полости для симплицисальных моделей Изинга.
+:IMPACT: Показывает влияние неоднородности размеров групп и степеней узлов на коллективные фазовые переходы.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2402.12638][Towards a Framework for Social Mechanics]] — Механическая модель социальных изменений с позиционно-зависимой инерцией.
+- [[hxxps://arxiv.org/abs/2508.13447][Ideal Social Gas: Emergent Thermodynamic Observables in an Effective Model of Social Dynamics]] — Термодинамический подход к коллективным социальным системам с уравнением состояния идеального газа.
+
+* Структуры Данных и Алгоритмы (cs.DS)
+** 🧐 Обзор
+Ключевой тренд — детерминизация вероятностных алгоритмов без потери производительности и оптимизация структур для геномных данных. Уделяется внимание задачам на строках и матричных операциях с практическим применением в биоинформатике и обработке запросов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.15819][Faster PBWT prefix-array access via batching]]
+:WHAT: Алгоритм быстрого построения префиксных массивов из PBWT с батчингом запросов.
+:IMPACT: Позволяет достигать константного времени.report haplotypes при компактном хранении панелей гаплотипов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.07150][Deterministic Monotone Min-Plus Product and Convolution]]
+:ALGO: Детерминированный алгоритм для монотонного Min-Plus произведения со сложностью O(n^2.686).
+:IMPACT: Детерминизирует решения для расстояния редактирования, сворачивания РНК и кратчайших путей.
+- [[hxxps://arxiv.org/abs/2603.26176][Improved Approximation Algorithms and Hardness Results for Shortest Common Superstring with Reverse Complements]]
+:ALGO: Улучшенная аппроксимация для SCS-RC до 8/3 и результаты о трудности.
+:IMPACT: Критично для сборки геномов с учетом двуцепочечной природы ДНК.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2507.03980][Functional design of efficient and parallelizable combinatorial generators using convolution]] — Функциональный дизайн параллелизуемых комбинаторных генераторов.
+
+* Распределенные Вычисления (cs.DC)
+** 🧐 Обзор
+Акцент на оптимизации ядер GPU, федеративном обучении в условиях очередей HPC и энергоэффективности в радиосетях. Появляются новые подходы к виртуализации процессоров для автоматического распараллеливания. Системные метрики становятся более компактными за счет полиномиальных гистограмм.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.02125][FedQueue: Queue-Aware Federated Learning for Cross-Facility HPC Training]]
+:WHAT: Протокол FL, учитывающий задержки очередей планировщика и стаость обновлений.
+:IMPACT: Ускоряет достижение целевой точности на 60% в условиях высокой вариативности очередей кросс-объектного обучения.
+- [[hxxps://arxiv.org/abs/2605.30359][Kernel Foundry: A Diagnosis-driven Evolutionary Kernel Optimizer with Multi-Experts]]
+:WHAT: Эволюционный фреймворк оптимизации GPU-ядер с диагностикой и LLM.
+:IMPACT: Достигает 100% корректности на уровне 2 KernelBench за счет экспертной инициализации.
+- [[hxxps://arxiv.org/abs/2605.30360][Polynomial Histograms for Memory-Efficient Representation of Long-tailed System Distributions]]
+:WHAT: Полиномиальные гистограммы с моментами распределения в бинах.
+:IMPACT: Снижает стоимость хранения метрик производительности в распределенных системах при меньшей потере информации.
+- [[hxxps://arxiv.org/abs/2605.30507][A Virtual Processor brings back the Free Lunch]]
+:WHAT: Самооптимизирующийся виртуальный процессор для численных массивов.
+:IMPACT: Автоматически эксплуатирует параллелизм без явных аннотаций через децентрализованные сегменты выполнения.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.30546][Energy-Efficient Aggregation and Minimum-Degree Spanning Trees in Radio Networks]]
+:ALGO: Рандомизированный алгоритм агрегации с минимизацией энергии пробуждения узлов.
+:IMPACT: Достигает почти оптимальной энергетической сложности O(Δ* polylog n) в радиосетях без детекции коллизий.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.10372][Amortized Asynchronous Byzantine Reliable Broadcast with Optimal Resilience]] — Асинхронный протокол BRB с оптимальной устойчивостью через амортизацию.
+- [[hxxps://arxiv.org/abs/2605.29752][From Roofline to Ruggedness: Decomposing and Smoothing the GEMM Performance Landscape]] — Анализ неровности производительности GEMM на GPU помимо roofline модели.
+- [[hxxps://arxiv.org/abs/2605.30520][Scheduling Mechanisms in Wireless Sensor-Actuator Networks for Multi-rate Periodic Control in Industry 4.0]] — Стратегии планирования для WSAN в индустрии 4.0.

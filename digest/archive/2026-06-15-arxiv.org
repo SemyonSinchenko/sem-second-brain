@@ -1,0 +1,149 @@
+#+TITLE: Arxiv Digest: 2026-06-15
+#+FROM: [2026-06-14 Sun]
+#+TO: [2026-06-15 Mon]
+#+DATE: [2026-06-15 Mon]
+#+STARTUP: showall
+
+* cs.DB: Базы данных и информационные системы
+** 🧐 Обзор
+За последние сутки наблюдается сильный тренд на интеграцию LLM в управление данными: от Text-to-SQL benchmarks до hierarchical KV storage для знаний. Параллельно matures тема provenance в streaming systems и spatial-temporal indexing для IoT/UAV данных. Практическая значимость смещается в сторону lightweight provenance и дифференциальной приватности в SQL.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.09581][AeroMesa: Efficient Data Management System for Multi-Dimensional Spatio-Temporal Trajectories]]
+:WHAT: Система управления данными на базе Apache HBase и Redis для многомерных траекторий (x,y,z,t).
+:IMPACT: Решает проблемы фрагментации ключей и локальности для UAV и IoT, снижая latency запросов до 30x.
+- [[hxxps://arxiv.org/abs/2606.14275][WikiKV: Schema-Evolving Path-Indexed Storage for Hierarchical Knowledge Navigation]]
+:WHAT: Path-indexed KV storage для hierarchical knowledge bases, используемых в RAG приложениях.
+:IMPACT: Позволяет эффективно хранить и навигировать по эволюционирующим знаниям LLM с низкой latency.
+- [[hxxps://arxiv.org/abs/2601.04722][Toward Temporal Attribution Analytics in Dataflows]]
+:WHAT: Lightweight форма provenance (temporal attribution) для streaming systems like Apache Flink.
+:IMPACT: Позволяет мониторить зависимости между компонентами без overhead fine-grained tuple-level metadata.
+- [[hxxps://arxiv.org/abs/2606.13699][A Multimodal Machine Learning Framework for Enterprise Database Workload-Aware Root Cause Analysis]]
+:WHAT: Multimodal ML framework для root cause analysis incidents в enterprise databases.
+:IMPACT: Автоматизирует диагностику (CPU, I/O, deadlocks) через комбинацию telemetry и workload features.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.14193][Revisiting Filtered ANN Benchmarks: A Hardness-Controlled Benchmark Generator for Realistic Evaluation]]
+:ALGO: Метрика $\alpha$-Hardness и генератор бенчмарков для filtered approximate nearest neighbor search.
+:IMPACT: Позволяет оценивать гибридные workload реалистично, выявляя robustness gaps существующих систем.
+- [[hxxps://arxiv.org/abs/2605.26671][RT-RkNN: Reverse k Nearest Neighbor Queries as a Graphics Ray Casting Problem]]
+:ALGO: Реформализация RkNN queries как problem graphics ray casting на GPU.
+:IMPACT: Preserve strong filtering performance для dense user populations и sparse facility distributions.
+- [[hxxps://arxiv.org/abs/1707.05945][First-Order Query Evaluation with Cardinality Conditions]]
+:ALGO: Fragment FOC_1(P) логики с cardinality conditions для fixed-parameter tractable query evaluation.
+:IMPACT: Расширяет применимость SQL-like COUNT operators на nowhere-dense classes of databases.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.07883][DP4SQL: Differentially Private SQL with Flexible Privacy Policies]] — Система дифференциальной приватности для SQL с гибкими policies.
+- [[hxxps://arxiv.org/abs/2606.14201][TACO: A Benchmark for Open-Domain Text-to-SQL with Ambiguous and Cross-Database Queries]] — Benchmark для open-domain Text-to-SQL с ambiguous queries.
+- [[hxxps://arxiv.org/abs/2605.31475][A Theoretical Study of DBLog: Certified Virtual Cuts for a Snapshot-Equivalent Replay of Live Databases]] — Теоретическая формализация correctness для DBLog CDC mechanism.
+- [[hxxps://arxiv.org/abs/2606.13923][Towards an open registry of Earth observation instruments]] — Open registry metadata для Earth observation instruments.
+- [[hxxps://arxiv.org/abs/2606.06010][Adaptive Oscillatory-State Alignment for Time Series Forecasting]] — Framework для forecasting с adaptive oscillatory-state alignment (tagged cs.DB).
+
+* cs.DS: Data Structures & Algorithms
+** 🧐 Обзор
+В категории data structures акцент смещается на parallelization классических алгоритмов (skip lists) и privacy-preserving graph mining. Появляются новые метрики hardness для benchmarks и алгоритмы для balance efficiency и reachability в route planning.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.03129][Parallel Metric Skip Lists and Nearest Neighbor Search]]
+:WHAT: Highly parallel algorithms для construction metric skip lists.
+:IMPACT: Achieves work efficiency и polylogarithmic span для nearest neighbor search без bounded aspect ratio assumption.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.14540][An Efficient Private Algorithm for Community Detection]]
+:ALGO: Differentially private algorithms для exact community detection в stochastic block model.
+:IMPACT: Near-linear time complexity для exact recovery с strong privacy guarantees.
+- [[hxxps://arxiv.org/abs/2606.14128][Designing Efficient and Reachable Routes: The $k$-Step-Central Shortest Path Problem]]
+:ALGO: Algorithm для selection shortest path that maximizes reachability (k-Step-Central).
+:IMPACT: Позволяет balance efficiency и coverage в transportation network design.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.16288][Linear Time Subsequence and Supersequence Regex Matching]] — Linear time algorithm для subsequence/supersequence regex matching.
+- [[hxxps://arxiv.org/abs/2509.16143][On the Structural Parameterizations of 2-Club with Triangle Constraints]] — FPT algorithms для Vertex r-Triangle 2-Club.
+- [[hxxps://arxiv.org/abs/2606.09785][Biclique decompositions from Welzl orders]] — Biclique decompositions для graphs с low neighborhood complexity.
+- [[hxxps://arxiv.org/abs/2606.14539][On a Conjecture for Parameterized st-Orientations]] — Disproof conjecture для st-orientations biconnected graphs.
+- [[hxxps://arxiv.org/abs/2606.14640][Online Convex Optimization with Sublinear Noisy Probes]] — Unified probing model для Online Convex Optimization.
+
+* cs.DC: Distributed Computing
+** 🧐 Обзор
+Ключевые темы: optimization LLM serving (multi-priority scheduling), digital twins для datacenters, и fault-tolerant verification. Виден рост интереса к hardware-software interface security и memory characterization labs.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.12928][ProServe: Unified Multi-Priority Request Scheduling for LLM Serving]]
+:WHAT: Two-tier scheduling framework для maximize service gain в LLM serving.
+:IMPACT: Improves system gain до 35% и SLO attainment до 52% через priority-aware batching.
+- [[hxxps://arxiv.org/abs/2604.11445][OpenDT: Exploring Datacenter Performance and Sustainability with a Self-Calibrating Digital Twin]]
+:WHAT: Open-source Digital Twin для monitoring и operating datacenters с self-calibration.
+:IMPACT: Allows continuous telemetry и simulation feedback для operational decisions с MAPE 4.39%.
+- [[hxxps://arxiv.org/abs/2602.02355][Mitigating Heterogeneity-Induced Drift in Hierarchical Sign-Based Federated Learning]]
+:WHAT: Drift-corrected sign-based HFL algorithm (DC-HierSignSGD).
+:IMPACT: Mitigates heterogeneity-induced bias в hierarchical edge-cloud architectures с binary communication.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.13954][Lattice Aggregation in Distributed Verification under Crash and Byzantine Failures]]
+:ALGO: c-Lattice Aggregation protocol для distributed verification под crash и Byzantine failures.
+:IMPACT: Complete characterization fault-tolerant verification для globally dependent languages.
+- [[hxxps://arxiv.org/abs/2606.13834][Solving Subgraph Extraction Problems Using $\Delta$Search]]
+:ALGO: General heuristic framework ($\Delta$Search) для optimal subgraph extraction problems.
+:IMPACT: Matches state of the art heuristics для MPS, UFLP без problem-specific tuning.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.19406][The Bilateral Efficiency of Ethernet: Recalibrating Metcalfe and Boggs After Fifty Years]] — Formalization bilateral efficiency для intra-rack interconnect.
+- [[hxxps://arxiv.org/abs/2606.13725][A Modern Large-Scale Memory Characterization Laboratory]] — Infrastructure для large-scale DRAM characterization (DRAM Bender).
+- [[hxxps://arxiv.org/abs/2606.13865][RTL-Arrow: Hardware-to-Cloud Bridge]] — Framework для compile binaries bridging hardware/data divide.
+- [[hxxps://arxiv.org/abs/2601.08374][Shifting the Sweet Spot: High-Performance Matrix-Free Method for High-Order Elasticity]] — Optimizations для MFEM linear elasticity на tensor-product meshes.
+
+* cs.AI: Artificial Intelligence
+** 🧐 Обзор
+В фокусе multimodal RAG frameworks, efficient reasoning (Fractured CoT), и neuro-symbolic digital twins. Важным трендом является edge inference reliability и accountability платформ через API restrictions.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2501.08561][ANSR-DT: A Neuro-Symbolic Framework for Adaptive and Explainable Digital Twins]]
+:WHAT: Adaptive neuro-symbolic framework uniting anomaly detection, symbolic reasoning, и RL.
+:IMPACT: Provides transparent diagnoses и actionable explanations для industrial digital twins.
+- [[hxxps://arxiv.org/abs/2504.03686][Revisiting Outage for Edge Inference Systems]]
+:WHAT: Theoretical framework для inference outage (InfOut) probability в edge inference.
+:IMPACT: Optimizes tradeoff между communication overhead и inference reliability под latency constraints.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2504.20734][UniversalRAG: Retrieval-Augmented Generation over Corpora of Diverse Modalities and Granularities]]
+:ALGO: Any-to-any RAG framework с modality-aware routing и granularity levels.
+:IMPACT: Retrieves knowledge из heterogeneous sources без modality gap.
+- [[hxxps://arxiv.org/abs/2505.12992][Fractured Chain-of-Thought Reasoning]]
+:ALGO: Fractured Sampling strategy interpolating между full CoT и solution-only sampling.
+:IMPACT: Achieves superior accuracy-cost trade-offs для LLM reasoning через truncated trajectories.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2406.09250][MirrorCheck: Efficient Adversarial Defense for Vision-Language Models]] — Detection framework для adversarial attacks на VLM через semantic consistency.
+- [[hxxps://arxiv.org/abs/2505.11577][The Accountability Paradox: How Platform API Restrictions Undermine AI Transparency Mandates]] — Audit framework для misalignment между regulatory requirements и platform implementations.
+- [[hxxps://arxiv.org/abs/2112.04573][Application of Artificial Intelligence and Machine Learning in Libraries: A Systematic Review]] — Systematic review application AI/ML в libraries.
+- [[hxxps://arxiv.org/abs/2303.09209][Learning optimal policies from event logs through reinforcement learning: a comparison of deep and MDP-based approaches]] — RL approaches для learning optimal policies из event logs.
+- [[hxxps://arxiv.org/abs/2504.16173][FPGA-Based Neural Network Accelerators for Space Applications: A Survey]] — Survey FPGA-based NN accelerators для space applications.
+- [[hxxps://arxiv.org/abs/2503.19947][Vanishing Depth: Training Generalized Depth Adapters with Sinusoidal Depth Preprocessing for Pretrained RGB Encoders]] — Self-supervised training для depth adapters в RGB encoders.
+
+* physics.soc-ph: Social Physics & Networks
+** 🧐 Обзор
+Исследования фокусируются на network analysis в социальных (homelessness) и brain contexts, а также agent-based models для societal issues (wealth inequality). NLP применяется для detecting historical turning points в media corpora.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2411.13517][Understanding the Personal Networks of People Experiencing Homelessness in King County, WA with aggregate Relational Data]]
+:WHAT: Analysis social networks unhoused individuals через network-based sampling.
+:IMPACT: Reveals declining social connectivity и shifting dynamics social support для policy making.
+- [[hxxps://arxiv.org/abs/2606.14348][Detecting Historical Turning Points in Italian Media: A Complex Systems Approach to a Diachronic News Corpus]]
+:WHAT: Quantitative approach к historical analysis через NLP и complex systems tools.
+:IMPACT: Detects key transition periods (political, geopolitical) без prior labeling в news corpus.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.00542][Assessing (im)balance in signed brain networks]]
+:ALGO: Method linking units via signed graph из multivariate time series через information-theoretic approach.
+:IMPACT: Determines frustration brain networks и modular structure aligning with Relaxed Balance Theory.
+- [[hxxps://arxiv.org/abs/2606.14331][Wealth Inequality and Planetary Boundaries in a Stylized Agent-Based Model]]
+:ALGO: Agent-based model investigating reverse causal relationship между wealth inequality и ecological transition.
+:IMPACT: Shows inequality thresholds lock economy в Brown regime hindering transition.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.00196][Evolution of cooperation in the multiplex]] — Framework для evolution of cooperation в multiplex networks с multi-phenotype homophily.
+- [[hxxps://arxiv.org/abs/2606.00303][Building a Global Astrotourism Community of Practice Through Astronomy for Development]] — Findings从 first Astrotourism Community Exchange.
+- [[hxxps://arxiv.org/abs/2606.13914][Autonomous AI-Cosmoindustry and the Quiet Expansion Filter: A Threshold-Based Resolution of the Fermi Paradox]] — Proposal quiet expansion filter для Fermi Paradox via autonomous AI-cosmoindustry.
+- [[hxxps://arxiv.org/abs/2606.14043][A Unified Subject Map for 130 Years of Physics]] — Unified subject map для APS archive 1893-2025 через LLM.
+- [[hxxps://arxiv.org/abs/2606.14532][Modeling inhomogeneous spatial point configurations with applications to replicated patterns in waiting crowds]] — Inference procedure для semiparametric spatial point process models.

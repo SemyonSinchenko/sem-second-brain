@@ -1,0 +1,66 @@
+#+TITLE: Daily Digest: 2026-04-21
+#+FROM: [2026-04-20 Mon]
+#+TO: [2026-04-21 Tue]
+#+DATE: [2026-04-21 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Выпущены ключевые обновления по ИИ-инфраструктуре: AWS представила новые GPU-инстансы G7e для высокопроизводительного вывода LLM и Aurora Serverless v4 с улучшенной производительностью для агентных приложений. Вендоры делают ставку на интеграцию графовых баз данных для улучшения рассуждений ИИ-агентов, о чём заявляет Neo4j, и на управление данными на уровне строк, как в Apache Iceberg v3 от Dremio. Основной тренд — переход от общих платформенных решений к глубокой оптимизации стеков данных и ИИ под конкретные сценарии, такие как аудит, низколатентные транзакции и мультимодальные агенты.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/how-ram-and-gpucpu-affects-llm-inference][How RAM and GPU/CPU affects LLM Inference Performance]] (Data Engineering Central) — Практический эксперимент показывает, как объем оперативной памяти и тип GPU влияют на скорость и стоимость инференса LLM через Ollama, помогая инженерам выбирать конфигурации инстансов в облаке.
+- [[hxxps://vutr.substack.com/p/data-engineering-system-design-9][Data engineering system design: 9 data serving problems]] (vutr.substack.com) — Разбор девяти ключевых проблем уровня обслуживания данных (serving layer) с конкретными вопросами по хранению, свежести, доступу и гарантиям, которые нужно задавать при проектировании.
+
+** Vendors
+- [[hxxps://www.dremio.com/blog/dremio-iceberg-v3-row-lineage/][Iceberg Row Lineage: Giving Every Row a Paper Trail]] (Dremio) — Apache Iceberg v3 автоматически добавляет два мета-столбца (_row_id и _last_updated_sequence_number) для отслеживания истории изменений каждой строки, что критично для аудита и расследований инцидентов.
+- [[hxxps://www.databricks.com/blog/adobe-databricks-delta-sharing-agentic-marketing][Bridging Data Science and Marketing: Databricks Unveils Delta Sharing Integration for Adobe Experience Platform and Agentic Marketing Workflows]] (Databricks) — Интеграция Delta Sharing с Adobe Experience Platform ускоряет передачу данных для маркетинговых моделей и внедрения агентных рабочих процессов.
+- [[hxxps://www.databricks.com/blog/take-control-customer-managed-keys-lakebase-postgres][Take Control: Customer-Managed Keys for Lakebase Postgres]] (Databricks) — Lakebase Postgres теперь поддерживает customer-managed keys для шифрования на стороне клиента, что важно для регулируемых отраслей.
+- [[hxxps://www.databricks.com/blog/get-hands-on-agents-vibe-coding-and-more-data-ai-summit][Get hands on with agents, vibe coding and more at Data+ AI Summit]] (Databricks) — Анонс практических сессий по агентам и "vibe coding" на предстоящем Data+AI Summit.
+- [[hxxps://www.databricks.com/blog/mercedes-benz-builds-cross-cloud-data-mesh-delta-sharing-and-intelligent-replication-cutting][Mercedes-Benz Builds a Cross-Cloud Data Mesh with Delta Sharing and Intelligent Replication, Cutting Costs by 66%]] (Databricks) — Кейс Mercedes-Benz по построению кросс-облачной data mesh на Delta Sharing и Intelligent Replication, сократившей затраты на 66%.
+- [[hxxps://www.databricks.com/blog/what-is-a-transactional-database][What Is a Transactional Database?]] (Databricks) — Объяснение принципов работы транзакционных баз данных и их эволюции в сторону гибридных систем (HTAP).
+- [[hxxps://neo4j.com/blog/graph-database/connected-intelligence-scaling-graph-powered-reasoning/][Connected Intelligence: Scaling Graph-Powered Reasoning Across the AI Ecosystem]] (Neo4j) — Графовые базы данных становятся ключевым слоем контекста для ИИ-агентов, что подтверждается кейсами интеграции с AWS, Google Cloud и успехами вендоров.
+- [[hxxps://www.warpstream.com/blog/ask-your-cluster-anything-the-warpstream-mcp-server][Ask Your Cluster Anything: The WarpStream MCP Server - WarpStream]] (WarpStream) — MCP-сервер для WarpStream позволяет ИИ-ассистентам напрямую запрашивать логи, диагностировать проблемы и инспектировать кластеры Kafka.
+- [[hxxps://aws.amazon.com/blogs/database/aurora-serverless-faster-performance-enhanced-scaling-and-still-scales-down-to-zero/][Aurora Serverless: Faster performance, enhanced scaling, and still scales down to zero]] (AWS) — Aurora Serverless v4 обеспечивает до 30% прироста производительности и до 45% более быстрый масштаб для агентных ИИ-приложений с непредсказуемой нагрузкой.
+- [[hxxps://aws.amazon.com/blogs/database/getting-started-with-the-oracle-databaseaws-high-performance-networking/][Getting started with the Oracle Database@AWS high performance networking]] (AWS) — Oracle Database@AWS с высокопроизводительными сетями обеспечивает субмиллисекундную задержку за счёт автоматического размещения EC2 инстансов рядом с Exadata.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — Анонс офлайн-встречи Technical User Community в Бостоне 4 сентября для обсуждения графовых технологий.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/how-to-crawl-an-entire-documentation-site-with-olostep][How to Crawl an Entire Documentation Site with Olostep]] (KDnuggets) — Инструмент Olostep позволяет автоматически собирать и структурировать содержимое документации в готовый для ИИ формат с помощью нескольких строк кода.
+- [[hxxps://www.kdnuggets.com/merging-language-models-with-unsloth-studio][Merging Language Models with Unsloth Studio]] (KDnuggets) — Unsloth Studio предлагает no-code GUI для слияния весов различных языковых моделей без необходимости их дообучения.
+- [[hxxps://www.kdnuggets.com/5-free-ways-to-host-a-python-application][5 Free Ways to Host a Python Application]] (KDnuggets) — Сравнение пяти бесплатных платформ для хостинга Python-приложений с их ограничениями и критериями выбора.
+- [[hxxps://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/][Can we AI our way to a more sustainable world?]] (Microsoft Research) — Обсуждение двойственной роли ИИ в изменении климата: как источника роста энергопотребления и как инструмента для оптимизации сложных систем.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-generative-ai-inference-on-amazon-sagemaker-ai-with-g7e-instances/][Accelerate Generative AI Inference on Amazon SageMaker AI with G7e Instances]] (AWS) — Новые инстансы G7e на GPU Blackwell обеспечивают до 2.3x ускорение инференса LLM и позволяют размещать модели до 300B параметров на одном узле.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/toolsimulator-scalable-tool-testing-for-ai-agents/][ToolSimulator: scalable tool testing for AI agents]] (AWS) — Фреймворк ToolSimulator использует LLM для симуляции вызовов внешних инструментов, позволяя безопасно и масштабируемо тестировать ИИ-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/omnichannel-ordering-with-amazon-bedrock-agentcore-and-amazon-nova-2-sonic/][Omnichannel ordering with Amazon Bedrock AgentCore and Amazon Nova 2 Sonic]] (AWS) — Пошаговое руководство по созданию omnichannel системы заказов с голосовым интерфейсом на основе AgentCore и речевой модели Nova 2 Sonic.
+- [[hxxps://huggingface.co/blog/nvidia/build-korean-agents-with-nemotron-personas][How to Ground a Korean AI Agent in Real Demographics with Synthetic Personas]] (Hugging Face) — Метод использования синтетических персонажей на основе демографических данных для улучшения контекста и поведения корейскоязычных ИИ-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/dremio-iceberg-v3-row-lineage/][Iceberg Row Lineage: Giving Every Row a Paper Trail]]
+:SCORE: 9/10
+:WHY: Демонстрирует эволюцию data lineage на уровень строк, что критично для production-аудита, расследований и соответствия регуляторным требованиям в реальных системах.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-generative-ai-inference-on-amazon-sagemaker-ai-with-g7e-instances/][Accelerate Generative AI Inference on Amazon SageMaker AI with G7e Instances]]
+:SCORE: 8/10
+:WHY: Конкретные данные о производительности и памяти новых инстансов позволяют принимать обоснованные архитектурные решения по развертыванию и масштабированию больших LLM.
+**** [[hxxps://neo4j.com/blog/graph-database/connected-intelligence-scaling-graph-powered-reasoning/][Connected Intelligence: Scaling Graph-Powered Reasoning Across the AI Ecosystem]]
+:SCORE: 8/10
+:WHY: Показывает реальные кейсы и ROI от интеграции графов в ИИ-стек, что помогает преодолеть "стену рассуждений" у агентов — ключевая проблема при внедрении.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/data-engineering-system-design-9][Data engineering system design: 9 data serving problems]]
+:SCORE: 9/10
+:WHY: Концентрируется на часто упускаемом, но критически важном слое обслуживания данных, предоставляя структурированный список вопросов для проектирования продакшен-систем.
+**** [[hxxps://dataengineeringcentral.substack.com/p/how-ram-and-gpucpu-affects-llm-inference][How RAM and GPU/CPU affects LLM Inference Performance]]
+:SCORE: 7/10
+:WHY: Практический, основанный на экспериментах взгляд на влияние "железа" на стоимость и скорость инференса, что полезно для capacity planning.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/toolsimulator-scalable-tool-testing-for-ai-agents/][ToolSimulator: scalable tool testing for AI agents]]
+:SCORE: 9/10
+:WHY: Решает фундаментальную проблему безопасного и изолированного тестирования ИИ-агентов, использующих внешние инструменты, что необходимо для CI/CD в production.
+**** [[hxxps://aws.amazon.com/blogs/database/aurora-serverless-faster-performance-enhanced-scaling-and-still-scales-down-to-zero/][Aurora Serverless: Faster performance, enhanced scaling, and still scales down to zero]]
+:SCORE: 8/10
+:WHY: Представляет значительное улучшение производительности и скорости масштабирования бессерверной БД, идеально подходящей для bursty-нагрузок современных ИИ-агентов.
+**** [[hxxps://www.microsoft.com/en-us/research/podcast/can-we-ai-our-way-to-a-more-sustainable-world/][Can we AI our way to a more sustainable world?]]
+:SCORE: 7/10
+:WHY: Обеспечивает сбалансированный, экспертный взгляд на энергетические затраты и потенциал ИИ для ESG-инициатив, важный для архитекторов корпоративных систем.

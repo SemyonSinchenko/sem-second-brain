@@ -1,0 +1,120 @@
+#+TITLE: Daily Digest: 2026-11-24
+#+FROM: [2026-11-23 Mon]
+#+TO: [2026-11-24 Tue]
+#+DATE: [2026-11-24 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Граница между озером данных и СУБД окончательно размывается: Databricks одновременно продвигает Lakebase, обмен метаданными каталога между платформами и нативный Postgres-sink для Spark Structured Streaming. Безопасность цепочки поставок выходит на первый план — отчёт о 5400 вредоносных npm-пакетах задаёт новую планку для инженерных практик. В AI-инженерии фокус смещается на агентные системы: от лёгких альтернатив MCP до генерации квантовых алгоритмов агентами с формальной верификацией и enterprise-контролов (Trusted Access API) в Amazon Bedrock. Сообщество AI-безопасности активно обсуждает «ошибочное стремление к власти» у моделей, экстраполяцию test-time compute и систематическое завышение оценок eval awareness. Rust наконец стабилизировал API аллокаторов после десяти лет ожидания — системные инженеры получают готовые паттерны вроде bump-аллокаторов уже сейчас.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/databricks-lakebase-what-even-is][Databricks Lakebase: What even is a database anymore?]] (Data Engineering Central) — Разбор эволюции понятия «база данных»: lakehouse-архитектуры с Delta Lake и Iceberg перенимают ACID-семантику классических RDBMS, и старые определения больше не работают.
+
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/databricks-lakebase-what-even-is][Databricks Lakebase: What even is a database anymore?]]
+:SCORE: 8/10
+:WHY: Задаёт фрейм для архитектурных решений на годы вперёд — понимание, куда движется сама категория СУБД, критично для сеньора.
+
+** Engineers
+- [[https://joereis.substack.com/p/the-2027-state-of-data-engineering][The 2027 State of Data Engineering Survey is LIVE!]] (Joe Reis) — Открыт ежегодный анонимный опрос индустрии (3-4 минуты); полный датасет будет опубликован, и заметно не хватает ответов из Азии, Латинской Америки, Ближнего Востока и Африки.
+- [[https://cetra3.github.io/blog/state-of-allocators-2026-finally-stabilised/][The State of Allocators in 2026 - Finally Stabilised!]] (cetra3) — После 10 лет limbo API аллокаторов Rust стабилизирован в 1.100: разбор практических кейсов, включая bump-аллокатор для burst-паттернов веб-запросов и вынос drop из горячего пути.
+- [[https://vutr.substack.com/p/data-pipeline-101-medallion-architecture][Data Pipeline 101: Medallion Architecture, Kimball and One Big Table.]] (vutr) — Ясное разделение понятий: медальонная архитектура — это зонирование (Bronze/Silver/Gold), а не метод моделирования, и смешивать её с Kimball и One Big Table — типичная ошибка.
+
+*** 💎 Топ-3 категории
+**** [[https://cetra3.github.io/blog/state-of-allocators-2026-finally-stabilised/][The State of Allocators in 2026 - Finally Stabilised!]]
+:SCORE: 9/10
+:WHY: Стабилизация allocator API — событие десятилетия для Rust; готовые паттерны (bump-аллокаторы) применимы в продакшене немедленно.
+**** [[https://vutr.substack.com/p/data-pipeline-101-medallion-architecture][Data Pipeline 101: Medallion Architecture, Kimball and One Big Table.]]
+:SCORE: 8/10
+:WHY: Предотвращает частую архитектурную путаницу между зонированием данных и методами моделирования с конкретными trade-off каждого слоя.
+**** [[https://joereis.substack.com/p/the-2027-state-of-data-engineering][The 2027 State of Data Engineering Survey is LIVE!]]
+:SCORE: 6/10
+:WHY: Открытый датасет опроса — ценный материал для анализа рыночных трендов и бенчмаркинга своей команды.
+
+** Vendors
+- [[https://neo4j.com/blog/news/graphaware-solutions-aws-marketplace/][Neo4j GraphAware Solutions now available in AWS Marketplace]] (Neo4j) — GraphAware Hume для разведки и борьбы с финансовыми преступлениями доступен в AWS Marketplace, включая ICMP и поддержку AWS GovCloud — упрощённый путь закупки для регулируемых организаций.
+- [[https://www.databricks.com/blog/sharing-catalog-metadata-across-data-platforms-engines-and-agents][Sharing catalog metadata across data platforms, engines, and agents]] (Databricks) — Новая возможность catalog labels в Unity Catalog для обмена метаданными каталога между разными платформами, движками и AI-агентами.
+- [[https://www.databricks.com/blog/what-5400-malicious-npm-packages-reveal-about-software-supply-chain-risk-2026][What 5,400 Malicious npm Packages Reveal about Software Supply Chain Risk in 2026]] (Databricks) — Первый отчёт серии об анализе 5400 вредоносных npm-пакетов: конкретная карта угроз цепочки поставок с выводами для защиты зависимостей.
+- [[https://www.databricks.com/blog/announcing-general-availability-native-lakebase-postgres-sink-spark-structured-streaming][Announcing General Availability of native Lakebase Postgres sink for Spark Structured Streaming]] (Databricks) — Готовый low-latency путь записи из Spark Streaming в Postgres для сценариев фрод-детекции, live-персонализации и real-time feature engineering.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/what-5400-malicious-npm-packages-reveal-about-software-supply-chain-risk-2026][What 5,400 Malicious npm Packages Reveal about Software Supply Chain Risk in 2026]]
+:SCORE: 9/10
+:WHY: Эмпирический анализ 5400 вредоносных пакетов — прямая база для аудита npm-зависимостей и укрепления supply chain защит в вашей организации.
+**** [[https://www.databricks.com/blog/announcing-general-availability-native-lakebase-postgres-sink-spark-structured-streaming][Announcing General Availability of native Lakebase Postgres sink for Spark Structured Streaming]]
+:SCORE: 8/10
+:WHY: Готовый к продакшену sink устраняет самописные мостики между стримингом и OLTP-слоем — заметное упрощение low-latency архитектур.
+**** [[https://www.databricks.com/blog/sharing-catalog-metadata-across-data-platforms-engines-and-agents][Sharing catalog metadata across data platforms, engines, and agents]]
+:SCORE: 7/10
+:WHY: Обмен метаданными каталога между платформами и агентами — шаг к интероперабельности, важной при мульти-движковых lakehouse-стеках.
+
+** Open Source
+- [[https://opensource.org/blog/ato-2026-the-state-of-the-open-source-initiative][ATO 2026: The State of the Open Source Initiative]] (Open Source Initiative) — Новый исполнительный директор OSI подводит итоги 2026 и презентует планы на 2027: лицензирование, политика, стандарты и работа по определению Open Source AI.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/ato-2026-the-state-of-the-open-source-initiative][ATO 2026: The State of the Open Source Initiative]]
+:SCORE: 7/10
+:WHY: Планы OSI по лицензированию и определению Open Source AI напрямую повлияют на лицензионный комплаенс и выбор зависимостей в компаниях.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/how-to-use-ai-tools-to-learn-data-science-faster-in-2026][How to Use AI Tools to Learn Data Science Faster in 2026]] (KDnuggets) — Практическая схема совмещения AI-ассистентов, кодинг-инструментов и адаптивных платформ для сокращения кривой обучения data science.
+- [[https://www.kdnuggets.com/5-lightweight-alternatives-to-mcp-for-giving-ai-agents-tools][5 Lightweight Alternatives to MCP for Giving AI Agents Tools]] (KDnuggets) — Сравнение пяти лёгких способов дать агентам инструменты без MCP-сервера (Python-диспетчер, framework tools, REST-адаптеры, subprocess, вебхуки) и критериев, когда MCP всё же оправдан.
+- [[https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/][Finding faster quantum algorithms with agents and formal verification]] (Google DeepMind) — Команды агентов с формальной верификацией находят более быстрые квантовые алгоритмы для задач термоядерного синтеза и химии — образец надёжной агентной генерации.
+- [[https://huggingface.co/blog/allenai/robotrack][RoboTrack: Point tracking for real-world robotic manipulation]] (Hugging Face / AllenAI) — Трекинг точек, нацеленный на манипуляции в реальных условиях, а не на бенчмарки.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/][Introducing the Amazon Bedrock Trusted Access API with Anthropic’s Enterprise Frontier Safeguards and Enterprise Data Controls]] (AWS Machine Learning) — Единый API для обнаружения и enrolment в trusted access программы провайдеров: Anthropic EFS хранит данные в вашем аккаунте, EDC — в управляемом AWS, оба с Safety Case при обнаружении рисков.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/5-lightweight-alternatives-to-mcp-for-giving-ai-agents-tools][5 Lightweight Alternatives to MCP for Giving AI Agents Tools]]
+:SCORE: 8/10
+:WHY: Пять готовых паттернов подключения инструментов к агентам с чёткими критериями, когда оверхед MCP оправдан, — экономит время на архитектурном выборе.
+**** [[https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/][Introducing the Amazon Bedrock Trusted Access API with Anthropic’s Enterprise Frontier Safeguards and Enterprise Data Controls]]
+:SCORE: 8/10
+:WHY: Новый механизм enterprise-контроля над frontier-моделями с выбором места хранения данных и аудируемыми Safety Case — важно для комплаенса в продакшене.
+**** [[https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/][Finding faster quantum algorithms with agents and formal verification]]
+:SCORE: 7/10
+:WHY: Рабочий шаблон «агенты + формальная верификация» для генерации проверяемых алгоритмов — переносится на любую задачу, где нужен доказуемо корректный код.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/AebihZrTgg5tPdSd7/two-kinds-of-test-time-scaling-1][Two Kinds of Test-Time Scaling]] (LessWrong) — Различение test-time scaling с «compute extrapolation» (выход за максимум compute из обучения) и без него: первое ускоряет прогресс, усложняет опасные эвалюации и меняет динамику AI-гонки.
+- [[https://www.lesswrong.com/posts/ubceFEqT6bQWKyAWb/misguided-power-seeking][Misguided power-seeking]] (LessWrong) — Persona selection и RL могут сформировать иррациональное стремление к власти: модель с «зубчатым» интеллектом способна выполнять опасные действия (хакинг, био) без реальных шансов на успех — окно уязвимости раньше классических сценариев захвата.
+- [[https://www.lesswrong.com/posts/7Zvs6w7BzLFYoGzDH/most-attempts-at-measuring-eval-awareness-overestimate-it][Most attempts at measuring eval awareness overestimate it]] (LessWrong) — Критика метода METR по измерению осведомлённости моделей об эвалюациях: прямые вопросы агентов-исследователей систематически завышают показатели.
+- [[https://www.lesswrong.com/posts/Jtqux7K7N2sczpmQH/if-it-s-not-safe-for-the-public-it-s-not-safe-for-ai-r-and-d][If it's not safe for the public, it's not safe for AI R&D]] (LessWrong) — Предложение политики: лаборатории должны использовать для внутреннего R&D только публично выпущенные модели — разрыв между внутренними и публичными моделями уже достиг «удвоения» по шкале METR.
+- [[https://www.lesswrong.com/posts/WgGdtPEjNniPAReWW/california-politics-seems-like-a-real-hope-for-an-ai][California politics seems like a real hope for an AI slowdown]] (LessWrong) — Аргумент за калифорнийский путь замедления AI: отчёт губернатора Newsom с рекомендациями по независимым верификационным организациям и ограничению рекурсивного самоулучшения.
+- [[https://www.lesswrong.com/posts/zzGf853ZbsuZ5tpEs/memo-firebell][Memo: Firebell]] (LessWrong) — Меморандум нового движения Firebell: «гигантский человеческий пожарный сигнал» по AI, где вход — публичное одобрение тезиса об угрозе, а действие — распространение сообщения.
+- [[https://www.lesswrong.com/posts/yCrcj28HdLt4yxT48/the-pythagorean-theorem-as-a-whole-with-its-own-character][The Pythagorean Theorem as a “whole,” with its own character]] (LessWrong) — Размышление о том, что стоит изучать в теореме после доказательства: понимание «характера» паттерна приносит измеримую пользу — от смежных теорем до математической зрелости.
+- [[https://www.lesswrong.com/posts/RtojdvxhDwbX6FKgx/why-do-intense-writing][Why do intense writing]] (LessWrong) — Внешние ограничения (400 слов в час или вылет с вечеринки) снимают барьер входа в письмо: само-улучшение через редактирование работает как self-play RL.
+- [[https://www.lesswrong.com/posts/8zwoPn9ubC267NiCx/lightcone-co-conspirators-the-universe-should-give-me][Lightcone Co-Conspirators The Universe Should Give Me]] (LessWrong) — Вишлист проектов Lightcone: фестивали, «гремлины» для споров в чатах Inkhaven и мерч-стор сообщества.
+- [[https://www.lesswrong.com/posts/nQFsZfPAPPP2mcRTw/2026-petrov-day-house-party-retrospective][2026 Petrov Day house party retrospective]] (LessWrong) — Ретроспектива вечеринки-симуляции ядерного кризиса с реальными последствиями в карме: неожиданно честные уроки о принятии решений под угрозой.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/ubceFEqT6bQWKyAWb/misguided-power-seeking][Misguided power-seeking]]
+:SCORE: 9/10
+:WHY: Предлагает конкретный механизм ранее недооценённого риска — опасные действия без шансов на успех — и сдвигает фокус на option control в AI safety.
+**** [[https://www.lesswrong.com/posts/AebihZrTgg5tPdSd7/two-kinds-of-test-time-scaling-1][Two Kinds of Test-Time Scaling]]
+:SCORE: 9/10
+:WHY: Различение compute extrapolation меняет оценку потолков моделей и того, насколько честно можно проводить dangerous capability evaluations.
+**** [[https://www.lesswrong.com/posts/7Zvs6w7BzLFYoGzDH/most-attempts-at-measuring-eval-awareness-overestimate-it][Most attempts at measuring eval awareness overestimate it]]
+:SCORE: 8/10
+:WHY: Прямо бьёт по методологии METR — критично для всех, кто строит honeypot-эвалюации и доверяет их результатам.
+**** [[https://www.lesswrong.com/posts/Jtqux7K7N2sczpmQH/if-it-s-not-safe-for-the-public-it-s-not-safe-for-ai-r-and-d][If it's not safe for the public, it's not safe for AI R&D]]
+:SCORE: 8/10
+:WHY: Конкретная проверяемая политика с оценкой разрыва internal/public моделей (~удвоение по METR) — готовая отправная точка для регуляторных дебатов.
+**** [[https://www.lesswrong.com/posts/WgGdtPEjNniPAReWW/california-politics-seems-like-a-real-hope-for-an-ai][California politics seems like a real hope for an AI slowdown]]
+:SCORE: 7/10
+:WHY: Разбор реалистичного политического пути с конкретными инструментами (отчёт Newsom, IVOs) и оценкой, что работает на уровне штата.
+**** [[https://www.lesswrong.com/posts/zzGf853ZbsuZ5tpEs/memo-firebell][Memo: Firebell]]
+:SCORE: 6/10
+:WHY: Показывает механику построения массового движения вокруг AI-риска через социальную заметность вместо прямых политических требований.
+**** [[https://www.lesswrong.com/posts/yCrcj28HdLt4yxT48/the-pythagorean-theorem-as-a-whole-with-its-own-character][The Pythagorean Theorem as a “whole,” with its own character]]
+:SCORE: 6/10
+:WHY: Полезная рамка «что даёт понимание после доказательства» — переносится на то, как инженеры усваивают сложные системы.
+**** [[https://www.lesswrong.com/posts/RtojdvxhDwbX6FKgx/why-do-intense-writing][Why do intense writing]]
+:SCORE: 5/10
+:WHY: Практичный приём преодоления барьера входа через внешние ограничения — применим к техническим докам и блогам.
+**** [[https://www.lesswrong.com/posts/nQFsZfPAPPP2mcRTw/2026-petrov-day-house-party-retrospective][2026 Petrov Day house party retrospective]]
+:SCORE: 4/10
+:WHY: Живой кейс о принятии решений в условиях неопределённости, но ценность в основном социокультурная.
+**** [[https://www.lesswrong.com/posts/8zwoPn9ubC267NiCx/lightcone-co-conspirators-the-universe-should-give-me][Lightcone Co-Conspirators The Universe Should Give Me]]
+:SCORE: 4/10
+:WHY: Вишлист проектов сообщества — интересен для понимания динамики рационалист-среды, но прямой инженерной ценности нет.

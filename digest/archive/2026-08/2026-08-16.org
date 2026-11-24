@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-08-16
+#+FROM: [2026-08-15 Sat]
+#+TO: [2026-08-16 Sun]
+#+DATE: [2026-08-16 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Инженеры оптимизируют рабочие процессы, возвращаясь к тонкой настройке классических инструментов вроде Emacs для работы с несколькими фреймами. Внимание к фундаментальным алгоритмам, таким как метод наименьших квадратов, остается высоким для понимания основ работы с данными. Вендоры графовых баз данных активизируют работу над стандартом GQL и решениями для обработки потоковых данных в реальном времени. Наблюдается тренд на совмещение декларативных и императивных подходов в запросах к графам для повышения гибкости разработки.
+
+* 📂 Категории
+** Engineers
+- [[hxxps://xenodium.com/focus-windows-across-emacs-frames][Focus windows across Emacs frames]] (xenodium.com) — Решение проблемы переключения фокуса между окнами в разных фреймах Emacs через встроенную команду `next-window-any-frame`.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://xenodium.com/focus-windows-across-emacs-frames][Focus windows across Emacs frames]]
+:SCORE: 7/10
+:WHY: Улучшает эргономику работы в Emacs при использовании нескольких фреймов без зависимости от внешних пакетов.
+
+** Data Engineering
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (clojurecivitas.org) — Образовательный материал по реализации линейного метода наименьших квадратов, базового алгоритма для регрессионного анализа.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 8/10
+:WHY: Понимание математических основ критично для корректной работы с данными и валидации моделей.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Повестка встречи GDC охватывает будущее стандарта GQL, ускорение графовых вычислений и кейсы внедрения от Oracle и PuppyGraph.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Дает представление о развитии стандартов графовых запросов и решениях ключевых вендоров рынка.

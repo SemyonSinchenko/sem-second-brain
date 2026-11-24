@@ -1,0 +1,37 @@
+#+TITLE: Daily Digest: 2026-06-15
+#+FROM: [2026-06-14 Sun]
+#+TO: [2026-06-15 Mon]
+#+DATE: [2026-06-15 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Фокус недели смещается в сторону надежности потоковой обработки данных и эволюции платформенных архитектур. Инженеры углубляются в internals Apache Spark и RocksDB для оптимизации stateful streaming и предотвращения утечек памяти. Крупные технологические компании делятся паттернами масштабирования через абстракции и децентрализацию владения данными. Параллельно наблюдаются интересные тренды автоматизации в биотехе, стирающие границы между гибкостью и стандартизацией процессов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-274][Data Engineering Weekly #274]] (Data Engineering Weekly) — Обзор архитектурных подходов Anthropic, Airbnb и Uber к масштабированию аналитики.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-274][Data Engineering Weekly #274]]
+:SCORE: 8/10
+:WHY: Концентрированная выжимка практических решений от лидеров рынка по построению data platform.
+
+** Engineers
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-we-will-rocksdb-you-d9393f24027a?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? We Will RocksDB You]] (Medium) — Разбор управления состоянием в Spark Streaming и роли RocksDB в предотвращении OOM.
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-we-will-rocksdb-you-d9393f24027a?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? We Will RocksDB You]]
+:SCORE: 9/10
+:WHY: Критически важное понимание internals для отладки сложных потоковых пайплайнов.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность для нетворкинга и обсуждения стандартов графовых запросов с разработчиками.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/the-future-has-arrived][The Future Has Arrived]] (Peter Turchin) — Анализ баланса автоматизации и гибкости в биотехе на примере Ginkgo Bioworks.
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/the-future-has-arrived][The Future Has Arrived]]
+:SCORE: 7/10
+:WHY: Расширяет системное мышление за пределы IT, показывая универсальность проблем автоматизации.

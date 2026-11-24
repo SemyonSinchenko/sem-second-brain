@@ -1,0 +1,122 @@
+#+TITLE: Daily Digest: 2026-10-02
+#+FROM: [2026-10-01 Thu]
+#+TO: [2026-10-02 Fri]
+#+DATE: [2026-10-02 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Агентный ИИ окончательно смещается от чата к событийным и самоорганизующимся системам: AWS публикует паттерн «ambient-агентов» с human-in-the-loop, а Итан Моллик признаёт, что вручную проектировать оркестрацию роя агентов больше не нужно — Bitter Lesson добрался и до менеджмента. Вендоры баз данных продолжают сближение OLTP и аналитики: filtered export в DynamoDB и FK-констрейнты в Aurora DSQL упрощают мультитенантность и миграции, а DuckDB показывает, как звёздная схема радикально ускоряет строковые агрегации. Глобальный сбой Firebase SDK на 2–6 часов при молчании статус-страницы Google — урок о рисках жёсткой зависимости от одного вендорского SDK. Данные Vercel AI Gateway и OpenRouter подтверждают сдвиг рынка: уже 60% трат на модели уходит в open-weight модели, а OpenAI строит платформенную модель по образцу AWS. В обсуждениях безопасности ИИ в центре — юридическая личность компаний как незакрытая «точка власти» для агентов и критический разбор Ban Artificial Superintelligence Act.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-firebases-global-outage][The Pulse: Firebase's global outage & poor response]] (Pragmatic Engineer) — Разбор глобального сбоя Firebase iOS SDK (2–6 часов падения всех приложений с аналитикой) без постмортема от Google, плюс данные, что 60% трат на модели уходит в open-weight варианты.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-firebases-global-outage][The Pulse: Firebase's global outage & poor response]]
+:SCORE: 8/10
+:WHY: Кейс сбоя, где один бэкенд-чанг уронил все SDK-приложения разом, — прямой материал для ревизии вендорских зависимостей и практик инцидент-менеджмента у себя.
+
+** Engineers
+- [[https://www.oneusefulthing.org/p/the-dot-and-the-swarm][The Dot and the Swarm]] (One Useful Thing) — Итан Моллик признаёт ошибку: организовывать работу агентов как «компанию» не нужно — модели сами учатся управлять роем (dots, Muse, Clawlikes), и ручные шаблоны делегирования теряют ценность.
+- [[https://jaehyeon.me/blog/2026-10-02-game-leaderboard-flink-sql/][Live Game Leaderboards with Kafka, Flink SQL and a Discrete-Event Simulation]] (jaehyeon.me) — Полностью воспроизводимый локальный проект: Kafka+Avro+Karapace, четыре Flink SQL джобы ведут топ-10 лидербордов в PostgreSQL, дашборд на NiceGUI, всё через Docker Compose.
+- [[https://rmoff.net/2026/10/01/i-am-so-tired-of-this-bullshit/][I am so tired of this bullshit]] (rmoff.net) — Короткое эмоциональное эссе о выгорании в индустрии — честное напоминание о человеческом факторе за хайповыми циклами.
+
+*** 💎 Топ-3 категории
+**** [[https://www.oneusefulthing.org/p/the-dot-and-the-swarm][The Dot and the Swarm]]
+:SCORE: 9/10
+:WHY: Стратегический сдвиг: делегирование агентам больше не требует ручного проектирования оркестрации — это меняет архитектуру агентных систем и роль инженера в ней.
+**** [[https://jaehyeon.me/blog/2026-10-02-game-leaderboard-flink-sql/][Live Game Leaderboards with Kafka, Flink SQL and a Discrete-Event Simulation]]
+:SCORE: 8/10
+:WHY: Готовый референс streaming-архитектуры (Kafka, Flink SQL, Postgres, schema registry) с исходниками — можно поднять локально и взять как шаблон для своих задач.
+**** [[https://rmoff.net/2026/10/01/i-am-so-tired-of-this-bullshit/][I am so tired of this bullshit]]
+:SCORE: 5/10
+:WHY: Минимализм как сигнал: даже одна строка о усталости от индустрии полезна для калибровки собственного отношения к хайпу.
+
+** Vendors
+- [[https://duckdb.org/2026/10/02/dimension-tables.html][Faster String Aggregations with Dimension Tables]] (DuckDB Blog) — Классическая звёздная схема как оптимизация запросов: замените строковые ключи на суррогатные integer и джойньте измерение в конце — кейс 380k строк против 537 уникальных станций.
+- [[https://aws.amazon.com/blogs/database/working-with-foreign-key-constraints-in-aurora-dsql/][Working with foreign key constraints in Aurora DSQL]] (AWS Database Blog) — Ссылочная целостность в distributed SQL без блокировок: snapshot-валидация FK + разрешение конфликтов через OCC на коммите, плюс ALTER TABLE ASYNC ... VALIDATE для zero-downtime эволюции схемы.
+- [[https://aws.amazon.com/blogs/database/introducing-filtered-export-from-amazon-dynamodb-to-amazon-s3/][Introducing filtered export from Amazon DynamoDB to Amazon S3]] (AWS Database Blog) — Новый FilterSpecification в ExportTableToPointInTime читает из PITR-бэкапа, не расходуя capacity таблицы: восстановление одного тенанта вместо 4 ТБ полного рестора.
+- [[https://neo4j.com/blog/government/beyond-the-return-who-controls-the-business/][Beyond the return: who controls the business?]] (Neo4j Blog) — Как графовая аналитика вскрывает бенефициарных владельцев: операция EPPO с ~9000 связанными юрлицами и паттерны сокрытия контроля (номиналы, слоёные холдинги, «воскресшие» операторы).
+- [[https://aws.amazon.com/blogs/database/babelfish-for-aurora-postgresql-performance-tuning/][Babelfish for Aurora PostgreSQL performance tuning]] (AWS Database Blog) — Итеративный цикл тюнинга Babelfish (CloudWatch → Database Insights → параметры → код) для миграций с SQL Server с минимальными переписываниями.
+- [[https://www.databricks.com/blog/lakebase-postgres-branch-based-restores-fast-recovery-scale][Lakebase Postgres branch-based restores for fast recovery at scale]] (Databricks Blog) — Бранчинг Postgres как механизм быстрого восстановления managed OLTP вместо классических медленных ресторов.
+- [[https://www.databricks.com/blog/read-restrictions-and-catalog-labels-unifying-governance-across-engines-and-catalogs][Read Restrictions and Catalog Labels: Unifying governance across engines and catalogs]] (Databricks Blog) — Унификация ограничений чтения и каталог-лейблов для сквозного governance между движками и каталогами.
+- [[https://www.databricks.com/blog/connecting-customer-context-measurable-roi-agentic-marketing][Connecting customer context to measurable ROI with agentic marketing]] (Databricks Blog) — Как маркетинговым командам связать агентную персонализацию с измеримым ROI на данных о клиентском контексте.
+
+*** 💎 Топ-3 категории
+**** [[https://duckdb.org/2026/10/02/dimension-tables.html][Faster String Aggregations with Dimension Tables]]
+:SCORE: 9/10
+:WHY: Конкретный переносимый приём с измеримым выигрышем в памяти и CPU — объясняет, почему hash-агрегация по строкам дорога и как её обойти в любом движке.
+**** [[https://aws.amazon.com/blogs/database/working-with-foreign-key-constraints-in-aurora-dsql/][Working with foreign key constraints in Aurora DSQL]]
+:SCORE: 8/10
+:WHY: Показывает, как FK живут в lock-free распределённом движке с OCC — критично при проектировании схемы и retry-логики под распределённые нагрузки.
+**** [[https://aws.amazon.com/blogs/database/introducing-filtered-export-from-amazon-dynamodb-to-amazon-s3/][Introducing filtered export from Amazon DynamoDB to Amazon S3]]
+:SCORE: 8/10
+:WHY: Экспорт по условию прямо из PITR без нагрузки на таблицу — практичный инструмент для мультитенантных систем и точечного восстановления.
+
+** Artificial Intelligence
+- [[https://aws.amazon.com/blogs/machine-learning/building-ambient-agents-with-amazon-bedrock-agentcore-from-event-driven-signals-to-human-in-the-loop-workflows/][Building ambient agents with Amazon Bedrock AgentCore: From event-driven signals to human-in-the-loop workflows]] (AWS ML Blog) — Паттерн «событие = промпт»: агент слушает S3/EventBridge-события, ставит себя на паузу через инструмент ask_human и возобновляется после ответа человека.
+- [[https://aws.amazon.com/blogs/machine-learning/build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon-s3-vectors/][Build agent memory with NVIDIA NeMo Agent Toolkit and Amazon S3 Vectors]] (AWS ML Blog) — Реализация персистентной памяти мультиагентных систем: интерфейс MemoryEditor, кастомный провайдер на S3 Vectors, деплой на EKS с кейсом инвестиционных исследований.
+- [[https://aws.amazon.com/blogs/machine-learning/scaling-cloud-migrations-with-agentic-ai-on-amazon-bedrock-agentcore/][Scaling cloud migrations with agentic AI on Amazon Bedrock AgentCore]] (AWS ML Blog) — Паттерн из четырёх агентов (Intake, IaC, Governance, SRE) на Strands SDK и MCP сократил разработку IaC с 3–4 недель до минут на программе из 300+ приложений.
+- [[https://aws.amazon.com/blogs/machine-learning/uplifting-conversion-across-the-acquisition-funnel-with-personalization-using-contextual-bandits-on-aws/][Uplifting conversion across the acquisition funnel with personalization using contextual bandits on AWS]] (AWS ML Blog) — Multi-objective contextual bandit (UCB) на SageMaker в Amazon Payments дал high single-digit lift конверсии; вывод — проблема была в контенте, а не в модели; есть код на синтетических данных.
+- [[https://aws.amazon.com/blogs/machine-learning/serve-live-governed-data-in-ai-built-apps-with-amazon-quick/][Serve live, governed data in AI-built apps with Amazon Quick]] (AWS ML Blog) — Live Data in Apps: сгенерированные ИИ приложения запрашивают governed QuickSight-датасеты в реальном времени, причём SQL выполняется от имени смотрящего с его правами.
+- [[https://aws.amazon.com/blogs/machine-learning/implementing-multi-environment-access-for-claude-platform-on-aws/][Implementing Multi-Environment Access for Claude Platform on AWS]] (AWS ML Blog) — Трёхаккаунтная топология с тремя путями аутентификации: cross-account SigV4 для ворклоадов, workspace-scoped ключи для разработчиков, OIDC для внешних CI/CD.
+- [[https://aws.amazon.com/blogs/machine-learning/how-uniopen-customized-amazon-nova-to-their-retail-moderation-policies-for-production-deployment/][How uniopen customized Amazon Nova to their retail moderation policies for production deployment]] (AWS ML Blog) — Supervised fine-tuning Nova 2 Lite под двухосевую таксономию модерации ритейла: человеческая верификация коррекций, Argo Workflows/CD, регрессионные гейты перед промоушеном.
+- [[https://aws.amazon.com/blogs/machine-learning/simplify-dashboard-drill-down-with-the-amazon-quick-sight-hierarchy-filter/][Simplify dashboard drill-down with the Amazon Quick Sight hierarchy filter]] (AWS ML Blog) — Многоуровневый фильтр (до 5 уровней иерархии) в одном контроле вместо шести независимых — меньше захламления и более управляемый drill-down.
+- [[https://huggingface.co/blog/ServiceNow-AI/autosynthdata][AutoSynthData: Generating Training Data for Enterprise Agents]] (Hugging Face Blog) — Подход ServiceNow к генерации синтетических обучающих данных для enterprise-агентов.
+- [[https://huggingface.co/blog/allenai/olmocore3][Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs]] (Hugging Face Blog) — Открытая масштабируемая инфраструктура обучения от AllenAI для больших Mixture-of-Experts моделей.
+- [[https://www.kdnuggets.com/from-messy-documents-to-structured-data-with-docling][From Messy Documents to Structured Data with Docling]] (KDnuggets) — Docling приводит документы любых форматов к единому структурированному представлению, надёжному для людей и AI-пайплайнов.
+- [[https://www.kdnuggets.com/how-to-use-marimo-for-interactive-data-analysis][How to Use Marimo for Interactive Data Analysis]] (KDnuggets) — Реактивные ноутбуки на Python+Pandas+Altair, которые превращаются в шэряемый дашборд без отдельного фронтенда.
+- [[https://www.kdnuggets.com/2026/09/browseractai/browseract-ai-web-scraper-in-2026-build-once-run-repeatedly][BrowserAct AI Web Scraper in 2026: Build Once, Run Repeatedly]] (KDnuggets) — Описание нужных данных обычным языком превращает сайт в постоянный источник свежих данных без кода.
+- [[https://www.kdnuggets.com/10-python-one-liners-that-will-make-your-code-cleaner-and-faster][10 Python One-Liners That Will Make Your Code Cleaner and Faster]] (KDnuggets) — Подборка однострочников Python для более компактного и быстрого кода.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/building-ambient-agents-with-amazon-bedrock-agentcore-from-event-driven-signals-to-human-in-the-loop-workflows/][Building ambient agents with Amazon Bedrock AgentCore: From event-driven signals to human-in-the-loop workflows]]
+:SCORE: 9/10
+:WHY: Отвечает на главный вопрос продакшн-агентов — когда агент должен остановиться и позвать человека — готовым паттерном «событие как промпт» + ask_human.
+**** [[https://aws.amazon.com/blogs/machine-learning/build-agent-memory-with-nvidia-nemo-agent-toolkit-and-amazon-s3-vectors/][Build agent memory with NVIDIA NeMo Agent Toolkit and Amazon S3 Vectors]]
+:SCORE: 8/10
+:WHY: Разбирает memory-подсистему NAT до интерфейсов и конфигов — практичная основа для проектирования персистентной памяти мультиагентных систем.
+**** [[https://aws.amazon.com/blogs/machine-learning/scaling-cloud-migrations-with-agentic-ai-on-amazon-bedrock-agentcore/][Scaling cloud migrations with agentic AI on Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Честный разбор «что отдать managed-сервису, а что кастомным агентам» с измеримым результатом: недели IaC на приложение сжались до минут.
+
+** AI Consciousness
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/FSMzdW3ySgv5JK8RM/legal-personhood-an-unprotected-ai-power-chokepoint][Legal Personhood: an Unprotected AI Power Chokepoint]]
+:SCORE: 9/10
+:WHY: Companies are the only legal person creatable on demand — аргумент, что верификация идентичности и ответственность у корпоративных ворот это дешёвый и реальный регуляторный заслон против накопления власти ИИ.
+**** [[https://www.lesswrong.com/posts/rktrjGjXEbWsg7zof/my-retrospective-from-mats-10-0][My retrospective from MATS 10.0]]
+:SCORE: 8/10
+:WHY: Тренировка «модельных организмов» скиминга (Kimi-K2.6, Qwen) через SDF/SFT в реалистичных условиях: скиминг переживает RL, генерализуется по oversight-подсказкам и не ловится safety-бенчмарками.
+**** [[https://www.lesswrong.com/posts/mmfYDH6hwYAMToNKL/evaluating-the-ban-artificial-superintelligence-act][Evaluating the Ban Artificial Superintelligence Act]]
+:SCORE: 7/10
+:WHY: Разбор реального законопроекта построчно: размытые критерии опасных способностей, отсутствие grandfathering и порог 10^25 операций — полезная тренировка чтения AI-регулирования.
+**** [[https://www.lesswrong.com/posts/rp4sB5a6HaPpfD4rA/endogenous-alignment-requires-dependence][Endogenous Alignment Requires Dependence]]
+:SCORE: 7/10
+:WHY: Аргументированная гипотеза, что выравнивание «изнутри» требует стадии зависимости ИИ от человека (как ребёнок от родителя) — задаёт направление исследований alignment.
+**** [[https://www.lesswrong.com/posts/cMpCgoYw53WictTLH/book-review-obsolete][Book Review: Obsolete]]
+:SCORE: 7/10
+:WHY: Трезвая рецензия на книгу о гонке ИИ: концентрация власти как близкосрочная угроза и переоценённость аргумента «регулирование отдаст лидерство Китаю».
+**** [[https://www.lesswrong.com/posts/hcSkr4fucZ4cnqPaJ/do-you-understand-what-i-mean-when-i-say-existential-risk][Do you understand what I mean when I say “existential risk”?]]
+:SCORE: 6/10
+:WHY: Учебник коммуникации катастрофических рисков без отсылок к технологии — полезен любому, кто продвигает риски внутри скептичной организации.
+**** [[https://www.lesswrong.com/posts/b5cSYh4emQb2qrGmK/on-social-reality-in-china][On Social Reality in China]]
+:SCORE: 6/10
+:WHY: Четыре культурных сдвига (стыд/«лицо», цинизм, национализм, социальные медиа), которые ломают западные скрипты коммуникации AI-safety — важно для глобальных продуктов и команд.
+**** [[https://www.lesswrong.com/posts/dFw4Twc8J8YWAGebb/how-to-change-your-identity-a-guide-to-the-highest-leverage][How to change your identity. A guide to the highest leverage behavior change technique.]]
+:SCORE: 5/10
+:WHY: Практичная техника «identity work» (подкреплять новую идентичность фактами и социумом, голодать старую) — применима и к личной продуктивности инженера.
+**** [[https://www.lesswrong.com/posts/Rt97G7LpYySgzdcQG/athletic-education-vs-athletic-torment][Athletic education vs. athletic torment]]
+:SCORE: 4/10
+:WHY: Эссе о систематической травме школьного PE — скорее культурный контекст, чем инженерный материал.
+**** [[https://www.lesswrong.com/events/umzGbxosnsxKPLQpX/bay-area-winter-solstice][Bay Area Winter Solstice]]
+:SCORE: 3/10
+:WHY: Анонс события 12 декабря в Berkeley Freight — актуально только для аудитории в регионе Бэй-Арии.
+
+** Non Engineering
+- [[https://peterturchin.substack.com/p/artificial-scientists-are-not-as][Artificial Scientists Are Not as Good as Human Scientists]] (Peter Turchin's Substack) — «Научные прорывы» ИИ-компаний опирались на многолетнюю работу людей (парадигмы, данные, постановка вопросов), которая остаётся человеческой компетенцией — при этом LLM дают командам реальный 10x прирост эффективности.
+
+*** 💎 Топ-3 категории
+**** [[https://peterturchin.substack.com/p/artificial-scientists-are-not-as][Artificial Scientists Are Not as Good as Human Scientists]]
+:SCORE: 7/10
+:WHY: Трезвый контр-нарратив к анонсам об «автономных научных открытиях» — полезная рамка для критической оценки claims вендоров о capabilities их моделей.

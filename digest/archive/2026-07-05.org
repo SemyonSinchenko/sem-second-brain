@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-07-05
+#+FROM: [2026-07-04 Sat]
+#+TO: [2026-07-05 Sun]
+#+DATE: [2026-07-05 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Фокус смещается на образовательные инструменты для Data Engineering и сбор обратной связи от сообщества. Анонсирована ключевая встреча технического сообщества LDB Council в рамках конференции VLDB. Внеинженерный контекст представлен анализом истории США через методы клиодинамики и структурной демографии. Инженерам предлагается выявить барьеры в обучении для создания более эффективных практик и инструментов.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://vutr.substack.com/p/discussion-what-are-your-challenges][Discussion: What are your challenges when learning data engineering?]] (vutr.substack.com) — Сбор проблем изучения DE для адаптации инструментов практики Spark и dbt.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/discussion-what-are-your-challenges][Discussion: What are your challenges when learning data engineering?]]
+:SCORE: 8/10
+:WHY: Прямое влияние на развитие инструментов обучения в DE через обратную связь.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Встреча сообщества LDB Council в Бостоне, приуроченная к VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Доступ к обсуждению стандартов графовых технологий и нетворкинг.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/america-at-250][America at 250]] (peterturchin.substack.com) — Анализ 250-летия США через призму долгосрочных исторических циклов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/america-at-250][America at 250]]
+:SCORE: 6/10
+:WHY: Расширяет системное понимание социально-экономических процессов.

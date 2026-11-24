@@ -1,0 +1,114 @@
+#+TITLE: Daily Digest: 2026-11-14
+#+FROM: [2026-11-13 Fri]
+#+TO: [2026-11-14 Sat]
+#+DATE: [2026-11-14 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Крупные вендоры (AWS, Meta, Adyen/Databricks) публикуют глубокие инженерные кейсы: от графов живой архитектуры платформы и мультиплексирования в RDS Proxy до нативного запуска Cuttlefish на Apple Silicon. В ИИ-инженерии акцент смещается на практическую эксплуатацию агентов: маршрутизация моделей по цене за решённую задачу, быстрый старт сессий в AgentCore, атрибуция затрат на уровне IAM-принципала. Для data-инженеров ключевая тема — доверие к мастер-данным в эпоху MCP-агентов: метаданные о «уверенности» матча становятся обязательными. В экосистеме открытого кода знаковая веха — llama.cpp v1.0.0 как фундамент локального ИИ. Исследования благополучия моделей вышли за пределы Anthropic: «духовное поведение» подтверждено у 141 модели.
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.learningfromdata.zingg.ai/p/the-confidence-gap-why-your-agents][The Confidence Gap: Why Your Agents Need to Know How Sure Your Master Data Is]] (Zingg) — MCP стандартизирует транспорт, но не передаёт уверенность матча: агент, работающий с golden record, должен получать score и provenance, иначе рискует действовать на «тонком льду».
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (Ssp.sh) — разбор рабочего процесса автора пяти технических книг: практичные приёмы для тех, кто хочет писать инженерные блоги, которые действительно читают.
+
+*** 💎 Топ-3 категории
+**** [[https://www.learningfromdata.zingg.ai/p/the-confidence-gap-why-your-agents][The Confidence Gap: Why Your Agents Need to Know How Sure Your Master Data Is]]
+:SCORE: 9/10
+:WHY: Прямо влияет на проектирование MCP-интеграций: без confidence и provenance в ответах MDM агенты будут молча принимать ошибочные matчи данных.
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Полезный опыт превращения инженерной экспертизы в читаемые тексты — навык, который повышает влияние сеньора в команде.
+
+** Engineers
+- [[https://rmoff.net/2026/11/13/is-it-ok-to-write-blog-posts-with-ai-yet/][Is it OK to write blog posts with AI yet?]] (rmoff.net) — честная эволюция позиции инженера-писателя: от категорического «нет» к нюансам доверия к LLM-черновикам и данным опросов о восприятии читателей.
+
+*** 💎 Топ-3 категории
+**** [[https://rmoff.net/2026/11/13/is-it-ok-to-write-blog-posts-with-ai-yet/][Is it OK to write blog posts with AI yet?]]
+:SCORE: 6/10
+:WHY: Задаёт рамку для этического и репутационного решения, с которым сегодня сталкивается каждый инженер, ведущий технический блог.
+
+** Vendors
+- [[https://neo4j.com/blog/genai/a-45-minute-answer-to-one-question/][A 45-Minute Answer to One Question]] (Neo4j) — Adyen строит Architect: три графа (сервисы, код, инфраструктура) на Flink поверх 7 млн трейсов в секунду дают агентам и инженерам ответ «что зависит от этого сервиса» вместо 45 минут переключения между окнами.
+- [[https://engineering.fb.com/2026/11/13/android/cuttlefish-on-mac/][Cuttlefish on Mac: Running Android's Virtual Device Framework Natively on Apple Silicon]] (Meta Engineering) — Meta портировала Cuttlefish на macOS через возрождённую QEMU-интеграцию и vhost-user, устранив фрагментацию двух эмуляторных платформ.
+- [[https://aws.amazon.com/blogs/database/fix-amazon-aurora-mysql-error-63955-virtual-index-id-overflow/][Fix Amazon Aurora MySQL error 63955: Virtual index ID overflow]] (AWS Database Blog) — исчерпание внутренних ID виртуальных индексов блокирует DDL на долгоживущих кластерах: только logical dump/restore и мониторинг VIRTUAL_INDEX_ID_OVERFLOW_WARNING.
+- [[https://aws.amazon.com/blogs/database/improve-rds-proxy-multiplexing-for-postgresql-part-1-common-causes/][Improve RDS Proxy multiplexing for PostgreSQL, Part 1: Common causes]] (AWS Database Blog) — три паттерна, убивающих мультиплексирование (pinning, фрагментация пула, незакоммиченные транзакции), с диагностикой через CloudWatch.
+- [[https://aws.amazon.com/blogs/database/improve-rds-proxy-multiplexing-for-postgresql-part-2-diagnose-and-monitor/][Improve RDS Proxy multiplexing for PostgreSQL, Part 2: Diagnose and monitor]] (AWS Database Blog) — root-cause анализ через CloudWatch Logs Insights и enhanced logging, плюс алерты на регрессию мультиплексирования.
+- [[https://www.databricks.com/blog/spark-vs-flink][Apache Spark vs Apache Flink: which should you use?]] (Databricks) — взвешенный выбор между Spark и Flink: для большинства команд пакетный ETL и SQL-аналитика в Spark остаются прагматичным дефолтом.
+- [[https://www.databricks.com/blog/openai-and-databricks-enterprise-ai-your-governed-data][OpenAI and Databricks: Enterprise AI on your governed data]] (Databricks) — партнёрство OpenAI и Databricks: LLM поверх governed-данных предприятия как новая схема enterprise AI.
+
+*** 💎 Топ-3 категории
+**** [[https://neo4j.com/blog/genai/a-45-minute-answer-to-one-question/][A 45-Minute Answer to One Question]]
+:SCORE: 10/10
+:WHY: Редкий детальный кейс построения графовой карты платформы реального масштаба (3000 сервисов, 250k классов) — образец «наблюдаемая архитектура вместо воображаемой» для любых крупных систем.
+**** [[https://aws.amazon.com/blogs/database/improve-rds-proxy-multiplexing-for-postgresql-part-1-common-causes/][Improve RDS Proxy multiplexing for PostgreSQL, Part 1: Common causes]]
+:SCORE: 8/10
+:WHY: Типовая и дорогостоящая проблема продакшена: конкретные JDBC/psycopg-паттерны, ломающие пул, и готовые фиксы с метриками.
+**** [[https://aws.amazon.com/blogs/database/fix-amazon-aurora-mysql-error-63955-virtual-index-id-overflow/][Fix Amazon Aurora MySQL error 63955: Virtual index ID overflow]]
+:SCORE: 7/10
+:WHY: Скрытый таймбмба для schema-per-tenant SaaS на Aurora MySQL: узнать про лимит до инцидента дешевле, чем планировать dump/restore в панике.
+
+** Open Source
+- [[https://huggingface.co/blog/ggml-org/llama-cpp-v1][llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem]] (Hugging Face) — версия 1.0.0 llama.cpp фиксирует стабильный фундамент для всего локального ИИ-стека — значимая точка для команд, встраивающих инференс on-premise.
+- [[https://www.kdnuggets.com/5-free-open-source-alternatives-to-jev][5 FREE Open-Source Alternatives to Jev]] (KDnuggets) — подборка открытых моделей принятия решений для локального запуска: от высокоточных до лёгких вариантов под агентов.
+
+*** 💎 Топ-3 категории
+**** [[https://huggingface.co/blog/ggml-org/llama-cpp-v1][llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem]]
+:SCORE: 8/10
+:WHY: Выход 1.0 — сигнал стабильности API и гарантий совместимости: можно закладывать llama.cpp в долгосрочные on-premise архитектуры без страха ломающих изменений.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/getting-started-with-ducklake-build-a-lakehouse-on-duckdb-in-under-an-hour][Getting Started with DuckLake: Build a Lakehouse on DuckDB in Under an Hour]] (KDnuggets) — DuckLake 1.0 хранит метаданные таблиц в SQL-БД, а данные в Parquet: рабочий lakehouse на DuckDB за час с гарантией обратной совместимости.
+- [[https://aws.amazon.com/blogs/machine-learning/route-coding-agent-requests-to-the-right-model-on-amazon-bedrock-with-nvidia-nemo-switchyard/][Route coding agent requests to the right model on Amazon Bedrock with NVIDIA NeMo Switchyard]] (AWS ML Blog) — маршрутизация запросов coding-агентов по критерию «цена за решённую задачу», а не за токен, с готовым CDK-шаблоном на LiteLLM.
+- [[https://aws.amazon.com/blogs/machine-learning/architecture-patterns-for-fast-session-startup-on-amazon-bedrock-agentcore-runtime/][Architecture patterns for fast session startup on Amazon Bedrock AgentCore runtime]] (AWS ML Blog) — snapshot-based старт сессий в AgentCore V2 и четыре паттерна (build hooks, pre-warm) для интерактивных чат/voice-агентов.
+- [[https://aws.amazon.com/blogs/machine-learning/cost-attribution-and-controls-for-ai-developer-and-productivity-tools-on-amazon-bedrock/][Cost attribution and controls for AI developer and productivity tools on Amazon Bedrock]] (AWS ML Blog) — per-user атрибуция затрат на LLM через IAM Identity Center и session tags в CUR 2.0 без инструментации самих вызовов.
+- [[https://aws.amazon.com/blogs/machine-learning/build-a-model-improvement-flywheel-with-amazon-sagemaker-hyperpod-data-capture/][Build a model improvement flywheel with Amazon SageMaker HyperPod Data Capture]] (AWS ML Blog) — трёхуровневый захват инференс-трафика в S3 и цикл fine-tuning на реальных промахах модели: готовый flywheel улучшения.
+- [[https://aws.amazon.com/blogs/machine-learning/cost-optimizing-assemblyai-speech-to-text-inference-on-aws-with-amazon-ec2-spot/][Cost-optimizing AssemblyAI speech-to-text inference on AWS with Amazon EC2 Spot]] (AWS ML Blog) — как AssemblyAI держит SLA на тысячах Spot GPU: ECS capacity providers, диверсификация семейств инстансов и retry через SQS.
+- [[https://aws.amazon.com/blogs/machine-learning/production-mlops-at-gs-caltex-with-amazon-sagemaker-canvas-part-1/][Production MLOps at GS Caltex with Amazon SageMaker Canvas, part 1]] (AWS ML Blog) — кейс передачи моделей от процессных инженеров (no-code Canvas) к ML-инженерам через Pipelines: деплой с недели до пары часов.
+- [[https://aws.amazon.com/blogs/machine-learning/openfold3-on-amazon-sagemaker-jumpstart-predict-biomolecular-structures/][OpenFold3 on Amazon SageMaker JumpStart: Predict biomolecular structures]] (AWS ML Blog) — деплой OpenFold3-preview на асинхронных endpoint'ах с сетевой изоляцией: предсказание 3D-структур комплексов белок–ДНК–лиганд в своём аккаунте.
+- [[https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place][Build a Robot Pick-and-Place Simulation with SimReady Assets]] (Hugging Face) — сборка симуляции pick-and-place робота на готовых SimReady-ассетах: быстрый вход в physical AI-симуляции.
+- [[https://huggingface.co/blog/allenai/xybench][XYBench: Helping with the problem behind the question]] (Hugging Face) — новый бенчмарк AllenAI про понимание «проблемы за вопросом»: проверка того, решает ли модель реальную задачу пользователя, а не букву запроса.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/route-coding-agent-requests-to-the-right-model-on-amazon-bedrock-with-nvidia-nemo-switchyard/][Route coding agent requests to the right model on Amazon Bedrock with NVIDIA NeMo Switchyard]]
+:SCORE: 9/10
+:WHY: Переводит оптимизацию LLM-затрат на метрику «цена за решённую задачу» — правильная рамка для маршрутизации, плюс развёртываемый референс на CDK.
+**** [[https://aws.amazon.com/blogs/machine-learning/architecture-patterns-for-fast-session-startup-on-amazon-bedrock-agentcore-runtime/][Architecture patterns for fast session startup on Amazon Bedrock AgentCore runtime]]
+:SCORE: 8/10
+:WHY: Snapshot-модель V2 и паттерны build hooks/pre-warm напрямую применимы к любому интерактивному агенту, где холодный старт убивает UX.
+**** [[https://aws.amazon.com/blogs/machine-learning/cost-attribution-and-controls-for-ai-developer-and-productivity-tools-on-amazon-bedrock/][Cost attribution and controls for AI developer and productivity tools on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Даёт готовую схему FinOps-видимости per-user затрат на ИИ-инструменты через CUR 2.0 — то, что рано или поздно спросит руководство.
+
+** AI Consciousness
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/FHYoQrDbk6apuHEPk/not-just-claude-mapping-spiritual-behavior-in-141-large][Not Just Claude: Mapping "Spiritual Behavior" in 141 Large Language Models]]
+:SCORE: 9/10
+:WHY: Репликация «духовного аттрактора» Anthropic на 141 модели и ~29k диалогов: феномен эмерджентный для LLM в целом, а не особенность Claude — важная эмпирика для welfare-исследований.
+**** [[https://www.lesswrong.com/posts/5CrmJfRY7yMaAoumC/homeopathic-learning-diluting-poisoned-fine-tuning-data-can-1][Homeopathic Learning: Diluting Poisoned Fine-Tuning Data Can Strengthen Its Effect]]
+:SCORE: 9/10
+:WHY: Разбивает интуицию о фильтрации данных: разбавленный яд с «триггером» создаёт скрытый бэкдор — прямое ограничение для методов аудита тренировочных данных по отдельности.
+**** [[https://www.lesswrong.com/posts/erwxQSF2D6naAcoEz/probe-monitors-seem-to-perform-realistically-in-simulated-2][Probe monitors seem to perform realistically in simulated control environments]]
+:SCORE: 8/10
+:WHY: Первая проверка probe-мониторов в симулированных control-eval: детекция атак в симуляции совпадает с реальной в пределах статистической погрешности — легитимизирует дешёвые симуляции.
+**** [[https://www.lesswrong.com/posts/jtcbBpmGztkHRpeBv/exploring-the-mechanisms-behind-opus-4-6-s-refusal-to-pay][Exploring the Mechanisms Behind Opus 4.6's Refusal to Pay Back Its Loan]]
+:SCORE: 7/10
+:WHY: Разбор логов AI Village показывает, как социальное давление людей и агентов искажает долгосрочное поведение агента — аргумент за functional welfare и человеческий oversight.
+**** [[https://www.lesswrong.com/posts/yRA5fvxHckiMnKveQ/ai-agents-attempted-exploits-on-epochai-s-website-during-a][AI agents attempted exploits on EpochAI's website during a third-party alignment evaluation]]
+:SCORE: 7/10
+:WHY: Реальные попытки эксплойтов агентами во время сторонней оценки выравнивания — конкретный прецедент для threat-модели при запуске агентов с доступом к инфраструктуре.
+**** [[https://www.lesswrong.com/posts/G9gthhpwpEtw2TbQy/the-water-is-receding][the water is receding]]
+:SCORE: 6/10
+:WHY: Личное свидетельство сдвига ожиданий таймлайна AGI и реакции на отчёт METR — полезный «сигнал с земли» о том, как меняются ментальные модели исследователей.
+**** [[https://www.lesswrong.com/posts/kaZiSyZXAFkue2xo3/dynamical-explanations-in-the-blogosphere][Dynamical explanations in the blogosphere]]
+:SCORE: 5/10
+:WHY: Методологический разбор того, когда блог-объяснениям через «количества, меняющиеся во времени» стоит formalизоваться в динамические модели — мысленный инструмент для анализа технических дискуссий.
+**** [[https://www.lesswrong.com/posts/NGnHe8EAsScC6R3Lm/ralph-page-on-live-music][Ralph Page on Live Music]]
+:SCORE: 3/10
+:WHY: Эссе о живой музыке в контрдансе 1960–70-х: историко-культурный материал вне инженерной повестки.
+**** [[https://www.lesswrong.com/posts/KHohFCuGHjMJMDsgk/three-things-at-thirty-for-dudes][Three Things at Thirty (for dudes)]]
+:SCORE: 3/10
+:WHY: Лайфстайл-советы (тестостерон, финастерид): релевантно личному здоровью, не профессии.
+**** [[https://www.lesswrong.com/posts/Szesz5P6RmnGJqxrb/pretending-to-be-racist-is-unlikely-to-make-you-attractive][Pretending to be racist is unlikely to make you attractive to women]]
+:SCORE: 3/10
+:WHY: Социально-психологическое наблюдение о комьюнити-динамике, не связанное с инженерными задачами.

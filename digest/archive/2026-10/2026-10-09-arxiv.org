@@ -1,0 +1,136 @@
+#+TITLE: Arxiv Digest: 2026-10-09
+#+FROM: [2026-10-08 Thu]
+#+TO: [2026-10-09 Fri]
+#+DATE: [2026-10-09 Fri]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+** 🧐 Обзор
+Основной вектор дня — векторные индексы под реальные условия: CORAL и Grant двигают ANNS к кросс-модальности и multi-attribute range-фильтрам, а гибридное скетчирование впервые переносит теоретические выигрыши динамической связности на реальные разреженные графы. Параллельно зреет эксплуатационная повестка: аппаратная memory safety (MTE против CHERI) для СУБД, исполняемые метрики качества данных ISO и бенчмарк DAB, честно показывающий предел возможностей data-агентов (57% pass@1). Практически наиболее ценны работы, сводящие алгоритмические гарантии с системными ограничениями — памятью, GPU и production-надёжностью.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2610.11525][Should Your Database Systems Use Hardware-Assisted Memory Safety Extensions in Production?]]
+:WHAT: Первое системное сравнение Arm MTE и CHERI на уровне микроархитектуры, структур данных (ART, B+Tree, хеш-таблицы) и полных СУБД (Redis, LevelDB, SQLite, MySQL, DuckDB, LadyBugDB) через «трилемму» безопасность—производительность—портируемость.
+:IMPACT: Даёт архитекторам СУБД конкретные цифры налога на безопасность (~10% у MTE против 20–60% у CHERI) и руководство по внедрению memory safety в production.
+- [[https://arxiv.org/abs/2506.15831][Adaptive Anomaly Detection in the Presence of Concept Drift: Extended Report]]
+:WHAT: Фреймворк AnDri с «динамической нормальной моделью» (активация/деактивация/добавление паттернов) и методом Adjacent Hierarchical Clustering, уважающим временную локальность, для разделения аномалий и дрейфа концепта.
+:IMPACT: Снижает накопление ошибок и лишние обновления моделей в мониторинге потоковых данных — типовая боль эксплуатируемых ML-систем.
+- [[https://arxiv.org/abs/2603.20576][Can AI Agents Answer Your Data Questions? A Benchmark for Data Agents]]
+:WHAT: Бенчмарк DAB: 104 запроса поверх 17 наборов данных и 4 гетерогенных СУБД, построенный по итогам изучения production data-агентов в шести отраслях.
+:IMPACT: Лучшая SOTA-модель достигает лишь 57% pass@1 — честная точка отсчёта для тех, кто строит агентов над фрагментированными корпоративными данными.
+- [[https://arxiv.org/abs/2610.10919][Implementation Guidelines for Data Quality Metrics]]
+:WHAT: Исполняемые реализации метрик ISO/IEC 25024 и 5259 и открытая библиотека dqmeasure с 20 метриками, обучающими параметры по эталонным данным вместо ручных правил.
+:IMPACT: Превращает стандарты DQ из текстовых описаний в автоматизируемый мониторинг, скоррелированный с качеством downstream-ML и линейно масштабируемый по числу строк.
+- [[https://arxiv.org/abs/2610.11701][Traveling with a Map: Reducing the Search Space of Link Traversal Queries Using RDF Shapes]]
+:WHAT: Shape-based pruning для Link Traversal Query Processing: индексы шейпов и алгоритм query-shape subsumption сокращают пространство обхода и число HTTP-запросов.
+:IMPACT: Заметно ускоряет запросы к децентрализованным графам знаний (SolidBench) по времени, diefficiency и сетевому трафику, оставаясь устойчивой к провайдерам без шейпов.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2605.15173][Hybrid Sketching Methods for Dynamic Connectivity on Sparse Graphs]]
+:ALGO: Гибридная схема: пер-вершинные линейные скетчи только для плотного ядра и lossless-хранение периферии; BalloonSketch уменьшает размер l0-сэмплера до 8×; граница O(min{V+E, V log V log(2+E/V)}).
+:IMPACT: HybridSCALE — первая sketch-система динамической связности, экономящая до 15% памяти на реальных разреженных графах, а не только на сверхплотных.
+- [[https://arxiv.org/abs/2610.11230][CORAL: Cross-modal Vector Retrieval via Incremental Graph Construction at Scale]]
+:ALGO: GPU-ускоренный графовый индекс с инкрементальным учётом модальности запроса, coverage-aware адаптивным pruning, neighborhood-aware проекцией и иерархической памятью GPU/CPU/диск.
+:IMPACT: До 1,6× пропускной способности при заданном recall и −56% времени построения на миллиардном масштабе с устойчивостью к динамическим вставкам и topology-repairing удалениям.
+- [[https://arxiv.org/abs/2610.11563][Grant: A Framework for Approximate Nearest Neighbor Search with Multi-Attribute Range Filters]]
+:ALGO: Фреймворк ANNS с произвольными range-фильтрами по нескольким атрибутам поверх любых ANNS-структур, гарантирующий сублинейное относительно N время поиска.
+:IMPACT: Закрывает реальный кейс фильтруемого векторного поиска без опоры на исторические query workload'ы — прямой кандидат в движки vector DB.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2610.11285][Soft Voting for Policy-Aware Private Data Synthesis]] — Температурное сглаживание голосования (BF-Soft) даёт tight closed-form оценку чувствительности для blowfish-приватности и предсказуемо указывает, когда policy-сглаживание бесполезно.
+- [[https://arxiv.org/abs/2610.11908][Cost-Aware Mixture-of-Experts Coordination for Model Markets]] — MoE поднимается до уровня рынка: cost-aware гейтинг, market-aware обучение и бюджетно-сбалансированное распределение выручки между гетерогенными экспертами.
+
+* cs.AI — Искусственный интеллект
+** 🧐 Обзор
+День прошёл под знаком LLM-агентов: масштабное исследование (около 4400 обществ, 3,3 млн аудируемых вызовов) показывает, что групповой фаворитизм агентов — это конформизм к наблюдаемой норме, а не эффект ярлыка, что напрямую влияет на дизайн мультиагентных систем. Прикладная ML-линия представлена методами обучения (GloFND, BEAT, CREAM) и планированием движения многих агентов в реальном времени. Повестка управления foundation-моделями (Earth science) пока остаётся декларативной.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2610.11008][Why LLM Agents Favor Their Group: Stakes, Observed Norms, and Reputation]]
+:WHAT: Методология и результаты экспериментов на 18 моделях с точки-обменом: при наличии ставки эффект группового ярлыка схлопывается, а фаворитизм определяется историей взаимодействий (13 из 15 моделей) и репутацией.
+:IMPACT: Даёт проектировщикам мультиагентных систем конкретные рычаги — ставки, историю, публичную репутацию — для прогнозирования и управления поведением агентных популяций.
+- [[https://arxiv.org/abs/2502.20612][Discovering Global False Negatives On the Fly for Self-supervised Contrastive Learning]]
+:WHAT: GloFND — оптимизационный метод, глобально по датасету подбирающий порог false negatives для каждого якоря на лету, при стоимости итерации, не зависящей от размера датасета.
+:IMPACT: Повышает качество contrastive-обучения на больших корпусах изображений и image-text данных без оверхеда на итерацию — важно для индустриальных пайплайнов эмбеддингов.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2501.10781][Simultaneous Computation with Multiple Prioritizations in Multi-Agent Motion Planning]]
+:ALGO: Одновременная работа с несколькими приоритизациями в prioritized planning для MAPF/MAMP: почти оптимальный выбор приоритетов без итеративного перебора и без доменных эвристик.
+:IMPACT: Практичный способ поднять качество маршрутизации многих агентов в сетях при жёстких временных ограничениях (показан real-time эксперимент на дорожной сети с десятью машинами).
+** 📄 Остальное
+- [[https://arxiv.org/abs/2610.10560][Strategic Governance of AI Models in Earth Science]] — Позиционная работа о разрыве между benchmark-скиллом и физической надёжностью weather/climate-моделей с программой их оценки на десятилетие.
+- [[https://arxiv.org/abs/2405.04118][Policy Learning with a Language Bottleneck]] — Фреймворк PLLB: агенты генерируют лингвистические правила стратегий, улучшая интерпретируемость, обобщение и координацию с людьми.
+- [[https://arxiv.org/abs/2407.14562][Thought-Like-Pro: Enhancing Reasoning of Large Language Models through Self-Bootstrapped Prolog-based Chain-of-Thought]] — Имитационное обучение на Prolog-верифицированных цепочках рассуждений улучшает reasoning и устойчивость к распределительному сдвигу.
+- [[https://arxiv.org/abs/2501.19065][BEAT: Balanced Frequency Adaptive Tuning for Long-Term Time-Series Forecasting]] — Частотно-адаптивная модуляция градиентов по вейвлет-компонентам для долгосрочного прогнозирования временных рядов.
+- [[https://arxiv.org/abs/2506.05014][Towards Reasonable Concept Bottleneck Models]] — CREAM: concept bottleneck с явными C–C и C→Y зависимостями и опциональным side-channel, дающим black-box-качество при неполных концептах.
+- [[https://arxiv.org/abs/2403.04571][Machine learning and information theory concepts towards an AI Mathematician]] — Эссе об information-theoretic критериях «интересности» гипотез для будущего AI-математика.
+- [[https://arxiv.org/abs/2501.07440][Attention when you need]] — Нормативная модель распределения «дорогого» внимания: условия возникновения ramping- и ритмических паттернов.
+- [[https://arxiv.org/abs/2501.09223][Foundations of Large Language Models]] — Учебник-обзор по основам LLM: pre-training, генеративные модели, prompting, alignment, inference, reasoning.
+
+* physics.soc-ph — Социальная физика и сети
+** 🧐 Обзор
+Сквозная тема — агрегация и масштабы: LFMM делает смешанное членство сообществ устойчивым к coarse-graining агрегированных сетей, а работа об универсальных временных масштабах указывает оптимальное окно укрупнения событий в темпоральных сетях от дней до лет. Методологически зреет спор о представлении higher-order взаимодействий: авторы аргументируют в пользу направленных гиперграфов, разделяющих структуру и функциональную форму. Крупные продольные сетевые данные (сталь/лом по 1,16 млрд статей) показывают, как сетевой анализ превращается в выводы о геополитике материалов.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2602.03266][Link Fraction Mixed Membership Reveals Community Diversity in Aggregated Social Networks]]
+:ALGO: LFMM — вычисление mixed membership узлов агрегированных сетей, согласованное при агрегации: суммы членств сохраняются между масштабами, в отличие от существующих методов.
+:IMPACT: Надёжное сравнение структуры сообществ на разных уровнях агрегации population-scale сети Нидерландов; крупные городские хабы выявляются как «плавильные котлы» пространственно удалённых сообществ.
+- [[https://arxiv.org/abs/2606.21696][Universal time scales linking topology and dynamics in temporal networks]]
+:ALGO: Эмпирическое evidence оптимального масштаба coarse-graining событий (максимальная локальная динамика при сохранении глобальной связности) плюс минимальная модель на некоррелированных renewal-процессах.
+:IMPACT: Практическое правило выбора окна агрегации для темпоральных графов в задачах распространения и анализа активности на десятках систем с миллионами узлов.
+- [[https://arxiv.org/abs/2610.08712][Keeping the interaction structure explicit: comment on "Graphs are maximally expressive for higher-order interactions"]]
+:ALGO: Показано, что представление, отделяющее структуру от функциональной формы взаимодействий — направленный гиперграф (эквивалентно направленной факторграфе), с одной гипер-дугой на член взаимодействия.
+:IMPACT: Уточняет, когда гиперграфы действительно необходимы для higher-order сетей, — важно для моделирования и хранения таких данных.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2605.28178][The Steel Scrap Age: Bridging the Quality Gap through Structural Supply Chain Reorganization]] — Анализ 1,16 млрд новостных статей и глобальных торговых сетей: сталевары замыкают циклы лома напрямую, превращая циркулярную экономику в геополитическое соперничество за материалы.
+- [[https://arxiv.org/abs/2610.10864][Localized, unstable, and entangled: Exploring `Us vs. Them' bias in Large Language Models]] — «Мы vs они»-смещения LLM локализуются Edge Attribution Patching до редких цепей, но функционально переплетены с общими языковыми способностями.
+- [[https://arxiv.org/abs/2610.11147][Energy-barrier characterization of secured basins in coupled oscillators with inertia]] — Энергетические барьеры «защищённых бассейнов» второго порядка Kuramoto выявляют уязвимости угловой устойчивости в семи моделях энергосетей.
+- [[https://arxiv.org/abs/2610.10914][An ecology of participation for fusion energy development]] — Рамка «экология участия» и шесть кейсов вовлечения публики в развитие термоядерной энергетики.
+- [[https://arxiv.org/abs/2610.10587][A Sign in Space part 2, a new simulated First Contact scenario engaging the global scientific SETI network, and integrating deep space technologies into SETI search]] — Глобальная симуляция приёма сигнала сетью радиотелескопов с валидацией через аппарат ESA и отработкой Post Detection протоколов.
+
+* cs.DS — Структуры данных и алгоритмы
+** 🧐 Обзор
+Классика под стягивание границ: tight-результат для сортировки при частичной информации (O(m) препроцессинг, O(log e(G)) сортировка), срезанный двойной логарифм в online hitting set для геометрических семейств и улучшенные динамические аппроксимации плотности матроидов и tree packings. Параллельно ригоризуются системные примитивы: HyperLogLog получает экспоненциальные оценки уклонения, LZ-факторизация — точные характеристики чувствительности и соотношения размеров. Спарсификация переносится на квантовые cut-гамильтонианы — нишевый, но показательный перенос спектральных инструментов.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2511.13205][Matroid Base Packings: Improved Dynamic Matroid Density and Combinatorics of Tree Packings]]
+:ALGO: Полностью динамическая (1±ε)-аппроксимация плотности матроида за O((ρ²ε⁻²+ρε⁻⁴)log³m) rank-запросов на обновление; усиленные оценки сходимости жадных tree packing к идеальным нагрузкам и плотность O(λ⁵ log m) деревьев, содержащей дерево, пересекающее минимальный разрез.
+:IMPACT: Строительные блоки динамической плотности графа и связности — базовые примитивы для потокового сетевого анализа и алгоритмов на минимальных разрезах.
+- [[https://arxiv.org/abs/2603.14293][Improved Online Hitting Set Algorithms for Structured and Geometric Set Systems]]
+:ALGO: O(log n · log log n)-конкурентный алгоритм для взвешенного online hitting set на системах с линейной shallow-cell complexity вместо двойного логарифма общего случая.
+:IMPACT: Первые оценки для естественных геометрических семейств — влияет на онлайн-задачи покрытия в мониторинге сетей и планировании ресурсов.
+- [[https://arxiv.org/abs/2604.12653][Sorting under Partial Information with Optimal Preprocessing Time via Unified Bound Heaps]]
+:ALGO: Tight-границы проблемы Фредмана: O(m) препроцессинг DAG частичного порядка и O(log e(G)) сортировка через новую heap-структуру, удовлетворяющую unified bound.
+:IMPACT: Закрывает задачу 1972 года оптимально; новая куча заявлена как потенциально интересная и вне этой постановки.
+- [[https://arxiv.org/abs/2606.09728][Quantum Cut Sparsifiers]]
+:ALGO: Любой n-кубитный Quantum Cut-гамильтониан спарсифицируется до Õ(n/ε²) членов; единая схема сэмплирования рёбер даёт спектральную аппроксимацию Kikuchi-графа сразу для всех уровней ℓ через разложение по инвариантным подпространствам и expander-декомпозицию.
+:IMPACT: Переносит классический инструментарий спарсификаторов и octopus-неравенств на квантовые гамильтонианы — мост между спектральной теорией графов и физикой.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2607.22063][HyperLogLog for probabilists]] — Неасимптотические экспоненциальные оценки уклонения для HLL — основа доверительных интервалов cardinality-скетчей в потоковых системах.
+- [[https://arxiv.org/abs/2608.03351][Sensitivity and Size Relationships of the Lempel-Ziv Factorization]] — Tight Ω(log n) чувствительность LZ к префикс-удалению, циклическому повороту и развороту строки, плюс соотношения размеров с collage system и LZ-like кодировками.
+- [[https://arxiv.org/abs/2503.18241][Approximation Schemes for k-Subset Sum Ratio and k-way Number Partitioning Ratio]] — Первые FPTAS для k-SSR и k-PART за O(n^{2k}/ε^{k-1}) со связью с fair division при одинаковых оценках.
+- [[https://arxiv.org/abs/0901.4417][Compression with wildcards: All, or all maximum, anticliques of a graph]] — Компактное wildcard-представление всех (и всех максимальных) антиклик графа через 2-CNF и решётку Дилуорса.
+- [[https://arxiv.org/abs/2512.25033][EF(X) Orientations: A Parameterized Complexity Perspective]] — Параметризованная сложность EF-ориентаций графа в модели справедливого дележа: новые tractable случаи, ответы на открытые вопросы EFX и алгоритмы с благотворительностью.
+
+* cs.DC — Распределённые вычисления
+** 🧐 Обзор
+Инфраструктурный день: Mooncake делится production-опытом KVCache-дизагрегации для Kimi, Cassandra допускает частичный прогресс BFT-консенсуса во время партиций без потери безопасности, а eAVID сокращает хранение диспергированных данных вдвое без потери производительности. Зреет тема живучести под атаками и дрейфом: доверие в VANET (IPEK), скрытые ловушки адаптивного федеративного обучения, редкие классы в edge-аналитике (DIALER). Инструментальная периферия — статистическое model checking (TAPAAL SMC) и распределённый точный перебор QUBO/Ising на GPU.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2407.00079][Mooncake: A KVCache-centric Disaggregated Architecture for LLM Serving]]
+:WHAT: Платформа Kimi с разделением prefill/decode-кластеров, дизагрегированным KVCache на CPU/DRAM/SSD и предсказательным early rejection при перегрузках.
+:IMPACT: До +525% throughput в симуляциях и +75% запросов в реальной нагрузке при соблюдении SLO — проверенный шаблон LLM-инфраструктуры для long-context сценариев.
+- [[https://arxiv.org/abs/2607.02856][Cassandra: Consensus with Partial Progress via Robust Partitionable View Synchronization]]
+:WHAT: BFT-консенсус с двухуровневой сертификацией: партиции продолжают свои цепочки (PoA-backed) с последующей реконсиляцией, а pacemaker двигает смены view без strong quorum и с timeout'ами вне критического пути.
+:IMPACT: 900K TPS на 16 репликах и 480K на 104 при латентности 0,31–0,75 с; ненулевой спекулятивный прогресс при жёстких партициях — ответ на главный недостаток классических BFT-протоколов.
+- [[https://arxiv.org/abs/2608.15469][eAVID: Asynchronous Verifiable Information Dispersal with Post-Dissemination Pruning]]
+:WHAT: Эластичный AVID: после раздачи подтверждений о приёме узлы локально pruning'ят до половины хранимого; интегрировано в DispersedSimplex — BFT-консенсус с erasure-coding блоков.
+:IMPACT: Снижение per-node хранения на 42–46% (pruning на >99% блоков) без затрат в throughput/latency — практичная экономия памяти для репликации и консенсуса.
+- [[https://arxiv.org/abs/2610.06358][DIALER: A Case for Improving Rare-Class Accuracy in Retraining-Free Edge Video Analytics]]
+:WHAT: Система, тратящая простаивающие GPU-циклы retraining-free VFM-инференса на offline-построенные многостадийные пайплайны коррекции редких редких-к-частым confusion-пар.
+:IMPACT: До +14% точности на редких (критичных) классах мультистримового edge-видео без вмешательства в real-time инференс.
+- [[https://arxiv.org/abs/2604.07532][IPEK: Event-Criticality-Aware Evidential Trust Management against Strategic Insider Attacks in Vehicular Ad Hoc Networks]]
+:WHAT: Доверительная модель с асимметричной локальной компонентой (веса по критичности события и локации), тестом достоверности репортёра и глобальным Dempster–Shafer слиянием по правилу Йегера.
+:IMPACT: F1 существенно выше бейслайнов при 25% атакующих (FPR 0,9–15,5% против 7,8–49,7% и 26,0–41,4%) — практичная защита event-based обмена в VANET.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.05419][The 2M Multiplication Algorithm for Complex Matrices]]
+:ALGO: Комплексное умножение матриц за 2 вещественных GEMM того же размера (для целочисленных частей) и практичная связка 2M с Ozaki-II для float; как следствия — новые SYRK/HERK-алгоритмы.
+:IMPACT: Снижает стоимость комплексного GEMM примерно до 2× вещественного — заметный выигрыш для численных нагрузок на GPU и HPC-платформах.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2606.02007][TAPAAL SMC: Statistical Model Checking of Stochastic Timed-Arc Petri Nets]] — Первая стохастическая семантика TAPN и количественные/качественные SMC-алгоритмы в верификаторе TAPAAL с кейс-стади.
+- [[https://arxiv.org/abs/2607.08906][Proof-of-Continuity: A Temporal Model for Authority Propagation in Distributed Systems and AI Agents]] — Дисциплина распространения полномочий по цепочкам исполнения (PIC), делающая confused deputy невалидным поведением и дополняющая Proof-of-Possession.
+- [[https://arxiv.org/abs/2608.07157][Capacity Confounds and Coverage Guarantees in Adaptive Sub-model Federated Learning]] — Оценки гетерогенности из sub-model апдейтов конфаундятся ёмкостью устройства, а случайное распределение того же бюджета матчит адаптивное — точность спасает покрытие параметров, а не «умное» распределение.
+- [[https://arxiv.org/abs/2609.27727][Sovereign Grassroots Currencies: A CBDC Architecture for Credit and Monetary Policy (Full Version)]] — Архитектура CBDC из суверенных/несуверенных коинов и бондов, поддерживающая кредит и монетарную политику без конвертации депозитов; реализована и протестирована в малом масштабе.
+- [[https://arxiv.org/abs/2610.10148][Reconciling Bottom-Up Metrics with Top-Down Reporting for Cloud Carbon Accounting]] — Предложение rSCI: переанкеровка bottom-up SCI на аудированные отчёты провайдера через физически декомпозированный residual с планом для стандартов отчётности.
+- [[https://arxiv.org/abs/2610.10542][Omnisolver: An extensible interface to Ising spin-glass and QUBO solvers: adding a distributed GPU brute-force plugin]] — Плагин точного перебора QUBO/Ising с Ray-дистрибуцией 2^k подзадач по 8×H100 (решение до N=60) и автоматической численной стабилизацией — ground-truth оракул для эвристик вроде Simulated Bifurcation Machine.

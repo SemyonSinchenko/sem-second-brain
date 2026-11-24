@@ -1,0 +1,53 @@
+#+TITLE: Daily Digest: 2026-06-20
+#+FROM: [2026-06-19 Fri]
+#+TO: [2026-06-20 Sat]
+#+DATE: [2026-06-20 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние сутки ключевым трендом стало расширение возможностей ИИ-агентов через интеграцию с веб-поиском и маркетинговыми данными (AWS, Adobe). Вендоры активно внедряют Model Context Protocol (MCP) для упрощения оркестрации и доступа к внешним инструментам. В инженерном сообществе обсуждается риск снижения планки качества кода из-за доступности ИИ и важность фокуса на ценности, а не объеме токенов. Также представлены обновления в инструментах работы с данными (SQL, Python) и анонсы с саммита Databricks.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/noob-series-loss-function-explained-how-models-know-they-are-wrong][Loss Function Explained For Noobs (How Models Know They Are Wrong)]] (KDnuggets) — Базовое объяснение функций потерь для понимания процесса обучения моделей.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/noob-series-loss-function-explained-how-models-know-they-are-wrong][Loss Function Explained For Noobs (How Models Know They Are Wrong)]]
+:SCORE: 5/10
+:WHY: Фундаментальная концепция, полезная для менторства junior-разработчиков, хотя для seniors материал базовый.
+
+** Инженерия данных
+- [[hxxps://www.kdnuggets.com/practical-sql-tricks-every-data-scientist-should-know][Practical SQL Tricks Every Data Scientist Should Know]] (KDnuggets) — Практические паттерны SQL для оптимизации повседневного анализа данных.
+- [[hxxps://dataengineeringcentral.substack.com/p/review-of-databricks-data-ai-summit][Review of Databricks Data + AI Summit 2026]] (Data Engineering Central) — Обзор ключевых анонсов саммита Databricks 2026, включая Lakehouse//RT для аналитики в реальном времени.
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/review-of-databricks-data-ai-summit][Review of Databricks Data + AI Summit 2026]]
+:SCORE: 8/10
+:WHY: Критический обзор архитектурных изменений в Lakehouse, влияющих на выбор стека технологий.
+**** [[hxxps://www.kdnuggets.com/practical-sql-tricks-every-data-scientist-should-know][Practical SQL Tricks Every Data Scientist Should Know]]
+:SCORE: 7/10
+:WHY: Конкретные техники для улучшения производительности запросов и читаемости кода в продакшене.
+
+** Инженеры
+- [[hxxps://www.kdnuggets.com/python-dictionary-tips-and-tricks-you-should-always-remember][Python Dictionary Tips and Tricks You Should Always Remember]] (KDnuggets) — Советы по использованию словарей Python для написания безопасного и читаемого кода.
+- [[hxxps://jack-vanlightly.com/blog/2026/6/19/on-the-folly-of-tokenmaxxing][Raise the ambition threshold]] (Jack Vanlightly) — Призыв повышать планку амбиций вместо снижения порога ценности при использовании ИИ в разработке.
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/6/19/on-the-folly-of-tokenmaxxing][Raise the ambition threshold]]
+:SCORE: 9/10
+:WHY: Стратегическое предостережение о катаболическом коллапсе инфраструктуры при бесконтрольной генерации кода ИИ.
+**** [[hxxps://www.kdnuggets.com/python-dictionary-tips-and-tricks-you-should-always-remember][Python Dictionary Tips and Tricks You Should Always Remember]]
+:SCORE: 6/10
+:WHY: Напоминание об идиомах Python, помогающих избегать частых ошибок в продакшен-коде.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-agentcore/][Introducing Web Search on Amazon Bedrock AgentCore]] (AWS) — AWS представила управляемый веб-поиск для агентов Bedrock, устраняющий задержки знаний без инфраструктуры.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-campaign-workflow-with-insights-from-adobe-marketing-agent-for-amazon-quick/][Accelerate campaign workflow with insights from Adobe Marketing Agent for Amazon Quick]] (AWS) — Интеграция Adobe Marketing Agent с Amazon QuickSight через MCP для анализа кампаний на естественном языке.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDB Council) — Анонс встречи технического сообщества GDC в Бостоне совместно с конференцией VLDB.
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-web-search-on-amazon-bedrock-agentcore/][Introducing Web Search on Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Решает проблему stale knowledge у агентов без необходимости поддерживать собственную поисковую инфраструктуру.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/accelerate-campaign-workflow-with-insights-from-adobe-marketing-agent-for-amazon-quick/][Accelerate campaign workflow with insights from Adobe Marketing Agent for Amazon Quick]]
+:SCORE: 7/10
+:WHY: Пример реализации MCP для безопасной интеграции внешних SaaS-данных в корпоративные AI-воркфлоу.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность нетворкинга и обсуждения стандартов графовых баз данных на профильной конференции.

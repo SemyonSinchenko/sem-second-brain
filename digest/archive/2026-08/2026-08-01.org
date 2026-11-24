@@ -1,0 +1,54 @@
+#+TITLE: Daily Digest: 2026-08-01
+#+FROM: [2026-07-31 Fri]
+#+TO: [2026-08-01 Sat]
+#+DATE: [2026-08-01 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Фокус индустрии смещается на продакшн-готовность AI-агентов: ключевыми становятся обсерваблительность, голосовые интерфейсы и семантическая целостность данных. Character.AI демонстрирует возможность снижения затрат на инфраструктуру на 90% без потери производительности потоковой обработки. Enterprise-сектор активно решает проблему разрыва между upstream-каталогами метаданных и AI-аналитикой для устранения семантического дрифта. Сообщество графовых баз данных анонсирует встречу технических специалистов в рамках конференции VLDB.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/building-voice-controlled-ai-agents][Building Voice-Controlled AI Agents]] (kdnuggets.com) — Разбор архитектуры голосовых агентов: стриминг распознавания, детекция пауз и обработка прерываний.
+- [[hxxps://www.kdnuggets.com/5-books-that-will-deepen-your-understanding-of-large-language-models][5 Books That Will Deepen Your Understanding of Large Language Models]] (kdnuggets.com) — Подборка литературы по fine-tuning и деплою больших языковых моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/announcing-the-agentic-catalog-experience-in-amazon-quick/][Announcing the Agentic Catalog Experience in Amazon Quick]] (aws.amazon.com) — Интеграция бизнес-метаданных из каталогов в AI-аналитику для устранения семантического разрыва.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/optimizing-production-agents-with-amazon-bedrock-agentcore-observability/][Optimizing production agents with Amazon Bedrock AgentCore Observability]] (aws.amazon.com) — Диагностика узких мест производительности и утечек памяти в продакшн-агентах через CloudWatch.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/optimizing-production-agents-with-amazon-bedrock-agentcore-observability/][Optimizing production agents with Amazon Bedrock AgentCore Observability]]
+:SCORE: 9/10
+:WHY: Критично для стабильности продакшн-систем: учит выявлять скрытые проблемы производительности и памяти.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/announcing-the-agentic-catalog-experience-in-amazon-quick/][Announcing the Agentic Catalog Experience in Amazon Quick]]
+:SCORE: 8/10
+:WHY: Решает проблему семантического дрифта в enterprise через связь каталогов данных и AI.
+**** [[hxxps://www.kdnuggets.com/building-voice-controlled-ai-agents][Building Voice-Controlled AI Agents]]
+:SCORE: 7/10
+:WHY: Практический разбор архитектуры real-time систем с учетом задержек и прерываний.
+
+** Инженерия данных
+- [[hxxps://www.databricks.com/blog/backstage-lakebase-part-3][Backstage with Lakebase, part 3]] (databricks.com) — Продолжение серии о запуске Backstage на Databricks Lakebase.
+- [[hxxps://www.warpstream.com/blog/boring-by-design-character-ai][Boring by Design: How Character.AI Runs 5 GiB/s on WarpStream and Cut Costs ~90%]] (warpstream.com) — Кейс снижения затрат на 90% при потоковой обработке 5 GiB/s за счет простой инфраструктуры.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Встреча технического сообщества по управлению графовыми данными на VLDB в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/boring-by-design-character-ai][Boring by Design: How Character.AI Runs 5 GiB/s on WarpStream and Cut Costs ~90%]]
+:SCORE: 9/10
+:WHY: Реальный кейс оптимизации costs/perf на высоких нагрузках, полезный для архитекторов.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и изучения трендов в области графовых баз данных.
+**** [[hxxps://www.databricks.com/blog/backstage-lakebase-part-3][Backstage with Lakebase, part 3]]
+:SCORE: 6/10
+:WHY: Интересный опыт интеграции инструментов метаданных с lakehouse-платформой.
+
+** Не инженерное
+- [[hxxps://rossabaker.com/notes/top4-sausages/][Top 4 Sausages]] (rossabaker.com) — Личный топ сосисок от инженера: от чикагского хот-дога до чоризо.
+- [[hxxps://rossabaker.com/blogroll/reillyspitzfaden.com/][Reilly Spitzfaden, Composer]] (rossabaker.com) — Рекомендка композитора в блоге инженера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rossabaker.com/notes/top4-sausages/][Top 4 Sausages]]
+:SCORE: 5/10
+:WHY: Культурный контекст сообщества и возможность для неформального общения.
+**** [[hxxps://rossabaker.com/blogroll/reillyspitzfaden.com/][Reilly Spitzfaden, Composer]]
+:SCORE: 4/10
+:WHY: Поддержка личного развития и интереса к искусству за пределами кода.

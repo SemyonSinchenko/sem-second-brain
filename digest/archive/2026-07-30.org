@@ -1,0 +1,81 @@
+#+TITLE: Daily Digest: 2026-07-30
+#+FROM: [2026-07-29 Wed]
+#+TO: [2026-07-30 Thu]
+#+DATE: [2026-07-30 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Акцент смещается на практическое внедрение агентов: от безопасности (Bedrock JWT) до архитектуры (MCP серверы). В инженерии данных наблюдается тренд на миграцию legacy-кода в ANSI SQL и использование агентов для мониторинга производства. Сообщество инженеров обсуждает формальные методы верификации и улучшения в инструментарии Go.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/authenticate-with-private-key-jwt-using-amazon-bedrock-agentcore-identity/][Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity]] (AWS) — Внедрение аутентификации Private Key JWT для агентов устраняет риски хранения секретов в коде.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/generate-autonomous-business-insights-with-ai-agent-and-mcp-servers/][Generate Autonomous Business Insights with AI Agent and MCP Servers]] (AWS) — Архитектура на базе MCP серверов позволяет агентам автономно координировать данные across разрозненных систем.
+- [[hxxps://www.kdnuggets.com/5-must-read-resources-for-mastering-small-language-models/][5 Must-Read Resources for Mastering Small Language Models]] (KDnuggets) — Подборка ресурсов по архитектуре SLM, файн-тюнингу и локальному развертыванию для инженеров данных.
+- [[hxxps://www.kdnuggets.com/what-professionals-should-know-about-data-science-and-ai-according-to-harvard-business-school-online/][What Professionals Should Know About Data Science and AI, According to Harvard Business School Online]] (KDnuggets) — Фокус на бизнес-целях и качестве данных важнее погони за новейшими технологиями.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/automating-customer-retention-workflows-in-amazon-quick/][Automating customer retention workflows in Amazon Quick]] (AWS) — Автоматизация удержания клиентов сокращает цикл реакции с дней до минут через анализ sentiment.
+- [[hxxps://deepmind.google/blog/were-launching-lyria-35-in-google-flow-music-with-advances-across-musicality-lyrics-vocals-and-creative-control/][We're launching Lyria 3.5 in Google Flow Music, with advances across musicality, lyrics, vocals, and creative control]] (DeepMind) — Обновление модели генерации музыки улучшает контроль над вокалом и текстом.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/authenticate-with-private-key-jwt-using-amazon-bedrock-agentcore-identity/][Authenticate with Private Key JWT using Amazon Bedrock AgentCore Identity]]
+:SCORE: 9/10
+:WHY: Критично для безопасной реализации M2M аутентификации автономных агентов в продакшене.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/generate-autonomous-business-insights-with-ai-agent-and-mcp-servers/][Generate Autonomous Business Insights with AI Agent and MCP Servers]]
+:SCORE: 9/10
+:WHY: Демонстрирует паттерн orchestration агентов через MCP для преодоления изоляции данных.
+**** [[hxxps://www.kdnuggets.com/5-must-read-resources-for-mastering-small-language-models/][5 Must-Read Resources for Mastering Small Language Models]]
+:SCORE: 8/10
+:WHY: Практический guide по внедрению SLM локально, что снижает затраты и задержки.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/formal-methods-with-hillel-wayne][Formal methods with Hillel Wayne]] (The Pragmatic Engineer) — Обсуждение применимости формальных методов и TLA+ в современной разработке ПО.
+- [[hxxps://rednafi.com/shards/2026/07/go-flag-all-is-set/][Accepted proposal: range over all command-line flags]] (Rednafi) — Новое предложение в Go упрощает обработку приоритетов между флагами CLI и переменными окружения.
+- [[hxxps://rossabaker.com/notes/top4-horsemen-of-the-apocalypse/][Top 4 Horsemen of the Apocalypse]] (Ross Baker) — Культурная заметка о состоянии индустрии через призму четырех всадников.
+- [[hxxps://rossabaker.com/blogroll/gildedyouth.net/][Gilded Youth]] (Ross Baker) — Ссылка на блог о молодежной культуре в tech.
+- [[hxxps://rossabaker.com/blogroll/gabrieldrozdov.com/][Gabriel Drozdov]] (Ross Baker) — Персональный блог инженера в списке рекомендаций.
+- [[hxxps://rossabaker.com/blogroll/tantek.com/][Tantek Çelik]] (Ross Baker) — Ресурс от известного веб-стандартизатора и инженера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/formal-methods-with-hillel-wayne][Formal methods with Hillel Wayne]]
+:SCORE: 10/10
+:WHY: Глубокий анализ того, когда формальная верификация экономит деньги и снижает риски в распределенных системах.
+**** [[hxxps://rednafi.com/shards/2026/07/go-flag-all-is-set/][Accepted proposal: range over all command-line flags]]
+:SCORE: 8/10
+:WHY: Важное изменение в стандартной библиотеке Go для надежной обработки конфигурации.
+**** [[hxxps://rossabaker.com/notes/top4-horsemen-of-the-apocalypse/][Top 4 Horsemen of the Apocalypse]]
+:SCORE: 7/10
+:WHY: Отрезвляющий взгляд на текущие тренды и риски в инженерной культуре.
+
+** Инженерия данных
+- [[hxxps://www.databricks.com/blog/convert-proprietary-code-to-open-ansi-sql-genie-code][Convert proprietary code to open ANSI SQL with Genie Code]] (Databricks) — Инструменты миграции legacy-кода хранилищ данных в открытый ANSI SQL.
+- [[hxxps://www.databricks.com/blog/agents-production-lines-trusted-decisions-real-time][Agents for production lines: Trusted decisions in real time]] (Databricks) — Применение агентов для принятия решений на производственных линиях в реальном времени.
+- [[hxxps://www.databricks.com/blog/how-agentic-ai-can-help-telecom-finance-teams-protect-margin-when-every-moment-matters][How agentic AI can help telecom finance teams protect the margin when every moment matters]] (Databricks) — Использование агентного ИИ для предотвращения утечки выручки в телекоме.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/convert-proprietary-code-to-open-ansi-sql-genie-code][Convert proprietary code to open ANSI SQL with Genie Code]]
+:SCORE: 9/10
+:WHY: Решает проблему vendor lock-in при миграции хранилищ данных, снижая долгосрочные затраты.
+**** [[hxxps://www.databricks.com/blog/agents-production-lines-trusted-decisions-real-time][Agents for production lines: Trusted decisions in real time]]
+:SCORE: 8/10
+:WHY: Пример конвергенции OT и IT данных для автономного управления производством.
+**** [[hxxps://www.databricks.com/blog/how-agentic-ai-can-help-telecom-finance-teams-protect-margin-when-every-moment-matters][How agentic AI can help telecom finance teams protect the margin when every moment matters]]
+:SCORE: 8/10
+:WHY: Демонстрирует ценность данных в реальном времени для финансовой оптимизации.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/quality-care-mission-finance-protects-margin][Quality care is the mission. Finance protects the margin.]] (Databricks) — Кейс использования данных для защиты маржи в здравоохранении.
+- [[hxxps://www.databricks.com/blog/energy-runs-volatile-markets-finance-protects-margin][Energy runs on volatile markets. Finance protects the margin.]] (Databricks) — Анализ волатильности рынков энергии через финансовые данные.
+- [[hxxps://www.databricks.com/blog/manufacturing-runs-capital-finance-protects-margin][Manufacturing runs on capital. Finance protects the margin.]] (Databricks) — Управление капиталом в производстве с помощью аналитики.
+- [[hxxps://www.databricks.com/blog/bringing-real-time-fraud-prevention-government-benefits][Bringing real-time fraud prevention to government benefits]] (Databricks) — Внедрение предотвращения мошенничества в государственных программах льгот.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Встреча технического сообщества по управлению графовыми данными в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 8/10
+:WHY: Возможность взаимодействия с сообществом графовых баз данных и стандарты LDBC.
+**** [[hxxps://www.databricks.com/blog/bringing-real-time-fraud-prevention-government-benefits][Bringing real-time fraud prevention to government benefits]]
+:SCORE: 7/10
+:WHY: Показывает масштабирование real-time обработки для критически важных государственных систем.
+**** [[hxxps://www.databricks.com/blog/quality-care-mission-finance-protects-margin][Quality care is the mission. Finance protects the margin.]]
+:SCORE: 7/10
+:WHY: Пример балансировки между качеством сервиса и финансовой эффективностью в enterprise.

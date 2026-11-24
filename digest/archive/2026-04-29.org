@@ -1,0 +1,82 @@
+#+TITLE: Daily Digest: 2026-04-29
+#+FROM: [2026-04-28 Tue]
+#+TO: [2026-04-29 Wed]
+#+DATE: [2026-04-29 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Open Source переходит от тактического инструмента к стратегическому активу из-за рисков вендор-локина и безопасности. Искусственный интеллект проникает в операционные системы и меняет требования к поведенческим интервью для инженеров. В Data Engineering растет интерес к материализованным таблицам и оптимизации форматов сериализации данных. Вендоры активно интегрируют мультимодальные модели и агентные решения в свои платформы для Enterprise.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://rmoff.net/2026/04/28/materialized-tables-in-apache-flink/][Materialized Tables in Apache Flink]] (rmoff.net) — Flink 1.20 позволяет включать SQL для пополнения таблиц прямо в их определение.
+- [[hxxps://blog.devgenius.io/apache-spark-wtf-buffers-the-slayer-2f45a608bef8?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Buffers The Slayer]] (Devgenius) — Использование Protobuf вместо JSON/XML значительно снижает накладные расходы на парсинг в Spark.
+- [[hxxps://vutr.substack.com/p/data-engineering-system-design-11][Data engineering system design: 11 data sourcing problems]] (Substack) — Систематизация проблем источника данных помогает проектировать более устойчивые пайплайны.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/data-engineering-system-design-11][Data engineering system design: 11 data sourcing problems]]
+:SCORE: 9/10
+:WHY: Чек-лист из 11 вопросов по источникам данных критически важен для проектирования надежных систем.
+**** [[hxxps://blog.devgenius.io/apache-spark-wtf-buffers-the-slayer-2f45a608bef8?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? Buffers The Slayer]]
+:SCORE: 8/10
+:WHY: Практический разбор влияния форматов данных на производительность кластера.
+**** [[hxxps://rmoff.net/2026/04/28/materialized-tables-in-apache-flink/][Materialized Tables in Apache Flink]]
+:SCORE: 7/10
+:WHY: Новая возможность Flink упрощает управление состоянием потоковых таблиц.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/ubuntu-and-ai][How will AI change operating systems? Part 1: Ubuntu and Linux]] (The Pragmatic Engineer) — Ubuntu адаптирует ядро и драйверы для поддержки AI-ускорителей и локальных моделей.
+- [[hxxps://blog.dataexpert.io/p/how-ai-is-changing-behavioral-interviews][The New Rules of Behavioral Interviews after AI]] (DataExpert.io) — Big Tech смещает фокус интервью на оценку работы с AI и лидерских качеств.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://blog.dataexpert.io/p/how-ai-is-changing-behavioral-interviews][The New Rules of Behavioral Interviews after AI]]
+:SCORE: 9/10
+:WHY: Инсайты о том, как AI меняет критерии оценки кандидатов на senior-позиции.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/ubuntu-and-ai][How will AI change operating systems? Part 1: Ubuntu and Linux]]
+:SCORE: 8/10
+:WHY: Обзор изменений в инфраструктуре разработки под влиянием AI-нагрузок.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/local-whisper-audio-transcription][Local Whisper Audio Transcription]] (KDnuggets) — Руководство по локальной транскрибации аудио с упором на приватность.
+- [[hxxps://www.kdnuggets.com/a-b-testing-pitfalls-what-works-and-what-doesnt-with-real-data][A/B Testing Pitfalls: What Works and What Doesn’t with Real Data]] (KDnuggets) — Анализ причин, по которым успешные эксперименты часто проваливаются в продакшене.
+- [[hxxps://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence][Introducing NVIDIA Nemotron 3 Nano Omni: Long-Context Multimodal Intelligence for Documents, Audio and Video Agents]] (Hugging Face) — Новая мультимодальная модель NVIDIA для обработки видео, аудио и текста.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/migrating-a-text-agent-to-a-voice-assistant-with-amazon-nova-2-sonic/][Migrating a text agent to a voice assistant with Amazon Nova 2 Sonic]] (AWS) — Сравнение архитектуры текстовых и голосовых агентов и нюансы миграции.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/nvidia-nemotron-3-nano-omni-model-now-available-on-amazon-sagemaker-jumpstart/][NVIDIA Nemotron 3 Nano Omni model now available on Amazon SageMaker JumpStart]] (AWS) — Доступность модели Nemotron для развертывания через SageMaker.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/migrating-a-text-agent-to-a-voice-assistant-with-amazon-nova-2-sonic/][Migrating a text agent to a voice assistant with Amazon Nova 2 Sonic]]
+:SCORE: 9/10
+:WHY: Детальное сравнение требований к латентности и дизайну ответов для voice-агентов.
+**** [[hxxps://huggingface.co/blog/nvidia/nemotron-3-nano-omni-multimodal-intelligence][Introducing NVIDIA Nemotron 3 Nano Omni: Long-Context Multimodal Intelligence for Documents, Audio and Video Agents]]
+:SCORE: 8/10
+:WHY: Обзор архитектуры модели, объединяющей восприятие видео, аудио и текста в одном пассаже.
+**** [[hxxps://www.kdnuggets.com/a-b-testing-pitfalls-what-works-and-what-doesnt-with-real-data][A/B Testing Pitfalls: What Works and What Doesn’t with Real Data]]
+:SCORE: 7/10
+:WHY: Предостережение от ложных выводов при валидации AI-экспериментов.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/built-not-bolted-what-ai-native-actually-means-cybersecurity][Built In, Not Bolted On: What AI-Native Actually Means in Cybersecurity]] (Databricks) — Концепция нативной интеграции AI в системы кибербезопасности.
+- [[hxxps://www.databricks.com/blog/operationalizing-ai-public-sector-fraud-prevention][Operationalizing AI for public sector fraud prevention]] (Databricks) — Кейс внедрения AI для предотвращения мошенничества в госсекторе.
+- [[hxxps://www.databricks.com/blog/months-minutes-building-real-time-clinical-data-pipelines-natural-language][From months to minutes: Building real-time clinical data pipelines with natural language]] (Databricks) — Ускорение создания клинических пайплайнов с помощью自然语言.
+- [[hxxps://www.databricks.com/blog/agentic-data-engineering-genie-code-and-lakeflow][Agentic Data Engineering with Genie Code and Lakeflow]] (Databricks) — Использование естественного языка для генерации кода в Data Engineering.
+- [[hxxps://www.databricks.com/blog/snapchat-conversions-api-databricks-marketplace][Securely send first-party conversion signals with Snapchat Conversions API on Databricks Marketplace]] (Databricks) — Интеграция сигналов конверсии Snapchat через Marketplace.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества GDC в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/agentic-data-engineering-genie-code-and-lakeflow][Agentic Data Engineering with Genie Code and Lakeflow]]
+:SCORE: 8/10
+:WHY: Демонстрация тренда на использование AI-агентов для написания продакшн-кода пайплайнов.
+**** [[hxxps://www.databricks.com/blog/built-not-bolted-what-ai-native-actually-means-cybersecurity][Built In, Not Bolted On: What AI-Native Actually Means in Cybersecurity]]
+:SCORE: 7/10
+:WHY: Разбор различий между поверхностной и глубокой интеграцией AI в безопасность.
+**** [[hxxps://www.databricks.com/blog/months-minutes-building-real-time-clinical-data-pipelines-natural-language][From months to minutes: Building real-time clinical data pipelines with natural language]]
+:SCORE: 7/10
+:WHY: Пример сокращения времени разработки сложных медицинских пайплайнов с помощью NL.
+
+** Open Source
+- [[hxxps://opensource.org/blog/the-2026-state-of-open-source-report][The 2026 State of Open Source Report]] (opensource.org) — Отчет показывает сдвиг в восприятии Open Source как стратегического актива из-за рисков вендор-локина.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/the-2026-state-of-open-source-report][The 2026 State of Open Source Report]]
+:SCORE: 9/10
+:WHY: Ключевые данные о том, что поддержка Open Source теперь отнимает больше времени, чем инновации.

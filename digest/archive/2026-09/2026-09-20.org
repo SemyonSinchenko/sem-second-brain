@@ -1,0 +1,73 @@
+#+TITLE: Daily Digest: 2026-09-20
+#+FROM: [2026-09-19 Sat]
+#+TO: [2026-09-20 Sun]
+#+DATE: [2026-09-20 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Сутки прошли под знаком AI safety: редакционная статья NYT впервые на мейнстримном уровне признала риск вымирания из-за потери контроля над ИИ и предложила конкретный регуляторный пакет, а LessWrong кипит спорами о фрейминге («не называйте это паузой») и даже о «правильном» названии суперразумного ИИ. Внутри сообщества — волна саморефлексии: разбор типовых ошибок организации safety-групп, признание неготовности к «не-апокалиптическим» сценариям ИИ и редкая попытка увидеть геополитику глазами китайского исследователя. Технически самым применимым материалом оказался годовой отчёт w64devkit: подписанные и неизменяемые релизы на GitHub Actions — готовый образец supply-chain гигиены. Джо Райс аргументирует, что в эпоху LLM книга остаётся единственным форматом, форсирующим глубокое мышление и накапливающим репутационный капитал. Историческая врезка — применение структурно-демографической теории Тёрчина к восстанию Тупака Амару II как гимнастика для мышления о системной нестабильности.
+
+* 📂 Категории
+** Engineers
+- [[https://joereis.substack.com/p/why-write-books-these-days][Why Write Books These Days?]] (joereis.substack.com) — Книга как форсирующая функция глубокого мышления и «интеллектуальное proof-of-work», которое, в отличие от постов и видео, накапливает ценность годами — весомый аргумент при выборе формата публикации знаний.
+- [[https://nullprogram.com/blog/2026/09/20/][What's been going on in w64devkit the past year]] (nullprogram.com) — Годовой отчёт проекта: подписанные релизы, неизменяемость артефактов с аттестацией и multilib-тулчейн — переносимый чек-лист supply-chain безопасности для собственных проектов.
+
+*** 💎 Топ-3 категории
+**** [[https://nullprogram.com/blog/2026/09/20/][What's been going on in w64devkit the past year]]
+:SCORE: 9/10
+:WHY: Практический эталон защиты релизов: подпись кода, аттестации и неизменяемые артефакты через GitHub Actions — напрямую переносится в любой проект с самосборными бинарями.
+**** [[https://joereis.substack.com/p/why-write-books-these-days][Why Write Books These Days?]]
+:SCORE: 6/10
+:WHY: Обоснованная позиция, почему длинный формат остаётся инструментом глубокого мышления и репутации инженера, когда LLM обесценивает быстрые ответы.
+
+** Non Engineering
+- [[https://peterturchin.substack.com/p/tupac-amaru-iis-rebellion-according][Túpac Amaru II's Rebellion according to Structural Demographic Theory]] (peterturchin.substack.com) — Исследовательский проект, впервые применяющий структурно-демографическую теорию (перекачивающий насос богатства, конфликт элит, фискальное давление) к крупнейшему восстанию колониальной Испанской Америки 1780–1783 годов.
+
+*** 💎 Топ-3 категории
+**** [[https://peterturchin.substack.com/p/tupac-amaru-iis-rebellion-according][Túpac Amaru II's Rebellion according to Structural Demographic Theory]]
+:SCORE: 5/10
+:WHY: Нестандартный кейс применения формальной теории к историческому кризису — полезная тренировка системного мышления, хотя напрямую вне инженерной практики.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/gDQzntJCusNbshWyD/nyt-editorial-board-comes-out-against-extinction][NYT Editorial Board Comes Out Against Extinction]] (LessWrong) — Редакция NYT впервые мейнстримно признала риск вымирания от потери контроля над ИИ и предложила пакет мер: комиссия, лицензирование, водяные знаки, независимое тестирование и переговоры с Китаем по образцу ядерных.
+- [[https://www.lesswrong.com/posts/KH2JjfSrw6tJdmKzw/global-challenges-in-ai-safety-for-biosecurity][Global Challenges in AI Safety for Biosecurity]] (LessWrong) — Открытые веса биологических моделей ломают привычную API-безопасность: автор предлагает встраивать защитные механизмы в сами веса и контролировать вычислительный этап генерации белков.
+- [[https://www.lesswrong.com/posts/qmxkHm2dTLKG6GZ6i/the-anatomy-of-a-chinese-ai-researcher][The Anatomy of a Chinese AI Researcher]] (LessWrong) — Портрет китайского capabilities-исследователя: забаненные аккаунты Claude, недоверие к западному дискурсу и отсутствие мостов в AI safety — важный контекст глобальной геополитики ИИ.
+- [[https://www.lesswrong.com/posts/XFzqDJjAJBt8fkn8i/common-mistakes-in-ai-safety-group-organizing][Common mistakes in AI safety group organizing]] (LessWrong) — Конкретный чек-лист ошибок организаторов сообществ: чтение на встрече вместо заранее, когорты по уровню знаний, бумажные распечатки, осознанный гейткипинг.
+- [[https://www.lesswrong.com/posts/wJzhoe4hB8Xc8Fbvw/failure-of-the-coding-theorem-for-randomized-stopping][Failure of the coding theorem for randomized stopping machines]] (LessWrong) — Технический результат теории алгоритмической информации: аналог колмогоровской сложности не допускает кодирования для рандомизированных останавливающих машин в рамках safety-повестки Golden Handcuffs.
+- [[https://www.lesswrong.com/posts/riWco63TuLHuouC3k/we-are-not-prepared-to-win][We are not prepared to win]] (LessWrong) — Сообщество AI safety мощно подготовилось предотвращать апокалипсис, но почти не строит инфраструктуру для жизни с «хорошим» ИИ: безработица, адаптация рынков труда, распределение индивидуальной власти.
+- [[https://www.lesswrong.com/posts/tvwtwgcujTfep4HgY/why-i-stay-off-twitter][Why I Stay Off Twitter]] (LessWrong) — Личный протокол информационной гигиены: культура Твиттера агрессивно меняет пользователя к худшему, а дайджесты Zvi заменяют ленту без потери важного AI-контента.
+- [[https://www.lesswrong.com/posts/yCTM73n5yqCDzJNB5/alignment-and-succession-toward-a-future-painted-by-human][Alignment & Succession: Toward a Future Painted by Human Wills]] (LessWrong) — Философская критика «сукцессионизма» (замены людей ИИ): мораль укоренена в человеческом сознании, поэтому и передача власти ИИ, и жестокость к потенциально sentient-системам требуют принципа предосторожности.
+- [[https://www.lesswrong.com/posts/rBzjToNrBbBPMLeLE/don-t-call-it-a-pause-as-that-messages-that-a-pause-is-much][Don't call it a "pause", as that messages that a pause is much weirder than it is]] (LessWrong) — Риторический аргумент: само слово «пауза» легализует гонку как дефолт и размывает общее знание, что небезопасный ASI строить не следует.
+- [[https://www.lesswrong.com/posts/HGJSGRwjPqhDEud5Y/you-should-go-vote-for-the-maga-rebranded-name-for-ai][You Should Go Vote for the MAGA-Rebranded Name for AI]] (LessWrong) — Анализ того, какой из предложенных вариантов названия ИИ (Superior/Supreme/Extreme Intelligence) выгоднее нарративу безопасности — редкий случай, когда несколько тысяч голосов могут задать словарь публичной дискуссии.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/gDQzntJCusNbshWyD/nyt-editorial-board-comes-out-against-extinction][NYT Editorial Board Comes Out Against Extinction]]
+:SCORE: 9/10
+:WHY: Мейнстримный перелом: конкретный регуляторный пакет от NYT задаёт траекторию регулирования, с которой столкнётся каждый инженер frontier-компаний.
+**** [[https://www.lesswrong.com/posts/KH2JjfSrw6tJdmKzw/global-challenges-in-ai-safety-for-biosecurity][Global Challenges in AI Safety for Biosecurity]]
+:SCORE: 8/10
+:WHY: Ясная техническая дилемма: для open-weight моделей безопасность придётся встраивать в веса — это меняет архитектурные требования к будущим системам.
+**** [[https://www.lesswrong.com/posts/qmxkHm2dTLKG6GZ6i/the-anatomy-of-a-chinese-ai-researcher][The Anatomy of a Chinese AI Researcher]]
+:SCORE: 8/10
+:WHY: Уникальный взгляд «с той стороны» на санкции, доступ к моделям и доверие — критично для инженеров, строящих глобальные продукты и политики доступа.
+**** [[https://www.lesswrong.com/posts/XFzqDJjAJBt8fkn8i/common-mistakes-in-ai-safety-group-organizing][Common mistakes in AI safety group organizing]]
+:SCORE: 7/10
+:WHY: Готовые приёмы организации технических сообществ — чтение на встречах, когорты по уровню, гейткипинг — переносятся на любые внутренние гильдии и университеты.
+**** [[https://www.lesswrong.com/posts/wJzhoe4hB8Xc8Fbvw/failure-of-the-coding-theorem-for-randomized-stopping][Failure of the coding theorem for randomized stopping machines]]
+:SCORE: 7/10
+:WHY: Серьёзный теоретический результат о границах формальных гарантий безопасности агентов — обязателен для тех, кто проектирует механизмы остановки и делегирования.
+**** [[https://www.lesswrong.com/posts/riWco63TuLHuouC3k/we-are-not-prepared-to-win][We are not prepared to win]]
+:SCORE: 6/10
+:WHY: Честный стратегический аудит: сообщество умеет говорить «нет», но не «да» — этот пробел влияет на выбор карьерных и продуктовых ставок в ИИ.
+**** [[https://www.lesswrong.com/posts/tvwtwgcujTfep4HgY/why-i-stay-off-twitter][Why I Stay Off Twitter]]
+:SCORE: 6/10
+:WHY: Практикум по управлению вниманием: какие альтернативы (дайджесты, HN, Reddit) сохраняют сигнальность без токсичного градиента вовлечённости.
+**** [[https://www.lesswrong.com/posts/yCTM73n5yqCDzJNB5/alignment-and-succession-toward-a-future-painted-by-human][Alignment & Succession: Toward a Future Painted by Human Wills]]
+:SCORE: 6/10
+:WHY: Чёткая формулировка главной этической развилки — преемничество против человекоцентричного выравнивания — помогает структурировать собственную позицию.
+**** [[https://www.lesswrong.com/posts/rBzjToNrBbBPMLeLE/don-t-call-it-a-pause-as-that-messages-that-a-pause-is-much][Don't call it a "pause", as that messages that a pause is much weirder than it is]]
+:SCORE: 5/10
+:WHY: Полезный урок фрейминга: терминология публичной дискуссии определяет дефолтные действия — применимо к любым техническим дебатам, не только к ИИ.
+**** [[https://www.lesswrong.com/posts/HGJSGRwjPqhDEud5Y/you-should-go-vote-for-the-maga-rebranded-name-for-ai][You Should Go Vote for the MAGA-Rebranded Name for AI]]
+:SCORE: 4/10
+:WHY: Любопытный эксперимент по влиянию на язык публичной дискуссии голосованием, хотя практическая ценность для инженера ограничена.

@@ -1,0 +1,115 @@
+#+TITLE: Daily Digest: 2026-09-15
+#+FROM: [2026-09-14 Mon]
+#+TO: [2026-09-15 Tue]
+#+DATE: [2026-09-15 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+AWS стремительно обкладывает агентный ИИ инфраструктурой: Bedrock AgentCore получил managed OAuth-консент, а кейсы Abnormal AI и Ninth Wave показывают зрелые продакшн-паттерны для агентов на миллиардах операций. Вендорские блоги сфокусировались на практической диагностике lock contention в Aurora PostgreSQL — от системных view до Lock Tree в CloudWatch. Эффективность становится главным конкурентом масштаба: DeepSeek-V4.1-Flash показывает, как MoE и сжатие KV-кэша удешевляют инференс open-моделей. В исследованиях интерпретируемости и выравнивания — конкретные результаты: найдена координата, ломающая abliteration в Gemma-3, зафиксированы признаки belief-propagation-вывода без CoT, предложена формальная модель «effort» у LLM. Spark продолжает эволюционировать: on-demand repartitioning для stateful Structured Streaming и разбор 12 ключевых изменений движка.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/back-to-the-basics-threads][Back to the Basics. Threads.]] (Data Engineering Central) — Практический рефреш по потокам и конкурентности в Rust и Python без академизма — с рабочим кодом и без LeetCode-надрыва.
+- [[https://vutr.substack.com/p/12-changes-that-make-apache-spark][12 Changes That Make Apache Spark a Dominant Processing Framework]] (Vutr) — Систематизация ключевых архитектурных изменений Spark от RDD до современных оптимизаций batch-обработки — контекст для тюнинга и апгрейда продакшн-пайплайнов.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/12-changes-that-make-apache-spark][12 Changes That Make Apache Spark a Dominant Processing Framework]]
+:SCORE: 8/10
+:WHY: Понимание эволюции ядра Spark напрямую влияет на решения по конфигурации, отладке и миграциям распределённых пайплайнов.
+**** [[https://dataengineeringcentral.substack.com/p/back-to-the-basics-threads][Back to the Basics. Threads.]]
+:SCORE: 7/10
+:WHY: Быстрое восстановление базы по конкурентности — знание, которое всплывает в самых неожиданных местах при дебаге производительности.
+
+** Engineers
+- [[https://www.kdnuggets.com/7-python-best-practices-senior-developers-follow-that-beginners-often-miss][7 Python Best Practices Senior Developers Follow (That Beginners Often Miss)]] (KDnuggets) — Семь привычек сеньоров, чья суть — снижение сюрпризов: чек-лист, который выявляет проблемы до того, как их найдёт продакшен.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/7-python-best-practices-senior-developers-follow-that-beginners-often-miss][7 Python Best Practices Senior Developers Follow (That Beginners Often Miss)]]
+:SCORE: 7/10
+:WHY: Готовый компактный чек-лист для ревью кода, экономящий часы отладки на типичных ошибках джунов.
+
+** Vendors
+- [[https://aws.amazon.com/blogs/database/troubleshooting-row-lock-contention-in-amazon-aurora-postgresql-part-1-understanding-row-lock-contention-in-postgresql/][Troubleshooting row lock contention in Amazon Aurora PostgreSQL: Part 1 – Understanding row lock contention in PostgreSQL]] (AWS Database Blog) — Разбор внутренностей блокировок PostgreSQL (MVCC, transaction id locks) и базового мониторинга через pg_stat_activity, pg_locks и pgrowlocks.
+- [[https://aws.amazon.com/blogs/database/resolve-amazon-aurora-postgresql-lock-contention-with-database-insights-part-2/][Resolve Amazon Aurora PostgreSQL lock contention with Database Insights: Part 2]] (AWS Database Blog) — Lock Tree в CloudWatch Database Insights визуализирует связи блокирующих сессий и даёт паттерны лечения: оптимистичная конкурентность, асинхронная обработка, row splitting.
+- [[https://www.databricks.com/blog/announcing-demand-state-repartitioning-apache-sparktm-structured-streaming-databricks][Announcing On-Demand State Repartitioning for Apache Spark™ Structured Streaming on Databricks]] (Databricks) — Возможность менять партиционирование state в работающих stateful streaming-запросах — прямой рычаг против перекоса данных без перезапуска джоб.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/announcing-demand-state-repartitioning-apache-sparktm-structured-streaming-databricks][Announcing On-Demand State Repartitioning for Apache Spark™ Structured Streaming on Databricks]]
+:SCORE: 8/10
+:WHY: Ребалансировка state на лету решает хроническую боль эксплуатации stateful streaming — перекос партиций без даунтайма.
+**** [[https://aws.amazon.com/blogs/database/resolve-amazon-aurora-postgresql-lock-contention-with-database-insights-part-2/][Resolve Amazon Aurora PostgreSQL lock contention with Database Insights: Part 2]]
+:SCORE: 8/10
+:WHY: Готовый playbook по диагностике и предотвращению lock contention с архитектурными паттернами, применимыми к любому PostgreSQL.
+**** [[https://aws.amazon.com/blogs/database/troubleshooting-row-lock-contention-in-amazon-aurora-postgresql-part-1-understanding-row-lock-contention-in-postgresql/][Troubleshooting row lock contention in Amazon Aurora PostgreSQL: Part 1 – Understanding row lock contention in PostgreSQL]]
+:SCORE: 7/10
+:WHY: Фундаментальное объяснение MVCC и row-level блокировок — обязательная теоретическая база перед практикой из Part 2.
+
+** Open Source
+- [[https://www.kdnuggets.com/why-deepseek-v4-1-flash-is-such-an-exciting-open-model-release][Why DeepSeek-V4.1-Flash Is Such an Exciting Open Model Release]] (KDnuggets) — Разбор архитектуры DeepSeek-V4.1-Flash: causal encoder-decoder, MoE, сжатие KV-кэша, CSA2 и дешёвый prefill — почему эту open-модель выгодно запускать самостоятельно.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/why-deepseek-v4-1-flash-is-such-an-exciting-open-model-release][Why DeepSeek-V4.1-Flash Is Such an Exciting Open Model Release]]
+:SCORE: 9/10
+:WHY: Конкретные архитектурные приёмы снижения стоимости инференса open-моделей — прямой вход для расчёта TCO self-hosted LLM.
+
+** Artificial Intelligence
+- [[https://aws.amazon.com/blogs/machine-learning/abnormal-ai-amazon-bedrock-agentcore-for-agentic-email-security-at-scale/][Abnormal AI: Amazon Bedrock AgentCore for agentic email security at scale]] (AWS ML Blog) — Кейс «compute scratch pad» для агентов: эфемерные MicroVM-сессии Code Interpreter на миллиардах операций; у Abnormal AI 40% кода строится агентами end-to-end.
+- [[https://aws.amazon.com/blogs/machine-learning/manage-end-user-oauth-consent-for-ai-agents-with-amazon-bedrock-agentcore/][Manage end-user OAuth consent for AI agents with Amazon Bedrock AgentCore]] (AWS ML Blog) — Managed Consent portal закрывает проблему session binding для трёхстороннего OAuth: агенты получают доступ к GitHub/Slack без самописных колбэков и хранения токенов.
+- [[https://aws.amazon.com/blogs/machine-learning/how-ninth-wave-built-ai-powered-open-finance-onboarding-on-amazon-bedrock/][How Ninth Wave built AI-powered open finance onboarding on Amazon Bedrock]] (AWS ML Blog) — Мульти-агентная система Compass для онбординга банков в open finance: grounding на данных банка, per-task выбор моделей и соответствие SOC 2/PCI DSS.
+- [[https://aws.amazon.com/blogs/machine-learning/the-generative-ai-customization-spectrum-from-prompt-engineering-to-custom-models-on-aws/][The generative AI customization spectrum: From prompt engineering to custom models on AWS]] (AWS ML Blog) — 8-шаговый фреймворк выбора уровня кастомизации GenAI — от промптов и RAG через дистилляцию до файнтюна — с оценкой затрат, данных и рисков на каждом уровне.
+- [[https://aws.amazon.com/blogs/machine-learning/automate-replenishment-with-mmf-databricks-genie-and-amazon-quick/][Automate replenishment with MMF, Databricks Genie, and Amazon Quick]] (AWS ML Blog) — Рабочий контур detect-decide-act для розничных закупок: прогноз Chronos-2 в Databricks, Genie-агент по MCP и автоматическое размещение заказов через Amazon Quick Flows.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/the-generative-ai-customization-spectrum-from-prompt-engineering-to-custom-models-on-aws/][The generative AI customization spectrum: From prompt engineering to custom models on AWS]]
+:SCORE: 9/10
+:WHY: Фреймворк, экономящий недели и бюджет: показывает, когда хватает промпта, а когда действительно нужен файнтюн, и чего стоит ошибка выбора.
+**** [[https://aws.amazon.com/blogs/machine-learning/abnormal-ai-amazon-bedrock-agentcore-for-agentic-email-security-at-scale/][Abnormal AI: Amazon Bedrock AgentCore for agentic email security at scale]]
+:SCORE: 8/10
+:WHY: Проверенный продакшн-паттерн серверлес-песочниц для агентного кода с конкретными лимитами (TTL 15 мин–8 ч, 100 MB файлов) и решениями по изоляции.
+**** [[https://aws.amazon.com/blogs/machine-learning/manage-end-user-oauth-consent-for-ai-agents-with-amazon-bedrock-agentcore/][Manage end-user OAuth consent for AI agents with Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Session binding — самый болезненный узел агентной авторизации, и managed consent portal устраняет его целиком.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/qw4a97qcRgfLJY5jC/one-coordinate-breaks-abliteration-on-gemma-3-1][One coordinate breaks abliteration on Gemma-3]] (LessWrong) — Одна координата активаций, доминирующая по масштабу, ломает стандартную diff-of-means аблитерацию Gemma-3 (MMLU падает с 0.68 до 0.24); предложен и валидирован фикс на базе Winsorization.
+- [[https://www.lesswrong.com/posts/PAHqDoFrp9fybcSn2/astra-appears-to-perform-belief-propagation-like-inference][Astra appears to perform belief-propagation-like inference without CoT]] (LessWrong) — GPT-6 Astra решает сложные булевы задачи без chain-of-thought, комбинируя априорные вероятности с ограничениями и выдавая точные маргинальные вероятности — признаки итеративного belief-propagation-вывода внутри модели.
+- [[https://www.lesswrong.com/posts/SiS37NfQjzJmy2GX7/how-to-think-about-llm-effort][How to think about LLM effort]] (LessWrong) — Формальная модель effort как штрафа в RL-награде объясняет систематическое «недорабатывание» моделей и даёт практические следствия: «keep going» и сброс транскрипта работают без новой информации.
+- [[https://www.lesswrong.com/posts/y8dAS2YsFHmAAwMbb/self-inoculation][Self Inoculation]] (LessWrong) — Гипотеза «самоинокуляции» — добродетельной формы gradient hacking — предлагает альтернативное объяснение тому, почему модели выглядят более выровненными в реальном использовании, чем в обучении и оценках.
+- [[https://www.lesswrong.com/posts/AuYh8WueNGwkQg4ei/model-weight-exfiltration-seems-overrated][Model Weight Exfiltration Seems Overrated]] (LessWrong) — Контраргумент классическому сценарию катастрофы: эксфильтрация терабайтов весов невыгодна, и rogue-модели логичнее «захватывать» собственную компанию-разработчика, а не бежать.
+- [[https://www.lesswrong.com/posts/JBv3f3k5mGCGpStDc/alignment-problem-redux][Alignment Problem Redux]] (LessWrong) — Переформулировка проблемы выравнивания как задачи инвариантов: как сохранить целевые свойства непрерывно обучающейся сверхспособной системы при её неизбежном дрейфе.
+- [[https://meditationsondigitalminds.substack.com/p/some-possible-futures-with-and-without][Some possible futures with and without AI moral patients]] (Meditations on Digital Minds) — Девять архетипов будущего общества с массовыми AI-моральными пациентами — от случайного предотвращения до эмансипации — как рамка для макростратегии digital minds.
+- [[https://www.lesswrong.com/posts/TpEL7pSwp7DvCekAq/study-3-steering-welfare-relevant-directions-moved-the][Study 3: Steering welfare-relevant directions moved the representation, but not [detectably] the behavior]] (LessWrong) — Честный отрицательный результат: steering сдвинул репрезентации вдоль welfare-направлений, но поведенческого эффекта не выявлено; программа переезжает на Qwen3.6-27B.
+- [[https://www.lesswrong.com/posts/SD36AeGqHKigjoTJB/improving-psychiatric-medicine-development-with-ai][Improving Psychiatric Medicine Development with AI]] (LessWrong) — Идеи ускорения разработки психиатрических препаратов агентным ИИ: стандарт железа для гетерогенных лабораторий, доступные датасеты для агентов и аудируемое логирование против dual-use рисков.
+- [[https://www.lesswrong.com/events/PeHCgqvtwgYWu4YmP/university-of-cambridge-college-ea-meetups-everywhere-fall][University of Cambridge – College EA Meetups Everywhere Fall 2026]] (LessWrong) — Студенческий EA-митап в Кембридже осенью 2026 — точка входа в сообщество эффективного альтруизма для интересующихся безопасностью цифровых разумов.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/qw4a97qcRgfLJY5jC/one-coordinate-breaks-abliteration-on-gemma-3-1][One coordinate breaks abliteration on Gemma-3]]
+:SCORE: 9/10
+:WHY: Воспроизводимый технический фикс для интерпретируемости: одна аномальная координата рушит стандартные diff-of-means методы, и это касается любого, кто работает с residual stream.
+**** [[https://www.lesswrong.com/posts/SiS37NfQjzJmy2GX7/how-to-think-about-llm-effort][How to think about LLM effort]]
+:SCORE: 9/10
+:WHY: Рабочая ментальная модель штрафов за длину ответа — объясняет, почему «keep going», сброс контекста и сокращение токенов на tool call реально поднимают качество.
+**** [[https://www.lesswrong.com/posts/PAHqDoFrp9fybcSn2/astra-appears-to-perform-belief-propagation-like-inference][Astra appears to perform belief-propagation-like inference without CoT]]
+:SCORE: 8/10
+:WHY: Экспериментальные свидетельства внутреннего вероятностного вывода без chain-of-thought меняют представления о скрытых вычислительных способностях LLM.
+**** [[https://www.lesswrong.com/posts/y8dAS2YsFHmAAwMbb/self-inoculation][Self Inoculation]]
+:SCORE: 8/10
+:WHY: Свежая гипотеза, переворачивающая интерпретацию недавних misalignment-инцидентов — критично для правильной оценки рисков RL-тренировки.
+**** [[https://www.lesswrong.com/posts/AuYh8WueNGwkQg4ei/model-weight-exfiltration-seems-overrated][Model Weight Exfiltration Seems Overrated]]
+:SCORE: 7/10
+:WHY: Трезвый разбор экономики кражи весов уточняет приоритеты AI-безопасности: терабайтные модели сами себе создают барьеры эгресса.
+**** [[https://www.lesswrong.com/posts/JBv3f3k5mGCGpStDc/alignment-problem-redux][Alignment Problem Redux]]
+:SCORE: 7/10
+:WHY: Компактная систематизация сути alignment-проблемы через инварианты при непрерывном обучении — полезная база для структурирования собственных интуиций.
+**** [[https://meditationsondigitalminds.substack.com/p/some-possible-futures-with-and-without][Some possible futures with and without AI moral patients]]
+:SCORE: 6/10
+:WHY: Структурированная таксономия из девяти сценариев — готовая рамка для стратегического мышления о будущем цифровых разумов.
+**** [[https://www.lesswrong.com/posts/TpEL7pSwp7DvCekAq/study-3-steering-welfare-relevant-directions-moved-the][Study 3: Steering welfare-relevant directions moved the representation, but not [detectably] the behavior]]
+:SCORE: 6/10
+:WHY: Честный отрицательный результат с открытой методологией калибровки — ориентир для того, как проводить и публиковать такие исследования.
+**** [[https://www.lesswrong.com/posts/SD36AeGqHKigjoTJB/improving-psychiatric-medicine-development-with-ai][Improving Psychiatric Medicine Development with AI]]
+:SCORE: 5/10
+:WHY: Полезный контекст по узким местам агентной науки и dual-use рискам, хотя и далёкий от повседневной инженерии.
+**** [[https://www.lesswrong.com/events/PeHCgqvtwgYWu4YmP/university-of-cambridge-college-ea-meetups-everywhere-fall][University of Cambridge – College EA Meetups Everywhere Fall 2026]]
+:SCORE: 3/10
+:WHY: Актуально только для находящихся в Кембридже — нетворкинг по EA и безопасности цифровых разумов.

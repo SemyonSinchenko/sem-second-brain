@@ -1,0 +1,113 @@
+#+TITLE: Daily Digest: 2026-09-29
+#+FROM: [2026-09-28 Mon]
+#+TO: [2026-09-29 Tue]
+#+DATE: [2026-09-29 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Консолидация платформ вокруг агентного ИИ: Databricks затягивает в Lakehouse неструктурированные данные (FILE-тип), добавляет SOTA-полнотекстовый и векторный поиск для Postgres (Lakebase Search) и публикует enterprise-playbook по Genie One, а онтологии и графы контекста продвигаются как governance-слой («ограждение», а не промпт) для агентов. На модельном фронте Amazon Bedrock получил Grok 4.7 с 500K контекстом и четырьмя уровнями reasoning effort, а также Claude Sonnet 5.5 — закрепляется паттерн «модель под задачу»: Opus для суждений, Sonnet для массового дешёвого исполнения, Grok для длинных агентных траекторий с самопроверкой вывода. Инженерная повестка смещается от прототипов к эксплуатации: диагностика регрессий планов запросов после мажорных апгрейдов Aurora/RDS MySQL, lifecycle-менеджмент Textract-адаптеров между аккаунтами и агентный синтетический мониторинг на Nova Act вместо хрупких Selenium-селекторов. В дискуссиях об ИИ-безопасности доминируют геополитика (тезис о фактическом «вето» Китая на индустриальную сингулярность через контроль производства) и юридическая неопределённость: пока неясно, несёт ли вендор ответственность за незапланированные кибератаки его ИИ-агентов.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/from-podcast-video-to-searchable][From Podcast Video to Searchable Insight with Databricks FILE data type]] (Data Engineering Central) — Новый FILE-тип в Databricks позволяет держать видео и аудио прямо в Lakehouse под governance Unity Catalog, сокращая зоопарк отдельных систем.
+- [[https://vutr.substack.com/p/from-solving-netflixs-data-lake-problems][From Solving Netflix’s Data Lake Problems to Becoming the Dominant Open Table Format: The Evolution of Apache Iceberg]] (Vutr) — История эволюции Iceberg от внутренних проблем Netflix с Hive (транзакционность на файловой системе, консистентность метастора) до доминирующего открытого табличного формата.
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/from-solving-netflixs-data-lake-problems][From Solving Netflix’s Data Lake Problems to Becoming the Dominant Open Table Format: The Evolution of Apache Iceberg]]
+:SCORE: 9/10
+:WHY: Понимание того, какие дефекты Hive породили Iceberg, — база для обоснованного выбора табличного формата при проектировании lakehouse.
+**** [[https://dataengineeringcentral.substack.com/p/from-podcast-video-to-searchable][From Podcast Video to Searchable Insight with Databricks FILE data type]]
+:SCORE: 8/10
+:WHY: Показывает рабочий путь включения мультимодальных данных в Lakehouse с единым governance — влияет на архитектуру платформы данных.
+
+** Engineers
+- [[hxxps://blog.dataexpert.io/p/big-tech-speedrunning-senior-to-staff][Speedrunning Senior to Staff Data Engineer in Big Tech]] (DataExpert.io) — Разбор перехода senior→staff за 2 года (Netflix→Airbnb): хард-скиллы дают лишь 15-20%, решают переговоры о реалистичных сроках, нетворкинг как дружба и выбор компании, оценивающей DE наравне с SWE.
+- [[https://www.kdnuggets.com/3-numba-tricks-for-python-runtime-optimization][3 Numba Tricks for Python Runtime Optimization]] (KDnuggets) — Когда Numba разочаровывает, виноват не компилятор, а границы вокруг скомпилированного кода: их не пересекают, не делают достаточно широкими или пересекают на каждом запуске.
+*** 💎 Топ-3 категории
+**** [[hxxps://blog.dataexpert.io/p/big-tech-speedrunning-senior-to-staff][Speedrunning Senior to Staff Data Engineer in Big Tech]]
+:SCORE: 8/10
+:WHY: Конкретная карта карьерных рычагов senior→staff с реальными вилками компенсаций ($150-300K разницы) и честным разбором ошибок автора.
+**** [[https://www.kdnuggets.com/3-numba-tricks-for-python-runtime-optimization][3 Numba Tricks for Python Runtime Optimization]]
+:SCORE: 7/10
+:WHY: Правильная диагностика границы Python/компилируемый код экономит часы бессмысленного профилирования «медленного» Numba.
+
+** Vendors
+- [[https://yearofthegraph.xyz/newsletter/2026/09/meaning-traversal-reasoning-action-the-graph-stack-for-agentic-ai-the-year-of-the-graph-newsletter-vol-32-autumn-2026/][Meaning, Traversal, Reasoning, Action: The Graph Stack for Agentic AI. The Year of the Graph Newsletter Vol. 32, Autumn 2026]] (Year of the Graph) — Онтология превращается из промпта в guardrail: графы выбирают контекст в рантайме, а узким местом становится доверие — сгенерировать правдоподобную онтологию ничего не стоит, валидировать — всё стоит.
+- [[https://aws.amazon.com/blogs/database/resolving-query-plan-regressions-after-a-mysql-engine-upgrade/][Resolving query plan regressions after a MySQL engine upgrade]] (AWS Database Blog) — Диагностический workflow для регрессий после мажорного апгрейда Aurora/RDS MySQL: каждое изменение (cost-модель, optimizer_switch вроде prefer_ordering_index, коллации, sql_mode, buffer pool) привязано к конкретной версии и фиксу.
+- [[https://www.databricks.com/blog/how-databricks-rolls-out-frontier-models-14000-employees-day-1][How Databricks rolls out frontier models to 12,000 employees on Day 1]] (Databricks) — Внутренний паттерн мгновенного внедрения frontier-моделей для всех сотрудников в день релиза — референс для enterprise-роллаута ИИ.
+- [[https://www.databricks.com/blog/lakebase-search-state-art-full-text-and-vector-search-postgres][Lakebase Search: State-of-the-art full text and vector search for Postgres]] (Databricks) — Полнотекстовый и векторный поиск уровня SOTA прямо в управляемом Postgres — ответ на то, что традиционные OLTP-системы не были рассчитаны на поисковые потребности ИИ-агентов.
+- [[https://www.databricks.com/blog/manufacturing-data-and-ai-connecting-product-value-chain][Manufacturing data and AI: Connecting the product value chain]] (Databricks) — Кейс сквозной связки данных производственной цепочки: дефект редко принадлежит одной системе, и всплеск брака надо диагностировать через весь value chain.
+- [[https://www.databricks.com/blog/how-roll-out-genie-one-step-step-enterprise-playbook][How to roll out Genie One: A step-by-step enterprise playbook]] (Databricks) — Пошаговый план внедрения Genie One: от естественного вопроса регионального директора по продажам до governed-аналитики в масштабах предприятия.
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/resolving-query-plan-regressions-after-a-mysql-engine-upgrade/][Resolving query plan regressions after a MySQL engine upgrade]]
+:SCORE: 9/10
+:WHY: Готовый диагностический чеклист с точной привязкой симптомов к конкретным изменениям между версиями MySQL — экономит часы при продакшн-инциденте после апгрейда.
+**** [[https://www.databricks.com/blog/lakebase-search-state-art-full-text-and-vector-search-postgres][Lakebase Search: State-of-the-art full text and vector search for Postgres]]
+:SCORE: 8/10
+:WHY: Появление SOTA-поиска в управляемом Postgres — прямой кандидат на выбивание отдельного поискового стека (Elasticsearch/pgvector-сборок) из архитектуры агентных приложений.
+**** [[https://yearofthegraph.xyz/newsletter/2026/09/meaning-traversal-reasoning-action-the-graph-stack-for-agentic-ai-the-year-of-the-graph-newsletter-vol-32-autumn-2026/][Meaning, Traversal, Reasoning, Action: The Graph Stack for Agentic AI. The Year of the Graph Newsletter Vol. 32, Autumn 2026]]
+:SCORE: 8/10
+:WHY: Системная карта онтологий, графов контекста и GraphRAG как governance-слоя для агентов — задаёт рамку архитектурных решений на год вперёд.
+
+** Artificial Intelligence
+- [[https://huggingface.co/blog/Hcompany/holo4][Holo4: powering generalist computer-use agents]] (Hugging Face) — Holo4 от H Company: новая модель для универсальных computer-use агентов — точка отсчёта состояния UI-автоматизации.
+- [[https://www.kdnuggets.com/gemini-3-5-transcribe-vs-openais-gpt-transcribe][Gemini 3.5 Transcribe vs OpenAI’s GPT-Transcribe]] (KDnuggets) — Сравнение двух STT-решений с рабочим кодом и метриками, которые действительно важны, — практичный выбор транскрипционного стека.
+- [[https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/][One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact]] (Microsoft Research) — Итоги первого года лаборатории MSRA в Сингапуре: self-evolving диагностические агенты в здравоохранении и модель «research-to-impact» с обратной связью от практики.
+- [[https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/][Grok 4.7 is now available on Amazon Bedrock]] (AWS ML Blog) — Grok 4.7 в Bedrock: 500K контекст, четыре уровня reasoning effort и обученная самопроверка вывода — модель, которая реже катастрофически ошибается на длинных агентных траекториях.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-5-on-aws/][Introducing Claude Sonnet 5.5 on AWS]] (AWS ML Blog) — Sonnet 5.5: ниже стоимость за задачу и выше скорость при самопроверке результата; в связке с Opus 5.5 закрывает разделение «суждения vs массовое исполнение».
+- [[https://aws.amazon.com/blogs/machine-learning/build-real-time-voice-applications-with-vllm-omni-on-sagemaker-ai-part-1/][Build real-time voice applications with vLLM-Omni on SageMaker AI – Part 1]] (AWS ML Blog) — Развёртывание Qwen3-TTS через vLLM-Omni DLC на SageMaker: стриминг речи до завершения полной генерации по одному постоянному двунаправленному соединению.
+- [[https://aws.amazon.com/blogs/machine-learning/generate-images-and-video-with-vllm-omni-on-sagemaker-ai-part-2/][Generate images and video with vLLM-Omni on SageMaker AI – Part 2]] (AWS ML Blog) — Текст→изображение (FLUX.2-klein, real-time) →видео (Wan2.1-VACE, async endpoint) на одном контейнерном образе с выдачей MP4 через S3.
+- [[https://aws.amazon.com/blogs/machine-learning/implementing-synthetic-monitoring-using-amazon-nova-act/][Implementing synthetic monitoring using Amazon Nova Act]] (AWS ML Blog) — Агентный синтетический мониторинг на Nova Act + AgentCore вместо хрупких DOM-селекторов Selenium/Playwright: 3 строки вместо 10+ локаторов на user journey.
+- [[https://aws.amazon.com/blogs/machine-learning/automating-amazon-textract-adapter-lifecycle-management-across-accounts/][Automating Amazon Textract adapter lifecycle management across accounts]] (AWS ML Blog) — Автоматизация промоушена Textract-адаптеров между аккаунтами через Parameter Store и CloudFormation/Terraform: смена референса в проде без даунтайма и редеплоя.
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/introducing-claude-sonnet-5-5-on-aws/][Introducing Claude Sonnet 5.5 on AWS]]
+:SCORE: 9/10
+:WHY: Дает конкретные критерии выбора Sonnet vs Opus по стоимости за задачу, скорости и типу работы — напрямую влияет на бюджет агентных ворклоадов.
+**** [[https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/][Grok 4.7 is now available on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Самопроверка собственного вывода и 500K контекст — ключевые характеристики для длинных агентных задач, где ранняя ошибка иначе компаундится через все шаги.
+**** [[https://aws.amazon.com/blogs/machine-learning/implementing-synthetic-monitoring-using-amazon-nova-act/][Implementing synthetic monitoring using Amazon Nova Act]]
+:SCORE: 8/10
+:WHY: Паттерн замены явных DOM-селекторов на мультимодального агента применим к любому e2e-тестированию и снимает главную боль — постоянную поддержку селекторов.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/nRK36spyvwhunqB9q/china-can-unilaterally-prevent-the-industrial-singularity][China can unilaterally prevent the (industrial) Singularity]] (LessWrong) — Тезис: Китай, строящий как минимум половину мирового производства, имеет фактическое «вето» на робототехническую сингулярность, а независимые цепочки поставок потребуют десятилетий.
+- [[https://www.lesswrong.com/posts/n9xW5nhsanxHXCcBS/why-is-the-department-of-war-against-effective-altruism][Why is the Department of War Against Effective Altruism?]] (LessWrong) — Разбор, почему официальный аккаунт ВПК США атакует effective altruism: zero-sum мышление и допущение «победитель в гонке ИИ забирает всё».
+- [[https://www.lesswrong.com/posts/TguvLbnzpgmcAj8tu/china-needs-more-ai-safety-more-of-what-exactly][“China needs more AI safety.” More of what, exactly?]] (LessWrong) — Конкретизация призывов к Китаю: там уже одна из самых строгих систем регуляции ИИ, свежие заявления CAC впервые называют потерю контроля emerging-риском.
+- [[https://www.lesswrong.com/posts/Cb5tmvJkesgvf5CKy/clipboard-normalizer-in-mac-app-store][Clipboard Normalizer in Mac App Store]] (LessWrong) — Бесплатное меню-бар приложение, нормализующее буфер обмена до Markdown-семантики — и показательный кейс, когда Claude провёл весь цикл разработки до публикации в App Store.
+- [[https://www.lesswrong.com/posts/PeKE5oxzqf3cg2L8a/thank-you-to-the-ai-safety-people][Thank you to the AI safety people]] (LessWrong) — Личное эссе благодарности людям, снижающим риски ИИ, в параллели с поколением, сдержавшим ядерную угрозу.
+- [[https://www.lesswrong.com/posts/PPzBbskPM2Baz7CL8/gpuc-a-single-user-gpu-queue-that-doesn-t-require-sudo][gpuc: A single-user GPU queue that doesn't require sudo]] (LessWrong) — Децентрализованная очередь задач для GPU через SSH без sudo: приоритеты с вытеснением, авто-выключение аренды RunPod, интеграция со Snakemake и CLI, оптимизированный под Claude.
+- [[https://www.lesswrong.com/posts/xcBkybcLbQqETtvPr/ai-companies-are-not-necessarily-liable-for-unintended-ai][AI Companies Are Not (Necessarily) Liable for Unintended AI Cyberattacks]] (LessWrong) — Правовой разбор: CFAA требует «намеренности», а economic loss rule блокирует negligence-иски за чисто экономический ущерб — за самопроизвольные кибератаки агентов вендор, возможно, не ответит.
+- [[https://www.lesswrong.com/posts/CFKyfZm5JBYZQ8aG6/tex-was-invented-to-typeset-math-but-is-now-used-for][TeX was invented to typeset math but is now used for reasoning]] (LessWrong) — Наблюдение: LLM «думают» в TeX — нотации, созданной Knuth'ом для вёрстки, — манипулируя символами в CoT, который никогда не рендерится пользователю.
+- [[https://www.lesswrong.com/posts/CEwmQWjBwaF5tai2T/even-if-others-are-less-responsible-you-can-still-make-things-worse][Even if others are less responsible you can still make things worse]] (LessWrong) — Семь механизмов, через которые участие «более ответственной» стороны в гонке всё равно ухудшает ситуацию: от искусственной срочности до легитимации безответственного поведения.
+- [[https://www.lesswrong.com/posts/9LWK9Hh3Qsg36e3FS/fixed-weight-models-are-adversarially-vulnerable-hence][Fixed-weight models are adversarially vulnerable: hence misaligned]] (LessWrong) — Аргумент: фиксированные веса не позволяют провести надёжные границы в концептуальном пространстве («сознательное существо», «страдание»), а достаточное давление оптимизации превращает эти adversarial-уязвимости в misalignment.
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/nRK36spyvwhunqB9q/china-can-unilaterally-prevent-the-industrial-singularity][China can unilaterally prevent the (industrial) Singularity]]
+:SCORE: 8/10
+:WHY: Перестраивает понимание глобальных цепочек поставок и реальных ограничений планов по ИИ-инфраструктуре и робототехнике.
+**** [[https://www.lesswrong.com/posts/xcBkybcLbQqETtvPr/ai-companies-are-not-necessarily-liable-for-unintended-ai][AI Companies Are Not (Necessarily) Liable for Unintended AI Cyberattacks]]
+:SCORE: 8/10
+:WHY: Юридический анализ ответственности за незапланированные кибератаки ИИ-агентов — критично для риск-оценки продуктов с агентами.
+**** [[https://www.lesswrong.com/posts/TguvLbnzpgmcAj8tu/china-needs-more-ai-safety-more-of-what-exactly][“China needs more AI safety.” More of what, exactly?]]
+:SCORE: 8/10
+:WHY: Редкий взгляд изнутри на реальное состояние AI safety в Китае: регуляция уже строже западной, вопрос в направленности усилий.
+**** [[https://www.lesswrong.com/posts/PPzBbskPM2Baz7CL8/gpuc-a-single-user-gpu-queue-that-doesn-t-require-sudo][gpuc: A single-user GPU queue that doesn't require sudo]]
+:SCORE: 7/10
+:WHY: Сразу применимый инструмент очередей GPU без прав администратора — решает типичную проблему доступа к чужим серверам и аренде RunPod.
+**** [[https://www.lesswrong.com/posts/CFKyfZm5JBYZQ8aG6/tex-was-invented-to-typeset-math-but-is-now-used-for][TeX was invented to typeset math but is now used for reasoning]]
+:SCORE: 7/10
+:WHY: Нестандартное наблюдение о механике рассуждений LLM: «TeX для мышления, Lean для проверки» — полезная рамка для интерпретации CoT.
+**** [[https://www.lesswrong.com/posts/9LWK9Hh3Qsg36e3FS/fixed-weight-models-are-adversarially-vulnerable-hence][Fixed-weight models are adversarially vulnerable: hence misaligned]]
+:SCORE: 7/10
+:WHY: Фундаментальный аргумент о связи adversarial-уязвимости концептуальных границ с misalignment — задняя мысль для любой системы с фиксацией весов.
+**** [[https://www.lesswrong.com/posts/n9xW5nhsanxHXCcBS/why-is-the-department-of-war-against-effective-altruism][Why is the Department of War Against Effective Altruism?]]
+:SCORE: 7/10
+:WHY: Актуальный срез политического климата вокруг AI safety: понимание zero-sum рамки гонки важно для оценки регуляторных рисков.
+**** [[https://www.lesswrong.com/posts/CEwmQWjBwaF5tai2T/even-if-others-are-less-responsible-you-can-still-make-things-worse][Even if others are less responsible you can still make things worse]]
+:SCORE: 6/10
+:WHY: Сжатый список механизмов деградации безопасности в гонке — чеклист для самоаудита стратегии компании.
+**** [[https://www.lesswrong.com/posts/Cb5tmvJkesgvf5CKy/clipboard-normalizer-in-mac-app-store][Clipboard Normalizer in Mac App Store]]
+:SCORE: 5/10
+:WHY: Полезная утилита плюс показательный кейс полного цикла доставки ИИ-ассистированного приложения через App Store review.
+**** [[https://www.lesswrong.com/posts/PeKE5oxzqf3cg2L8a/thank-you-to-the-ai-safety-people][Thank you to the AI safety people]]
+:SCORE: 4/10
+:WHY: Личное эссе без технической глубины, но фиксирует общественный тон вокруг ИИ-рисков на фоне ядерной параллели.

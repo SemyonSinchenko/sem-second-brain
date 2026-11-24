@@ -1,0 +1,65 @@
+#+TITLE: Daily Digest: 2026-07-29
+#+FROM: [2026-07-28 Tue]
+#+TO: [2026-07-29 Wed]
+#+DATE: [2026-07-29 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Основной фокус смещается на эффективность инфраструктуры: Apache Iceberg v4 предлагает радикальное снижение накладных расходов на метаданные через single-file commits. В инженерных практиках наблюдается сдвиг в сторону верификации кода ИИ и ускоренной миграции legacy-систем, как показывает опыт Anthropic. Облачные вендоры публикуют ключевые обновления по масштабируемости распределенных SQL-баз и миграции Cassandra без простоя. В секторе ИИ закрепляются стандарты протоколов агентного взаимодействия (MCP) и методы ограниченной генерации (constraint decoding).
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dremio.com/blog/apache-iceberg-v4-efficiency-rewrite/][Apache Iceberg v4: An Efficiency Rewrite of the Table Format]] (Dremio) — спецификация v4 устраняет избыточную запись метаданных через single-file commits и дельта-кодирование схем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-iceberg-v4-efficiency-rewrite/][Apache Iceberg v4: An Efficiency Rewrite of the Table Format]]
+:SCORE: 9/10
+:WHY: Критическое обновление формата таблиц, которое снизит стоимость хранения и ускорит коммиты в потоковых пайплайнах.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/inside-anthropic][How building software is changing at Anthropic]] (The Pragmatic Engineer) — инсайды о том, как ИИ-инструменты меняют баланс между написанием кода, верификацией и архитектурными решениями в ведущих AI-лабах.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/inside-anthropic][How building software is changing at Anthropic]]
+:SCORE: 10/10
+:WHY: Прямое наблюдение за эволюцией роли инженера в условиях агрессивного внедрения ИИ-ассистентов в production-процессы.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/an-introductory-guide-to-practical-constraint-decoding][An Introductory Guide to Practical Constraint Decoding]] (KDnuggets) — практическое руководство по обеспечению валидности вывода моделей (например, JSON) без постобработки.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/][How AgentCore Gateway supports the MCP 2026-07-28 spec]] (AWS) — переход MCP на stateless-протокол упрощает масштабирование агентных систем на стандартной HTTP-инфраструктуре.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/market-surveillance-agent-with-langgraph-and-strands-on-agentcore/][Market surveillance agent with LangGraph and Strands on AgentCore]] (AWS) — паттерн оркестрации мульти-агентных workflows для сложных задач мониторинга с сохранением состояния.
+- [[hxxps://www.kdnuggets.com/5-best-ai-tools-for-data-analysis-you-should-try-in-2026][5 Best AI Tools for Data Analysis You Should Try in 2026]] (KDnuggets) — обзор инструментов для очистки данных и генерации визуализаций в 2026 году.
+- [[hxxps://huggingface.co/blog/allenai/olmoearth-infrastructure][The OlmoEarth Platform: Geospatial inference at planetary scale]] (Hugging Face) — инфраструктурные решения для геопространственного инференса в планетарном масштабе.
+- [[hxxps://huggingface.co/blog/LiquidAI/lfm2-5-encoders][LFM2.5-Encoders for Fast Long-Context Inference on CPU]] (Hugging Face) — оптимизация длинного контекста для инференса на CPU через новые энкодеры.
+- [[hxxps://www.databricks.com/blog/how-databricks-manages-its-own-coding-agent-spend-unity-ai-gateway-budgets][How Databricks manages its own coding agent spend with Unity AI Gateway Budgets]] (Databricks) — стратегии контроля расходов на агентную разработку внутри платформы.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/][How AgentCore Gateway supports the MCP 2026-07-28 spec]]
+:SCORE: 9/10
+:WHY: Стандартизация протокола взаимодействия агентов критична для построения надежных enterprise-систем.
+**** [[hxxps://www.kdnuggets.com/an-introductory-guide-to-practical-constraint-decoding][An Introductory Guide to Practical Constraint Decoding]]
+:SCORE: 8/10
+:WHY: Решение базовой проблемы надежности вывода LLM для интеграции в строгие пайплайны данных.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/market-surveillance-agent-with-langgraph-and-strands-on-agentcore/][Market surveillance agent with LangGraph and Strands on AgentCore]]
+:SCORE: 8/10
+:WHY: Демонстрирует архитектурный паттерн разделения оркестрации и логики агентов для production-нагрузок.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/migrate-to-amazon-keyspaces-with-zero-downtime-using-zdm-proxy/][Migrate to Amazon Keyspaces with zero downtime using ZDM Proxy]] (AWS) — инструкция по миграции Cassandra на managed-сервис без простоя через прокси-слой и двойную запись.
+- [[hxxps://aws.amazon.com/blogs/database/building-scalable-applications-on-amazon-aurora-dsql/][Building scalable applications on Amazon Aurora DSQL]] (AWS) — принципы проектирования схем и транзакций для распределенной SQL-базы с активной записью в нескольких регионах.
+- [[hxxps://aws.amazon.com/blogs/database/troubleshooting-sql-server-query-performance-on-amazon-rds/][Troubleshooting SQL Server query performance on Amazon RDS]] (AWS) — workflow диагностики деградации производительности с использованием CloudWatch Database Insights и Query Store.
+- [[hxxps://aws.amazon.com/blogs/database/automated-pii-redaction-for-amazon-rds-for-postgresql-audit-logs/][Automated PII redaction for Amazon RDS for PostgreSQL audit logs]] (AWS) — серверless-пайплайн для необратимого удаления PII из аудиторских логов перед архивацией.
+- [[hxxps://www.databricks.com/blog/how-northstar-anesthesia-built-scheduling-app-workforce-3000-clinicians-weeks][How NorthStar Anesthesia built a scheduling app for a workforce of 3,000 clinicians in weeks]] (Databricks) — кейс быстрой разработки приложения планирования на базе данных платформы.
+- [[hxxps://www.databricks.com/blog/prototype-production-high-qps-databricks-ai-search][From prototype to production: High QPS for Databricks AI Search]] (Databricks) — опыт масштабирования AI-поиска до высоких нагрузок в production.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/building-scalable-applications-on-amazon-aurora-dsql/][Building scalable applications on Amazon Aurora DSQL]]
+:SCORE: 9/10
+:WHY: Глубокий разбор паттернов для распределенных SQL-систем с сильной консистентностью и активной записью.
+**** [[hxxps://aws.amazon.com/blogs/database/migrate-to-amazon-keyspaces-with-zero-downtime-using-zdm-proxy/][Migrate to Amazon Keyspaces with zero downtime using ZDM Proxy]]
+:SCORE: 8/10
+:WHY: Готовое решение для сложной задачи миграции stateful-сервисов без влияния на доступность.
+**** [[hxxps://aws.amazon.com/blogs/database/troubleshooting-sql-server-query-performance-on-amazon-rds/][Troubleshooting SQL Server query performance on Amazon RDS]]
+:SCORE: 7/10
+:WHY: Полезный чеклист для DBA и инженеров по диагностике производительности в управляемых сервисах.

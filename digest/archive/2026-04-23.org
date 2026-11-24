@@ -1,0 +1,85 @@
+#+TITLE: Daily Digest: 2026-04-23
+#+FROM: [2026-04-22 Wed]
+#+TO: [2026-04-23 Thu]
+#+DATE: [2026-04-23 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+AI-агенты переходят от экспериментов к производственным задачам: автоматизация ELT-коннекторов и миграций данных становится реальностью. Вендоры (AWS, Databricks) фокусируются на снижении операционной нагрузки через оптимизацию инференса и управление памятью агентов. Инженерам данных рекомендуется смещать фокус с написания пайплайнов на стратегию, так как рутинные задачи всё чаще автоматизируются. Открытые репозитории для квантового ML и Claude Code предоставляют готовые шаблоны для ускорения обучения.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://juhache.substack.com/p/i-let-claude-code-build-elt-connectors][I Let Claude Code Build ELT Connectors. Here's What Happened.]] (JUHA) — Практический тест показывает, как AI-агенты могут писать кастомные коннекторы через SDK, сокращая разрыв между managed и code-driven инструментами.
+- [[hxxps://www.databricks.com/blog/stop-hand-coding-change-data-capture-pipelines][Stop Hand-Coding Change Data Capture Pipelines]] (Databricks) — Демонстрация инструмента AutoCDC, позволяющего заменить ручную разработку пайплайнов несколькими строками кода на Python.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://juhache.substack.com/p/i-let-claude-code-build-elt-connectors][I Let Claude Code Build ELT Connectors. Here's What Happened.]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания пределов автоматизации интеграции данных и выбора между SDK и кастомным кодом.
+**** [[hxxps://www.databricks.com/blog/stop-hand-coding-change-data-capture-pipelines][Stop Hand-Coding Change Data Capture Pipelines]]
+:SCORE: 8/10
+:WHY: Показывает конкретный путь отказа от ручной поддержки CDC в пользу автоматизированных решений.
+
+** Engineers
+- [[hxxps://dataengineeringcentral.substack.com/p/most-data-teams-are-doing-it-wrong][Most Data Teams Are Doing It Wrong]] (Data Engineering Central) — Анализ карьерных путей показывает, что успешные инженеры вырастают из исполнителей тикетов в стратегических операторов.
+- [[hxxps://newsletter.pragmaticengineer.com/p/designing-data-intensive-applications][Designing Data-intensive Applications with Martin Kleppmann]] (Pragmatic Engineer) — Интервью с автором ключевой книги о распределенных системах раскрывает эволюцию подходов к масштабированию и верификации.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/most-data-teams-are-doing-it-wrong][Most Data Teams Are Doing It Wrong]]
+:SCORE: 9/10
+:WHY: Помогает пересмотреть роль команды данных в организации и избежать ловушки операционной рутины.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/designing-data-intensive-applications][Designing Data-intensive Applications with Martin Kleppmann]]
+:SCORE: 9/10
+:WHY: Фундаментальные принципы архитектуры данных от автора базовой книги остаются актуальными в эпоху AI.
+
+** Vendors
+- [[hxxps://aws.amazon.com/blogs/database/aws-purpose-built-database-recovery-a-guide-to-business-continuity-and-disaster-recovery-strategies/][AWS purpose-built database recovery: A guide to business continuity and disaster recovery strategies]] (AWS) — Руководство по согласованию восстановления данных в архитектурах с несколькими специализированными БД AWS.
+- [[hxxps://engineering.atspotify.com/2026/4/background-coding-agents-dataset-migrations-honk-part-4/][Background Coding Agents: Supercharging Downstream Consumer Dataset Migrations (Honk, Part 4)]] (Spotify) — Кейс использования фоновых AI-агентов для миграции тысяч датасетов внутри платформы Backstage.
+- [[hxxps://www.databricks.com/blog/are-llm-agents-good-at-join-order-optimization][Are LLM agents good at join order optimization?]] (Databricks) — Исследование способности LLM-агентов оптимизировать порядок соединений в запросах по сравнению с традиционными оптимизаторами.
+- [[hxxps://www.databricks.com/blog/how-conversational-analytics-removes-bi-bottleneck][How conversational analytics removes the BI bottleneck]] (Databricks) — Обзор подхода к устранению узких мест бизнес-аналитики через натурально-языковые интерфейсы.
+- [[hxxps://www.databricks.com/blog/how-transform-document-activation-workflows-genie-and-agent-bricks][How to transform document activation workflows with Genie and Agent Bricks]] (Databricks) — Пример автоматизации работы с документами предприятия с помощью агентных инструментов Databricks.
+- [[hxxps://www.databricks.com/blog/beyond-spreadsheet-how-databricks-delivering-modern-cfo-financial-services][Beyond the spreadsheet: how Databricks is delivering the modern CFO in Financial Services]] (Databricks) — Описание перехода финансовых служб на современные платформы данных вместо таблиц.
+- [[hxxps://www.databricks.com/blog/multimodal-data-integration-production-architectures-healthcare-ai][Multimodal Data Integration: Production Architectures for Healthcare AI]] (Databricks) — Архитектурные паттерны для интеграции мультимодальных данных в медицинских AI-решениях.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества графовых баз данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.atspotify.com/2026/4/background-coding-agents-dataset-migrations-honk-part-4/][Background Coding Agents: Supercharging Downstream Consumer Dataset Migrations (Honk, Part 4)]]
+:SCORE: 9/10
+:WHY: Реальный кейс внедрения AI-агентов для масштабных миграций в продакшене от инженерной команды высокого уровня.
+**** [[hxxps://aws.amazon.com/blogs/database/aws-purpose-built-database-recovery-a-guide-to-business-continuity-and-disaster-recovery-strategies/][AWS purpose-built database recovery: A guide to business continuity and disaster recovery strategies]]
+:SCORE: 8/10
+:WHY: Практическая стратегия обеспечения отказоустойчивости для сложных полиглот-архитектур на AWS.
+**** [[hxxps://www.databricks.com/blog/are-llm-agents-good-at-join-order-optimization][Are LLM agents good at join order optimization?]]
+:SCORE: 8/10
+:WHY: Важно для оценки перспектив замены традиционных оптимизаторов запросов на LLM-агенты.
+
+** Open Source
+- [[hxxps://www.kdnuggets.com/5-github-repositories-to-learn-quantum-machine-learning][5 GitHub Repositories to Learn Quantum Machine Learning]] (KDNuggets) — Подборка репозиториев для быстрого старта в квантовом машинном обучении без длительной теоретической подготовки.
+- [[hxxps://www.kdnuggets.com/10-github-repositories-to-master-claude-code][10 GitHub Repositories To Master Claude Code]] (KDNuggets) — Коллекция шаблонов и примеров для эффективного использования AI-агента Claude Code в разработке.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/10-github-repositories-to-master-claude-code][10 GitHub Repositories To Master Claude Code]]
+:SCORE: 8/10
+:WHY: Позволяет сразу внедрить лучшие практики промптинга и работы с агентами в текущий рабочий процесс.
+**** [[hxxps://www.kdnuggets.com/5-github-repositories-to-learn-quantum-machine-learning][5 GitHub Repositories to Learn Quantum Machine Learning]]
+:SCORE: 7/10
+:WHY: Дает доступ к работающему коду для изучения нишевой области на стыке квантовых вычислений и ML.
+
+** Artificial Intelligence
+- [[hxxps://huggingface.co/blog/nvidia/gemma4][Gemma 4 VLA Demo on Jetson Orin Nano Super]] (HuggingFace) — Демонстрация работы визио-языковой модели Gemma 4 на.edge-устройствах NVIDIA.
+- [[hxxps://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/][AutoAdapt: Automated domain adaptation for large language models]] (Microsoft) — Фреймворк для автоматической адаптации LLM под специфичные домены с учетом ограничений бюджета и латентности.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/cost-effective-multilingual-audio-transcription-at-scale-with-parakeet-tdt-and-aws-batch][Cost-effective multilingual audio transcription at scale with Parakeet-TDT and AWS Batch]] (AWS) — Архитектура масштабируемой транскрибации аудио на GPU с использованием модели Parakeet-TDT и AWS Batch.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-sagemaker-ai-now-supports-optimized-generative-ai-inference-recommendations/][Amazon SageMaker AI now supports optimized generative AI inference recommendations]] (AWS) — Новая функция SageMaker для автоматического подбора оптимальных конфигураций инференса под нагрузку.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/get-to-your-first-working-agent-in-minutes-announcing-new-features-in-amazon-bedrock-agentcore/][Get to your first working agent in minutes: Announcing new features in Amazon Bedrock AgentCore]] (AWS) — Обновление Bedrock AgentCore, позволяющее запускать агентов без написания оркестрационного кода.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/company-wise-memory-in-amazon-bedrock-with-amazon-neptune-and-mem0/][Company-wise memory in Amazon Bedrock with Amazon Neptune and Mem0]] (AWS) — Решение для реализации долговременной памяти корпоративных чат-ботов на базе графа знаний Neptune.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/autoadapt-automated-domain-adaptation-for-large-language-models/][AutoAdapt: Automated domain adaptation for large language models]]
+:SCORE: 9/10
+:WHY: Решает ключевую проблему внедрения LLM в энтерпрайзе — автоматизацию доменной адаптации и тонкой настройки.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/get-to-your-first-working-agent-in-minutes-announcing-new-features-in-amazon-bedrock-agentcore/][Get to your first working agent in minutes: Announcing new features in Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Значительно снижает порог входа для создания агентных приложений, убирая инфраструктурную рутину.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/cost-effective-multilingual-audio-transcription-at-scale-with-parakeet-tdt-and-aws-batch][Cost-effective multilingual audio transcription at scale with Parakeet-TDT and AWS Batch]]
+:SCORE: 8/10
+:WHY: Практический пример снижения затрат на обработку медиа-данных в масштабе с использованием открытых моделей.

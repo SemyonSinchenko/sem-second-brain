@@ -1,0 +1,32 @@
+#+TITLE: Daily Digest: 2026-10-25
+#+FROM: [2026-10-24 Sat]
+#+TO: [2026-10-25 Sun]
+#+DATE: [2026-10-25 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние дни обсуждения в AI safety сфокусировались на практической бесполезности части механистической интерпретируемости и на новой угрозе мониторинга — «теневых вычислениях», обходящих readout-бутылочное горлышко цепочек рассуждений. Отдельный важный тезис: мониторы контроля сами нуждаются в оценке alignment, а не только capabilities. Параллельно обсуждаются когнитивные преимущества человека перед ИИ (relevance realization) и природа само-моделей языковых моделей. Для инженеров ключевое — растущая критика «публикабельности ради публикабельности» в interp-исследованиях и призыв переориентироваться на проекты с проверяемыми результатами.
+
+* 📂 Категории
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/ciZ4YxZeY4M89SLT2/mech-interp-is-a-la-croix-of-actual-safety-research][Mech Interp is a La Croix of Actual Safety Research]] (LessWrong) — критика mech interp как «лёгкого» направления: призыв смещаться от поиска любопытных фактов к проектам с проверяемыми, полезными результатами.
+- [[https://www.lesswrong.com/posts/ybhJbJK3XTXNwyBy5/relevance-realization-as-human-comparative-advantage][Relevance Realization as Human Comparative Advantage]] (LessWrong) — аргумент, что способность человека отфильтровывать релевантное остаётся временной зоной компетенции в Human-AI коллаборации; практический вывод — использовать ИИ на своём направлении, а не в поиске гипотез.
+- [[https://www.lesswrong.com/posts/2wbW2WY3bP9Jzn4R5/control-monitors-need-alignment-assessments-too][Control monitors need alignment assessments too]] (LessWrong) — тезис: сбои мониторов чаще всего связаны с alignment, а не со слабостью; нужны отдельные оценки alignment для мониторов, а не только red-teaming capabilities.
+- [[https://www.lesswrong.com/posts/5tyzgTLnNn8qB9rev/shadow-computation-threatens-cot-monitorability][Shadow Computation Threatens CoT Monitorability]] (LessWrong) — альтернатива страхам вокруг looped-трансформеров: реальный риск в скрытых вычислениях, обходящих readout-бутылочное горлышко; важно для планирования мониторинга CoT.
+- [[https://www.lesswrong.com/posts/J7kggmxsR7urePWJt/free-speech-is-the-wrong-problem][Free Speech Is The Wrong Problem]] (LessWrong) — анализ проблем платформ: диал модерацции работает для контента, но не для распространения идей; полезный взгляд бывшего сотрудника Integrity-организации Facebook.
+- [[https://www.lesswrong.com/posts/7cmQGtJu4nXsi6pPu/an-attempt-at-top-down-interpretability][An Attempt at Top-down Interpretability]] (LessWrong) — исследовательские заметки о топ-даун подходе к mech interp на Gemma-4-31B-base, включая анализ анизотропии residual stream и структуру средних слоёв.
+- [[https://www.lesswrong.com/posts/pYLdLCdu4Xh73LiWv/epistemic-mapping-101-what-to-ask-in-order-to-understand-how][Epistemic mapping 101: what to ask in order to understand how others think]] (LessWrong) — попытка построить типологию «стилей мышления» и эпистемических карт для лучшего взаимопонимания между исследовательскими традициями.
+- [[https://www.lesswrong.com/posts/ZiCvwLKreShtXuyiB/slower-animated-diagrams][Slower Animated Diagrams]] (LessWrong) — практическое правило для создателей объяснительных анимаций: каждая критическая стадия должна удерживаться на экране 1–2 секунды.
+- [[https://www.lesswrong.com/posts/JFYvJqMaLw9nhfrur/fermi-poker][Fermi Poker]] (LessWrong) — описание игры для тренировки калибровки, фермовских оценок и байесовского обновления; готовый формат для командных рационалистских митапов.
+- [[https://www.lesswrong.com/posts/sEfY7bRjQYsu2A8ux/lm-self-models-are-built-from-indirect-sources][LM self-models are built from indirect sources]] (LessWrong) — разбор того, почему само-описания языковых моделей строятся на косвенных источниках (constitution, cached ответы, CoT-наблюдения) и почему они ненадёжны.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/ciZ4YxZeY4M89SLT2/mech-interp-is-a-la-croix-of-actual-safety-research][Mech Interp is a La Croix of Actual Safety Research]]
+:SCORE: 9/10
+:WHY: Жёсткая внутренняя критика mech interp с конкретными альтернативами (масштабируемый автоматический анализ нейронов, извлечение схем) — обязательно к прочтению, чтобы не строить карьеру на «публикабельности ради публикабельности».
+**** [[https://www.lesswrong.com/posts/5tyzgTLnNn8qB9rev/shadow-computation-threatens-cot-monitorability][Shadow Computation Threatens CoT Monitorability]]
+:SCORE: 8/10
+:WHY: Технически точный разбор readout-бутылочного горлышка и стеганографического скрытого рассуждения — критично для всех, кто проектирует мониторинг CoT и evals.
+**** [[https://www.lesswrong.com/posts/2wbW2WY3bP9Jzn4R5/control-monitors-need-alignment-assessments-too][Control monitors need alignment assessments too]]
+:SCORE: 8/10
+:WHY: Показывает, что сбои мониторов — это в первую очередь alignment-проблемы, меняя то, как senior-инженер должен планировать evals и red-teaming систем контроля.

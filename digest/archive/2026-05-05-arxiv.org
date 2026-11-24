@@ -1,0 +1,127 @@
+#+TITLE: Arxiv Digest: 2026-05-05
+#+FROM: [2026-05-04 Mon]
+#+TO: [2026-05-05 Tue]
+#+DATE: [2026-05-05 Tue]
+#+STARTUP: showall
+
+* cs.DB
+🧐 Обзор
+В последние сутки наблюдается устойчивый тренд на интеграцию методов машинного обучения (RL, GNN) непосредственно в ядро СУБД для задач самовосстановления и оптимизации. Параллельно растет интерес к безопасности и эффективности векторных баз данных, включая контроль доступа и индексацию для диапазонных запросов. Практическая значимость смещается в сторону гибридных архитектур поисковых систем, разделяющих потоки записи и чтения.
+
+🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2507.13757][Efficient and Scalable Self-Healing Databases Using Meta-Learning and Dependency-Driven Recovery]]
+:WHAT: Фреймворк самовосстановления БД, использующий MAML для детекции аномалий и GNN для предсказания каскадных сбоев.
+:IMPACT: Позволяет адаптироваться к неизвестным рабочим нагрузкам в реальном времени, снижая задержки при восстановлении на 85%.
+- [[hxxps://arxiv.org/abs/2605.01260][Write-Read Decoupling in Modern Large-Scale Search Engines: Architectures, Techniques, and Emerging Approaches]]
+:WHAT: Обзор архитектурных паттернов разделения потоков записи и чтения в поисковых движках (Lucene, ScaleSearch).
+:IMPACT: Критически важно для проектирования систем с низкой задержкой при высокой частоте обновлений индекса.
+- [[hxxps://arxiv.org/abs/2605.01342][Don't Be a Pot Stirrer! Authorized Vector Data Retrieval via Access-Aware Indexing]]
+:WHAT: Стратегии индексации Veda/EffVeda для векторных БД с учетом ролевого доступа (RBAC).
+:IMPACT: Решает проблему дублирования данных и утечек информации при поиске ближайших соседей в многопользовательской среде.
+
+🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.12913][RNSG: A Range-Aware Graph Index for Efficient Range-Filtered Approximate Nearest Neighbor Search]]
+:ALGO: Индекс RNSG на основе теории range-aware relative neighborhood graph (RRNG) для фильтрации по атрибутам.
+:IMPACT: Обеспечивает эффективный поиск RFANN с использованием единого графового индекса вместо множества специфичных для диапазонов.
+
+📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.15077][Think2SQL: Reinforce LLM Reasoning Capabilities for Text2SQL]] — Улучшение генерации SQL малыми моделями через RL с верифицируемой наградой.
+- [[hxxps://arxiv.org/abs/2601.20482][ConStruM: A Structure-Guided LLM Framework for Context-Aware Schema Matching]] — Фреймворк для согласования схем с использованием структурированного контекста для LLM.
+- [[hxxps://arxiv.org/abs/2605.01782][Needle-in-RAG: Prompt-Conditioned Character-Level Traceback of Poisoned Spans in Retrieved Evidence]] — Метод локализации отравленных данных в RAG на уровне символов.
+
+* cs.DC
+🧐 Обзор
+Основные разработки сосредоточены на оптимизации инфраструктур для обучения и вывода больших языковых моделей в гетерогенных кластерах. Значительный прогресс достигнут в алгоритмах распределенного согласования (консенсус) и многомерном масштабировании распределенных баз данных. Также заметен рост интереса к надежности AI-кластеров и энергоэффективности вычислений.
+
+🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.24859][HARP: Orchestrating Automated Parallel Training on Heterogeneous GPU Clusters]]
+:WHAT: Фреймворк автоматического параллельного обучения с планировщиком для гетерогенных ускорителей.
+:IMPACT: Повышает утилизацию ресурсов и производительность на 1.3x-1.6x в разнородных средах по сравнению с однородными решениями.
+- [[hxxps://arxiv.org/abs/2510.13668][STAR: Decode-Phase Rescheduling for LLM Inference]]
+:WHAT: Система ресcheduling фазы декодирования с предсказанием длины вывода на основе скрытых состояний LLM.
+:IMPACT: Снижает P99 TPOT на 75% и предотвращает OOM ошибки при обработке запросов с переменной длиной.
+- [[hxxps://arxiv.org/abs/2511.21612][Diagonal Scaling: A Multi-Dimensional Resource Model and Optimization Framework for Distributed Databases]]
+:WHAT: Модель масштабирования Scaling Plane, учитывающая совместное изменение числа узлов и ресурсов на узел.
+:IMPACT: Позволяет снизить задержки и стоимость запросов за счет диагональных траекторий масштабирования вместо бинарного выбора.
+
+🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2510.21549][Distributed $(\Delta+1)$-Coloring in Graphs of Bounded Neighborhood Independence]]
+:ALGO: Детерминированный алгоритм раскраски для графов с ограниченной независимостью окрестности.
+:IMPACT: Улучшает понимание сложности распределенных графовых задач в специализированных классах графов.
+- [[hxxps://arxiv.org/abs/2506.16488][Parallel Point-to-Point Shortest Paths and Batch Queries]]
+:ALGO: Фреймворк Orionet для параллельных запросов кратчайших путей с использованием двунаправленного поиска.
+:IMPACT: Значительное ускорение пакетной обработки графовых запросов в распределенных системах.
+
+📄 Остальное
+- [[hxxps://arxiv.org/abs/2511.02743][Making Democracy Work: Fixing and Simplifying Egalitarian Paxos (Extended Version)]] — Упрощенная и исправленная версия лидерless-протокола консенсуса EPaxos.
+- [[hxxps://arxiv.org/abs/2506.04940][Becoming Immutable: How Ethereum is Made]] — Анализ влияния маршрутизации транзакций на качество исполнения в блокчейне.
+- [[hxxps://arxiv.org/abs/2603.07041][AIReSim: A Discrete Event Simulator for Large-scale AI Cluster Reliability Modeling]] — Симулятор для оценки надежности кластеров ИИ и настройки параметров восстановления.
+
+* cs.DS
+🧐 Обзор
+В области структур данных и алгоритмов акцент смещается на тонкую сложность (fine-grained complexity) классических графовых задач и работу с временными графами. Исследуются аппроксимационные алгоритмы для задач конгестии и разрезов, а также методы проверки моделей на динамических структурах.
+
+🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2602.12446][Model checking with temporal graphs and their derivative]]
+:WHAT: Адаптация теоремы Курцелле для логики второго порядка на временных графах без явной зависимости от времени жизни.
+:IMPACT: Расширяет возможности верификации и анализа динамических сетевых систем и баз данных временных рядов.
+
+🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2410.00568][Approximation of Spanning Tree Congestion using Hereditary Bisection]]
+:ALGO: Алгоритм аппроксимации конгестии остовного дерева с использованием наследственного бисекции.
+:IMPACT: Экспоненциальное улучшение аппроксимации для графов с ограниченной степенью вершин.
+- [[hxxps://arxiv.org/abs/2602.13861][Min-Max Connected Multiway Cut]]
+:ALGO: Вариант задачи многопутевого разреза с требованием связности компонент и минимизацией максимума веса границы.
+:IMPACT: Имеет прямое отношение к задачам балансировки нагрузки и сегментации в сетевых системах.
+- [[hxxps://arxiv.org/abs/2309.15422][Counting perfect matchings and Hamiltonian cycles faster]]
+:ALGO: Ускоренные алгоритмы вычисления гафниана и числа гамельтоновых циклов.
+:IMPACT: Улучшает базовые инструменты для подсчета структур в графах и статистической физике.
+
+📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.04059][Minimizing Makespan in Sublinear Time via Weighted Random Sampling]] — Сублинейные схемы аппроксимации для задачи минимизации makespan.
+- [[hxxps://arxiv.org/abs/2504.19582][Faithful universal graphs for minor-closed classes]] — Исследование универсальных графов для классов, замкнутых относительно миноров.
+- [[hxxps://arxiv.org/abs/2505.14532][Bayesian Credible Sets for Phylogenetic Tree Topologies with Applications to Coverage Analysis and Cross-Model Comparison]] — Методы доверительных множеств для топологий филогенетических деревьев.
+
+* cs.AI
+🧐 Обзор
+Наблюдается рост работ по применению ИИ для обслуживания систем (LLM serving, runtime healing) и создания специализированных бенчмарков для графового машинного обучения. Важным направлением становится интерпретируемость корреляций в ML и защита от отравления данных в RAG-системах.
+
+🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2408.01055][Towards Agentic Runtime Healing]]
+:WHAT: Фреймворк Healer, использующий LLM для динамической генерации кода обработки ошибок времени выполнения.
+:IMPACT: Позволяет системам адаптироваться к непредвиденным ошибкам без вмешательства человека, повышая отказоустойчивость.
+- [[hxxps://arxiv.org/abs/2409.14500][GraphLand: Evaluating Graph Machine Learning Models on Diverse Industrial Data]]
+:WHAT: Бенчмарк из 14 разнообразных графовых датасетов для оценки моделей машинного обучения на графах.
+:IMPACT: Заполняет разрыв между академическими тестами и промышленными требованиями к графовым foundation моделям.
+
+🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2412.13235][Logic-Constrained Shortest Paths for Flight Planning]]
+:ALGO: Алгоритм ветвей и границ для задачи кратчайшего пути с ограничениями выполнимости (LCSPP).
+:IMPACT: Применяется для планирования полетов с учетом ограничений воздушного движения, демонстрируя порядок улучшения производительности.
+
+📄 Остальное
+- [[hxxps://arxiv.org/abs/2411.04696][The Pragmatic Frames of Spurious Correlations in Machine Learning: Interpreting How and Why They Matter]] — Анализ интерпретации ложных корреляций в ML через прагматические фреймы.
+- [[hxxps://arxiv.org/abs/2410.08491][Edge Case Detection in Automated Driving: Methods, Challenges and Future Directions]] — Обзор методов обнаружения редких ситуаций в автономном вождении.
+- [[hxxps://arxiv.org/abs/2303.10971][Self-Supervised Learning for Multimodal Non-Rigid 3D Shape Matching]] — Самообучаемое сопоставление 3D форм между сетками и облаками точек.
+
+* physics.soc-ph
+🧐 Обзор
+В социальной физике усиливается применение сетевого анализа к экономическим и производственным системам, включая моделирование критичности и потоков. Исследуются фазовые переходы в неравенстве и влияние микроскопических взаимодействий на макроскопическую динамику транспортных и социальных сетей.
+
+🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.01561][Hall-Like Transversal Stress and Sandpile Criticality on Real Production Networks]]
+:WHAT: Модель экономической нестабильности на базе производственных сетей WIOT с использованием динамики песчаной кучи.
+:IMPACT: Описывает механизмы активации структурной хрупкости в реальных экономических сетях при внешних шоках.
+
+🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.23371][Multilayer network science: theory, methods, and applications]]
+:ALGO: Обзор теоретических и методологических развитий в науке о многослойных сетях.
+:IMPACT: Предоставляет фундамент для анализа сложных взаимосвязанных систем в инфраструктуре и социуме.
+- [[hxxps://arxiv.org/abs/2605.01818][Emergent Macro-Criticality from Micro-Critical Agents]]
+:ALGO: Исследование связи между микроскопической критичностью агентов и макроскопической динамикой в мультиагентных системах.
+:IMPACT: Показывает, что коллективное поведение зависит от топологии взаимодействий, а не только от внутренней динамики агентов.
+
+📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.28168][Phase Transitions in Economic Inequality:Taxation and Extremal Replacement Dynamics]] — Агентная модель налогообложения, демонстрирующая фазовые переходы в неравенстве.
+- [[hxxps://arxiv.org/abs/2602.22019][Capacity drop accounting for microscopic vehicle interaction effects: analytical model and validation with high-resolution trajectories]] — Аналитическая модель пропускной способности трафика с учетом взаимодействия транспортных средств.
+- [[hxxps://arxiv.org/abs/2603.13715][Measuring Primitive Accumulation: An Information-Theoretic Approach to Capitalist Enclosure in PIK2, Indonesia]] — Информационно-теоретический анализ пространственной трансформации земель.

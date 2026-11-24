@@ -1,0 +1,56 @@
+#+TITLE: Daily Digest: 2026-04-18
+#+FROM: [2026-04-17 Fri]
+#+TO: [2026-04-18 Sat]
+#+DATE: [2026-04-18 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Доминирующим трендом стала глубокая проработка операционализации ИИ, с акцентом на управление затратами, производительностью и внедрение агентских систем. AWS представила детальные практические руководства по атрибуции издержек на Amazon Bedrock, дистилляции моделей для видео-поиска и fine-tuning с сохранением общих возможностей модели. Параллельно крупные вендоры, такие как Dremio и Databricks, анонсируют новые режимы интеграции ИИ-агентов, делая акцент на управляемости и соблюдении политик доступа к данным. Для старшего инженера ключевое — это сдвиг от экспериментов с моделями к построению промышленных, экономически эффективных и управляемых конвейеров, где семантический слой данных и governance становятся критической инфраструктурой.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-granular-cost-attribution-for-amazon-bedrock/][Introducing granular cost attribution for Amazon Bedrock]] (AWS Blog) — Практический механизм для точной атрибуции затрат на инференс к IAM-принципалам, что необходимо для chargeback и оптимизации бюджета в продакшене.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/optimize-video-semantic-search-intent-with-amazon-nova-model-distillation-on-amazon-bedrock/][Optimize video semantic search intent with Amazon Nova Model Distillation on Amazon Bedrock]] (AWS Blog) — Практическое руководство по дистилляции модели для снижения задержки на 50% и стоимости на 95%, сохраняя качество маршрутизации поисковых запросов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/nova-forge-sdk-series-part-2-practical-guide-to-fine-tune-nova-models-using-data-mixing-capabilities/][Nova Forge SDK series part 2: Practical guide to fine-tune Nova models using data mixing capabilities]] (AWS Blog) — Пошаговый план fine-tuning модели с техникой data mixing, чтобы улучшить её в предметной области без потери общих способностей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/power-video-semantic-search-with-amazon-nova-multimodal-embeddings/][Power video semantic search with Amazon Nova Multimodal Embeddings]] (AWS Blog) — Архитектурный паттерн построения гибридного семантического поиска по видео, объединяющий текстовые, визуальные и аудио сигналы в едином векторном пространстве.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-hours-to-minutes-how-agentic-ai-gave-marketers-time-back-for-what-matters/][From hours to minutes: How Agentic AI gave marketers time back for what matters]] (AWS Blog) — Кейс внедрения агентского ИИ на Amazon Bedrock для автоматизации публикации контента, сократив время работы с 4 часов до 10 минут.
+- [[hxxps://huggingface.co/blog/nvidia/nemotron-ocr-v2][Building a Fast Multilingual OCR Model with Synthetic Data]] (Hugging Face Blog) — Описание подхода к созданию эффективной модели OCR с использованием синтетических данных для многоязычных сценариев.
+- [[hxxps://www.kdnuggets.com/vibe-coded-tool-analyzes-customer-sentiment-and-topics-from-call-recordings][I Vibe Coded a Tool to That Analyzes Customer Sentiment and Topics From Call Recordings]] (KDnuggets) — Открытое пошаговое руководство по созданию инструмента для анализа тональности и тем из аудиозаписей с использованием Whisper, BERTopic и Streamlit.
+- [[hxxps://www.kdnuggets.com/5-useful-python-scripts-for-advanced-data-validation-quality-checks][5 Useful Python Scripts for Advanced Data Validation & Quality Checks]] (KDnuggets) — Набор готовых скриптов для автоматизации проверки качества данных, от пропущенных значений до несоответствия схем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-granular-cost-attribution-for-amazon-bedrock/][Introducing granular cost attribution for Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Обязательно к прочтению для внедрения прозрачного учёта и управления затратами на инференс моделей в корпоративной среде.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/optimize-video-semantic-search-intent-with-amazon-nova-model-distillation-on-amazon-bedrock/][Optimize video semantic search intent with Amazon Nova Model Distillation on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Наглядный пример применения дистилляции моделей для решения реальной задачи оптимизации производительности и стоимости в продакшене.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/nova-forge-sdk-series-part-2-practical-guide-to-fine-tune-nova-models-using-data-mixing-capabilities/][Nova Forge SDK series part 2: Practical guide to fine-tune Nova models using data mixing capabilities]]
+:SCORE: 8/10
+:WHY: Практическое руководство по передовой методике fine-tuning, позволяющей избежать катастрофического забывания при адаптации моделей.
+
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/architectural-foundations-and-infrastructure-c6e][Architectural Foundations & Infrastructure - Part 3]] (Data Engineering Central) — Систематический разбор ключевых принципов проектирования Data Platform: масштабируемость, отказоустойчивость, наблюдаемость и управление стоимостью.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/architectural-foundations-and-infrastructure-c6e][Architectural Foundations & Infrastructure - Part 3]]
+:SCORE: 9/10
+:WHY: Структурированный набор принципов для принятия архитектурных решений, служащий чек-листом при выборе технологий и проектировании платформы.
+
+** Vendors
+- [[hxxps://www.dremio.com/blog/your-three-paths-to-using-ai-with-dremio/][Your Three Paths to Using AI With Dremio]] (Dremio Blog) — Чёткое описание трёх стратегий интеграции ИИ в работу с данными: встроенный агент, MCP-сервер и CLI для разработчиков.
+- [[hxxps://www.databricks.com/blog/introducing-genie-agent-mode][Introducing Genie Agent Mode]] (Databricks Blog) — Анонс агентского режима в Genie, направленного на упрощение взаимодействия с данными через естественный язык.
+- [[hxxps://www.databricks.com/blog/governing-coding-agent-sprawl-unity-ai-gateway][Governing Coding Agent Sprawl with Unity AI Gateway]] (Databricks Blog) — Подход к управлению множеством ИИ-агентов в разработке через централизованный шлюз для обеспечения безопасности и compliance.
+- [[hxxps://neo4j.com/blog/graph-database/neo4j-google-cloud-marketplace-listings/][Neo4j Google Cloud Marketplace Listings]] (Neo4j Blog) — Обновлённые варианты развёртывания Neo4j Aura и Enterprise Edition в Google Cloud через Marketplace и Terraform.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — Анонс технического сообщества пользователей графовых баз данных, совмещённого с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/your-three-paths-to-using-ai-with-dremio/][Your Three Paths to Using AI With Dremio]]
+:SCORE: 8/10
+:WHY: Полезная таксономия подходов к внедрению ИИ, помогающая выбрать правильную стратегию в зависимости от роли пользователя и требований к governance.
+**** [[hxxps://www.databricks.com/blog/governing-coding-agent-sprawl-unity-ai-gateway][Governing Coding Agent Sprawl with Unity AI Gateway]]
+:SCORE: 7/10
+:WHY: Актуальный взгляд на решение новой проблемы — управления "расползанием" ИИ-агентов в инженерных командах.
+**** [[hxxps://neo4j.com/blog/graph-database/neo4j-google-cloud-marketplace-listings/][Neo4j Google Cloud Marketplace Listings]]
+:SCORE: 6/10
+:WHY: Полезная информация для инженеров, рассматривающих managed-сервисы графовых БД в экосистеме Google Cloud.

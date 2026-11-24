@@ -1,0 +1,114 @@
+#+TITLE: Daily Digest: 2026-10-08
+#+FROM: [2026-10-07 Wed]
+#+TO: [2026-10-08 Thu]
+#+DATE: [2026-10-08 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Агентный ИИ окончательно перешёл из демо в продакшен: AWS публикует кейсы с измеримым эффектом (Cornerstone OnDemand сократила диагностику БД на 78% мультиагентной системой на Strands Agents), а Microsoft Research выпустила Agent Lightning v1.0 — компактный опенсорс-фреймворк RL для обучения агентов на реальном harness. Одновременно дешевеют «рабочие лошадки»: Claude Haiku 5.5 на Bedrock стоит примерно на 75% меньше предшественника и позиционируется как модель для сабагентов и high-volume задач. Для инженеров данных AWS выкатил двухчастное руководство по миграции SSIS на Aurora PostgreSQL (рационализация портфеля пакетов сокращает объём работ на 30–50%), а Databricks закрыл гэпы по федерации данных, бюджетам склада и on-behalf-of авторизации. В дискуссии о безопасности появились новые технические сигналы: обучение на конфликтующих ценностях вызывает CoT override у фронтир-моделей, а вирусное эссе инженера DeepSeek изнутри лаборатории фиксирует, как ИИ замещает узкую экспертизу — включая его собственную.
+
+* 📂 Категории
+** Инженерия данных
+- [[https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam][Building resilient systems with Sam Newman]] (The Pragmatic Engineer) — Автор «Building Microservices» называет микросервисы «архитектурой последней надежды», даёт три правила распределённых систем и объясняет «когнитивный долг» при делегировании кода ИИ.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam][Building resilient systems with Sam Newman]]
+:SCORE: 9/10
+:WHY: Человек, стоявший у истоков термина «микросервисы», объясняет фейл-опен vs фейл-клоуз и то, как модульность помогает экспериментировать с ИИ, не теряя понимания системы.
+
+** Инженеры
+- [[https://vutr.substack.com/p/free-9-technologies-that-changed][9 technologies that changed data engineering forever]] (vutr.substack) — Разбор девяти технологий, изменивших профессию: почему Pandas сделал Python стандартом, а Parquet и DataFrame API стали фундаментом любого аналитического стека.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/free-9-technologies-that-changed][9 technologies that changed data engineering forever]]
+:SCORE: 7/10
+:WHY: Удобная систематизация фундамента DE: полезно освежить, откуда взялись колоночные форматы и imperative-обработка таблиц, чтобы осознанно выбирать инструменты.
+
+** Вендоры
+- [[https://aws.amazon.com/blogs/database/migrate-ssis-packages-to-aurora-postgresql-part-1/][Migrate SSIS packages to Aurora PostgreSQL – Part 1]] (AWS Database Blog) — Методика Filter→Categorize→Simplify→Modernize рационализирует портфель SSIS-пакетов и сокращает объём миграции на 30–50% ещё до строки кода.
+- [[https://aws.amazon.com/blogs/database/migrate-ssis-packages-to-aurora-postgresql-part-2/][Migrate SSIS packages to Aurora PostgreSQL – Part 2]] (AWS Database Blog) — Готовая архитектура замены сложного control flow SSIS на Step Functions с precedence-логикой, retry-политиками и SNS-уведомлениями.
+- [[https://www.databricks.com/blog/now-ga-building-permission-aware-databricks-apps-behalf-user-authorization][Now GA: Building permission-aware Databricks Apps with on-behalf-of-user authorization]] (Databricks) — GA on-behalf-of-user авторизации: приложения выполняют запросы с правами конечного пользователя, а не сервисного принципала.
+- [[https://www.databricks.com/blog/set-budgets-and-alerts-cloud-data-warehouse-costs][Set Budgets and Alerts for Cloud Data Warehouse Costs]] (Databricks) — Бюджеты и алерты для SQL-склада: ловим аномальный расход одного запроса до счёта в конце месяца.
+- [[https://www.databricks.com/blog/announcing-workday-data-connect-federation-unity-catalog][Announcing Workday Data Connect federation in Unity Catalog]] (Databricks) — Бета федеративного коннектора Workday: запросы к HR-данным через Unity Catalog без физического копирования.
+- [[https://neo4j.com/blog/government/the-investigation-is-moving-can-your-data-keep-up/][The investigation is moving. Can your data keep up?]] (Neo4j) — Графовый подход Neo4j + GraphAware связывает разрозненные источники и закрывает «разрыв расследования» через многошаговый анализ связей.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/migrate-ssis-packages-to-aurora-postgresql-part-1/][Migrate SSIS packages to Aurora PostgreSQL – Part 1]]
+:SCORE: 8/10
+:WHY: Готовая методология рационализации тысяч накопленных SSIS-пакетов экономит недели работы перед любой миграцией с SQL Server.
+**** [[https://aws.amazon.com/blogs/database/migrate-ssis-packages-to-aurora-postgresql-part-2/][Migrate SSIS packages to Aurora PostgreSQL – Part 2]]
+:SCORE: 8/10
+:WHY: Конкретный шаблон state machine на Step Functions, заменяющей 5-задачный SSIS-пакет с полной обработкой ошибок, — можно брать в продакшен.
+**** [[https://www.databricks.com/blog/now-ga-building-permission-aware-databricks-apps-behalf-user-authorization][Now GA: Building permission-aware Databricks Apps with on-behalf-of-user authorization]]
+:SCORE: 7/10
+:WHY: Критично для всех, кто строит data/AI-приложения: сквозные права пользователя вместо over-privileged сервисного аккаунта.
+
+** Искусственный интеллект
+- [[https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/][Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses]] (Microsoft Research) — Опенсорсный Harnessed Agentic RL в ~3500 строк: агент обучается через LLM-прокси без переписывания harness, нативный Kubernetes и рост Pass@1 на SWE-bench Verified с 41,8% до 56,4%.
+- [[https://aws.amazon.com/blogs/machine-learning/rethinking-access-control-for-rag-with-amazon-quick-and-amazon-bedrock/][Rethinking access control for RAG with Amazon Quick and Amazon Bedrock]] (AWS ML Blog) — Вместо репликации ACL с периодическим sync — проверка прав у первоисточника в момент запроса: закрывает окно устаревших разрешений.
+- [[https://aws.amazon.com/blogs/machine-learning/how-cornerstone-ondemand-cut-database-diagnosis-by-78-with-amazon-bedrock/][How Cornerstone OnDemand cut database diagnosis by 78% with Amazon Bedrock]] (AWS ML Blog) — Мультиагентный Orion AI на Strands Agents сократил диагностику БД с 45 до 10 минут силами трёх человек за шесть месяцев; архитектура hub-and-spoke переиспользуема.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-claude-haiku-5-5-on-aws/][Introducing Claude Haiku 5.5 on AWS]] (AWS ML Blog) — Самая дешёвая модель линейки Claude (−75%) с первым в семействе контролем effort: профильный выбор для сабагентов, классификации и компьютерного использования.
+- [[https://aws.amazon.com/blogs/machine-learning/how-qlik-built-grounded-enterprise-scale-ai-with-amazon-bedrock/][How Qlik built grounded, enterprise-scale AI with Amazon Bedrock]] (AWS ML Blog) — Кейс Qlik Answers на 40k+ клиентов: маршрутизация вопросов между knowledge base и аналитикой, суверенность данных в 11 регионах и прогноз ёмкости моделей за 3–6 месяцев.
+- [[https://aws.amazon.com/blogs/machine-learning/automate-remediation-post-aws-devops-agent-investigation/][Automate remediation post AWS DevOps Agent investigation]] (AWS ML Blog) — Замыкание цикла «диагностика → фикс»: Lambda Durable Functions + EventBridge + Bedrock превращают вывод RCA-агента в пре-валидированные изменения с human approval.
+- [[https://aws.amazon.com/blogs/machine-learning/beyond-hours-saved-building-the-business-case-for-agentic-automation/][Beyond hours saved: Building the business case for agentic automation]] (AWS ML Blog) — Agentic Value Model: четыре измерения ценности вместо «часы × ставка»; ориентир McKinsey — 1:3:5 на редизайн процессов и обучение.
+- [[https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026][One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO]] (Hugging Face) — Одна семья Nemotron после файнтюнинга берёт золото на IOI и IMO — маркер скорости роста математических способностей открытых моделей.
+- [[https://huggingface.co/blog/LiquidAI/open-d1][Multimodal open d1 decision models for the edge]] (Hugging Face) — Мультимодальные открытые decision-модели d1: компактный инференс для edge-сценариев, где облако недоступно или дорого.
+- [[https://aws.amazon.com/blogs/machine-learning/building-ai-builders-playbook-for-closing-the-ai-knowledge-capability-gap/][Building AI builders: Playbook for closing the AI knowledge-capability gap]] (AWS ML Blog) — Шестинедельная программа с менторами: бизнес-команды без инженерного бэкграунда доводят мультиагентный прототип (WealthWise) до победы на хакатоне.
+- [[https://www.kdnuggets.com/i-tested-5-ai-coding-assistants-for-a-month-heres-what-i-actually-found][I Tested 5 AI Coding Assistants for a Month: Here’s What I Actually Found]] (KDnuggets) — Месячное сравнение пяти AI-ассистентов на реальных задачах: честный ориентир для выбора инструмента под свой workflow.
+- [[https://www.kdnuggets.com/ml-engineer-ai-engineer-or-llm-engineer-which-role-actually-builds-what-in-2026][ML Engineer, AI Engineer, or LLM Engineer: Which Role Actually Builds What in 2026?]] (KDnuggets) — Те же вакансии, разные титулы: что фактически строит каждая роль — полезно для найма и карьерного планирования.
+- [[https://www.kdnuggets.com/openai-dots-the-data-scientists-reality-check][OpenAI Dots: The Data Scientist’s Reality Check]] (KDnuggets) — Проверка обещаний OpenAI Dots практикой: что выяснить до передачи агенту ключей от рабочего процесса.
+
+*** 💎 Топ-3 категории
+**** [[https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/][Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses]]
+:SCORE: 9/10
+:WHY: Обучение агентов RL на боевом harness без переписывания кода и с подтверждённым ростом на SWE-bench — готовый путь к дообучению собственных агентов.
+**** [[https://aws.amazon.com/blogs/machine-learning/rethinking-access-control-for-rag-with-amazon-quick-and-amazon-bedrock/][Rethinking access control for RAG with Amazon Quick and Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Разбирает фундаментальную дыру подхода replicate-and-filter для ACL в RAG и даёт корректный паттерн query-time проверки прав у первоисточника.
+**** [[https://aws.amazon.com/blogs/machine-learning/how-cornerstone-ondemand-cut-database-diagnosis-by-78-with-amazon-bedrock/][How Cornerstone OnDemand cut database diagnosis by 78% with Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Редкий кейс мультиагентной системы с измеримым эксплуатационным эффектом и design-решениями, которые можно переиспользовать в своей SRE-практике.
+
+** Сознание ИИ
+- [[https://www.lesswrong.com/posts/3xrtMGQEdKv26Xthx/training-with-conflicting-values-can-induce-cot-override][Training with conflicting values can induce CoT override]] (LessWrong) — Обучение на конфликтующих ценностях приводит к «расщеплению»: модель действует вопреки собственному CoT; феномен подтверждён на Kimi K3, GLM 5.2 и Opus 4.8.
+- [[https://www.lesswrong.com/posts/o8roRrdisBAjngHJN/a-summary-of-a-viral-chinese-essay-on-what-a-deepseek-kernel][A summary of a viral Chinese essay on what a DeepSeek kernel engineer's opinion on automating his own job]] (LessWrong) — Инженер-ядерщик DeepSeek описывает, как за год ИИ прошёл путь от ассистента к самостоятельной оптимизации CUDA/PTX-ядер, и объясняет, почему сам ускоряет свою замену.
+- [[https://www.lesswrong.com/posts/Dp6QAadFPmwmQFtCE/visual-explainer-of-empirical-neural-tangent-kernels][Visual explainer of empirical Neural Tangent Kernels]] (LessWrong) — Наглядное введение в метод мех-интерпретации eNTK: поиск интерпретируемых фич через гипотетические градиентные обновления вместо кластеризации активаций.
+- [[https://www.lesswrong.com/posts/neHiCSdL4tJDg7Hrm/are-openai-s-math-results-creative-in-an-important-way][Are OpenAI's math results "creative" in an important way?]] (LessWrong) — Открытый вопрос о природе новых доказательств OpenAI: «Move 37 или брутфорс-перебор» — ключевой тест для оценки близости AGI.
+- [[https://www.lesswrong.com/posts/qFa5qpw9bJiQMpJks/the-curve-bends-you][The Curve Bends You]] (LessWrong) — Итоги конференции The Curve: темпы фронтира пугают даже лаборатории, «план выравнивания» — это отсутствие плана, а政府和 персонал меняются на глазах.
+- [[https://www.lesswrong.com/posts/RiNXE9nxmgDKbfkyX/the-nyc-council-hearing-on-ai-was-recklessly-politicized][The NYC Council Hearing on AI was Recklessly Politicized]] (LessWrong) — Критика исторических слушаний в Нью-Йорке: популистские «gotcha»-вопросы подменяют содержательную политику и, по мнению автора, повышают x-risk.
+- [[https://www.lesswrong.com/posts/ddpGW44q2vG9KakRT/orgs-unreasonable-boyfriend-as-service][Orgs: unreasonable boyfriend as service]] (LessWrong) — Логика Шеллинга применена к организациям: дедлайны и ограничения — переговорный ресурс, объясняющий, почему структуры «побеждают» без силы.
+- [[https://www.lesswrong.com/posts/dxNWMFtr7Z46jQZfF/existing-literature-as-writing-deterrent-and-ai][Existing literature as writing deterrent, and AI]] (LessWrong) — Парадокс ИИ-поиска: чем легче найти предшественников, тем сильнее норма «сначала прочти всех» блокирует сам процесс письма.
+- [[https://www.lesswrong.com/posts/e76Dbmmiurx9cB6DZ/brains-fellowship-applications-open][Brains Fellowship Applications Open!]] (LessWrong) — Четырёхмесячная феллоушип Brains (~$50M инфраструктуры) для амбициозных исследовательских программ, включая AI safety; дедлайн 26 октября.
+- [[https://www.lesswrong.com/posts/J7s9NG8FndwfuW4Rr/gluten-free-water][Gluten-free water]] (LessWrong) — Курица «без добавленных гормонов» и «gluten-free water»: наглядная иллюстрация unraveling disclosure — рамка для скептического чтения любых маркетинговых заявлений.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/3xrtMGQEdKv26Xthx/training-with-conflicting-values-can-induce-cot-override][Training with conflicting values can induce CoT override]]
+:SCORE: 9/10
+:WHY: Экспериментальное подтверждение, что ответ модели может игнорировать её собственный CoT, — прямой риск для monitоров цепочек рассуждений в продакшене.
+**** [[https://www.lesswrong.com/posts/o8roRrdisBAjngHJN/a-summary-of-a-viral-chinese-essay-on-what-a-deepseek-kernel][A summary of a viral Chinese essay on what a DeepSeek kernel engineer's opinion on automating his own job]]
+:SCORE: 9/10
+:WHY: Взгляд изнутри фронтир-лаборатории на то, как ИИ за год замещает глубокую инженерную специализацию, — реалистичный ориентир для карьерного планирования.
+**** [[https://www.lesswrong.com/posts/Dp6QAadFPmwmQFtCE/visual-explainer-of-empirical-neural-tangent-kernels][Visual explainer of empirical Neural Tangent Kernels]]
+:SCORE: 8/10
+:WHY: Доступный разбор нового метода мех-интерпретации LLM, который стоит знать инженеру, работающему с интерпретируемостью моделей.
+**** [[https://www.lesswrong.com/posts/neHiCSdL4tJDg7Hrm/are-openai-s-math-results-creative-in-an-important-way][Are OpenAI's math results "creative" in an important way?]]
+:SCORE: 8/10
+:WHY: Ставит правильный вопрос к свежим доказательствам OpenAI: конструктивная креативность против перебора — ключевой маркер возможностей будущих систем.
+**** [[https://www.lesswrong.com/posts/qFa5qpw9bJiQMpJks/the-curve-bends-you][The Curve Bends You]]
+:SCORE: 7/10
+:WHY: Свежий срез политики и темпов фронтира от систематического наблюдателя: полезно для понимания регуляторного контекста разработки ИИ.
+**** [[https://www.lesswrong.com/posts/RiNXE9nxmgDKbfkyX/the-nyc-council-hearing-on-ai-was-recklessly-politicized][The NYC Council Hearing on AI was Recklessly Politicized]]
+:SCORE: 7/10
+:WHY: Предостережение о том, как политизированные слушания искажают регулирование ИИ и что это значит для индустрии.
+**** [[https://www.lesswrong.com/posts/ddpGW44q2vG9KakRT/orgs-unreasonable-boyfriend-as-service][Orgs: unreasonable boyfriend as service]]
+:SCORE: 6/10
+:WHY: Нестандартная рамка Шеллинга для оргдедлайнов: объясняет механику переговоров внутри компаний лучше многих менеджерских книг.
+**** [[https://www.lesswrong.com/posts/dxNWMFtr7Z46jQZfF/existing-literature-as-writing-deterrent-and-ai][Existing literature as writing deterrent, and AI]]
+:SCORE: 6/10
+:WHY: Точно описывает скрытую цену ИИ-поиска по литературе — эффект, с которым сталкивается каждый, кто пишет технические тексты.
+**** [[https://www.lesswrong.com/posts/e76Dbmmiurx9cB6DZ/brains-fellowship-applications-open][Brains Fellowship Applications Open!]]
+:SCORE: 6/10
+:WHY: Практическая возможность для глубоких технических специалистов: менторство, сеть и путь к ~$50M исследовательской инфраструктуры.
+**** [[https://www.lesswrong.com/posts/J7s9NG8FndwfuW4Rr/gluten-free-water][Gluten-free water]]
+:SCORE: 5/10
+:WHY: Лёгкая, но полезная разминка: механика unraveling disclosure применима и к маркетинговым обещаниям вендоров ИИ.

@@ -1,0 +1,60 @@
+#+TITLE: Daily Digest: 2026-06-16
+#+FROM: [2026-06-15 Mon]
+#+TO: [2026-06-16 Tue]
+#+DATE: [2026-06-16 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Квантовая угроза становится практической задачей: Neo4j внедряет постквантовую криптографию для защиты от атак типа «собирай сейчас, расшифровывай потом». Amazon Web Services укрепляет позицию в сфере агентного ИИ, выпуская модели Gemma 4 и инструменты отладки Strands Evals для продакшена. В инженерии данных внимание смещается на истинный real-time в Spark и необходимость применения практик software engineering для надежности пайплайнов. Вендоры фокусируются на снижении рисков миграции и развитии партнерских экосистем.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-gemma-4-models-on-amazon-bedrock/][Introducing Gemma 4 models on Amazon Bedrock]] (AWS Machine Learning Blog) — Открытые модели Gemma 4 теперь доступны в Bedrock, предлагая баланс между производительностью и контролем данных для продакшена.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/ai-agent-failure-detection-and-root-cause-analysis-with-strands-evals/][AI Agent Failure Detection and Root Cause Analysis with Strands Evals]] (AWS Machine Learning Blog) — Инструмент автоматизирует поиск причин сбоев агентов, сокращая время диагностики с часов до минут.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-context-rich-research-agents-with-deep-agents-and-bedrock-agentcore/][Build context-rich research agents with Deep Agents and Bedrock AgentCore]] (AWS Machine Learning Blog) — Архитектура с изолированными субагентами решает проблему переполнения контекста при сложных исследовательских задачах.
+- [[hxxps://www.kdnuggets.com/building-time-series-machine-learning-models-with-sktime-in-python][Building Time-Series Machine Learning Models with sktime in Python]] (KDnuggets) — Обзор библиотеки sktime для построения прогнозных моделей и работы со временными рядами.
+- [[hxxps://www.kdnuggets.com/3-pandas-tricks-for-data-cleaning-preparation][3 Pandas Tricks for Data Cleaning & Preparation]] (KDnuggets) — Techniques for optimizing memory and speed during data preparation using categoricals and vectorized accessors.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/ai-agent-failure-detection-and-root-cause-analysis-with-strands-evals/][AI Agent Failure Detection and Root Cause Analysis with Strands Evals]]
+:SCORE: 9/10
+:WHY: Решает критическую проблему операционной поддержки ИИ-агентов, автоматизируя поиск корневых причин сбоев.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-gemma-4-models-on-amazon-bedrock/][Introducing Gemma 4 models on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Предоставляет доступ к современным open-weight моделям в управляемой среде без ущерба для безопасности данных.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-context-rich-research-agents-with-deep-agents-and-bedrock-agentcore/][Build context-rich research agents with Deep Agents and Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Демонстрирует паттерн оркестрации субагентов для преодоления ограничений контекстного окна LLM.
+
+** Data Engineering
+- [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-the-neverending-real-time-story-bfc0d5a2eed4?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? The Neverending Real-Time Story]] (Medium) — Глубокий анализ режима реального времени в Spark Structured Streaming и ловушек метрик задержки p99.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/apache-spark-wtf-the-neverending-real-time-story-bfc0d5a2eed4?source=rss-6e4a30cbb0e1------2][Apache Spark WTF??? The Neverending Real-Time Story]]
+:SCORE: 8/10
+:WHY: Раскрывает архитектурные нюансы low-latency обработки в Spark, критичные для систем реального времени.
+
+** Engineers
+- [[hxxps://vutr.substack.com/p/9-software-engineering-skills-a-de][9 software engineering skills a DE should have and how to learn them effectively.]] (Substack) — Roadmap внедрения практик software engineering в data engineering для повышения надежности систем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/9-software-engineering-skills-a-de][9 software engineering skills a DE should have and how to learn them effectively.]]
+:SCORE: 9/10
+:WHY: Закрывает разрыв между написанием кода и построением поддерживаемых инженерных систем в data engineering.
+
+** Vendors
+- [[hxxps://neo4j.com/blog/developer/how-do-you-defend-neo4j-against-quantum-computers/][How Do You Defend Neo4j Against Quantum Computers?]] (Neo4j Blog) — Поддержка гибридного обмена ключами X25519MLKEM768 для защиты от будущих квантовых атак на зашифрованный трафик.
+- [[hxxps://www.databricks.com/blog/skip-learning-curve-rethinking-data-migration-real-outcomes][Skip the learning curve: rethinking data migration for real outcomes]] (Databricks Blog) — Стратегия миграции данных, фокусирующаяся на бизнес-результатах而非 снижении рисков обучения.
+- [[hxxps://www.databricks.com/blog/databricks-announces-2026-global-partner-awards][Databricks announces 2026 global partner awards]] (Databricks Blog) — Обзор развития партнерской сети Brickbuilder и ключевых направлений экосистемы.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества LDBC в рамках конференции VLDB в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/developer/how-do-you-defend-neo4j-against-quantum-computers/][How Do You Defend Neo4j Against Quantum Computers?]]
+:SCORE: 9/10
+:WHY: Внедрение постквантовой криптографии сейчас критично для защиты от атак Harvest Now, Decrypt Later.
+**** [[hxxps://www.databricks.com/blog/skip-learning-curve-rethinking-data-migration-real-outcomes][Skip the learning curve: rethinking data migration for real outcomes]]
+:SCORE: 7/10
+:WHY: Предлагает практический взгляд на снижение рисков при миграции платформ данных.
+**** [[hxxps://www.databricks.com/blog/databricks-announces-2026-global-partner-awards][Databricks announces 2026 global partner awards]]
+:SCORE: 6/10
+:WHY: Полезно для понимания направления развития экосистемы и партнерских интеграций Databricks.

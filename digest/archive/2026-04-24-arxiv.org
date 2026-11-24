@@ -1,0 +1,142 @@
+#+TITLE: Arxiv Digest: 2026-04-24
+#+FROM: [2026-04-23 Thu]
+#+TO: [2026-04-24 Fri]
+#+DATE: [2026-04-24 Fri]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается устойчивый тренд на интеграцию семантического поиска через LLM непосредственно в движки СУБД, что снижает необходимость в сложных ETL-процессах. Параллельно matures направление ускорения декларативных языков запросов (Datalog) на GPU для графовой аналитики. Практически значимым становится пересмотр архитектуры агентных систем с приоритетом на управление данными, а не только на оркестрацию моделей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.16432][iPDB -- Optimizing Semantic SQL Queries]]
+:WHAT: Реляционная система, поддерживающая машинное обучение и инференс LLM внутри СУБД через расширенный синтаксис SQL.
+:IMPACT: Позволяет выполнять семантические запросы (JOIN, SELECT) напрямую над данными, ускоряя работу в 2.5-30 раз по сравнению с внешними пайплайнами.
+- [[hxxps://arxiv.org/abs/2604.20073][Scaling Worst-Case Optimal Datalog to GPUs]]
+:WHAT: Первый движок Datalog для GPU, основанный на оптимальных по худшему случаю соединениях (WCOJ), а не бинарных джойнах.
+:IMPACT: Избегает экспоненциального роста памяти на сложных графовых запросах и дает ускорение до 47x на задачах анализа программ.
+- [[hxxps://arxiv.org/abs/2604.21413][An Alternate Agentic AI Architecture (It's About the Data)]]
+:WHAT: Архитектура RUBICON, использующая явный язык запросов (AQL) и обертки источников данных вместо черных ящиков оркестрации.
+:IMPACT: Возвращает детерминизм, трассируемость и контроль доступа в агентные системы предприятия, решая проблему интеграции разрозненных данных.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.21696][Towards Universal Tabular Embeddings: A Benchmark Across Data Tasks]]
+:ALGO: Бенчмарк TEmBed для оценки универсальных эмбеддингов табличных данных на уровнях ячейки, строки, столбца и таблицы.
+:IMPACT: Дает практические рекомендации по выбору моделей представления данных для задач поиска и предсказания в графовых и реляционных системах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.20946][Common Foundations for Recursive Shape Languages]] — Унифицированная формальная семантика для рекурсивных схем RDF (ShEx и SHACL), clarifying interoperability.
+- [[hxxps://arxiv.org/abs/2604.21150][The State of Scientific Poster Sharing and Reuse]] — Анализ платформ для шеринга постеров и выявление проблем с метаданными для соблюдения принципов FAIR.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Основной фокус смещается на системную эффективность обучения и инференса больших моделей: от эластичного параллелизма до специализированных NPU. Зреют методы ускорения агентных систем через спекулятивное выполнение и федеративную донастройку. Критически важным становится сохранение безопасности (safety alignment) при тонкой настройке моделей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.21275][InfiniPipe: Elastic Pipeline Parallelism for Efficient Variable-Length Long-Context LLM Training]]
+:WHAT: Фреймворк эластичного пайплайн-параллелизма, адаптирующийся к длине контекста и гетерогенности ресурсов.
+:IMPACT: Ускоряет обучение длинных контекстов в 1.69 раза, решая проблемы памяти и неравномерной загрузки оборудования.
+- [[hxxps://arxiv.org/abs/2601.20706][NPU Design for Diffusion Language Model Inference]]
+:WHAT: Первая специализированная архитектура NPU для диффузионных LLM с поддержкой bidirectional attention и обновлением KV-cache.
+:IMPACT: Позволяет эффективно запускать новый класс языковых моделей на железе, преодолевая ограничения архитектур для авторегрессионных моделей.
+- [[hxxps://arxiv.org/abs/2510.04371][Speculative Actions: A Lossless Framework for Faster Agentic Systems]]
+:WHAT: Фреймворк ускорения агентов через спекулятивное предсказание будущих действий быстрыми моделями.
+:IMPACT: Снижает задержку взаимодействия агентов до 20% без потерь качества, аналогично спекулятивному декодированию в LLM.
+- [[hxxps://arxiv.org/abs/2411.11707][Federated Co-tuning Framework for Large and Small Language Models]]
+:WHAT: Параметрически-эффективный федеративный框架 для совместной настройки серверных LLM и клиентских SLM.
+:IMPACT: Enables обмен знаниями между большими и малыми моделями без нарушения приватности данных и с минимальными накладными расходами.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2502.04416][Analytical FFN-to-MoE Restructuring via Activation Pattern Analysis]]
+:ALGO: Метод аналитической реструктуризации плотных слоев FFN в разреженные MoE на основе паттернов активации.
+:IMPACT: Позволяет ускорить инференс в 1.17 раза без дорогостоящего переобучения, оптимизируя вычислительный граф модели.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.17239][SafeMERGE: Preserving Safety Alignment in Fine-Tuned Large Language Models via Selective Layer-Wise Model Merging]] — Легковесный метод восстановления безопасности модели после fine-tuning через селективное слияние слоев.
+- [[hxxps://arxiv.org/abs/2503.16416][Survey on Evaluation of LLM-based Agents]] — Comprehensive обзор методов оценки агентных систем, выявляющий пробелы в тестировании безопасности и стоимости.
+- [[hxxps://arxiv.org/abs/2505.13527][Logic Jailbreak: Efficiently Unlocking LLM Safety Restrictions Through Formal Logical Expression]] — Атака на безопасность LLM через перевод вредных запросов в формальные логические выражения.
+- [[hxxps://arxiv.org/abs/2503.07341][The Economics of p(doom): Scenarios of Existential Risk and Economic Growth in the Age of Transformative AI]] — Экономический анализ рисков и выгод от внедрения трансформационного ИИ.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+В сетевом анализе преобладают работы по применению теории динамических сетей для предсказания финансовой нестабильности и анализа транспортных систем. Социальная физика активно исследует влияние генеративного ИИ на общественное благосостояние и моделирование коллективного поведения.
+
+** 🛠 Практика и Системы
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.21297][Identifying dynamical network markers of financial market instability]]
+:ALGO: Применение теории динамических сетевых маркеров (DNM) к данным торгов для выявления предвестников критических переходов.
+:IMPACT: Позволяет обнаруживать сигналы ранних предупреждений о крупных движениях цен на дневных масштабах времени.
+- [[hxxps://arxiv.org/abs/2604.21528][Weighted complement graphs of spatial networks with functional connections reveal nodes with high potential for new links]]
+:ALGO: Метод построения взвешенных дополненных графов для транспортных сетей на основе географических расстояний.
+:IMPACT: Выявляет узлы с высоким потенциалом для новых связей, которые не очевидны в исходной топологии сети.
+- [[hxxps://arxiv.org/abs/2604.20829][Network exploration by random walks: A large deviation perspective]]
+:ALGO: Анализ свойств исследования сети случайными блужданиями в формализме непрерывного времени.
+:IMPACT: Показывает, что на малых временах свойства покрытия сети зависят от характеристик времени ожидания, а не топологии.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.21853][Generative artificial intelligence reduces social welfare through model collapse]] — Моделирование показывает, что массовое делегирование задач genAI снижает коллективное благосостояние из-за коллапса моделей.
+- [[hxxps://arxiv.org/abs/2604.21437][Universal Local Roughness from Disorder Crossover in Urban-Front Growth]] — Физическая модель роста городских фронтов, объясняющая шероховатость через перколяцию и KPZ-рост.
+- [[hxxps://arxiv.org/abs/2604.21328][Role of diversity in team performance: the case of missing expertise, an agent based simulation]] — Агентное моделирование влияния функционального разнообразия на производительность команд.
+- [[hxxps://arxiv.org/abs/2601.07616][A note on thermodynamics of the production processes]] — Термодинамический подход к моделированию производства как процесса создания сложности.
+- [[hxxps://arxiv.org/abs/2604.20872][Dynamical Model for the Sustainable Development Goals]] — Математическая модель динамики целей устойчивого развития с учетом ресурсов и кооперации.
+- [[hxxps://arxiv.org/abs/2604.20896][From Anomaly to Candidate Technosignature: The Threshold Problem of the Loeb Scale]] — Философский анализ порога классификации аномалий как техносигнатур в астрономии.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Значительный прогресс в алгоритмах для графов: ускорение оракулов расстояний, улучшения в декомпозициях малого диаметра и сэмплировании. Набирает обороты направление learning-augmented алгоритмов, где нейросети направляют классические комбинаторные процедуры.
+
+** 🛠 Практика и Системы
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2507.06721][Faster Algorithms for (2k-1)-Stretch Distance Oracles]]
+:ALGO: Три новых алгоритма построения оракулов расстояний с субквадратичным временем для разреженных графов.
+:IMPACT: Ускоряет предобработку для задач маршрутизации и анализа путей в больших графах.
+- [[hxxps://arxiv.org/abs/2509.24565][Stronger Directed Low-Diameter Decompositions with Sub-Logarithmic Diameter and Separation]]
+:ALGO: Улучшенные гарантии для декомпозиций направленных графов с малым диаметром и разделением.
+:IMPACT: Позволяет применять эффективные алгоритмы разбиения графов в направленных сетях с гарантиями near-linear time.
+- [[hxxps://arxiv.org/abs/2604.21175][Graph Neural Network-Informed Predictive Flows for Faster Ford-Fulkerson and PAC-Learnability]]
+:ALGO: Интеграция GNN в алгоритм Форда-Фалкерсона для предсказания важности ребер и выбора путей увеличения.
+:IMPACT: Сокращает число итераций в задачах максимального потока и сегментации изображений за счет обучения структуры графа.
+- [[hxxps://arxiv.org/abs/2604.21504][Efficient generation of expected-degree graphs via edge-arrivals]]
+:ALGO: Точный генератор случайных графов с заданными ожидаемыми степенями за время O(n+m).
+:IMPACT: Упрощает и ускоряет генерацию тестовых сетей для симуляций, убирая сортировку вершин.
+- [[hxxps://arxiv.org/abs/2604.21847][Sampling from the Hardcore Model on Random Regular Bipartite Graphs above the Uniqueness Threshold]]
+:ALGO: Эффективный алгоритм сэмплирования для модели hardcore на случайных двудольных графах.
+:IMPACT: Обеспечивает FPRAS дляpartition function в режимах, где ранее это было затруднительно.
+- [[hxxps://arxiv.org/abs/2604.21531][Kernelization Bounds for Constrained Coloring]]
+:ALGO: Исследование сложности ядра для задач раскраски с ограничениями и параметризацией по числу переменных.
+:IMPACT: Устанавливает границы сжимаемости задач выполнимости ограничений для предобработки решателей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.11388][Min-Sum Set Cover on Parallel Machines]] — Аппроксимационные алгоритмы для задачи покрытия множества на параллельных машинах.
+- [[hxxps://arxiv.org/abs/2604.21089][A rigorous quasipolynomial-time classical algorithm for SYK thermal expectations]] — Классический алгоритм для оценки термальных ожиданий в модели SYK.
+- [[hxxps://arxiv.org/abs/2604.21140][On Time-Memory Tradeoffs for Maximal Palindromes with Wildcards and k-Mismatches]] — Алгоритмы поиска палиндромов с подстановочными символами и ошибками.
+- [[hxxps://arxiv.org/abs/2604.21877][A simple (2+epsilon)-approximation for knapsack interdiction]] — Упрощенный алгоритм аппроксимации для задачи интердикции рюкзака.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Ключевой тренд — автономия GPU в коммуникационных задачах, снижающая нагрузку на CPU в кластерах. Параллельно развиваются методы надежного хранения в доверенных средах исполнения (TEE) и координация энергопотребления в гетерогенных системах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2409.09874][The Landscape of GPU-Centric Communication]]
+:WHAT: Обзор механизмов коммуникации с центрированием на GPU, библиотек и аппаратной поддержки внутри и между узлами.
+:IMPACT: Clarifies терминологию и опции для инженеров, позволяя эффективнее эксплуатировать мульти-GPU системы без узких мест CPU.
+- [[hxxps://arxiv.org/abs/2505.18648][TEE is not a Healer: Rollback-Resistant Reliable Storage (Extended Version)]]
+:WHAT: Алгоритм TEE-Rex для эмуляции распределенных регистров, устойчивых к откатам состояния в доверенных средах.
+:IMPACT: Обеспечивает надежное хранение без энергонезависимой памяти или специализированных счетчиков, критично для безопасности распределенных систем.
+- [[hxxps://arxiv.org/abs/2508.07605][Coordinated Power Management on Heterogeneous Systems]]
+:WHAT: Фреймворк OPEN для предсказания производительности и управления питанием в системах CPU+GPU через коллаборативную фильтрацию.
+:IMPACT: Снижает стоимость профилирования и повышает точность предсказаний до 98%, оптимизируя энергопотребление в HPC.
+- [[hxxps://arxiv.org/abs/2511.20834][Spira: Exploiting Voxel Data Structural Properties for Efficient Sparse Convolution in Point Cloud Networks]]
+:WHAT: Движок разреженной свертки для GPU, использующий свойства воксельных координат для построения карты ядер.
+:IMPACT: Ускоряет инференс сетей точечных облаков до 3.44x, устраняя накладные расходы на предобработку в задачах AR/VR и автономного вождения.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.21443][Decidability of Livelock Detection for Parameterized Self-Disabling Unidirectional Rings]]
+:ALGO: Процедура решения проблемы обнаружения livelock в кольцевых протоколах через анализ в пространстве произведений.
+:IMPACT: Доказывает разрешимость задачи для класса протоколов, закрывая разрыв между теорией и практикой верификации распределенных систем.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2508.19160][Architecting Distributed Quantum Computers: Design Insights from Resource Estimation]] — Оценка ресурсов и архитектура распределенных квантовых компьютеров на основе lattice surgery.
+- [[hxxps://arxiv.org/abs/2508.14017][Analog computation with transcriptional networks]] — Доказательство математической полноты транскрипционных сетей для аналоговых вычислений без контроля деградации.

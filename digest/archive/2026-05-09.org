@@ -1,0 +1,63 @@
+#+TITLE: Daily Digest: 2026-05-09
+#+FROM: [2026-05-08 Fri]
+#+TO: [2026-05-09 Sat]
+#+DATE: [2026-05-09 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с базовой инфраструктуры на интеграцию AI в сложные инженерные workflows, как показано на примере Halliburton и AWS. Наблюдается окончательный переход от Hadoop к lakehouse-архитектурам и тканям данных (data fabric) для поддержки real-time аналитики. Векторный поиск становится стандартом, интегрируясь в SQL-движки, а вендоры активно развивают платформы для автономных агентов и высоконагруженного инференса.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/halliburton-enhances-seismic-workflow-creation-with-amazon-bedrock-and-generative-ai/][Halliburton enhances seismic workflow creation with Amazon Bedrock and Generative AI]] (AWS) — Кейс внедрения генеративного AI для автоматизации сложных геофизических workflows через自然语言, ускорение до 95%.
+- [[hxxps://www.kdnuggets.com/stop-wasting-tokens-a-smarter-alternative-to-json-for-llm-pipelines/][Stop Wasting Tokens: A Smarter Alternative to JSON for LLM Pipelines]] (KDnuggets) — Анализ накладных расходов JSON при передаче структурированных данных в LLM и варианты оптимизации токенов.
+- [[hxxps://www.kdnuggets.com/how-to-build-vector-search-from-scratch-in-python/][How to Build Vector Search From Scratch in Python]] (KDnuggets) — Практическое руководство по реализации векторного поиска, embeddings и логики similarity scoring без готовых библиотек.
+- [[hxxps://huggingface.co/blog/lablab-ai-amd-developer-hackathon/cybersecqwen-4b][CyberSecQwen-4B: Why Defensive Cyber Needs Small, Specialized, Locally-Runnable Models]] (Hugging Face) — Аргументация в пользу компактных специализированных моделей для задач кибербезопасности вместо гигантских LLM.
+- [[hxxps://huggingface.co/blog/allenai/emo][EMO: Pretraining mixture of experts for emergent modularity]] (Hugging Face) — Исследование архитектуры mixture of experts для достижения модульности в процессе претренинга моделей.
+- [[hxxps://www.microsoft.com/en-us/research/blog/building-realistic-electric-transmission-grid-dataset-at-scale-a-pipeline-from-open-dataset/][Building realistic electric transmission grid dataset at scale: a pipeline from open dataset]] (Microsoft Research) — Создание масштабного открытого датасета энергосетей США для тренировки AI-моделей на физических данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/halliburton-enhances-seismic-workflow-creation-with-amazon-bedrock-and-generative-ai/][Halliburton enhances seismic workflow creation with Amazon Bedrock and Generative AI]]
+:SCORE: 9/10
+:WHY: Редкий пример промышленного внедрения GenAI в критические инженерные процессы с измеримым экономическим эффектом.
+**** [[hxxps://www.kdnuggets.com/stop-wasting-tokens-a-smarter-alternative-to-json-for-llm-pipelines/][Stop Wasting Tokens: A Smarter Alternative to JSON for LLM Pipelines]]
+:SCORE: 8/10
+:WHY: Практическая оптимизация costs для продакшн-пайплайнов с LLM, важная для экономики проекта.
+**** [[hxxps://www.kdnuggets.com/how-to-build-vector-search-from-scratch-in-python/][How to Build Vector Search From Scratch in Python]]
+:SCORE: 8/10
+:WHY: Фундаментальное понимание механики векторного поиска необходимо для эффективного проектирования RAG-систем.
+
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/hadoop-alternative/][Top 11 Hadoop Alternatives to Use in 2026]] (Dremio) — Сравнительный анализ современных платформ обработки данных, пришедших на смену классическому Hadoop.
+- [[hxxps://www.dremio.com/blog/enterprise-data-fabric/][Enterprise Data Fabric: Architecture and Best Practices]] (Dremio) — Обзор архитектурного паттерна data fabric для унификации доступа к данным в гибридных средах.
+- [[hxxps://www.dremio.com/blog/enterprise-data-platforms/][Enterprise Data Platforms: The Definitive Guide]] (Dremio) — Руководство по выбору и построению централизованной платформы данных для аналитики и AI.
+- [[hxxps://aws.amazon.com/blogs/database/query-billion-scale-vectors-with-sql-integrating-amazon-s3-vectors-and-aurora-postgresql/][Query billion-scale vectors with SQL: Integrating Amazon S3 Vectors and Aurora PostgreSQL]] (AWS) — Инструкция по гибридному поиску: реляционные фильтры в Aurora и векторный поиск в S3 через Lambda.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/query-billion-scale-vectors-with-sql-integrating-amazon-s3-vectors-and-aurora-postgresql/][Query billion-scale vectors with SQL: Integrating Amazon S3 Vectors and Aurora PostgreSQL]]
+:SCORE: 9/10
+:WHY: Конкретная архитектурная реализация разделения storage и compute для векторного поиска в экосистеме AWS.
+**** [[hxxps://www.dremio.com/blog/hadoop-alternative/][Top 11 Hadoop Alternatives to Use in 2026]]
+:SCORE: 8/10
+:WHY: Актуальная карта ландшафта инструментов для миграции с устаревающих Hadoop-кластеров.
+**** [[hxxps://www.dremio.com/blog/enterprise-data-fabric/][Enterprise Data Fabric: Architecture and Best Practices]]
+:SCORE: 7/10
+:WHY: Концептуальная база для решения проблем фрагментации данных в крупных предприятиях.
+
+** Vendors
+- [[hxxps://www.dremio.com/blog/ai-integration-platforms/][17 Best AI Integration Platforms for Agents and Automation]] (Dremio) — Обзор платформ для интеграции AI-агентов с источниками данных и API предприятий.
+- [[hxxps://www.databricks.com/blog/how-superhuman-and-databricks-built-200k-qps-inference-platform-together/][How Superhuman and Databricks built a 200K QPS inference platform together]] (Databricks) — Кейс построения высоконагруженной платформы инференса для продуктового AI-ассистента.
+- [[hxxps://www.databricks.com/blog/mcp-marketplace-brings-real-time-intelligence-to-agentic-applications][MCP Marketplace Brings Real-Time Intelligence to Agentic Applications]] (Databricks) — Внедрение Model Context Protocol для подключения агентов к бизнес-контексту в реальном времени.
+- [[hxxps://www.databricks.com/blog/pushing-frontier-data-agents-genie][Pushing the Frontier for Data Agents with Genie]] (Databricks) — Презентация возможностей AI-агента Genie для работы с данными через естественный язык.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/how-superhuman-and-databricks-built-200k-qps-inference-platform-together/][How Superhuman and Databricks built a 200K QPS inference platform together]]
+:SCORE: 9/10
+:WHY: Инженерно насыщенный кейс про масштабирование инференса до 200K QPS, полезный для архитекторов high-load систем.
+**** [[hxxps://www.dremio.com/blog/ai-integration-platforms/][17 Best AI Integration Platforms for Agents and Automation]]
+:SCORE: 8/10
+:WHY: Структурированный обзор рынка инструментов для внедрения AI-агентов в enterprise-среду.
+**** [[hxxps://www.databricks.com/blog/mcp-marketplace-brings-real-time-intelligence-to-agentic-applications][MCP Marketplace Brings Real-Time Intelligence to Agentic Applications]]
+:SCORE: 7/10
+:WHY: Демонстрация практического применения MCP для решения проблемы контекста в агентных системах.

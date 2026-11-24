@@ -1,0 +1,93 @@
+#+TITLE: Daily Digest: 2026-05-27
+#+FROM: [2026-05-26 Tue]
+#+TO: [2026-05-27 Wed]
+#+DATE: [2026-05-27 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Организационные барьеры, такие как отсутствие владельцев данных и неясные требования, стали главными瓶颈 в инженерии данных, опередив технические проблемы. Рынок труда показывает рост спроса на AI-инженеров, в то время как найм обычных разработчиков стабилизируется после периода неопределенности. AWS активно развивает экосистему агентных систем, предлагая готовые решения для платежей, наблюдаемости и оркестрации через Bedrock AgentCore. Вендоры фокусируются на оптимизации метаданных (Iceberg) и упрощении миграции legacy-систем без изменения кода приложений.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://joereis.substack.com/p/the-organizational-state-of-data][The Organizational State of Data Engineering]] (Joe Reis) — Результаты опроса показывают, что 50% проблем связаны с отсутствием владельцев данных, а не с инструментами.
+- [[hxxps://www.dremio.com/blog/performance-and-apache-icebergs-metadata/][Performance and Apache Iceberg's Metadata]] (Dremio) — Глубокий разбор того, как метаданные Iceberg позволяют игнорировать 90-99% файлов при запросах.
+- [[hxxps://www.kdnuggets.com/top-7-python-libraries-for-large-scale-data-processing][Top 7 Python Libraries for Large-Scale Data Processing]] (KDnuggets) — Обзор библиотек для масштабирования обработки данных на Python в современных пайплайнах.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/the-organizational-state-of-data][The Organizational State of Data Engineering]]
+:SCORE: 9/10
+:WHY: Критически важно для seniors, так как выявляет корень проблем в процессах, а не в стеке технологий.
+**** [[hxxps://www.dremio.com/blog/performance-and-apache-icebergs-metadata/][Performance and Apache Iceberg's Metadata]]
+:SCORE: 8/10
+:WHY: Технически плотный материал объясняет реальную производительность lakehouse на уровне метаданных.
+**** [[hxxps://www.kdnuggets.com/top-7-python-libraries-for-large-scale-data-processing][Top 7 Python Libraries for Large-Scale Data Processing]]
+:SCORE: 7/10
+:WHY: Практический список инструментов для оптимизации обработки данных без перехода на другие языки.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/state-of-the-job-market-2026][State of the software engineering job market in 2026]] (The Pragmatic Engineer) — Анализ тенденций найма: рост вакансий в AI и стабильность в Big Tech после layoffs.
+- [[hxxps://www.oneusefulthing.org/p/choosing-to-stay-human][Choosing to Stay Human]] (One Useful Thing) — Эссе о рисках потери когнитивных навыков при чрезмерном делегировании написания текста AI.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/state-of-the-job-market-2026][State of the software engineering job market in 2026]]
+:SCORE: 10/10
+:WHY:Must-read для планирования карьеры: данные показывают смещение спроса в сторону AI-компетенций.
+**** [[hxxps://www.oneusefulthing.org/p/choosing-to-stay-human][Choosing to Stay Human]]
+:SCORE: 8/10
+:WHY: Заставляет задуматься о балансе между продуктивностью AI и сохранением экспертности инженера.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/preserving-custom-domain-names-for-amazon-rds-for-db2/][Preserving custom domain names for Amazon RDS for Db2]] (AWS) — Terraform-шаблон для сохранения кастомных доменов при миграции Db2 через TLS-прокси.
+- [[hxxps://www.warpstream.com/blog/how-we-scaled-change-management-to-30-environments-without-a-devops-team][How We Scaled Change Management to 30+ Environments Without a DevOps Team]] (WarpStream) — Кейс масштабирования изменений на 24 региона без выделенной DevOps-команды.
+- [[hxxps://www.databricks.com/blog/ai-readiness-telecommunications][AI readiness in telecommunications]] (Databricks) — Отчет о готовности телеком-сектора к внедрению AI-решений и интеграции данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/how-we-scaled-change-management-to-30-environments-without-a-devops-team][How We Scaled Change Management to 30+ Environments Without a DevOps Team]]
+:SCORE: 9/10
+:WHY: Уникальный паттерн организации деплоев в распределенной системе без накладных расходов на DevOps.
+**** [[hxxps://aws.amazon.com/blogs/database/preserving-custom-domain-names-for-amazon-rds-for-db2/][Preserving custom domain names for Amazon RDS for Db2]]
+:SCORE: 8/10
+:WHY: Готовое решение для сложной проблемы миграции legacy-БД в облако без изменения кода приложений.
+**** [[hxxps://www.databricks.com/blog/ai-readiness-telecommunications][AI readiness in telecommunications]]
+:SCORE: 7/10
+:WHY: Полезно для понимания барьеров внедрения AI в энтерпрайз-секторе с устаревшей инфраструктурой.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/technical-deep-dive-agentcore-payments-and-innovation-in-agentic-commerce/][Technical deep dive: AgentCore payments and innovation in agentic commerce]] (AWS) — Архитектура микроплатежей для AI-агентов через стаблкоины и управляемые сервисы.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/agentwatch-proactive-aws-monitoring-with-ambient-agent/][AgentWatch: Proactive AWS monitoring with ambient agents]] (AWS) — Пример использования ambient-агентов для проактивного мониторинга инфраструктуры вместо реактивных алертов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-enterprise-observability-solution-for-amazon-quick/][Build an enterprise observability solution for Amazon Quick]] (AWS) — Решение для централизованной наблюдаемости за использованием корпоративной AI-платформы.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/technical-deep-dive-agentcore-payments-and-innovation-in-agentic-commerce/][Technical deep dive: AgentCore payments and innovation in agentic commerce]]
+:SCORE: 9/10
+:WHY: Решает новую проблему экономики агентов: как оплачивать микротранзакции между автономными сервисами.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/agentwatch-proactive-aws-monitoring-with-ambient-agent/][AgentWatch: Proactive AWS monitoring with ambient agents]]
+:SCORE: 8/10
+:WHY: Демонстрирует смену парадигмы в мониторинге: от алертов к автономному анализу причин инцидентов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-enterprise-observability-solution-for-amazon-quick/][Build an enterprise observability solution for Amazon Quick]]
+:SCORE: 7/10
+:WHY: Практический гайд по аудиту и контролю затрат на корпоративные AI-инструменты.
+
+** Open Source
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-idea-to-ai-app-creating-intelligent-research-assistants-with-strands/][From idea to AI app: Creating intelligent research assistants with Strands]] (AWS) — Использование открытого фреймворка Strands Agents для быстрой сборки AI-приложений.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-highly-scalable-serverless-langgraph-multi-agent-systems-in-aws-with-amazon-bedrock-agentcore/][Build highly scalable serverless LangGraph multi-agent systems in AWS with Amazon Bedrock AgentCore]] (AWS) — Интеграция открытой библиотеки LangGraph для оркестрации мульти-агентных систем.
+- [[hxxps://www.kdnuggets.com/visual-debugging-tools-for-machine-learning-workflows][Visual Debugging Tools for Machine Learning Workflows]] (KDnuggets) — Обзор инструментов визуализации и отладки ML-пайплайнов, многие из которых имеют открытые версии.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/from-idea-to-ai-app-creating-intelligent-research-assistants-with-strands/][From idea to AI app: Creating intelligent research assistants with Strands]]
+:SCORE: 9/10
+:WHY: Strands Agents — новый открытый SDK, упрощающий разработку агентов без привязки к сложной инфраструктуре.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-highly-scalable-serverless-langgraph-multi-agent-systems-in-aws-with-amazon-bedrock-agentcore/][Build highly scalable serverless LangGraph multi-agent systems in AWS with Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: LangGraph остается стандартом для оркестрации, здесь показан паттерн масштабирования через serverless.
+**** [[hxxps://www.kdnuggets.com/visual-debugging-tools-for-machine-learning-workflows][Visual Debugging Tools for Machine Learning Workflows]]
+:SCORE: 7/10
+:WHY: Подборка инструментов для отладки, критически важная при работе с открытыми ML-моделями.
+
+** Не инженерное
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества графовых баз данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обсуждения стандартов графовых баз данных для заинтересованных инженеров.

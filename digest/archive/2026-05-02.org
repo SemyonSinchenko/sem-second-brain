@@ -1,0 +1,65 @@
+#+TITLE: Daily Digest: 2026-05-02
+#+FROM: [2026-05-01 Fri]
+#+TO: [2026-05-02 Sat]
+#+DATE: [2026-05-02 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Дискуссия о семантическом слое достигла пика: выбор архитектуры теперь определяет точность ИИ-агентов и консистентность метрик. Вендоры внедряют ИИ для миграции BI-систем, сокращая сроки работ с месяцев до дней. Meta усиливает безопасность резервных копий мессенджеров через аппаратные модули безопасности (HSM). Инженеры делятся практиками оптимизации Go-сервисов и робастной статистики в Data Science.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dremio.com/blog/semantic-layer-the-definitive-guide/][Semantic Layer: The Definitive Guide]] (Dremio) — анализ эволюции семантического слоя и его влияния на точность ответов ИИ-агентов.
+- [[hxxps://www.databricks.com/blog/federal-data-paradox-rich-data-poor-access][The Federal Data Paradox: Rich in Data, Poor in Access]] (Databricks) — кейс модернизации федеральных данных и проблем кросс-агентского доступа.
+- [[hxxps://www.databricks.com/blog/model-risk-governance-not-same-risk-intelligence][Model Risk Governance Is Not the Same as Risk Intelligence]] (Databricks) — различия между управлением рисками моделей и стресс-тестированием в финтехе.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/semantic-layer-the-definitive-guide/][Semantic Layer: The Definitive Guide]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания архитектуры данных в эпоху ИИ-агентов.
+**** [[hxxps://www.databricks.com/blog/model-risk-governance-not-same-risk-intelligence][Model Risk Governance Is Not the Same as Risk Intelligence]]
+:SCORE: 8/10
+:WHY: Разъясняет тонкости регуляторики и риск-менеджмента для seniors.
+**** [[hxxps://www.databricks.com/blog/federal-data-paradox-rich-data-poor-access][The Federal Data Paradox: Rich in Data, Poor in Access]]
+:SCORE: 7/10
+:WHY: Полезный кейс по организации доступа к данным в крупных структурах.
+
+** Разработка
+- [[hxxps://rednafi.com/go/hoisting-wire-plumb/][Hoisting wire plumbing out of your Go handlers]] (Rednafi) — паттерн вынесения общей логики обработчиков в универсальный адаптер.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rednafi.com/go/hoisting-wire-plumb/][Hoisting wire plumbing out of your Go handlers]]
+:SCORE: 8/10
+:WHY: Практическое решение для уменьшения бойлерплейта в Go-сервисах.
+
+** Вендоры
+- [[hxxps://engineering.atspotify.com/2026/5/spotify-ads-api-claude-plugins/][Building a Natural Language Interface to the Spotify Ads API with Claude Code Plugins]] (Spotify Engineering) — опыт создания конверсионного интерфейса к API без компиляции кода.
+- [[hxxps://engineering.fb.com/2026/05/01/security/meta-strengthening-end-to-end-encrypted-backups/][How Meta Is Strengthening End-to-End Encrypted Backups]] (Meta Engineering) — детали реализации HSM-хранилища ключей для безопасных бэкапов.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — анонс встречи технического сообщества графовых баз данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/05/01/security/meta-strengthening-end-to-end-encrypted-backups/][How Meta Is Strengthening End-to-End Encrypted Backups]]
+:SCORE: 9/10
+:WHY: Глубокий разбор инфраструктуры безопасности уровня Enterprise.
+**** [[hxxps://engineering.atspotify.com/2026/5/spotify-ads-api-claude-plugins/][Building a Natural Language Interface to the Spotify Ads API with Claude Code Plugins]]
+:SCORE: 8/10
+:WHY: Пример внедрения LLM-плагинов для управления сложными API.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обновления знаний по графовым технологиям.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/the-robust-data-scientist-winning-with-messy-data-and-pingouin][The "Robust" Data Scientist: Winning with Messy Data and Pingouin]] (KDnuggets) — применение робастной статистики при нарушении стандартных предположений данных.
+- [[hxxps://www.kdnuggets.com/open-weight-text-to-speach-with-voxtral-tts][Open Weight Text-to-Speach with Voxtral TTS]] (KDnuggets) — обзор модели синтеза речи с клонированием голоса и низкой задержкой.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/aws-transform-now-automates-bi-migration-to-amazon-quick-in-days/][AWS Transform now automates BI migration to Amazon Quick in days]] (AWS) — использование ИИ-агентов для автоматизации миграции дашбордов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/aws-transform-now-automates-bi-migration-to-amazon-quick-in-days/][AWS Transform now automates BI migration to Amazon Quick in days]]
+:SCORE: 9/10
+:WHY: Демонстрирует реальный сдвиг в автоматизации миграции legacy-систем.
+**** [[hxxps://www.kdnuggets.com/the-robust-data-scientist-winning-with-messy-data-and-pingouin][The "Robust" Data Scientist: Winning with Messy Data and Pingouin]]
+:SCORE: 8/10
+:WHY: Важные методики работы с неидеальными данными для ML-инженеров.
+**** [[hxxps://www.kdnuggets.com/open-weight-text-to-speach-with-voxtral-tts][Open Weight Text-to-Speach with Voxtral TTS]]
+:SCORE: 7/10
+:WHY: Обзор новой open-weight модели для задач синтеза речи.

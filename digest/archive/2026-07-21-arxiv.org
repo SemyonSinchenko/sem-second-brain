@@ -1,0 +1,115 @@
+#+TITLE: Arxiv Digest: 2026-07-21
+#+FROM: [2026-07-20 Mon]
+#+TO: [2026-07-21 Tue]
+#+DATE: [2026-07-21 Tue]
+#+STARTUP: showall
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+За последние сутки наблюдается рост интереса к симуляции динамических процессов в гетерогенных сетях высшего порядка и агентном моделировании эпидемиологических сценариев. Исследователи фокусируются на преодолении вычислительных барьеров для масштабных симуляций и учете временной динамики в сетях сотрудничества. Практическая значимость смещается в сторону поведенчески обоснованных моделей для городской аналитики и мониторинга заболеваний.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.20174][Efficient Gillespie algorithms for spreading phenomena in large and heterogeneous higher-order networks]]
+:WHAT: Разработаны статистически точные алгоритмы Гиллеспи для марковских процессов распространения на гиперграфах с использованием phantom processes.
+:IMPACT: Снижение вычислительной сложности до линейной масштабируемости позволяет симулировать сети с миллионами узлов, что критично для моделирования социальных и биологических контарий.
+- [[hxxps://arxiv.org/abs/2601.04231][Where Do We Poop? City-Wide Simulation of Defecation Behavior for Wastewater-Based Epidemiology]]
+:WHAT: Представлена агентная геопространственная симуляция, сочетающая модель повседневной активности, циклы дефекации и распространение патогенов.
+:IMPACT: Позволяет корректно интерпретировать данные wastewater surveillance, учитывая мобильность населения и гетерогенность использования туалетов, что снижает_bias в эпидемиологических оценках.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.16816][Evolution of cooperation with temporal information]]
+:ALGO: Предложен фреймворк эволюционной динамики с временной информацией, использующий временные сети для характеристики изменений в обучении стратегий.
+:IMPACT: Demonstrates that temporal information consistently promotes cooperation compared to static networks, offering mechanisms for designing robust multi-agent systems.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.24511][The Landscape of problematic papers in the field of non-coding RNA]] — Анализ сетей проблемных публикаций выявляет кластеры текстового сходства и концентрацию в определенных журналах, что полезно для систем detecции мошенничества.
+- [[hxxps://arxiv.org/abs/2607.16668][Nonuniform and inequitable healthcare accessibility losses during flooding-amplified congestion across US cities]] — Исследование показывает неравномерное влияние наводнений на доступность медицины в городах США, усиливающее социальное неравенство.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+В распределенных системах доминируют темы асинхронного обучения с подкреплением и ускорения графовых обходов на GPU. Значительное внимание уделяется модульности в протоколах репликации состояния (SMR) и обеспечению устойчивости (resilience) в гетерогенных средах. Наблюдается тренд на интеграцию квантовых ресурсов в классические оркестраторы рабочих нагрузок.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.26256][DORA: A Scalable Asynchronous Reinforcement Learning System for Language Model Training]]
+:WHAT: Система DORA реализует многоверсионный streaming rollout для асинхронного RL, устраняя простои из-за длинных траекторий генерации.
+:IMPACT: Увеличение пропускной способности в 2-4 раза на тысячах ускорителей без потери сходимости, что решает ключевое узкое место в post-training LLM.
+- [[hxxps://arxiv.org/abs/2605.16182][Tempest: A GPU-Accelerated Engine for Streaming Temporal Random Walks]]
+:WHAT: движок Tempest использует GPU-native индексацию и иерархический планировщик для генерации временных случайных обходов в потоковых графах.
+:IMPACT: Обеспечивает обработку потоков с миллиардами ребер в реальном времени с сохранением причинно-следственной корректности, что важно для анализа микро сервисов и финтеха.
+- [[hxxps://arxiv.org/abs/2602.09441][It's not a lie if you don't get caught: simplifying reconfiguration in SMR through dirty logs]]
+:WHAT: Движок реконфигурации Gauss разделяет внутренний лог консенсуса и санированный внешний лог, позволяя модульно обновлять протоколы.
+:IMPACT: Позволяет обновлять_membership и протоколы консенсуса с минимальным простоем, повышая maintainability production blockchains и SMR систем.
+- [[hxxps://arxiv.org/abs/2607.09992][Trusted Floors Under Untrusted Learners: A Runtime Assured-SLO Guard for ML Serving]]
+:WHAT: Предложен trusted guard для Runtime, который ограничивает ущерб от ошибочных решений ML-компонентов в Kubernetes через assurance floors.
+:IMPACT: Гарантирует соблюдение SLO даже при сбоях в обучаемых компонентах маршрутизации, повышая надежность ML serving infrastructure.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.09151][Hybrid Quantum and Classical Workload Management with Graph-based Scheduling]] — Планировщик Fluence для Kubernetes решает проблему двух очередей для квантово-классических workflow, сокращая время ожидания и стоимость.
+- [[hxxps://arxiv.org/abs/2604.18801][Preserving Clusters in Error-Bounded Lossy Compression of Scientific Particle Data]] — Метод коррекции сжатия сохраняет_membership кластеров в научных данных, улучшая коэффициент сжатия в 4 раза без потери структурной целостности.
+- [[hxxps://arxiv.org/abs/2606.28534][High-Performance Resilient Multi-GPU Hybrid Particle-in-Cell Monte Carlo Simulations at Scale]] — Масштабируемая реализация PIC симуляций на 800 GPU с устойчивыми checkpoint/restart механизмами для exascale систем.
+
+* cs.DB (Databases)
+** 🧐 Обзор
+Развитие СУБД движется в сторону эффективного управления видео-данными и интеграции ML для обогащения реляционных схем. Появляются новые инструменты интерактивной отладки SQL и эластичного планирования потоковой обработки. Теоретические работы фокусируются на объяснимости рекурсивных запросов и семантической корректности изоляции.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.25538][Tetris: Tile-level Sampling for Efficient and High-Fidelity Video Object Tracking]]
+:WHAT: Система Tetris использует tile-based полиомино модель для пространственно-временной pruning при материализации треков объектов в видео.
+:IMPACT: Достигает ускорения до 68.8x относительно полного procesamiento кадров с потерей точности менее 5%, что критично для видео-аналитики в базах данных.
+- [[hxxps://arxiv.org/abs/2602.02025][Hippasus: Effective and Efficient Automatic Feature Augmentation for Machine Learning Tasks on Relational Data]]
+:WHAT: Фреймворк Hippasus автоматически обнаруживает и джоинит таблицы для обогащения признаков, используя LLM только при необходимости.
+:IMPACT: Улучшает точность feature augmentation на 26.8% при оптимальном балансе стоимости и эффективности для ML задач на реляционных данных.
+- [[hxxps://arxiv.org/abs/2605.08601][Elastic Scheduling of Intermittent Query Processing in a Cluster Environment]]
+:WHAT: Предложены схемы планирования для пакетной обработки потоков в эластичной среде с масштабированием узлов для соблюдения дедлайнов.
+:IMPACT: Значительное снижение затрат по сравнению со статическими кластерами при обработке потоковых запросов с окнами в Apache Spark.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.16443][Causality and Minimal Supports in Recursive Datalog]]
+:ALGO: Исследованы минимальные поддержки для рекурсивных правил через гиперграфы входов, связывающие их с причинностью и устойчивостью к удалению.
+:IMPACT: Разделяет некурсивные и рекурсивные запросы на уровне объяснений, предоставляя фундамент для отладки и анализа зависимостей в Datalog.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.16452][I-Rex: An Interactive Debugger for SQL]] — Интерактивный отладчик SQL позволяет визуально инспектировать логическое выполнение запросов через selective materialization без overhead для СУБД.
+- [[hxxps://arxiv.org/abs/2511.14718][Natural Language Interfaces for Databases: What Changes for Users?]] — Пользовательское исследование показывает, что NLIDB меняют тип усилий пользователя на верификацию, а не снижают их общий объем.
+- [[hxxps://arxiv.org/abs/2412.04294][A Formalization of Top-Down Unnesting]] — Предоставлено формальное доказательство корректности алгоритма top-down unnesting для коррелированных подзапросов в SQL.
+- [[hxxps://arxiv.org/abs/2607.16710][Towards Inference-Aware Privacy Guidance for Data Preparation]] — Предложен подход к приватности на этапе подготовки данных, основанный на совместимых множествах и инференс-бюджете.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В алгоритмах на графах заметен прогресс в задачах detection источников информации и динамического паросочетания с весами. Исследуются аппроксимационные алгоритмы для задач маршрутизации и свойства forcing set для остовных деревьев. Теоретические работы охватывают оптимизацию матроидов и целочисленное программирование.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/1905.12913][Information Source Detection with Limited Time Knowledge]]
+:ALGO: Предложен оценщик на основе путей заражения, аппроксимирующий MLE для detection источника в сети с частичными временными метками.
+:IMPACT: Гарантирует ограниченную ошибку detection на деревьях и эффективен на общих графах, что применимо для анализа распространения вирусов или слухов.
+- [[hxxps://arxiv.org/abs/2410.18936][Matching Composition and Efficient Weight Reduction in Dynamic Matching]]
+:ALGO: Разведена общая редукция для поддержания приближенного maximum weight matching в динамическом графе с полиномиальным диапазоном весов.
+:IMPACT: Разрешает открытую проблему сведения взвешенного паросочетания к кардинальному в динамическом режиме с полиномиальным overhead.
+- [[hxxps://arxiv.org/abs/2509.24309][Forcing a unique minimum spanning tree and a unique shortest path]]
+:ALGO: Исследована сложность поиска минимальных forcing и anti-forcing множеств для остовных деревьев и кратчайших путей.
+:IMPACT: Показана трактируемость задач, кроме anti-forcing для путей, что важно для понимания устойчивости сетевых решений.
+- [[hxxps://arxiv.org/abs/2605.24944][Approximation algorithms for the prize-collecting rural postman problem]]
+:ALGO: Предложен полиномиальный алгоритм аппроксимации с коэффициентом строго меньше 1.6 для задачи сельского почтальона со сборами.
+:IMPACT: Улучшает существующие барьеры аппроксимации для задач маршрутизации с штрафами за непокрытые ребра.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2507.00930][Subset-Constrained Inverse Matroid Optimization]] — Классификация задач обратной оптимизации матроидов с ограничениями на подмножества, показывающая разницу сложности для норм l1 и l_inf.
+- [[hxxps://arxiv.org/abs/2604.09806][Algorithms for Standard-form ILP Problems via Koml\'os' Discrepancy Setting]] — Уточненные FPT алгоритмы для целочисленного программирования, использующие bounds дискрепансности матриц.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В прикладном ML для систем акцент смещается на эффективное объединение моделей (merging) и автоматизацию выбора признаков через RL. Обзоры по RAG и unlearnable data подчеркивают важность инфраструктуры данных и безопасности. Наблюдается рост работ по интеграции клинических данных в обучение языковых моделей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2502.04411][Mediator: Memory-efficient LLM Merging with Less Parameter Conflicts and Uncertainty Based Routing]]
+:WHAT: Метод Mediator усредняет слои с минимальным конфликтом параметров и использует routing для конфликтных слоев на основе неопределенности.
+:IMPACT: Достигает улучшения производительности merged моделей при снижении затрат на хранение и вычисления, решая проблему interference при объединении LLM.
+- [[hxxps://arxiv.org/abs/2504.17356][Comprehend, Divide, and Conquer: Feature Subspace Exploration via Multi-Agent Hierarchical Reinforcement Learning]]
+:WHAT: Предложен подход HRLFS, использующий иерархических агентов и LLM для кластеризации признаков и исследования подпространств.
+:IMPACT: Ускоряет отбор признаков и улучшает качество downstream задач за счет снижения количества агентов и учета семантики признаков.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2201.05000][Automated Reinforcement Learning: An Overview]] — Обзор AutoRL охватывает автоматизацию моделирования MDP, выбора алгоритмов и гиперпараметров, включая техники на основе LLM.
+- [[hxxps://arxiv.org/abs/2503.10677][A Survey on Knowledge-Oriented Retrieval-Augmented Generation]] — Систематизация методов RAG, интеграции внешних знаний и вызовов согласования retrieval и generation целей.
+- [[hxxps://arxiv.org/abs/2505.02722][Enhancing LLMs' Clinical Reasoning with Real-World Data from a Nationwide Sepsis Registry]] — Fine-tuning LLM на реальных клинических данных с использованием RL улучшает рассуждения в медицинских задачах.
+- [[hxxps://arxiv.org/abs/2503.23536][A Survey on Unlearnable Data]] — Обзор техник защиты данных через внесение возмущений, предотвращающих обучение моделей на защищенных выборках.

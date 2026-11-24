@@ -1,0 +1,75 @@
+#+TITLE: Daily Digest: 2026-06-13
+#+FROM: [2026-06-12 Fri]
+#+TO: [2026-06-13 Sat]
+#+DATE: [2026-06-13 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За прошедший день ключевым трендом стало внедрение агентного ИИ в производственные процессы: AWS и Microsoft представляют готовые решения для автоматизации документооборота и безопасности. В инженерии данных акцент сместился на качество идентичности сущностей в графах знаний и эволюционную разработку баз данных. Вендоры активно интегрируют ИИ в инструменты разработки, предлагая решения для ускорения кодирования и работы с данными без перемещения.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.learningfromdata.zingg.ai/p/before-you-build-a-knowledge-graph][Before You Build a Knowledge Graph, You Need to Solve Identity]] (learningfromdata.zingg.ai) — Разбор критической проблемы синонимичных узлов в графах знаний, которая приводит к недоверию к данным и ошибкам в комплаенсе.
+- [[hxxps://www.databricks.com/blog/enabling-evolutionary-database-development-database-branching-lakebase-part-3][Enabling Evolutionary Database Development: Database branching with Lakebase, the conclusion]] (databricks.com) — Заключение серии о ветвлении баз данных как методе безопасной эволюции схемы и данных в продакшене.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.learningfromdata.zingg.ai/p/before-you-build-a-knowledge-graph][Before You Build a Knowledge Graph, You Need to Solve Identity]]
+:SCORE: 9/10
+:WHY: Критический инсайт для архитекторов: без решения проблемы идентификации сущностей граф знаний становится ненадежным, независимо от технологии.
+**** [[hxxps://www.databricks.com/blog/enabling-evolutionary-database-development-database-branching-lakebase-part-3][Enabling Evolutionary Database Development: Database branching with Lakebase, the conclusion]]
+:SCORE: 8/10
+:WHY: Практическая методология для безопасного управления изменениями схемы данных, аналогичная git flow для кода.
+
+** Вендоры
+- [[hxxps://gdotv.com/blog/compare-gdotv-apache-age-viewer/][How does gdotv compare to Apache AGE Viewer?]] (gdotv.com) — Сравнение функциональности проприетарной IDE gdotv с открытым решением Apache AGE для работы с графовыми базами.
+- [[hxxps://www.warpstream.com/blog/the-future-of-coding-how-cursor-and-warpstream-power-ai-productivity][The Future of Coding: How Cursor and WarpStream Power AI Productivity]] (warpstream.com) — Кейс использования WarpStream для обеспечения низкой задержки и телеметрии в AI-ориентированной IDE Cursor.
+- [[hxxps://www.databricks.com/blog/talk-all-your-data-wherever-it-lives][Talk to all your data, wherever it lives]] (databricks.com) — Обзор возможностей跨-источникового_reasoning_ для агентов ИИ без перемещения данных в единое хранилище.
+- [[hxxps://www.databricks.com/blog/wall-street-data-platforms][From Wall Street to Data Platforms]] (databricks.com) — История карьерного перехода из финансового сектора в построение платформ данных.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического пользовательского сообщества LDBC в Бостоне совместно с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/the-future-of-coding-how-cursor-and-warpstream-power-ai-productivity][The Future of Coding: How Cursor and WarpStream Power AI Productivity]]
+:SCORE: 7/10
+:WHY: Демонстрирует реальную инфраструктурную потребность для AI-IDE: diskless Kafka для телеметрии и низкой задержки.
+**** [[hxxps://www.databricks.com/blog/talk-all-your-data-wherever-it-lives][Talk to all your data, wherever it lives]]
+:SCORE: 8/10
+:WHY: Ответ на растущий запрос к архитектуре данных: поддержка кросс-источникового контекста для агентов без сложного ETL.
+**** [[hxxps://gdotv.com/blog/compare-gdotv-apache-age-viewer/][How does gdotv compare to Apache AGE Viewer?]]
+:SCORE: 6/10
+:WHY: Полезно для команд, выбирающих инструменты визуализации графов между открытыми и коммерческими решениями.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/pairing-claude-code-with-local-models][Pairing Claude Code with Local Models]] (kdnuggets.com) — Аргументация в пользу использования квантованных локальных моделей для рутинных задач кодинга вместо облачных API.
+- [[hxxps://www.kdnuggets.com/3-numpy-tricks-for-numerical-performance][3 NumPy Tricks for Numerical Performance]] (kdnuggets.com) — Технические приемы оптимизации: векторизация, операции на месте и memory views для ускорения вычислений.
+- [[hxxps://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/][Ire identifies another LOTUSLITE specimen]] (microsoft.com) — Пример работы автономного агента Microsoft Ire по классификации малвари без сигнатур, используя поведенческий анализ.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-supercharger-how-rocket-close-optimized-title-operations-with-agentic-ai/][Building Supercharger: How Rocket Close optimized title operations with agentic AI]] (aws.amazon.com) — Кейс внедрения агентного ИИ для оптимизации проверки титулов собственности и снижения ручного труда.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-meeting-prep-and-follow-up-assistant-with-amazon-quick-and-cisco-webex-mcp-servers/][Build a meeting prep and follow-up assistant with Amazon Quick and Cisco Webex MCP servers]] (aws.amazon.com) — Инструкция по созданию агента для подготовки к встречам через интеграцию MCP серверов Webex и Amazon Q.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-pdfs-to-insights-architecting-an-intelligent-document-processing-pipeline-with-aws-generative-ai-services/][From PDFs to insights: Architecting an intelligent document processing pipeline with AWS generative AI services]] (aws.amazon.com) — Архитектура пайплайна обработки документов с использованием Bedrock Data Automation для извлечения контекста, а не просто текста.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/built-from-the-inside-out-how-aws-professional-services-became-a-frontier-team-first/][Built from the inside out: How AWS Professional Services became a frontier team first]] (aws.amazon.com) — Описание трансформации команды консультантов в Frontier Team через пересборку процессов вокруг AI-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/built-from-the-inside-out-how-aws-professional-services-became-a-frontier-team-first/][Built from the inside out: How AWS Professional Services became a frontier team first]]
+:SCORE: 9/10
+:WHY: Стратегический гайд для лидов: как перестроить инженерные процессы под AI-native разработку, а не просто добавить инструменты.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/ire-identifies-another-lotuslite-specimen/][Ire identifies another LOTUSLITE specimen]]
+:SCORE: 8/10
+:WHY: Демонстрирует потенциал автономных агентов в безопасности для обнаружения угроз без сигнатур (zero-day/variant).
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/building-supercharger-how-rocket-close-optimized-title-operations-with-agentic-ai/][Building Supercharger: How Rocket Close optimized title operations with agentic AI]]
+:SCORE: 8/10
+:WHY: Реальный пример бизнес-воздействия агентного ИИ в узкоспециализированной предметной области с измеримой эффективностью.
+
+** Open Source
+- [[hxxps://huggingface.co/blog/allenai/olmo-eval][olmo-eval: An evaluation workbench for the model development loop]] (huggingface.co) — Инструмент для оценки моделей в цикле разработки от AllenAI, поддерживающий открытые стандарты и воспроизводимость.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/allenai/olmo-eval][olmo-eval: An evaluation workbench for the model development loop]]
+:SCORE: 7/10
+:WHY: Полезный инструмент для инженеров ML, стремящихся к прозрачности и автоматизации оценки открытых моделей.
+
+** Инженеры
+- [[hxxps://vutr.substack.com/p/quick-polls-on-future-paid-articles][Quick polls on future paid articles]] (vutr.substack.com) — Опрос сообщества о готовности оплачивать углубленные технические статьи и контент.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/quick-polls-on-future-paid-articles][Quick polls on future paid articles]]
+:SCORE: 5/10
+:WHY: Отдельного технического внимания не требует, но показывает тренд на монетизацию экспертного контента в инженерном комьюнити.

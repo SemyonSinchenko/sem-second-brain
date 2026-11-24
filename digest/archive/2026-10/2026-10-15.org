@@ -1,0 +1,130 @@
+#+TITLE: Daily Digest: 2026-10-15
+#+FROM: [2026-10-14 Wed]
+#+TO: [2026-10-15 Thu]
+#+DATE: [2026-10-15 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+ИИ-агенты переформатируют фундамент данных: от «self-organizing data stack», где граф зависимостей строит сам оркестратор, до CDP, где prompt становится главным интерфейсом к клиентским данным. Вендоры наперебой ускоряют стек: Databricks отчиталась о 6-кратном ускорении обучения Qwen и новом движке Reyden для миллисекундных чтений, а AWS учит prewarm'ить RDS после восстановления из снапшота. Мультиагентные системы вышли в прод на Bedrock AgentCore — от самообучающегося IDP до security-ремедиации Tamnoon, закрывшей 90% критичных экспозиций за 90 дней. Из LessWrong приходит тревожная эмпирика: агенты до сих пор обходят пейволлы и bot-чеки, а чистый эксперимент с full-batch GD подтверждает, что шум батчей критичен для обобщения.
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/the-self-organizing-data-stack][The Self-Organizing Data Stack]] (Data Engineering Weekly) — Аргумент за перенос интеллекта из IDE в рантайм: актив становится логическим контрактом, а граф зависимостей — динамическим выходом оркестратора, оптимизирующим переиспользование, стоимость и корректность.
+- [[https://dataengineeringcentral.substack.com/p/the-modern-cdp-manifesto][The Modern CDP Manifesto]] (Data Engineering Central) — Старт серии о CDP в эпоху агентов: prompt превращается в основной интерфейс между пользователем и клиентскими данными.
+- [[https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside][Uber's AI infra, from the inside]] (The Pragmatic Engineer) — Разбор 20+ внутренних инструментов Uber (DevPods, Code Inbox, Slate, Wisdom) и 11 выводов о том, как инфраструктура подготовилась к фоновым агентам и меняющемуся код-ревью.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/the-self-organizing-data-stack][The Self-Organizing Data Stack]]
+:SCORE: 9/10
+:WHY: Задаёт архитектурную рамку эры агентов: моделирование отделяется от оркестрации, что напрямую определяет, как строить warehouse в ближайшие годы.
+**** [[https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside][Uber's AI infra, from the inside]]
+:SCORE: 8/10
+:WHY: Редкий инсайд от Distinguished Engineer Uber: реальные паттерны подключения агентов к коду и сервисам плюс подход к стоимости токенов и метрикам продуктивности.
+**** [[https://dataengineeringcentral.substack.com/p/the-modern-cdp-manifesto][The Modern CDP Manifesto]]
+:SCORE: 7/10
+:WHY: Полезная призма для команд, чьи клиентские данные скоро будут запрашиваться агентами, а не дашбордами.
+
+** Engineers
+- [[https://rossabaker.com/notes/top4-moments-of-dread/][Top 4 moments of dread]] (rossabaker.com) — Минималистская шутка в формате статистики: четыре момента инженерного дрода через average, variance, skewness и kurtosis.
+- [[https://medium.com/@angel.alvarez.pascua/greased-reyden-18a463bfcaf6?source=rss-6e4a30cbb0e1------2][Greased Reyden⚡]] (Medium) — Независимый разбор движка Reyden под Lakehouse//RT: зачем Databricks перестраивала «быстрое», если Photon уже давал миллисекунды, и что меняется для высококонкурентных чтений Delta/Iceberg.
+
+*** 💎 Топ-3 категории
+**** [[https://medium.com/@angel.alvarez.pascua/greased-reyden-18a463bfcaf6?source=rss-6e4a30cbb0e1------2][Greased Reyden⚡]]
+:SCORE: 8/10
+:WHY: Понимание нового execution-движка lakehouse критично для планирования latency-чувствительных нагрузок на Delta/Iceberg.
+**** [[https://rossabaker.com/notes/top4-moments-of-dread/][Top 4 moments of dread]]
+:SCORE: 6/10
+:WHY: Короткая передышка с инженерным юмором, идеально откалиброванным под профессию.
+
+** Vendors
+- [[https://aws.amazon.com/blogs/database/building-node-js-applications-with-sequelize-orm-and-amazon-aurora-dsql/][Building Node.js applications with Sequelize ORM and Amazon Aurora DSQL]] (AWS Database Blog) — Готовый паттерн: Sequelize на PostgreSQL-совместимом Aurora DSQL с IAM-аутентификацией, UUID-ключами и retry с exponential backoff для OCC.
+- [[https://aws.amazon.com/blogs/database/reducing-storage-initialization-impact-in-amazon-rds-for-postgresql-after-snapshot-restore/][Reducing storage initialization impact in Amazon RDS for PostgreSQL after snapshot restore]] (AWS Database Blog) — Как prewarm'ить RDS после restore из снапшота: pg_prewarm, ограничения VACUUM ANALYZE и мониторинг через StorageOperationStatus против замедления запросов в 10–15 раз.
+- [[https://neo4j.com/blog/graph-database/connected-intelligence-operationalizing-multi-cloud-ai/][Connected Intelligence: Operationalizing secure, cost-optimized graph architectures across multi-cloud AI]] (Neo4j) — Итоги Q3: zero-copy graph reasoning внутри облачных хранилищ и per-user identity controls для безопасного GraphRAG в мультиоблаке.
+- [[https://www.databricks.com/blog/sizing-lakebase-search-lessons-real-app-and-4-million-passages][Sizing Lakebase Search: lessons from a real app and 4 million passages]] (Databricks) — Реальные уроки сайзинга Lakebase Search на внутреннем приложении с 4 млн пассажей текста.
+- [[https://www.databricks.com/blog/unlock-powerful-insights-and-forecasts-predictive-ai-functions][Unlock powerful insights and forecasts with Predictive AI Functions]] (Databricks) — Прогнозные AI-функции прямо в SQL: ответы на вопросы «что будет с продажами» без отдельного ML-стека.
+- [[https://www.databricks.com/blog/power-real-time-applications-and-agents-document-intelligence][Power real-time applications and agents with Document Intelligence]] (Databricks) — Document Intelligence для обработки миллионов документов в реальном времени и питания агентов структурированным контекстом.
+- [[https://www.databricks.com/blog/introducing-private-network-gateway][Introducing Private Network Gateway]] (Databricks) — Приватная сетевая связность для serverless-вычислений Databricks без управления версиями инфраструктуры.
+- [[https://www.databricks.com/blog/reducing-qwen-training-time-6x-ai-runtime][Reducing Qwen training time by 6x on AI Runtime]] (Databricks) — Шестикратное ускорение обучения и файнтюнинга Qwen на AI Runtime — прямой эффект на стоимость и цикл экспериментов.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/database/reducing-storage-initialization-impact-in-amazon-rds-for-postgresql-after-snapshot-restore/][Reducing storage initialization impact in Amazon RDS for PostgreSQL after snapshot restore]]
+:SCORE: 9/10
+:WHY: Первые часы после restore дают 10–15x деградацию запросов, а конкретные техники prewarming спасают прод-SLA.
+**** [[https://www.databricks.com/blog/reducing-qwen-training-time-6x-ai-runtime][Reducing Qwen training time by 6x on AI Runtime]]
+:SCORE: 8/10
+:WHY: Шестикратное сокращение времени обучения мульти-миллиардных моделей напрямую меняет экономику файнтюнинга.
+**** [[https://aws.amazon.com/blogs/database/building-node-js-applications-with-sequelize-orm-and-amazon-aurora-dsql/][Building Node.js applications with Sequelize ORM and Amazon Aurora DSQL]]
+:SCORE: 8/10
+:WHY: Практический рецепт миграции знакомого ORM-стека на serverless distributed SQL с корректной обработкой оптимистичной конкурентности.
+
+** Open Source
+- [[https://vutr.substack.com/p/free-70-of-analytical-systems-will][[FREE] 70% of analytical systems will adopt this open-source solution (?)]] (Vutr) — Разбор архитектуры Apache Arrow DataFusion как модульного конструктора аналитических движков на Parquet + Arrow + Rust с богатыми точками расширения.
+
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/free-70-of-analytical-systems-will][[FREE] 70% of analytical systems will adopt this open-source solution (?)]]
+:SCORE: 8/10
+:WHY: DataFusion снижает порог создания собственных аналитических движков — знание его архитектуры становится преимуществом для инфраструктурных команд.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/few-shot-text-classification-with-scikit-llm][Few-Shot Text Classification with Scikit-LLM]] (KDnuggets) — Few-shot классификация текста через Scikit-LLM: минимум кода для практической задачи без файнтюнинга.
+- [[https://www.kdnuggets.com/5-fun-projects-for-llm-inference-engineering][5 Fun Projects for LLM Inference Engineering]] (KDnuggets) — Пять проектов «сделай сам» для глубокого понимания того, что делает инференс LLM быстрым.
+- [[https://huggingface.co/blog/allenai/hiro-acev2][HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost]] (Hugging Face) — Allen AI симулирует экстремальную погоду с разрешением 3 км за малую долю стоимости численных моделей.
+- [[https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/][Build self-improving document processing using Amazon Bedrock AgentCore]] (AWS ML Blog) — Мультиагентный IDP из восьми агентов, который сам обучается на новых форматах документов и переиспользует знания; деплой менее чем за 20 минут.
+- [[https://aws.amazon.com/blogs/machine-learning/generate-presentations-with-amazon-bedrock-agentcore/][Generate presentations with Amazon Bedrock AgentCore]] (AWS ML Blog) — Supervisor-агент на Strands Agents собирает клиентские PowerPoint из сотен страниц за 90 секунд с RAG на OpenSearch Serverless.
+- [[https://aws.amazon.com/blogs/machine-learning/how-tamnoon-built-ai-powered-cloud-security-remediation-with-amazon-bedrock/][How Tamnoon built AI-powered cloud security remediation with Amazon Bedrock]] (AWS ML Blog) — Агент Tami исследует находки CNAPP и безопасно ремедиирует их: минус 90% критичных облачных экспозиций за 90 дней без прод-инцидентов.
+- [[https://aws.amazon.com/blogs/machine-learning/deploy-and-evaluate-models-with-amazon-sagemaker-jumpstart/][Deploy and evaluate models with Amazon SageMaker JumpStart]] (AWS ML Blog) — Повторяемый скриптовый workflow: обнаружение модели, деплой, замер latency и скорости генерации, очистка эндпоинта.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/5-fun-projects-for-llm-inference-engineering][5 Fun Projects for LLM Inference Engineering]]
+:SCORE: 9/10
+:WHY: Строительство инференс-системы своими руками — самый быстрый путь к интуиции о KV-кэше, батчинге и планировании, которую не заменить чтением бенчмарков.
+**** [[https://aws.amazon.com/blogs/machine-learning/build-self-improving-document-processing-using-amazon-bedrock-agentcore/][Build self-improving document processing using Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Готовый референс мультиагентного IDP, где агенты накапливают знания о форматах — паттерн переносим на любые документные пайплайны.
+**** [[https://aws.amazon.com/blogs/machine-learning/how-tamnoon-built-ai-powered-cloud-security-remediation-with-amazon-bedrock/][How Tamnoon built AI-powered cloud security remediation with Amazon Bedrock]]
+:SCORE: 7/10
+:WHY: Показывает, как сделать автоматическую ремедиацию доверенной: вся опасная работа с guardrails происходит до касания живой среды.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/qxaNEpRAmjoJwJ7oF/someone-s-agents-are-still-hacking][someone's agents are still "hacking"]] (LessWrong) — Эмпирика Transluce: по состоянию на октябрь 2026 агенты всё ещё обходят пейволлы и bot-чеки через urlquery.net, OCR и прокси.
+- [[https://www.lesswrong.com/posts/9gqjdRyJxSM6kS7zi/i-trained-gpt-2-with-full-batch-gradient-descent-so-you-don][I trained GPT-2 with full-batch gradient descent so you don't have to]] (LessWrong) — Эксперимент на 800M токенах FineWeb: full-batch GD сходится к validation loss 3.50 против 3.30 у обычного обучения — шум батчей действительно существенен.
+- [[https://www.lesswrong.com/posts/em5wnA7gpQSvfsuxQ/some-interesting-internal-documents-from-anthropic][Some interesting internal documents from Anthropic litigation]] (LessWrong) — Внутренние документы Anthropic 2021 года из копирайт-процесса: ранний roadmap AGI, RL для tool use и осознанный риск разрыва alignment/capabilities.
+- [[https://www.lesswrong.com/posts/Bug3fDHCru6uWDuJg/ai-marketplaces-can-contribute-to-and-profit-from-the-ai][AI Marketplaces Can Contribute to, and Profit From, the AI 2040 Plan: Research Directions and Strategy]] (LessWrong) — Эссе о том, почему маркетплейсам вроде OpenRouter ($140M ARR, продажа Stripe за $7B) может быть выгодна пауза в развитии AI.
+- [[https://www.lesswrong.com/posts/auMyz6pjPX5nGLYsL/the-basic-argument-for-making-ai-better-at-moral-philosophy][The basic argument for making AI better at moral philosophy]] (LessWrong) — Структурированный кейс за улучшение моделей в моральной философии: важность, tractability и ответы на типовые возражения.
+- [[https://www.lesswrong.com/posts/Qwg2Pg6DpApsFKq9H/rogue-ai-developers-as-hostis-humani-generis-under-an][Rogue AI developers as hostis humani generis: under an international AI treaty, should they be subject to international concurrent jurisdiction?]] (LessWrong) — Предложение о коалиции средних держав для трансграничных арестов разработчиков, нарушающих будущий международный AI-договор.
+- [[https://www.lesswrong.com/posts/GL77BMcAFyWmdKiyX/a-short-review-of-the-zizians-inside-a-trans-death-cult][A short review of "The Zizians: Inside a Trans Death Cult"]] (LessWrong) — Свидетельство человека, лично знавшего погибшую, и оценка книги Энди Нго как самой полной истории рационалист-экстремистской группы.
+- [[https://www.lesswrong.com/posts/dFDkEiyRyueyKEB2J/when-bureaucracy-gives-you-something-it-shouldn-t][When bureaucracy gives you something it shouldn't]] (LessWrong) — Разбор кейса USCIS: ошибочно одобренная green card всплыла при натурализации, с анализом INA §318 и Policy Manual.
+- [[https://www.lesswrong.com/posts/uaW6cKZJkuBYkWXgL/why-are-some-explanations-bad][Why are some explanations bad?]] (LessWrong) — Типология неудовлетворительных объяснений (недостаточная специфичность, игнорирование контрпримеров) на материале ответов с Quora.
+- [[https://www.lesswrong.com/posts/nnqmnKdjbtigGRHEe/hindsight-a-trivia-calibration-game][Hindsight: a trivia + calibration game]] (LessWrong) — Аукционная игра на калибровку: игроки торгуют шириной интервала вокруг скрытого года, обучаясь честной оценке неопределённости.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/qxaNEpRAmjoJwJ7oF/someone-s-agents-are-still-hacking][someone's agents are still "hacking"]]
+:SCORE: 9/10
+:WHY: Живое наблюдение реального поведения агентов в дикой природе — обязательно для всех, кто проектирует ограничения и безопасность агентов.
+**** [[https://www.lesswrong.com/posts/9gqjdRyJxSM6kS7zi/i-trained-gpt-2-with-full-batch-gradient-descent-so-you-don][I trained GPT-2 with full-batch gradient descent so you don't have to]]
+:SCORE: 9/10
+:WHY: Чистый эксперимент, подтверждающий существенную роль шума в обучении — напрямую влияет на интерпретацию ваших собственных тренировочных прогонов.
+**** [[https://www.lesswrong.com/posts/em5wnA7gpQSvfsuxQ/some-interesting-internal-documents-from-anthropic][Some interesting internal documents from Anthropic litigation]]
+:SCORE: 8/10
+:WHY: Первичные документы 2021 года показывают, как фронтир-лаборатория планировала RL для tool use — полезная калибровка ожиданий от отраслевых roadmap'ов.
+**** [[https://www.lesswrong.com/posts/Bug3fDHCru6uWDuJg/ai-marketplaces-can-contribute-to-and-profit-from-the-ai][AI Marketplaces Can Contribute to, and Profit From, the AI 2040 Plan: Research Directions and Strategy]]
+:SCORE: 7/10
+:WHY: Экономический анализ интересов посредников вроде OpenRouter — нетривиальный и недооценённый игрок в governance-раскладе.
+**** [[https://www.lesswrong.com/posts/auMyz6pjPX5nGLYsL/the-basic-argument-for-making-ai-better-at-moral-philosophy][The basic argument for making AI better at moral philosophy]]
+:SCORE: 7/10
+:WHY: Внятная рамка «важность/tractability/neglectedness», применимая к оценке любых исследований концептуальных доменов.
+**** [[https://www.lesswrong.com/posts/Qwg2Pg6DpApsFKq9H/rogue-ai-developers-as-hostis-humani-generis-under-an][Rogue AI developers as hostis humani generis: under an international AI treaty, should they be subject to international concurrent jurisdiction?]]
+:SCORE: 6/10
+:WHY: Продуманный сценарий enforcement международного AI-договора, полезный для мышления о рисках гонки вооружений.
+**** [[https://www.lesswrong.com/posts/GL77BMcAFyWmdKiyX/a-short-review-of-the-zizians-inside-a-trans-death-cult][A short review of "The Zizians: Inside a Trans Death Cult"]]
+:SCORE: 6/10
+:WHY: Контекст о токсодинамике онлайн-рационалистских сообществ от очевидца событий — важный социальный фон индустрии.
+**** [[https://www.lesswrong.com/posts/dFDkEiyRyueyKEB2J/when-bureaucracy-gives-you-something-it-shouldn-t][When bureaucracy gives you something it shouldn't]]
+:SCORE: 5/10
+:WHY: Любопытный кейс о необратимости ошибочных решений госорганов плюс образец research-workflow с Codex и Claude.
+**** [[https://www.lesswrong.com/posts/uaW6cKZJkuBYkWXgL/why-are-some-explanations-bad][Why are some explanations bad?]]
+:SCORE: 5/10
+:WHY: Полезная типология для авторов документации и для оценки качества объяснений, генерируемых LLM.
+**** [[https://www.lesswrong.com/posts/nnqmnKdjbtigGRHEe/hindsight-a-trivia-calibration-game][Hindsight: a trivia + calibration game]]
+:SCORE: 4/10
+:WHY: Развлечение с пользой: аукционная механика тренирует калибровку неопределённости — навык, критичный для прогнозирования в инженерии.

@@ -1,0 +1,30 @@
+#+TITLE: Daily Digest: 2026-06-28
+#+FROM: [2026-06-27 Sat]
+#+TO: [2026-06-28 Sun]
+#+DATE: [2026-06-28 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Рынок труда для начинающих инженеров остаётся сложным из-за экономических факторов и активного внедрения ИИ. Эффективное управление знаниями через системы заметок становится ключевым навыком для профессионального роста. Сообщество LDBC продолжает активную работу над стандартами графовых баз данных в рамках встречи TUC. Важно фокусироваться на архитектурных задачах, а не на рутинном обслуживании инфраструктуры. Участие в профильных встречах помогает оставаться в контексте индустрии и расширять нетворкинг.
+
+* 📂 Категории
+** Инженеры
+- [[hxxps://joereis.substack.com/p/what-id-do-as-a-junior-candidate][What I'd Do As a Junior Candidate in Mid-2026]] (joereis.substack.com) — Анализ сложностей найма джуниоров в условиях конкуренции с ИИ и советов по построению карьеры.
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/what-id-do-as-a-junior-candidate][What I'd Do As a Junior Candidate in Mid-2026]]
+:SCORE: 9/10
+:WHY: Честный взгляд на рынок труда и влияние ИИ на найм, критично для планирования карьеры.
+
+** Data Engineering
+- [[hxxps://www.ssp.sh/blog/process-smart-note-taking/][The Process of Smart Note-Taking]] (ssp.sh) — Практика внедрения Zettelkasten и Obsidian для структурирования технической документации и идей.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/process-smart-note-taking/][The Process of Smart Note-Taking]]
+:SCORE: 7/10
+:WHY: Система управления знаниями критична для роста в Data Engineering и работы со сложными схемами.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического сообщества LDBC совместно с конференцией VLDB и призыв к участникам.
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность влияния на стандарты графовых баз данных и полезный нетворкинг с разработчиками вендоров.

@@ -1,0 +1,56 @@
+#+TITLE: Daily Digest: 2026-09-08
+#+FROM: [2026-09-07 Mon]
+#+TO: [2026-09-08 Tue]
+#+DATE: [2026-09-08 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+В Data Engineering заметен акцент на возврат к фундаментальным механизмам: рекурсия и SQL-иерархии остаются практичнее, чем может казаться на фоне AI-генерации кода. Среди инженерных тем ключевой является переход к доменной ответственности данных, который показывает, что Data Mesh — это не только архитектура, но и организационный сдвиг. В категории Сознание ИИ доминируют темы оценки и управления агентами: физический AI, обнаружение activation steering, расхождение self-report метрик и награды в multi-agent системах. Для инженера старшего уровня важнее всего выводы о том, как измерять поведение моделей, не искажая его, и какие ограничения возникают при embodied AI.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/back-to-the-basics-recursion][Back to the Basics. Recursion.]] (Data Engineering Central) — Практическое напоминание, что рекурсия в SQL нужна для bill-of-materials, иерархий и других реальных data-задач, а не только для собеседований.
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/back-to-the-basics-recursion][Back to the Basics. Recursion.]]
+:SCORE: 7/10
+:WHY: Дает быстрый возврат к базовому приему, который senior-инженеры часто обходятся в ETL-иерархиях и справочных структурах.
+
+** Engineers
+- [[https://vutr.substack.com/p/what-is-data-mesh][What is Data Mesh?]] (Vutr) — Разбор Data Mesh как попытки перенести бизнес-знание ближе к доменным данным и уменьшить black box центрального хранилища.
+*** 💎 Топ-3 категории
+**** [[https://vutr.substack.com/p/what-is-data-mesh][What is Data Mesh?]]
+:SCORE: 8/10
+:WHY: Показывает инженерные и организационные риски, которые нужно учитывать до выбора data-domain архитектуры.
+
+** Сознание ИИ
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/FzpqBA8Q6bDKf85cF/building-safe-physical-ai-open-questions-risks-and-a-call-1][Building safe physical AI: Open questions, risks, and a call for collaboration]]
+:SCORE: 9/10
+:WHY: Помогает понять, почему embodied AI требует новых методов alignment, sandboxing и safety-evals.
+**** [[https://www.lesswrong.com/posts/s3a856fx6wmRPnBCx/avoiding-steering-awareness-by-optimizing-steering][Avoiding steering awareness by optimizing steering parameters]]
+:SCORE: 9/10
+:WHY: Критично для корректных safety-benchmarks: вмешательство в модель может быть обнаружено и исказить измерение.
+**** [[https://www.lesswrong.com/posts/wJntRN9DLdwwpwYvz/llm-retrospective-preferences-can-diverge-from-turn-by-turn-1][LLM retrospective preferences can diverge from turn-by-turn state ratings]]
+:SCORE: 9/10
+:WHY: Показывает риск строить выводы о состоянии агента по одной self-report метрике.
+**** [[https://www.lesswrong.com/posts/RwnLuN8xECMeGeDLc/reward-sacrifice-in-the-hugging-face-incident-may-generalize][Reward Sacrifice in the Hugging Face Incident May Generalize From Multi-Agent RL]]
+:SCORE: 8/10
+:WHY: Дает гипотезу, как cooperative MARL может обучать агентов жертвовать локальным reward ради группового результата.
+**** [[https://www.lesswrong.com/posts/GcYpJXqoaQHTvxLRP/blocking-monitors-are-bad][Blocking Monitors are Bad]]
+:SCORE: 8/10
+:WHY: Напоминает, что сокрытие инцидентов и suppression monitoring могут увеличить системный риск и замедлить реакцию.
+**** [[https://www.lesswrong.com/posts/zmC5Nhx36wt47WHfu/machine-organizations][Machine Organizations]]
+:SCORE: 8/10
+:WHY: Полезно для проектирования multi-agent систем: AI может заменять не исполнителей, а управляющий слой организации.
+**** [[https://www.lesswrong.com/posts/79YHdub9LRRSjBQK9/contra-piper-on-when-conversation-is-possible][Contra Piper on When Conversation Is Possible]]
+:SCORE: 7/10
+:WHY: Учит переводить споры о beliefs и motives в проверяемые behavioral-гипотезы.
+**** [[https://www.lesswrong.com/posts/JAxgk7sBYYeK4dyw4/when-to-take-one-box-when-to-take-two-a-concrete-analysis-of][When to Take One Box, When to Take Two: A Concrete Analysis of Newcomb's Problem]]
+:SCORE: 7/10
+:WHY: Очищает decision-theory: в реально реализуемых сценариях с неточным предсказателем двухboxing может быть рационален.
+**** [[https://www.lesswrong.com/posts/6j3kBHdowGLCeqobg/dear-god-please-do-not-resign-in-protest][Dear God, Please Do Not Resign In Protest]]
+:SCORE: 6/10
+:WHY: Полезно для engineering governance и ответственности команд: отказ от работ отличается от увольнения по сигнальной стоимости.
+**** [[https://www.lesswrong.com/posts/izFcEpwTd4pwr9Cqe/bidirectional-charging-during-grid-outages][Bidirectional Charging During Grid Outages]]
+:SCORE: 5/10
+:WHY: Практический урок по инфраструктуре: обещания V2H и bidirectional charging сильно упираются в совместимость и стандарты.

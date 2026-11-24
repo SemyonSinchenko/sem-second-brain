@@ -1,0 +1,132 @@
+#+TITLE: Arxiv Digest: 2026-09-11
+#+FROM: [2026-09-10 Thu]
+#+TO: [2026-09-11 Fri]
+#+DATE: [2026-09-11 Fri]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+** 🧐 Обзор
+Центральный сюжет дня — инфраструктура данных для эпохи LLM: OmniTable предлагает архитектурный blueprint единого wide-table слоя для петабайтного курирования, заменяя ручную оркестрацию пайплайнов декларативным «declare-and-execute». Параллельно зреет управление знаниями: House of Graphs демонстрирует зрелую практику когерентности данных в графовом репозитории, а принцип TripleA двигает post-FAIR инфраструктуры к проверяемой применимости знаний. Практически наиболее значимы декларативное управление фичами, lineage-трекинг и гибридное ускорение разведки данных на масштабах десятков PB.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.11148][OmniTable: A Unified Wide-Table System for Petabyte-Scale LLM Data Curation and Exploration]]
+:WHAT: Единый wide-table слой по принципу «логическая унификация — физическое разделение»: единая логическая схема над разнородными источниками и тысячами фич, декларативный жизненный цикл фич (разрешение зависимостей, планирование, fusion операторов, lineage), адаптивный движок с маршрутизацией CPU/GPU и UDF-толерантностью к отказам, плюс гибридная разведка (глобальный ID-индекс, OLAP-offload, материализованные view).
+:IMPACT: В проде управляет 35+ PB данных для обучения LLM и сокращает цикл курирования с ~14 до ~2.5 дней (5.6×), давая версионирование фич и аудируемый lineage — прямой ответ на главное бутылочное горлышко индустриальных LLM-конвейеров.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2603.23070][Knowledge management in House of Graphs]]
+:ALGO: Инженерия знаний в полностью перестроенной онлайн-базе графов: коherentное управление мета-данными (имена, рисунки, предвычисленные инварианты, комментарии) и процессы, гарантирующие согласованность, качество и стабильность данных.
+:IMPACT: House of Graphs — стандартный инструмент поиска «интересных» графов для проверки гипотез и инвариантов; надёжное управление знаниями здесь критично для воспроизводимости экспериментов в алгоритмической теории графов.
+
+- [[https://arxiv.org/abs/2605.01564][The TripleA Principle: Making Knowledge Actionable, Applicable, and Auditable in Post-FAIR Infrastructures]]
+:ALGO: Принцип TripleA (actionability, applicability, auditability), реализованный типизированными «action units» во вложенной иерархии: знание, условия корректного применения и задокументированные успехи/отказы адресуемы и проверяемы, а отказы уточняют условия валидного использования.
+:IMPACT: Готовый шаблон превращения графов знаний в контекстно-чувствительные системы поддержки решений с доказательной подотчётностью — ориентир для инфраструктур знаний следующего поколения.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2605.19320][TextAlign: Preference Alignment for Text Rendering with Hierarchical Rewards]] — пост-тренировочное выравнивание рендеринга текста в text-to-image моделях через иерархические VLM-награды (GRPO/DPO) без правок архитектуры генератора.
+
+* cs.AI — Искусственный интеллект
+** 🧐 Обзор
+Доминирует экономия токенов и структурированный доступ к знаниям: VikingRAG снижает стоимость RAG над структурированными документами в разы за счёт материализации агентных трасс, а NLKGQ показывает, что LLM генерирует точный SPARQL zero-shot при хорошо спроектированной OWL-онтологии. Зреет автономия систем: ExpTest выбирает learning rate по статистическим тестам кривой потерь, а DCO предиктивно управляет кэшем AI-ускорителей. Практически ценны всё, что снижает совокупную стоимость владения LLM-инфраструктурой и даёт NL-интерфейсы к графам знаний.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.11390][VikingRAG: Accurate and Token-efficient Retrieval-augmented Generation over Structured Documents]]
+:WHAT: Directory-aware система семантического управления данными: мультитуровый поиск по «дефициту доказательств», материализация агентных трасс как experience edges для переиспользования при похожих запросах и адаптивная эскалация к агентному мультитуровому поиску лишь при необходимости.
+:IMPACT: Точность на уровне SOTA при 11.6–51.9% их токенов, а с переиспользованием трасс и эскалацией — 5.1–32.5%; прямой эффект на стоимость эксплуатации RAG-баз знаний.
+
+- [[https://arxiv.org/abs/2607.18029][Natural Language Access to Domain-Specific Metadata: A Reusable Framework for LLM Query Generation]]
+:WHAT: Система NLKGQ: доменно-агностический харнесс транслирует естественноязыковые вопросы в SPARQL поверх графа знаний через LLM; доменная семантика фиксируется OWL-онтологией, фреймворк и процесс разработки переиспользуемы между доменами.
+:IMPACT: 100% точность на экспертном тестовом наборе zero-shot; аблация по восьми онтологиям показывает, что читаемые имена сущностей важнее выбора модели и промптов, а OWL структурно превосходит SQL DDL как бэкенд для LLM-генерации запросов — готовый рецепт NL-интерфейсов к KG.
+
+- [[https://arxiv.org/abs/2512.07312][DCO: Dynamic Cache Orchestration for LLM Accelerators through Predictive Management]]
+:WHAT: Оркестрация shared system-level cache в многоядерных AI-ускорителях: dataflow-информация из софтверного стека управляет заменой строк (включая dead-block prediction), bypass-решениями и защитой от thrashing.
+:IMPACT: До 1.80× ускорения на cycle-accurate симуляторе; RTL-реализация занимает 0.064 мм² на 15 нм при 2 ГГц — альтернатива сложным иерархиям scratchpad-памятей для будущих AI-ускорителей.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2411.16975][ExpTest: Loss-Curve Hypothesis Testing for Autonomous Learning-Rate Selection in Deep Neural Networks]] — автономный контроллер learning rate: последовательные статистические тесты окон кривы потерь триггерят снижение скорости обучения, конкурентно ручному тюнингу без предзаданных расписаний.
+- [[https://arxiv.org/abs/2506.13160][CertDW: Towards Certified Dataset Ownership Verification via Conformal Calibration]] — первый сертифицированный водяной знак датасета: conformal-калибровка даёт доказуемые условия верификации владения даже при ограниченных атаках на пиксели.
+- [[https://arxiv.org/abs/2508.08279][Learning Intrinsic Water-Quality Dynamics with Rainfall for Data-Driven Forecasting]] — RaiNet совместно моделирует мультимасштабную динамику качества воды и эффекты осадков (LocTrend, XGateFusion), превосходя бейзлайны на 20%+ и открывая три реальных мультимодальных датасета.
+- [[https://arxiv.org/abs/2504.13700][Exploring Multimodal Prompt for Visualization Authoring with Large Language Models]] — VisPilot: мультимодальные промпты (текст, скетчи, прямые манипуляции) проясняют намерение пользователя при авторинге визуализаций через LLM.
+- [[https://arxiv.org/abs/2308.01030][Optimizing Three Critical Factors for Practical and Effective OOD Detection Fine-Tuning]] — self-knowledge distillation, semi-hard outlier sampling и outlier-aware contrastive learning снимают компромисс «точность против OOD-детекции» при файнтюнинге.
+- [[https://arxiv.org/abs/2506.14045][Discovering Temporal Structure: An Overview of Hierarchical Reinforcement Learning]] — обзор методов обнаружения временной структуры в иерархическом RL: от онлайн-опыта и офлайн-датасетов до LLM.
+- [[https://arxiv.org/abs/2505.23942][SG-Blend: Learning an Interpolation Between Improved Swish and GELU for Robust Neural Representations]] — послойно обучаемый континуум SSwish↔GELU (три скаляра на FFN-блок): ниже разброс по сидам и лучшая perplexity на WikiText-103.
+- [[https://arxiv.org/abs/2506.00849][Generalization in VAE and Diffusion Models: A Unified Information-Theoretic Analysis]] — единый информационно-теоретический фреймворк с вычислимыми границами, позволяющими выбирать оптимальное время диффузии T прямо по обучающим данным.
+
+* physics.soc-ph — Социальная физика и сети
+** 🧐 Обзор
+Фокус прикладного дня — высокоразрешённое моделирование европейской энергосистемы: co-оптимизация мер спроса и предложения по семи секторам под net-zero-ограничением позволяет приоритизировать политики декарбонизации. Выводы предельно практичны: критическое ограничение нагрузки для электросетей и даже двухчасовой сдвиг спроса под солнечную генерацию дают измеримый системный эффект. Вторая работа — нишевая количественная оценка спортивной производительности, далёкая от сетевой повестки.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2508.04414][Identifying demand-side measures that matter most for Europe's decarbonisation]]
+:WHAT: Высокоразрешённая модель европейской энергосистемы с net-zero-ограничением, co-оптимизирующая меры по спросу и предложению в семи секторах и отображающая отклик системы на механизмы спроса, отражающие реальные практики.
+:IMPACT: Снижение спроса на отопление в пиковые часы даёт максимальный системный выигрыш; критическое ограничение нагрузки — самая эффективная стратегия для энергетики и заметно смягчает высокие цены для потребителей; сдвиг спроса под солнечную генерацию даже на два часа даёт ощутимый эффект для всей системы.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.10833][Estimating the Time Advantage of Split-Staggered Starts in Record-Breaking Middle-Distance Races]] — эмпирическая модель (данные по дорожкам, OMEGA, видеореконструкция) оценивает преимущество split-staggered старта в 0.1–1+ секунды в свежих мировых рекордах на средние дистанции.
+
+* cs.DS — Структуры данных и алгоритмы
+** 🧐 Обзор
+Сильный день для распределённых графовых алгоритмов: почти оптимальные 2-ruling sets на графах с низкой arboricity выполняются за O(log log n) раундов и переносятся в low-space MPC. Зреет параллельная численная инфраструктура: ParAC снимает «setup bottleneck» randomized Cholesky-препроцессинга на CPU/GPU без изменения численных схем. Потоковая проверка монотонности на DAG впервые связывает сублинейные алгоритмы оценки паросочетаний со стримингом, а серия «Paths and Intersections» переводит распознавание внешнепланарных метрик в полиномиальный класс.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2505.02977][Tackling Parallelization Challenges of Randomized Preconditioners With Dependency Tracking]]
+:WHAT: ParAC — параллелизация последовательного randomized approximate Cholesky (rchol) на CPU и GPU через динамическое отслеживание зависимостей и architecture-aware управление памятью, без изменения численной схемы.
+:IMPACT: Разгон до 57.3× (CPU) и 52.2× (GPU) относительно детерминированного IC; на нерегулярных графовых лапласианах, где AMG буксует, — до 7.2×, и сходимость на всех 200 adversarial SDD-системах, где AMG падает на 15 и 19.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2606.11974][Near-Optimal Distributed 2-Ruling Sets on Graphs with Low Arboricity]]
+:ALGO: Рандомизированный алгоритм 2-ruling set в модели LOCAL за O(log log n) раундов при arboricity до O(log log n) — почти точно совпадает с нижней границей Ω(log log n / log log log n); для общей arboricity α — Õ(log^{5/8} α + log^{5/3} log n), плюс O(log log log n) раундов в low-space MPC при arboricity до 2^{poly(log log n)}.
+:IMPACT: Ключевой примитив для построения доминирующих/остовных структур в распределённой обработке графов и симуляциях; экспоненциальный прогресс по отношению к предыдущему SOTA на широком классе разреженных графов.
+
+- [[https://arxiv.org/abs/2607.02883][Paths and Intersections: Repelling Pairs]]
+:ALGO: Метрический сертификат «repelling pairs» (кратчайшие пути должны быть вершинно-непересекающимися в каждой реализации) даёт критерий реализуемости метрик Okamura–Seymour и полиномиальные алгоритмы распознавания внешнепланарной реализуемости и построения реализаций с минимальным числом рёбер через канонический medial-шаблон.
+:IMPACT: Взгляд на графы как «пути и их пересечения» превращает обратные задачи о кратчайших путях в полиномиально разрешимые — потенциально полезно для верификации сетевых метрик и компактной маршрутизации.
+
+- [[https://arxiv.org/abs/2606.25827][Paths and Intersections: Recognizing Outerplanar Metrics]]
+:ALGO: Доказано отсутствие «локальной характеризации» (в контрасте с деревьями и Okamura–Seymour) и построен алгоритм полиномиального от |T| времени, решающий, реализуема ли метрика на терминалах взвешенным внешнепланарным графом.
+:IMPACT: Структурный инструмент для задач distance realization на планарно-подобных классах — важно для понимания границ сжатия и восстановления сетевых метрик.
+
+- [[https://arxiv.org/abs/2608.07073][Streaming Algorithms for Monotonicity Testing]]
+:ALGO: Стриминговый алгоритм (1+ε)-аппроксимации расстояния до монотонности булевой функции на DAG с памятью Õ(n) за √n^{1+o(1)} проходов — через оценку максимального паросочетания в транзитивном замыкании; показана оптимальность числа проходов через редукцию к st-reachability.
+:IMPACT: Первая связка сублинейных по времени алгоритмов оценки паросочетаний со стримингом: образец анализа потоков DAG-структур с памятью сильно меньше размера графа.
+
+- [[https://arxiv.org/abs/2609.10641][A Deadline-Driven Algorithm for Polyamorous Scheduling]]
+:ALGO: 4G*-аппроксимационный алгоритм для NP-трудной задачи периодических расписаний парных встреч на взвешенном графе (обобщение Bamboo Garden Trimming), построенный на deadline-driven эвристике, оптимальной для BGT.
+:IMPACT: Улучшает прежнюю границу 3+√5≈5.236; напрямую применим к планированию периодических взаимодействий в социальных графах и родственным задачам периодического обслуживания.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2607.06451][Lower Bounds for PIR with Preprocessing from Blackbox Cryptography]] — безусловные нижние оценки Ω(n/s) по амортизированной коммуникации или серверным криптооперациям для single-server PIR с предобработкой; жёсткий ориентир для проектирования приватных чтений в хранилищах.
+- [[https://arxiv.org/abs/2609.06470][A Group-Based Resource Allocation Model for the Fractional Knapsack Problem]] — двухступенчатое групповое правило для дробного рюкзака с липшицевой устойчивостью к возмущениям цен, явными границами потерь и временем O(n + m log m).
+- [[https://arxiv.org/abs/2609.03890][The 11/6 supremum of the Wang-Sitters rounding scheme for graph balancing]] — точный worst-case анализ схемы округления Wang–Sitters по порогу β: супремум 11/6 не достигается, оптимальный порог единственный и равен 2/3.
+- [[https://arxiv.org/abs/2608.13318][A minimum witness for the 3/2 configuration-linear-program gap in two-weight graph balancing, unique at its size]] — минимальный (шесть работ) и единственный при своём размере свидетель разрыва 3/2 в configuration LP, с полной классификацией свидетелей при 7–8 задачах.
+- [[https://arxiv.org/abs/1810.04449][Faster Hamiltonian Monte Carlo by Learning Leapfrog Scale: an offline randomized solution]] — eHMC: офлайн-калибровка рандомизированных leapfrog-параметров через importance sampling и normalizing flows; конкурентен NUTS без онлайн-адаптации.
+- [[https://arxiv.org/abs/2609.10808][Tight Time-Space Lower Bounds for Collision Finding and Element Distinctness under Label Symmetry]] — оптимальные компромиссы T²S для квантового поиска коллизий и Element Distinctness в классе label-симметричных алгоритмов через space-чувствительный compressed oracle.
+
+* cs.DC — Распределённые вычисления
+** 🧐 Обзор
+Консенсусные системы движутся к адаптивности: Barnacle динамически регулирует число лидеров в DAG-протоколах и готовится к интеграции в Sui. Параллельно зреет GPU-системный стек: SparseDitto агентно компилирует разреженные ядра под конкретный GPU, SHAMBLES делает прозрачной миграцию данных HBM↔DRAM, а федеративный GPU-кластер DHinfra.at оформлен как воспроизводимый playbook. MUC-ФЛ режет коммуникацию федеративного обучения по блочной маржинальной полезности; агентный edge AI (IoCT) пока остаётся позиционной повесткой.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.03978][Barnacle: Adaptive Multi-Leader Scheduling for DAG-Based Consensus]]
+:WHAT: Надстройка над DAG-консенсусом: каждые интервал измеряет долю слотов, решённых прямым правилом коммита, на согласованном DAG и управляет числом лидеров по схеме additive increase / multiplicative decrease — без дополнительных сообщений, криптографии и недетерминизма.
+:IMPACT: Доказанные safety/liveness на четырёх протоколах (Byzantine, crash-only, смешанный); латентность на 6–13% ниже одиночного лидера в здоровой сети и на 35–56% ниже статического многолидерного режима при деградации; идёт интеграция в блокчейн Sui.
+
+- [[https://arxiv.org/abs/2608.05033][SparseDitto: An Agentic Sparse Compilation Framework through Architecture-Aware Synthesis on GPUs]]
+:WHAT: Агентный фреймворк компиляции разреженных операций (SpMV, SpMM, SpGEMM): совместный синтез представления, расписания исполнения и GPU-маппинга в единый план — со структурным анализом, обученным ранжированием шаблонов и LLM-guided генерацией CUDA-кода с уточнением по профилям.
+:IMPACT: Геометрические средние 2.68× (RTX PRO 6000) и 2.79× (H200) против cuSPARSE, пики до 146.6×; сгенерированные SpMM-ядра ускоряют full-batch обучение GCN до 3.39× — прямая связь с производительностью графовых пайплайнов.
+
+- [[https://arxiv.org/abs/2609.10554][Memory Profiling and Migration for Heterogeneous Memory Architectures]]
+:WHAT: SHAMBLES — kernel-integrated фреймворк низкооверхедного профилирования памяти и миграции между HBM и DRAM без правок приложений: policy-agnostic интерфейс, подключаемые политики (recency/frequency) и воспроизводимые таймлайны миграций.
+:IMPACT: HPCG удерживает 93.75% производительности all-in-HBM при 40% задачи в HBM, DGEMM — 99% при трети footprint'а; практический путь к performance portability на tiered memory без участия разработчика.
+
+- [[https://arxiv.org/abs/2609.10545][MUC-FL: Block-Wise Marginal Utility Contribution for Communication-Efficient Federated Learning]]
+:WHAT: Фреймворк Block-Wise Marginal Utility Contribution: передаются только блоки данных с наибольшим вкладом в качество модели, отбор основан на дедупликации и маржинальной полезности.
+:IMPACT: На мультимодальных клинических данных MIMIC лишь 24 из 1135 блоков (1.76%) несут значимый сигнал: сокращение коммуникации на 45–50% с сохранением/улучшением качества (macro F1 0.857 против 0.816 у стандартного FL), особенно для недопредставленных классов.
+
+- [[https://arxiv.org/abs/2609.10552][Design and Operation of a Federated GPU Cluster for Digital Humanities within DHinfra.at]]
+:WHAT: Федеративный GPU-кластер на два университетских сайта: control plane, связывающий федеративную идентичность, пер-проектные квоты и каталог моделей с self-service интерфейсами (ноутбуки, SSH, OpenAI-совместимый inference API) и двухуровневым model-serving с on-demand подменой моделей.
+:IMPACT: Платформа под Apache 2.0 плюс playbook для команд, строящих доменно-специфичный GPU-кластер при фиксированном энергобюджете и команде ~1.5 FTE — редкий публично задокументированный опыт эксплуатации.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.10547][From Token Interfaces to Token Semantics: A Formal Composition and Conformance Model for Implementation-Neutral Token Specifications]] — формализация Token Taxonomy Framework как типизированной модели композиции и конформности семантики токенов (ERC-20/721/1155) независимо от платформы.
+- [[https://arxiv.org/abs/2609.10542][The Internet of Collaborating Things: Agentic Edge AI for Autonomous Cross-Domain Collaboration]] — позиционная статья о горизонтальной парадигме IoCT: устройства напрямую объединяют вычисления и сенсорику в кросс-доменные кластеры под управлением агентного edge AI вместо оффлоада в облако.

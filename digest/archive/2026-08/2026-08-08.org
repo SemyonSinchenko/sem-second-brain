@@ -1,0 +1,64 @@
+#+TITLE: Daily Digest: 2026-08-08
+#+FROM: [2026-08-07 Fri]
+#+TO: [2026-08-08 Sat]
+#+DATE: [2026-08-08 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия движется от экспериментов к продакшену: кейсы AWS демонстрируют внедрение AI-агентов для автоматизации RCA и оцифровки клинических политик. Оптимизация затрат становится приоритетом — от использования малых моделей до контроля расходов на AI-кодинг в масштабе. Роль инженера трансформируется: фокус смещается с написания кода на архитектурные решения и управление задачами в эпоху LLM.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/solution-problem][Solution > Problem.]] (Data Engineering Central) — Размышления о смене парадигмы: в эпоху AI инженеры ценны не объемом кода, а качеством решений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/solution-problem][Solution > Problem.]]
+:SCORE: 8/10
+:WHY: Критически важно для переосмысления своей роли и ценности в условиях автоматизации кодинга.
+
+** Инженеры
+- [[hxxps://rossabaker.com/notes/top4-umlauts/][Top 4 Umlauts]] (Ross Baker) — Легкая заметка о специфических символах в коде, напоминающая о важности культурного контекста в инженерии.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — Практическое руководство по линейному методу наименьших квадратов для углубления математической базы.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 9/10
+:WHY: Фундаментальная математика необходима сеньорам для понимания внутренней работы ML-алгоритмов.
+**** [[hxxps://rossabaker.com/notes/top4-umlauts/][Top 4 Umlauts]]
+:SCORE: 7/10
+:WHY: Напоминает о нюансах кодировки и интернационализации, важных при проектировании систем.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/managing-ai-coding-costs-scale][Managing AI Coding Costs at Scale]] (Databricks) — Стратегии контроля расходов на инструменты AI-кодинга при масштабировании команд.
+- [[hxxps://www.databricks.com/blog/what-is-an-ai-assistant][What is an AI Assistant?]] (Databricks) — Четкое определение архитектуры AI-ассистентов: модели, retrieval и reasoning.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDB Council) — Анонс встречи сообщества графовых баз данных с обсуждением стандарта GQL и производительности.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/managing-ai-coding-costs-scale][Managing AI Coding Costs at Scale]]
+:SCORE: 9/10
+:WHY: Практические метрики и подходы к экономии бюджетов на AI-инструменты в.enterprise-среде.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 8/10
+:WHY: Обзор будущего графовых стандартов и технологий, актуальных для сложных связей данных.
+**** [[hxxps://www.databricks.com/blog/what-is-an-ai-assistant][What is an AI Assistant?]]
+:SCORE: 7/10
+:WHY: Базовое понимание компонентов ассистентов нужно для оценки вендорских решений.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/small-language-models-with-hugging-face-transformers-library-smollm3][Small Language Models with Hugging Face transformers Library + smolLM3]] (KDnuggets) — Сравнение малых и больших моделей: 3B модель может превзойти 70B на специфичных задачах дешевле.
+- [[hxxps://www.kdnuggets.com/5-free-courses-to-learn-modern-ai-and-llms][5 Free Courses to Learn Modern AI and LLMs]] (KDnuggets) — Подборка бесплатных курсов по RAG, агентам и fine-tuning для быстрого входа в тему.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/][How Cohere Health digitizes clinical policies using Amazon Bedrock AgentCore]] (AWS) — Реальный кейс внедрения мульти-тенантной агентной архитектуры для оцифровки медицинских политик.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/][How TReNDS automates root-cause analysis with Amazon Bedrock]] (AWS) — Автоматизация поиска причин инцидентов через анализ логов и кода с помощью AI-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/determining-playoff-clinching-scenarios-in-the-nhl-using-constraint-programming/][Determining playoff clinching scenarios in the NHL using constraint programming]] (AWS) — Применение программирования ограничений для решения комбинаторных задач в спортивной аналитике.
+- [[hxxps://huggingface.co/blog/allenai/tutormoments][TutorMoments: Do AI tutors know when to help and when to hold back?]] (Hugging Face) — Исследование поведения AI-тьюторов: баланс между помощью и самостоятельностью ученика.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-cohere-health-digitizes-clinical-policies-using-amazon-bedrock-agentcore/][How Cohere Health digitizes clinical policies using Amazon Bedrock AgentCore]]
+:SCORE: 10/10
+:WHY: Глубокий разбор продакшен-архитектуры агентов с изоляцией и управлением состоянием.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-trends-automates-root-cause-analysis-with-amazon-bedrock/][How TReNDS automates root-cause analysis with Amazon Bedrock]]
+:SCORE: 10/10
+:WHY: Конкретный пример автоматизации рутинной инженерной задачи (RCA) с интеграцией логов и кода.
+**** [[hxxps://www.kdnuggets.com/small-language-models-with-hugging-face-transformers-library-smollm3][Small Language Models with Hugging Face transformers Library + smolLM3]]
+:SCORE: 9/10
+:WHY: Важный инсайт по оптимизации затрат: малые модели часто эффективнее больших для узких задач.

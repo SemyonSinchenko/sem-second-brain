@@ -1,0 +1,70 @@
+#+TITLE: Daily Digest: 2026-04-24
+#+FROM: [2026-04-23 Thu]
+#+TO: [2026-04-24 Fri]
+#+DATE: [2026-04-24 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Расходы на AI-токены выходят из-под контроля, заставляя инженерные лидеры пересматривать бюджеты и стратегии внедрения. Open Source Initiative назначила нового директора с фокусом на определение открытого ИИ и защиту интересов сообщества. Вендоры активно внедряют агентские архитектуры и нативную поддержку Apache Iceberg для ускорения работы с данными. Модель GPT-5.5 демонстрирует качественный скачок в генерации кода и сложных симуляциях по сравнению с предыдущими версиями.
+
+* 📂 Категории
+** Open Source
+- [[hxxps://opensource.org/blog/hello-from-the-new-executive-director][Hello From The New Executive Director]] (Open Source Initiative) — Новый директор OSI планирует сосредоточиться на определении открытого ИИ и участии сообщества в глобальной политике.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/hello-from-the-new-executive-director][Hello From The New Executive Director]]
+:SCORE: 8/10
+:WHY: Критически важно для понимания будущего лицензирования и определения открытости в эпоху ИИ.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/ai-engineering-hub-breakdown-10-agentic-agentic-projects-you-can-fork-today][AI Engineering Hub Breakdown: 10 Agentic Projects You Can Fork Today]] (KDnuggets) — Подборка из 10 проектов для быстрого изучения инженерии агентов на практике.
+- [[hxxps://www.kdnuggets.com/7-specific-unconventional-things-to-do-with-language-models][7 Specific Unconventional Things to Do with Language Models]] (KDnuggets) — Семь нетривиальных сценариев использования LLM за пределами стандартного чата.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/applying-multimodal-biological-foundation-models-across-therapeutics-and-patient-care/][Applying multimodal biological foundation models across therapeutics and patient care]] (AWS) — Обзор применения мультимодальных био-моделей для интеграции разрозненных медицинских данных.
+- [[hxxps://www.oneusefulthing.org/p/sign-of-the-future-gpt-55][Sign of the future: GPT-5.5]] (One Useful Thing) — Ранний обзор GPT-5.5 показывает значительный прогресс в кодинге и моделировании сложных систем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.oneusefulthing.org/p/sign-of-the-future-gpt-55][Sign of the future: GPT-5.5]]
+:SCORE: 9/10
+:WHY: Демонстрирует реальный прогресс моделей в задачах генерации и симуляции, важный для оценки текущей границы возможностей.
+**** [[hxxps://www.kdnuggets.com/ai-engineering-hub-breakdown-10-agentic-projects-you-can-fork-today][AI Engineering Hub Breakdown: 10 Agentic Projects You Can Fork Today]]
+:SCORE: 8/10
+:WHY: Практическая подборка проектов для быстрого старта с агентной инженерией без лишней теории.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/applying-multimodal-biological-foundation-models-across-therapeutics-and-patient-care/][Applying multimodal biological foundation models across therapeutics and patient care]]
+:SCORE: 7/10
+:WHY: Показывает сложный кейс интеграции мультимодальных данных в высокотехнологичной отрасли.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-ai-token-spending-out-of][The Pulse: AI token spending out of control – what's next?]] (The Pragmatic Engineer) — Анализ взрывного роста затрат на AI-агентов и влияния на моральное состояние команд в крупных компаниях.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-ai-token-spending-out-of][The Pulse: AI token spending out of control – what's next?]]
+:SCORE: 9/10
+:WHY: Важный сигнал для инженерных лидеров о необходимости контроля бюджетов на ИИ и управления рисками.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-quick-for-marketing-from-scattered-data-to-strategic-action/][Amazon Quick for marketing: From scattered data to strategic action]] (AWS) — Запуск инструмента Amazon Quick для автоматизации маркетинговой аналитики на основе данных предприятия.
+- [[hxxps://www.dremio.com/blog/how-an-agentic-lakehouse-powers-real-time-customer-growth-and-retention-in-the-financial-services-industry/][How an Agentic Lakehouse Powers Real‑Time Customer Growth and Retention in the Financial Services Industry]] (Dremio) — Описание архитектуры агентского озерного хранилища для персонализации в финтехе.
+- [[hxxps://www.warpstream.com/blog/warpstream-benchmarks-and-tco][How WarpStream Reduces Kafka Infrastructure Costs: A TCO Breakdown]] (WarpStream) — Сравнение затрат: WarpStream снижает инфраструктурные расходы на Kafka в 4 раза за счет объектного хранилища.
+- [[hxxps://aws.amazon.com/blogs/database/best-practices-and-architecture-patterns-for-cross-account-sharing-in-oracle-databaseaws/][Best practices and architecture patterns for cross-account sharing in Oracle Database@AWS]] (AWS) — Паттерны шаринга ресурсов Oracle Database@AWS между аккаунтами AWS.
+- [[hxxps://www.databricks.com/blog/databricks-partners-openai-gpt-55][Databricks partners with OpenAI on GPT-5.5]] (Databricks) — announcement о партнерстве Databricks и OpenAI для интеграции GPT-5.5.
+- [[hxxps://www.databricks.com/blog/announcing-public-preview-lakeflow-designer][Announcing the Public Preview of Lakeflow Designer]] (Databricks) — Публичный превью инструмента Lakeflow Designer для управления пайплайнами данных.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества графовых баз данных в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/warpstream-benchmarks-and-tco][How WarpStream Reduces Kafka Infrastructure Costs: A TCO Breakdown]]
+:SCORE: 8/10
+:WHY: Конкретные данные по снижению TCO для инфраструктуры потоковой передачи данных.
+**** [[hxxps://www.databricks.com/blog/databricks-partners-openai-gpt-55][Databricks partners with OpenAI on GPT-5.5]]
+:SCORE: 7/10
+:WHY: Знаковое партнерство влияет на интеграцию моделей в enterprise-платформы данных.
+**** [[hxxps://www.dremio.com/blog/how-an-agentic-lakehouse-powers-real-time-customer-growth-and-retention-in-the-financial-services-industry/][How an Agentic Lakehouse Powers Real‑Time Customer Growth and Retention in the Financial Services Industry]]
+:SCORE: 7/10
+:WHY: Пример реализации агентской архитектуры для бизнес-задач в регулируемой отрасли.
+
+** Data Engineering
+- [[hxxps://www.dremio.com/blog/what-apache-iceberg-native-actually-means][What "Apache Iceberg Native" Actually Means]] (Dremio) — Разъяснение различий между поддержкой Iceberg и нативной архитектурой на базе этого формата.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/what-apache-iceberg-native-actually-means][What "Apache Iceberg Native" Actually Means]]
+:SCORE: 8/10
+:WHY: Критически важно для понимания архитектурных компромиссов при выборе платформы данных.

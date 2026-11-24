@@ -1,0 +1,164 @@
+#+TITLE: Arxiv Digest: 2026-11-16
+#+FROM: [2026-11-15 Sun]
+#+TO: [2026-11-16 Mon]
+#+DATE: [2026-11-16 Mon]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+
+** 🧐 Обзор
+Основная линия последних суток — инфраструктура векторного поиска: единый graph-vector движок Samyama вышел на миллиардный масштаб с воспроизведёнными замерами, KatoANN приблизил векторный поиск к скорости lossy-сканов на CPU-матричных движках, а HVMap и ResGraph закрывают эксплуатационные проблемы — федерацию разнородных vectorDB и миграцию графовых индексов при смене embedding-модели. Зреет генеративный поиск: GenTUS заменяет pipeline «embed — search — refine» порождением семантических идентификаторов таблиц. Практический эффект везде одинаковый: меньше ETL, меньше пере-индексации и дешевле смена моделей в проде.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2603.08036][Samyama: A Unified Graph-Vector Database with In-Database Optimization, Agentic Enrichment, and Hardware Acceleration]]
+:WHAT: Единый Rust-движок (RocksDB+MVCC, vectorized executor, cost-based planner, CSR-аналитика, RDF/SPARQL, HNSW, 22 метаэвристических солвера из языка запросов, LLM-обогащение графа), проверенный на 74.3M узлов и 1.07 млрд рёбер на одной машине за $2.50 spot-вычислений.
+:IMPACT: Убирает ETL между графовыми БД, векторными сторами и солверами; на SNB SF10 7 из 14 complex reads быстрее Neo4j 5 и FalkorDB, conformance openCypher доведён до 99.9% — прямая альтернатива стеку из нескольких систем.
+
+- [[https://arxiv.org/abs/2607.00833][GenTUS: Table Union Search via Constrained Generation of Semantic Table Identifiers]]
+:WHAT: Генеративный retrieval для Table Union Search: компактные идентификаторы таблиц, обученные под pairwise unionability, и prefix-constrained beam search вместо поиска по векторному индексу с реранкингом.
+:IMPACT: Лучшее качество на 7 бенчмарках при существенно меньшем времени online-поиска и объёме артефактов — важно для data lake discovery, где候选ный пул на каждый запрос слишком дорог.
+
+- [[https://arxiv.org/abs/2609.23036][ResGraph: Cross-Model Graph-based Index Migration via Residual Reachability in ANN Search]]
+:WHAT: Миграция graph-based ANN-индексов между моделями эмбеддингов через «остаточную достижимость»: Res-Local (параллельное shallow-расширение с фильтрацией second-hop кандидатов) и Res-Search (beam-обход с ограничением по хопам).
+:IMPACT: До 17.4x ускорения построения нового индекса при конкурентном recall — снимает главный операционный барьер переезда на новые embedding-модели.
+
+- [[https://arxiv.org/abs/2610.27508][KatoANN: Enabling Near-Exact Vector Search at the Speed of Lossy Scans with CPU Matrix Engines]]
+:WHAT: Первая ANN-система для CPU matrix engines (Intel AMX): 16-битные коды векторов, разбиение на high/low-byte плоскости и near-exact расстояния через 8-битные матричные умножения с ранжированием кандидатов по high-bytes.
+:IMPACT: Высокий recall при throughput lossy-сканов и меньший memory footprint (без full-precision копий) — дешёвый векторный поиск на CPU без GPU.
+
+- [[https://arxiv.org/abs/2611.01514][Federated Vector Retrieval across Heterogeneous VectorDBs]]
+:WHAT: HVMap — лёгкий compatibility-слой для федеративного поиска: bidirectional отображения между пространствами эмбеддингов через fuzzy contrastive loss и hub-архитектура для мульти-vectorDB-сетапов.
+:IMPACT: До 3.59x выше nDCG@10 и 2.01x выше throughput при времени построения 0.3% от baseline — федерация без corpus-wide re-embedding и перестройки индексов.
+
+- [[https://arxiv.org/abs/2611.11295][Samyama-SDG: A Declarative GraphQL @count and Regex/Ontology Synthetic Data Compiler with O(1)-Memory Referential Integrity and Causal Ground Truth]]
+:WHAT: Rust-компилятор синтетических данных: Cardinality-Extended GraphQL-схемы компилируются в DAG, а seekable PRNG с index-bijective первичными ключами дают O(1)-память для referential integrity плюс онтологически связанные каузальные ground-truth метки.
+:IMPACT: 5.8–7.76M строк/с при плоских 31–35 MiB памяти и нуле ошибок на 1.15 млн внешних ключей — практичный генератор тестовых данных для системных бенчмарков.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2605.25693][From Facts to Insights: A Persona-Driven Dual Memory Framework and Dataset for Role-Playing Agents]] — DualMem разделяет внешнюю память агента на фактический и персонажно-обусловленный потоки и с 4B-моделью обходит zero-shot фреймворки на DeepSeek-V3.2 по персоне-фиделити на новом датасете RoleMemo.
+
+* cs.AI — Искусственный интеллект
+
+** 🧐 Обзор
+Сутки прошли под знаком системного LLM-сервинга: ForeSpark совместно планирует бюджеты draft/verify при параллельной спекулятивной декодации, а Superfluid превращает парк разнородных машин в единый локальный inference-эндпоинт. Параллельно ML проталкивается в СУБД-оптимизацию — Larch обучается выбирать порядок вычисления семантических фильтров в AISQL. На графовом фронте — спектральные wavelet-GNN для детекции аномалий в гетерогенных сетях и графовая консистентная регуляризация представлений; агентная тема подкрепляется бенчмарками AscendGYM и BigCodeArena.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2606.07923][Larch: Learned Query Optimization for Semantic Predicates]]
+:WHAT: Оптимизация выполнения семантических фильтров (AI_FILTER) в AISQL: Larch-A2C кодирует дерево фильтров embedding-augmented GNN и решает MDP, Larch-Sel предсказывает селективности и применяет динамическое программирование для порядка вычислений по строкам.
+:IMPACT: 6–30% экономии токенов и в 3–19x меньший overhead относительно Palimpzest и Quest — делает семантические SQL-запросы над большими корпусами экономически оправданными.
+
+- [[https://arxiv.org/abs/2611.13442][ForeSpark: Joint Draft and Verification Budget Scheduling for Parallel Speculative Decoding]]
+:WHAT: Work-conserving speculation: per-request совместное распределение длин draft и верификации через context-aware pre-draft estimator, лёгкий joint-планировщик и post-draft распределение бюджета верификации; прототип на vLLM.
+:IMPACT: До 1.77x throughput против DSpark и 1.51x request rate под latency-SLO — прямой эффект на стоимость LLM-сервинга, где draft-фаза съедала до 40% времени шага.
+
+- [[https://arxiv.org/abs/2611.17753][Superfluid: Local AI Server for Distributed LLM Inference]]
+:WHAT: Open-source LLM-сервер для локального инференса: приоритизация интерактивных запросов над агентскими, дедупликация общих промптов, durable-логирование токенов и кластер разнородных машин под одним API-эндпоинтом.
+:IMPACT: Первый токен за 1.5 s против 291–612 s у llama-server/Ollama при 8 параллельных агентах; 10 656 tok/s на 12 Mac Studio M3 Ultra — практичная локальная инференс-инфраструктура для команд.
+
+- [[https://arxiv.org/abs/2611.17621][AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs]]
+:WHAT: Бенчмарк из 48 ядер для Ascend NPU с конфигурациями из реальных training/inference-нагрузок, двумя режимами оценки (model и model-harness) и метрикой Speedup-Token Score, учитывающей стоимость агента.
+:IMPACT: Первая воспроизводимая площадка для оценки агентной kernel-оптимизации под реальные LLM-workloads на NPU — приросты на бенчмарке отображаются в реальные пайплайны.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2505.18934][Chi-Square Wavelet Graph Neural Networks for Heterogeneous Graph Anomaly Detection]]
+:WHAT: Спектральный GNN ChiGAD: Chi-Square фильтры по каждому мета-пути, интерактивная мета-графовая свёртка, сохраняющая высокочастотный сигнал при выравнивании размерностей, и loss с приоритизацией трудных аномалий.
+:IMPACT: SOTA на публичных и промышленных датасетах гетерогенной детекции аномалий — ключевой сценарий графовой аналитики платформ (fraud/abuse detection).
+
+- [[https://arxiv.org/abs/2509.23373][Graph Your Own Prompt]]
+:WHAT: Graph Consistency Regularization — parameter-free Graph Consistency Layers на произвольных глубинах сети, выравнивающие батчевый граф схожести фичей с class-aware маскированным графом предсказаний и адаптивно взвешивающие слои.
+:IMPACT: Модель-агностичное улучшение семантической структуры представлений без изменения архитектуры и процедуры обучения — дешёвый прирост качества для пайплайнов классификации и поиска.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.15664][Cloud-Edge LLM Collaborative Learning via Accelerating Personalized Bilevel Optimization]] — фреймворк CIDERS формализует cloud-edge коллаборацию LLM как персонализированную билевел-оптимизацию с гарантиями сходимости и до 200%+ прироста точности на Qwen2.5-3B.
+- [[https://arxiv.org/abs/2611.17466][Use-case-driven ontology modeling with the NeOn methodology for ambient assisted living]] — модульная онтология умного дома (ICF, SWRL-правила для фитнеса и комфорта) как семантический слой платформы Virtual Home.
+- [[https://arxiv.org/abs/2309.08674][Fake News Detectors are Biased against Texts Generated by Large Language Models]] — существующие детекторы чаще помечают LLM-тексты как фейки и пропускают человеческие; митигация через adversarial training плюс датасеты GossipCop++/PolitiFact++.
+- [[https://arxiv.org/abs/2401.00788][Astraios: Parameter-Efficient Instruction Tuning Code Large Language Models]] — систематика 28 instruction-tuned code-LLM: FFT даёт лучшее качество на всех масштабах, LoRA — лучший cost/performance trade-off.
+- [[https://arxiv.org/abs/2406.15877][BigCodeBench: Benchmarking Code Generation with Diverse Function Calls and Complex Instructions]] — 1140 задач с вызовами инструментов из 139 библиотек: LLM достигают лишь до 60% против 97% у людей.
+- [[https://arxiv.org/abs/2505.24098][HARDTESTGEN: A High-Quality RL Verifier Generation Pipeline for LLM Algorithmic Coding]] — автосинтез сложных тест-кейсов (+11.22 п.п. точности верификаторов) и датасет HARDTESTS на 26.6k задач для RL пост-тренинга.
+- [[https://arxiv.org/abs/2510.08697][BigCodeArena: Unveiling More Reliable Human Preferences in Code Generation via Execution]] — платформа human-eval кода с on-the-fly исполнением: 14k сессий, бенчмарки BigCodeReward и AutoCodeArena для автоматических Elo-оценок.
+
+* physics.soc-ph — Социальная физика и сети
+
+** 🧐 Обзор
+Центральный результат суток — контринтуитивная сетевая динамика: локальное демпфирование в сетях осцилляторов (от нейронных цепей до энергосетей) может усиливать колебания через латентные резонансы, что даёт новый рычаг проектирования и управления сетями. Теоретико-игровое направление пополнилось «игрой влиятелей» с единственным равновесием Нэша и анализом бифуркаций, воспроизводимых в multi-agent RL. На прикладном фронте — систематическое сравнение PINN и механистических моделей эпидемиологического прогнозирования с чётным практическим выводом.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2611.18031][Latent resonances in oscillator networks]]
+:WHAT: Теория латентных резонансов: пассивное демпфирование перемешивает скрытую собственную моду с соседними и может усиливать слабые input-output каналы более чем на порядок; точные верхние оценки усиления выражаются через базовые величины сети.
+:IMPACT: Прямо применимо к проектированию и управлению энергосетями и другими пассивными сетями: демпфирование становится инструментом перераспределения колебательной энергии, а не только её подавления.
+
+- [[https://arxiv.org/abs/2611.18389][A systematic comparison of physics-informed neural networks and mechanistic models for epidemic modeling and forecasting]]
+:WHAT: Контролируемое сравнение PINN-фреймворка и стохастической механистической модели с одинаковой age-structured SEIRD-core и rolling-window пайплайном на двух синтетических сценариях и первой волне COVID-19 в Лондоне.
+:IMPACT: Практический ориентир для систем эпиднадзора: PINN выигрывают на реальных данных и дают более узкие интервалы, но классические compartmental модели нельзя списывать — аргумент за параллельный бенчмаркинг.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2611.17148][Learning Dynamics of the Influencer's Game in Resource Landscapes]]
+:WHAT: Новая пространственная теоретико-игровая модель: при строгой log-вогнутости ядра влияния существует единственное симметричное равновесие Нэша; найден порог устойчивости по разбросу/кривизне игроков, за которым возникают бифуркации (кластеры специалистов, limit cycles, суб-игры), подтверждённые MARL при частичной наблюдаемости.
+:IMPACT: Предсказывает, когда конкурентное давление ведёт к конвергенции, а когда — к фрагментации: модель для размещения контента/сервисов на платформах, экологии и экономике с опорой на реальные данные о ресурсах.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2605.25610][Match classification in the last round of four-team round-robin tournaments]] — первое сравнение детерминированной и вероятностной классификации матчей на групповых этапах ЧМ-2014/2018 и декомпозиция влияния трёх реформ ЧМ-2026.
+- [[https://arxiv.org/abs/2611.18349][The directions of science: How we search the unknown]] — наука как коллективный поиск: cross-stage dependence между механизмами селекции может сужать эффективное разнообразие направлений, что обостряется с внедрением AI на всех стадиях производства знаний.
+
+* cs.DS — Структуры данных и алгоритмы
+
+** 🧐 Обзор
+Главный алгоритмический прорыв суток — листинг всех 2k-циклов быстрее барьера submodular width: улучшение классической оценки Alon–Yuster–Zwick для всех k≥3, причём алгоритм строится только на операторах join/project и прямо переносим в database-движки. Дополняет картину полная fine-grained классификация фиксированных паттернов подграфов с субквадратичным листингом и оптимальными экспонентами. В системной части — Express, превращающий non-causal attention-приближения в причинные с I/O-aware Triton-реализацией, и адаптивная дифференциально-приватная power iteration с beyond-worst-case гарантиями.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2606.10944][Express Language Modeling]]
+:WHAT: Инструмент Express, конвертирующий non-causal attention-приближения в причинные с теми же гарантиями (в паре с Thinformer — ошибка log^{3/2}(n)/s при O(s) памяти), плюс I/O-aware Triton-реализация.
+:IMPACT: Существенные ускорения против FlashAttention 2 и снятие четырёх ресурсных узких мест LM-пайплайна (long-context prefill, сжатие KV-кеша, memory- и compute-ограниченный decoding) — прямая системная ценность для инференса.
+
+- [[https://arxiv.org/abs/2602.11454][Adaptive Power Iteration Method for Differentially Private PCA]]
+:WHAT: (ε,δ)-DP алгоритм приближённого вычисления топового сингулярного вектора с новым фильтром, адаптирующимся к coherence матрицы: beyond-worst-case гарантии в модели row-level соседства.
+:IMPACT: Лучшие гарантии на типичных low-coherence данных (включая i.i.d.) — практичная приватная аналитика признаков без штрафов худшего случая.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2605.30564][Listing Even Cycles Faster than the Submodular-Width Barrier]]
+:WHAT: Листинг всех 2k-циклов за Õ(m^{(2k²−k+1)/(k²+1)}+t) — улучшение AYZ-оценки для всех k≥3 через новый результат об асимметричной supersaturation и планы по нескольким tree decomposition.
+:IMPACT: Первый за 30 лет сдвиг барьера submodular width для запросов с self-join; алгоритм на операторах join/project естественно реализуем в database-системах (экосистема PANDA/FAQ), в отличие от BFS-подходов.
+
+- [[https://arxiv.org/abs/2404.04369][A Fine-Grained Classification of Subquadratic Patterns for Subgraph Listing and Friends]]
+:WHAT: Полная характеризация фиксированных паттернов H, для которых все H-подграфы перечисляются за субквадратичное время, с оптимальными экспонентами c(H); ключевой приём — hyper-degree splitting по числу общих соседей у кортежей.
+:IMPACT: Обобщение классических алгоритмов для треугольников и циклов на произвольные шаблоны — фундамент для движков перечисления подграфов и graph pattern mining с conditional lower bounds как ориентиром.
+
+- [[https://arxiv.org/abs/2611.17482][Collective Tree Exploration with Predictions]]
+:WHAT: Коллективное исследование неизвестного дерева k агентами с предсказаниями размеров поддеревьев: детерминированный алгоритм за O(OPT+E) раундов по максимальной ошибке и competitive-гарантии по мультипликативной дисторсии.
+:IMPACT: Learning-augmented примитив для распределённого обхода графов (краулинг, поиск, патрулирование) с формальными гарантиями устойчивости к качеству предсказаний.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2211.03997][Online Nonconvex Decision Making with Approximate Oracles]] — approximate online dual mirror descent: гарантии по regret/нарушению long-term constraints зависят от slack между локальными допустимыми множествами и глобальными ограничениями.
+- [[https://arxiv.org/abs/2607.01159][Online Fair Division Meets Reordering Buffers]] — буферы перестановки ограниченного размера позволяют удерживать EF1 на каждом шаге онлайн-справедливого распределения при персонализированных k-значных оценках.
+- [[https://arxiv.org/abs/2508.18104][On the Parameterized Complexity of Grundy Domination and Zero Forcing Problems]] — W[1]-полнота четырёх вариантов Grundy domination по размеру решения и FPT-алгоритмы для zero forcing по treewidth.
+- [[https://arxiv.org/abs/2406.01999][Random Abstract Cell Complexes]] — Erdős–Rényi-подобная модель случайных cell complexes с approximate sampling 2-ячеек; пакет py-raccoon как генератор синтетики и null-model для topological deep learning.
+
+* cs.DC — Распределённые вычисления
+
+** 🧐 Обзор
+Сутки прошли под знаком гетерогенных мульти-вендорных GPU-кластеров: HetCCL даёт коллективные операции между NVIDIA и AMD без правок драйверов, MemX — memory-aware автопараллелизм под асимметрию compute/memory между узлами. Вторая линия — co-оптимизация охлаждения и вычислений в AI-датацентрах и переносимость через SYCL/oneMath. Показательный результат SyclKittens: tile-модель, кодирующая «known-good» приёмы работы с железом, резко повышает производительность ядер, которые пишут coding-агенты.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2601.08113][Coordinated Cooling and Compute Management for AI Datacenters]]
+:WHAT: Иерархический контроллер, co-оптимизирующий GPU parallelism, частоты (DVFS) и охлаждение на основе профилирования термодинамики GPU-серверов под AI-нагрузками (реальные inference-трейсы Azure).
+:IMPACT: Балансирует SLO по задержке с тепловыми ограничениями и заметно повышает энергоэффективность LLM-сервинга — тепловые эффекты перестают быть внешним фактором для планировщика.
+
+- [[https://arxiv.org/abs/2601.22585][HetCCL: Efficient LLM Training on Heterogeneous Vendor GPUs]]
+:WHAT: Библиотека коллективных коммуникаций, унифицирующая vendor-specific backends (NCCL и RCCL) и включающая RDMA-связь между GPU разных вендоров без модификаций драйверов.
+:IMPACT: Практическое высокопроизводительное обучение на mixed NVIDIA+AMD кластерах без изменений в DL-приложениях — прямой ответ на рост гетерогенных парков.
+
+- [[https://arxiv.org/abs/2610.04277][SyclKittens: A Tile Programming Model for Programmers and Coding Agents on Intel GPUs]]
+:WHAT: Hardware-aware tile programming model для Intel GPU: раскладка операндов под matrix engine, prefetch через L1, коммуникация через fabric между GPU-стеками; открытый kernel-suite с workload-специфичными политиками.
+:IMPACT: Coding-агенты с SyclKittens достигают 82.1% oneDNN против 57.5% на raw SYCL; suite даёт ~96% oneDNN в геометрическом среднем и инференс Llama-3.1-8B в 1.59x быстрее torch.compile — интерфейсы определяют качество агентной генерации ядер.
+
+- [[https://arxiv.org/abs/2610.41525][MemX: Memory-Aware Automatic Parallelism for Cross-Vendor Heterogeneous GPU Training]]
+:WHAT: Система автопараллелизма, совместно оптимизирующая время итерации, пик памяти и меж-GPU баланс памяти: взвешенная целевая функция, heterogeneous recomputation, XGBoost-предиктор с кешем предсказаний на базе Megatron-LM.
+:IMPACT: Единственный метод, находящий реальный Top-1 конфиг по обоим ранжированиям; поиск 31 240 конфигураций за 26.5 с против ~17 дней профилирования — делает гетерогенные кластеры практически используемыми.
+
+- [[https://arxiv.org/abs/2611.17659][INC-SRv6: In-Network Route Exploration and Fast Failover Using Segment Routing Headers in Dynamic UAV Networks]]
+:WHAT: Ин-нетворк routing-механизм: Segment Routing Header делится указателем Segments Left на две зоны — hop-by-hop запись следующего хопа впереди и in-band вектор multi-destination достижимости позади, с детерминированным failover из предтрансмиссионного состояния.
+:IMPACT: На 200-узловых 3D UAV-сетях при 20% отказах релеев: доставка 92.12% против 89.12% у reactive routing, 95-перцентиль задержки 121.26 → 8.84 ms и −35.8% control-пакетов — шаблон для динамических mesh-сетей.
+
+- [[https://arxiv.org/abs/2611.17565][Performance-Portable Exact Gaussian Process Regression in Python via SYCL and oneMath]]
+:WHAT: oneMath/SYCL backend для GPRat (HPX asynchronous many-task runtime + tiled алгоритмы): один SYCL-кодbase, диспетчеризуемый в vendor-native BLAS на NVIDIA/AMD/Intel GPU.
+:IMPACT: В пределах 3% от native CUDA на A30 и до 4.62x быстрее GPyTorch на MI210 — portability без потери нативной производительности для точной GP-регрессии в мульти-вендорных средах.

@@ -1,0 +1,174 @@
+#+TITLE: Arxiv Digest: 2026-09-07
+#+FROM: [2026-09-06 Sun]
+#+TO: [2026-09-07 Mon]
+#+DATE: [2026-09-07 Mon]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки заметен сдвиг от локальных query processors к оптимизациям на границе моделей данных и памяти: появились автоматизация индексов для disaggregated memory, multi-model query optimization и privacy-aware recommender frameworks. Зрелыми остаются воспроизводимые data pipelines и benchmark-driven entity resolution, где узким местом становится не scoring, а candidate generation. Для графовых и data-систем особенно практично смещение работы ближе к данным: predicate pushdown, dependent joins и строгие QC-конвейеры.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.02669][Decoupling Disaggregated Memory Optimizations from Indexing: A Compiler-Runtime Approach]]
+:WHAT: Nox — компиляторно-рантайм фреймворк, который из неизменённого конкурентного индекса автоматически генерирует версию для disaggregated memory через анализ LLVM IR, кэширование и трансляцию адресов.
+:IMPACT: Снимает ручную адаптацию B+-trees, hash tables и skip lists под RDMA/CXL-платформы, снижая инженерный burden и приближая производительность к hand-crafted индексам.
+
+- [[https://arxiv.org/abs/2502.00285][TSMini: A Simple Yet Highly Effective Trajectory Similarity Learning Model]]
+:WHAT: TSMini обучает траекторное сходство через sub-view modeling и k-nearest-neighbor loss, захватывая мульти-гранулярные паттерны и относительные ранги сходства.
+:IMPACT: Повышает точность learned trajectory similarity на 15% по сравнению с SOTA, что полезно для spatio-temporal data mining, similarity search и fast inference.
+
+- [[https://arxiv.org/abs/2602.03278][A Pipeline for ADNI Resting-State Functional MRI Processing and Quality Control]]
+:WHAT: Воспроизводимый конвейер ADNI rs-fMRI: загрузка imaging/clinical data, временное выравнивание, preprocessing через Clinica/fMRIPrep/MRIQC, QC-отчёты и BIDS-derivatives output.
+:IMPACT: Превращает гетерогенные нейроимиджинговые архивы в high-quality time-series data, увеличивая масштабируемость и воспроизводимость многоуровневых данных.
+
+- [[https://arxiv.org/abs/2609.04269][Corporate-Family Resolution Is Not a String-Matching Problem: A Public Benchmark Stratified by Name Visibility]]
+:WHAT: CorpFam — публичный benchmark для corporate-family resolution с 54,864 candidate pairs, стратами по name visibility и оценкой blocking/matching схем.
+:IMPACT: Показывает, что невидимые корпоративные связи теряются на этапе retrieval/blocking, а не ranking; переносит фокус data-систем на candidate generation.
+
+- [[https://arxiv.org/abs/2609.05095][CAT-LDP: Cloud-edge Adaptive Taxonomy under Local Differential Privacy]]
+:WHAT: Cloud-local рекомендательная система с LDP-побуждёнными категориями, иерархической taxonomy и адаптивным распределением privacy budget.
+:IMPACT: Улучшает баланс privacy/utility в sparse implicit-feedback рекомендациях и практична для edge/cloud-архитектур с ограничениями приватности.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.05014][Reducing the Cross-Model Tax: Query Optimization over Multi-Model Data]]
+:ALGO: MM-quecat использует mapping- и capability-aware optimization: model-aware predicate pushdown, cross-model dependent joins и non-redundant query-part construction для relational, document и graph DBs.
+:IMPACT: Снижает latency multi-model запросов до двух порядков, устраняет OOM и ускоряет планирование сложных графовых запросов, что важно для heterogeneous data systems.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В applied ML растут системы, где важны latency, energy и deployability: edge inference для медицинской визуализации, digital twins и графовые модели для рекомендаций. Отдельная линия — гиперграфы и graph foundation models, где структура связей и higher-order associations становятся первой-class сигналами. Большинство остальных работ — surveys и эмпирические оценки представлений; наибольшую ценность приносят методы с измеримым trade-off между privacy, quality и throughput.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2404.07124][Measuring proximity to standard planes during fetal brain ultrasound scanning]]
+:WHAT: Pipeline для fetal brain ultrasound: semi-supervised segmentation standard planes и non-SP slices, filtering frames без мозга, 6D pose regression и развёртывание на NVIDIA Clara AGX.
+:IMPACT: Даёт real-time, sensorless proximity feedback при 39 Hz inference, приближая learned navigation к клиническим workflows.
+
+- [[https://arxiv.org/abs/2501.10396][AI-Powered CPS-Enabled Vulnerable-User-Aware Urban Transportation Digital Twin: Methods and Applications]]
+:WHAT: Обзор методов и приложений для AI-powered cyber-physical digital twin городского транспорта с акцентом на perception, prediction и decision making.
+:IMPACT: Полезная дорожная карта для проектирования low-latency, vulnerable-user-aware transportation systems, где digital twin отличается от симулятора именно decision layer.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2412.05641][Hyperedge Anomaly Detection with Hypergraph Neural Network]]
+:ALGO: End-to-end unsupervised гиперграфовая нейронная сеть для детекции аномальных hyperedges, моделируя higher-order associations между сущностями.
+:IMPACT: Применима к transaction, collaboration и biological networks, где pairwise-графы пропускают много-entity события и аномалии.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2211.12337][Quality-diversity in dissimilarity spaces]] — применяет theory of magnitude к quality-diversity search в generic dissimilarity spaces, включая Go-Explore.
+- [[https://arxiv.org/abs/2404.11716][A Survey on Semantic Modeling for Building Energy Management]] — систематизирует ontology-based BEM модели и вводит метрики Ontology Instantiation Rate и Ontology Evidence Completeness.
+- [[https://arxiv.org/abs/2406.02465][An Empirical Study into Clustering of Unseen Datasets with Self-Supervised Encoders]] — сравнивает supervised и self-supervised image encoders для clustering unseen datasets и использует UMAP silhouette как proxy.
+- [[https://arxiv.org/abs/2407.09013][Procedural Content Generation via Generative Artificial Intelligence]] — survey генеративного AI для terrain, item и storyline generation с фокусом на data-limited scenarios.
+- [[https://arxiv.org/abs/2412.11194][Direction for Detection: A Survey of Automated Vulnerability Detection and all of its Pain Points]] — систематизирует ML4AVD и объясняет, почему self-reinforcing dataset/metric pain points замедляют прогресс.
+- [[https://arxiv.org/abs/2502.08346][Graph Foundation Models for Recommendation: A Comprehensive Survey]] — обзор graph foundation models, объединяющих GNN structure learning и LLM text understanding для рекомендаций.
+- [[https://arxiv.org/abs/2503.20654][AccidentSim: Generating Vehicle Collision Videos with Physically Realistic Collision Trajectories from Real-World Accident Reports]] — генерирует collision videos с physical simulator, LLM-предсказанием пост-коллизийных траекторий и NeRF-рендерингом.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Основной сигнал дня — переход от глобальных скалярных сетевых индексов к локально интерпретируемым графовым признакам и к критическим явлениям в higher-order networks. Для graph/data systems важны training-free descriptors и модели устойчивости, где group interactions, а не только pairwise edges, определяют contagion или collapse. Одновременно зрелыми остаются прикладные transport и population-dynamics задачи, но их практическая связь с базами данных слабее, чем у графовых feature methods.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.04520][Crowding controls the scaling of bus frequency with demand]]
+:WHAT: Из ~3,000 bus routes и >4B пассажиров выводит scaling law частоты, спроса и продолжительности из минимизации суммарного времени ожидания при ограниченном бюджете и crowding.
+:IMPACT: Даёт практичные экспоненты и бюджетные эффекты для urban transit planning, например неравномерную отдачу от +20% investment между городами.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.01633][Omega-N: Interpretable Structural Node Descriptors and Their Applicability Domain]]
+:ALGO: Строит десять interpretable node features локализацией четырёх factors of diag(A^3) с configuration-null excess и personalized PageRank на нескольких масштабах.
+:IMPACT: Training-free graph features конкурируют с hand-crafted centralities и recursive engines, а на protein interaction networks дают AUPRC gains для drug-target prioritisation.
+
+- [[https://arxiv.org/abs/2609.04692][Low-Dimensional Phase Diagram of Higher-Order Networked Systems]]
+:ALGO: Предлагает analytical dimension-reduction mapping из higher-order networked dynamics в effective low-dimensional system для prediction tipping boundaries, bistability и transitions.
+:IMPACT: Помогает anticipates systemic risk в сетях с групповыми interactions, где pairwise-модели теряют critical phenomena.
+
+- [[https://arxiv.org/abs/2609.05342][Mitigating Disease Spread by Design in Refugee and IDP Camps]]
+:ALGO: Использует JUNE agent-based epidemic model, чтобы исследовать, как layout camp формирует movement/interaction networks и disease spread.
+:IMPACT: Связывает физическое планирование поселений с network-based contagion control, что может стать methodology для humanitarian design systems.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.04443][Publish or Perish: A population-dynamics model of the corruption of peer review]] — population-dynamics модель peer review, где explicators/interpreters могут смещать долю при survivor-drawn panels.
+- [[https://arxiv.org/abs/2609.04988][A Strictly Proper Scoring-Rule Theory for Calibrating Stochastic Car-Following Models]] — утверждает, что calibration stochastic car-following needs strictly proper scores, а trajectory-error objectives могут быть неинформативны.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В data structures and algorithms доминируют графовые и потоковые задачи: emulators, spanning-tree counting, hypergraph cuts, similarity-graph statistics и FVS. Наблюдается развитие точных и приближённых алгоритмов для аннотированных графов, гиперграфов и streaming environments, а также переосмысление contraction frameworks через polymatroids. Для графовых систем наиболее практичны компактные distance summaries, быстрые connectivity/likelihood primitives и sublinear-space analytics.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2604.26831][Weighted Emulators with Local Heaviest Edges Stretch for Undirected Graphs]]
+:ALGO: Строит generalized emulators с O(n^{1+1/k}) edges и local weighted additive stretch на базе heaviest edges W1/W2, расширяя known spanner/emulator constructions.
+:IMPACT: Даёт compact distance approximation для weighted graph systems, где edge weights и short-distance regimes влияют на latency storage и query performance.
+
+- [[https://arxiv.org/abs/2609.03574][Improved algorithm for counting spanning trees by l1-regularized resistance]]
+:ALGO: Вводит l1-regularized resistance и использует determinant sparsifier framework для approximation числа spanning trees в O(m+n^{7/4} eps^{-3/2}) времени.
+:IMPACT: Ускоряет graph reliability и spectral/graph-likelihood primitives на large sparse graphs, где exact enumeration неприменим.
+
+- [[https://arxiv.org/abs/2609.04505][Statistics of Similarity Graphs in Node-Arrival Streams]]
+:ALGO: Constant-pass, sublinear-space streaming algorithms для degree moments, diversity index и sampling tasks на evolving similarity graphs, с nearly matching space lower bounds.
+:IMPACT: Практична для online graph analytics в memory-constrained data systems, где полный граф не может быть materialized.
+
+- [[https://arxiv.org/abs/2609.04389][Multiobjective Hypergraph Min-Cut in Quasi-Polynomial Time]]
+:ALGO: Дает randomized PTAS и два quasi-polynomial-time алгоритма для fixed-k multiobjective hypergraph min-cut, плюс QPTAS для hypergraph connectivity interdiction.
+:IMPACT: Расширяет cut-анализ на hypergraphs/group edges, где pairwise graph techniques structurally fail.
+
+- [[https://arxiv.org/abs/2507.10467][Colorful Minors]]
+:ALGO: Определяет colorful minor relation, развивает structural theory для colorful minor-free graphs и получает FPT testing и algorithmic meta-theorems через colored treewidth/Hadwiger extensions.
+:IMPACT: Обобщает minor-based graph algorithms на annotated/overlapping vertex sets, релевантно semantic, provenance и knowledge graphs, хотя contribution остаётся high-level.
+
+- [[https://arxiv.org/abs/2609.04414][An iterative rounding 2-approximation for Feedback Vertex Set via AI-assisted proof of an extreme point property]]
+:ALGO: Доказывает extreme point property для Strong-Density и Strong-Edge-Density polyhedra, создавая polynomial-time iterative rounding 2-approximation для FVS.
+:IMPACT: Новый LP-основанный путь к cycle breaking в dependency graphs, workflow cleanup и constraint systems.
+
+- [[https://arxiv.org/abs/2509.25150][The Popular Dimension of Matchings]]
+:ALGO: Вводит popular dimension как минимальный cardinality popular winning set; показывает exact 2 для weighted house allocation и bounds 2–3 для marriage/roommates.
+:IMPACT: Даёт relaxation для collective allocation systems, где popular matching может не существовать при предпочтениях с weights/ties.
+
+- [[https://arxiv.org/abs/2609.04521][A Polymatroidal Perspective on Random Contraction]]
+:ALGO: Объединяет Karger-style random contraction для graphs, hypergraphs и hedgegraphs через quotient-bounded polymatroids и algorithms для minimum quotient.
+:IMPACT: Формирует unified theory randomized cut algorithms для higher-order data structures и group-edge networks.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2608.08260][An O((5/3)^n poly(n)) One-Sided Monte Carlo Algorithm for Equal Subset Sum]] — one-sided Monte Carlo algorithm для Equal Subset Sum с временем O((5/3)^n poly(n)+n^2 m), false-positive-free success probability 1-2^{-Omega(n)}.
+- [[https://arxiv.org/abs/2609.04338][Computing Lewis Weights to High Precision by Fixed-Point Iteration]] — быстрее вычисляет p>2 block Lewis weights через fixed-point KL-contraction, релевантно leverage-score sketches и numerical linear algebra pipelines.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+В distributed computing заметен сдвиг к runtime control over communication, energy and isolation: DVFS для multimodal serving, collective tuning для congestion, DAG-based consensus и confidential serverless. Практично то, что улучшает latency, throughput, energy или privacy без полной перестройки приложения, например software-level controls поверх GPU/NCCL/EVM. Отдельно растёт security-sensitive системное моделирование: split-LLM privacy, confidential settlement и side channels через gradients.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2606.29629][Energy-Efficient Multimodal Inference Serving with DATE-serve]]
+:WHAT: DATE-serve — software DVFS controller, совместно учитывающий dependency stalls, arithmetic-intensity/frequency mismatch и thermal throttling при multimodal GPU inference.
+:IMPACT: Даёт 22% energy-efficiency improvement без потери latency/throughput на commodity GPUs, что важно для cost control inference serving.
+
+- [[https://arxiv.org/abs/2609.04417][Tuning Collective Patterns to Alleviate Congestion in Shared AI Clusters]]
+:WHAT: REACT — shim над NCCL, который runtime-детектит congestion и перестраивает collective communication patterns, сохраняя семантику information exchange.
+:IMPACT: Улучшает algorithm bandwidth на 13–38% в shared cloud clusters без инфраструктурной поддержки, deployable end-user’ом.
+
+- [[https://arxiv.org/abs/2608.18029][Minimizing Commit Rules for DAG-based Atomic Broadcast]]
+:WHAT: Minnow определяет minimal commit rules для uncertified round-based DAG atomic broadcast в eventually synchronous и asynchronous моделях.
+:IMPACT: Сокращает условия и latency BFT ordering в DAG-based replicated systems, где commit overhead влияет на throughput.
+
+- [[https://arxiv.org/abs/2609.04397][Accelerating Atom Simulations with Variable-Block Sparse Matrix Library]]
+:WHAT: VBCSR — distributed sparse matrix library, сохраняющая variable-size atomic blocks и автоматически маппящая operators в CSR/BSR/VBCSR с group dispatch dense kernels.
+:IMPACT: Ускоряет block-sparse linear algebra в HPC atomistic simulations, включая InP nanoparticles с >10^6 atoms.
+
+- [[https://arxiv.org/abs/2609.04478][Performance Study of Serverless Workloads in Confidential Virtual Machines]]
+:WHAT: Empirical study serverless workloads в CVMs: memory overhead, warm/cold starts, VMEXIT effects и consolidation strategies с selective isolation relaxation.
+:IMPACT: Количественно показывает privacy/performance trade-offs для confidential serverless и даёт практические deployment patterns.
+
+- [[https://arxiv.org/abs/2608.28529][Relaxed Sender Anonymity for CBDC Interbank Settlement: A Zero-Knowledge Approach on Permissioned EVM]]
+:WHAT: Confidential interbank settlement на permissioned EVM/Besu/QBFT с relaxed sender anonymity, Groth16, Poseidon commitments, ECIES payload encryption и append-only NoteRegistry.
+:IMPACT: Демонстрирует 8–16 s settlement и ~1 ms proof verification overhead, предлагая AML/CFT-совместимую privacy architecture для DLT finance.
+
+- [[https://arxiv.org/abs/2609.04382][Privacy Failure in Split-LLM Training, The Returned Gradient Nullifies the Decoys]]
+:WHAT: Systems-security case study split-LLM training: zero-gradient pattern на decoy rows раскрывает real rows, а clipping/noising gradients закрывает leak ценой ~0.01 nats cross-entropy.
+:IMPACT: Показывает, что forward-pass privacy evals могут пропускать gradient side channels, критично для distributed ML security.
+
+- [[https://arxiv.org/abs/2609.04524][DPRQ: A Dynamic Programming-based Qubit Routing Algorithm for Collective Communication in Distributed Quantum Computing]]
+:WHAT: DPRQ — dynamic programming qubit routing для distributed quantum circuits, разбитых на collective communication blocks, с global circuit-level optimization и inter-block dependencies.
+:IMPACT: Снижает inter-node quantum communication в среднем на 24.4%, максималено на 85.1%, что напрямую помогает scaling distributed quantum computing.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2608.18684][A Simple Construction of Locally Checkable Problems Filling the LOCAL Complexity Gaps in Graphs with Arbitrary Large Degrees]]
+:ALGO: Показывает, что LCL complexity gaps возникают из bounded-degree assumptions, и строит increasing-degree locally checkable problems с translation theorem для unbounded-degree networks.
+:IMPACT: Уточняет upper/lower bounds для distributed graph algorithms в high-degree networks и decentralized systems, где port-numbering model важна для локальных вычислений.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2506.04061][Collaborative On-Sensor Array Cameras]] — distributed meta-optics learning для broadband on-sensor camera с 100-million nanoposts, learned proxy meta-atoms и non-generative reconstruction.

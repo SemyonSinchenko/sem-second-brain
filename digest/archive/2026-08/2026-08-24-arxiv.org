@@ -1,0 +1,108 @@
+#+TITLE: Arxiv Digest: 2026-08-24
+#+FROM: [2026-08-23 Sun]
+#+TO: [2026-08-24 Mon]
+#+DATE: [2026-08-24 Mon]
+#+STARTUP: showall
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+За последние сутки наблюдается сильный фокус на оптимизации инфраструктуры для больших языковых моделей, особенно в сценариях MoE и мульти-агентных системах. Параллельно развиваются системы распределённого обучения графовых представлений, где ключевым трендом становится связка сэмплирования и обучения в реальном времени.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2510.18586][TokenCake: A KV-Cache-centric Serving Framework for LLM-based Multi-Agent Applications]]
+:WHAT: Фреймворк обслуживания LLM, оптимизирующий управление KV-кэшем через агент-ориентированное планирование.
+:IMPACT: Снижает задержку на 47% и улучшает утилизацию памяти GPU за счёт выгрузки idle-кэшей во время вызовов функций.
+- [[hxxps://arxiv.org/abs/2501.10375][DAOP: Data-Aware Offloading and Predictive Pre-Calculation for Efficient MoE Inference]]
+:WHAT: Движок инференса MoE на устройстве, динамически распределяющий экспертов между CPU и GPU.
+:IMPACT: Ускоряет инференс до 8.20x по сравнению с кэшированием экспертов, минимизируя передачу данных.
+- [[hxxps://arxiv.org/abs/2502.02581][Themis: Efficient Sparse Model Training Through Fully Sharded Sparse Data Parallelism]]
+:WHAT: Подход FSSDP для обучения MoE, устраняющий перемещение экспертов через балансировку нагрузки на месте.
+:IMPACT: Даёт ускорение 1.26-2.42x за счёт исключения оверхеда миграции экспертов и резервирования памяти.
+- [[hxxps://arxiv.org/abs/2606.22180][FeLoG: Scalable and Efficient Distributed Graph Embedding with Feedback Loop Mechanism]]
+:WHAT: Система распределённого графового эмбеддинга с обратной связью между сэмплированием и качеством векторов.
+:IMPACT: Ускоряет обучение в 27.9x и снижает коммуникационные затраты на 53% за счёт приоритизации недообученных узлов.
+- [[hxxps://arxiv.org/abs/2608.20370][Benchmarking LLM Serving Systems for Agentic AI Workloads with XPerf]]
+:WHAT: Бенчмарк-фреймворк для нагрузочного тестирования систем обслуживания LLM на агентных рабочих нагрузках.
+:IMPACT: Позволяет воспроизводимо выявлять узкие места производительности в недетерминированных агентных сценариях.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.12889][Dodoor: Efficient Randomized Decentralized Scheduling with Load Caching for Heterogeneous Tasks and Clusters]] — Децентрализованный планировщик, сокращающий сообщения на 66% за счёт кэширования нагрузки.
+- [[hxxps://arxiv.org/abs/2604.04750][DeepStack: Facilitating Co-Design Exploration of 3D DRAM-Stacked Accelerators for Distributed LLM Inference]] — Модель производительности для распределённого инференса на 3D-стеках памяти.
+- [[hxxps://arxiv.org/abs/2608.20363][Scalpel3: A High-Performance Data Carving Architecture for Recovery of Fragmented Files]] — Параллельный фреймворк для восстановления фрагментированных файлов без метаданных ФС.
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В базах данных доминирует тема интеграции ИИ: от улучшения Text-to-SQL через RL до создания верифицированных хабов моделей внутри СУБД. Одновременно всплывают критические вопросы целостности векторных хранилищ, где удаление записей не гарантирует семантической эразии.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2603.20004][Human-Level Text-to-SQL via Reinforcement Learning on Verified Data, Without Pipeline Engineering]]
+:WHAT: Достижение человеческого уровня в Text-to-SQL через fine-tuning LLM на верифицированных данных (RLVR).
+:IMPACT: Устраняет необходимость в сложных пайплайнах, повышая точность на 11-16% за счёт очистки обучающей выборки.
+- [[hxxps://arxiv.org/abs/2608.20352][Ghost Echoes: Semantic Erasure Failure in Retrieval-Backed Applications]]
+:WHAT: Исследование остаточного влияния удалённых записей на семантический центр retrieval-контекста в векторных БД.
+:IMPACT: Выявляет разрыв между API-удалением и реальной семантической эразией, требуя новых примитивов очистки.
+- [[hxxps://arxiv.org/abs/2608.20525][Bolo: Verified Model Hub for Next-Generation AI Databases]]
+:WHAT: Платформа готовых к использованию инференс-пайплайнов, верифицированных агентами.
+:IMPACT: Превращает сырые веса моделей в надёжную базу инференса с покрытием 97% для работающих пайплайнов.
+- [[hxxps://arxiv.org/abs/2605.25538][Tetris: Tile-level Sampling for Efficient and High-Fidelity Video Object Tracking]]
+:WHAT: Система извлечения треков объектов из видео через тайловую выборку и полиомино-модель.
+:IMPACT: Повышает пропускную способность в 17.4x при потере точности трекинга менее 5%.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.20683][Improving Join Order Optimization on Gate-Based Quantum Computers via Structured Parameter Initialization]]
+:ALGO: Использование структурированной инициализации параметров (SPIQ) для квантовой оптимизации порядка соединений (QAOA).
+:IMPACT: Увеличивает частоту сэмплирования оптимального плана соединения в 5 раз на малых масштабах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.20358][bikiDATA: A Python Library to Query and Explore Large-Scale RDF Datasets]] — Библиотека для работы с RDF-графами через нативный Python API без глубокого знания SPARQL.
+- [[hxxps://arxiv.org/abs/2411.16478][Federated and differentially private estimation of KL divergence]] — Метод оценки KL-дивергенции в федеративном обучении с гарантиями дифференциальной приватности.
+- [[hxxps://arxiv.org/abs/2608.20356][Disentangling Structure and Semantics: How Schema Representation Affects LLM-Based SQL Generation]] — Анализ влияния нормализации схемы и именования колонок на качество генерации SQL.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Значительный прогресс в алгоритмах на графах: от полиномиального сэмплирования сбалансированных лесов до задач упаковки треугольников с критерием справедливости. Также представлены эффективные решения для онлайн-обработки строк и согласования данных с низкой коммуникационной сложностью.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2310.15152][Sampling Balanced Forests of Grids in Polynomial Time]]
+:ALGO: Доказательство возможности полиномиального сэмплирования сбалансированных разбиений сетчатых графов через остовные деревья.
+:IMPACT: Решает открытую задачу для алгоритмов районирования и политического редистриктинга.
+- [[hxxps://arxiv.org/abs/2509.24309][Forcing a unique minimum spanning tree and a unique shortest path]]
+:ALGO: Исследование сложности поиска минимальных forcing-множеств для остовных деревьев и кратчайших путей.
+:IMPACT: Показывает трактируемость задачи для MST, в отличие от NP-полноты для анти-forcing множеств путей.
+- [[hxxps://arxiv.org/abs/2608.07674][Approximation Algorithms for Perfect Fair-Triangle Packing]]
+:ALGO: Аппроксимационные алгоритмы для упаковки треугольников с учётом справедливости распределения цветов вершин.
+:IMPACT: Предлагает детерминированный (1/3) и рандомизированный алгоритмы для NP-трудной задачи кластеризации.
+- [[hxxps://arxiv.org/abs/2608.17990][Cluster-Graph Edit Distance: Optimal Explicit Embeddings, Metric Proxies, and Complexity]]
+:ALGO: Оптимальное вложение метрики редактирования кластерных графов в L2 с искажением Theta(n^1/4).
+:IMPACT: Даёт эффективные метрические прокси для сравнения структур графов и кластеризации.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2608.19149][Simple Low-Overhead Communication-Efficient String Reconciliation and Edit Distance]] — Алгоритмы согласования строк с коммуникационной сложностью, пропорциональной расстоянию редактирования.
+- [[hxxps://arxiv.org/abs/2607.00612][Online computation of maximal closed substrings]] — Онлайн-алгоритм вычисления максимальных замкнутых подстрок за O(n log n) через Link-Cut деревья.
+- [[hxxps://arxiv.org/abs/2608.13782][The Sharp Dimension Bound in the Johnson--Lindenstrauss Lemma]] — Доказательство гипотезы о точной размерности вложения JL для всего диапазона параметров.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования сосредоточены на влиянии топологии сети и порядка сообщений на коллективную динамику. Особый интерес представляет связь спектральных свойств графа (Лапласиан) с финальным состоянием консенсуса в системах мнений.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2608.20704][Message Order Selects Opposite Collective Opinions on Laplacian-Cospectral Networks]]
+:ALGO: Модель сети, где порядок сообщений определяет выбор консенсуса на графах с идентичным спектром Лапласиана.
+:IMPACT: Демонстрирует, что собственных значений Лапласиана недостаточно для предсказания динамики мнений.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2305.17064][Large population limit for a multilayer SIR model including households and workplaces]] — Стохастическая модель эпидемии с учётом домохозяйств и рабочих мест, сведённая к детерминированной системе.
+- [[hxxps://arxiv.org/abs/2608.20555][Exact Scaling Theory of Social Tipping Phenomena in Finite Populations]] — Точная теория масштабирования для социальных переломных точек в моделях порогового типа.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В прикладном ИИ выделяются работы по распределённой оптимизации на непрерывных структурах (графоны) и системы автоматического распределения ресурсов в рекламе. Акцент смещается на масштабируемость агентных систем и учёт структурных ограничений в обучении.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2407.02765][Graphon Particle Systems, Part II: Dynamics of Distributed Stochastic Continuum Optimization]]
+:ALGO: Алгоритмы стохастического градиентного спуска и отслеживания градиентов на графонах (континуум узлов).
+:IMPACT: Обеспечивает сходимость к глобальному оптимуму в распределённых сетях с бесконечным числом узлов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2412.06167][ACQ: A Deployed Two-Stage Framework for Automated Creative Quota Allocation in Large-Scale Online Advertising]] — Фреймворк распределения квот на креативы в рекламе, увеличивший доход платформы на 6.20%.
+- [[hxxps://arxiv.org/abs/2504.09772][Two Heads are Better Than One: Test-time Scaling of Multi-agent Collaborative Reasoning]] — Стратегия масштабирования рассуждений через мульти-агентное взаимодействие и роль "CEO"-агента.

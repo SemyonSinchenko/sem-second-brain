@@ -1,0 +1,79 @@
+#+TITLE: Daily Digest: 2026-08-14
+#+FROM: [2026-08-13 Thu]
+#+TO: [2026-08-14 Fri]
+#+DATE: [2026-08-14 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия делает ставку на агентные workflow: AWS расширяет Bedrock AgentCore инструментами observability и браузерной автоматизации для legacy-систем. Сообщество Open Source сталкивается с новым регуляторным давлением (EU AI Act, CRA), требуя активной позиции разработчиков. В инфраструктуре наблюдается тренд на оптимизацию затрат (кейс WarpStream) и улучшение качества данных (синтетические зависимости).
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/building-a-streaming-local-ai-agent][Building a Streaming Local AI Agent]] (KDnuggets) — разбор архитектурных паттернов стриминга для локальных AI-агентов.
+- [[hxxps://www.kdnuggets.com/constraining-output-space-small-language-model-narrow-automation-optimization][Constraining Output Space for SLM Narrow Automation Optimization]] (KDnuggets) — техника ограничения пространства вывода для оптимизации малых моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/monitor-on-premises-and-multi-cloud-ai-agents-with-agentcore-observability/][Monitor on-premises and multi-cloud AI agents with AgentCore Observability]] (AWS) — настройка телеметрии для агентов вне облака AWS через ADOT.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/automate-legacy-web-applications-with-amazon-bedrock-agentcore-browser-tool/][Automate legacy web applications with Amazon Bedrock AgentCore Browser Tool]] (AWS) — автоматизация legacy-веба через управляемые браузерные сессии.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accelerating-ma-due-diligence-with-amazon-bedrock-agentcore/][Accelerating M&A due diligence with Amazon Bedrock AgentCore]] (AWS) — использование мульти-агентных систем для ускорения Due Diligence.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/amazon-quick-for-microsoft-365-agentic-ai-where-you-work/][Amazon Quick for Microsoft 365: Agentic AI where you work]] (AWS) — интеграция агентов данных прямо в офисные приложения Microsoft.
+- [[hxxps://deepmind.google/blog/introducing-gemini-3-7-flash/][Introducing Gemini 3.7 Flash]] (DeepMind) — анонс новой версии модели Gemini с акцентом на скорость.
+- [[hxxps://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop][Record, train, and deploy from one place with Strands Agents, LeRobot, and Hugging Face Storage Buckets]] (Hugging Face) — унификация цикла обучения и деплоя для робототехники.
+- [[hxxps://www.databricks.com/blog/ai-hallucinations][What are AI Hallucinations?]] (Databricks) — базовое объяснение природы галлюцинаций в генеративных моделях.
+- [[hxxps://www.databricks.com/blog/smart-routing-unity-ai-gateway-match-frontier-quality-30-lower-cost-task][Smart Routing in Unity AI Gateway: Match frontier quality with 30%+ lower cost per task]] (Databricks) — стратегия маршрутизации запросов для снижения затрат на инференс.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/monitor-on-premises-and-multi-cloud-ai-agents-with-agentcore-observability/][Monitor on-premises and multi-cloud AI agents with AgentCore Observability]]
+:SCORE: 9/10
+:WHY: Критично для внедрения агентов в production: решает проблему наблюдаемости в гибридных окружениях.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/automate-legacy-web-applications-with-amazon-bedrock-agentcore-browser-tool/][Automate legacy web applications with Amazon Bedrock AgentCore Browser Tool]]
+:SCORE: 8/10
+:WHY: Практическое решение для автоматизации legacy-систем без API, актуально для энтерпрайза.
+**** [[hxxps://www.kdnuggets.com/building-a-streaming-local-ai-agent][Building a Streaming Local AI Agent]]
+:SCORE: 8/10
+:WHY: Важный архитектурный паттерн для снижения задержек и работы с локальными моделями.
+
+** Открытое ПО
+- [[hxxps://opensource.org/blog/why-openness-matters-more-than-ever][Why Openness Matters More Than Ever]] (OpenSource.org) — аргументация защиты открытого кода в эпоху регуляторных ограничений AI.
+- [[hxxps://opensource.org/blog/eu-ai-act-and-cra-timelines-and-resources][EU AI Act and CRA: Timelines and Resources]] (OpenSource.org) — гайд по соответствию новым европейским законам для разработчиков OSS.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/eu-ai-act-and-cra-timelines-and-resources][EU AI Act and CRA: Timelines and Resources]]
+:SCORE: 9/10
+:WHY: Прямое влияние на合规ность продуктов: юристы и лиды должны знать сроки и требования.
+**** [[hxxps://opensource.org/blog/why-openness-matters-more-than-ever][Why Openness Matters More Than Ever]]
+:SCORE: 8/10
+:WHY: Стратегическое понимание позиции сообщества в условиях геополитического давления на AI.
+
+** Вендоры
+- [[hxxps://www.warpstream.com/blog/eternal-case-study][Eternal Saves 60+%, Simplifies Ops, and Logs 25 GiB/s With WarpStream]] (WarpStream) — кейс миграции с Kafka для снижения затрат на логирование.
+- [[hxxps://www.databricks.com/blog/how-scottish-water-made-its-capital-investment-data-conversational-databricks-genie][How Scottish Water Made Its Capital Investment Data Conversational With Databricks Genie]] (Databricks) — внедрение Conversational AI для анализа инвестиционных данных.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — повестка встречи сообщества графовых баз данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/eternal-case-study][Eternal Saves 60+%, Simplifies Ops, and Logs 25 GiB/s With WarpStream]]
+:SCORE: 9/10
+:WHY: Реальные цифры экономии на инфраструктуре: полезно для планирования миграции с Kafka.
+**** [[hxxps://www.databricks.com/blog/how-scottish-water-made-its-capital-investment-data-conversational-databricks-genie][How Scottish Water Made Its Capital Investment Data Conversational With Databricks Genie]]
+:SCORE: 7/10
+:WHY: Пример внедрения GenAI в традиционные отрасли для ускорения принятия решений.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Обзор трендов в графовых технологиях и стандарте GQL для архитекторов данных.
+
+** Инженеры
+- [[hxxps://engineering.atspotify.com/2026/8/when-can-llms-replace-humans-in-a-b-tests/][When Can LLMs Replace Humans in A/B Tests?]] (Spotify Engineering) — анализ ограничений замены пользователей LLM при тестировании.
+- [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]] (Clojure Civitas) — образовательный материал по основам линейной регрессии.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.atspotify.com/2026/8/when-can-llms-replace-humans-in-a-b-tests/][When Can LLMs Replace Humans in A/B Tests?]]
+:SCORE: 9/10
+:WHY: Критический взгляд на валидность синтетических тестов: экономит ресурсы на ошибочные эксперименты.
+**** [[hxxps://clojurecivitas.org/math/stats/regression/linear.html][Learn linear least squares with me]]
+:SCORE: 7/10
+:WHY: Фундаментальная математика для инженеров ML: освежение знаний о методе наименьших квадратов.
+
+** Инженерия данных
+- [[hxxps://medium.com/towards-data-engineering/sda-06-detecting-primary-keys-foreign-keys-and-join-relationships-351296759f3e?source=rss-6e4a30cbb0e1------2][SDA 06: Detecting Primary Keys, Foreign Keys, and Join Relationships]] (Towards Data Engineering) — автоматическое выявление связей между таблицами для генерации синтетических данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/sda-06-detecting-primary-keys-foreign-keys-and-join-relationships-351296759f3e?source=rss-6e4a30cbb0e1------2][SDA 06: Detecting Primary Keys, Foreign Keys, and Join Relationships]]
+:SCORE: 8/10
+:WHY: Решает проблему целостности синтетических данных: важно для тестирования и анонимизации.

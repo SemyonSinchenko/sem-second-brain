@@ -1,0 +1,138 @@
+#+TITLE: Arxiv Digest: 2026-04-30
+#+FROM: [2026-04-29 Wed]
+#+TO: [2026-04-30 Thu]
+#+DATE: [2026-04-30 Thu]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается устойчивый тренд на интеграцию больших языковых моделей (LLM) в системы управления данными и знаниями. Ключевые разработки предлагают архитектурные решения для кэширования семантических планов и автоматического согласования схем в гетерогенных средах. Параллельно развиваются специализированные алгоритмы майнинга паттернов для анализа неструктурированных биологических данных.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.26176][CacheRAG: A Semantic Caching System for Retrieval-Augmented Generation in Knowledge Graph Question Answering]]
+:WHAT: Системная архитектура кэширования для LLM-based KGQA, трансформирующая stateless planners в continual learners с использованием семантического парсинга.
+:IMPACT: Устраняет галлюцинации схемы и повышает точность ответов (+13.2%) за счет учета исторических паттернов запросов, аналогично кэшу планов в СУБД.
+- [[hxxps://arxiv.org/abs/2604.26356][PiLLar: Matching for Pivot Table Schema via LLM-guided Monte-Carlo Tree Search]]
+:WHAT: Фреймворк для согласования схем сводных таблиц с использованием поиска по дереву Монте-Карло, управляемого LLM.
+:IMPACT: Решает проблему интеграции данных в data lakes при наличии анонимизированных данных, достигая 87.94% точности без дообучения.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.25968][Mining Negative Sequential Patterns to Improve Viral Genomic Feature Representation and Classification]]
+:ALGO: Алгоритм GONPM+ для майнинга негативных последовательных паттернов (NSP) в геномных данных, извлекающий признаки отсутствия нуклеотидов.
+:IMPACT: Повышает точность классификации вирусных геномов на 10-24% по сравнению с традиционными методами, основанными на частоте вхождений.
+
+** 📄 Остальное
+- Пусто (все статьи распределены по вышеуказанным секциям).
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+В социальной физике доминируют работы по моделированию городской динамики, трафика и эпидемий с использованием сетевых подходов. Заметен сдвиг в сторону применения ассимиляции данных для оптимального контроля транспортных потоков в реальном времени. Также представлены исследования иерархических графов и сообществ в ко-occurrence сетях.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.26017][Optimal-Control Suggestion for Congestion on Freeways using Data Assimilation of Distributed Fiber-Optic Sensing]]
+:WHAT: Система оптимального контроля трафика на автомагистралях, использующая ассимиляцию данных с распределенных волоконно-оптических сенсоров (DFOS).
+:IMPACT: Позволяет оценивать сценарии управления в реальном времени без мертвых зон, улучшая пропускную способность на 10-15% и среднюю скорость на 20-30%.
+- [[hxxps://arxiv.org/abs/2604.26284][Digital Epidemiology with Awareness-Based Event-Triggered Migration in Networked Cyber-Physical Systems]]
+:WHAT: Модель эпидемии в сетевых кибер-физических системах с механизмом миграции, триггеримым событием на основе локальной осведомленности.
+:IMPACT: Демонстрирует эффективное подавление распространения болезни в гетерогенных популяциях через децентрализованный контроль мобильности.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2509.18782][Emergence of power laws in hierarchical dynamics on multi-level graphs]]
+:ALGO:QUEUE-based динамическая модель на многоуровневых иерархических графах агентов (поезда) с приоритетными правилами.
+:IMPACT: Объясняет возникновение степенных законов в задержках без сложных сетей, что важно для моделирования транспортных систем и критических событий.
+- [[hxxps://arxiv.org/abs/2604.26119][Two-Dimensional Structural Characterization of Music Genre Communities in Playlist Co-occurrence Networks]]
+:ALGO: Двумерный фреймворк для выделения сообществ в сетях совместной встречаемости плейлистов по осям внешней замкнутости и внутренней дифференциации.
+:IMPACT: Позволяет количественно оценивать структуру жанров независимо от фиксированных лейблов, выявляя скрытые сообщества потребителей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2509.11875][The dimensions of accessibility: proximity, opportunities, values]] — Концептуальная框架 для измерения доступности городских сервисов по трем измерениям.
+- [[hxxps://arxiv.org/abs/2411.00035][Guiding Self-Organizing Dynamics of Residential Choice in Cities to Reduce Traffic Congestion and Carbon Emissions]] — Анализ влияния смены жилья на трафик и выбросы CO2.
+- [[hxxps://arxiv.org/abs/2509.17625][Comparing Data Assimilation and Likelihood-Based Inference on Latent State Estimation in Agent-Based Models]] — Сравнение методов оценки скрытых состояний в агентных моделях.
+- [[hxxps://arxiv.org/abs/2511.09797][Urban Density and Equity of Access to Social Services in Australian Urban Areas]] — Исследование пространственного неравенства доступа к сервисам в Австралии.
+- [[hxxps://arxiv.org/abs/2512.17676][Networks as the fundamental constituents of the universe]] — Теоретическая модель вселенной на основе случайных сетей и кривизны Ollivier-Ricci.
+- [[hxxps://arxiv.org/abs/2604.26165][Power, Depletion and Energy Quality Model of Thermo-industrial Civilization]] — Модель зависимости цивилизации от ископаемого топлива.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В области алгоритмов и структур данных выделяются работы по высокопроизводительным вычислениям и алгоритмам с предсказаниями (learning-augmented). Представлены значимые оптимизации базовых операций (FFT, конвертация чисел) и улучшения классических графовых оракулов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.26019][Converting an Integer to a Decimal String in Under Two Nanoseconds]]
+:WHAT: SIMD-алгоритм конвертации целых чисел в десятичные строки без таблиц поиска, адаптирующийся к распределению длин цифр.
+:IMPACT: Превосходит стандартные библиотеки в 2-4 раза, что критично для систем с высокой нагрузкой на сериализацию данных.
+- [[hxxps://arxiv.org/abs/2506.12718][Permutation-Avoiding FFT-Based Convolution]]
+:WHAT: Реализация свертки на основе БПФ, избегающая перестановок индексов за счет взаимной компенсации в многомерных случаях.
+:IMPACT: Повышает арифметическую интенсивность и эффективность использования памяти в библиотеках линейной алгебры.
+- [[hxxps://arxiv.org/abs/2604.26349][Asymptotically Robust Learning-Augmented Algorithms for Preemptive FIFO Buffer Management]]
+:WHAT: Онлайн-алгоритм управления буфером с предсказаниями, обеспечивающий 1-консистентность и асимптотическую робастность.
+:IMPACT: Гарантирует оптимальное конкурентное отношение даже при ошибочных предсказаниях, что важно для сетевых пакетных буферов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.26062][Incremental Strongly Connected Components with Predictions]]
+:ALGO: Структура данных для инкрементального поддержания компонент сильной связности (SCC) с использованием предсказаний последовательности ребер.
+:IMPACT: Обеспечивает почти оптимальные границы времени работы при хороших предсказаниях, демонстрируя практический ускорение на реальных графах.
+- [[hxxps://arxiv.org/abs/2604.26451][Path-Reporting Distance Oracles for Vertex-Labeled Graphs]]
+:ALGO: Оракул расстояний для вершинно-помеченных графов с возможностью восстановления пути и улучшенным коэффициентом аппроксимации (stretch).
+:IMPACT: Закрывает разрыв в точности по сравнению с предыдущими работами, поддерживая запросы за O(k) времени.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2510.08472][Agnostic Product Mixed State Tomography via Robust Statistics]] — Алгоритмы томографии квантовых состояний и робастного обучения распределений.
+- [[hxxps://arxiv.org/abs/2604.25962][Coherent Rollout Oracles for Finite-Horizon Sequential Decision Problems]] — Анализ сложности обратимых схем для квантового планирования.
+- [[hxxps://arxiv.org/abs/2604.26190][Flashback: A Reversible Bilateral Run-Peeling Decomposition of Strings]] — Обратимая декомпозиция строк на основе снятия рангов символов.
+- [[hxxps://arxiv.org/abs/2604.26533][Small Independent Sets versus Small Separator in Geometric Intersection Graphs]] — Субэкспоненциальные алгоритмы для геометрических графов пересечений.
+- [[hxxps://arxiv.org/abs/2604.26714][On (In)approximability of MaxMin Independent Set Reconfiguration]] — Исследование аппроксимируемости задачи реконфигурации независимого множества.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Секция распределенных вычислений переполнена работами по оптимизации распределенного обучения и инференса LLM. Ключевые темы — устранение хвостовой задержки коммуникаций, эффективное управление памятью GPU и асинхронные стратегии обучения.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.24013][CommFuse: Hiding Tail Latency via Communication Decomposition and Fusion for Distributed LLM Training]]
+:WHAT: Метод наложения коммуникации и вычислений через декомпозицию коллективных операций в peer-to-peer коммуникацию для распределенного обучения LLM.
+:IMPACT: Устраняет хвостовую задержку в тензорном параллелизме, повышая утилизацию FLOPS и пропускную способность.
+- [[hxxps://arxiv.org/abs/2604.26074][DAK: Direct-Access-Enabled GPU Memory Offloading with Optimal Efficiency for LLM Inference]]
+:WHAT: Фреймворк оффлоадинга памяти GPU с прямым доступом к удаленной памяти через TMA, минуя_PREFETCH_ в HBM.
+:IMPACT: Достигает почти оптимальной агрегации пропускной способности и ускорения до 3x по сравнению с базовыми решениями оффлоадинга.
+- [[hxxps://arxiv.org/abs/2604.26256][DORA: A Scalable Asynchronous Reinforcement Learning System for Language Model Training]]
+:WHAT: Система асинхронного RL для обучения LLM с многоверсионным стримингом rollout для устранения простоев.
+:IMPACT: Ускоряет обучение RL в 2-4 раза на крупных кластерах без нарушения сходимости алгоритма.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.22146][O(K)-Approximation Coflow Scheduling in K-Core Optical Circuit Switching Networks]]
+:ALGO: Алгоритм планирования кофлоков в много-ядерных оптических сетях с аппроксимацией 8K для минимизации времени завершения.
+:IMPACT: Решает проблему межъядерного распределения трафика и ограничений переконфигурации в оптических коммутаторах ЦОД.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2504.01856][Improved Bounds for Coin Flipping, Leader Election, and Random Selection]] — Улучшенные границы устойчивости для протоколов распределенного консенсуса.
+- [[hxxps://arxiv.org/abs/2604.22430][A comprehensive evaluation of spatial co-execution on GPUs using MPS and MIG technologies]] — Оценка технологий пространственного разделения GPU (MPS/MIG).
+- [[hxxps://arxiv.org/abs/2604.25422][CUDA Kernel Optimization and Counter-Free Performance Analysis for Depthwise Convolution in Cloud Environments]] — Оптимизация CUDA ядер для сверток без доступа к счетчикам производительности.
+- [[hxxps://arxiv.org/abs/2604.26294][Folding Tensor and Sequence Parallelism for Memory-Efficient Transformer Training & Inference]] — Стратегия параллелизма, объединяющая шардирование весов и токенов по одной оси.
+- [[hxxps://arxiv.org/abs/2604.26334][Efficient, VRAM-Constrained xLM Inference on Clients]] — Гибридное планирование CPU-GPU для инференса больших моделей на клиентских устройствах.
+- [[hxxps://arxiv.org/abs/2604.26388][SplitFT: An Adaptive Federated Split Learning System For LLMs Fine-Tuning]] — Адаптивная система федеративного split-обучения для дообучения LLM.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В искусственном интеллекте акцент смещается на надежность агентов и оценку фактологической точности моделей. Представлены новые бенчмарки для планирования и фреймворки для выявления галлюцинаций через графы знаний.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2412.13682][ChinaTravel: An Open-Ended Travel Planning Benchmark with Compositional Constraint Validation for Language Agents]]
+:WHAT: Бенчмарк для языковых агентов планирования путешествий с открытыми запросами и валидацией композиционных ограничений.
+:IMPACT: Выявляет ограничения чисто нейронных моделей в задачах удовлетворения ограничений, показывая преимущество нейро-символических подходов.
+- [[hxxps://arxiv.org/abs/2409.00557][Learning to Ask: When LLM Agents Meet Unclear Instruction]]
+:WHAT: Фреймворк AwN, побуждающий LLM задавать уточняющие вопросы при неясных инструкциях для использования инструментов.
+:IMPACT: Снижает риск галлюцинаций аргументов и повышает точность выполнения задач в реальных сценариях с шумными данными.
+- [[hxxps://arxiv.org/abs/2401.00761][Identifying the Achilles' Heel: An Iterative Method for Dynamically Uncovering Factual Errors in Large Language Models]]
+:WHAT: Автоматизированный фреймворк HalluHunter для выявления фактических ошибок через итеративную генерацию вопросов на основе графа знаний.
+:IMPACT: Позволяет систематически находить ошибки в 55% тестовых вопросов, улучшая процесс оценки достоверности моделей.
+
+** 🕸 Графы и Алгоритмы
+- Пусто (работы категории преимущественно фокусируются на архитектуре моделей и агентах, а не на фундаментальных алгоритмах графов).
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2401.02458][Data-Centric Foundation Models in Computational Healthcare: A Survey]] — Обзор дата-центричных подходов в медицинских foundation моделях.
+- [[hxxps://arxiv.org/abs/2405.13729][ComboStoc: Combinatorial Stochasticity for Diffusion Generative Models]] — Метод ускорения обучения диффузионных моделей через комбинаторную стохастичность.
+- [[hxxps://arxiv.org/abs/2409.06624][A Practice of Post-Training on Llama-3 70B with Optimal Selection of Additional Language Mixture Ratio]] — Исследование дообучения Llama-3 для поддержки китайского языка.
+- [[hxxps://arxiv.org/abs/2411.13365][Explainable Representation of Finite-Memory Policies for POMDPs using Decision Trees]] — Интерпретируемое представление политик для POMDP через деревья решений.
+- [[hxxps://arxiv.org/abs/2502.11614][Is Human-Like Text Liked by Humans? Multilingual Human Detection and Preference Against AI]] — Исследование способности людей отличать и предпочитать человеческий текст.
+- [[hxxps://arxiv.org/abs/2503.04872][TinyR1-32B-Preview: Boosting Accuracy with Branch-Merge Distillation]] — Метод дистилляции для сжатия больших моделей с сохранением точности.
+- [[hxxps://arxiv.org/abs/2504.18662][M2R2: MultiModal Robotic Representation for Temporal Action Segmentation]] — Мультимодальное представление для сегментации действий в робототехнике.

@@ -1,0 +1,101 @@
+#+TITLE: Daily Digest: 2026-05-21
+#+FROM: [2026-05-20 Wed]
+#+TO: [2026-05-21 Thu]
+#+DATE: [2026-05-21 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия движется к стабилизации AI-воркфлоу: инженеры ищут способы сделать использование агентов предсказуемым и «скучным», отказываясь от избыточных роев в пользу четких планов. Вендоры активно интегрируют открытые стандарты (OpenAI API, DynamoDB совместимость) для снижения锁定 и упрращения миграции. В инженерии данных набирают зрелость спецификации Apache Iceberg и инструменты бенчмаркинга распределенных систем. Фокус смещается на устойчивость архитектуры (multi-region failover) и оценку качества multimodal-моделей в продакшене.
+
+* 📂 Категории
+** Инженерия Данных
+- [[hxxps://juhache.substack.com/p/time-for-ai-coding-to-turn-boring][Time for AI Coding to Turn Boring ?]] (Ju Data Engineering Newsletter) — переход от экспериментов с агентами к стабильным workflow требует тщательного планирования контекста, а не масштабирования роев.
+- [[hxxps://dataengineeringcentral.substack.com/p/why-i-left-facebook-to-work-for-myself][Why I Left Facebook to Work for Myself]] (Data Engineering Central) — честный разбор карьерного выгорания в Big Tech и переход к консалтингу с фокусом на фундаментальные навыки.
+- [[hxxps://vutr.substack.com/p/quick-insights-on-materialized-views][Quick insights on materialized views]] (Vu Tr) — сравнение материализованных представлений с кэшем и стратегии поддержания их актуальности в пайплайнах.
+- [[hxxps://www.kdnuggets.com/sql-window-functions-beyond-basics-solving-real-business-problems][SQL Window Functions Beyond Basics: Solving Real Business Problems]] (KDnuggets) — практические примеры использования оконных функций для решения конкретных бизнес-задач вместо базовой теории.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://juhache.substack.com/p/time-for-ai-coding-to-turn-boring][Time for AI Coding to Turn Boring ?]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания зрелости AI-инструментов и построения надежных процессов разработки без избыточного хайпа.
+**** [[hxxps://dataengineeringcentral.substack.com/p/why-i-left-facebook-to-work-for-myself][Why I Left Facebook to Work for Myself]]
+:SCORE: 8/10
+:WHY: Дает ценную перспективу для seniors о балансе между карьерой в Big Tech и независимой работой.
+**** [[hxxps://vutr.substack.com/p/quick-insights-on-materialized-views][Quick insights on materialized views]]
+:SCORE: 7/10
+:WHY: Напоминает о классических оптимизациях баз данных, которые часто игнорируются в пользу новых инструментов.
+
+** Инженеры
+- [[hxxps://newsletter.pragmaticengineer.com/p/why-rust-is-different-with-alice][Why Rust is different, with Alice Ryhl]] (The Pragmatic Engineer) — глубокое погружение в безопасность памяти и карьерные пути через open source贡献 на примере Rust.
+- [[hxxps://jack-vanlightly.com/blog/2026/5/20/introducing-dimster-a-performance-benchmarking-tool-for-apache-kafka][Introducing Dimster, a performance benchmarking tool for Apache Kafka]] (Jack Van Lightly) — новый инструмент для многомерного тестирования производительности Kafka с акцентом на воспроизводимость.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/why-rust-is-different-with-alice][Why Rust is different, with Alice Ryhl]]
+:SCORE: 9/10
+:WHY: Объясняет фундаментальные преимущества Rust для бэкенда и влияние open source на карьеру инженера.
+**** [[hxxps://jack-vanlightly.com/blog/2026/5/20/introducing-dimster-a-performance-benchmarking-tool-for-apache-kafka][Introducing Dimster, a performance benchmarking tool for Apache Kafka]]
+:SCORE: 8/10
+:WHY: Практический инструмент для seniors, занимающихся тюнингом распределенных систем и гарантиями SLA.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/best-practices-for-amazon-dynamodb-global-tables-part-1-operational-readiness/][Best practices for Amazon DynamoDB Global Tables – Part 1: Operational readiness]] (AWS) — фундаментальные принципы подготовки к отказоустойчивости и репликации в глобальных таблицах.
+- [[hxxps://www.databricks.com/blog/governing-ai-agents-scale-unity-catalog][Governing AI agents at scale with Unity Catalog]] (Databricks) — стратегии управления доступом и безопасностью для тысяч AI-агентов в enterprise-среде.
+- [[hxxps://www.dremio.com/blog/snowflake-competitors-2/][Snowflake Competitors: More Affordable and Open Source Alternatives]] (Dremio) — обзор альтернатив Snowflake с акцентом на open source форматы и снижение стоимости владения.
+- [[hxxps://www.databricks.com/blog/unlock-seamless-and-cost-effective-marketing-campaigns-lakebase][Unlock seamless and cost-effective marketing campaigns with Lakebase]] (Databricks) — кейс использования Lakebase для оптимизации маркетинговых кампаний.
+- [[hxxps://aws.amazon.com/blogs/database/best-practices-for-amazon-dynamodb-global-tables-part-2-failover-strategies/][Best practices for Amazon DynamoDB Global Tables – Part 2: Failover strategies]] (AWS) — детальный разбор стратегий переключения при региональных сбоях.
+- [[hxxps://aws.amazon.com/blogs/database/best-practices-for-amazon-dynamodb-global-tables-part-3-validating-regional-resilience-with-aws-fault-injection-service/][Best practices for Amazon DynamoDB Global Tables – Part 3: Validating regional resilience with AWS Fault Injection Service]] (AWS) — валидация устойчивости через инъекцию сбоев в продакшен-подобной среде.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/best-practices-for-amazon-dynamodb-global-tables-part-1-operational-readiness/][Best practices for Amazon DynamoDB Global Tables – Part 1: Operational readiness]]
+:SCORE: 9/10
+:WHY: Must-read для архитекторов, проектирующих глобальные отказоустойчивые системы на managed сервисах.
+**** [[hxxps://www.databricks.com/blog/governing-ai-agents-scale-unity-catalog][Governing AI agents at scale with Unity Catalog]]
+:SCORE: 8/10
+:WHY: Решает актуальную проблему безопасности и governance при масштабировании AI-агентов в организации.
+**** [[hxxps://www.dremio.com/blog/snowflake-competitors-2/][Snowflake Competitors: More Affordable and Open Source Alternatives]]
+:SCORE: 8/10
+:WHY: Помогает принять стратегическое решение о стеке данных с учетом рисков vendor lock-in и стоимости.
+
+** Открытое ПО
+- [[hxxps://aws.amazon.com/blogs/database/introducing-extenddb-an-open-source-dynamodb-compatible-adapter-with-pluggable-storage-backends/][Introducing ExtendDB: An open source DynamoDB-compatible adapter with pluggable storage backends]] (AWS) — адаптер с открытым кодом для запуска DynamoDB-совместимых workload на PostgreSQL и on-prem.
+- [[hxxps://www.dremio.com/blog/whats-new-in-apache-iceberg-1-11-0/][What's New in Apache Iceberg 1.11.0]] (Dremio) — значительное обновление спецификации с новым File Format API и поддержкой векторных форматов.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/introducing-extenddb-an-open-source-dynamodb-compatible-adapter-with-pluggable-storage-backends/][Introducing ExtendDB: An open source DynamoDB-compatible adapter with pluggable storage backends]]
+:SCORE: 9/10
+:WHY: Открывает возможности для гибридных сценариев и тестирования без зависимости от облачного провайдера.
+**** [[hxxps://www.dremio.com/blog/whats-new-in-apache-iceberg-1-11-0/][What's New in Apache Iceberg 1.11.0]]
+:SCORE: 9/10
+:WHY: Архитектурные изменения в Iceberg влияют на будущее совместимости форматов данных в lakehouse.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Полезно для инженеров, глубоко работающих с графовыми данными и стандартизацией в этой области.
+
+** Искусственный Интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/][Announcing OpenAI-compatible API support for Amazon SageMaker AI endpoints]] (AWS) — возможность вызывать модели SageMaker через стандартный OpenAI SDK без изменений кода.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/multimodal-evaluators-mllm-as-a-judge-for-image-to-text-tasks-in-strands-evals/][Multimodal evaluators: MLLM-as-a-judge for image-to-text tasks in Strands Evals]] (AWS) — новые оценщики для проверки галлюцинаций в задачах image-to-text через multimodal модели.
+- [[hxxps://www.dremio.com/blog/agentic-analytics-vs-traditional-bi-tools/][Agentic Analytics vs Traditional BI Tools: What Do You Need for the Future?]] (Dremio) — сравнение традиционных BI-дашбордов и автономных AI-агентов для аналитики.
+- [[hxxps://www.kdnuggets.com/anonymizing-production-data-for-data-science-with-mimesis][Anonymizing Production Data for Data Science with Mimesis]] (KDnuggets) — руководство по анонимизации чувствительных данных для безопасного использования в ML.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-real-time-voice-applications-with-amazon-sagemaker-ai-and-vllm/][Build real-time voice applications with Amazon SageMaker AI and vLLM]] (AWS) — реализация стриминга речи в реальном времени с использованием vLLM и SageMaker.
+- [[hxxps://www.dremio.com/blog/what-is-a-mcp-model-context-protocol-server/][What is a model context protocol (MCP) server?]] (Dremio) — объяснение роли MCP-серверов в соединении AI-моделей с корпоративными данными.
+- [[hxxps://www.kdnuggets.com/10-github-repositories-to-master-quant-trading][10 GitHub Repositories to Master Quant Trading]] (KDnuggets) — подборка репозиториев для изучения алгоритмической торговли и бэктестинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/announcing-openai-compatible-api-support-for-amazon-sagemaker-ai-endpoints/][Announcing OpenAI-compatible API support for Amazon SageMaker AI endpoints]]
+:SCORE: 9/10
+:WHY: Существенно упрощает интеграцию собственных моделей в существующие AI-приложения без рефакторинга.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/multimodal-evaluators-mllm-as-a-judge-for-image-to-text-tasks-in-strands-evals/][Multimodal evaluators: MLLM-as-a-judge for image-to-text tasks in Strands Evals]]
+:SCORE: 8/10
+:WHY: Решает проблему оценки качества multimodal-моделей, что критично для внедрения компьютерного зрения.
+**** [[hxxps://www.dremio.com/blog/agentic-analytics-vs-traditional-bi-tools/][Agentic Analytics vs Traditional BI Tools: What Do You Need for the Future?]]
+:SCORE: 8/10
+:WHY: Помогает понять стратегический сдвиг в аналитике от статических отчетов к автономным агентам.
+
+** Не Инженерное
+- [[hxxps://peterturchin.substack.com/p/is-ukraine-russia-war-entering-the][Is Ukraine-Russia War Entering the End Game?]] (Peter Turchin) — количественная модель	attritional warfare для прогнозирования исхода конфликта на основе данных о потерях.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/is-ukraine-russia-war-entering-the][Is Ukraine-Russia War Entering the End Game?]]
+:SCORE: 7/10
+:WHY: Пример применения математического моделирования к реальным геополитическим процессам, интересно для системного мышления.

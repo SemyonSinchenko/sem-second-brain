@@ -1,0 +1,127 @@
+#+TITLE: Arxiv Digest: 2026-07-27
+#+FROM: [2026-07-26 Sun]
+#+TO: [2026-07-27 Mon]
+#+DATE: [2026-07-27 Mon]
+#+STARTUP: showall
+
+* Базы Данных (cs.DB)
+** 🧐 Обзор
+В последних препринтах наблюдается сильный тренд на интеграцию LLM внутрь СУБД, где промпты становятся управляемыми объектами данных. Параллельно развивается оптимизация векторного поиска и сжатия временных рядов для снижения затрат на хранение. Также растет внимание к инструментам обеспечения приватности и качества данных в конвейерах обработки.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.21756][Prompt as a Data Type: In-Database LLM Prompt Management and Rewriting]]
+:WHAT: Система PromptDB, treating prompts as tuple-level database values with an EVAL operator.
+:IMPACT: Позволяет оптимизировать промпты через метаданные БД, улучшая валидность вывода и снижая затраты.
+- [[hxxps://arxiv.org/abs/2607.22031][IDSTune: A Multi-Agent Collaborative Framework for Integrated Database System Tuning]]
+:WHAT: Фреймворк интегрированной настройки БД с использованием мульти-агентного сотрудничества на базе LLM.
+:IMPACT: Учитывает взаимозависимости между индексами, Knob'ами и представлениями, ускоряя тюнинг на 57%.
+- [[hxxps://arxiv.org/abs/2606.29968][CLIP: Lightweight Cosine-Law-Based Inverted-List Pruning for IVF-Based Vector Search]]
+:WHAT: Легковесная техника прунинга на основе косинусной меры для IVF-индексов.
+:IMPACT: Снижает_latency_ запросов на 69% за счет отсечения кластеров без тяжелых вычислений.
+- [[hxxps://arxiv.org/abs/2607.22433][VIREL: Verified Integer-Residual Encoding on Lattices for Exact and Error-Bounded Floating-Point Time-Series Compression]]
+:WHAT: Фреймворк сжатия временных рядов с плавающей точкой на основе решеток и целочисленных остатков.
+:IMPACT: Достигает степени сжатия до 9.6x с гарантиями точности, масштабируется на CPU ядра.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.22219][Not Every Dependency Is Worth Discovering: Toward Value-Driven Data Dependency Discovery]] — Предлагает сместить фокус с поиска валидных зависимостей на поиск ценных для задач управления данными.
+- [[hxxps://arxiv.org/abs/2607.22279][Rethinking Accuracy: A Weighted Error-Based Metric for Data Quality]] — Вводит универсальную метрику TOMME для оценки качества данных через взвешенные ошибки.
+- [[hxxps://arxiv.org/abs/2607.22230][trasgoDP: An Open Source Framework for Releasing Noised Tabular Microdata under Local Differential Privacy]] — Open-source фреймворк для публикации табличных данных с гарантиями локальной дифференциальной приватности.
+- [[hxxps://arxiv.org/abs/2607.22335][LinkML-Scala: a Robust, Fast, and Portable Implementation of LinkML]] — Высокопроизводительная реализация LinkML на Scala для работы со схемами данных в реальном времени.
+
+* Распределенные Вычисления (cs.DC)
+** 🧐 Обзор
+Доминирующая тема — инфраструктура для обслуживания LLM, включая управление KVCache и перемещение данных в дискрегированных кластерах. Значительный прогресс достигнут в конфиденциальных вычислениях на ненадежном железе и оптимизации консенсуса в блокчейне. Также представлены решения для утилизации простаивающих ресурсов в Kubernetes.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.00368][TENT: A Declarative Slice Spraying Engine for Performant and Resilient Data Movement in Disaggregated LLM Serving]]
+:WHAT: Декларативный оркестратор перемещения данных, разделяющий намерение передачи и физическое исполнение.
+:IMPACT: Устраняет блокировки и обеспечивает самовосстановление за <50 мс, повышая пропускную способность LLM инференса на 36%.
+- [[hxxps://arxiv.org/abs/2607.19214][Keeping the Cache Warm Pays: Keepalive Economics for Agentic Workloads]]
+:WHAT: Стратегия клиентского keepalive для поддержания горячего кэша промптов при работе агентов.
+:IMPACT: Снижает стоимость повторных запросов до 12.5x, предотвращая eviction кэша во время пауз агента.
+- [[hxxps://arxiv.org/abs/2607.21746][PRISM: Evaluating POSIX Storage Systems for AI Research Workflows]]
+:WHAT: Фреймворк оценки POSIX-хранилищ на реальных рабочих нагрузках AI исследований.
+:IMPACT: Помогает выбирать хранилища не по пиковой throughput, а по удобству и производительности в итеративных workflow.
+- [[hxxps://arxiv.org/abs/2607.22209][Duet: Co-Optimizing P2P Message Propagation and Rotating-Leader Consensus]]
+:WHAT: Протокол согласования, ко-оптимизирующий P2P распространение сообщений и ротацию лидера.
+:IMPACT: Увеличивает пиковую пропускную способность консенсуса в 7.26 раза за счет учета топологии сети.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.21865][Decentralized Compute on Untrusted Hardware Using Intel TDX and Encrypted CVMs]] — Платформа децентрализованных конфиденциальных вычислений на базе Intel TDX для защиты данных AI.
+- [[hxxps://arxiv.org/abs/2607.21989][Smart Contract Tells: Aircraft Maintenance Records Are Now Trustworthy]] — Использование блокчейна и IPFS для обеспечения доверия к записям обслуживания самолетов.
+- [[hxxps://arxiv.org/abs/2607.22040][Accountable Transaction Inclusion Lists: Enhancing Ethereum's Censorship Resistance]] — Механизм FairFIL для повышения стоимости цензуры транзакций в Ethereum.
+- [[hxxps://arxiv.org/abs/2604.00377][Reclaiming Idle CPU Cycles on Kubernetes: Sparse-Domain Multiplexing for Concurrent MPI-CFD Simulations]] — Мультиплексирование симуляций MPI для утилизации простаивающих CPU циклов в Kubernetes.
+- [[hxxps://arxiv.org/abs/2607.21653][Molt: A Scalable PyTorch-Native Training Framework for Agentic Reinforcement Learning]] — Легковесный фреймворк для обучения RL агентов, оптимизированный для частых изменений алгоритмов.
+- [[hxxps://arxiv.org/abs/2503.07869][Carpe Diem: Critical Learning Period-Aware Contract-Based Incentives for Federated Learning]] — Контрактная система стимулов для федеративного обучения, учитывающая важность ранних этапов.
+- [[hxxps://arxiv.org/abs/2607.17872][Entanglement geometry separates circuit cutting, classical hardness, and trainability]] — Анализ геометрии запутанности для квантового разрезания схем и классической симуляции.
+
+* Искусственный Интеллект (cs.AI)
+** 🧐 Обзор
+Исследования смещаются к безопасности векторных баз данных и агентным системам для построения знаний. Критический интерес вызывает уязвимость мягкого удаления эмбеддингов и способность агентов действовать в морально сложных ситуациях. Также развиваются методы обучения с подкреплением с учетом неопределенности.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.18497][Ghost Vectors: Soft-Deleted Embeddings Remain Reconstructible in HNSW Vector Databases]]
+:WHAT: Анализ уязвимости восстановления данных после мягкого удаления в HNSW базах.
+:IMPACT: Demonstrates риски GDPR/HIPAA и предлагает ротацию ключей шифрования для гарантированного удаления.
+- [[hxxps://arxiv.org/abs/2508.10017][A Robust Pipeline for Differentially Private Federated Learning on Imbalanced Clinical Data using SMOTETomek and FedProx]]
+:WHAT: Пайплайн федеративного обучения с дифференциальной приватностью для несбалансированных медицинских данных.
+:IMPACT: Достигает recall >77% при сильных гарантиях приватности (epsilon 9.0) через комбинацию SMOTETomek и FedProx.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2508.12393][MedKGent: A Large Language Model Agent Framework for Constructing Temporally Evolving Medical Knowledge Graph]]
+:ALGO: Агентный фреймворк для инкрементального построения временных медицинских графов знаний из PubMed.
+:IMPACT: Создает крупнейший медицинский KG (2.9M триплетов), улучшая RAG для медицинских задач.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2505.19212][When Ethics and Payoffs Diverge: LLM Agents in Morally Charged Social Dilemmas]] — Исследование поведения LLM агентов в конфликте между этикой и выгодой в игровых сценариях.
+- [[hxxps://arxiv.org/abs/2507.01551][Self-Guided Process Reward Optimization with Redefined Step-wise Advantage for Process Reinforcement Learning]] — Метод оптимизации вознаграждения в RL без дополнительных моделей вознаграждения.
+- [[hxxps://arxiv.org/abs/2501.08951][Analyzing the Ethical Logic of Eight Large Language Models]] — Сравнительный анализ этической логики популярных LLM на моральных дилеммах.
+- [[hxxps://arxiv.org/abs/2408.02295][Generalized Gaussian Temporal Difference Error for Uncertainty-aware Reinforcement Learning]] — Использование обобщенного гауссовского распределения для моделирования ошибок в RL.
+
+* Структуры Данных и Алгоритмы (cs.DS)
+** 🧐 Обзор
+Фокус на параллельных алгоритмах для графовых задач с_near-linear_ работой и суб-линейной глубиной. Уточняются теоретические границы для задач разбиения графов и округления匹配ний. Присутствуют работы по онлайн-упаковке и аппроксимации в задачах управления запасами.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2503.13274][Parallel Minimum Cost Flow in Near-Linear Work and Square Root Depth for Dense Instances]]
+:ALGO: Рандомизированный параллельный алгоритм для потока минимальной стоимости с работой O(m+n^1.5).
+:IMPACT: Первый алгоритм с_near-linear_ работой и суб-линейной глубиной для умеренно плотных графов.
+- [[hxxps://arxiv.org/abs/2607.22070][Connected (Dense) Partition for Tree-Like Graphs]]
+:ALGO: Полиномиальный алгоритм для максимального плотного разбиения на толстых лесах и DP для графов с ограниченной древесной шириной.
+:IMPACT: Обобщает известные результаты для блочных графов и уточняет границы NP-трудности.
+- [[hxxps://arxiv.org/abs/2606.07820][A note on rounding fractional matchings with constant-factor strong negative correlation]]
+:ALGO: Новые алгоритмы зависимого округления для двудольных графов с усиленной отрицательной корреляцией.
+:IMPACT: Улучшает константы аппроксимации для задач планирования работ на unrelated машинах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.22063][HyperLogLog for probabilists]] — Вероятностный пересмотр анализа HyperLogLog с экспоненциальными оценками отклонений.
+- [[hxxps://arxiv.org/abs/2506.00909][Constant-Factor Algorithms for Revenue Management with Consecutive Stays]] — Алгоритмы управления доходами для задач с последовательным пребыванием (отели, ж/д).
+- [[hxxps://arxiv.org/abs/2607.22179][Online Geometric Packing through Online TSP Scheduling]] — Сведение онлайн-упаковки выпуклых полигонов к задаче онлайн-планирования TSP.
+- [[hxxps://arxiv.org/abs/2605.12873][On the Advantage of Adaptivity for Sampling with Cell Probes]] — Разделение между адаптивной и неадаптивной выборкой в модели cell-probe.
+- [[hxxps://arxiv.org/abs/2607.22312][An optimal deterministic algorithm for finding a strict saddlepoint]] — Детерминированный алгоритм поиска строгого седлового пункта за оптимальное O(n) время.
+
+* Социальная Физика и Сети (physics.soc-ph)
+** 🧐 Обзор
+Актуально применение сетевого анализа для изучения городской сегрегации и миграционных потоков. Появляются обзоры эволюции сервисных экосистем с позиций теории сложных сетей. Исследуются структуры контактных сетей для оценки рисков распространения инфекций.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2607.21650][Service Ecosystem Evolution: A Comprehensive Survey from Complex Network Perspectives]]
+:WHAT: Обзор эволюции сервисных экосистем с использованием трехстадийного аналитического фреймворка и теории сетей.
+:IMPACT: Заполняет пробел в понимании зависимостей между сервисами и предотвращении системных сбоев.
+- [[hxxps://arxiv.org/abs/2607.21906][A Knowledge-Grounded Behavioral Reasoning Framework for Training-Free Urban Healthcare OD Prediction]]
+:WHAT: Фреймворк предсказания мобильности в здравоохранении на основе рассуждений LLM поверх графа знаний.
+:IMPACT: Превосходит глубокое обучение на 22% в Top-5 без обучения, обеспечивая интерпретируемость решений.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2501.15920][Mapping urban segregation through co-residence network reconstruction]]
+:ALGO: Построение статистически валидированной сети со-проживания национальностей и детекция сообществ.
+:IMPACT: Выявляет кластеры сегрегации в Вене, коррелирующие с доходом и географией происхождения.
+- [[hxxps://arxiv.org/abs/2607.21972][Cross-country structure of a sexual contact network derived from a commercial-sex review platform]]
+:ALGO: Анализ крупномасштабной бипартитной сети контактов через границы стран.
+:IMPACT: Показывает роль малой группы клиентов в формировании связности сети и рисках передачи STI.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.30604][Pulses, waves, and cascades in collective migration dynamics]] — Минимальная модель миграции, объясняющая спонтанные флуктуации потоков через социальное влияние.
+- [[hxxps://arxiv.org/abs/2607.22110][Measuring inequality and social stratification with Lorenz curvature]] — Семейство индексов неравенства на основе кривизны кривой Лоренца.
+- [[hxxps://arxiv.org/abs/2607.22189][How large should academic departments be?]] — Моделирование динамики размеров академических кафедр, выявляющее стабильный диапазон 4-23 сотрудника.
+- [[hxxps://arxiv.org/abs/2607.21662][Reconstructing the Probability Measure of a Multi-group Curie-Weiss Model with Interacting Groups]] — Оценка параметров модели Куре-Вейсса для гетерогенных групп избирателей.

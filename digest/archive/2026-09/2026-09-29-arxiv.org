@@ -1,0 +1,141 @@
+#+TITLE: Arxiv Digest: 2026-09-29
+#+FROM: [2026-09-28 Mon]
+#+TO: [2026-09-29 Tue]
+#+DATE: [2026-09-29 Tue]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+** 🧐 Обзор
+Почти все обновления суток — доработки (replace-cross), и фокус заметно смещён на инженерию вокруг Text-to-SQL: структурная оценка генерации по AST, активный отбор few-shot примеров и детерминированный контроль доступа к колонкам. Зреют направления приватного инференса над градиентным бустингом (SilentWood с ускорением до 42.5x) и обучения на реляционных графах (GelGT, +13.8% на 21 задаче). Отдельно стоит свежая системная работа GRAFT по эволюции схем property graph — редкая, но практически важная тема для графовых СУБД.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2411.15494][SilentWood: Efficient Private Inference Over Gradient-Boosting Decision Forests]]
+:WHAT: Приватный протокол инференса для градиентных бустинговых лесов (XGBoost/AdaBoost) на гомоморфном шифровании с выявлением и устранением (приблизительного) дублирования между деревьями.
+:IMPACT: До 42.5x быстрее RCC-PDTE и 27.8x быстрее Concrete ML XGBoost — переводит приватный инференс бустинга из теоретически возможного в практическое для совместного анализа данных между недоверяющими сторонами.
+- [[https://arxiv.org/abs/2604.06736][SQLStructEval: Structural Evaluation of LLM Text-to-SQL Generation]]
+:WHAT: Фреймворк структурной оценки Text-to-SQL через канонические AST-представления, количественно измеряющий execution-correct структурную дивергенцию (ECSD).
+:IMPACT: Дополняет execution-based метрики диагностикой структурной устойчивости и обосновывает пайплайн «промежуточное представление → детерминированная компиляция в SQL» для стабильной генерации.
+- [[https://arxiv.org/abs/2607.12341][Policy-Conditioned Constrained Decoding for Column-Level Access Control in Text-to-SQL]]
+:WHAT: PCC-SQL — детерминированное применение политики использования колонок (output/filter/aggregation) через грамматические продукции декодера с per-token маскированием логитов.
+:IMPACT: 0% leakage rate при покрытии до 88.7% на Spider-CU и +10% токенов — работоспособный вариант деплоя Text-to-SQL через границы доверия без стохастических отказов.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2605.15575][Gaussian Relational Graph Transformer]]
+:ALGO: Гауссов реляционный graph transformer: structure-semantic совместная выборка подграфов плюс attention с обучаемым гауссовым смещением, кодирующим временную релевантность информации.
+:IMPACT: До +13.8% на 7 реляционных датасетах и 21 задаче над существующими методами реляционного графового обучения — шаг к предиктивной аналитике поверх реляционных БД как графов.
+- [[https://arxiv.org/abs/2609.34789][Transformations for Evolving Property Graph Schemas]]
+:ALGO: GRAFT — логическая модель эволюции схем property graph как переиспользуемых order-constrained мета-трансформаций с поиском по конечному мета-графу (similarity-guided pruning, гарантии терминации и корректности).
+:IMPACT: Систематическая и переиспользуемая эволюция схем закрывает реальный пробел в эксплуатации property graph баз данных вместо ручных, привязанных к приложению трансформаций.
+- [[https://arxiv.org/abs/2606.10125][Robust Active Learning for Few-Shot Example Selection in Text-to-SQL]]
+:ALGO: Стратифицированный жадный алгоритм максимизации гетероскедастического information-gain: монотонность и субмодулярность при query-dependent шуме дают 1/2-аппроксимацию под partition matroid.
+:IMPACT: Простое практическое правило — размечать один пример на домен в каждом батче; измеримо улучшает кросс-доменный retrieval и end-to-end SQL на BIRD и enterprise-корпусе при том же бюджете разметки.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.32010][Process Mining of Patient Flow in an Emergency Department: Bottlenecks, Variant Fragmentation, and Data-Driven Redesign]] — прикладной process mining лога приёмного отделения (1820 случаев): выявлена инверсия клинического приоритета (пациенты acuity 2 ждут на 38% дольше) и предложены два квантифицированных сценария редизайна процесса.
+
+* cs.AI — Искусственный интеллект
+** 🧐 Обзор
+Обновления в cs.AI тяготеют к прикладным ML-методам с измеримым эффектом: training-free оценка надёжности эмбеддингов, мультицелевое рекомендательное обучение MOGCSL для коммерческих систем и нейросетевой оценщик причинных эффектов с приростом до 55%. Параллельно систематизируются детекция скоординированного поведения в соцсетях и интерпретируемость кодовых LLM через AST — обе темы касаются анализа графов взаимодействий. Чисто теоретические работы (режимы transfer learning, категориальная формализация конфликтов) обновлены, но их практическая отдача пока отложена.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2306.00206][Training-Free Uncertainty Estimation for Embedding Models]]
+:WHAT: Training-free методы оценки надёжности представлений через neighborhood consistency между пространствами эмбеддингов, включая PNC — синтетический ансамбль из одной модели гауссовым шумом.
+:IMPACT: Дешёвая калибровка доверия к эмбеддингам там, где downstream-данные недоступны (приватность, cold start), — релевантно векторному поиску и RAG-конвейерам.
+- [[https://arxiv.org/abs/2412.08911][Goal-Conditioned Supervised Learning for Multi-Objective Recommendation]]
+:WHAT: MOGCSL — расширение goal-conditioned supervised learning на многомерные векторы целей с новым алгоритмом выбора достижимых целей для предсказания следующего действия.
+:IMPACT: Устраняет сложные архитектуры и ограничения multi-objective оптимизации; масштабируемо и устойчиво к шуму офлайн-логов коммерческих рекомендательных систем.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2301.02225][L1-2 GLasso: L1-2 Regularized Multi-task Graphical Lasso for Joint Estimation of eQTL Mapping and Gene Network]]
+:ALGO: L1-2-регуляризованный multi-task graphical lasso для совместной оценки eQTL-маппинга и генной сети с обменом информацией между задачами.
+:IMPACT: Более разреженные и точные сети зависимостей (ADNI-1); переносимый приём совместной оценки структуры графа из разнородных данных.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2408.01257][Detection and Characterization of Coordinated Online Behavior: A Survey]] — большой обзор детекции скоординированного поведения: единая рамка, таксономия методов и открытые вызовы для сетевой аналитики платформ.
+- [[https://arxiv.org/abs/2407.08983][Towards More Trustworthy and Interpretable LLMs for Code through Syntax-Grounded Explanations]] — метод ASTrust распределяет уверенность кодовых LLM по синтаксическим структурам AST с автоматической визуализацией на локальном и глобальном уровнях.
+- [[https://arxiv.org/abs/2110.15075][Improving Causal Effect Estimation of Weighted RegressionBased Estimator using Neural Networks]] — нейросетевой взвешенный регрессионный оценщик причинных эффектов улучшает качество до ~55% на высокоразмерных и маловыборочных данных.
+- [[https://arxiv.org/abs/2412.16633][Easier Said Than Done: Unpacking Intent-Behavior Gap in Jailbreaking LLM-based Robots]] — анализ разрыва между «намерением» и «поведением» в джейлбрейках LLM-роботов: фреймворк POEF достигает 80% успеха behavior-атак, предложены две защиты.
+- [[https://arxiv.org/abs/2408.16189][Help Me Help You: The Aggregate Value of Source and Target Data in Transfer Learning]] — теория режимов слабого и сильного переноса с характеризацией пар распределений через moduli of transfer.
+- [[https://arxiv.org/abs/2402.16763][ELiSe: Efficient Learning of Sequences in Structured Recurrent Networks]] — рекуррентная модель с локальной always-on пластичностью и дендритными компартментами обучает сложные не-марковские пространственно-временные паттерны.
+- [[https://arxiv.org/abs/2306.13961][Categorical Approach to Conflict Resolution:A Corrected Correspondence between Category Theory and the Graph Model for Conflict Resolution]] — исправленная категориальная формализация графовой модели конфликтов: ходы как свободная категория, стабильности переформулированы на языке путей.
+
+* physics.soc-ph — Социальная физика и сети
+** 🧐 Обзор
+Сквозная тема суток — многослойность и высшие порядки: RL-дизмантелинг взаимозависимых сетей (MultiDismantler), кооперация в нелинейных играх на гиперграфах и растущие scale-free сети с узловым удалением рёбер. Практически зреет масштабируемая инференция латентных геометрий взвешенных пространственно-функциональных сетей с демонстрациями на коннектоме Drosophila, европейской энергосети и глобальной авиации. Остальные обновления (контакты в эпидемиологических моделях, кластеризация мнений, перераспределение ресурсов, scientometrics) остаются в русле теоретического моделирования.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.28977][Deep-learning-aided dismantling of interdependent networks]]
+:ALGO: MultiDismantler — deep RL для dismantling'а многослойных взаимозависимых сетей: обучение на малых синтетических мультиплексах с переносом на большие реальные графы.
+:IMPACT: Явно превосходит все однослойные методы; применён к сдерживанию болезней в многослойных социальных сетях и к задержке каскадных отказов критической инфраструктуры.
+- [[https://arxiv.org/abs/2609.23933][Inferring Latent Geometries in Weighted Spatio-Functional Networks]]
+:ALGO: Детерминированный пайплайн обратной задачи spatio-functional инференса: physics-informed спектральная инициализация плюс гибридная квази-ньютоновская оптимизация латентных координат и параметра функциональной связности λ.
+:IMPACT: Без стохастического сэмплирования масштабируется на взвешенные сети: диагностика метричности энергосети, сдвигов режимов авиации во время COVID и архитектуры коннектома — единый инструмент анализа пространственных сетей.
+- [[https://arxiv.org/abs/2602.18892][Evolving scale-free networks and node-based random edge deletion]]
+:ALGO: Растущая сеть с preferential/uniform attachment и узловым правилом удаления рёбер: замкнутые формулы стационарного распределения степеней и три асимптотических режима (power-law, экспоненциальный, растянутая экспонента).
+:IMPACT: Показывает, когда деградация узлов разрушает scale-free режим, — ориентир для моделирования устойчивости реальных графовых структур.
+- [[https://arxiv.org/abs/2604.07228][Emergence of cooperation in nonlinear higher-order public goods games]]
+:ALGO: Нелинейные игры публичных благ на гиперграфах с коллективным усилением: характеризация непрерывных/разрывных переходов, бистабильности при разноразмерных группах и роли гиперстепенных корреляций.
+:IMPACT: Обогащает инструментарий higher-order network analysis для эволюционной динамики групповых взаимодействий на структурированных популяциях.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2507.10257][Epidemic spread: limiting contacts to regular circles is not necessarily the safest option]] — индивидуальная SIR-модель: чем сильнее перевес частых контактов над эпизодическими, тем выше и раньше пик эпидемии; однородное смешение оправдано не везде.
+- [[https://arxiv.org/abs/2604.27961][Clustering in co-evolving opinion dynamics: reduced SPDE models]] — редуцированные SPDE-модели кластеризации мнений существенно дешевле полной симуляции ABM и применены к данным General Social Survey.
+- [[https://arxiv.org/abs/2607.07399][Allocation Condensation in Redistributive Networks]] — теоретический результат: исчезающе малое удержание при перераспределении порождает сосуществующие рассеянные и концентрированные стационарные распределения ресурса.
+- [[https://arxiv.org/abs/2608.16869][The New Mathematics of Democracy]] — обзор фронтиров математической теории демократии: голосование, партиципаторное бюджетирование, делиберация — с примерами реального влияния.
+- [[https://arxiv.org/abs/2609.22935][Slow Context, Fast Symptoms: Multiscale Temporal Dynamics and Context-Induced Coupling in Psychological Systems]] — slow-fast модель психологических сетей: медленный контекст сдвигает макросостояние быстрой симптомной сети и искажает выводимую структуру связей.
+- [[https://arxiv.org/abs/2609.26710][Normalized fractional Hirsch Index and Modified Pareto Law]] — нормированный дробный индекс Хирша: у успешных учёных ~14% самых цитируемых работ собирают ~86% цитирований, что согласуется с законом Парето.
+
+* cs.DS — Структуры данных и алгоритмы
+** 🧐 Обзор
+В cs.DS заметен дрейф к инженерно готовым алгоритмам: GenusSink доводит generalized Sinkhorn на планарных графах до почти линейного времени с практическими реализациями, а линейный Split расширен на VRP с одновременными pickup/delivery и временными окнами. Приватные графовые протоколы (рёберно-приватные паросочетания через локальное декодирование) и параллелизуемое сэмплирование раскрасок укрепляют мост между гарантиями и системами. Точечные теоретические прорывы (Cograph Deletion O*((2+ε)^k), точные DMDP, декодирование color codes) пока нишевые для системных применений.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2601.17572][Split Algorithm in Linear Time for the Vehicle Routing Problem with Simultaneous Pickup and Delivery and Time Windows]]
+:WHAT: Линейный O(n) Split-алгоритм оптимального разбиения TSP-тура на маршруты при одновременных pickup/delivery и временных окнах (плюс мягкие варианты), при ослабленном неравенстве треугольника.
+:IMPACT: Расширяет линейное ядро state-of-the-art VRP-эвристик на два ключевых логистических варианта сразу — прямое ускорение маршрутных движков.
+- [[https://arxiv.org/abs/2604.01086][Sequential Sampling for Binary Classification: Two LLMs are (Almost) All You Need]]
+:WHAT: Адаптивная политика оркестрации LLM для бинарной классификации: последовательные запросы с обновлением веры и остановкой по уверенности; доказана асимптотическая оптимальность политики из двух LLM.
+:IMPACT: Существенная экономия бюджета инференса: два взаимодополняющих «специалиста» вместо большого портфеля моделей при высоких требованиях к надёжности классификации.
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2605.09782][Near-Linear Time Generalized Sinkhorn Algorithms for Bounded Genus Graphs]]
+:ALGO: GenusSink — approximate generalized Sinkhorn с геодезическими затратами на графах ограниченного рода: сепараторная декомпозиция, быстрые умножения на матрицы расстояний, почти линейное время и память.
+:IMPACT: На порядки точнее прочих быстрых Sinkhorn при значительном ускорении — практичный optimal transport на планарных графах и мешах 3D-объектов.
+- [[https://arxiv.org/abs/2501.00926][Edge-Private Matching Kernels Through Local Decoding]]
+:ALGO: Протоколы публикации рёберно-дифференциально-приватной записи координационных сообщений с локальным декодированием: O(n) раундов, O(n log n) бит и (1/(2+η))-аппроксимация паросочетания при ёмкости O(log(n/ρ)/(ηε)) на вершину.
+:IMPACT: Каркас приватного анализа чувствительных графов взаимодействий: сохранение match-структуры без раскрытия рёбер внешним наблюдателям.
+- [[https://arxiv.org/abs/2604.03947][Uniform Sampling of Proper Graph Colorings via Soft Coloring and Partial Rejection Sampling]]
+:ALGO: Точное равномерное сэмплирование собственных k-раскрасок через partial rejection sampling с мягким постепенным ужесточением; гибридная декомпозиция на независимые подзадачи O(log n), параллелизуемая (в отличие от CFTP).
+:IMPACT: Улучшает лучшую известную оценку точного сэмплирования при k > 3Δ до почти линейного времени — базовый примитив для рандомизированного графового анализа.
+- [[https://arxiv.org/abs/2601.02532][A O*((2 + ε)^k) Time Algorithm for Cograph Deletion Using Unavoidable Subgraphs in Large Prime Graphs]]
+:ALGO: Новый FPT-подход через модульную декомпозицию: независимое решение модулей и фактор-графа, использование характеристики больших простых графов Chudnovsky et al.; время O*((2+ε)^k) против прежних 2.303^k.
+:IMPACT: Первый алгоритмический приём «редукция к простому графу» для задач модификации графов — переносим на другие H-free editing проблемы (биоинформатика, анализ соцсетей).
+- [[https://arxiv.org/abs/2512.17844][Capacitated Partition Vertex Cover and Partition Edge Cover]]
+:ALGO: (f+1)-аппроксимация взвешенной soft-capacitated C-PVC, (f+ε)-аппроксимация hard-варианта и первый точный полиномиальный алгоритм взвешенного W-PEC с ускорением до O(mn + n² log n).
+:IMPACT: Ёмкостные обобщения Vertex Cover — модели порогового покрытия с ограниченными ресурсами, релевантные размещению контролирующих узлов в сетях.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2603.26852][Stringological sequence prediction I: efficient algorithms for predicting highly repetitive sequences]] — алгоритмы предсказания последовательностей с границами ошибок через stringology-меры: размер минимальной straight-line program и число состояний минимального автомата.
+- [[https://arxiv.org/abs/2606.05110][Randomization for Faster Exact Optimization of Discounted Markov Decision Processes]] — рандомизированная редукция точного решения discounted MDP к policy evaluation и приближённым значениям даёт более быстрые алгоритмы.
+- [[https://arxiv.org/abs/2606.10399][Average-Case Minimum-Weight Decoding of Two-Dimensional Color Codes]] — почти линейные в среднем алгоритмы минимально-весового декодирования 2D color codes как контраст к недавней NP-трудности в худшем случае.
+
+* cs.DC — Распределённые вычисления
+** 🧐 Обзор
+Абсолютный доминант суток — инфраструктура LLM-сервинга: TokenCake, PrefillShare, CacheFlow и BalanceRoute закрывают четыре разных узких места одного стека (KV-cache мультагентных приложений, дублирование prefill между моделями, восстановление кэша, балансировка DP-воркеров), каждое с измеримым ускорением и развёртыванием. Federated learning адаптируется к гетерогенности клиентов через ансамбли (SHEFL) и подпространственные обновления (FedSub). Блокчейн-механика представлена динамическим планированием транзакций в мемпуле Ethereum и систематизацией приватности миксеров.
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2510.18586][TokenCake: A KV-Cache-centric Serving Framework for LLM-based Multi-Agent Applications]]
+:WHAT: KV-cache-центричный фреймворк для мультагентных LLM-приложений: event-driven выгрузка простаивающих кэшей во время function calls, предиктивная загрузка и динамическое разбиение GPU-памяти по hybrid-приоритету (структура графа агентов + runtime-состояние).
+:IMPACT: −47.06% end-to-end задержки и +16.9 п.п. эффективной утилизации GPU против vLLM в условиях нехватки памяти; код открыт.
+- [[https://arxiv.org/abs/2602.12029][PrefillShare: A Shared Prefill Module for KV Reuse in Multi-LLM Disaggregated Serving]]
+:WHAT: Факторизация задач-специфичных моделей на замороженный prefill и обучаемый decode: несколько fine-tuned моделей шарят prefill-модуль и его KV-cache в disaggregated vLLM-системе с механизмом роутинга.
+:IMPACT: 4.5x ниже p95 latency и 2x выше throughput на multi-model agent-нагрузках при точности full fine-tuning — устраняет межмодельное дублирование prefill.
+- [[https://arxiv.org/abs/2604.25080][CacheFlow: Efficient LLM Serving via Automated 3D-Parallel KV Cache Restoration]]
+:WHAT: Восстановление KV-cache как 3D-параллельная задача (токены × слои × GPU): staircase-разбиение token-layer пространства и batch-aware динамическое программирование «recompute vs load» с учётом contention за I/O.
+:IMPACT: 2.24–3.00x быстрее восстановление кэша и 1.64x лучше сквозная задержка сервинга на long-context, RAG и агентных нагрузках, включая гибридные архитектуры.
+- [[https://arxiv.org/abs/2605.06113][Tackling the Data-Parallel Load Balancing Bottleneck in LLM Serving: Practical Online Routing at Scale]]
+:WHAT: BalanceRoute — семейство онлайн-роутингов BR-0/BR-H для data-parallel балансировки: piecewise-linear F-score с учётом «липкости» назначений и роста нагрузки, уложенное в бюджет решения <100 мс.
+:IMPACT: Развёрнуто на кластере из 144 NPU: устойчиво снижает DP-дисбаланс и повышает end-to-end throughput на production- и Azure-2024 трейсах.
+- [[https://arxiv.org/abs/2508.08552][SHEFL: Sparse Heterogeneous Ensemble Federated Learning with Group-Balanced Aggregation]]
+:WHAT: Ансамблевый FL: HPC-клиенты обучают все члены ансамбля, LPC — по одному назначенному; resource-aware sparse update allocation и group-balanced агрегация против перекоса к HPC-обновлениям.
+:IMPACT: До +14.65 пунктов финальной точности над Fed-Ensemble при том же суммарном uplink-бюджете и более быстрая сходимость — практичный шаблон для гетерогенных устройств.
+- [[https://arxiv.org/abs/2509.05213][An Efficient Subspace Algorithm for Federated Learning on Heterogeneous Data]]
+:WHAT: FedSub — подпространственный FL-алгоритм: локальные обновления проецируются в низкоразмерные подпространства, а низкоразмерные двойственные переменные гасят client drift.
+:IMPACT: Одновременное снижение коммуникации, вычислений и памяти для больших моделей на гетерогенных данных, с анализом сходимости.
+- [[https://arxiv.org/abs/2605.12794][Dynamic Transaction Scheduling and Pricing in the Ethereum Mempool]]
+:WHAT: Динамическое планирование транзакций и ценообразование блоков мемпула как MDP с Natural Policy Gradient; статический EIP-1559 получает primal-dual интерпретацию как двойственные переменные задачи максимизации общественного благосостояния.
+:IMPACT: Динамическая политика стабилизирует мемпул, а при усилении штрафа за overshoot воспроизводит правило обновления EIP-1559; получены пороги bang-bang-механизма и границы ёмкости блока для дизайна протокола.
+- [[https://arxiv.org/abs/2604.00151][Source-Known Identifiers: A Three-Tier Identity System for Distributed Applications]]
+:WHAT: Трёхуровневая система идентификаторов: 64-бит SKID (timestamp-упорядоченный ключ БД), 128-бит SKEID (тип, эпоха, MAC — проверка целостности без lookup) и Secure SKEID (шифрование метаданных при сохранении линкуемости).
+:IMPACT: Референс-реализация на .NET 10 с генерацией ~207 нс (быстрее UUIDv4/v7) — готовый дизайн для распределённой идентичности, покрывающий шесть свойств в одном семействе.
+** 📄 Остальное
+- [[https://arxiv.org/abs/2504.20296][SoK: Cryptocurrency Mixing and Anonymity - Architectures, Threat Models, Operational Aspects and Security]] — систематизация 22 систем смешивания: пять архетипов противника, таксономия поверхностей атак и вывод о разрыве между номинальной и эффективной анонимностью.
+- [[https://arxiv.org/abs/2511.15990][Digital Agriculture Sandbox for Collaborative Research]] — платформа совместного анализа фермерских данных на базе федеративного обучения и дифференциальной приватности, где чувствительные данные не покидают систему фермера.

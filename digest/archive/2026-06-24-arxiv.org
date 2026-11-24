@@ -1,0 +1,114 @@
+#+TITLE: Arxiv Digest: 2026-06-24
+#+FROM: [2026-06-23 Tue]
+#+TO: [2026-06-24 Wed]
+#+DATE: [2026-06-24 Wed]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается сильный тренд на интеграцию криптографической защиты данных непосредственно в引擎ы запросов, что позволяет выполнять сложную analytics без раскрытия информации. Параллельно развивается направление исправления и генерации SQL через специализированные LLM, а также индексация для гибридных запросов с интервальными предикатами. Эти работы делают акцент на практической применимости приватных вычислений и улучшении качества текстовых интерфейсов к данным.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.10793][ORQ: Complex Analytics on Private Data with Strong Security Guarantees]]
+:WHAT: Система для collaborative analysis частных数据集 используя secure multi-party computation (MPC) с оптимизацией joins.
+:IMPACT: Позволяет выполнять сложные relational queries с агрегациями под MPC без quadratic cost, масштабируясь до TPC-H SF10.
+- [[hxxps://arxiv.org/abs/2603.03742][ErrorLLM: Modeling SQL Errors for Text-to-SQL Refinement]]
+:WHAT: Framework для explicit modeling ошибок в generated SQL queries через dedicated error tokens.
+:IMPACT: Значительно повышает точность refinement SQL запросов, устраняя hallucination и improving detection precision.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.24204][Unified Dominance Graph for Interval-Predicate Approximate Nearest Neighbor Search]]
+:ALGO: Graph-indexing framework (UDG) для Interval-Predicate ANNS, mapping endpoints в dominance space.
+:IMPACT: Позволяет эффективно обрабатывать hybrid queries с interval constraints (time, price) без overhead intersection.
+- [[hxxps://arxiv.org/abs/2606.22419][Knowledge-Graph Grounding Helps LLMs Only for Out-of-Training Knowledge]]
+:ALGO: Controlled study использования graph+vector engine для grounding LLM в clinical QA.
+:IMPACT: Demonstrates that KG grounding помогает только для facts outside training data, критично для design retrieval systems.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.09824][TSseek: Regular Expression-Based Similarity Search for Distributed Time Series Datasets]] — Framework для pattern-based search в time series через regular expressions и spatial index.
+- [[hxxps://arxiv.org/abs/2606.23875][On the Semantics of Generative SPARQL]] — Extension SPARQL с generative query construct (GenOp) maintaining fixed-dataset assumption.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Фокус смещается на energy-efficient serving больших моделей и создание agent-based simulations для реальных domain (finance, science). Важно развитие benchmarks для reproducibility и robustness, а также алгоритмов для invariant representations в dynamic graphs. Практическая ценность работ заключается в снижении cost inference и повышении доверия к агентным системам.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2509.04827][VoltanaLLM: Energy-Efficient and SLO-Aware Disaggregated LLM Serving]]
+:WHAT: System targeting energy bloat в prefill-decode disaggregated serving via adaptive frequency control.
+:IMPACT: Reduces end-to-end energy by up to 36.3% maintaining SLOs, critical for sustainable scalable deployment.
+- [[hxxps://arxiv.org/abs/2407.18957][When AI Meets Finance (StockAgent): Large Language Model-based Stock Trading]]
+:WHAT: Multi-agent AI system simulating investors' trading behaviors в response to real stock market factors.
+:IMPACT: Allows evaluation of external factors impact на trading behavior без test set leakage, useful for investment advice.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2405.19062][Invariant Graph Representations for Continuous-Time Dynamic Graphs Under Distribution Shifts]]
+:ALGO: Framework (CIR) grounded in structural causal model для learning invariant representations в CTDGs.
+:IMPACT: Outperforms existing methods under OOD scenarios, efficiently approximating interventional predictions.
+- [[hxxps://arxiv.org/abs/2601.18747][The $\mathbf{P}$-Completeness of Inverted Index Traversal]]
+:ALGO: Formalization retrieval language based on DAGs и algorithm \texttt{ComputePN} для evaluation Boolean Query DAGs.
+:IMPACT: Enables native evaluation of P-Complete queries over inverted index avoiding combinatorial blowup.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2409.11363][CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark]] — Benchmark для measuring accuracy of AI agents в computational reproducibility tasks across sciences.
+- [[hxxps://arxiv.org/abs/2606.24407][Entity Resolution via Batched Oracle Queries]] — Approach for interrogating oracle to resolve entities в dataset larger than single batch with pay-as-you-go cost control.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования сосредоточены на моделях социальных взаимодействий на гиперграфах, где учитываются polyadic interactions вместо pairwise. Развиваются теории dynamics trust и uncertainty в networks, а также growth-driven collective behavior. Эти работы提供ляют analytical frameworks для understanding complex social spreading и coordination.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.05169][Reducibility of higher-order to pairwise interactions: Social impact models on hypergraphs]]
+:ALGO: Exact reduction of social impact models with higher-order interactions на hypergraphs to pairwise на weighted projected network.
+:IMPACT: Allows using standard voter model analysis для hypergraph dynamics, preserving microscopic probabilities.
+- [[hxxps://arxiv.org/abs/2606.24095][Regimes of Influence in Trust-Uncertainty Gated Networks]]
+:ALGO: Formalization of Gated Network Credence encoding distinct trust and distrust assessments для belief updating.
+:IMPACT: Reveals hub-periphery reversal в influence regimes depending на trust/uncertainty thresholds.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.04020][An Approximate-Master-Equation Formulation of the Watts Threshold Model on Hypergraphs]] — Extension of WTM to continuous time using AMEs для polyadic networks with high accuracy.
+- [[hxxps://arxiv.org/abs/2606.24818][Exact log-odds representation and mean-field criticality of a growing social group model]] — Analytical reformulation of growing social group model как gradient flow на logarithmic time.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Внимание привлекают алгоритмы для dynamic graphs с гарантиями privacy и quantum simulation structures. Переосмысливаются фундаментальные limits competitive analysis в paging и scheduling. Работы предлагают как rigorous theoretical bounds, так и practical improvements в simulation performance.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.24789][Faster algorithm for achieving minimal-size quantum decision diagrams]]
+:WHAT: Novel normal-form algorithm for Pauli-LIMDDs achieving worst-case speedup в simulation quantum circuits.
+:IMPACT: Realizes theoretically-proven advantages of LIMDDs, outperforming existing simulators на order of magnitude.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.24421][Can Aggregate Invariants Accelerate Continuous Subgraph Matching?]]
+:ALGO: Investigation of spectral filtering для continuous subgraph matching (CSM) over dynamic graphs.
+:IMPACT: Shows aggregate tests accelerate construction and list scans, releasing reusable dynamic local-spectra index.
+- [[hxxps://arxiv.org/abs/2409.17623][Fully Dynamic Graph Algorithms with Edge Differential Privacy]]
+:ALGO: First differentially private и fully dynamic graph algorithms для fundamental statistics (triangle count, matching).
+:IMPACT: Provides upper and lower bounds on error для event-level и item-level privacy в continual release setting.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.23955][Is competitive online paging an artifact?]] — Argument that competitive analysis predictions для paging algorithms are artifact of incorrect model assumption regarding cold misses.
+- [[hxxps://arxiv.org/abs/2606.24845][A Near-Optimal Parallel Algorithm for Finding Matroid Bases]] — Algorithm settling parallel complexity of computing matroid basis matching lower bound up to log factor.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Ключевые темы включают scrutiny leadership democracy в chained BFT protocols и optimization LLM inference на edge devices. Также заметен интерес к quantum-assisted coordination и distributed learning с verifiable scheduling. Тренды указывают на maturing consensus protocols и growth of edge AI systems.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.21835][Collaborative Lossless LLM Inference Serving with Offloading-based Pipeline Parallelism on Edge Devices]]
+:WHAT: System (LOIP) employing offloading-based interleaved pipeline parallelism для lossless LLM inference на edge.
+:IMPACT: Achieves 8.8x~20.3x speedups over SOTA baselines на heterogeneous devices без compromising model accuracy.
+- [[hxxps://arxiv.org/abs/2512.19842][Holoscope: Open and Lightweight Telescope & Honeypot Platform]]
+:WHAT: Cloud-native platform для deployment and management of telescope и honeypot sensors built на K3s.
+:IMPACT: Enables unified visibility into large-scale attack phenomena maintaining ease of integration и security compliance.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.02899][Decentralized SGD with Controlled Disagreement Finds Flatter Minima]]
+:ALGO: Decentralized SGD with Adaptive Consensus (DSGD-AC) using time-dependent scaling mechanism.
+:IMPACT: Challenges view that consensus errors undermine convergence, showing they can act as useful implicit regularizer.
+- [[hxxps://arxiv.org/abs/2606.20344][Quantum ring all-reduce: communication and privacy advantages for distributed learning]]
+:ALGO: Quantum version of ring all-reduce reducing per-link online communication bằng factor of two using entanglement.
+:IMPACT: Yields simultaneous communication и security advantages для large scale distributed training regardless of learning model.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2501.02970][Leader Rotation Is Not Enough: Scrutinizing Leadership Democracy of Chained BFT Consensus]] — Analysis showing leader rotation not enough для leadership democracy guarantee under attack в chained BFT.
+- [[hxxps://arxiv.org/abs/2501.03695][Unraveling Responsiveness of Chained BFT Consensus with Network Delay]] — Framework utilizing MDP для modeling performance chained BFT protocols revealing responsiveness not universally beneficial.

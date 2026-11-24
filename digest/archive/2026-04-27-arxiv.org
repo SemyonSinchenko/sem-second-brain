@@ -1,0 +1,113 @@
+#+TITLE: Arxiv Digest: 2026-04-27
+#+FROM: [2026-04-26 Sun]
+#+TO: [2026-04-27 Mon]
+#+DATE: [2026-04-27 Mon]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+За последние сутки наблюдается укрепление тренда на гибридные индексные структуры, сочетающие классические гарантии с производительностью learned indexes. Значительный интерес вызывают задачи приближенного поиска ближайших соседей (ANN) с произвольными фильтрами и методы снижения затрат токенов при работе с длинным контекстом в базах знаний. Также отмечается прогресс в приватном поиске по децентрализованным хранилищам.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2511.21307][HIRE: A Hybrid Learned Index for Robust and Efficient Performance under Mixed Workloads]]
+:WHAT: Гибридный индекс в памяти, сочетающий структурную устойчивость традиционных деревьев с предсказательной силой моделей.
+:IMPACT: Снижает tail latency на 98% и повышает пропускную способность до 41.7× на смешанных нагрузках по сравнению с SOTA.
+- [[hxxps://arxiv.org/abs/2604.22171][MCI: A Maximal Clique Index for Efficient Arbitrary-Filtered Approximate Nearest Neighbor Search]]
+:WHAT: Графовый индекс на основе максимальных клик для сжатия плотных графов ближайших соседей.
+:IMPACT: Увеличивает QPS на порядок при высокой полноте и снижает требования к памяти для задач AF-ANN.
+- [[hxxps://arxiv.org/abs/2604.15583][SAGE: Selective Attention-Guided Extraction for Token-Efficient Document Indexing]]
+:WHAT: Framework сокращения контекста, использующий сигналы внимания lightweight LLM для выбора релевантных токенов.
+:IMPACT: Позволяет сократить объем контекста на 90% без fine-tuning, сохраняя точность ответов на длинных документах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.23105][Spatial Analysis on Value-Based Quadtrees of Rasterized Vector Data]]
+:ALGO: Индекс на основе квадродеревьев, поддерживающий совместный анализ векторных и растровых пространственных данных.
+:IMPACT: Ускоряет запросы Point-in-Polygon в 2 раза, обеспечивая мост между форматами данных в мобильной аналитике.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.22100][Implementation and Privacy Guarantees for Scalable Keyword Search on SOLID-based Decentralized Data with Granular Visibility Constraints]] — формальная модель угроз и архитектура приватного поиска по распределенным pod-хранилищам Solid.
+- [[hxxps://arxiv.org/abs/2508.09160][Presenting DiaData for Research on Type 1 Diabetes]] — интеграция 15 датасетов для анализа глюкозы и гипогликемии, включающая 149 миллионов измерений.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основной фокус сместился на оптимизацию коммуникации GPU и системы-serving для больших языковых моделей. Ключевые направления включают использование CUDA Graphs для уменьшения накладных расходов, серверless-агрегацию градиентов и симуляцию эпидемий на графах контактов с использованием ядерной фузии.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2508.15919][HFX: Joint Design of Algorithms and Systems for Multi-SLO Serving and Fast Scaling]]
+:WHAT: Система-serving LLM с совместной оптимизацией планировщика запросов и эластичного скейлинга реплик.
+:IMPACT: Снижает затраты на NPU до 49.81% и задержку на 65.82% при гарантированном соблюдении SLO в гетерогенных нагрузках.
+- [[hxxps://arxiv.org/abs/2604.22126][GICC: A High-Performance Runtime for GPU-Initiated Communication and Coordination in Modern HPC Systems]]
+:WHAT: Рантайм для прямой инициации NIC-операций из ядер GPU без участия хоста на быстром пути.
+:IMPACT: Уменьшает задержку координации до 229× на Slingshot и улучшает эффективность weak scaling на 25%.
+- [[hxxps://arxiv.org/abs/2604.22092][FlashSpread: IO-Aware GPU Simulation of Non-Markovian Epidemic Dynamics via Kernel Fusion]]
+:WHAT: GPU-фреймворк с фузией ядер для симуляции эпидемий на графах контактов с немарковской динамикой.
+:IMPACT: Достигает 217× ускорения относительно CPU и масштабируется до 10^8 узлов на одном A100.
+- [[hxxps://arxiv.org/abs/2604.22312][Guess-Verify-Refine: Data-Aware Top-K for Sparse-Attention Decoding on Blackwell via Temporal Correlation]]
+:WHAT: Алгоритм точного Top-K для sparse-attention, использующий временную корреляцию шагов декодирования.
+:IMPACT: Ускоряет оператор на 1.88× и улучшает TPOT на 7.52% в сценариях с длинным контекстом.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.22146][$O(K)$-Approximation Coflow Scheduling in $K$-Core Optical Circuit Switching Networks]]
+:ALGO: Алгоритм планирования coflow в многопроцессорных оптических сетях с гарантиями аппроксимации.
+:IMPACT: Решает проблему кросс-кор coupling и планирования цепей для минимизации времени завершения задач в DCN.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.12260][Legitimate Overrides in Decentralized Protocols]] — таксономия механизмов аварийного вмешательства в децентрализованных протоколах на основе анализа 705 инцидентов.
+- [[hxxps://arxiv.org/abs/2604.22228][Accelerating Intra-Node GPU-to-GPU Communication Through Multi-Path Transfers with CUDA Graphs]] — интеграция CUDA Graphs в UCX для улучшения внутриузловой коммуникации через несколько путей.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Заметен прогресс в практической эффективности алгоритмов декомпозиции графов и оптимальной enumerации путей. Исследования фокусируются на улучшении компромиссов время-память для задач индексации и применении структурных свойств матриц в целочисленном программировании.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2406.14111][Expander Hierarchies for Normalized Cuts on Graphs]]
+:ALGO: Первый практически эффективный алгоритм вычисления декомпозиций экспандеров и их иерархий.
+:IMPACT: Превосходит SOTA решатели для normalized cut по качеству кластеризации на социальных и веб-графах.
+- [[hxxps://arxiv.org/abs/2603.12894][Optimal Enumeration of Eulerian Trails in Directed Graphs]]
+:ALGO: Прямой алгоритм перечисления эйлеровых путей за оптимальное время O(m + z_T).
+:IMPACT: Улучшает реализацию теоремы BEST и находит применение в биоинформатике и приватности данных.
+- [[hxxps://arxiv.org/abs/2512.04258][Improved Time-Space Tradeoffs for 3SUM-Indexing]]
+:ALGO: Улучшенный tradeoff TS = n^{2.5} для задачи 3SUM-Indexing за счет структуры функции.
+:IMPACT: Расширяет применимость алгоритма Fiat-Naor для задач индексации и поиска данных.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2203.05888][Moser-Tardos Algorithm with small number of random bits]] — вариант параллельного алгоритма с константным ожидаемым количеством случайных бит для графов с субэкспоненциальным ростом.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования выявляют универсальные свойства самоподобия в онлайн-сетях во время социальных мобилизаций. Развиваются методы генерации универсальных сетей и операционной валидации симуляций на агентах для воспроизведения реальных паттернов.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.22677][Self-Similarity in Online Networks During Social Movements]]
+:ALGO: Анализ ко-оккуррентных сетей хэштегов с процедурой ренормализации для выявления скейлинг-инвариантности.
+:IMPACT: Демонстрирует универсальный организующий принцип социальных движений в пиковые фазы мобилизации.
+- [[hxxps://arxiv.org/abs/2510.23041][Universal Network Generation Model via Exponential Probabilistic Growth and Vari-linear Preferential Attachment]]
+:ALGO: Модель генерации сетей с экспоненциальным ростом и вари-линейным предпочтительным присоединением.
+:IMPACT: Преодолевает ограничения традиционных моделей в области низких степеней и обеспечивает лучшую интерпретируемость.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2508.21740][Towards Operational Validation of LLM-Agent Social Simulations: A Replicated Study of a Reddit-like Technology Forum]] — валидация симуляций на 30 независимых запусках агентов против реальных данных Voat.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Интеграция графовых данных с мультимодальными моделями (VLM) становится ключевым направлением для рассуждений. Одновременно развиваются системы обеспечения воспроизводимости экспериментов и методы защиты прав на модели через водяные знаки.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.18655][Unlocking the Edge deployment and ondevice acceleration of multi-LoRA enabled one-for-all foundational LLM]]
+:WHAT: Фреймворк для эффективного инференса мульти-LoRA моделей на мобильных устройствах с динамическим переключением задач.
+:IMPACT: Достигает 4-6× улучшения памяти и задержки на Snapdragon, обеспечивая коммерческую жизнеспособность GenAI на edge.
+- [[hxxps://arxiv.org/abs/2604.22072][Shard the Gradient, Scale the Model: Serverless Federated Aggregation via Gradient Partitioning]]
+:WHAT: Архитектура агрегации градиентов через шардирование тензора в serverless-функциях.
+:IMPACT: Позволяет агрегировать модели размером >10 ГБ на AWS Lambda, снижая затраты в 2.7× для больших моделей.
+- [[hxxps://arxiv.org/abs/2505.20662][AutoReproduce: Automatic AI Experiment Reproduction with Paper Lineage]]
+:WHAT: Мульти-агентный фреймворк для автономного воспроизведения кода экспериментов на основе цитирований.
+:IMPACT: Превосходит базовые методы по точности воспроизведения и исполняемости кода на бенчмарках.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2503.21435][Graph-to-Vision: Multi-graph Understanding and Reasoning using Vision-Language Models]]
+:ALGO: Бенчмарк и методы для совместного рассуждения VLM по нескольким графам (knowledge graphs, flowcharts).
+:IMPACT: Открывает возможности для кросс-модального графового интеллекта beyond традиционных GNN.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2505.12296][PoLO: Proof-of-Learning and Proof-of-Ownership at Once with Chained Watermarking]] — метод водяных знаков для верификации所有权 с точностью 99% и низкими затратами.
+- [[hxxps://arxiv.org/abs/2505.20435][The Shape of Adversarial Influence: Characterizing LLM Latent Spaces with Persistent Homology]] — топологический анализ латентных пространств LLM для детекции adversarial атак.

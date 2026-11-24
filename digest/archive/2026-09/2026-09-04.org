@@ -1,0 +1,97 @@
+#+TITLE: Daily Digest: 2026-09-04
+#+FROM: [2026-09-03 Thu]
+#+TO: [2026-09-04 Fri]
+#+DATE: [2026-09-04 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Open Lakehouse получает пятый семантический слой через Apache Ossie, чтобы агенты и LLM не выдавали уверенно неправильные ответы.
+AI-агенты переходят из notebooks в production: ключевой становится операционная часть — Runtime, Gateway, Memory, routing, budgets, observability и human review.
+Экономика coding-агентов определяется не только «думанием», а I/O и контекстом: proxy/gateway-слой уже даёт кратное сокращение токенов и расходов.
+Для data-инженеров главные практические новости года — управляемая многопоточная/многопрофильная observability баз данных и корректный JDBC-wrapper для Aurora Global Database.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-tech-companies-move-to][The Pulse: tech companies move to open AI models]] (Pragmatic Engineer) — Uber, Pinterest, Stripe, Coinbase, Ramp и AT&T снижают расходы на AI за счёт открытых моделей и smart routing: полезно для выбора модели под стоимость и качество, а не только под бренд.
+- [[https://www.databricks.com/blog/governance-beyond-security-knowledge-context-ontology-lakehouse][Governance beyond security: knowledge, context & ontology on the lakehouse]] (Databricks Blog) — governance для AI выходит за доступы: важны семантика, онтологии и контекст, иначе агенты неправильно интерпретируют метрики и таблицы.
+- [[https://www.databricks.com/blog/building-high-quality-and-trusted-data-products-databricks][Building High-Quality and Trusted Data Products with Databricks]] (Databricks Blog) — данные как продукт требует качества, доверия и понятных границ ответственности, особенно когда их потребляют BI и AI-агенты.
+- [[https://www.databricks.com/blog/what-is-data-transformation][What is Data Transformation?]] (Databricks Blog) — базовое, но практичное разделение raw, processed, curated слоёв и трансформаций: помогает согласовать scope миграций и рефакторинга пайплайнов.
+- [[https://aws.amazon.com/blogs/database/monitor-self-managed-databases-with-amazon-cloudwatch-database-insights/][Monitor self-managed databases with Amazon CloudWatch Database Insights]] (AWS Database Blog) — self-managed PostgreSQL на EC2 теперь виден рядом с RDS/Aurora в одном окне с Top SQL, wait events и host metrics: снижает MTTR в смешанных fleets.
+- [[https://aws.amazon.com/blogs/database/troubleshoot-aws-advanced-jdbc-wrapper-configuration-for-aurora-global-database-write-forwarding/][Troubleshoot AWS Advanced JDBC Wrapper configuration for Aurora Global Database write forwarding]] (AWS Database Blog) — показывает, что без правильного dialect и плагинов secondary-регион превращается в источник latency-5с-задержек и failed topology/health-проверок при write forwarding.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-tech-companies-move-to][The Pulse: tech companies move to open AI models]]
+:SCORE: 9/10
+:WHY: Даёт рыночный сигнал, что крупные технологические компании уже системно снижают AI-траты через open-модели и routing, а не просто тестируют их в пилотах.
+**** [[https://aws.amazon.com/blogs/database/monitor-self-managed-databases-with-amazon-cloudwatch-database-insights/][Monitor self-managed databases with Amazon CloudWatch Database Insights]]
+:SCORE: 8/10
+:WHY: Практический апгрейд для платформенных команд, которые должны держать единый мониторинг над managed и self-managed БД.
+**** [[https://www.databricks.com/blog/governance-beyond-security-knowledge-context-ontology-lakehouse][Governance beyond security: knowledge, context & ontology on the lakehouse]]
+:SCORE: 8/10
+:WHY: Объясняет сдвиг от классической RBAC-губернаторской политики к семантическому governance, без которого AI-агенты быстро портят доверие к данным.
+
+** Engineers
+- [[https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/][ZGateway: Learnings from Putting a Proxy in Front of ZippyDB]] (Meta Engineering) — кейс, где proxy-слой заменяет хаос из миллионов client binaries в один managed control point для connection fan-out, admission control, batching и cross-region resilience.
+- [[https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90/][Portal by Spotify cut my Claude Code token usage by 90%]] (Spotify Engineering) — показывает, что значительная часть затрат coding-агента — это не reasoning, а I/O и сбор контекста; portal-like abstraction резко сокращает токены.
+- [[https://aws.amazon.com/blogs/machine-learning/ai-driven-development-lifecycle-using-amazon-bedrock-agentcore/][AI-driven development lifecycle using Amazon Bedrock AgentCore]] (AWS ML Blog) — две reference-реализации с AgentCore runtime, gateway и memory: ER-диаграммы из SQL и multi-agent security review в CI/CD, а не только маркетинговый framework.
+- [[https://aws.amazon.com/blogs/machine-learning/set-up-openai-chatgpt-codex-with-litellm-on-amazon-ecs-and-amazon-bedrock/][Set up OpenAI ChatGPT Codex with LiteLLM on Amazon ECS and Amazon Bedrock]] (AWS ML Blog) — полезная архитектура для компаний, которым нужно централизовать budgets, rate limits, routing и telemetry для coding-агентов, оставив локальный tool loop у Codex.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.fb.com/2026/09/03/core-infra/zgateway-proxy-zippydb-meta/][ZGateway: Learnings from Putting a Proxy in Front of ZippyDB]]
+:SCORE: 9/10
+:WHY: Редкий пример production-архитектуры масштаба Meta, где proxy-слой решает фундаментальную проблему fan-out в огромных client fleets.
+**** [[https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90/][Portal by Spotify cut my Claude Code token usage by 90%]]
+:SCORE: 8/10
+:WHY: Прямо меняет ментальную модель стоимости AI-агентов: экономить можно не только на модели, но и на управлении I/O и контекстом.
+**** [[https://aws.amazon.com/blogs/machine-learning/set-up-openai-chatgpt-codex-with-litellm-on-amazon-ecs-and-amazon-bedrock/][Set up OpenAI ChatGPT Codex with LiteLLM on Amazon ECS and Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Даёт инженерный blueprint для enterprise adoption coding-агентов с gateway-контролем, аутентификацией, budgeting и observability.
+
+** Vendors
+- [[https://aws.amazon.com/blogs/machine-learning/migrate-agentic-workloads-to-amazon-bedrock-agentcore/][Migrate agentic workloads to Amazon Bedrock AgentCore]] (AWS ML Blog) — честный разбор operational burden у LangGraph-агента в production: state isolation, auth, patching, scaling, Guardrails; миграция идёт в 2–3 этапа и не всегда требует переписать граф.
+- [[https://aws.amazon.com/blogs/machine-learning/best-practices-for-building-agentic-automations-with-amazon-quick-automate/][Best practices for building agentic automations with Amazon Quick Automate]] (AWS ML Blog) — практично советует начинать с процесса, а не с агента: смешивать reasoning, deterministic steps, human review и evaluation там, где есть unstructured inputs и exceptions.
+- [[https://aws.amazon.com/blogs/machine-learning/embed-quick-sight-visuals-using-cognito-user-authentication/][Embed Quick Sight visuals using Cognito user authentication]] (AWS ML Blog) — полный serverless path для embedding отдельных визуалов в React: Cognito JWT, API Gateway, Lambda-роль и scoped Quick Sight embed URLs.
+- [[https://aws.amazon.com/blogs/machine-learning/integrating-outlook-with-amazon-quick-for-ai-powered-email-automation/][Integrating Outlook with Amazon Quick for AI-powered email automation]] (AWS ML Blog) — end-to-end интеграция Outlook и Quick для автоматизации email-потоков, action items и meeting briefings; скорее enterprise-workflow кейс, чем core-инженерный.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/migrate-agentic-workloads-to-amazon-bedrock-agentcore/][Migrate agentic workloads to Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Лучше многих vendor-статей показывает разницу между “рабочим агентом” и “работающим агентом в production” через конкретные construct mapping.
+**** [[https://aws.amazon.com/blogs/machine-learning/best-practices-for-building-agentic-automations-with-amazon-quick-automate/][Best practices for building agentic automations with Amazon Quick Automate]]
+:SCORE: 8/10
+:WHY: Даёт инженерные паттерны надёжности: где нужны deterministic steps, human-in-the-loop и evaluation, а где агентская автономность уже вредна.
+**** [[https://aws.amazon.com/blogs/machine-learning/embed-quick-sight-visuals-using-cognito-user-authentication/][Embed Quick Sight visuals using Cognito user authentication]]
+:SCORE: 7/10
+:WHY: Конкретная реализация embedded analytics с per-user access control — редко какой vendor-блог так быстро доводит до работающей serverless схемы.
+
+** Open Source
+- [[https://www.dremio.com/blog/state-of-the-open-lakehouse-september-2026/][State of the Open Lakehouse, September 2026]] (Dremio Blog) — самый полный обзор слоёв Parquet, Arrow, Iceberg, Polaris и нового Apache Ossie; главное: агентная эпоха вынуждает открытую lakehouse-экосистему формализовать семантику, а не только хранение.
+- [[https://huggingface.co/blog/Hcompany/neomme][NeoMME: an efficient Multimodal-native and Multilingual Encoder]] (Hugging Face Blog) — выход нового мультимодального и мультиязычного encoder'а; стоит оценить, если вы выбираете эмбеддинги для retrieval, search или cross-lingual multimodal задач.
+- [[https://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — meeting agenda по графовым данным: GQL, TinkerGQL, FinBench, graph sparsification, hardware acceleration, decoupled graph compute; полезно для трекинга открытых графовых стандартов и платформ.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dremio.com/blog/state-of-the-open-lakehouse-september-2026/][State of the Open Lakehouse, September 2026]]
+:SCORE: 9/10
+:WHY: Это must-read по экосистеме Apache-слоёв lakehouse, потому что связывает версии, conformance, encryption, credential refresh и новую semantic-спецификацию в одну картину.
+**** [[https://huggingface.co/blog/Hcompany/neomme][NeoMME: an efficient Multimodal-native and Multilingual Encoder]]
+:SCORE: 7/10
+:WHY: Открытая альтернатива для мультимодального embedding-стека нужна всем, кто строит search, RAG и retrieval над текстом + изображениями/аудио.
+**** [[https://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Не статья, а окно в открытую графовую экосистему: стандарты, бенчмарки и hardware-направление помогут быстро понять, куда движется graph data engineering.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/i-asked-chatgpt-to-analyze-3-datasets-it-made-the-same-mistakes-every-time][I Asked ChatGPT to Analyze 3 Datasets. It Made the Same Mistakes Every Time]] (KDnuggets) — показывает опасную границу LLM в data analysis: review pass исправил row count, но всё равно одобрил неверные выводы; детерминированная валидация всё ещё обязательна.
+- [[https://www.kdnuggets.com/5-free-courses-to-go-from-llm-beginner-to-practitioner][5 Free Courses to Go From LLM Beginner to Practitioner]] (KDnuggets) — структурированный бесплатный путь от бэкпропа до production-grade LLM-приложений; хорош как учебный трек для команды, а не только для одного новичка.
+- [[https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/][Introducing WeatherNext 3, our most advanced and accurate global weather AI model]] (DeepMind Blog) — DeepMind показывает, как далеко продвинулись специализированные foundation-модели в scientific domain; важно для тех, кто оценивает потолок AI-моделей за пределами chat/code.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/i-asked-chatgpt-to-analyze-3-datasets-it-made-the-same-mistakes-every-time][I Asked ChatGPT to Analyze 3 Datasets. It Made the Same Mistakes Every Time]]
+:SCORE: 9/10
+:WHY: Прямо бьёт в главный инженерный риск AI-аналитики: правдоподобный вывод и формальный review не заменяют проверенных метрик, ground truth и детерминированных тестов.
+**** [[https://www.kdnuggets.com/5-free-courses-to-go-from-llm-beginner-to-practitioner][5 Free Courses to Go From LLM Beginner to Practitioner]]
+:SCORE: 7/10
+:WHY: Даёт практичный бесплатный curriculum, полезный при онбординге команды в LLM-инженерию без платных bootcamp-обещаний.
+**** [[https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/][Introducing WeatherNext 3, our most advanced and accurate global weather AI model]]
+:SCORE: 7/10
+:WHY: Полезный маркер зрелости AI в специализированных задачах: если модель уже конкурирует в науке, её приёмыSoon стоит ждать в enterprise ML-системах.

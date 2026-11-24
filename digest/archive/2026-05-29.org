@@ -1,0 +1,79 @@
+#+TITLE: Daily Digest: 2026-05-29
+#+FROM: [2026-05-28 Thu]
+#+TO: [2026-05-29 Fri]
+#+DATE: [2026-05-29 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с генеративного AI на агентные workflows, где критичны оценка надежности и архитектурная поддержка (Dremio, AWS). Инженерные лидеры начинают пересматривать бюджеты на AI-эксперименты, требуя измеримой ROI вместо хайпа. Экосистема Lakehouse эволюционирует под нужды автономных агентов, а не только аналитиков, что меняет подход к управлению данными и доступом.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/claude-opus-4-8-is-now-available-on-aws/][Claude Opus 4.8 is now available on AWS]] (AWS) — Новая версия модели оптимизирована для долгих агентных задач и программирования с улучшенным удержанием контекста.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/evaluating-deep-agents-using-langsmith-on-aws/][Evaluating Deep Agents using LangSmith on AWS]] (AWS) — Практическое руководство по тестированию неопределенного поведения агентов в продакшене.
+- [[hxxps://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/][Data Formulator 0.7: AI-powered data analytics for enterprise data]] (Microsoft) — Открытая система аналитики с агентами для подготовки данных без SQL.
+- [[hxxps://www.kdnuggets.com/tweaking-local-language-model-settings-with-ollama/][Tweaking Local Language Model Settings with Ollama]] (KDnuggets) — Глубокий разбор конфигурации локальных LLM для тонкой настройки параметров.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-test-suite-that-grows-with-your-agent-with-dataset-management-in-amazon-bedrock-agentcore/][Build a test suite that grows with your agent with dataset management in Amazon Bedrock AgentCore]] (AWS) — Версионирование тестовых наборов для стабильной оценки агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/automate-aml-alert-triage-with-amazon-quick-and-snowflake-cortex-ai/][Automate AML alert triage with Amazon Quick and Snowflake Cortex AI]] (AWS) — Автоматизация комплаенс-процессов через связку AWS и Snowflake.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-custom-portal-with-embedded-amazon-sagemaker-ai-mlflow-apps/][Build a custom portal with embedded Amazon SageMaker AI MLflow Apps]] (AWS) — Интеграция MLflow в корпоративные порталы через SSO.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/streamline-external-access-to-amazon-sagemaker-mlflow-using-a-rest-api-proxy/][Streamline external access to Amazon SageMaker MLflow using a REST API proxy]] (AWS) — Безопасный прокси-доступ к MLflow дляlegacy-систем.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/training-azerbaijani-language-models-on-amazon-sagemaker-ai/][Training Azerbaijani language models on Amazon SageMaker AI]] (AWS) — Опыт обучения LLM для морфологически сложных языков.
+- [[hxxps://www.kdnuggets.com/7-real-world-ai-projects-to-build-in-2026-with-guides/][7 Real World AI Projects to Build in 2026 (with Guides)]] (KDnuggets) — Подборка практических проектов для автоматизации рутины.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/claude-opus-4-8-is-now-available-on-aws/][Claude Opus 4.8 is now available on AWS]]
+:SCORE: 9/10
+:WHY: Критичное обновление модели для production-агентов с улучшенной стабильностью и контекстом.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/evaluating-deep-agents-using-langsmith-on-aws/][Evaluating Deep Agents using LangSmith on AWS]]
+:SCORE: 9/10
+:WHY: Решает главную проблему внедрения агентов — надежную валидацию.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/data-formulator-0-7-ai-powered-data-analytics-for-enterprise-data/][Data Formulator 0.7: AI-powered data analytics for enterprise data]]
+:SCORE: 8/10
+:WHY: Снижает порог входа для аналитики через агентные интерфейсы.
+
+** Вендоры
+- [[hxxps://www.dremio.com/blog/what-is-agentic-analytics-how-it-differs-from-bi-and-ai-assistants/][What Is Agentic Analytics? How It Differs from BI and AI Assistants]] (Dremio) — Концептуальное различие между автономными агентами и традиционным BI.
+- [[hxxps://www.dremio.com/blog/agentic-lakehouse-vs-data-lakehouse-what-actually-changes/][Agentic Lakehouse vs Data Lakehouse: What Actually Changes]] (Dremio) — Архитектурные изменения хранения данных для AI-потребителей.
+- [[hxxps://www.databricks.com/blog/unity-catalog-and-next-era-apache-icebergtm][Advancing Apache Iceberg on Databricks: Iceberg v3 GA, Open Sharing, and Unified Governance]] (Databricks) — Развитие стандарта Iceberg и управление доступом.
+- [[hxxps://gdotv.com/blog/kuzu-legacy-embedded-graph-database-landscape/][Kuzu's Legacy and the New Wave of Embedded Graph Databases]] (gdotv) — Обзорembedded-графовых СУБД и наследие Kuzu.
+- [[hxxps://www.databricks.com/blog/how-enterprise-leaders-are-scaling-ai-agents-across-their-organization/][How enterprise leaders are scaling AI agents across their organization]] (Databricks) — Кейсы масштабирования агентов в энтерпрайзе.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи сообщества графовых баз данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/agentic-lakehouse-vs-data-lakehouse-what-actually-changes/][Agentic Lakehouse vs Data Lakehouse: What Actually Changes]]
+:SCORE: 9/10
+:WHY: Объясняет структурные изменения архитектуры под запросы AI.
+**** [[hxxps://www.dremio.com/blog/what-is-agentic-analytics-how-it-differs-from-bi-and-ai-assistants/][What Is Agentic Analytics? How It Differs from BI and AI Assistants]]
+:SCORE: 8/10
+:WHY: Четко определяет новый класс аналитических систем.
+**** [[hxxps://www.databricks.com/blog/unity-catalog-and-next-era-apache-icebergtm][Advancing Apache Iceberg on Databricks: Iceberg v3 GA, Open Sharing, and Unified Governance]]
+:SCORE: 8/10
+:WHY: Важное обновление стандарта для открытых озер данных.
+
+** Data Engineering
+- [[hxxps://juhache.substack.com/p/launching-boring-ui][Launching Boring UI]] (Substack) — Open source фреймворк для агентных интерфейсов с минимальным UI.
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-a-trend-of-trying-to-cut][The Pulse: a trend of trying to cut back on AI spend within eng departments?]] (The Pragmatic Engineer) — Тренд на сокращение расходов на AI при отсутствии ROI.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-a-trend-of-trying-to-cut][The Pulse: a trend of trying to cut back on AI spend within eng departments?]]
+:SCORE: 9/10
+:WHY: Сигнал о смене приоритетов в финансировании AI-инициатив.
+**** [[hxxps://juhache.substack.com/p/launching-boring-ui][Launching Boring UI]]
+:SCORE: 7/10
+:WHY: Интересный паттерн UI для агентных приложений.
+
+** Инженеры
+- [[hxxps://medium.com/towards-data-engineering/databricks-lakeflow-spark-this-way-%EF%B8%8F-43d30184455b?source=rss-6e4a30cbb0e1------2][Databricks Lakeflow ✨ Spark This Way ️]] (Medium) — Культрный сдвиг от скриптов к декларативным пайплайнам в Lakehouse.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/databricks-lakeflow-spark-this-way-%EF%B8%8F-43d30184455b?source=rss-6e4a30cbb0e1------2][Databricks Lakeflow ✨ Spark This Way ️]]
+:SCORE: 7/10
+:WHY: Описывает эволюцию роли инженера данных в экосистеме Databricks.
+
+** Неинженерное
+- [[hxxps://peterturchin.substack.com/p/the-silver-lining-of-the-baby-bust][The Silver Lining of the Baby Bust]] (Substack) — Демографический анализ влияния низкой рождаемости на стабильность общества.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/the-silver-lining-of-the-baby-bust][The Silver Lining of the Baby Bust]]
+:SCORE: 6/10
+:WHY: Контекст макро-трендов, влияющих на рынок труда в долгосроке.

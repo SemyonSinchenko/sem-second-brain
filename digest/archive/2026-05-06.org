@@ -1,0 +1,74 @@
+#+TITLE: Daily Digest: 2026-05-06
+#+FROM: [2026-05-05 Tue]
+#+TO: [2026-05-06 Wed]
+#+DATE: [2026-05-06 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с экспериментов с ИИ на производственную эксплуатацию: ключевыми темами стали безопасность агентных систем и преодоление ограничений браузерной автоматизации. В инфраструктуре данных наблюдается тренд на глобальную консистентность без компромиссов производительности, как в случае с Amazon Aurora DSQL. Одновременно возвращается интерес к фундаментальной инженерии — от обновления классики DDIA до lock-free структур данных.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/baptists-and-bootleggers-the-hidden-coalition-behind-data-driven-decisions][Baptists and Bootleggers: The Hidden Coalition Behind 'Data-Driven' Decisions]] (KDnuggets) — Анализ психологии принятия решений: различие между искренним поиском истины и подбором данных под заранее принятое решение.
+- [[hxxps://www.kdnuggets.com/5-fun-projects-using-claude-code][5 Fun Projects Using Claude Code]] (KDnuggets) — Подборка практических задач для превращения Claude Code в полноценного партнера по написанию кода.
+- [[hxxps://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/][Microsoft at NSDI 2026: Advances in large-scale networked systems]] (Microsoft) — Обзор исследований Microsoft в области шаринга KV cache и автоматизированного тестирования протоколов через LLM.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-hapag-lloyd-uses-amazon-bedrock-to-transform-customer-feedback-into-actionable-insights/][How Hapag-Lloyd uses Amazon Bedrock to transform customer feedback into actionable insights]] (AWS) — Кейс автоматизации анализа клиентских отзывов и извлечения инсайтов с помощью генеративного ИИ.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/streamlining-generative-ai-development-with-mlflow-v3-10-on-amazon-sagemaker-ai/][Streamlining generative AI development with MLflow v3.10 on Amazon SageMaker AI]] (AWS) — Обновление MLflow с улучшенным трейсингом и оценкой качества для генеративных workflow.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-os-level-actions-in-amazon-bedrock-agentcore-browser/][Introducing OS Level Actions in Amazon Bedrock AgentCore Browser]] (AWS) — Внедрение контроля на уровне ОС для браузерных агентов, позволяющее взаимодействовать с нативными диалогами.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-amazon-bedrock-agentcore-identity-on-amazon-ecs/][Secure AI agents with Amazon Bedrock AgentCore Identity on Amazon ECS]] (AWS) — Руководство по безопасной авторизации агентов через OAuth 2.0 и session binding.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/intelligence-driven-message-defense-and-insights-using-amazon-bedrock/][Intelligence-driven message defense and insights using Amazon Bedrock]] (AWS) — Использование генеративного ИИ для предотвращения утечек контактов и анализа настроений в сообщениях.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/microsoft-at-nsdi-2026-advances-in-large-scale-networked-systems/][Microsoft at NSDI 2026: Advances in large-scale networked systems]]
+:SCORE: 9/10
+:WHY: Глубокий взгляд на оптимизацию инфраструктурных систем для ИИ, включая шаринг кешей и автоматическое тестирование протоколов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/secure-ai-agents-with-amazon-bedrock-agentcore-identity-on-amazon-ecs/][Secure AI agents with Amazon Bedrock AgentCore Identity on Amazon ECS]]
+:SCORE: 9/10
+:WHY: Критически важно для продакшена: паттерны безопасности, OAuth и изоляция сессий для автономных агентов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-os-level-actions-in-amazon-bedrock-agentcore-browser/][Introducing OS Level Actions in Amazon Bedrock AgentCore Browser]]
+:SCORE: 8/10
+:WHY: Решает фундаментальную проблему автоматизации: взаимодействие агентов с нативными элементами ОС за пределами DOM.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/amazon-aurora-dsql-for-global-scale-financial-transactions/][Amazon Aurora DSQL for global-scale financial transactions]] (AWS) — Архитектура распределенной БД с сильной консистентностью для финансовых транзакций без компромиссов latency.
+- [[hxxps://www.databricks.com/blog/ai-scaling-gap-hiding-digital-native-companies][The AI Scaling Gap Hiding in Digital Native Companies]] (Databricks) — Анализ проблем масштабирования ИИ-инициатив в цифровых компаниях.
+- [[hxxps://www.databricks.com/blog/10-trillion-samples-day-scaling-beyond-traditional-monitoring-infra-databricks][10 trillion samples a day: Scaling beyond traditional monitoring infra at Databricks]] (Databricks) — Опыт масштабирования мониторинговой инфраструктуры до триллионов сэмплов в сутки.
+- [[hxxps://www.databricks.com/blog/ai-success-starts-clean-data-not-just-better-models][AI success starts with clean data, not just better models]] (Databricks) — Акцент на важности качества данных как фундамента для успешных ИИ-моделей.
+- [[hxxps://www.databricks.com/blog/how-nops-rebuilt-their-cloud-optimization-platform-databricks-lakebase-and-why-other-isvs][How nOps Rebuilt Their Cloud Optimization Platform on Databricks Lakebase, and Why Other ISVs Should Too]] (Databricks) — Кейс миграции платформы оптимизации облака на Lakebase.
+- [[hxxps://www.databricks.com/blog/peril-predicts-precision-payouts-volatile-world][Peril Predicts: Precision Payouts for a Volatile World]] (Databricks) — Использование данных для прогнозирования страховых выплат во время стихийных бедствий.
+- [[hxxps://www.dremio.com/blog/what-data-leaders-get-wrong-about-agentic-ai/][What Data Leaders Get Wrong About Agentic AI]] (Dremio) — Разбор ошибок в подготовке данных для агентных ИИ-систем.
+- [[hxxps://www.dremio.com/blog/what-is-a-semantic-layer-2/][What Is a Semantic Layer?]] (Dremio) — Объяснение роли семантического слоя в современной архитектуре данных.
+- [[hxxps://www.dremio.com/blog/what-is-dremio/][What is Dremio? The Unified Lakehouse and AI Platform]] (Dremio) — Обзор платформы Dremio как единого решения для lakehouse и ИИ.
+- [[hxxps://www.dremio.com/blog/why-retail-analytics-backlogs-are-costing-your-business-real-margin][Why Retail Analytics Backlogs Are Costing Your Business Real Margin]] (Dremio) — Влияние задержек аналитики на маржу в ритейле и способы ускорения доступа к данным.
+- [[hxxps://www.dremio.com/blog/databricks-alternatives/][19 Databricks Alternatives and Competitors]] (Dremio) — Сравнительный обзор 19 альтернатив Databricks включая open-source и облачные решения.
+- [[hxxps://www.dremio.com/blog/snowflake-competitors/][Snowflake Competitors: More Affordable and Open Source Alternatives]] (Dremio) — Анализ конкурентов Snowflake с фокусом на стоимость и открытость.
+- [[hxxps://neo4j.com/blog/graph-database/nodes-2026-coming-up-submit-your-talk/][NODES 2026 Is Coming Up: Submit Your Talk]] (Neo4j) — Анонс конференции по графовым базам данных и призыв к подаче докладов.
+- [[hxxps://neo4j.com/blog/knowledge-graph/turning-servicenow-data-into-connected-enterprise-intelligence/][Turning ServiceNow Data into Connected Enterprise Intelligence]] (Neo4j) — Интеграция ServiceNow с графовой базой для контекстуализации данных для ИИ.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Информация о встрече технического сообщества LDBC в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/amazon-aurora-dsql-for-global-scale-financial-transactions/][Amazon Aurora DSQL for global-scale financial transactions]]
+:SCORE: 10/10
+:WHY: Прорыв в распределенных БД: глобальные транзакции с сильной консистентностью без двухфазного коммита.
+**** [[hxxps://www.dremio.com/blog/what-data-leaders-get-wrong-about-agentic-ai/][What Data Leaders Get Wrong About Agentic AI]]
+:SCORE: 9/10
+:WHY: Важное предупреждение для архитекторов: агентный ИИ требует иной инфраструктуры данных, чем классический ML.
+**** [[hxxps://www.dremio.com/blog/databricks-alternatives/][19 Databricks Alternatives and Competitors]]
+:SCORE: 8/10
+:WHY: Полезный ландшафт рынка для принятия стратегических решений о выборе платформы данных.
+
+** Инженерия данных
+- [[hxxps://newsletter.pragmaticengineer.com/p/designing-data-intensive-applications-book-excerpt][Designing Data-Intensive Applications: The Cloud & Doing the Right Thing]] (Pragmatic Engineer) — Эксклюзивный отрывок из 2-го издания DDIA о компромиссах облака и этике инженера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/designing-data-intensive-applications-book-excerpt][Designing Data-Intensive Applications: The Cloud & Doing the Right Thing]]
+:SCORE: 10/10
+:WHY: Фундаментальное обновление классики, обязательное для понимания современных архитектурных_trade-off_ в облаке.
+
+** Инженеры
+- [[hxxps://nullprogram.com/blog/2026/05/06/][Concurrent, atomic MSI hash tables]] (nullprogram.com) — Технический разбор реализации параллельных хеш-таблиц с атомарными операциями для single-producer сценариев.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://nullprogram.com/blog/2026/05/06/][Concurrent, atomic MSI hash tables]]
+:SCORE: 9/10
+:WHY: Глубокое погружение в lock-free программирование и оптимизацию структур данных на низком уровне.

@@ -3,3 +3,5 @@
 \#*
 
 *.db
+# daemon-managed read-only copies
+sem/

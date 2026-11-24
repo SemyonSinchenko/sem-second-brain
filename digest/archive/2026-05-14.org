@@ -1,0 +1,93 @@
+#+TITLE: Daily Digest: 2026-05-14
+#+FROM: [2026-05-13 Wed]
+#+TO: [2026-05-14 Thu]
+#+DATE: [2026-05-14 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Регуляторы (APRA) требуют внедрения управления AI через код, а не документы, что меняет подход к комплаенсу в финтехе. Эксперты по данным подчеркивают приоритет фундаментальных основ над современными инструментами для реальной бизнес-ценности. Инженерные кейсы показывают значительную оптимизацию затрат и задержек при правильном выборе клиентов кэширования (Valkey GLIDE). В системах наблюдается тренд на высокопроизводительные аллокаторы памяти (mimalloc) для поддержки конкурентных нагрузок и LLM.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/academic-cto-what-actually-matters][Academic → CTO: What Actually Matters in Data]] (Data Engineering Central) — интервью с бывшим CTO о том, почему фундамент данных важнее современных стеков и дашбордов.
+- [[hxxps://www.dremio.com/blog/the-metadata-structure-of-modern-table-formats/][The Metadata Structure of Modern Table Formats]] (Dremio) — технический разбор структуры метаданных Apache Iceberg и влиянии на планирование запросов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/academic-cto-what-actually-matters][Academic → CTO: What Actually Matters in Data]]
+:SCORE: 9/10
+:WHY: Критический взгляд на разрыв между академическими моделями и реальной инженерной ценностью для лидеров команд.
+**** [[hxxps://www.dremio.com/blog/the-metadata-structure-of-modern-table-formats/][The Metadata Structure of Modern Table Formats]]
+:SCORE: 8/10
+:WHY: Глубокое понимание внутреннего устройства табличных форматов необходимо для оптимизации Lakehouse.
+
+** Инженеры
+- [[hxxps://www.junaideffendi.com/p/inside-data-engineering-with-yuki][Inside Data Engineering with Yuki Kakegawa]] (Junaid Effendi) — опыт solo-инженера данных: от стратегии до пайплайнов в одиночку.
+- [[hxxps://newsletter.pragmaticengineer.com/p/typescript-c-and-turbo-pascal-with][TypeScript, C# and Turbo Pascal with Anders Hejlsberg]] (The Pragmatic Engineer) — легендарный разработчик языков о дизайне, инструментах и влиянии AI на код.
+- [[hxxps://blog.devgenius.io/agent-bricks-%EF%B8%8F-hazy-shade-of-beneficial-cf591fd56b75?source=rss-6e4a30cbb0e1------2][Agent Bricks 🧱 Hazy Shade Of Beneficial]] (DevGenius) — архитектурный разбор enterprise-агентов: от демо до продакшена с_guardrails_.
+- [[hxxps://vutr.substack.com/p/i-spent-12-hours-rebuilding-my-junior][I spent 12 Hours rebuilding my Junior year project: Part 1]] (Vu Truong) — практический пример рефакторинга учебного проекта с внедрением Best Practices (Terraform, Airflow).
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/typescript-c-and-turbo-pascal-with][TypeScript, C# and Turbo Pascal with Anders Hejlsberg]]
+:SCORE: 10/10
+:WHY: Уникальные инсайты от создателя TypeScript и C# о долгоживущих языках и инженерной культуре.
+**** [[hxxps://blog.devgenius.io/agent-bricks-%EF%B8%8F-hazy-shade-of-beneficial-cf591fd56b75?source=rss-6e4a30cbb0e1------2][Agent Bricks 🧱 Hazy Shade Of Beneficial]]
+:SCORE: 9/10
+:WHY: Реалистичный взгляд на сложности внедрения AI-агентов в enterprise-среде без маркетинговой шелухи.
+**** [[hxxps://www.junaideffendi.com/p/inside-data-engineering-with-yuki][Inside Data Engineering with Yuki Kakegawa]]
+:SCORE: 8/10
+:WHY: Полезно для понимания роли дата-инженера в компаниях без выделенных платформенных команд.
+
+** Вендоры
+- [[hxxps://neo4j.com/blog/graph-database/apra-just-put-the-financial-sector-on-notice-over-ai-government-agencies-need-to-take-notes/][APRA Just Put the Financial Sector on Notice Over AI]] (Neo4j) — разбор требований регулятора к управлению рисками AI и необходимость Governance as Code.
+- [[hxxps://engineering.fb.com/2026/05/13/ml-applications/reel-friends-building-social-discovery-that-scales-to-billions/][Reel Friends: Building Social Discovery that Scales to Billions]] (Meta Engineering) — инженерные desafíos масштабирования ML-моделей для социальных функций на миллиарды пользователей.
+- [[hxxps://aws.amazon.com/blogs/database/how-hoteltrader-cut-inter-az-cost-95-and-latency-by-49-with-valkey-glide-on-amazon-elasticache/][How HotelTrader cut inter-AZ cost 95% and latency by 49%]] (AWS Database Blog) — кейс оптимизации межзонального трафика и затрат через клиент Valkey GLIDE.
+- [[hxxps://aws.amazon.com/blogs/database/zero-downtime-dynamodb-construct-migration-from-table-to-tablev2-with-cdk-orphan/][Zero-downtime DynamoDB construct migration]] (AWS Database Blog) — инструкция по миграции CDK конструктов без простоя для глобальных таблиц.
+- [[hxxps://www.dremio.com/blog/semantic-layer-101/][Semantic Layer 101]] (Dremio) — объяснение роли семантического слоя как бизнес-абстракции над хранилищами данных.
+- [[hxxps://www.databricks.com/blog/abac-row-filtering-and-column-masking-policies-governed-tags-and-data-classification-are-now][ABAC row filtering and column masking policies...]] (Databricks) — анонс/general availability политик безопасности и классификации данных в Unity Catalog.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/graph-database/apra-just-put-the-financial-sector-on-notice-over-ai-government-agencies-need-to-take-notes/][APRA Just Put the Financial Sector on Notice Over AI]]
+:SCORE: 9/10
+:WHY: Сигнал рынку о ужесточении регуляторики AI, требующий инженерных решений для комплаенса.
+**** [[hxxps://aws.amazon.com/blogs/database/how-hoteltrader-cut-inter-az-cost-95-and-latency-by-49-with-valkey-glide-on-amazon-elasticache/][How HotelTrader cut inter-AZ cost 95% and latency by 49%]]
+:SCORE: 9/10
+:WHY: Конкретный пример экономии тысяч долларов через настройку клиентов кэширования в AWS.
+**** [[hxxps://www.dremio.com/blog/semantic-layer-101/][Semantic Layer 101]]
+:SCORE: 8/10
+:WHY: Актуально в свете прогнозов Gartner о провале агентной аналитики без семантического слоя.
+
+** Open Source
+- [[hxxps://opensource.org/blog/listening-learning-and-building-together-at-osi][Listening, Learning, and Building Together at OSI]] (Open Source Initiative) — отчет нового исполнительного директора OSI о стратегии и событиях сообщества.
+- [[hxxps://www.microsoft.com/en-us/research/blog/mimalloc-a-high-performance-scalable-memory-allocator-for-the-modern-era/][mimalloc: A new, high-performance, scalable memory allocator]] (Microsoft Research) — презентация аллокатора памяти с низкой фрагментацией для высоконагруженных систем и LLM.
+- [[hxxps://www.kdnuggets.com/10-github-repositories-to-master-self-hosting][10 GitHub Repositories to Master Self-Hosting]] (KDnuggets) — подборка репозиториев для изучения инфраструктуры: контейнеры, прокси, мониторинг.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/mimalloc-a-high-performance-scalable-memory-allocator-for-the-modern-era/][mimalloc: A new, high-performance, scalable memory allocator]]
+:SCORE: 9/10
+:WHY: Важная системная библиотека для оптимизации производительности сервисов на C/C++ и Python (NoGIL).
+**** [[hxxps://opensource.org/blog/listening-learning-and-building-together-at-osi][Listening, Learning, and Building Together at OSI]]
+:SCORE: 7/10
+:WHY: Понимание вектора развития лицензирования и защиты Open Source в эпоху AI.
+**** [[hxxps://www.kdnuggets.com/10-github-repositories-to-master-self-hosting][10 GitHub Repositories to Master Self-Hosting]]
+:SCORE: 7/10
+:WHY: Практический ресурс для инженеров, желающих углубить знания в инфраструктуре и DevOps.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/how-ai-agents-will-transform-data-science-work-in-2026][How AI Agents Will Transform Data Science Work in 2026]] (KDnuggets) — прогноз о роли агентов как ассистентов, повышающих скорость анализа, а не заменяющих инженеров.
+- [[hxxps://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid/][GridSFM: A new, small foundation model for the electric grid]] (Microsoft Research) — легкая фундаментальная модель для оптимизации потоков мощности в энергосетях за миллисекунды.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/gridsfm-a-new-small-foundation-model-for-the-electric-grid/][GridSFM: A new, small foundation model for the electric grid]]
+:SCORE: 8/10
+:WHY: Пример применения специализированных foundation моделей для решения физических задач оптимизации.
+**** [[hxxps://www.kdnuggets.com/how-ai-agents-will-transform-data-science-work-in-2026][How AI Agents Will Transform Data Science Work in 2026]]
+:SCORE: 7/10
+:WHY: Помогает скорректировать ожидания от внедрения агентов в рабочие процессы data science.
+
+** Не инженерное
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — анонс встречи технического сообщества графовых баз данных в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Полезно для специалистов по графовым технологиям, планирующих участие в профильных мероприятиях.

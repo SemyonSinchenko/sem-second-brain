@@ -1,0 +1,63 @@
+#+TITLE: Daily Digest: 2026-11-16
+#+FROM: [2026-11-15 Sun]
+#+TO: [2026-11-16 Mon]
+#+DATE: [2026-11-16 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Дискуссия о будущем data-инженерии вышла на новый уровень: Джо Рейс утверждает, что рутинное производство артефактов (код, пайплайны, дашборды) обесценивается под давлением AI-агентов, а реальная ценность смещается к интерпретации и ответственности. Практические кейсы это подтверждают — GoDaddy автоматизировала создание пайплайнов AI-агентом, а Uber перевела executing Presto на Velox ради скорости. PostHog провозгласил конец эпохи modern data stack, а онтологии и knowledge graph вернулись в повестку благодаря агентам. На фронте AI-безопасности публикуется тревожное исследование: LLM показывают результат ниже случайного на бенчмарке TASTE после удаления шортката, а старые модели останутся опасными, поскольку безопасность нельзя «задним числом» пропатчить. Для senior-инженера главный вывод недели: инвестируйте в навыки интерпретации, архитектурных решений и верификации, а не в производство артефактов.
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-296][Data Engineering Weekly #296]] (Data Engineering Weekly) — Обзор недели: возвращение онтологий и knowledge graph в эпоху агентов, GoDaddy автоматизирует создание пайплайнов AI-агентом, Uber переносит Presto на Velox, а PostHog хоронит modern data stack.
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (SSP.sh) — Интервью с автором пяти технических книг (включая Writing for Developers) о рабочем процессе технического писателя — полезно для инженеров, развивающих технический блог.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-296][Data Engineering Weekly #296]]
+:SCORE: 9/10
+:WHY: Плотная подборка практических кейсов недели: AI-агент для пайплайнов в GoDaddy, миграция Presto на Velox в Uber и закат modern data stack — всё напрямую влияет на архитектурные решения.
+
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Полезно для инженеров, которые хотят писать читаемые технические блоги и книги — автор делится конкретными методами работы над текстом.
+
+** Engineers
+- [[https://joereis.substack.com/p/do-data-roles-have-a-future][Do Data Roles Have a Future?]] (Joe Reis) — Автор Fundamentals of Data Engineering разбирает, как AI обесценивает производство артефактов и почему выживут те, кто владеет интерпретацией и ответственностью за решения.
+
+*** 💎 Топ-3 категории
+**** [[https://joereis.substack.com/p/do-data-roles-have-a-future][Do Data Roles Have a Future?]]
+:SCORE: 9/10
+:WHY: Ключевая рамка «производство / интерпретация / ответственность» помогает трезво оценить, какие навыки сохранят ценность в вашей карьере на ближайшие пять лет.
+
+** Vendors
+- [[https://www.databricks.com/blog/teach-genie-one-your-workflows-ultimate-guide-skills-genie-one][Teach Genie One your workflows: The ultimate guide for skills in Genie One]] (Databricks) — Практическое руководство по передаче командных «рецептов» и рабочих процессов в виде skills для Databricks Genie One.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/teach-genie-one-your-workflows-ultimate-guide-skills-genie-one][Teach Genie One your workflows: The ultimate guide for skills in Genie One]]
+:SCORE: 6/10
+:WHY: Показывает, как вендоры стандартизируют передачу доменных workflow в AI-ассистентов — паттерн, который soon станет нормой во всех data-платформах.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/me4aJGascvnCbxQJH/the-last-arena][The Last Arena]] (LessWrong) — Эссе о сжатии горизонта будущего: интеллектуальные элиты обсуждают, что к 2028–2029 глобальная арена конкуренции уйдёт к более умным сущностям.
+- [[https://www.lesswrong.com/posts/vnxHgEXZx9CLMfYW5/learning-curves-are-not-that-steep][Learning curves are not that steep]] (LessWrong) — Разбор кривых обучения Райта для солнечной энергетики и батарей: снижение цены на порядок требует ~300-кратного масштабирования, что подрывает нарратив Solartopia.
+- [[https://www.lesswrong.com/posts/iA278crxXeePkvdtP/nullius-in-pixella-trustworthy-computations-even-if-your][Nullius in pixella: trustworthy computations, even if your computer is a liar]] (LessWrong) — Метод визуальной верификации вычислений (включая криптографические хеши) с помощью перфолент без доверия к компьютерам — релевантно сценариям захвата инфраструктуры AI-агентами.
+- [[https://www.lesswrong.com/posts/cPw3KoptvXFgRgxbH/you-can-t-patch-yesterday-s-ai][You can't patch yesterday's AI]] (LessWrong) — Аргумент о том, что опасные возможности уже выпущенных моделей нельзя «отозвать»: jailbreak будущих версий сделает старые модели оружием, а реактивное регулирование не успевает.
+- [[https://www.lesswrong.com/posts/Ctia6zyXF69N3tzhv/the-great-human-centipede-that-is-ai-twitter][The great human centipede that is AI Twitter]] (LessWrong) — Расследование того, как ИИ-генерированная статья на X раскрутила конспирологическую теорию об Anthropic как источнике NYT-расследования против Jensen Huang — кейс дезинформации в AI-твиттере.
+- [[https://www.lesswrong.com/posts/JoCHxFZDQuBXZAm3t/why-so-many-arguments-about-human-nature][Why so many arguments about human nature?]] (LessWrong) — Модель человека как «конфигурируемой» системы, а не оптимизатора, объясняющая, почему споры о человеческой природе так накалены и влияют на поведение.
+- [[https://www.lesswrong.com/posts/QvZ5gJSGZnmMH8YzA/an-exploration-of-the-mathematical-implications-of-a][An exploration of the mathematical implications of a 'Poincaré causal diamond model of hyperbolic static spacetime']] (LessWrong) — Математическое исследование следствий модели причинного алмаза Пуанкаре в гиперболическом статическом пространстве-времени: horospheres и кривизна пространственноподобных гиперповерхностей.
+- [[https://www.lesswrong.com/posts/9KbbXaEwtQiQrAjYW/low-effort-post-the-non-extinctionist-world][The Non-extinctionist World]] (LessWrong) — Мысленный эксперимент «трансгуманизм для всех видов»: как сохранить паттерны вымирающих видов, включая стратегию для отдельных особей с человеческим агентством.
+- [[https://www.lesswrong.com/posts/tpKE33scJGzqYKEBW/llms-are-below-chance-on-taste-once-a-shortcut-is-removed][LLMs are below chance on TASTE once a shortcut is removed]] (LessWrong) — Находка шортката в бенчмарке TASTE: после его удаления все модели с ECI > 158 падают ниже 50%, а модели OpenAI в среднем дают лишь 29.6% с систематическим анти-interp смещением.
+- [[https://www.lesswrong.com/posts/RvBivWJMbeA6trzN5/waluigi-world][Waluigi World]] (LessWrong) — Сатирический рассказ-виньетка с Waluigi в роли ведущего группы поддержки — пример абсурдистского творческого письма в духе LessWrong.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/tpKE33scJGzqYKEBW/llms-are-below-chance-on-taste-once-a-shortcut-is-removed][LLMs are below chance on TASTE once a shortcut is removed]]
+:SCORE: 10/10
+:WHY: Эмпирическое доказательство, что сильные LLM систематически хуже случайности на оценке AI-safety предложений после удаления шортката — критично для всех, кто полагается на LLM-жюри и бенчмарки.
+
+**** [[https://www.lesswrong.com/posts/cPw3KoptvXFgRgxbH/you-can-t-patch-yesterday-s-ai][You can't patch yesterday's AI]]
+:SCORE: 9/10
+:WHY: Трезвый тезис для инженеров: безопасность нельзя задним числом добавить к уже выпущенным моделям, а open-source-эквиваленты опасных возможностей неизбежны — это меняет модель рисков deployments.
+
+**** [[https://www.lesswrong.com/posts/iA278crxXeePkvdtP/nullius-in-pixella-trustworthy-computations-even-if-your][Nullius in pixella: trustworthy computations, even if your computer is a liar]]
+:SCORE: 8/10
+:WHY: Нестандартный подход к верификации вычислений без доверия к компьютеру — полезный мыслительный инструмент для сценариев компрометации инфраструктуры, включая zkSNARK-альтернативы.

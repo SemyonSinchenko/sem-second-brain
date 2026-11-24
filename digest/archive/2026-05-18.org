@@ -1,0 +1,45 @@
+#+TITLE: Daily Digest: 2026-05-18
+#+FROM: [2026-05-17 Sun]
+#+TO: [2026-05-18 Mon]
+#+DATE: [2026-05-18 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Наблюдается значительный рост публикаций пакетов в PyPI на 30% из-за влияния AI, что повышает риски безопасности. Крупные технологические компании внедряют новые архитектуры для управления данными и доступом на масштабе. Инженерам предлагаются практические инструменты для тестирования CLI в Go. Анонсированы важные отраслевые встречи и изменения в инфраструктуре данных.
+
+* 📂 Категории
+** Engineers
+- [[hxxps://rushter.com/blog/pypi-packages/][PyPI packages are increasing rapidly]] (rushter.com) — Рост публикаций пакетов на 30% из-за AI требует усиления безопасности и детекции малвари.
+- [[hxxps://rednafi.com/go/testscript-cli/][Testing Go CLIs with testscript]] (rednafi.com) — Руководство по тестированию аргументов и потоков вывода в Go CLI через testscript.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rushter.com/blog/pypi-packages/][PyPI packages are increasing rapidly]]
+:SCORE: 9/10
+:WHY: Критично для понимания рисков безопасности в эпоху AI-генерации кода.
+**** [[hxxps://rednafi.com/go/testscript-cli/][Testing Go CLIs with testscript]]
+:SCORE: 8/10
+:WHY: Практический паттерн для улучшения надежности инструментов разработки.
+
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-270][Data Engineering Weekly #270]] (dataengineeringweekly.com) — Кейсы Airbnb, Netflix и Meta по архитектуре данных, управлению доступом и миграции пайплайнов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-270][Data Engineering Weekly #270]]
+:SCORE: 9/10
+:WHY: Обзор проверенных решений для масштабирования дата-платформ от лидеров рынка.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Встреча технического сообщества GDC в Бостоне с призывом к докладам перед VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обмена опытом на конференции уровня VLDB.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/stairway-to-heaven-ii][Stairway to Heaven II]] (peterturchin.substack.com) — Исследование карьерных путей политической элиты Китая и факторов успеха.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/stairway-to-heaven-ii][Stairway to Heaven II]]
+:SCORE: 6/10
+:WHY: Расширяет контекст о системных факторах успеха вне технической области.

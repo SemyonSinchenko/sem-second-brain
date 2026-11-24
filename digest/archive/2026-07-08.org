@@ -1,0 +1,85 @@
+#+TITLE: Daily Digest: 2026-07-08
+#+FROM: [2026-07-07 Tue]
+#+TO: [2026-07-08 Wed]
+#+DATE: [2026-07-08 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние 24 часа ключевым трендом стало углубление интеграции ИИ-агентов в инженерные процессы, от семантических слоев до автоматизации поддержки. Вендоры активно предлагают решения для работы с графами поверх реляционных данных и оптимизации затрат на потоковую обработку. Инженерам стоит обратить внимание на изменения в производительности Kafka и новые возможности логической репликации PostgreSQL 18. Стандарт Apache Ossie набирает обороты как решение проблемы семантического дрейфа в организациях. Рынок труда демонстрирует контрасты: высокий спрос на AI-специалистов при общей нестабильности для остальных ролей.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.ssp.sh/blog/grammar-data-engineering/][The Grammar of Data: Define Once, Run Anywhere with Cross-Engine Expressions]] (SSP) — Предлагает декларативный подход к инженерии данных с использованием универсальных выражений для воспроизводимости.
+- [[hxxps://www.ssp.sh/blog/where-agents-belong-in-de/][Where AI Agents Belong in Data Engineering: The Correctness Layer]] (SSP) — Описывает уровень корректности для внедрения ИИ-агентов в пайплайны данных без потери надежности.
+- [[hxxps://newsletter.pragmaticengineer.com/p/tech-jobs-market-in-2026-part-3-hiring][Tech jobs market in 2026, part 3: hiring managers & job seekers]] (The Pragmatic Engineer) — Анализ контрастов на рынке труда: высокий спрос на AI-инженеров при сложностях для остальных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/grammar-data-engineering/][The Grammar of Data: Define Once, Run Anywhere with Cross-Engine Expressions]]
+:SCORE: 9/10
+:WHY: Концептуально новый подход к декларативным пайплайнам, решающий проблему воспроизводимости между движками.
+**** [[hxxps://www.ssp.sh/blog/where-agents-belong-in-de/][Where AI Agents Belong in Data Engineering: The Correctness Layer]]
+:SCORE: 8/10
+:WHY: Практическая архитектура внедрения ИИ в DE с акцентом на верификацию и трассируемость.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/tech-jobs-market-in-2026-part-3-hiring][Tech jobs market in 2026, part 3: hiring managers & job seekers]]
+:SCORE: 7/10
+:WHY: Критически важно для понимания текущей конъюнктуры рынка и планирования карьеры senior-инженера.
+
+** Engineers
+- [[hxxps://jack-vanlightly.com/blog/2026/7/7/apache-kafka-performance-1-lingerms][Apache Kafka performance #1 - linger.ms]] (Jack Vanlightly) — Глубокий разбор влияния конфигурации linger.ms на задержки и пропускную способность в Kafka.
+- [[hxxps://vutr.substack.com/p/heres-everything-you-need-to-know][Here's everything you need to know about Parquet in 2026.]] (Vu Tran) — Обновленное понимание колоночного хранения и внутренних механизмов Parquet для оптимизации.
+- [[hxxps://medium.com/towards-data-engineering/spark-ui-trek-the-klingon-attack-5b7efc9c309c?source=rss-6e4a30cbb0e1------2][✨Spark UI Trek: The Klingon Attack]] (Medium) — Руководство по диагностике проблем производительности Spark через анализ telemetry UI.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/7/7/apache-kafka-performance-1-lingerms][Apache Kafka performance #1 - linger.ms]]
+:SCORE: 9/10
+:WHY: Фундаментальные знания о тюнинге Kafka, необходимые для поддержания стабильности высоконагруженных систем.
+**** [[hxxps://vutr.substack.com/p/heres-everything-you-need-to-know][Here's everything you need to know about Parquet in 2026.]]
+:SCORE: 9/10
+:WHY: Parquet остается стандартом де-факто; глубокое понимание формата критично для оптимизации хранения.
+**** [[hxxps://medium.com/towards-data-engineering/spark-ui-trek-the-klingon-attack-5b7efc9c309c?source=rss-6e4a30cbb0e1------2][✨Spark UI Trek: The Klingon Attack]]
+:SCORE: 8/10
+:WHY: Практические навыки отладки Spark, позволяющие быстро выявлять узкие места в продакшене.
+
+** Vendors
+- [[hxxps://neo4j.com/blog/developer/deep-dive-neo4j-virtual-graph-on-bigquery/][Deep Dive: Neo4j Virtual Graph on BigQuery]] (Neo4j) — Виртуальные графы позволяют querying данных BigQuery через Cypher без ETL-процессов.
+- [[hxxps://aws.amazon.com/blogs/database/logical-replication-improvements-in-amazon-rds-for-postgresql-18/][Logical replication improvements in Amazon RDS for PostgreSQL 18]] (AWS) — Улучшения логической репликации: генерируемые колонки, счетчики конфликтов и управление слотами.
+- [[hxxps://www.warpstream.com/blog/harnessing-data-at-scale-character-ais-transition-to-warpstream][Character.AI's Transition to WarpStream - WarpStream]] (WarpStream) — Кейс миграции с Pub/Sub на WarpStream для экономии затрат при масштабе 3 GiB/s.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/logical-replication-improvements-in-amazon-rds-for-postgresql-18/][Logical replication improvements in Amazon RDS for PostgreSQL 18]]
+:SCORE: 9/10
+:WHY: Значимые изменения в управлении репликацией PostgreSQL, влияющие на надежность продакшен-баз.
+**** [[hxxps://neo4j.com/blog/developer/deep-dive-neo4j-virtual-graph-on-bigquery/][Deep Dive: Neo4j Virtual Graph on BigQuery]]
+:SCORE: 8/10
+:WHY: Инновационный подход к объединению графовых запросов и реляционных хранилищ без дублирования данных.
+**** [[hxxps://www.warpstream.com/blog/harnessing-data-at-scale-character-ais-transition-to-warpstream][Character.AI's Transition to WarpStream - WarpStream]]
+:SCORE: 8/10
+:WHY: Реальный кейс оптимизации затрат на потоковую обработку данных для высоконагруженного сервиса.
+
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-serverless-image-editing-agent-with-amazon-bedrock-agentcore-harness/][Build a serverless image editing agent with Amazon Bedrock AgentCore harness]] (AWS) — Архитектура серверless ИИ-агента для редактирования изображений с использованием Bedrock AgentCore.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/enrich-your-datasets-with-business-context-migrating-from-legacy-topics-to-semantic-datasets-in-amazon-quick/][Enrich your datasets with business context: Migrating from legacy Topics to semantic datasets in Amazon Quick]] (AWS) — Внедрение бизнес-контекста напрямую в датасеты для улучшения работы ИИ-аналитики.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/monitoring-discriminative-ml-models-using-amazon-sagemaker-ai-with-mlflow/][Monitoring discriminative ML models using Amazon SageMaker AI with MLflow]] (AWS) — Стратегия мониторинга дрейфа данных и моделей с использованием открытой библиотеки Evidently и MLflow.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-serverless-image-editing-agent-with-amazon-bedrock-agentcore-harness/][Build a serverless image editing agent with Amazon Bedrock AgentCore harness]]
+:SCORE: 9/10
+:WHY: Демонстрирует современную архитектуру построения агентных систем без управления инфраструктурой.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/enrich-your-datasets-with-business-context-migrating-from-legacy-topics-to-semantic-datasets-in-amazon-quick/][Enrich your datasets with business context: Migrating from legacy Topics to semantic datasets in Amazon Quick]]
+:SCORE: 8/10
+:WHY: Решает проблему семантического согласования данных для ИИ-агентов на уровне платформы.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/monitoring-discriminative-ml-models-using-amazon-sagemaker-ai-with-mlflow/][Monitoring discriminative ML models using Amazon SageMaker AI with MLflow]]
+:SCORE: 8/10
+:WHY: Практическое руководство по обеспечению надежности ML-моделей в продакшене через мониторинг дрейфа.
+
+** Open Source
+- [[hxxps://www.dremio.com/blog/apache-ossie-the-open-semantic-interchange-joins-the-apache-incubator/][Apache Ossie (Incubating): The Open Semantic Interchange Joins the Apache Incubator]] (Dremio) — Новый стандарт Apache для определения бизнес-семантики вvendor-neutral формате.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBCouncil) — Встреча технического сообщества LDBC, обсуждающая стандарты графовых баз данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-ossie-the-open-semantic-interchange-joins-the-apache-incubator/][Apache Ossie (Incubating): The Open Semantic Interchange Joins the Apache Incubator]]
+:SCORE: 9/10
+:WHY: Потенциально ключевой стандарт для решения проблемы семантического дрейфа в.enterprise-секторе.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность следить за развитием стандартов графовых баз данных от первого лица.

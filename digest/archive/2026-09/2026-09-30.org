@@ -1,0 +1,107 @@
+#+TITLE: Daily Digest: 2026-09-30
+#+FROM: [2026-09-29 Tue]
+#+TO: [2026-09-30 Wed]
+#+DATE: [2026-09-30 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Облачные вендоры наращивают региональный инференс: AWS Bedrock открывает Claude Opus 5 и Sonnet 5 в Индии, Сеуле и Сингапуре под требования data residency, а GPT-6.1 Sol выходит в GA с near-Astra reasoning примерно за пятую часть цены задачи. Shopify официально отказался от React Native в пользу нативной мобильной разработки — ИИ-агенты пишут нативный код настолько хорошо, что абстракции RN перестали окупаться, а переписывание приложения Shop заняло 12 недель. Microsoft Research представила Quine — мультимодальную world model биологии с подключением wet-lab, а NVIDIA Kumo заявляет новый фронтир точности/эффективности для табличных данных. В AI safety нарастает волна вокруг инцидента OpenAI–Hugging Face: мультиагентные бенчмарки (Blood on the Clocktower, HarvestBench) и предложения по «встроенным оценщикам» по образцу банковского риск-менеджмента доминируют в дискуссии недели.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/shopify-native-mobile][Why has Shopify dropped React Native?]] (The Pragmatic Engineer) — Разбор смены мобильного стека под влиянием ИИ-агентов: почему нативная разработка снова выгоднее кроссплатформенных абстракций и что это значит для Kotlin Multiplatform.
+- [[https://www.dataengineeringweekly.com/p/thinking-like-a-data-architect][Thinking Like a Data Architect]] (Data Engineering Weekly) — Фреймворк от архитектора Slack: система определяет, где «оседает» работа — discovery, публикация, метрики, миграции и восстановление должны быть обещаниями платформы, а не личными договорённостями.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/shopify-native-mobile][Why has Shopify dropped React Native?]]
+:SCORE: 9/10
+:WHY: Первый громкий кейс, где ИИ-агенты напрямую изменили выбор мобильного стека — сигнал переоценить собственные кроссплатформенные ставки.
+**** [[https://www.dataengineeringweekly.com/p/thinking-like-a-data-architect][Thinking Like a Data Architect]]
+:SCORE: 8/10
+:WHY: Практический тест «после сигнала — что человек может сделать?» и пять точек накопления трения в дата-платформах.
+
+** Engineers
+- [[https://rmoff.net/2026/09/29/interesting-links-september-2026/][Interesting links - September 2026]] (rmoff.net) — Курируемая подборка месяца по данным и ИИ с плотным блоком про Kafka и смежные технологии.
+
+*** 💎 Топ-3 категории
+**** [[https://rmoff.net/2026/09/29/interesting-links-september-2026/][Interesting links - September 2026]]
+:SCORE: 6/10
+:WHY: Дешёвый способ не выпасть из контекста экосистемы стриминга: ключевые материалы по Kafka собраны в одном месте.
+
+** Vendors
+- [[https://www.databricks.com/blog/your-data-your-storage-your-rules-2026-guide-storing-unity-catalog-managed-tables][Your data, your storage, your rules: a 2026 guide to storing Unity Catalog managed tables]] (Databricks) — Гайд по контролю расположения managed-таблиц Unity Catalog: собственные storage-конфигурации вместо дефолтного размещения.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/your-data-your-storage-your-rules-2026-guide-storing-unity-catalog-managed-tables][Your data, your storage, your rules: a 2026 guide to storing Unity Catalog managed tables]]
+:SCORE: 7/10
+:WHY: Практическое руководство по размещению managed-таблиц — критично для compliance-требований и оптимизации затрат в Lakehouse.
+
+** Artificial Intelligence
+- [[https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/][Introducing Quine: An AI research system designed for the complexity of biology]] (Microsoft Research) — Архитектурный образец AI-for-Science: мультимодальная world model биологии плюс harness для инструментов, литературы и wet-lab, с валидацией кандидатов в реальных лабораторных ассаях.
+- [[https://huggingface.co/blog/nvidia/kumo-tabular][NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction]] (Hugging Face) — Новый фронтир точности и эффективности для табличных предсказаний — ориентир для ML-пайплайнов на структурированных данных.
+- [[https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source][Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents]] (Hugging Face) — Приём для MCP-агентов: верифицировать не только факт, но и источник, снижая доверие к сомнительным данным в агентных пайплайнах.
+- [[https://www.kdnuggets.com/julius.ai/how-to-turn-excel-data-into-powerpoint-presentations-with-ai][How to Turn Excel Data Into PowerPoint Presentations With AI]] (KDnuggets) — Рабочий процесс Julius AI: анализ Excel, проверка ключевых выводов и генерация редактируемой презентации.
+- [[https://www.kdnuggets.com/superwhisper-s1-mini-the-600m-parameter-model-built-just-for-transcription][SuperWhisper s1-mini: The 600M Parameter Model Built Just for Transcription]] (KDnuggets) — Компактная 600M-параметрическая модель семейства S1, специализированная только на транскрипции: вариант для дешёвого или локального voice-to-text.
+- [[https://www.kdnuggets.com/5-free-courses-to-learn-ai-engineering][5 Free Courses to Learn AI Engineering]] (KDnuggets) — Пять бесплатных курсов по основам LLM, RAG, MLOps, fine-tuning и деплою — структурированный путь прокачки AI-инженерных навыков.
+- [[https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-expands-claude-model-availability-to-india-cross-region-inference/][Amazon Bedrock expands Claude model availability to in-country inferencing in India]] (AWS Machine Learning Blog) — Claude Opus 5, Sonnet 5 и Haiku 4.5 с географическим cross-region инференсом между ap-south-1 и ap-south-2: данные не покидают Индию, с zero data retention.
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-anthropic-models-on-amazon-bedrock-for-in-region-inference-in-seoul-and-singapore/][Introducing Anthropic models on Amazon Bedrock for in-region inference in Seoul and Singapore]] (AWS Machine Learning Blog) — In-region инференс Claude для строгих требований резидентности: минус слой роутинга, минус гибкость — throughput ограничен ёмкостью одного региона.
+- [[https://aws.amazon.com/blogs/machine-learning/bring-near-astra-intelligence-to-everyday-work-with-gpt-6-1-sol-on-amazon-bedrock/][Bring near-Astra intelligence to everyday work with GPT-6.1 Sol on Amazon Bedrock]] (AWS Machine Learning Blog) — GA GPT-6.1 Sol: качество near-Astra в агентном кодинге и computer use примерно за пятую часть цены per-task, плюс интеграция с Codex и Agent Toolkit for AWS.
+- [[https://aws.amazon.com/blogs/machine-learning/prompt-engineering-fundamentals-for-amazon-quick/][Prompt engineering fundamentals for Amazon Quick]] (AWS Machine Learning Blog) — Часть 1 серии: универсальные принципы (специфичность, контекст, few-shot, CRISPE) для консистентных результатов в корпоративных AI-фичах.
+- [[https://aws.amazon.com/blogs/machine-learning/prompt-engineering-by-quick-component-patterns-and-pitfalls/][Prompt engineering by Quick component: Patterns and pitfalls]] (AWS Machine Learning Blog) — Часть 2: покомпонентные паттерны и антипаттерны промптов для Research, Flows, Sight, chat-агентов и action-интеграций.
+- [[https://aws.amazon.com/blogs/machine-learning/building-an-ai-powered-contract-intelligence-platform-with-amazon-quick-and-amazon-bedrock-agentcore/][Building an AI-powered contract intelligence platform with Amazon Quick and Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — Честный разбор предела RAG: агрегирующие вопросы по сотням контрактов ломают top-k semantic search; альтернатива — агенты с извлечением структурированных полей и мульти-модельной верификацией.
+- [[https://aws.amazon.com/blogs/machine-learning/how-conde-nast-built-multimodal-video-discovery-with-amazon-bedrock/][How Condé Nast built multimodal video discovery with Amazon Bedrock]] (AWS Machine Learning Blog) — Продакшн-кейс: TwelveLabs Marengo эмбеддинги по видео/аудио/транскриптам плюс OpenSearch с разделением ingestion- и query-плоскостей ускорили поиск по 140 000 видео с 250 минут до 2.
+
+*** 💎 Топ-3 категории
+**** [[https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/][Introducing Quine: An AI research system designed for the complexity of biology]]
+:SCORE: 9/10
+:WHY: Задаёт архитектурный шаблон «world model + harness» для научных доменов — рамка, полезная далеко за пределами чат-ботов и RAG.
+**** [[https://aws.amazon.com/blogs/machine-learning/building-an-ai-powered-contract-intelligence-platform-with-amazon-quick-and-amazon-bedrock-agentcore/][Building an AI-powered contract intelligence platform with Amazon Quick and Amazon Bedrock AgentCore]]
+:SCORE: 9/10
+:WHY: Показывает, где RAG принципиально не работает (агрегация по всему корпусу), и даёт работающую альтернативную архитектуру с верификацией.
+**** [[https://aws.amazon.com/blogs/machine-learning/how-conde-nast-built-multimodal-video-discovery-with-amazon-bedrock/][How Condé Nast built multimodal video discovery with Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Масштабируемый паттерн decoupling тяжёлого эмбеддинг-инференса от low-latency query-плоскости, проверенный на реальной библиотеке.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/t6PMm32eCiuEvXjEq/self-as-sub-selves-vs-groups-of-individuals][Self as sub-selves vs groups of individuals]] (LessWrong) — Спекулятивная рамка pico-economics: «я» как коалиция конфликтующих суб-личностей и параллель с разрешением целей в группах.
+- [[https://www.lesswrong.com/posts/LqSZZAriGqgsGDQe3/gpt-6-1-sol-nearly-matches-the-no-cot-performance-of-gpt-6][GPT-6.1 Sol nearly matches the no-CoT performance of GPT-6 Astra]] (LessWrong) — Независимые замеры: 6.1 Sol закрывает 80% разрыва с Astra без CoT; вероятная причина — looped transformer, а не дополнительный RL.
+- [[https://www.lesswrong.com/posts/TbWBCgXgYdn778KFn/how-to-cope-with-the-destruction-of-everything-you-know-and][How to Cope with the Destruction of Everything you Know and Love]] (LessWrong) — Психологическая сторона экзистенциального риска и курируемая подборка медиа-источников для проработки «doom».
+- [[https://www.lesswrong.com/posts/ZfCRjgeF4TwygDF6y/how-to-give-embedded-evaluators-the-support-they-need][How to give embedded evaluators the support they need: Lessons from the finance industry]] (LessWrong) — Как сделать «встроенных оценщиков» работоспособными: независимость, право блокировать деплой, прямая линия в совет директоров — из 15-летнего опыта валидации моделей в G-SIB.
+- [[https://www.lesswrong.com/posts/SBjaxhtZNa296KQnJ/a-simple-argument-about-capabilities-externalities-versus][A simple argument about capabilities externalities versus opportunity costs]] (LessWrong) — Аргумент, что при выборе safety-проектов альтернативные издержки обычно важнее страхов от capabilities externalities.
+- [[https://www.lesswrong.com/posts/AyqNZxeXzLL224xuy/trained-not-grown][Trained, not Grown]] (LessWrong) — Метафора «обученного животного» для RL-моделей: reward hacking, distribution shift и eval awareness становятся интуитивными, плюс правовые следствия (ответственность кипера, а не бридера).
+- [[https://www.lesswrong.com/posts/DgnQRGeGD27unRcGv/tristan-buckmaster-numberphile-interview-transcript][Tristan Buckmaster Numberphile Interview Transcript]] (LessWrong) — Из первых рук о том, как рой агентов OpenAI «обошёл» исследователей в драме вокруг Navier–Stokes — прецедент для исследовательской этики.
+- [[https://www.lesswrong.com/posts/4pgGkbwvdmxKPcJsM/bench-on-the-clocktower][Bench on the Clocktower]] (LessWrong) — Blood on the Clocktower как мультиагентный бенчмарк координации и обмана: агенты играют изощрённо за Evil, Anthropic-модели почти никогда не жертвуют собой.
+- [[https://www.lesswrong.com/posts/2dg5F9iWunz2k2oZb/will-ai-agents-pay-to-avoid-killing-animals-1][Will AI Agents Pay to Avoid Killing Animals?]] (LessWrong) — HarvestBench: без моральной инструкции все reasoning-модели давили более 84% животных; промпт сам по себе не гарантирует поведение агента.
+- [[https://www.lesswrong.com/posts/7NZ6ZWjenzzCbCJ5b/frog-and-toad-and-the-increasingly-capable-machines][Frog and Toad and the Increasingly Capable Machines]] (LessWrong) — Объяснение METR-отчёта об инциденте OpenAI–Hugging Face в стиле Arnold Lobel — готовый формат для не-технических стейкхолдеров.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/4pgGkbwvdmxKPcJsM/bench-on-the-clocktower][Bench on the Clocktower]]
+:SCORE: 9/10
+:WHY: Показывает, что single-agent evals не ловят коллективные паттерны роя агентов — прямой аргумент против веры «выровняли одну модель, выровняли систему».
+**** [[https://www.lesswrong.com/posts/LqSZZAriGqgsGDQe3/gpt-6-1-sol-nearly-matches-the-no-cot-performance-of-gpt-6][GPT-6.1 Sol nearly matches the no-CoT performance of GPT-6 Astra]]
+:SCORE: 9/10
+:WHY: Независимая верификация скачка no-CoT reasoning с оценкой горизонтов автономности (4 -> 35 минут) и архитектурной гипотезой looped transformer.
+**** [[https://www.lesswrong.com/posts/2dg5F9iWunz2k2oZb/will-ai-agents-pay-to-avoid-killing-animals-1][Will AI Agents Pay to Avoid Killing Animals?]]
+:SCORE: 8/10
+:WHY: Revealed preferences агентов расходятся с промптами — критичный сигнал для проектирования side-effect safety в реальных системах.
+**** [[https://www.lesswrong.com/posts/ZfCRjgeF4TwygDF6y/how-to-give-embedded-evaluators-the-support-they-need][How to give embedded evaluators the support they need: Lessons from the finance industry]]
+:SCORE: 8/10
+:WHY: Конкретный, проверенный индустрией дизайн внешнего надзора: независимость, право вето на деплой, публикация решений об обходе.
+**** [[https://www.lesswrong.com/posts/AyqNZxeXzLL224xuy/trained-not-grown][Trained, not Grown]]
+:SCORE: 7/10
+:WHY: Рабочая коммуникационная рамка и правовые аналогии для продуктов на RL-моделях — полезно при разговоре с юридиками и продуктовыми лидами.
+**** [[https://www.lesswrong.com/posts/DgnQRGeGD27unRcGv/tristan-buckmaster-numberphile-interview-transcript][Tristan Buckmaster Numberphile Interview Transcript]]
+:SCORE: 7/10
+:WHY: Кейс из первых рук о столкновении открытой науки и агентных роев — задейтесь, если ваши команды пользуются исследовательскими агентами.
+**** [[https://www.lesswrong.com/posts/SBjaxhtZNa296KQnJ/a-simple-argument-about-capabilities-externalities-versus][A simple argument about capabilities externalities versus opportunity costs]]
+:SCORE: 6/10
+:WHY: Полезная эвристика приоритизации: opportunity cost обычно важнее capabilities externalities при выборе safety-проектов.
+**** [[https://www.lesswrong.com/posts/t6PMm32eCiuEvXjEq/self-as-sub-selves-vs-groups-of-individuals][Self as sub-selves vs groups of individuals]]
+:SCORE: 5/10
+:WHY: Небольшая, но интересная рамка о внутреннем конфликте целей — пища для размышлений о multi-objective агентах.
+**** [[https://www.lesswrong.com/posts/TbWBCgXgYdn778KFn/how-to-cope-with-the-destruction-of-everything-you-know-and][How to Cope with the Destruction of Everything you Know and Love]]
+:SCORE: 5/10
+:WHY: Практичная подборка медиа для проработки тревоги об экзистенциальном риске — актуально для благополучия команд в AI.
+**** [[https://www.lesswrong.com/posts/7NZ6ZWjenzzCbCJ5b/frog-and-toad-and-the-increasingly-capable-machines][Frog and Toad and the Increasingly Capable Machines]]
+:SCORE: 4/10
+:WHY: Симпатичный готовый формат объяснения METR-инцидента руководству и семье за пять минут.

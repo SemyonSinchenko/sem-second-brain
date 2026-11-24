@@ -1,0 +1,63 @@
+#+TITLE: Daily Digest: 2026-07-23
+#+FROM: [2026-07-22 Wed]
+#+TO: [2026-07-23 Thu]
+#+DATE: [2026-07-23 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За прошедший день ключевым трендом стало внедрение ИИ-агентов в производственные среды: monday.com раскрыла архитектуру работы агентов-коллег на Amazon Bedrock, а в дата-инженерии обсуждают замыкание контура управления для автономных пайплайнов. Вендоры фокусируются на инфраструктурной надежности: Neo4j предлагает слой знаний для госсектора, а AWS детализирует стратегии масштабирования InfluxDB. Для инженеров важны углубленные материалы по многопоточности в Python и прозрачности регистрации доменов для безопасности. Основной сдвиг наблюдается от экспериментов к надежной эксплуатации ИИ-систем.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/ai-teammates-how-monday-com-runs-production-ai-agents-on-amazon-bedrock/][AI Teammates: how monday.com runs production AI agents on Amazon Bedrock]] (AWS) — разбор архитектуры продакшн-агентов на базе SNS, SQS и Bedrock с реальными метриками производительности.
+- [[hxxps://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/][Accelerating the frontiers of scientific discovery: Google's $40M commitment to the Genesis Mission]] (Google DeepMind) — анонс финансирования в $40 млн на применение ИИ для ускорения научных открытий.
+- [[hxxps://www.kdnuggets.com/kaggle-googles-free-5-day-agentic-ai-course][Kaggle + Google's Free 5-Day Agentic AI Course]] (KDnuggets) — бесплатный пятидневный курс по созданию ИИ-агентов от Google и Kaggle.
+- [[hxxps://www.kdnuggets.com/10-newsletters-keeping-you-ahead-in-ai][10 Newsletters Keeping You Ahead in AI]] (KDnuggets) — подборка из 10Newsletter для отслеживания новостей, исследований и инструментов в области ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/ai-teammates-how-monday-com-runs-production-ai-agents-on-amazon-bedrock/][AI Teammates: how monday.com runs production AI agents on Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Редкий кейс подробного разбора архитектуры автономных агентов в легаси-коде с реальными метриками.
+**** [[hxxps://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/][Accelerating the frontiers of scientific discovery: Google's $40M commitment to the Genesis Mission]]
+:SCORE: 8/10
+:WHY: Демонстрирует стратегический вектор инвестиций Google в применение ИИ для фундаментальной науки.
+**** [[hxxps://www.kdnuggets.com/kaggle-googles-free-5-day-agentic-ai-course][Kaggle + Google's Free 5-Day Agentic AI Course]]
+:SCORE: 7/10
+:WHY: Практический ресурс для быстрого освоения паттернов разработки агентных систем.
+
+** Дата-инженерия
+- [[hxxps://dataengineeringcentral.substack.com/p/agentic-data-engineering-is-here][Agentic Data Engineering Is Here — But Can It Close the Loop?]] (Data Engineering Central) — интервью с основателем Orchestra о проблемах автономности пайплайнов и валидации данных агентами.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/agentic-data-engineering-is-here][Agentic Data Engineering Is Here — But Can It Close the Loop?]]
+:SCORE: 9/10
+:WHY: Критический взгляд на ограничения ИИ в дата-инженерии и необходимость замыкания контура валидации.
+
+** Вендоры
+- [[hxxps://neo4j.com/blog/government/public-sector-workforce-intelligence-knowledge-layer/][Why public sector AI needs a workforce knowledge layer]] (Neo4j) — аргументация необходимости графа знаний для связки разрозненных данных workforce в госсекторе.
+- [[hxxps://aws.amazon.com/blogs/database/scaling-amazon-timestream-for-influxdb-3-enterprise-right-sizing-for-stability-and-cost/][Scale smart, not just big: a practical guide to multi-node Amazon Timestream for InfluxDB 3 Enterprise]] (AWS) — руководство по выбору между вертикальным и горизонтальным масштабированием кластеров InfluxDB.
+- [[hxxps://www.databricks.com/blog/simplify-ai-agent-orchestration-lakebase-postgres][Simplify AI agent orchestration with Lakebase Postgres]] (Databricks) — описание использования Lakebase Postgres для оркестрации ИИ-агентов.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — анонс встречи технического сообщества по управлению графовыми данными в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/government/public-sector-workforce-intelligence-knowledge-layer/][Why public sector AI needs a workforce knowledge layer]]
+:SCORE: 9/10
+:WHY: Объясняет архитектурную необходимость слоя знаний для предотвращения галлюцинаций ИИ на фрагментированных данных.
+**** [[hxxps://aws.amazon.com/blogs/database/scaling-amazon-timestream-for-influxdb-3-enterprise-right-sizing-for-stability-and-cost/][Scale smart, not just big: a practical guide to multi-node Amazon Timestream for InfluxDB 3 Enterprise]]
+:SCORE: 8/10
+:WHY: Содержит конкретные бенчмарки и экономику масштабирования для таймсери баз данных.
+**** [[hxxps://www.databricks.com/blog/simplify-ai-agent-orchestration-lakebase-postgres][Simplify AI agent orchestration with Lakebase Postgres]]
+:SCORE: 7/10
+:WHY: Полезно для оценки инструментов оркестрации агентов в экосистеме Databricks.
+
+** Инженеры
+- [[hxxps://vutr.substack.com/p/free-i-spent-10-hours-learning-multithreading][[FREE] I spent 10 hours learning multithreading and multiprocessing]] (Substack) — глубокий разбор многопоточности и многопроцессорности в Python с фокусом на утилизацию CPU.
+- [[hxxps://rushter.com/blog/domain-whois-information/][Domain registration information should be transparent]] (Rushter) — анализ проблем доступа к данным регистрации доменов через RDAP для выявления фишинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/free-i-spent-10-hours-learning-multithreading][[FREE] I spent 10 hours learning multithreading and multiprocessing]]
+:SCORE: 9/10
+:WHY: Фундаментальное понимание модели памяти и потоков в Python критично для оптимизации высоконагруженных систем.
+**** [[hxxps://rushter.com/blog/domain-whois-information/][Domain registration information should be transparent]]
+:SCORE: 8/10
+:WHY: Важный инсайд для инженеров безопасности regarding прозрачности инфраструктуры и борьбы с фишингом.

@@ -1,0 +1,53 @@
+#+TITLE: Daily Digest: 2026-05-10
+#+FROM: [2026-05-09 Sat]
+#+TO: [2026-05-10 Sun]
+#+DATE: [2026-05-10 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Индустрия data engineering смещает фокус с классических дашбордов на работу с большими объемами неструктурированных данных в реальном времени. Одновременно исследования фиксируют рост когнитивной нагрузки на разработчиков из-за чрезмерного контроля за AI-агентами. Для успешной реализации AI-контекста критически важным становится решение проблем идентификации клиентов и чистоты данных. Глобальная AI-экосистема расширяется за пределы Кремниевой долины, предлагая новые центры компетенций.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://joereis.substack.com/p/data-engineering-in-2026-w-zach-wilson][Data Engineering in 2026 w/ Zach Wilson]] (Joe Reis) — Zach Wilson советует использовать Volume, Velocity и Variety как защиту от автоматизации рутинных задач ИИ.
+- [[hxxps://www.learningfromdata.zingg.ai/p/the-context-youre-missing-why-identity][The Context You're Missing: Why Identity Resolution Is Marketing's Center of Gravity]] (Learning From Data) — Чистые идентичности клиентов являются фундаментом для получения «золотого контекста» в AI-агентах.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/data-engineering-in-2026-w-zach-wilson][Data Engineering in 2026 w/ Zach Wilson]]
+:SCORE: 9/10
+:WHY: Стратегический指南 по защите карьеры через углубление в сложные данные (Volume/Velocity/Variety).
+**** [[hxxps://www.learningfromdata.zingg.ai/p/the-context-youre-missing-why-identity][The Context You're Missing: Why Identity Resolution Is Marketing's Center of Gravity]]
+:SCORE: 8/10
+:WHY: Объясняет архитектурную зависимость качества AI-решений от качества данных идентичности.
+
+** Engineers
+- [[hxxps://dataengineeringcentral.substack.com/p/the-cognitive-overload-of-ai-development][The Cognitive Overload of AI Development]] (Data Engineering Central) — Исследование HBR подтверждает реальность «AI brain fry» — утомления от постоянного контроля за агентами.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/the-cognitive-overload-of-ai-development][The Cognitive Overload of AI Development]]
+:SCORE: 9/10
+:WHY: Критически важно для лидов команд для предотвращения выгорания разработчиков при внедрении AI-инструментов.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — GDC проводит встречу технического сообщества пользователей совместно с конференцией VLDB в Бостоне.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обсуждения стандартов графовых баз данных с вендорами.
+
+** Artificial Intelligence
+- [[hxxps://huggingface.co/blog/lablab-ai-amd-developer-hackathon/oncoagent-official-paper][OncoAgent: A Dual-Tier Multi-Agent Framework for Privacy-Preserving Oncology Clinical Decision Support]] (Hugging Face) — Представлен фреймворк OncoAgent для приватных медицинских решений на основе мульти-агентной архитектуры.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/lablab-ai-amd-developer-hackathon/oncoagent-official-paper][OncoAgent: A Dual-Tier Multi-Agent Framework for Privacy-Preserving Oncology Clinical Decision Support]]
+:SCORE: 8/10
+:WHY: Практический пример реализации privacy-preserving паттернов в чувствительных доменах через мульти-агентов.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/determinants-of-success-merit-connections][Determinants of Success: Merit, Connections, Luck]] (Peter Turchin) — Анализ роли удачи и связей в сравнении с меритократией при построении карьеры и социальных лифтов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/determinants-of-success-merit-connections][Determinants of Success: Merit, Connections, Luck]]
+:SCORE: 7/10
+:WHY: Полезный контекст для понимания организационной динамики и карьерных траекторий вне технических навыков.

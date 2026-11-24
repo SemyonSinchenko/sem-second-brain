@@ -1,0 +1,79 @@
+#+TITLE: Daily Digest: 2026-07-11
+#+FROM: [2026-07-10 Fri]
+#+TO: [2026-07-11 Sat]
+#+DATE: [2026-07-11 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Основной тренд недели — масштабирование агентных рабочих процессов и оптимизация инфраструктуры для ИИ. Вендоры предлагают готовые решения для управления кейсами и семантическими слоями, чтобы внедрять агентов в энтерпрайз. В инженерии данных акцент смещается на приватность и гибкие-controls вместо простого маскирования. Оптимизация инференса через квантование и разделение фаз prefill/decode становится критической для снижения затрат.
+
+* 📂 Категории
+** Инженерия Данных
+- [[hxxps://www.dataengineeringweekly.com/p/beyond-redaction-anatomy-of-a-privacy][Beyond Redaction: Anatomy of a Privacy-Safe Data Platform]] (Data Engineering Weekly) — Архитектурный гайд по выбору контролов приватности (токенизация, агрегация) в зависимости от задачи потребителя данных.
+- [[hxxps://www.databricks.com/blog/introducing-feature-views][Introducing Feature Views]] (Databricks) — Новый подход к управлению ML-фичами для обеспечения консистентности между обучением и инференсом.
+- [[hxxps://www.databricks.com/blog/agentic-marketing-stack-starts-data-layer][The agentic marketing stack starts with the data layer]] (Databricks) — Важность качественного слоя данных как фундамента для агентных маркетинговых систем.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/beyond-redaction-anatomy-of-a-privacy][Beyond Redaction: Anatomy of a Privacy-Safe Data Platform]]
+:SCORE: 9/10
+:WHY: Меняет парадигму проектирования платформ данных с простого скрытия на управление полезностью и доступом.
+**** [[hxxps://www.databricks.com/blog/introducing-feature-views][Introducing Feature Views]]
+:SCORE: 8/10
+:WHY: Решает классическую проблему дрейфа фич между тренировкой моделей и продакшеном.
+**** [[hxxps://www.databricks.com/blog/agentic-marketing-stack-starts-data-layer][The agentic marketing stack starts with the data layer]]
+:SCORE: 7/10
+:WHY: Напоминает, что без надежного слоя данных агентные системы не будут эффективны.
+
+** Искусственный Интеллект
+- [[hxxps://www.kdnuggets.com/fine-tuning-explained-for-noobs-how-pretrained-models-learn-new-skills][Fine-Tuning Explained for Noobs (How Pretrained Models Learn New Skills)]] (KDnuggets) — Базовое объяснение процесса дообучения предтренированных моделей для новых задач.
+- [[hxxps://www.kdnuggets.com/local-video-summarization-pipeline-processing-frames-with-smolvlm2-2-2b][Local Video Summarization Pipeline: Processing Frames with SmolVLM2-2.2B]] (KDnuggets) — Практика запуска суммаризации видео на локальном GPU с использованием компактных моделей.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/fine-tune-nvidia-nemotron-3-models-with-amazon-sagemaker-ai-serverless-model-customization/][Fine-tune NVIDIA Nemotron 3 models with Amazon SageMaker AI serverless model customization]] (AWS) — Обзор серверless кастомизации моделей Nemotron 3 с архитектурой MoE.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/real-time-dental-image-verification-with-amazon-sagemaker-ai-at-henry-schein-one/][Real-time dental image verification with Amazon SageMaker AI at Henry Schein One]] (AWS) — Кейс внедрения real-time проверки качества рентген-снимков в клиниках.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/][Build a semantic layer for agentic AI on AWS with Stardog and Amazon Bedrock AgentCore]] (AWS) — Построение семантического слоя для агентного ИИ без ETL поверх разрозненных источников.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/scaling-agentic-workflows-with-native-case-management-in-amazon-quick-automate/][Scaling agentic workflows with native case management in Amazon Quick Automate]] (AWS) — Управление состоянием и человеческим вмешательством в масштабируемых агентных воркфлоу.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-quantized-models-on-amazon-sagemaker-ai-with-unsloth/][Deploying quantized models on Amazon SageMaker AI with Unsloth]] (AWS) — Паттерны деплоя квантованных моделей для снижения памяти и затрат.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-ktern-ai-built-agentic-ai-for-sap-on-amazon-bedrock-agentcore/][How KTern.AI built agentic AI for SAP on Amazon Bedrock AgentCore]] (AWS) — Архитектура агентной платформы для трансформации SAP с сохранением контекста.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/disaggregated-prefill-and-decode-for-llm-inference-on-sagemaker-hyperpod/][Disaggregated prefill and decode for LLM inference on SageMaker HyperPod]] (AWS) — Разделение фаз prefill и decode на разные GPU для оптимизации latency.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/disaggregated-prefill-and-decode-for-llm-inference-on-sagemaker-hyperpod/][Disaggregated prefill and decode for LLM inference on SageMaker HyperPod]]
+:SCORE: 9/10
+:WHY: Критическая оптимизация инфраструктуры для высоконагруженных LLM-сервисов с длинным контекстом.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/deploying-quantized-models-on-amazon-sagemaker-ai-with-unsloth/][Deploying quantized models on Amazon SageMaker AI with Unsloth]]
+:SCORE: 9/10
+:WHY: Практическое руководство по снижению стоимости инференса без существенной потери точности.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-a-semantic-layer-for-agentic-ai-on-aws-with-stardog-and-amazon-bedrock-agentcore/][Build a semantic layer for agentic AI on AWS with Stardog and Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Решает проблему согласованности данных для агентов в гетерогенных энтерпрайз-средах.
+
+** Вендоры
+- [[hxxps://www.dremio.com/blog/apache-parquet-columnar-format-analytics/][What's The Deal With Apache Parquet?]] (Dremio) — Объяснение экономических преимуществ колоночного хранения Parquet перед CSV.
+- [[hxxps://neo4j.com/blog/developer/graph-used-right-built-fast-neo4j-at-hackwithbay-3-0/][Graph used right & built fast: Neo4j at HackwithBay 3.0]] (Neo4j) — Использование графовой базы как источника истины для автономных агентов на хакатоне.
+- [[hxxps://www.databricks.com/blog/ambulatory-intelligence-gap][The ambulatory intelligence gap]] (Databricks) — Анализ разрыва во внедрении ИИ в амбулаторной медицине.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/developer/graph-used-right-built-fast-neo4j-at-hackwithbay-3-0/][Graph used right & built fast: Neo4j at HackwithBay 3.0]]
+:SCORE: 8/10
+:WHY: Демонстрирует паттерн использования графов для ограничения галлюцинаций агентов.
+**** [[hxxps://www.dremio.com/blog/apache-parquet-columnar-format-analytics/][What's The Deal With Apache Parquet?]]
+:SCORE: 8/10
+:WHY: Фундаментальное понимание формата хранения, влияющего на производительность аналитики.
+**** [[hxxps://www.databricks.com/blog/ambulatory-intelligence-gap][The ambulatory intelligence gap]]
+:SCORE: 7/10
+:WHY: Инсайт о специфических барьерах внедрения ИИ в здравоохранении.
+
+** Open Source
+- [[hxxps://www.dremio.com/blog/apache-parquet-columnar-format-analytics/][What's The Deal With Apache Parquet?]] (Dremio) — Глубокий разбор внутренней структуры и алгоритмов сжатия Apache Parquet.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-parquet-columnar-format-analytics/][What's The Deal With Apache Parquet?]]
+:SCORE: 9/10
+:WHY: Must-read для понимания того, как формат файла влияет на стоимость и скорость запросов.
+
+** События
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества LDBC в Бостоне совместно с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обсуждения стандартов графовых баз для инженеров.

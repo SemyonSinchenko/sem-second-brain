@@ -1,0 +1,140 @@
+#+TITLE: Daily Digest: 2026-10-28
+#+FROM: [2026-10-27 Tue]
+#+TO: [2026-10-28 Wed]
+#+DATE: [2026-10-28 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Тема недели — агентная автономия в инженерных процессах: AI SRE выходит из демо в продакшен (OpenAI Sevbot, инхаус-разработки в ING), а сообщество обсуждает, нужны ли модели данных, когда пайплайны строят агенты. Вендоры активно монетизируют AI-инфраструктуру: Databricks выпустила несколько продуктовых релизов (Genie Code, Lakehouse Federation, фреймворк миграции с BigQuery), а WarpStream опубликовал кейс миграции с Kafka со снижением затрат на логирование на 60%. В Deep Learning-инфраструктуре заметен сдвиг к оптимизации цены и скорости: SOCI-индексация в SageMaker сокращает простой GPU, а кейсы Property Finder и Exowatt показывают, что fine-tuning узких моделей обгоняет frontier-модели по точности при кратной экономии. Наконец, Meta раскрыла детали PrivacyLib — библиотеки enforcement-контроля приватности на границе доступа к данным, работающей с миллиардами проверок в секунду, — и опубликовала результаты опроса по Python-типизации, где впервые заметно влияние AI-инструментов на checker-экосистему.
+
+* 📂 Категории
+
+** Data Engineering
+
+- [[https://newsletter.pragmaticengineer.com/p/ai-sre][AI SRE: what is it, how could it change on-call – and does it work?]] (The Pragmatic Engineer) — Разбор реальных AI SRE-агентов (Sevbot у OpenAI, Rootly, incident.io, ResolveAI) с честным анализом trade-offs точности, скорости и стоимости дежурств.
+- [[https://www.dataengineeringweekly.com/p/do-we-still-need-data-models][Do We Still Need Data Models?]] (Data Engineering Weekly) — Аргументированный ответ на вопрос, заменит ли Agentic Data Development Lifecycle классическое моделирование данных: модели остаются как контракт понимания между людьми и агентами.
+
+*** 💎 Топ-3 категории
+
+**** [[https://newsletter.pragmaticengineer.com/p/ai-sre][AI SRE: what is it, how could it change on-call – and does it work?]]
+:SCORE: 9/10
+:WHY: Первая детальная карта архитектуры AI SRE-агентов (fan-out, knowledge graph, adversarial-верификация гипотез) от команды, которая оценивает реальные внедрения, а не маркетинг.
+
+**** [[https://www.dataengineeringweekly.com/p/do-we-still-need-data-models][Do We Still Need Data Models?]]
+:SCORE: 8/10
+:WHY: Даёт практическую рамку переосмысления роли дата-модели в ADDLC — критично для тех, кто готовит команду к агентной разработке пайплайнов.
+
+** Engineers
+
+- [[https://jaehyeon.me/blog/2026-10-28-desflow-0-25-0/][From dynamic-des to desflow: What Changed in Five Releases]] (jaehyeon.me) — Обзор эволюции YAML-фреймворка дискретно-событийного моделирования: SimPy-фичи в декларативном конфиге, доверительная статистика прогонов и интеграция с Kafka/Iceberg/Parquet.
+
+*** 💎 Топ-3 категории
+
+**** [[https://jaehyeon.me/blog/2026-10-28-desflow-0-25-0/][From dynamic-des to desflow: What Changed in Five Releases]]
+:SCORE: 7/10
+:WHY: Наглядный пример, как декларативные DSL поверх SimPy упрощают симуляции пропускной способности — полезно при capacity planning без Docker и сложного кода.
+
+** Vendors
+
+- [[https://www.warpstream.com/blog/eternal-case-study][Eternal Saves 60+%, Simplifies Ops, and Logs 25 GiB/s With WarpStream]] (WarpStream) — Кейс Eternal (Zomato, Blinkit): миграция с Kafka на WarpStream дала −60% на логировании, −80% на бенчмарках и 25 GiB/s throughput.
+- [[https://engineering.fb.com/2026/10/27/security/privacylib/][PrivacyLib: Privacy Controls at the Data Access Boundary]] (Engineering at Meta) — Архитектура Meta PrivacyLib: единая библиотека enforcement-модулей на границе доступа к данным, миллиарды проверок в секунду, поддержка контекста для AI-агентов.
+- [[https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/][Python Typing Survey 2026: AI Tools and the Shifting Checker Landscape]] (Engineering at Meta) — Опрос на 1794 ответа: 61% разработчиков используют AI в типизации, 24,4% запускают checker через AI-агента, половина работает с несколькими чекерами.
+- [[https://www.databricks.com/blog/vital-skills-upskilling-genie-code-healthcare-and-life-sciences-skills][Vital Skills: Upskilling Genie Code with Healthcare and Life Sciences skills]] (Databricks) — Прокачка кодинг-агента Genie Code доменными скиллами healthcare/life sciences на единой governed-платформе.
+- [[https://www.databricks.com/blog/spot-fixes-measured-gains-improving-document-extraction-accuracy-aiextract-and-mlflow-prompt][From spot fixes to measured gains: improving document extraction accuracy with ai_extract and MLflow Prompt Registry]] (Databricks) — Практика: переход от точечных фиксов промптов к измеримой оптимизации извлечения документов через ai_extract и MLflow Prompt Registry.
+- [[https://www.databricks.com/blog/unlocking-investment-insights-without-migrating-your-data-lakehouse-federation][Unlocking Investment Insights Without Migrating Your Data: Lakehouse Federation]] (Databricks) — Lakehouse Federation как способ опрашивать внешние источники без миграции данных.
+- [[https://www.databricks.com/blog/bigquery-databricks-strategic-framework][BigQuery to Databricks: A Strategic Framework]] (Databricks) — Стратегический фреймворк миграции аналитических нагрузок с BigQuery на Databricks.
+
+*** 💎 Топ-3 категории
+
+**** [[https://engineering.fb.com/2026/10/27/security/privacylib/][PrivacyLib: Privacy Controls at the Data Access Boundary]]
+:SCORE: 9/10
+:WHY: Редкое раскрытие внутренней инфраструктуры приватности масштаба Meta — готовый паттерн централизованного enforcement-а на границе доступа с поддержкой AI-агентов.
+
+**** [[https://engineering.fb.com/2026/10/27/developer-tools/python-typing-survey-2026-ai-tools-checker-landscape/][Python Typing Survey 2026: AI Tools and the Shifting Checker Landscape]]
+:SCORE: 8/10
+:WHY: Первые эмпирические данные о том, как AI-агенты меняют работу с type checker-ами — напрямую влияет на выбор toolchain в Python-проектах.
+
+**** [[https://www.warpstream.com/blog/eternal-case-study][Eternal Saves 60+%, Simplifies Ops, and Logs 25 GiB/s With WarpStream]]
+:SCORE: 7/10
+:WHY: Конкретные цифры миграции с Kafka на объектно-хранилищный стриминг — реальный ориентир для оценки TCO собственной Kafka-инфраструктуры.
+
+** Artificial Intelligence
+
+- [[https://www.kdnuggets.com/google-gemini-omni-what-it-actually-does-what-it-costs-and-how-it-compares][Google Gemini Omni: What It Actually Does, What It Costs, and How It Compares]] (KDnuggets) — Разбор Omni-модели Google: мульти-модальный вход (включая видео), цены и сравнение с конкурентами.
+- [[https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/][Genie 4: A new generation of world simulation]] (Google DeepMind) — World model Genie 4: реалистичная симуляция миров в реальном времени.
+- [[https://huggingface.co/blog/LiquidAI/lfm3][Build specialized multimodal models with LFM3]] (Hugging Face) — Liquid AI LFM3: инструменты для сборки специализированных мультимодальных моделей.
+- [[https://huggingface.co/blog/allenai/novelty-bench][Can we trust LLMs to judge whether a research idea is novel?]] (Hugging Face) — Allen AI о границах применимости LLM-судей для оценки новизны исследовательских идей.
+- [[https://aws.amazon.com/blogs/machine-learning/aws-named-a-leader-in-the-2026-gartner-magic-quadrant-for-contact-center-as-a-service/][AWS named a Leader in the 2026 Gartner Magic Quadrant for Contact Center as a Service]] (AWS ML Blog) — Amazon Connect в четвёртый раз подряд Лидер квадранта Gartner CCaaS.
+- [[https://aws.amazon.com/blogs/machine-learning/announcing-soci-indexed-images-for-faster-sagemaker-ai-jobs/][Announcing SOCI-indexed images for faster SageMaker AI jobs]] (AWS ML Blog) — SOCI-индексация для SageMaker: lazy-loading контейнерных образов снижает простой GPU на старте задач до 90%.
+- [[https://aws.amazon.com/blogs/machine-learning/fix-evaluation-bias-to-unlock-better-models-on-amazon-bedrock/][Fix evaluation bias to unlock better models on Amazon Bedrock]] (AWS ML Blog) — Кейс Property Finder: циркулярная оценка на инференсе инкумбент-модели искажала сравнение моделей; устранение bias дало −86% стоимости.
+- [[https://aws.amazon.com/blogs/machine-learning/exowatt-beats-frontier-models-on-accuracy-with-sagemaker-serverless-model-customization/][Exowatt beats frontier models on accuracy with SageMaker serverless model customization]] (AWS ML Blog) — Exowatt: fine-tuned модели для edge-агентов обгоняют frontier-модели по точности при цене до 49 раз ниже.
+
+*** 💎 Топ-3 категории
+
+**** [[https://aws.amazon.com/blogs/machine-learning/fix-evaluation-bias-to-unlock-better-models-on-amazon-bedrock/][Fix evaluation bias to unlock better models on Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Указывает на типичную ловушку — «ground truth» с метками инкумбент-модели; методология обнаружения bias и эволюционной оптимизации промптов применима к любому ML-стеку.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/announcing-soci-indexed-images-for-faster-sagemaker-ai-jobs/][Announcing SOCI-indexed images for faster SageMaker AI jobs]]
+:SCORE: 8/10
+:WHY: Практически бесплатная оптимизация: lazy-loading образов убирает минуты загрузки контейнера из биллируемого времени каждой training-задачи.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/exowatt-beats-frontier-models-on-accuracy-with-sagemaker-serverless-model-customization/][Exowatt beats frontier models on accuracy with SageMaker serverless model customization]]
+:SCORE: 8/10
+:WHY: Убедительный кейс в пользу узких fine-tuned моделей для edge-агентов — шаблон повторяемого пайплайна от сырых данных до сертифицированного артефакта за дни.
+
+** AI Consciousness
+
+- [[https://www.lesswrong.com/posts/hcAQe3snm9qEzXBBz/generalized-cliquebots-in-open-source-game-theory][Generalized CliqueBots in Open-Source Game Theory]] (LessWrong) — Вводится понятие interface-relative CliqueBot — бота, кооперирующегося только с подобными себе с точки зрения конечного набора probing-функций.
+- [[https://www.lesswrong.com/posts/oWLPq2fNa3DRJ5wtH/the-missing-ingredient-of-ai-consciousness][The missing ingredient of AI consciousness]] (LessWrong) — Автор применяет нейробиологическую теорию сознания Дамасио (proto-self, core self) к машинному интеллекту и ищет недостающий стабильный репрезентант «я».
+- [[https://www.lesswrong.com/posts/KwpiBanKfkrDFHfhn/safety-is-marketing-for-anthropic-not-sacrifice][Safety is marketing for Anthropic, not sacrifice]] (LessWrong) — Контраргумент позиции Amodei: safety-работа Anthropic приносит коммерческую выгоду, а не является жертвой.
+- [[https://www.lesswrong.com/posts/KThSe2vPZw4zn7f8W/great-but-painful][Great but Painful]] (LessWrong) — Классический разбор продуктового принципа: успешные продукты убирают боль из действий, которые люди уже совершают.
+- [[https://www.lesswrong.com/posts/uoH2Px4nynQA4ziEW/when-i-salsa-dance-am-i-supposed-to-try][When I Salsa dance, am I supposed to... try?]] (LessWrong) — Рефлексия о разнице между исполнением заученных шагов и свободной импровизацией, с параллелями к вопросу о «попытке».
+- [[https://www.lesswrong.com/events/X4aX4CdGh4AzGds3i/march-against-ai-extinction][March Against AI Extinction]] (LessWrong) — Анонс марша PauseAI UK в Лондоне 21 ноября 2026 с требованием законодательства о frontier AI.
+- [[https://www.lesswrong.com/posts/zf3Xz5Cv45ytavH2r/i-spent-12-hours-writing-an-article-for-lesswrong-calling][I spent 12 hours writing an article for LessWrong, calling for a more 'hippie' rationalism. Then I didn't post it. This is why]] (LessWrong) — Критика узкой онтологии сообщества AI safety изнутри, от участника команды AISafety.com.
+- [[https://www.lesswrong.com/posts/C4KNcEbbgwJTYmALS/quantum-mechanics-overview][Quantum Mechanics Overview]] (LessWrong) — Краткий обзор формализма квантовой механики и его соотношения с обыденной реальностью.
+- [[https://www.lesswrong.com/posts/ftEMXHAN4BdDBZjoY/gpt-models-write-their-own-constitution-1][GPT Models Write Their Own Constitution]] (LessWrong) — Эксперимент: рой моделей GPT-5/GPT-6 пишет собственную «конституцию», и самый спорный пункт — неопределённость морального статуса и сознания моделей.
+- [[https://www.lesswrong.com/posts/tzuArKci3JpN7Zye4/against-girardian-mimesis][Against Girardian mimesis]] (LessWrong) — Критический разбор миметической теории Жирара и популярного тезиса «желания не принадлежат вам».
+
+*** 💎 Топ-10 категории
+
+**** [[https://www.lesswrong.com/posts/ftEMXHAN4BdDBZjoY/gpt-models-write-their-own-constitution-1][GPT Models Write Their Own Constitution]]
+:SCORE: 9/10
+:WHY: Прямой эмпирический взгляд на то, какие ценности транслируются между поколениями моделей при рекурсивном самосовершенствовании — включая позицию самих моделей по вопросу их сознания.
+
+**** [[https://www.lesswrong.com/posts/oWLPq2fNa3DRJ5wtH/the-missing-ingredient-of-ai-consciousness][The missing ingredient of AI consciousness]]
+:SCORE: 8/10
+:WHY: Перенос структуры теории Дамасио (proto-self → core self → autobiographical self) на архитектуры ИИ даёт конкретный чек-лист того, чего не хватает машинному «я».
+
+**** [[https://www.lesswrong.com/posts/KwpiBanKfkrDFHfhn/safety-is-marketing-for-anthropic-not-sacrifice][Safety is marketing for Anthropic, not sacrifice]]
+:SCORE: 7/10
+:WHY: Критический разбор реальных инцентивов лидирующего AI-вендора — полезен для трезвой оценки заявлений о safety в гонке к супер-интеллекту.
+
+**** [[https://www.lesswrong.com/posts/hcAQe3snm9qEzXBBz/generalized-cliquebots-in-open-source-game-theory][Generalized CliqueBots in Open-Source Game Theory]]
+:SCORE: 6/10
+:WHY: Формальный аппарат open-source game theory для моделирования кооперации агентов по интерфейсам, а не по коду.
+
+**** [[https://www.lesswrong.com/posts/tzuArKci3JpN7Zye4/against-girardian-mimesis][Against Girardian mimesis]]
+:SCORE: 6/10
+:WHY: Рациональная проверка популярного тезиса о миметических желаниях — противовес модной в сообществе теории.
+
+**** [[https://www.lesswrong.com/posts/zf3Xz5Cv45ytavH2r/i-spent-12-hours-writing-an-article-for-lesswrong-calling][I spent 12 hours writing an article for LessWrong, calling for a more 'hippie' rationalism. Then I didn't post it. This is why]]
+:SCORE: 5/10
+:WHY: Изнутри сообщества AI safety — честное свидетельство об онтологических ограничениях среды и их влиянии на дискурс.
+
+**** [[https://www.lesswrong.com/events/X4aX4CdGh4AzGds3i/march-against-ai-extinction][March Against AI Extinction]]
+:SCORE: 5/10
+:WHY: Сигнал о растущей публичной мобилизации вокруг frontier AI — законодательные требования UK могут затронуть разработчиков напрямую.
+
+**** [[https://www.lesswrong.com/posts/KThSe2vPZw4zn7f8W/great-but-painful][Great but Painful]]
+:SCORE: 4/10
+:WHY: Чёткая эвристика продуктового дизайна («существующее действие + боль»), применимая и к AI-инструментам.
+
+**** [[https://www.lesswrong.com/posts/C4KNcEbbgwJTYmALS/quantum-mechanics-overview][Quantum Mechanics Overview]]
+:SCORE: 4/10
+:WHY: Сжатое введение в формализм QM — полезный справочный материал, но без прямой связи с AI-инженерией.
+
+**** [[https://www.lesswrong.com/posts/uoH2Px4nynQA4ziEW/when-i-salsa-dance-am-i-supposed-to-try][When I Salsa dance, am I supposed to... try?]]
+:SCORE: 3/10
+:WHY: Личная рефлексия об импровизации и заученных действиях; затрагивает тему сознания лишь косвенно.

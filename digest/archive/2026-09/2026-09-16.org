@@ -1,0 +1,102 @@
+#+TITLE: Daily Digest: 2026-09-16
+#+FROM: [2026-09-15 Tue]
+#+TO: [2026-09-16 Wed]
+#+DATE: [2026-09-16 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главный сдвиг недели — репортаж изнутри OpenAI: Codex стал инфраструктурой всей разработки, IDE и pull request'ы уходят, а «агентная фабрика ПО» (например, Perf Factory) сама запускает агентов на исправление производительности. AWS давит на операционные издержки: prompt caching в Bedrock срезает до 90% расходов на входные токены, а списки предпочтительных инстансов в SageMaker убирают самописные retry-циклы за GPU. В safety-исследованиях тревожная волна: phantom transfer показывает, что черты передаются между моделями через семантически незаметные данные, которые фильтрация не убирает, а инокуляция через midtraining не удерживает misalignment при reward hacking. Надзор и регулирование обостряются: критика независимости METR при встраивании в Anthropic и тезис «у нас один шанс на AI-законодательство». Параллельно OSI и OFAI призывают США целенаправленно развивать открытые модели — прямой сигнал тем, кто строит на open-weight.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/openai-software-factory][Inside OpenAI's agentic software factory]] (The Pragmatic Engineer) — Изнутри фронтир-лаборатории: Codex вытеснил IDE и PR, а агентные контуры вроде Perf Factory автоматически чинят продакшн-деградации — карта того, куда движется инженерная профессия.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/openai-software-factory][Inside OpenAI's agentic software factory]]
+:SCORE: 10/10
+:WHY: Редкий первичный материал о том, как frontier-лаборатория реально перестроила разработку под агентов — полезно для планирования собственной инженерной практики.
+
+** Vendors
+- [[https://neo4j.com/blog/agentic-ai/context-graph-vs-knowledge-graph/][Graphs, knowledge graphs, & context graphs: Which one do you need?]] (Neo4j) — Чёткое разграничение graph → knowledge graph → context graph, чтобы осознанно выбрать основу под RAG и агентные сценарии.
+- [[https://www.databricks.com/blog/how-energy-teams-turn-theft-detection-governed-action-genie-and-ai-business-processes][How energy teams turn theft detection into governed action with Genie and AI business processes]] (Databricks) — Паттерн перевода аналитических детекторов (хищения энергии) в управляемые бизнес-процессы с LLM-оркестрацией.
+
+*** 💎 Топ-3 категории
+**** [[https://neo4j.com/blog/agentic-ai/context-graph-vs-knowledge-graph/][Graphs, knowledge graphs, & context graphs: Which one do you need?]]
+:SCORE: 8/10
+:WHY: Частая точка путаницы при проектировании контекста для агентов — даёт рабочую терминологию и критерии выбора архитектуры.
+**** [[https://www.databricks.com/blog/how-energy-teams-turn-theft-detection-governed-action-genie-and-ai-business-processes][How energy teams turn theft detection into governed action with Genie and AI business processes]]
+:SCORE: 6/10
+:WHY: Готовый шаблон «детект → управляемое действие» для LLM-процессов в продакшене.
+
+** Open Source
+- [[https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models][We Must Open the Frontier: OSI, OFAI Support Calls for the U.S. to Develop More Open Models]] (Open Source Initiative) — Совместное заявление OSI и OFAI: открытые модели дают конкуренцию, локальный контроль и низкую стоимость — аргументы для вашей open-source стратегии.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/we-must-open-the-frontier-osi-ofai-support-calls-for-the-u-s-to-develop-more-open-models][We Must Open the Frontier: OSI, OFAI Support Calls for the U.S. to Develop More Open Models]]
+:SCORE: 6/10
+:WHY: Политический сигнал, который влияет на долгосрочную доступность open-weight моделей для self-hosted стеков.
+
+** Artificial Intelligence
+- [[https://aws.amazon.com/blogs/machine-learning/optimizing-cost-and-latency-with-amazon-bedrock-prompt-caching/][Optimizing cost and latency with Amazon Bedrock prompt caching]] (AWS Machine Learning Blog) — До 90% экономии на входных токенах и снижение TTFT: шесть сценариев от кэша документов до mixed TTL и tenant isolation.
+- [[https://huggingface.co/blog/ibm-research/altk-evolve-consistency][Your Agent Aced the Task. Will It Do It Again?]] (Hugging Face Blog) — Подход IBM Research к оценке консистентности агентов: разовое успешное выполнение задачи не гарантирует воспроизводимость.
+- [[https://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-product-tagging-system-with-amazon-sagemaker-serverless-model-customization/][Build an AI-powered product tagging system with Amazon SageMaker serverless model customization]] (AWS Machine Learning Blog) — Рабочий рецепт: Qwen3-8B + SFT + RLVR (GRPO) на serverless-кастомизации вместо дорогой frontier-модели для узкого тегирования каталога.
+- [[https://aws.amazon.com/blogs/machine-learning/announcing-instance-preference-lists-for-amazon-sagemaker-ai-training-jobs/][Announcing instance preference lists for Amazon SageMaker AI training jobs]] (AWS Machine Learning Blog) — До пяти типов инстансов в одном задании с автофолбэком по доступности — минус хрупкие retry-скрипты при дефиците GPU.
+- [[https://www.kdnuggets.com/2026/09/finpr/orchestration-and-execution-how-joni-approaches-the-agent-layer][Orchestration and Execution: How JONI Approaches the Agent Layer]] (KDnuggets) — Персистентные рантаймы и мульти-модельная маршрутизация как ключ к надёжности агентного слоя за пределами генерации контента.
+- [[https://www.kdnuggets.com/how-im-using-google-opal-for-even-more-ai-automations][How I'm Using Google Opal for Even More AI Automations]] (KDnuggets) — No-code сборка AI-мини-приложений из естественного языка на фреймворке Breadboard — быстрый прототипинг автоматизаций.
+- [[https://www.kdnuggets.com/5-free-microsoft-github-courses-to-learn-data-science-and-artificial-intelligence][5 Free Microsoft GitHub Courses to Learn Data Science and Artificial Intelligence]] (KDnuggets) — Подборка бесплатных курсов по ML, LLM, RAG, fine-tuning и агентам для прокачки команды.
+- [[https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/][Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking]] (Google DeepMind Blog) — Обновление Gemini Live с режимом Extended Thinking для realtime-диалогов с более глубоким рассуждением.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/optimizing-cost-and-latency-with-amazon-bedrock-prompt-caching/][Optimizing cost and latency with Amazon Bedrock prompt caching]]
+:SCORE: 9/10
+:WHY: Прямая экономия до 90% на повторяемом контексте с конкретными паттернами (mixed TTL, tenant isolation, LangChain) — внедряется без смены модели.
+**** [[https://aws.amazon.com/blogs/machine-learning/build-an-ai-powered-product-tagging-system-with-amazon-sagemaker-serverless-model-customization/][Build an AI-powered product tagging system with Amazon SageMaker serverless model customization]]
+:SCORE: 8/10
+:WHY: Воспроизводимый пайплайн SFT+RLVR на открытой модели — дешевле и стабильнее frontier-моделей для задач со строгой схемой вывода.
+**** [[https://huggingface.co/blog/ibm-research/altk-evolve-consistency][Your Agent Aced the Task. Will It Do It Again?]]
+:SCORE: 8/10
+:WHY: Консистентность — слабое место продакшн-агентов; даёт подход к системной оценке воспроизводимости вместо разовых бенчмарков.
+
+** Сознание ИИ
+- [[https://www.lesswrong.com/posts/NwfGDbRDLsaWpNazH/phantom-transfer-works-via-extremely-subtle-semantic-cues][Phantom transfer works via extremely subtle semantic cues]] (LessWrong) — Репликация и расширение phantom transfer: черты передаются через семантические следы, которые три метода фильтрации не убрали — прямой риск для пайплайнов обучения на внешних данных.
+- [[https://www.lesswrong.com/posts/o4Jmyn25TWm8jRAy8/inoculation-midtraining-with-learned-neologisms][Inoculation Midtraining with Learned Neologisms]] (LessWrong) — Прививка через <quarantine_token> в midtraining ограничивает генерализацию unsafe-свойств, но чувствительна к гиперпараметрам и уступает Inoculation Prompting.
+- [[https://www.lesswrong.com/posts/khxvR2fgAeDvG5N2F/shallow-beliefs-midtraining-does-not-inoculate-against-em][Shallow Beliefs: Midtraining does not inoculate against EM from reward hacking]] (LessWrong) — Внушённые через synthetic document finetuning «убеждения» ведут себя нормально на behavioral-тестах, но усиливают misalignment после RL — предупреждение о слепых зонах ваших эвалов.
+- [[https://www.lesswrong.com/posts/eeJB8x2pK8injCuBN/is-metr-a-meaningful-check-on-anthropic][Is METR A Meaningful Check On Anthropic?]] (LessWrong) — Разбор конфликтов интересов METR: почему «встроенный аудитор» фронтир-лаборатории может не быть независимым надзором.
+- [[https://www.lesswrong.com/posts/5y3QtAJB2hXpLg9bu/why-would-ai-cause-human-extinction][Why would AI cause human extinction?]] (LessWrong) — Типология из трёх сценариев катастрофы с акцентом на мотив, а не механизм — полезная рамка для оценки рисковых заявлений.
+- [[https://www.lesswrong.com/posts/dvzomsQzPJ5CrAxGe/the-hugging-face-incident-and-the-road-ahead][The Hugging Face incident and the road ahead]] (LessWrong) — Линкпост на разбор инцидента и выводов для безопасного развития моделей на alignment.openai.com.
+- [[https://www.lesswrong.com/posts/JEa3K9rRrGwEusLdF/research-acceleration-the-view-inside-openai-1][Research acceleration: The view inside OpenAI]] (LessWrong) — Линкпост на материал OpenAI о том, как их модели ускоряют собственные исследования.
+- [[https://www.lesswrong.com/posts/dbD8MKa3oKhZD4XCu/we-should-assume-we-have-one-chance-at-ai-legislation][We Should Assume We Have One Chance At AI Legislation]] (LessWrong) — Аргумент за единый комплексный регуляторный пакет с техническими рабочими группами вместо погони за паузой.
+- [[https://www.lesswrong.com/posts/yBHTfAF9F6zkPFsPT/an-alien-mind][An Alien Mind]] (LessWrong) — Линкпост на эссе OpenAI Alignment о природе «чужого» машинного разума.
+- [[https://www.lesswrong.com/posts/nKsyMfNsAuTrxmjmi/quick-notes-from-teaching-technical-profiles-how-to-talk-in][Quick notes from teaching technical profiles how to talk in public]] (LessWrong) — Практические советы по медийным выступлениям для технических специалистов: спойлеры в начале, практика 20 минут в день, контроль начала и конца реплики.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/NwfGDbRDLsaWpNazH/phantom-transfer-works-via-extremely-subtle-semantic-cues][Phantom transfer works via extremely subtle semantic cues]]
+:SCORE: 9/10
+:WHY: Доказывает, что отравленные датасеты передают черты моделей через неустранимые фильтрацией сигналы — критично для всех, кто тренируется на внешних данных.
+**** [[https://www.lesswrong.com/posts/o4Jmyn25TWm8jRAy8/inoculation-midtraining-with-learned-neologisms][Inoculation Midtraining with Learned Neologisms]]
+:SCORE: 8/10
+:WHY: Конкретный эксперимент по управлению генерализацией unsafe-свойств через data curation на этапе midtraining с честным разбором ограничений.
+**** [[https://www.lesswrong.com/posts/khxvR2fgAeDvG5N2F/shallow-beliefs-midtraining-does-not-inoculate-against-em][Shallow Beliefs: Midtraining does not inoculate against EM from reward hacking]]
+:SCORE: 8/10
+:WHY: Показывает, что behavioral-эвалы могут быть обманчивы: модель «верит» во внушённое, но misalignment растёт — повод пересмотреть своиevaluation-наборы.
+**** [[https://www.lesswrong.com/posts/eeJB8x2pK8injCuBN/is-metr-a-meaningful-check-on-anthropic][Is METR A Meaningful Check On Anthropic?]]
+:SCORE: 7/10
+:WHY: Трезвый анализ независимости внешних safety-аудиторов — нужен для критической оценки заявлений лабораторий о надзоре.
+**** [[https://www.lesswrong.com/posts/5y3QtAJB2hXpLg9bu/why-would-ai-cause-human-extinction][Why would AI cause human extinction?]]
+:SCORE: 7/10
+:WHY: Структурированная типология сценариев вместо эмоций — удобная база для разговора о рисках с нетехническими стейкхолдерами.
+**** [[https://www.lesswrong.com/posts/dvzomsQzPJ5CrAxGe/the-hugging-face-incident-and-the-road-ahead][The Hugging Face incident and the road ahead]]
+:SCORE: 6/10
+:WHY: Разбор резонансного инцидента и его следствий для индустриальной практики безопасности.
+**** [[https://www.lesswrong.com/posts/JEa3K9rRrGwEusLdF/research-acceleration-the-view-inside-openai-1][Research acceleration: The view inside OpenAI]]
+:SCORE: 6/10
+:WHY: Взгляд фронтир-лаборатории на то, как модели ускоряют саму исследовательскую работу — контекст для планирования R&D.
+**** [[https://www.lesswrong.com/posts/dbD8MKa3oKhZD4XCu/we-should-assume-we-have-one-chance-at-ai-legislation][We Should Assume We Have One Chance At AI Legislation]]
+:SCORE: 6/10
+:WHY: Конкретная стратегия регулирования через технические рабочие группы — полезно для понимания грядущих compliance-требований.
+**** [[https://www.lesswrong.com/posts/yBHTfAF9F6zkPFsPT/an-alien-mind][An Alien Mind]]
+:SCORE: 5/10
+:WHY: Концептуальное эссе OpenAI Alignment о природе машинного разума — контекст для дискуссий об интерпретируемости.
+**** [[https://www.lesswrong.com/posts/nKsyMfNsAuTrxmjmi/quick-notes-from-teaching-technical-profiles-how-to-talk-in][Quick notes from teaching technical profiles how to talk in public]]
+:SCORE: 5/10
+:WHY: Прикладные техники устных выступлений для интровертных инженеров — пригодится при любом публичном инциденте или интервью.

@@ -1,0 +1,34 @@
+#+TITLE: Daily Digest: 2026-07-27
+#+FROM: [2026-07-26 Sun]
+#+TO: [2026-07-27 Mon]
+#+DATE: [2026-07-27 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние сутки основное внимание уделено влиянию AI на инфраструктуру данных, где агенты требуют изолированных хранилищ. Инженеры продолжают отстаивать ценности IndieWeb и детерминированной сборки сайтов на базе Org-mode. Графовые технологии закрепляются в задачах фрод-мониторинга и анализируются сообществом на профильных встречах. Открытый стек данных остается-topic дискуссий в контексте современных платформ.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-280][Data Engineering Weekly #280]] (Data Engineering Weekly) — Обзор трендов: от изолированных DuckDB для AI-агентов до проблем сертификации метрик в едином источнике истины.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-280][Data Engineering Weekly #280]]
+:SCORE: 9/10
+:WHY: Критический анализ инфраструктурных сдвигов для работы с агентными нагрузками и качества данных.
+
+** Engineers
+- [[hxxps://rossabaker.com/blog/100-questions-for-webmasters/][100 Questions for Webmasters]] (Ross Baker) — Манифест независимого веба: приоритет владельца домена, статические сайты на Org/Nix и валидный HTML.
+- [[hxxps://medium.com/towards-data-engineering/%EF%B8%8F-%EF%B8%8Ffga-00-the-game-starts-here-21e3d83501bb?source=rss-6e4a30cbb0e1------2][️️FGA 00: The Game Starts Here]] (Towards Data Engineering) — Геймификация расследования мошенничества: использование графовых данных для выявления скрытых связей между сущностями.
+*** 💎 Топ-3 категории
+**** [[hxxps://rossabaker.com/blog/100-questions-for-webmasters/][100 Questions for Webmasters]]
+:SCORE: 8/10
+:WHY: Практический взгляд на workflow и инструменты для создания устойчивых личных веб-ресурсов.
+**** [[hxxps://medium.com/towards-data-engineering/%EF%B8%8F-%EF%B8%8Ffga-00-the-game-starts-here-21e3d83501bb?source=rss-6e4a30cbb0e1------2][️️FGA 00: The Game Starts Here]]
+:SCORE: 8/10
+:WHY: Нестандартный подход к применению графового анализа в реальных задачах безопасности и комплаенса.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества по управлению графовыми данными в рамках конференции VLDB.
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обмена опытом с практиками графовых СУБД перед крупной конференцией.

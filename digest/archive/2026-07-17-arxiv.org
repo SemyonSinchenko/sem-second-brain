@@ -1,0 +1,130 @@
+#+TITLE: Arxiv Digest: 2026-07-17
+#+FROM: [2026-07-16 Thu]
+#+TO: [2026-07-17 Fri]
+#+DATE: [2026-07-17 Fri]
+#+STARTUP: showall
+
+* cs.DB (Базы данных)
+** 🧐 Обзор
+За последние сутки в области баз данных выделяется тренд на улучшение взаимодействия человека с данными через NL-интерфейсы и оптимизацию пространственных операций. Наблюдается созревание подходов к контекстно-зависимым рекомендациям запросов и масштабируемым 3D-пространственным соединениям на GPU. Практически значимы работы по распределённым OLTP-системам с активной-активной репликацией.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.19982][3DPipe: A Pipelined GPU Framework for Scalable Generalized Spatial Join over Polyhedral Objects]]
+:WHAT: Конвейерная GPU-архитектура для пространственных соединений 3D-полиэдральных объектов с многоуровневым отсечением кандидатов и потоковой обработкой.
+:IMPACT: Ускорение до 9× по сравнению с современными решениями, критично для LiDAR-детекции и 3D-патологии.
+
+- [[hxxps://arxiv.org/abs/2607.13276][Aurora DSQL: Scalable, Multi-Region OLTP]]
+:WHAT: Serverless SQL-база с разнесённой архитектурой (compute/storage/coordination), MVCC с прецизионными временными метками и отложенной координацией до коммита.
+:IMPACT: Масштабирование от нуля до миллионов TPS с сильной консистентностью и доступностью при отказах регионов.
+
+- [[hxxps://arxiv.org/abs/2201.04868][Beyond Interestingness: Semantic and Context-Aware Natural Language Query Recommendations for Visual Data Analysis]]
+:WHAT: QRec-NLI — система рекомендаций следующих шагов запросов с учётом семантики, интересности данных и контекстной связности для NL-интерфейсов.
+:IMPACT: Улучшение поддержки генерации инсайтов и принятия решений в исследовании реляционных баз.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2406.10593][QDA-SQL: Questions Enhanced Dialogue Augmentation for Multi-Turn Text-to-SQL]] — метод аугментации данных для улучшения обработки многооборотных Text-to-SQL задач с валидацией и коррекцией.
+
+* cs.DC (Распределённые вычисления)
+** 🧐 Обзор
+В распределённых системах зафиксирован всплеск работ по оптимизации GPU-ускорителей и консенсус-протоколов. Ключевые направления: ускорение подтверждения транзакций в Ethereum, диагностирование причин стабляции GPU и эффективное обслуживание диффузионных моделей. Практическая значимость высока для production-систем с гетерогенными ускорителями.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.20032][LEO: Tracing GPU Stall Root Causes via Cross-Vendor Backward Slicing]]
+:WHAT: Анализатор корневых причин стабляции GPU через обратное slicing для NVIDIA, AMD и Intel с учётом регистровых зависимостей и вендор-специфичной синхронизации.
+:IMPACT: Ускорение 1.73×–1.82× на 21 рабочей нагрузке, улучшает оптимизацию кода с помощью LLM.
+
+- [[hxxps://arxiv.org/abs/2607.12121][FlashDiff: Efficient Regional Execution and Scheduling for Diffusion Model Serving]]
+:WHAT: Система обслуживания диффузионных моделей с адаптивным региональным исполнением, оценкой активности регионов и affinity-aware планировщиком.
+:IMPACT: Снижение задержки на 30-97% и рост пропускной способности в 1.2-2.2× для image/video/audio workload.
+
+- [[hxxps://arxiv.org/abs/2607.12839][HeteroMosaic: Exposing and Exploiting Heterogeneous Execution Opportunities for Energy-Efficient Edge LLM Inference]]
+:WHAT: Фреймворк планирования для edge LLM с гетерогенной roofline-моделью, декомпозицией на micro-batches и трассировкой ко-оптимизации CPU/iGPU/NPU.
+:IMPACT: Ускорение до 2.35× и экономия энергии до 45.3% на AMD Ryzen AI платформах.
+
+- [[hxxps://arxiv.org/abs/2607.14394][DRIFT: Direct Reduced Fourier Transforms for Distributed Spectral Neural Operators]]
+:WHAT: DTST — распределённый усечённый спектральный трансформ, вычисляющий только необходимые частотные моды локально с минимальной коммуникацией.
+:IMPACT: Ускорение forward-pass в 38-64× и обучения в 37×, коммуникация снижена с 97% до <6% времени.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.25368][The Complexity of Distributed Minimum Weight Cycle Approximation]]
+:ALGO: Рандомизированный (k+1)-аппроксимационный алгоритм для MWC в CONGEST-модели с гладким trade-off между точностью и сложностью раундов.
+:IMPACT: Почти точная характеристика сложности аппроксимации MWC, улучшение state-of-the-art для распределённых графовых задач.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2405.00549][A Fast Confirmation Rule for the Ethereum Consensus Protocol]] — правило быстрого подтверждения для Gasper с временем 12 секунд вместо 13-19 минут при синхронности.
+- [[hxxps://arxiv.org/abs/2601.19788][Knowledge-Aware Evolution for Task-Free Streaming Federated Continual Learning with Arbitrary Class Overlap]] — FedKACE для потокового федеративного обучения без идентификаторов задач с балансировкой градиентов.
+- [[hxxps://arxiv.org/abs/2606.17288][Local Fault Repair of Perfect Resource Placements in Eisenstein--Jacobi Networks]] — анализ локального ремонта после отказов ресурсов в плотных EJ-сетях с неаддитивным поведением.
+- [[hxxps://arxiv.org/abs/2607.06144][Ordering by Unanimity: Giving Applications Sequencing Rights Without Breaking Composability]] — алгоритм unanimity override для упорядочивания транзакций по согласию приложений в блокчейне.
+- [[hxxps://arxiv.org/abs/2607.14166][Stop Means Stop: Measuring and Repairing the Enforcement Gap in Agent-Framework Control Primitives]] — SOUNDGATE для принудительного контроля побочных эффектов в LLM-агентных фреймворках.
+
+* physics.soc-ph (Социальная физика и сети)
+** 🧐 Обзор
+В социальной физике наблюдается рост работ по анализу сетевых структур и динамических систем. Выделяются исследования перекрывающихся сообществ в сетях, критичности в системах загрязнения и эволюции музыкальных шкал. Практически релевантны алгоритмы обнаружения сообществ и моделирование экологических сетей.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.14531][Overlapping Network Community Detection Using Sparse Backbones]]
+:ALGO: Highway — масштабируемый алгоритм OCD, использующий разреженный бэкбон сети для эффективного вывода сообществ.
+:IMPACT: Улучшение на 6.9% по overlapping NMI относительно сильнейшего базлайна, баланс точности и эффективности для приложений от drug discovery до сегментации рынка.
+
+- [[hxxps://arxiv.org/abs/2607.14799][The distribution of eccentricities in random regular graphs]]
+:ALGO: Замкнутая аналитическая формула для распределения эксцентриситетов в случайных регулярных графах с параметрами формы, масштаба и локации.
+:IMPACT: Бенчмарк для алгоритмических подходов к вычислению эксцентриситетов в больших разреженных сетях, применимо для broadcasting и глобальной диссеминации.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2408.12633][Evolutionary modelling reveals melodic and harmonic constraints on global scale structure]] — моделирование эволюции 1314 музыкальных шкал показывает, что мелодия первична, гармония вторична.
+- [[hxxps://arxiv.org/abs/2508.15777][Harmonious Color Pairings: Insights from Human Preference and Natural Hue Statistics]] — количественное исследование предпочтений цветовых пар с соответствием распределениям в природных ландшафтах.
+- [[hxxps://arxiv.org/abs/2607.14360][Infectious Disease Induces Emergent Oscillations, Extinction and Changes in Community Persistence in a Food Chain]] — SIR-модель в пищевой цепи показывает осцилляции популяций и изменения персистентности сообщества.
+- [[hxxps://arxiv.org/abs/2607.14632][Criticality and reduced dynamical resilience in PM2.5 pollution systems]] — FMMR-процесс выявляет динамическую критичность в системах загрязнения PM2.5 с замедлением восстановления.
+- [[hxxps://arxiv.org/abs/2607.14784][Photovoltaics beyond the panel: system-level net energy under grid and firming constraints]] — анализ EROI для надёжного электроснабжения показывает firming как критическое энергетическое ограничение.
+- [[hxxps://arxiv.org/abs/2607.14805][RACiMo: Red Ambiental Ciudadana de Monitoreо]] — студенческая citizen science сеть для экологического мониторинга в Колумбии с 515 участниками.
+- [[hxxps://arxiv.org/abs/2607.15059][Female participation in science in the past 125 years: An analysis of the Matilda effect over time]] — анализ 220 млн публикаций показывает глобальное снижение эффекта Матильды за 20 лет.
+- [[hxxps://arxiv.org/abs/2607.15119][Thermodynamic theory of voting and EU elections]] — термодинамическая теория голосования описывает распределение голосов через тепловизацию Рэлея-Джинса.
+
+* cs.DS (Структуры данных и алгоритмы)
+** 🧐 Обзор
+В алгоритмике за сутки преобладают работы по онлайн-алгоритмам, тестированию свойств и аппроксимации. Практически значимы результаты по онлайн-разрешению конфликтов, min-wise хешированию и робастности скетчинг-алгоритмов против адаптивных входов. Теоретические работы имеют системную релевантность для streaming и баз данных.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2401.09317][Strong Spatial Mixing for General 2-Spin Systems: A Unified Approach from Zero-Freeness]]
+:ALGO: Единый подход вывода сильного пространственного смешивания из zero-freeness для 2-спиновых систем через комбинаторную идентичность Christoffel-Darboux-типа.
+:IMPACT: Расширяет применимость FPTAS Вейца на все известные zero-free регионы, включая ферромагнитную Изинг-модель.
+
+- [[hxxps://arxiv.org/abs/2607.14238][Online Beck--Fiala Down To Logarithmic Sparsity]]
+:ALGO: Эффективный онлайн-алгоритм для гипотезы Бекка-Фьялы при разреженности d ≥ log(T)^{1+o(1)} через Metropolis fixed-point walk.
+:IMPACT: Решает открытый вопрос онлайн-векторного балансирования в условиях Спенсера, оптимален для prefix discrepancy.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2410.04909][Gibbs state preparation for commuting Hamiltonian: Mapping to classical Gibbs sampling]] — редукция квантового сэмплирования Гиббса к классическому для commuting local Hamiltonians.
+- [[hxxps://arxiv.org/abs/2602.15341][Testing Monotonicity of Real-Valued Functions on DAGs]] — неадаптивный тестер монотонности на DAG с tight bound O(n^{u(c,d)+o(1)}) запросов.
+- [[hxxps://arxiv.org/abs/2603.21532][Stationary Online Contention Resolution Schemes]] — S-OCRS с инвариантностью к перестановкам и maximum-entropy подходом для построения онлайн-политик.
+- [[hxxps://arxiv.org/abs/2607.10255][Limited Independence Suffices for Large-k Min-wise Hashing]] — доказательство, что O(k)-wise независимости достаточно для k-min-wise хеширования с полиномиальной ошибкой.
+- [[hxxps://arxiv.org/abs/2607.14302][Exact Online Rank Recycling in Floyd's Uniform Subset Sampler]] — точная факторизация координаты порядка в сэмплере Флойда с recycling рангов.
+- [[hxxps://arxiv.org/abs/2607.14432][The Adversarial Robustness of Sketching and Streaming Algorithms]] — монография по робастности скетчинг-алгоритмов против адаптивных входов с ограничениями для линейных скетчей.
+- [[hxxps://arxiv.org/abs/2607.14467][Semitotal domination in unit disk graphs]] — 5-аппроксимационный алгоритм для minimum semitotal domination на unit disk графах за O(n+m).
+
+* cs.AI (Искусственный интеллект)
+** 🧐 Обзор
+В AI доминируют работы по адаптации LLM, сжатию моделей и влиянию ИИ на человеческую коммуникацию. Практически релевантны методы plug-and-play выравнивания, офлайн RL и эффективные механизмы внимания. Зафиксировано эмпирическое влияние ChatGPT на лексику человеческой речи.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2505.17974][Generalized Fisher-Weighted SVD: Scalable Kronecker-Factored Fisher Approximation for Compressing Large Language Models]]
+:WHAT: GFWSVD — пост-тренировочная техника сжатия LLM с учётом диагональных и недиагональных элементов матрицы Фишера через Kronecker-факторизованную аппроксимацию.
+:IMPACT: Превосходит FWSVD на 5%, SVD-LLM на 3%, ASVD на 6% при 20× сжатии на MMLU бенчмарке.
+
+- [[hxxps://arxiv.org/abs/2406.01514][Decoupled Alignment for Robust Plug-and-Play Adaptation]]
+:WHAT: Метод выравнивания LLM без fine-tuning через извлечение сигналов выравнивания knowledge distillation и модельную фузию.
+:IMPACT: Увеличение success rate защиты на 14.42% (до 51.39%) на 17 моделях без потери производительности.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2403.09742][A short review on the maximum clique problem algorithms with classical, AI, and quantum methods]]
+:ALGO: Комплексный обзор алгоритмов максимального клика с классическими, GNN и квантовыми методами.
+:IMPACT: Актуализация серии обзоров с 1994 года, релевантно для графовых исследователей и оптимизации.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2312.04603][All Polarized but Still Different: a Multi-factorial Metric to Discriminate between Polarization Behaviors on Social Media]] — GRAIL: первая индивидуальная метрика поляризации на основе энтропии и Generalized Additive Model.
+- [[hxxps://arxiv.org/abs/2403.01977][Seeing Through Uncertainty: Free-Energy-Inspired Real-Time Adaptation for Robust Visual Navigation]] — FEP-Nav: биологически вдохновлённый фреймворк адаптивной навигации через минимизацию вариационной свободной энергии.
+- [[hxxps://arxiv.org/abs/2406.04737][Fast-Fading Channel and Power Optimization of the Magnetic Inductive Cellular Network]] — 3D-модель быстрой затухания VMI-канала с оптимизацией мощности через Q-learning.
+- [[hxxps://arxiv.org/abs/2409.01754][Empirical evidence of Large Language Model's influence on human spoken communication]] — анализ 737k часов подкастов показывает因果ное влияние ChatGPT на лексику человеческой речи.
+- [[hxxps://arxiv.org/abs/2503.18607][Reinforcement Learning in Switching Non-Stationary Markov Decision Processes: Algorithms and Convergence Analysis]] — SNS-MDP фреймворк для RL в переключающихся нестационарных средах с доказательством сходимости Q-learning.
+- [[hxxps://arxiv.org/abs/2505.22442][Fully Offline Reinforcement Learning]] — SOReL и TOReL: полностью офлайн Bayesian RL с offline гиперпараметр тюнингом и minimax-optimal rate.
+- [[hxxps://arxiv.org/abs/2506.08297][SEMA: a Scalable and Efficient Mamba like Attention via Token Localization and Averaging]] — SEMA: механизм внимания с локализацией токенов и усреднением для избежания дисперсии, превосходит vision Mamba модели.

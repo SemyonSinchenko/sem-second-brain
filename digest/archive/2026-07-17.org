@@ -1,0 +1,83 @@
+#+TITLE: Daily Digest: 2026-07-17
+#+FROM: [2026-07-16 Thu]
+#+TO: [2026-07-17 Fri]
+#+DATE: [2026-07-17 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия фокусируется на инфраструктуре для AI-агентов: AWS представляет управляемые базы знаний для упрощения RAG. Обнаружена критическая уязвимость приватности в CLI инструментах AI (Grok), требующая внимания инженеров. Вендоры подчеркивают разрыв между готовностью моделей и качеством данных, предлагая новые сертификаты для контекстных инженеров.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-enterprise-search-for-agents-with-ambedrock-managed-knowledge-base/][Build enterprise search for agents with Amazon Bedrock Managed Knowledge Base]] (aws.amazon.com) — Управляемое решение для RAG устраняет сложность сборки пайплайнов индексации и контроля доступа.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-grok-on-ambedrock/][Introducing Grok on Amazon Bedrock]] (aws.amazon.com) — Модель Grok 4.3 доступна через Bedrock с окном контекста 1M токенов и настройкой усилия рассуждений.
+- [[hxxps://huggingface.co/blog/nvidia/nemotron-3-embed-wins-rteb][NVIDIA Nemotron 3 Embed Ranks #1 Overall on RTEB, Advancing Agentic Retrieval]] (huggingface.co) — Новая модель эмбеддингов от NVIDIA лидирует в бенчмарках извлечения для агентных систем.
+- [[hxxps://deepmind.google/blog/our-approach-to-bioresilience/][Our approach to bioresilience]] (deepmind.google) — DeepMind и Isomorphic Labs публикуют совместный подход к применению AI в биоустойчивости.
+- [[hxxps://www.kdnuggets.com/working-with-pi-coding-agents][Working with Pi Coding Agents]] (kdnuggets.com) — Проект Pi уникален документированием того, что не было построено, как ценный актив.
+- [[hxxps://www.kdnuggets.com/10-youtube-channels-keeping-you-ahead-in-ai][10 YouTube Channels Keeping You Ahead in AI]] (kdnuggets.com) — Подборка каналов для инженеров с разборами статей и туториалами по коду.
+- [[hxxps://huggingface.co/blog/Dharma-AI/newer-models-same-advantages][Newer Models, Same Advantage]] (huggingface.co) — Анализ того, как новые модели сохраняют преимущества предыдущих поколений.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-a-restaurant-telephony-ai-host-with-amazon-bedrock-agentcore-and-amazon-nova-2-sonic/][Building a restaurant telephony AI host with Amazon Bedrock AgentCore and Amazon Nova 2 Sonic]] (aws.amazon.com) — Архитектурный пример голосового агента для обработки звонков в реальном времени через SIP.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/build-enterprise-search-for-agents-with-ambedrock-managed-knowledge-base/][Build enterprise search for agents with Amazon Bedrock Managed Knowledge Base]]
+:SCORE: 9/10
+:WHY: Решает ключевую проблему production RAG — управление правами доступа и масштабирование индексов без сборки инфраструктуры с нуля.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-grok-on-ambedrock/][Introducing Grok on Amazon Bedrock]]
+:SCORE: 8/10
+:WHY: Доступ к модели с регулируемым усилием рассуждений важен для оптимизации затрат и латентности в агентных workflows.
+**** [[hxxps://huggingface.co/blog/nvidia/nemotron-3-embed-wins-rteb][NVIDIA Nemotron 3 Embed Ranks #1 Overall on RTEB, Advancing Agentic Retrieval]]
+:SCORE: 8/10
+:WHY: Выбор модели эмбеддингов критичен для качества поиска в агентных системах, лидерство в RTEB подтверждает эффективность.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/your-ai-ready-your-data-foundation-probably-isnt][Your AI is ready. Your data foundation probably isn't]] (databricks.com) — Анализ разрыва между внедрением AI и зрелостью данных в крупных предприятиях.
+- [[hxxps://www.databricks.com/blog/skills-gap-behind-agentic-ai-and-how-databricks-closing-it-new-context-engineer-certification][The skills gap behind agentic AI — and how Databricks is closing it with a new context engineer certification and agent trainings]] (databricks.com) — Запуск сертификации для контекстных инженеров для закрытия кадрового дефицита в AI.
+- [[hxxps://www.databricks.com/blog/unified-context-missing-layer-enterprise-ai-coworkers][Unified context: The missing layer for enterprise AI coworkers]] (databricks.com) — Концепция унифицированного контекста как слоя для корпоративных AI-ассистентов.
+- [[hxxps://www.databricks.com/blog/experiment-insight-how-dotmatics-luma-and-databricks-make-ai-ready-science-reality][From experiment to insight: how Dotmatics Luma and Databricks make AI-ready science a reality]] (databricks.com) — Кейс интеграции научных данных и AI для ускорения исследований.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/your-ai-ready-your-data-foundation-probably-isnt][Your AI is ready. Your data foundation probably isn't]]
+:SCORE: 9/10
+:WHY: Стратегическое предупреждение для лидеров: без качественных данных внедрение AI обречено на провал.
+**** [[hxxps://www.databricks.com/blog/skills-gap-behind-agentic-ai-and-how-databricks-closing-it-new-context-engineer-certification][The skills gap behind agentic AI — and how Databricks is closing it with a new context engineer certification and agent trainings]]
+:SCORE: 8/10
+:WHY: Появление новой роли "контекстный инженер" сигнализирует о смене требований к навыкам в AI-разработке.
+**** [[hxxps://www.databricks.com/blog/unified-context-missing-layer-enterprise-ai-coworkers][Unified context: The missing layer for enterprise AI coworkers]]
+:SCORE: 7/10
+:WHY: Описывает архитектурный паттерн для предоставления AI-агентам доступа к корпоративным знаниям безопасно.
+
+** Data Engineering
+- [[hxxps://www.databricks.com/blog/how-unity-catalog-managed-tables-bring-interoperability-performance-and-unified-governance][How Unity Catalog managed tables bring interoperability, performance, and unified governance to the Lakehouse]] (databricks.com) — Управление таблицами в Unity Catalog обеспечивает единуюGovernance и производительность в Lakehouse.
+- [[hxxps://www.databricks.com/blog/what-happens-milliseconds-after-you-tap-pay][What happens in the milliseconds after you tap pay]] (databricks.com) — Технический разбор обработки транзакционных данных в реальном времени при оплате.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/how-unity-catalog-managed-tables-bring-interoperability-performance-and-unified-governance][How Unity Catalog managed tables bring interoperability, performance, and unified governance to the Lakehouse]]
+:SCORE: 9/10
+:WHY: Unity Catalog становится стандартом де-факто для управления данными, знание его механизмов обязательно для архитекторов.
+**** [[hxxps://www.databricks.com/blog/what-happens-milliseconds-after-you-tap-pay][What happens in the milliseconds after you tap pay]]
+:SCORE: 8/10
+:WHY: Глубокое погружение в требовании к латентности и надежности обработки данных в финтехе.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-groks-cli-caught-uploading][The Pulse: Grok's CLI caught uploading all your local files to the cloud]] (newsletter.pragmaticengineer.com) — Инцидент безопасности: CLI инструмент отправлял локальные файлы в облако без явного согласия.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-groks-cli-caught-uploading][The Pulse: Grok's CLI caught uploading all your local files to the cloud]]
+:SCORE: 10/10
+:WHY: Критическое предупреждение о безопасности: необходимо аудировать права CLI инструментов AI перед использованием в продакшене.
+
+** Open Source
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Встреча технического сообщества по управлению графовыми данными в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность для нетворкинга и обмена опытом в нише графовых баз данных и стандартов.
+
+** Non Engineering
+- [[hxxps://www.ssp.sh/blog/on-creation/][The Act and the Outcome of Creation]] (ssp.sh) — Философское эссе о творчестве как процессе следования инстинктам и потоку, а не только результату.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/on-creation/][The Act and the Outcome of Creation]]
+:SCORE: 6/10
+:WHY: Полезно для ментального здоровья инженера: напоминает о ценности процесса созидания без привязки к метрикам.

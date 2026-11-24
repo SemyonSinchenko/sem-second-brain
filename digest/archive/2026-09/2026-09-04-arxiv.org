@@ -1,0 +1,246 @@
+#+TITLE: Arxiv Digest: 2026-09-04
+#+FROM: [2026-09-03 Thu]
+#+TO: [2026-09-04 Fri]
+#+DATE: [2026-09-04 Fri]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+
+** 🧐 Обзор
+На этом суточном срезе в cs.DB заметен переход к более структурированным агентным системам поверх enterprise-данных: вместо “LLM делает всё” акцент смещается к табличному интеграционному слою, query processor’у и контролируемому доступу к источникам. Практически важны также ускорение similarity search на деревьях, кэш для дискового vector search и единые benchmark’и для табличных embeddings. Для графовых и data-системных исследователей выделяются алгоритмы tree edit distance, RDF reasoning и расширенные sum-product queries.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2604.21413][RUBICON: Agentic AI for Messy Enterprise Data]]
+  :PROPERTIES:
+  :WHAT: Вводит RUBICON — agentic-систему с ограниченными query-интерфейсами к каждому источнику и табличным integration-слой, управляемым query processor.
+  :IMPACT: Показывает 100% end-to-end accuracy на RUBICON-Bench против ReAct-бейзлайнов и большие сокращения latency/token cost на SemBench; практично для enterprise data с доступ-контролем.
+  :END:
+- [[https://arxiv.org/abs/2609.03712][Aker: Density-Aware Approximate Caching for Vector Search (Extended Version)]]
+  :PROPERTIES:
+  :WHAT: Представляет density-aware approximate cache для disk-based ANNS с per-query similarity thresholds и del-consistency для обновлений.
+  :IMPACT: Интегрируется в pgvector, улучшает recall до 64pp и QPS до 3.2x при 0.6x памяти; снижает I/O и стоимость точного дискового поиска.
+  :END:
+- [[https://arxiv.org/abs/2604.21696][Towards Universal Tabular Embeddings: A Benchmark Across Data Tasks]]
+  :PROPERTIES:
+  :WHAT: Вводит TEmBed — unified benchmark для табличных embeddings на уровнях cell, row, column и table.
+  :IMPACT: Даёт практические рекомендации по выбору tabular representation для retrieval, semantic search и table-based prediction в реальных data-системах.
+  :END:
+- [[https://arxiv.org/abs/2609.03529][KnowFeat: Knowledge-Guided Feature Engineering via LLM Agents]]
+  :PROPERTIES:
+  :WHAT: Предлагает knowledge-guided feature engineering: доменное знание, трёхстадийная верификация и provenance-записи для каждого признака.
+  :IMPACT: Показывает сильный рост AUC на табличных benchmark’ах и поддержание конкурентного AML-качества на Elliptic/SimECNY с объяснимой трассировкой.
+  :END:
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.03078][Practical Threshold-based Tree Edit Distance Lower-Bounds]]
+  :PROPERTIES:
+  :ALGO: Ускоряет SED-нижние границы через Ukkonen и вводит SED-struct threshold filter с axes-aware structural constraints.
+  :IMPACT: Даёт более эффективное pruning для threshold-based tree similarity search, особенно на гетерогенных наборах деревьев.
+  :END:
+- [[https://arxiv.org/abs/2609.03441][Does SRL Pave the Road to Explainable Reasoning? Lessons Learned from an Implementer's Perspective]]
+  :PROPERTIES:
+  :ALGO: Реализует два SRL-движка для RDF reasoning: поверх SPARQL и как dedicated engine с dependency/ordering/termination semantics.
+  :IMPACT: Практично для графовых RDF-систем: показывает, что usable engine можно построить недорого, а dedicated-вариант даёт 2–6x ускорение на растущих rule sets.
+  :END:
+- [[https://arxiv.org/abs/2609.03538][Tree Databases]]
+  :PROPERTIES:
+  :ALGO: Предлагает модель БД на labeled directed trees и функциональную алгебру, где traversal-запросы строят аналитические запросы.
+  :IMPACT: Удобен как semantic layer для relational data, inheritance и user-friendly query interfaces поверх деревьев.
+  :END:
+- [[https://arxiv.org/abs/2609.03672][Convolution Sum-Product Queries]]
+  :PROPERTIES:
+  :ALGO: Описывает алгоритмы для CSPQ с linear combinations variables через rank analysis, quotient spaces и factorized execution на extended tree decompositions.
+  :IMPACT: Важны для query optimization в image-processing-подобных workloads и sum-product/join запросах с линейными ограничениями.
+  :END:
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.03141][What Happens When the Model Eats the Stack? Rethinking the Research Agenda for Data Agents to Withstand the Bitter Lesson]] — argues future data-agent systems should treat persistent semantic context as a first-class storage and serving abstraction.
+
+* cs.AI (Artificial Intelligence)
+
+** 🧐 Обзор
+В cs.AI на суточном срезе доминируют LLM-системы, где практическая надёжность достигается ограничением вывода, reward-моделями и структурированными данными. Заметен интерес к грамматически выравниванному декодированию, агентной генерализации и симулятивным платформам с дифференцируемыми параметрами. Для прикладных data/graph-систем важны методы, которые не полагаются на сырой текст, а добавляют schema, правила или контролируемые протоколы.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2504.21719][Sionna RT: Technical Report]]
+  :PROPERTIES:
+  :WHAT: Описывает Sionna RT — GPU-ускоренный differentiable ray tracer для radio wave propagation, включая CIR и radio map algorithms.
+  :IMPACT: Позволяет дифференцировать метрики канала относительно материалов, антенных паттернов и геометрий; практично для симуляции сетей и оптимизации edge/RF систем.
+  :END:
+- [[https://arxiv.org/abs/2502.18407][AgentRM: Enhancing Agent Generalization with Reward Modeling]]
+  :PROPERTIES:
+  :WHAT: Предлагает generalizable reward model для LLM-агентов и тестовое search-управление через Best-of-N и step-level beam search.
+  :IMPACT: Улучшает unseen-task generalization на девяти агентных задачах; полезен как альтернатива полной finetuning политики при построении agent systems.
+  :END:
+- [[https://arxiv.org/abs/2405.21047][Grammar-Aligned Decoding]]
+  :PROPERTIES:
+  :WHAT: Вводит ASAp — grammar-constrained decoding с approximate expected futures, сохраняющий условное распределение LLM.
+  :IMPACT: Практично для надёжной генерации кода, формул и markup, где greedy constrained decoding искажает likelihood и качество вывода.
+  :END:
+- [[https://arxiv.org/abs/2505.19030][RECAST: Expanding the Boundaries of LLMs' Complex Instruction Following with Multi-Constraint Data]]
+  :PROPERTIES:
+  :WHAT: Строит RECAST-30K — большой dataset сложных инструкций с >10 constraint’ами, extracted из реальных prompt/response пар и верификаторами.
+  :IMPACT: Помогает обучать агентов, которым нужно соблюдать много правил и структурных требований; verifiability удобно для reward functions в RL.
+  :END:
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2310.20096][Data Market Design through Deep Learning]] — uses deep learning to design revenue-optimal signaling schemes for data markets with downstream action constraints.
+- [[https://arxiv.org/abs/2412.14626][LDC: Learning to Generate Research Idea with Dynamic Control]] — combines SFT and controllable RL to steer research idea generation across novelty, feasibility, and effectiveness.
+- [[https://arxiv.org/abs/2505.00284][LightEMMA: A Longitudinal Evaluation of Vision-Language Models for Autonomous Driving]] — longitudinally evaluates VLMs and finds that larger/reasoning-stronger models do not consistently improve driving.
+- [[https://arxiv.org/abs/2506.10226][ScoreMix: Synthetic Data Generation by Score Composition in Diffusion Models Improves Recognition]] — composes class-conditioned diffusion scores to generate hard synthetic samples for recognition without external data.
+- [[https://arxiv.org/abs/2507.03887][Traceable TTS: Toward Watermark-Free TTS with Strong Traceability]] — trains TTS and discriminator jointly for model attribution without explicit speech watermarks.
+- [[https://arxiv.org/abs/2508.00669][Medical Reasoning in the Era of LLMs: A Systematic Review of Enhancement Techniques and Applications]] — systematically reviews training-time and test-time techniques for transparent, verifiable medical LLM reasoning.
+
+* physics.soc-ph (Social Physics & Networks)
+
+** 🧐 Обзор
+В physics.soc-ph сильнее всего выделяются сетевые и диффузионные процессы: contagion, production-network risk, LLM adoption as social virus, и city-scale mobility trajectories. Практический интерес смещается к быстрым инструментам и датасетам, которые можно повторно использовать в graph/analytics pipelines. Для исследователя графовых систем важны модели long ties, threshold distributions, sparse coupling и масштабируемые сетевые симуляции.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.03782][ESRIcascade.jl: A Julia package for fast computation of the Economic Systemic Risk Index]]
+  :PROPERTIES:
+  :WHAT: Выпускает Julia-пакет ESRIcascade.jl для быстрого вычисления Economic Systemic Risk Index на production networks.
+  :IMPACT: Даёт ускорение 140–300x; делает повторяемый анализ больших экономических сетей практичным для эмпирических и методологических исследований.
+  :END:
+- [[https://arxiv.org/abs/2507.11584][Deciphering Delivery Mobility: A City-Scale, Path-Reconstructed Trajectory Dataset of Instant Delivery Riders]]
+  :PROPERTIES:
+  :WHAT: Публикует city-scale dataset с path-reconstructed delivery-wave trajectories в Beijing, где action points упорядочены и связаны маршрутами.
+  :IMPACT: Даёт graph/route-ориентированные данные для urban logistics, mobility analytics и sustainable policy; редкий кейс связки multi-stop task sequences и route geometry.
+  :END:
+- [[https://arxiv.org/abs/2512.11414][An Artificial Intelligence Framework for Conflict Mapping and Resolution for Sustainability of Systems]]
+  :PROPERTIES:
+  :WHAT: Представляет CONFARM: lifecycle documentation, cause-effect mapping, conflict database и multi-criteria scoring.
+  :IMPACT: Практичен для early-stage decision support, где нужно явно сопоставлять environmental/economic/social trade-offs; может работать с NLP/LLM extraction.
+  :END:
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2510.04785][What shifts threshold distributions in social contagions?]]
+  :PROPERTIES:
+  :ALGO: Сочетает incentivized experiments и data-driven simulations, чтобы показать влияние product/individual characteristics на threshold distributions и long ties.
+  :IMPACT: Улучшает предсказание diffusion dynamics и дизайн network interventions; даёт микрофундамент для contagion models на графах.
+  :END:
+- [[https://arxiv.org/abs/2609.03344][Large-Language Models as a Cognitive Virus]]
+  :PROPERTIES:
+  :ALGO: Моделирует переходы между uncoupled, coupled и persistently dependent users как SIR-like contagion с tipping points и lock-in.
+  :IMPACT: Полезен как сетевой метафорический механизм для анализа adoption LLM и когнитивных рисков в social networks.
+  :END:
+- [[https://arxiv.org/abs/2609.03632][Dynamic probabilistic decision networks]]
+  :PROPERTIES:
+  :ALGO: Вводит probabilistic dynamic affective heterogeneous networks, где агенты обмениваются информацией и снижают decision error.
+  :IMPACT: Даёт abstraction для human/neural/AI decision networks и для регуляции динамики через machine learning.
+  :END:
+- [[https://arxiv.org/abs/2510.16046][CARDIO-Affect: A Hamiltonian-Variability Framework for Spatio-Temporal Emotional Pattern Recognition with Manifold-Based Individual and Group Profiling]]
+  :PROPERTIES:
+  :ALGO: Формализует group emotion как sparse heterogeneous coupling с Hamiltonian SDE, Fisher-Rao geometry, TDA и multi-scale HRV-like analytics.
+  :IMPACT: Интересен для modeling long-term emotional contagion, attractor dynamics и sparse network structure в bounded social groups.
+  :END:
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2501.19016][Modelling infodemics on a global scale: A 30 countries study using epidemiological and social listening data]] — uses WHO/EARS/Google Trends regression across 30 countries to show deaths and neighbor epidemic burden strongly predict infodemic volume.
+- [[https://arxiv.org/abs/2511.12637][Universalities in the Avalanche Dynamics of Novelties and Non-Novelties and some Notes on the Heaps law]] — analyzes avalanche statistics beyond Heaps/Zipf/Taylor laws and derives scaling relations for novelty dynamics.
+- [[https://arxiv.org/abs/2511.18427][The planar Lanchester model of insurgent warfare: Intricate Collateral Damage Functions and Global Bifurcation]] — studies bifurcations in modified Lanchester warfare models with sophisticated collateral damage functions.
+
+* cs.DS (Data Structures & Algorithms)
+
+** 🧐 Обзор
+В cs.DS на суточном срезе выделяются параллельные графовые алгоритмы и структурные методы: GPU subgraph isomorphism, colorful minors, counting spanning trees и popular matchings. Также важны sketching и approximation для large-scale data: SparseStack, stochastic top-k PTAS, bin packing и assortment optimization. Для исследователя графовых систем особенно ценна переработка NP-сложных графовых операций на табличные/реляционные и спектральные примитивы.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.02978][SparseStack Is an Optimal Oblivious Subspace Embedding]]
+  :PROPERTIES:
+  :WHAT: Доказывает, что fully independent SparseStack является optimal oblivious subspace embedding с явными параметрами m и s.
+  :IMPACT: Подтверждает conjecture Nelson–Nguyen; полезно для проектирования линейных sketching структур в анализе больших данных и matrix computations.
+  :END:
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2508.21287][Δ-Motif: Parallel Subgraph Isomorphism via Tabular Operations for Scalable Layout Selection]]
+  :PROPERTIES:
+  :ALGO: Переформулирует subgraph isomorphism через motifs и database primitives — joins, sorts, merges, filters — и исполняет на GPU через RAPIDS/Pandas.
+  :IMPACT: Достижение speedup до 595x против VF2; практично для графового pattern mining и quantum circuit compilation.
+  :END:
+- [[https://arxiv.org/abs/2507.10467][Colorful Minors]]
+  :PROPERTIES:
+  :ALGO: Вводит colorful minors, развивает structural theory и получает FPT algorithms для colorful minor testing и meta-theorems.
+  :IMPACT: Расширяет graph minor methods на graphs с annotated/overlapping vertex sets; полезно для structural algorithmics.
+  :END:
+- [[https://arxiv.org/abs/2609.03574][Improved algorithm for counting spanning trees by l1-regularized resistance]]
+  :PROPERTIES:
+  :ALGO: Предлагает l1-regularized resistance и алгоритмы её вычисления в связке с determinant sparsifier framework для approximate counting spanning trees.
+  :IMPACT: Улучшает asymptotics на dense graphs; важно для spectral graph theory, network reliability и sampling-задач.
+  :END:
+- [[https://arxiv.org/abs/2509.25150][The Popular Dimension of Matchings]]
+  :PROPERTIES:
+  :ALGO: Изучает popular winning sets и proves exact/bounded popular dimension для house allocation, marriage и roommates с weights/ties.
+  :IMPACT: Углубляет theory и algorithmics preference-based graph matchings, включая existence и complexity relaxations.
+  :END:
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.03685][A PTAS for Non-Adaptive Stochastic Top-k Sum under General Combinatorial Constraints]] — gives a PTAS for non-adaptive top-k selection under fixed-dimensional packing constraints with auction/hiring applications.
+- [[https://arxiv.org/abs/2307.06776][Approximation algorithms for the square min-sum bin packing problem]] — presents a 2.3178+δ approximation and PTAS for square min-sum bin packing relevant to cutting stock and delivery scheduling.
+- [[https://arxiv.org/abs/2609.02977][Learning Multiband Signals and Fourier-sparse Signals]] — provides efficient algorithms for learning band locations and interpolating Fourier-sparse signals.
+- [[https://arxiv.org/abs/2609.03285][Assortment and Procurement Design in Dual-Mode Content Platforms]] — develops scalable LP/dual-bisection approximation framework for NP-hard content assortment and buy-versus-rent procurement.
+- [[https://arxiv.org/abs/2609.00678][Two-State Max-Plus Comparison Is Decidable]] — resolves the two-state endpoint for max-plus automata comparison/equivalence/positivity decidability.
+
+* cs.DC (Distributed Computing)
+
+** 🧐 Обзор
+В cs.DC заметна волна системных оптимизаций для распределённого ML/HPC: deterministic concurrency, ZeRO-3-aware matrix optimizers, multi-GPU linear algebra, batched optimal transport и cluster-scale simulation. Для data/graph-систем особенно интересны протоколы на графах зависимостей транзакций и decentralized pricing для network/server congestion. Также растёт фокус на измеримой производительности и корректности при работе с разнородными GPU-кластерами и много-tenant нагрузками.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2607.05895][MatrixFSDP: communication-free matrix optimizers under ZeRO-3 parameter sharding]]
+  :PROPERTIES:
+  :WHAT: Меняет layout ZeRO-3 shards так, что один data-parallel rank владеет всей 2D-матрицей, а non-matrix tensors pack’уются отдельно; Newton-Schulz исполняется локально.
+  :IMPACT: Устраняет optimizer-step matrix communication для Muon при памяти ZeRO-3; даёт 4.2x–54.6x reduction optimizer latency и до 2.15x end-to-end speedup.
+  :END:
+- [[https://arxiv.org/abs/2601.14466][JAXMg: A multi-GPU linear solver in JAX]]
+  :PROPERTIES:
+  :WHAT: Обеспечивает distributed dense linear algebra для JAX через cuSOLVERMp и XLA Foreign Function Interface, сохраняя JIT-composable primitives.
+  :IMPACT: Позволяет масштабировать линейные решатели/декомпозиции на multi-GPU и multi-node научные workflow, не ломая Python composability.
+  :END:
+- [[https://arxiv.org/abs/2606.18958][Ossim: OS-Driven Live Simulation for Cluster-Scale Full-Stack Evaluation]]
+  :PROPERTIES:
+  :WHAT: Предлагает OS-level full-stack cluster simulation поверх Linux virtualization с simulation-oriented scheduling, live memory hierarchy, simulation-aware IPC и orchestration.
+  :IMPACT: Даёт симулятивный инструмент для unmodified production stacks и emerging hardware с балансом fidelity/performance.
+  :END:
+- [[https://arxiv.org/abs/2603.12440][KernelFoundry: Hardware-aware evolutionary GPU kernel optimization]]
+  :PROPERTIES:
+  :WHAT: Вводит evolutionary framework с MAP-Elites quality-diversity search, meta-prompt evolution и template-based tuning для GPU kernels.
+  :IMPACT: Улучшает генерацию SYCL/CUDA kernels на KernelBench/robust-kbench; практичен как distributed benchmarking framework для разных GPU.
+  :END:
+- [[https://arxiv.org/abs/2609.01025][MakoXC: Rearchitecting DFT Exchange-Correlation with Matrix-Aligned and Knowledge-Organized Sparsity]]
+  :PROPERTIES:
+  :WHAT: Предлагает matrix-aligned XC evaluation с Matrix-Aligned Cells, Sparsity-Guided Activation и Kernel-Fused Pipeline.
+  :IMPACT: Даёт 67.8x average speedup над standard XC и 4.7x над linear-scaling methods; масштабирует DFT до ubiquitin на 64 GPU.
+  :END:
+- [[https://arxiv.org/abs/2609.00817][Characterizing the Scalability and Performance of Large-Scale AI Training Under Multi-Tenancy]]
+  :PROPERTIES:
+  :WHAT: Строит benchmark suite для AI training до 2400 GPUs, оценивая scale-up/scale-out/rack, interconnects и realistic multi-tenant noise.
+  :IMPACT: Систематизирует communication overhead и interference в HPC-кластерах; полезно для capacity planning и scheduling.
+  :END:
+- [[https://arxiv.org/abs/2608.23955][Trust, but Verify: Rigorously Profiling Best-Effort High-Performance Computing for Digital Evolution]]
+  :PROPERTIES:
+  :WHAT: Разрабатывает framework для measurement runtime behavior best-effort HPC code, включая CPU-cluster и Cerebras WSE case studies.
+  :IMPACT: Помогает оценивать post-deterministic HPC paradigms и артефакты, возникающие при best-effort relaxations в large-scale evolution.
+  :END:
+- [[https://arxiv.org/abs/2608.02031][Learning-Based Collaborative MEC for LLM Inference with Soft-Deadline Awareness via Transformer-Enhanced PPO]]
+  :PROPERTIES:
+  :WHAT: Предлагает transformer-enhanced PPO для collaborative MEC LLM inference с soft deadlines, extensions и dependencies внутри requests.
+  :IMPACT: Улучшает task completion rate и эффективность edge system при strict latency и catastrophic effects от missed deadlines.
+  :END:
+- [[https://arxiv.org/abs/2607.24741][DrainSinkhorn: Safe Elimination for Batched Entropic Optimal Transport]]
+  :PROPERTIES:
+  :WHAT: Вводит verifier-gated active-packing слой для batched Sinkhorn/entropic optimal transport с candidate-axis packing, screening и retirement.
+  :IMPACT: Даёт large end-to-end speedups на heterogeneous batched-EOT workloads без изменения objective или stopping rule.
+  :END:
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.03315][Lantern: Finding Committable Transactions via Back-Propagation on DAGs]]
+  :PROPERTIES:
+  :ALGO: Предлагает deterministic concurrency control на local dependency graph DAG: safe commit zero-out-degree vertices и Back-Propagation для новых committable transactions.
+  :IMPACT: Интеграция в ChainMaker даёт до 4.2x throughput против Aria; практично для high-performance distributed transaction systems без prior read-write set knowledge.
+  :END:
+- [[https://arxiv.org/abs/2602.03246][Joint Network-and-Server Congestion in Multi-Source Traffic Allocation: A Convex Formulation and Price-Based Decentralization (Extended Version)]]
+  :PROPERTIES:
+  :ALGO: Формализует rate allocation с path access и node queueing delay как convex program; вводит lightweight price-based decentralized algorithm с Wardrop-like marginal cost equalization.
+  :IMPACT: Полезно для distributed network/server scheduling, load balancing и decentralized resource allocation.
+  :END:

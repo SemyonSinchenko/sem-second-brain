@@ -1,0 +1,136 @@
+#+TITLE: Arxiv Digest: 2026-06-17
+#+FROM: [2026-06-16 Tue]
+#+TO: [2026-06-17 Wed]
+#+DATE: [2026-06-17 Wed]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается устойчивый тренд на интеграцию языковых моделей в задачи очистки данных и низкоуровневую оптимизацию транзакций. Исследования смещаются от простых эвристик к collaborating framework между большими и малыми моделями для ремонта данных. Параллельно уточняются теоретические границы тюнинга журналов фиксации в замкнутых OLTP системах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.17582][Collaborative Large and Small Language Models for Accurate and Scalable Data Repair]]
+:WHAT: Фреймворк LasRepair++, использующий LLM как инструктора для выбора контекста и SLM как корректора данных с калибровкой уверенности.
+:IMPACT: Повышает F1-score на 18.1% по сравнению с базовыми методами, снижая риск ненадежных исправлений в сырых датасетах.
+- [[hxxps://arxiv.org/abs/2606.18187][Group Commit Self-Clocks: Why Tuning Is Unnecessary Above a Device-Set Load Threshold]]
+:WHAT: Анализ политики групповой фиксации транзакций, показывающий, что выше порога нагрузки тюнинг таймеров избыточен.
+:IMPACT: Объясняет эффективность deployed practice (commit_delay=0) в PostgreSQL и упрощает конфигурацию хранилищ.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.03835][Formalizing all indexed mathematics as a benchmark for general reasoning, with the example of implementing dilatations of categories]]
+:ALGO: Рассмотрение математики как структурированной базы знаний с зависимыми результатами и формализация категорийных дилатаций.
+:IMPACT: Поднимает вопросы масштабируемости и организации больших формальных библиотек как графов знаний.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.17793][ARES: A Platform for Adaptive Role-Based Evaluation of Social Engineering Risks in Human--AI Games]] — Платформа и датасет для аудита рисков социальной инженерии в играх с участием людей и ИИ.
+- [[hxxps://arxiv.org/abs/2606.18215][A benchmark suite of intracellular Boolean model variants and multiscale simulations for computational biology]] — Открытый ресурс PhysiBench с 612 вариантами булевых сетей и симуляциями для системной биологии.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Доминирующим направлением становится переход от одиночных моделей к оркестрируемым мульти-агентным системам для сложных задач (BDaaS, финансы, медицина). Одновременно растет интерес к автоматическому выбору предобученных моделей и эффективным методам инференса трансформеров.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.17915][Trustworthy Self-Composable Big-Data-as-a-Service: An LLM-Orchestrated Multi-Agent Framework for Automated Data Engineering, AutoML, MLOps Deployment, and Drift-Aware Lifecycle Optimization]]
+:WHAT: Фреймворк BDaaS на базе мульти-агентной коллаборации LLM для автоматизации всего жизненного цикла данных и моделей.
+:IMPACT: Обеспечивает надежность и отслеживаемость артефактов на всех этапах, включая детектирование дрейфа данных.
+- [[hxxps://arxiv.org/abs/2501.00826][LLM-Powered Multi-Agent System for Automated Crypto Portfolio Management]]
+:WHAT: Мульти-агентная система с разделением ролей (рынок, новости, торговля) для управления криптопортфелем.
+:IMPACT: Достигает доходности 133.52% за год, обеспечивая интерпретируемость решений по сравнению с black-box моделями.
+- [[hxxps://arxiv.org/abs/2502.00241][Mordal: Automated Pretrained Model Selection for Vision Language Models]]
+:WHAT: Фреймворк автоматического поиска лучшей VLM модели для задачи без ручного вмешательства.
+:IMPACT: Снижает затраты GPU в 8.9–11.6 раз по сравнению с grid search при высоком качестве выбора.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2502.08363][Top-Theta Attention: Sparsifying Transformers by Compensated Thresholding]]
+:ALGO: Метод разрежения внимания без обучения с использованием статических порогов на голову и компенсационных техник.
+:IMPACT: Снижает использование V-cache в 3-10 раз при падении точности не более чем на 1%.
+- [[hxxps://arxiv.org/abs/2503.10945][Gaussian DP for Reporting Differential Privacy Guarantees in Machine Learning]]
+:ALGO: Использование неасимптотической Gaussian Differential Privacy для отчетности о гарантиях приватности в ML.
+:IMPACT: Позволяет избегать вводящих в заблуждение оценок приватности и точно описывать профиль защиты DP-SGD.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2308.14329][SSIL: Self-Supervised Imitation Learning for End-to-End Driving]] — Фреймворк самообучения для автономного вождения без данных о командах управления.
+- [[hxxps://arxiv.org/abs/2404.01965][Towards Leveraging AutoML for Sustainable Deep Learning: A Multi-Objective HPO Approach on Deep Shift Neural Networks]] — Multi-objective HPO для энергоэффективных нейросетей.
+- [[hxxps://arxiv.org/abs/2407.13053][E2Vec: Feature Embedding with Temporal Information for Analyzing Student Actions in E-Book Systems]] — Векторное представление действий студентов с учетом временных интервалов.
+- [[hxxps://arxiv.org/abs/2502.17518][Ensemble RL through Classifier Models: Enhancing Risk-Return Trade-offs in Trading Strategies]] — Ансамбли RL и классификаторов для улучшения риск-профиля в трейдинге.
+- [[hxxps://arxiv.org/abs/2503.07459][MedicalAgentsBench for Complex Medical Reasoning: Comparing Internalized Reasoning Models versus Externalized Agent-based Frameworks]] — Бенчмарк для сравнения внутренних и агентских методов медицинского.reasoning.
+- [[hxxps://arxiv.org/abs/2503.17867][Detecting and Mitigating DDoS Attacks with AI: A Survey]] — Обзор методов обнаружения и mitigations DDoS атак на базе ИИ.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования фокусируются на анализе коллективной динамики в сложных сетях, включая поляризацию и синхронизацию. Значительное внимание уделяется оценке городских мобильных интервенций и моделированию неравенства методами статистической физики.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2606.17944][Explosive Transitions in Complex Networks with Adaptive Competing Interactions]]
+:ALGO: Модель неидентичных осцилляторов с адаптивными притягивающе-отталкивающими связями.
+:IMPACT: Демонстрирует взрывной переход к синхронизации и подавление смерти осцилляций за счет адаптивности.
+- [[hxxps://arxiv.org/abs/2606.18226][Strategies for preventing and reversing polarized online discourse]]
+:ALGO: Вычислительная модель дискурса с учетом сложных идентичностей и окна Овертона.
+:IMPACT: Показывает, что усиление видимости умеренных лидеров эффективнее сужения диапазона допустимых мнений.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.17060][Prediction of the Kamchatka July 29, 2025, earthquake by the evolution of low-magnitude seismicity recovered using waveform cross-correlation at IMS seismic arrays]] — Прогноз землетрясения на основе эволюции слабых сейсмических событий.
+- [[hxxps://arxiv.org/abs/2606.17063][The Competitiveness of Renewables: An Analysis of Magnitude, Geography, and Drivers]] — Анализ конкурентоспособности возобновляемой энергии в Германии и Техасе.
+- [[hxxps://arxiv.org/abs/2606.17530][Public transit gains and spatially uneven travel demand changes after NYC congestion pricing]] — Оценка влияния платного въезда в Нью-Йорке на спрос и транспорт.
+- [[hxxps://arxiv.org/abs/2606.17917][Demand-agnostic assessment of on-demand pooled transit services]] — Метод оценки потенциала сервисов pooled transit без точных данных о спросе.
+- [[hxxps://arxiv.org/abs/2606.17965][Thermodynamic description of wealth inequality in the world]] — Термодинамическое описание неравенства wealth через распределение Рэлея-Джинса.
+- [[hxxps://arxiv.org/abs/2606.18009][Making Sense of Symbols: Yin and Yang in Zurich]] — Связь символа Инь-Ян с продолжительностью дня и сезонами через динамическую модель.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Развиваются алгоритмы с гарантиями приватности для графовых задач и точные методы для специфических классов графов. Теоретический анализ адаптивности в структурах хранения (LSM) остается практически значимым для систем данных.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.18138][The Value of Adaptivity in LSM Bloom-Filter Tuning: A Log-Law and a Two-Clock Frontier]]
+:WHAT: Аналитическая характеристика ценности адаптивного тюнинга Bloom-фильтров в LSM-деревьях.
+:IMPACT: Показывает, что перераспределение только при компакции захватывает 96-99% выгоды от трекинга, упрощая движки.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.13460][Differentially Private Graph Coloring]]
+:ALGO: Два алгоритма vertex coloring с edge-differential privacy, использующие экспоненциальный механизм.
+:IMPACT: Достигает минимального дефекта раскраски при сохранении приватности структуры графа.
+- [[hxxps://arxiv.org/abs/2606.17297][Scalable K-clique Estimation with Differential Privacy]]
+:ALGO: Масштабируемый алгоритм оценки k-клик с дифференциальной приватностью через адаптацию ladder function.
+:IMPACT: Работает на графах с миллионами ребер, будучи на порядки быстрее существующих методов.
+- [[hxxps://arxiv.org/abs/2606.17578][Exact Algorithms for Edge Deletion to Cactus Graphs and Weighted Variants]]
+:ALGO: Точные экспоненциальные алгоритмы для сведения графа к кактусу удалением ребер.
+:IMPACT: Улучшает временную сложность с O*(3^n) до O*(2^n) для невзвешенного случая.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2105.13744][Grammar Index By Induced Suffix Sorting]] — Сжатый текстовый индекс на основе грамматического сжатия для поиска паттернов.
+- [[hxxps://arxiv.org/abs/2604.23628][Characterizing Admissible Objective Functions for Hierarchical Clustering]] — Характеризация допустимых целевых функций для иерархической кластеризации.
+- [[hxxps://arxiv.org/abs/2606.16087][Problems related to strong connectivity and strong biconnectivity]] — Полиномиальный 7-аппроксимационный алгоритм для strong biconnectivity.
+- [[hxxps://arxiv.org/abs/2606.17215][Sum-of-Squares Degree Barriers for the Reweighted-Hinge Method in Robust Halfspace Learning: A Christoffel-Function Characterization]] — Анализ барьеров степени SoS для робастного обучения.
+- [[hxxps://arxiv.org/abs/2606.17285][Adaptive Proximal Methods for Weakly Convex Optimization with Unknown Parameter: Deterministic and Stochastic Guarantees]] — Адаптивный проксимальный алгоритм для слабо выпуклой оптимизации.
+- [[hxxps://arxiv.org/abs/2606.17316][Approximation Preserving Coresets]] — Введение approximation-preserving coresets для кластеризации больших данных.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Ключевые темы включают disaggregated память для AI workload и масштабируемость состояния блокчейна. Параллельно решаются проблемы конкурентности в мульти-агентных системах и планирования потоков в оптических сетях.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2606.12556][ITME: Inference Tiered Memory Expansion with Disaggregated CXL-Hybrid Memories]]
+:WHAT: Архитектура ITME для масштабирования контекста инференса LLM через CXL-гибридную память.
+:IMPACT: Увеличивает пропускную способность на 35.7% за счет байт-адресуемого расширения памяти beyond host limits.
+- [[hxxps://arxiv.org/abs/2606.17111][Fractional Verkle Trees: A Hypertree Decomposition and Verified Proof Serialization Architecture for High-Performance Blockchain State Accumulators]]
+:WHAT: Декомпозиция состояния блокчейна на независимые суб-аккумуляторы для улучшения локальности кэша.
+:IMPACT: Снижает аллокацииheap на 57% и устраняет 4.85 ПБ трафика в год для сети Ethereum.
+- [[hxxps://arxiv.org/abs/2606.17315][Space-Efficient Lock-Free Linear-Probing Hash Table]]
+:WHAT: Lock-free hash table с wait-free lookup и минимальными метаданными на_entry.
+:IMPACT: Сохраняет空间 эффективность sequential linear probing при поддержке конкурентного доступа.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.22146][An O(K)-Approximation Coflow Scheduling in K-Core Optical Circuit Switching Networks]]
+:ALGO: Алгоритм планирования coflow в много-ядерных оптических сетях с гарантиями аппроксимации.
+:IMPACT: Минимизирует время завершения coflow в гетерогенных архитектурах DCN.
+- [[hxxps://arxiv.org/abs/2606.17288][Local Fault Repair of Perfect Resource Placements in Eisenstein--Jacobi Networks]]
+:ALGO: Анализ локального ремонта размещений ресурсов после сбоев в EJ-сетях.
+:IMPACT: Доказывает субаддитивность ремонтов для кластерных сбоев и точные границы замен.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.20912][Quantum-HPC Software Stacks and the openQSE Reference Architecture: A Survey]] — Обзор стеков ПО для Quantum-HPC и референсная архитектура openQSE.
+- [[hxxps://arxiv.org/abs/2606.15490][Is RISC-V Ready for Massively Parallel Astrophysical Codes?]] — Оценка производительности астрофизических кодов на процессорах RISC-V.
+- [[hxxps://arxiv.org/abs/2606.16534][Generated, Parallel, Scalable? A Study of Agentic AI-Generated Julia Code on Supercomputers]] — Исследование генерации параллельного кода Julia агентами ИИ для суперкомпьютеров.
+- [[hxxps://arxiv.org/abs/2606.17058][Evaluating LLM Coding Agents on SZ-Family Lossy Compression Across Architectures]] — Оценка агентов кодирования для lossy compression на GPU и Cerebras.
+- [[hxxps://arxiv.org/abs/2606.17182][Verified Detection and Prevention of Concurrency Anomalies in Multi-Agent Large Language Model Systems]] — Верифицированное обнаружение аномалий конкурентности в мульти-агентных LLM системах.
+- [[hxxps://arxiv.org/abs/2606.10774][Asynchronous Decentralized Federated Learning over Lossy Wireless Links via Reception- and Age-Aware Aggregation]] — Децентрализованное FL с учетом потерь и возраста информации в беспроводных сетях.

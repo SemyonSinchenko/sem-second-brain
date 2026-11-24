@@ -1,0 +1,105 @@
+#+TITLE: Arxiv Digest: 2026-05-08
+#+FROM: [2026-05-07 Thu]
+#+TO: [2026-05-08 Fri]
+#+DATE: [2026-05-08 Fri]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается сильный тренд на оптимизацию метауправления и улучшение производительности запросов в гетерогенных средах. Исследователи фокусируются на создании расширяемых языков для переписывания запросов и снижении задержек при поиске ближайших соседей за пределами оперативной памяти. Также заметен рост интереса к автоматизации очистки данных временных рядов с помощью агентов на основе обучения с подкреплением.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.05536][An Extensible and Verifiable Language for Query Rewrite Rules]]
+:WHAT: Домен-специфичный язык Rulescript для формально верифицируемых правил переписывания запросов, независимый от движка исполнения.
+:IMPACT: Позволяет реализовать подход "write once, deploy everywhere" для оптимизации планов запросов, снижая затраты на инженерию и портацию между СУБД.
+- [[hxxps://arxiv.org/abs/2605.05787][Low-Latency Out-of-Core ANN Search in High-Dimensional Space]]
+:WHAT: Гибридный метод SkipDisk для поиска ближайших соседей, сочетающий дисковое хранение с эффективной фильтрацией в памяти.
+:IMPACT: Достигает задержек, сравнимых с индексами в памяти (HNSW), при значительном уменьшении footprint, что критично для больших векторных баз.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.04902][AegisTS: A Hierarchical Agent System with Reinforcement Learning for Multivariate Time Series Data Cleaning]]
+:ALGO: Иерархическая система агентов с RL для совместной оптимизации порядка устранения ошибок качества данных и выбора моделей очистки.
+:IMPACT: Позволяет эффективно обрабатывать множественные ко-оккурентные проблемы качества данных без опоры на размеченную ground truth.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2409.05512][DatAasee -- A Metadata-Lake as Metadata Catalog for a Virtual Data-Lake]] — Предложена архитектура metadata-lake для агрегации метаданных распределенных источников в исследовательских средах.
+- [[hxxps://arxiv.org/abs/2605.05525][Anatomy of a Query: W5H Dimensions and FAR Patterns for Text-to-SQL Evaluation]] — Представлен фреймворк QUEST для оценки текстовых интерфейсов к БД на основе структурных инвариантов запросов.
+- [[hxxps://arxiv.org/abs/2412.09125][Goal-Driven Query Answering over First- and Second-Order Dependencies with Equality]] — Техника ответвления запросов для зависимостей первого и второго порядка, ускоряющая вычисление универсальной модели.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В области структур данных доминируют улучшения графовых индексов для приближенного поиска соседей (ANN) и алгоритмические прорывы в задачах на графах (PageRank, сепараторы). Наблюдается смещение фокуса на инстанционно-оптимальные алгоритмы и методы сжатия, которые сохраняют производительность при ограниченных ресурсах памяти.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.02030][U-HNSW: An Efficient Graph-based Solution to ANNS Under Universal Lp Metrics]]
+:WHAT: Первый графовой метод U-HNSW для поиска ближайших соседей под универсальными метриками Lp без построения отдельного индекса для каждого p.
+:IMPACT: Значительно превосходит state-of-the-art методы LSH по скорости запросов, обеспечивая гибкость метрик в векторном поиске.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2512.16087][Instance-Optimality in PageRank Computation]]
+:ALGO: Адаптивная версия двунаправленного алгоритма,-instance-оптимальная с точностью до полилогарифмического фактора для разреженных графов.
+:IMPACT: Устанавливает теоретический предел эффективности вычисления PageRank, показывая, что быстрее на конкретных графах быть не может.
+- [[hxxps://arxiv.org/abs/2605.05494][A Separator for Minor-Free Graphs Beyond the Flow Barrier]]
+:ALGO: Построение балансированного сепаратора размера O(h sqrt(log h) sqrt(n)) для графов без миноров, преодолевающее барьер потоковых методов.
+:IMPACT: Улучшает фундаментальные границы для алгоритмов на графах без миноров, используя декомпозицию малого диаметра.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2508.11130][Sampling Tree-Weighted Partitions Without Sampling Trees]] — Алгоритм линейного времени для сэмплирования взвешенных разбиений планарных графов без явного построения остовных деревьев.
+- [[hxxps://arxiv.org/abs/2505.18879][Efficient Online Random Sampling via Randomness Recycling]] — Метод повторного использования случайности для эффективной генерации переменных с энтропией, близкой к оптимальной.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования сетей смещаются в сторону анализа устойчивости сложных систем и многошкальной организации bipartite-структур. Актуальными становятся работы по каскадным эффектам в цепях поставок и энергетических сетях, а также моделирование потоков pedestrians с учетом мультифрактальных свойств.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.06411][Cascading disruptions in natural gas, fertilizers, and crops drive structural food supply vulnerabilities globally]]
+:WHAT: Интеграция торговли газом, удобрениями и crops в модель каскадного влияния для 208 стран.
+:IMPACT: Выявляет upstream-бутылочные горлышки в глобальной системе продовольствия и структурные уязвимости при торговых изоляциях.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.06208][Two-mode geometry controls multiscale organization in bipartite systems]]
+:ALGO: Лапласовская фреймворк ренормализации, работающая напрямую на бипартитной архитектуре без одно_mode проекций.
+:IMPACT: Позволяет выявлять нетривиальные иерархии для обеих ролей в системе, сохраняя разделение ролей при масштабировании.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.05788][The multi-fractal nature of pedestrian arrival times]] — Демонстрация мультифрактального масштабирования времен прибытия пешеходов, что важно для моделирования потоков.
+- [[hxxps://arxiv.org/abs/2605.05987][Mobile Cold Energy Storage: Coupling Food Distribution and Energy Systems]] — Техно-экономическая оптимизация использования холода как мобильного энергоносителя в цепях поставок еды.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основной тренд — эффективное обслуживание LLM в распределенных средах: управление памятью, тензорный параллелизм и планирование задач. Заметен рост интереса к использованию новой аппаратуры (CXL) для коллективных операций GPU и адаптивным системам планирования в Kubernetes на основе графовых нейросетей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2506.15155][eLLM: Elastic Memory Management Framework for Efficient LLM Serving]]
+:WHAT: Фреймворк эластичного управления памятью с виртуализацией тензоров и механизмом раздувания/сдувания памяти для KV cache.
+:IMPACT: Повышает throughput декодирования в 2.32 раза и поддерживает батчи в 3 раза больше при жестких SLO.
+- [[hxxps://arxiv.org/abs/2605.05467][Nitsum: Serving Tiered LLM Requests with Adaptive Tensor Parallelism]]
+:WHAT: Система serving, использующая уровень тензорного параллелизма как рантайм control surface для адаптации к mix нагрузке.
+:IMPACT: Увеличивает goodput запросов, удовлетворяющих SLO, до 5.3 раз за счет совместной оптимизации параллелизма и планирования.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.12031][AGMARL-DKS: An Adaptive Graph-Enhanced Multi-Agent Reinforcement Learning for Dynamic Kubernetes Scheduling]]
+:ALGO: Многоагентное RL с графовыми нейросетями для представления глобального контекста кластера в задачах планирования Kubernetes.
+:IMPACT: Обеспечивает масштабируемое и стрессоустойчивое планирование, превосходящее дефолтные schedulers по утилизации и отказоустойчивости.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2602.22457][CCCL: Node-Spanning GPU Collectives with CXL Memory Pooling]] — Библиотека коллективной коммуникации GPU через память CXL, улучшающая AllGather и Broadcast без RDMA.
+- [[hxxps://arxiv.org/abs/2504.10013][Training LLMs on HPC Systems: Best Practices from the OpenGPT-X Project]] — Описание практик и инфраструктуры для тренировки многоязычных LLM на суперкомпьютерах JUWELS.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В AI выделяются работы по безопасности распределенного обучения (Federated Learning) и генеративным моделям для графов. Исследователи предлагают новые методы защиты от backdoor-атак и улучшения интерпретируемости через disentangled представления, сохраняя производительность моделей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2411.12220][DeTrigger: A Gradient-Centric Approach to Backdoor Attack Mitigation in Federated Learning]]
+:WHAT: Фреймворк для обнаружения и изоляции backdoor триггеров в FL через градиентный анализ и temperature scaling.
+:IMPACT: Ускоряет детектирование атак в 251 раз и снижает их эффективность на 98.9% без потери accuracy основной модели.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2408.13471][Disentangled Generative Graph Representation Learning]]
+:ALGO: Framework DiGGR для обучения разъединенных (disentangled) факторов представлений графов через mask modeling.
+:IMPACT: Улучшает робастность и объяснимость генеративных графовых моделей, превосходя методы self-supervised обучения.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2411.18954][ReMAP: Neural Reparameterization for Scalable MAP Inference in Arbitrary-Order Markov Random Fields]] — Нейронная репараметризация для масштабируемого MAP-вывода в MRF высокого порядка.
+- [[hxxps://arxiv.org/abs/2409.07985][Games for AI Control: Models of Safety Evaluations of AI Deployment Protocols]] — Формальная модель игр для оценки безопасности протоколов развертывания недоверенных AI.

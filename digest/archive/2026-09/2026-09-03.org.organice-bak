@@ -1,0 +1,99 @@
+#+TITLE: Daily Digest: 2026-09-03
+#+FROM: [2026-09-02 Wed]
+#+TO: [2026-09-03 Thu]
+#+DATE: [2026-09-03 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+- Инфраструктура данных всё чаще сходится на Rust/Arrow, объектных хранилищах и строгих схемах: LakeSail, WarpStream и Kafka-кейсы показывают, что cost-performance и data contracts стали первоклассными инженерными требованиями.
+- Агентные системы переходят от демо к производственной инфраструктуре: Meta описывает self-improvement без retraining, AWS — durable storage для агентов, а Bedrock-кейсы фокусируются на observability, SLA и safety-ограничениях.
+- Сквозной практический смысл — верификация: deterministic simulation testing, validation дашбордов, schema checks и file/numeric reasoning нужны, чтобы ловить silent failures до того, как они станут пользовательскими инцидентами.
+- Open-source инструменты (Bento, FireDucks, Strands DynamoDB backend) снижают стоимость владения пайплайнами и агентными state-слоями, но требуют проверки производительности, лицензий и operational overhead.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/spark-isnt-going-anywhere-so-they][Spark Isn't Going Anywhere. So They Rebuilt It in Rust. — Shehab Amin, CEO of LakeSail]] (Data Engineering Central) — Показывает, где Rust, Arrow и DataFusion меняют экономику Spark-совместимости, и почему Delta/Iceberg, streaming/batch и agentic data access становятся одним обсуждением.
+- [[hxxps://www.warpstream.com/blog/pixelfederation-powers-mobile-analytics-platform-with-warpstream][Pixel Federation Powers Mobile Analytics Platform with WarpStream - WarpStream]] (WarpStream) — Конкретный пример event-driven mobile analytics на миллионах событий в день и миграции с MSK с оценкой 83% экономии.
+- [[hxxps://www.warpstream.com/blog/announcing-schema-validation-with-aws-glue-schema-registry][Announcing Schema Validation with AWS Glue Schema Registry - WarpStream]] (WarpStream) — Описывает блокирование malformed records на ingest через AWS Glue Schema Registry, что снижает DLQ-шум и downstream schema drift.
+- [[hxxps://www.warpstream.com/blog/announcing-warpstream-schema-validation][Announcing WarpStream Schema Validation - WarpStream]] (WarpStream) — Показывает broker-level валидацию структуры записей против Confluent-совместимого реестра, укрепляя контракты данных до попадания в storage.
+- [[hxxps://www.warpstream.com/blog/cloud-disks-are-expensive][Cloud Disks are (Really!) Expensive - WarpStream]] (WarpStream) — Даёт конкретную экономику block storage против object storage и объясняет, почему disk-based Kafka-кластеры быстро становятся доминирующей статьёй расходов.
+- [[hxxps://www.warpstream.com/blog/cost-effective-logging-at-scale-sharechats-journey-to-warpstream][Cost-Effective Logging at Scale: ShareChat’s Journey to WarpStream - WarpStream]] (WarpStream) — Playbook для high-throughput logging: zero-ops autoscaling, устранение inter-AZ fees и снижение стоимости на 60% при сохранении throughput.
+- [[hxxps://www.warpstream.com/blog/fancy-stream-processing-made-even-more-operationally-mundane][Fancy Stream Processing Made (even more) Operationally Mundane - WarpStream]] (WarpStream) — Полезный паттерн: встроенный в Kafka Agents stream processing с Bento убирает отдельный инфраструктурный слой и сокращает операционную поверхность.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-an-aws-team-detects-dashboard-content-failures-at-scale-using-amazon-bedrock/][How an AWS team detects dashboard content failures at scale using Amazon Bedrock]] (AWS ML Blog) — Демонстрирует, как находить silent BI-отказы через visual и numeric validation, что особенно важно, когда дашборды становятся входом для AI-аналитики.
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/spark-isnt-going-anywhere-so-they][Spark Isn't Going Anywhere. So They Rebuilt It in Rust. — Shehab Amin, CEO of LakeSail]]
+:SCORE: 9/10
+:WHY: Помогает понять, какие части JVM-экосистемы Spark действительно заменяемы Rust/Arrow/DataFusion и где остаётся operational risk.
+**** [[hxxps://www.warpstream.com/blog/announcing-warpstream-schema-validation][Announcing WarpStream Schema Validation - WarpStream]]
+:SCORE: 8/10
+:WHY: Показывает enforceable data contracts на ingest, которые предотвращают попадание мусорных данных в warehouses и incident reviews.
+**** [[hxxps://www.warpstream.com/blog/cloud-disks-are-expensive][Cloud Disks are (Really!) Expensive - WarpStream]]
+:SCORE: 8/10
+:WHY: Даёт практические цифры для выбора между disk-based Kafka architecture и object-storage economics.
+
+** Engineers
+- [[hxxps://www.warpstream.com/blog/anatomy-of-a-serverless-usage-based-billing-system][Anatomy of a serverless usage based billing system - WarpStream]] (WarpStream) — Показывает полезное разделение events и metrics, чтобы pricing logic оставалась auditable и обновляемой post-facto, что применимо к любому usage-based продукту.
+- [[hxxps://www.warpstream.com/blog/deterministic-simulation-testing-for-our-entire-saas][Deterministic Simulation Testing for Our Entire SaaS - WarpStream]] (WarpStream) — Демонстрирует, как full-SaaS deterministic simulation через Antithesis находит correctness-баги, которые пропускают random tests и ручные проверки.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/from-code-to-diagrams-agentic-architecture-documentation-with-amazon-bedrock-agentcore/][From code to diagrams: Agentic architecture documentation with Amazon Bedrock AgentCore]] (AWS ML Blog) — Полезная CI/CD-паттерн: агенты анализируют кодовую базу, генерируют diagrams и обновляют searchable documentation, снижая knowledge silos и onboarding friction.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Быстрый срез состояния графовой экосистемы: GQL, benchmarks, schema, hardware, decoupled graph compute и графы в реальных production-сценариях.
+*** 💎 Топ-3 категории
+**** [[hxxps://www.warpstream.com/blog/deterministic-simulation-testing-for-our-entire-saas][Deterministic Simulation Testing for Our Entire SaaS - WarpStream]]
+:SCORE: 10/10
+:WHY: Метод напрямую применим к distributed systems, Kafka-like платформам и любому SaaS, где flaky tests не обеспечивают confidence.
+**** [[hxxps://www.warpstream.com/blog/anatomy-of-a-serverless-usage-based-billing-system][Anatomy of a serverless usage based billing system - WarpStream]]
+:SCORE: 9/10
+:WHY: Архитектурный шаблон auditable billing separation полезен для инженеров, поддерживающих pricing, quotas и cost attribution.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/from-code-to-diagrams-agentic-architecture-documentation-with-amazon-bedrock-agentcore/][From code to diagrams: Agentic architecture documentation with Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Показывает практичное применение агентов к одному из самых недооценённых инженерных долгов — актуальной architecture documentation.
+
+** Vendors
+- [[hxxps://engineering.fb.com/2026/09/02/ml-applications/organizational-second-brain-ai-learns-from-experts/][An Organizational Second Brain: Building an AI That Learns From Experts]] (Meta Engineering) — Описывает enterprise AI-агент с разделением knowledge architecture и reasoning, где expert feedback превращается в regression-tested updates без model retraining.
+- [[hxxps://www.warpstream.com/blog/boring-by-design-character-ai][Boring by Design: How Character.AI Runs 5 GiB/s on WarpStream and Cut Costs ~90% - WarpStream]] (WarpStream) — Vendor-кейс о том, как “скучная” инфраструктура держит 5 GiB/s event traffic с ~90% снижением стоимости, что полезно для AI-нагрузок с высоким потоком.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/accessing-openai-gpt-5-6-models-on-amazon-bedrock-from-australia-with-global-cross-region-inference/][Accessing OpenAI models on Amazon Bedrock from Australia with global cross-Region inference]] (AWS ML Blog) — Практический гид по regional access, global inference profiles, prompt caching, OIDC/Codex-настройкам и CloudWatch monitoring для команд в Австралии.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/modernizing-and-scaling-support-operations-with-generative-ai-on-aws/][Modernizing and scaling support operations with generative AI on AWS]] (AWS ML Blog) — Показывает end-to-end support architecture: генерация SOP из видео, RAG для resolution, workload optimization, SLA risk prediction и agentic ticket actions с human-in-the-loop.
+- [[hxxps://www.databricks.com/blog/southern-companys-scout-completing-storm-intelligence-story][Southern Company’s SCOUT: Completing the Storm Intelligence Story]] (Databricks) — Кейс vendor data platform в operational decisioning для storm intelligence; полезен, если строите geospatial/event analytics в регулируемой отрасли.
+- [[hxxps://www.databricks.com/blog/expanding-genie-agents-deep-analysis-file-reasoning-and-more][Expanding Genie Agents: Deep analysis, file reasoning, and more]] (Databricks) — Продуктовое обновление: Genie Agents переходят к deeper analysis и file reasoning, что важно для внутренних data exploration workflows.
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/09/02/ml-applications/organizational-second-brain-ai-learns-from-experts/][An Organizational Second Brain: Building an AI That Learns From Experts]]
+:SCORE: 10/10
+:WHY: Даёт architecture pattern для enterprise agents: separated knowledge, auditable reasoning и feedback loops без retraining.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/modernizing-and-scaling-support-operations-with-generative-ai-on-aws/][Modernizing and scaling support operations with generative AI on AWS]]
+:SCORE: 9/10
+:WHY: Полезный blueprint для production GenAI в support/SRE-процессах с SLA, risk prediction и human control points.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/accessing-openai-gpt-5-6-models-on-amazon-bedrock-from-australia-with-global-cross-region-inference/][Accessing OpenAI models on Amazon Bedrock from Australia with global cross-Region inference]]
+:SCORE: 8/10
+:WHY: Конкретный региональный deployment playbook для model access, caching, auth и monitoring, а не только announcement.
+
+** Open Source
+- [[hxxps://aws.amazon.com/blogs/database/introducing-strands-dynamodb-storage-durable-agent-storage-for-the-strands-agents-sdk/][Introducing strands-dynamodb-storage: Durable agent storage for the Strands Agents SDK]] (AWS) — Apache-2.0 backend для Strands Agents SDK хранит session state, long-term memory и transcripts в одной DynamoDB table, используя point reads и prefix queries.
+- [[hxxps://www.kdnuggets.com/this-python-library-can-run-pandas-workloads-up-to-20x-faster][This Python Library Can Run Pandas Workloads Up to 20x Faster]] (KDnuggets) — FireDucks предлагает lazy execution, compiler optimization и multithreading для pandas-подобных workloads, но результат нужно валидировать на реальных DataFrame-паттернах.
+- [[hxxps://www.warpstream.com/blog/announcing-bento-the-open-source-fork-of-the-project-formerly-known-as-benthos][Announcing Bento, the open source fork of the project formerly known as Benthos - WarpStream]] (WarpStream) — MIT-licensed fork Benthos сохраняет stream-processing connectors без feature gating и license traps, что важно для self-hosted или VPC-контейнерованных пайплайнов.
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/introducing-strands-dynamodb-storage-durable-agent-storage-for-the-strands-agents-sdk/][Introducing strands-dynamodb-storage: Durable agent storage for the Strands Agents SDK]]
+:SCORE: 9/10
+:WHY: Простой и конкретный путь к durable agent state без отдельной database layer, с пониманием DynamoDB key mapping и latency-ограничений.
+**** [[hxxps://www.warpstream.com/blog/announcing-bento-the-open-source-fork-of-the-project-formerly-known-as-benthos][Announcing Bento, the open source fork of the project formerly known as Benthos - WarpStream]]
+:SCORE: 8/10
+:WHY: MIT-лицензия и сохранённый connector ecosystem делают Bento практичной альтернативой закрытым/лицензионно запутанным stream-processing вариантам.
+**** [[hxxps://www.kdnuggets.com/this-python-library-can-run-pandas-workloads-up-to-20x-faster][This Python Library Can Run Pandas Workloads Up to 20x Faster]]
+:SCORE: 7/10
+:WHY: Полезный сигнал для data tooling, но перед внедрением нужно проверить compatibility, correctness и memory behaviour в ваших ETL/notebook workload.
+
+** Artificial Intelligence
+- [[hxxps://huggingface.co/blog/ibm-research/real-time-intelligence][Real-Time Intelligence with IBM Time Series Models on Confluent]] (Hugging Face) — Сигнализирует тренд на time-series foundation models поверх streaming stack, что может быть полезно для real-time anomaly detection и forecasting без отдельного batch feature pipeline.
+- [[hxxps://www.kdnuggets.com/quantifying-user-behavior-patterns-to-build-better-predictive-features][Quantifying User Behavior Patterns to Build Better Predictive Features]] (KDnuggets) — Практичный материал про превращение сырых events в sequence-aware predictive features вместо поверхностных demographic profiles, применимый к churn, fraud и security modeling.
+- [[hxxps://www.kdnuggets.com/5-real-world-applications-of-agentic-ai-in-enterprise-automation][5 Real-World Applications of Agentic AI in Enterprise Automation]] (KDnuggets) — Даёт карту применения agentic AI в SRE, finance, legal, migration и security с упором на deterministic safety constraints, что помогает отделять production automation от демо.
+- [[hxxps://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises/][Proactive cyber defense for governments and enterprises]] (Google DeepMind) — Показывает направление на AI-assisted cyber defense; стоит читать, если в roadmap есть security automation, threat detection или government-compliance workloads.
+- [[hxxps://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/][Introducing Gemini 3.8 Flash and 3.8 Flash Cyber]] (Google DeepMind) — Fast и Cyber-варианты указывают на специализацию моделей для latency-sensitive и security workflows; перед заменой текущей модели нужно прогнать собственные eval-наборы.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/trinity-agentic-ai-powered-transition-planning-for-students-with-disabilities/][Trinity: Agentic AI-powered transition planning for students with disabilities]] (AWS ML Blog) — Полезный пример compliance-sensitive агента: единый prompt ломается на intake, retrieval, recommendations и plan writing, снижая риск галлюцинаций и regulatory drift.
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/trinity-agentic-ai-powered-transition-planning-for-students-with-disabilities/][Trinity: Agentic AI-powered transition planning for students with disabilities]]
+:SCORE: 9/10
+:WHY: Хорошая иллюстрация декомпозиции agentic workflow в регулируемой среде и почему single-prompt agent становится production risk.
+**** [[hxxps://www.kdnuggets.com/5-real-world-applications-of-agentic-ai-in-enterprise-automation][5 Real-World Applications of Agentic AI in Enterprise Automation]]
+:SCORE: 8/10
+:WHY: Помогает выбрать enterprise use cases, где agentic AI даёт deterministic value с safety constraints, а не только text generation.
+**** [[hxxps://www.kdnuggets.com/quantifying-user-behavior-patterns-to-build-better-predictive-features][Quantifying User Behavior Patterns to Build Better Predictive Features]]
+:SCORE: 8/10
+:WHY: Конкретный feature-engineering приём для predictive ML, который напрямую влияет на качество churn, fraud и security моделей.

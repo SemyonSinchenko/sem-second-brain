@@ -1,0 +1,141 @@
+#+TITLE: Arxiv Digest: 2026-05-29
+#+FROM: [2026-05-28 Thu]
+#+TO: [2026-05-29 Fri]
+#+DATE: [2026-05-29 Fri]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается сдвиг в сторону более реалистичного бенчмаркинга облачных хранилищ и использования метаданных для мониторинга качества данных без сканирования. Исследования фокусируются на оптимизации векторного поиска с фильтрами и улучшении шаффлинга данных внутри процесса для многоядерных систем. Также виден интерес к теоретическому обоснованию корректности гранулярности в конвейерах данных.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2511.13059][Redbench: Workload Synthesis From Cloud Traces]]
+:WHAT: Генератор рабочих нагрузок, воспроизводящий характеристики реальных трасс облачных провайдеров (повторы запросов, строковые данные).
+:IMPACT: Позволяет тестировать оптимизации СУБД на реалистичных сценариях, а не только на синтетических бенчмарках вроде TPC-H.
+- [[hxxps://arxiv.org/abs/2602.06721][E2E: Efficient Filtered AKNN Search via Adaptive Termination]]
+:WHAT: Модель для оценки стоимости поиска с фильтрами в векторных базах данных, позволяющая адаптивно завершать поиск.
+:IMPACT: Ускорение запросов в 1.1-3.7 раза при сохранении точности за счет ранней остановки для простых запросов.
+- [[hxxps://arxiv.org/abs/2605.29099][One Ring to Shuffle Them All: Scalable Intra-Process Data Redistribution with Ring-Buffer Shuffle in Redpanda Oxla]]
+:WHAT: Lock-free шаффлинг данных между потоками на основе кольцевого буфера для параллельных движков запросов.
+:IMPACT: Устраняет узкие места синхронизации на системах с большим количеством ядер (до 192), повышая утилизацию CPU.
+- [[hxxps://arxiv.org/abs/2605.30308][Zero-Scan Data Quality: Leveraging Table Format Metadata for Continuous Observability at Scale]]
+:WHAT: Использование метаданных формата таблиц (Iceberg) для мониторинга качества данных без сканирования файлов.
+:IMPACT: Снижение затрат на профилирование на 50% и покрытие 60% правил качества данных нулевой стоимостью вычислений.
+- [[hxxps://arxiv.org/abs/2601.00995][Grain Theory: Type-Level Granularity Correctness in Data Pipelines]]
+:WHAT: Тип-теоретическая фреймворк для верификации гранулярности данных в конвейерах на этапе проектирования.
+:IMPACT: Позволяет обнаруживать ошибки типа fan traps и chasm traps до выполнения кода, повышая надежность ETL.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.29093][ScanTwin: Simulating Performance Regressions Without Access to Tenant Data]] — Синтез данных с сохранением физических свойств для воспроизведения регрессий производительности.
+- [[hxxps://arxiv.org/abs/2605.30156][The Missing Dimensions in Geo-Distributed Database Evaluation]] — Фреймворк Gaia для оценки гео-распределенных СУБД с учетом нестабильности сети и стоимости передачи.
+- [[hxxps://arxiv.org/abs/2605.29692][Towards Reliable Agentic Progressive Text-to-Visualization with Verification Rules]] — Агентный фреймворк для многошагового перевода текста в визуализацию с проверкой правил.
+- [[hxxps://arxiv.org/abs/2605.29061][Residual-Entropy Accounting for Routed Atom-Budgeted Learned Indexes]] — Теорема учета энтропии для_learned indexes_ с ограниченным бюджетом атомов.
+- [[hxxps://arxiv.org/abs/2603.14644][LUMINA: A Multi-Vendor Mammography Benchmark with Energy Harmonization Protocol]] — Датасет маммографии с гармонизацией энергии для оценки моделей ИИ.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основные тенденции связаны с масштабированием систем предобучения LLM на 100k+ GPU и обеспечением отказоустойчивости в таких кластерах. Значительное внимание уделяется эффективной изоляции ресурсов в дата-центрах и поддержке гетерогенных архитектур, включая RISC-V. Также развивается инфраструктура для квантового моделирования на классических HPC-системах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2506.11483][Capsule: Efficient Player Isolation for Datacenters]]
+:WHAT: Механизм разделения локальных и глобальных состояний игроков для изоляции ресурсов в дата-центрах.
+:IMPACT: Увеличение утилизации ресурсов до 2.25x без ухудшения пользовательского опыта за счет снижения потребления GPU и RAM.
+- [[hxxps://arxiv.org/abs/2603.00357][SPARe: Stacked Parallelism with Adaptive Reordering for Fault-Tolerant LLM Pretraining Systems with 100k+ GPUs]]
+:WHAT: Фреймворк отказоустойчивости, маскирующий сбои узлов во время синхронизации градиентов через избыточность шардов.
+:IMPACT: Сокращение времени обучения на 40-50% при масштабировании до 600k GPU по сравнению с традиционной репликацией.
+- [[hxxps://arxiv.org/abs/2605.29346][Understanding and Reducing Metadata-Driven Host Overheads in Sampling-Based GNN Training]]
+:WHAT: Система ZEROGNN, устраняющая хост из цикла управления метаданными для обучения GNN на GPU.
+:IMPACT: Ускорение end-to-end до 5.28x и достижение почти 100% выполнения на GPU за счет устранения синхронизации CPU-GPU.
+- [[hxxps://arxiv.org/abs/2605.29006][IORM: Hierarchical I/O Governance for Thousands of Consolidated Databases on Oracle Exadata]]
+:WHAT: Планировщик ввода-вывода на стороне хранилища с иерархическими профилями ресурсов для тысяч тенантов.
+:IMPACT: Устранение шумных соседей и улучшение консистентности латентности в консолидированных облачных deployments.
+- [[hxxps://arxiv.org/abs/2605.29135][Rotary GPU: Exploring Local Execution Paths for Large Mixture-of-Experts Models Under Limited GPU Memory]]
+:WHAT: Подход к исполнению больших MoE-моделей на потребительских GPU с ограниченной памятью.
+:IMPACT: Демонстрация возможности локального запуска моделей уровня 35B на GPU с 8GB VRAM с приемлемой скоростью.
+- [[hxxps://arxiv.org/abs/2605.28845][HPC-vQPU: A Service-Export Architecture for Virtual QPUs on Batch-Scheduled HPC Systems]]
+:WHAT: Архитектура экспорта сервиса для виртуальных квантовых процессоров на пакетных HPC-системах.
+:IMPACT: Позволяет использовать суперкомпьютеры для интерактивного квантового моделирования с сохранением семантики устройства.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2409.00876][Rapid GPU-Based Pangenome Graph Layout]]
+:ALGO: Оптимизация алгоритма layout пангеномных графов для GPU с использованием коалесцированного доступа и слияния варпов.
+:IMPACT: Ускорение визуализации больших геномных графов в 57.3 раза без потери качества, переход от часов к минутам.
+- [[hxxps://arxiv.org/abs/2511.12025][A Quick and Exact Method for Distributed Quantile Computation]]
+:ALGO: Алгоритм GK Select для точного вычисления квантилей в Spark без полной сортировки данных.
+:IMPACT: Точность_exact_ при производительности уровня скетчей, ускорение в 10.5 раз по сравнению с глобальной сортировкой.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.07974][ZK-ACE: Identity-Centric Zero-Knowledge Authorization for Post-Quantum Blockchain Systems]] — Авторизация на основе идентичности в ZK-цепочках для снижения объема данных постквантовых подписей.
+- [[hxxps://arxiv.org/abs/2604.00736][Is RISC-V Ready for Machine Learning? Portable Gaussian Processes Using Asynchronous Tasks]] — Оценка производительности RISC-V для задач ML по сравнению с x86 и ARM.
+- [[hxxps://arxiv.org/abs/2605.22831][Monte Cimone v3: Where RISC-V Stands in High-Performance Computing]] — Бенчмарк кластера Monte Cimone v3 на процессорах SOPHGO SG2044 для HPC.
+- [[hxxps://arxiv.org/abs/2605.29002][FedQHD: Closed-Form Function-Space Federated Reinforcement Learning]] — Федеративное обучение с замкнутой формой агрегации в пространстве функций для RL.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В области структур данных и алгоритмов заметен интерес к квантовой сложности запросов на графах и списках ребер. Развиваются методы сжатия строк на основе CDAWG и алгоритмы аппроксимации для норм матриц. Также представлены работы по дифференциально-приватному тестированию гипотез.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.17574][Parse indexing for discarding short pseudo-MEMs safely]]
+:WHAT: Использование parse indexing для генерации псевдо-MEM с оценкой нижней границы длины для безопасного отсечения.
+:IMPACT: Ускорение поиска длинных точных совпадений в повторяющихся текстах без риска потери важных совпадений.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2412.17786][Quantum Algorithms on Edge Lists: Hiding, Shuffling, and Cycle Finding]]
+:ALGO: Исследование квантовой сложности поиска треугольников и циклов в модели списка ребер.
+:IMPACT: Новые оценки сложности для задач различимости и суммирования, применимые к разреженным графам.
+- [[hxxps://arxiv.org/abs/2604.11388][Min-Sum Set Cover on Parallel Machines]]
+:ALGO: Алгоритмы аппроксимации для задачи покрытия множества на параллельных машинах.
+:IMPACT: Улучшенные коэффициенты аппроксимации для планирования задач на неоднородных машинах.
+- [[hxxps://arxiv.org/abs/2605.25303][Algorithms with Polynomially-Improved Approximation Factors for the $2 \rightarrow q$ Norm, and Applications]]
+:ALGO: Алгоритмы полиномиального времени для аппроксимации нормы $2 \rightarrow q$ матриц.
+:IMPACT: Улучшение алгоритмов для робастной оценки среднего и кластеризации данных с ограничениями на моменты.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2503.02415][On the sensitivity of CDAWG-grammars]] — Оценка чувствительности грамматик на основе компактных ациклических графов слов.
+- [[hxxps://arxiv.org/abs/2506.03441][Conjectured Bounds for 2-Local Hamiltonians via Token Graphs]] — Связь максимальной энергии гамильтонианов со спектральными радиусами токеновых графов.
+- [[hxxps://arxiv.org/abs/2507.03980][Functional design of efficient and parallelizable combinatorial generators using convolution]] — Функциональный дизайн генераторов комбинаторных структур для параллельного выполнения.
+- [[hxxps://arxiv.org/abs/2605.28952][Optimal Rates for Differentially Private Hypothesis Testing with E-values]] — Оптимальные_rates_ для приватного тестирования гипотез с использованием e-values.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования в социальной физике фокусируются на динамике эпидемий на мультиграфах и обнаружении сообществ в психометрических данных. Актуальны темы энергетического следа ИИ и моделирования толпы с использованием ассимиляции данных. Наблюдается рост интереса к сетевым эффектам в социальных взаимодействиях и энергосистемах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2605.29968][Data-Driven Crowd Dynamics using Kinetic Theory and Ensemble-based Data Assimilation]]
+:WHAT: Мезоскопическая модель динамики толпы, сочетающая кинетическую теорию и фильтр Калмана.
+:IMPACT: Возможность оценки поведенческих параметров (например, паники) в реальном времени для повышения общественной безопасности.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2605.29205][Epidemic spreading on multigraphs]]
+:ALGO: Анализ распространения эпидемий на мультиграфах по сравнению с простыми графами.
+:IMPACT: Снятие методологических барьеров для изучения динамики на крупных безмасштабных сетях с хабами.
+- [[hxxps://arxiv.org/abs/2605.29749][Community detection in subject-subject networks from psychometrics data]]
+:ALGO: Сетевой подход к обнаружению сообществ в данных психометрических опросов с учетом факторной структуры.
+:IMPACT: Операциональный способ тестирования модульной структуры на уровне субъектов без априорного задания числа классов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2603.28949][The Planetary Cost of AI Acceleration: A Thermodynamic Outlook on Four Possible Paths Forward]] — Термодинамический анализ ограничений роста вычислений для ИИ.
+- [[hxxps://arxiv.org/abs/2605.29266][Quantifying real-world energy use and CO2 emissions of electric vehicles via a city-scale bottom-up framework]] — Оценка реального энергопотребления и выбросов электромобилей в масштабах города.
+- [[hxxps://arxiv.org/abs/2605.30024][Spatial equity and decentralization trade-offs in deep decarbonization of the European power system]] — Компромиссы между децентрализацией и стоимостью в энергосистеме Европы.
+- [[hxxps://arxiv.org/abs/2605.30264][Exponent spectrum of Lorenz curves and its relation to system's heterogeneity]] — Анализ неоднородности систем через спектр показателей кривых Лоренца.
+- [[hxxps://arxiv.org/abs/2605.30291][Wedding Cocktail Hour Contact Webs: Temporal Proximity Network of a Privately Hosted Social Event]] — Датасет временной сети контактов на частном социальном событии.
+- [[hxxps://arxiv.org/abs/2410.07287][Crafting Desirable Climate Trajectories with RL Explored Socio-Environmental Simulations]] — Использование RL для моделирования климатической политики в социо-экологических симуляциях.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+В искусственном интеллекте преобладают работы по безопасности LLM, генерации синтетических данных и мультимодальным медицинским моделям. Развиваются агентные симуляторы для образования и адаптации моделей к социальным взаимодействиям. Заметен интерес к методам повышения надежности и интерпретируемости систем ИИ.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2501.10332][Agent4Edu: Generating Learner Response Data by Generative Agents for Intelligent Education Systems]]
+:WHAT: Симулятор персонализированного обучения на основе генеративных агентов с профилями учащихся.
+:IMPACT: Позволяет оценивать алгоритмы адаптивного обучения без сбора реальных данных учащихся, снижая затраты на тестирование.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2306.10356][MATNet: Multi-Level Fusion Transformer-Based Model for Day-Ahead PV Generation Forecasting]] — Трансформер для прогноза генерации солнечной энергии с учетом физических prior.
+- [[hxxps://arxiv.org/abs/2405.13003][A Survey on Recent Advances in Conversational Data Generation]] — Обзор методов генерации синтетических диалоговых данных для обучения систем.
+- [[hxxps://arxiv.org/abs/2410.10398][Are LLMs Socially Adaptive? Contrasting Belief Evolution in Large Language Models and Humans]] — Сравнение эволюции убеждений LLM и людей в социальных дилеммах.
+- [[hxxps://arxiv.org/abs/2410.15236][Jailbreaking and Mitigation of Vulnerabilities in Large Language Models]] — Обзор уязвимостей LLM к инъекциям промтов и стратегий защиты.
+- [[hxxps://arxiv.org/abs/2410.23222][Dataset-Driven Channel Masks in Transformers for Multivariate Time Series]] — Маски каналов в трансформерах для учета зависимостей в временных рядах.
+- [[hxxps://arxiv.org/abs/2205.04297][Learning A Simulation-based Visual Policy for Real-world Peg In Unseen Holes]] — Визуальная политика для робототехники с адаптацией к неизвестным формам.
+- [[hxxps://arxiv.org/abs/2502.16548][A Composable Multimodal Framework for cine CMR-Text-Driven Prediction of Heart Failure Outcomes]] — Мультимодальная модель для прогноза сердечной недостаточности.
+- [[hxxps://arxiv.org/abs/2502.20838][Weakly Supervised Detection and Temporal Localization of Whale Calls in Long-Duration Bioacoustic Data]] — Слабообучаемое обнаружение китовых сигналов в длинных записях.

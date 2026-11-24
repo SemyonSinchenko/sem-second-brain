@@ -1,0 +1,58 @@
+#+TITLE: Daily Digest: 2026-05-26
+#+FROM: [2026-05-25 Mon]
+#+TO: [2026-05-26 Tue]
+#+DATE: [2026-05-26 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+В фокусе внимания оптимизация потребления Kafka через Share Groups для преодоления лимитов партиций. Сообщество активно исследует новые форматы файлов, где Vortex демонстрирует значительный прирост скорости против Parquet. В области ИИ акцент смещается на аудит смещений моделей через сбалансированные датасеты и фундаментальные концепции Python. Инженеры сталкиваются с ограничениями платформ вроде Databricks, где видимость памяти не гарантирует доступность ресурсов для драйвера.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://jack-vanlightly.com/blog/2026/5/25/kafka-share-groups-and-parallelizing-consumption-part-1-tuning-maxpollrecords][Kafka Share Groups and Parallelizing Consumption — Part 1: Tuning max.poll.records]] (jack-vanlightly.com) — Анализ настройки max.poll.records для параллельной обработки сообщений beyond partition count.
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-271][Data Engineering Weekly #271]] (dataengineeringweekly.com) — Подборка кейсов: CDC в Netflix, унификация ingestion в Grab и оценка контента в Meta.
+- [[hxxps://dataengineeringcentral.substack.com/p/benchmarking-vortex-file-format-vs][Benchmarking Vortex File Format ... vs Parquet, CSV ... vs DuckDB, Polars, Datafusion.]] (dataengineeringcentral.substack.com) — Сравнительный тест нового формата Vortex, показывающий ускорение случайного доступа и сканирования.
+- [[hxxps://vutr.substack.com/p/5-insights-to-help-you-learn-any][5 insights to help you learn any open table format faster]] (vutr.substack.com) — Руководство по изучению Iceberg/Hudi/Delta через понимание слоя метаданных как источника истины.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/5/25/kafka-share-groups-and-parallelizing-consumption-part-1-tuning-maxpollrecords][Kafka Share Groups and Parallelizing Consumption — Part 1: Tuning max.poll.records]]
+:SCORE: 9/10
+:WHY: Критично для архитекторов, ищущих способы масштабирования потребления Kafka без увеличения числа партиций.
+**** [[hxxps://dataengineeringcentral.substack.com/p/benchmarking-vortex-file-format-vs][Benchmarking Vortex File Format ... vs Parquet, CSV ... vs DuckDB, Polars, Datafusion.]]
+:SCORE: 8/10
+:WHY: Практические бенчмарки нового инструмента, потенциально меняющего стандарты хранения данных в object storage.
+**** [[hxxps://vutr.substack.com/p/5-insights-to-help-you-learn-any][5 insights to help you learn any open table format faster]]
+:SCORE: 8/10
+:WHY: Систематизирует знание открытых табличных форматов через общую концепцию мета-слоя.
+
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/auditing-model-bias-with-balanced-datasets-with-mimesis][Auditing Model Bias with Balanced Datasets with Mimesis]] (kdnuggets.com) — Использование библиотеки Mimesis для генерации контрфактических датасетов и выявления.bias.
+- [[hxxps://www.kdnuggets.com/5-more-must-know-python-concepts][5 More Must-Know Python Concepts]] (kdnuggets.com) — Обзор фундаментальных концепций Python, необходимых для разработчиков в области данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.kdnuggets.com/auditing-model-bias-with-balanced-datasets-with-mimesis][Auditing Model Bias with Balanced Datasets with Mimesis]]
+:SCORE: 9/10
+:WHY: Обязательный материал для обеспечения справедливости и надежности ML-моделей в продакшене.
+**** [[hxxps://www.kdnuggets.com/5-more-must-know-python-concepts][5 More Must-Know Python Concepts]]
+:SCORE: 7/10
+:WHY: Напоминание о базовых механиках языка, предотвращающее ошибки в сложной логике обработки данных.
+
+** Engineers
+- [[hxxps://clojurecivitas.org/mlp/main.html][Machine learning using Clojure, libpython-clj2, and Pytorch]] (clojurecivitas.org) — Пример реализации машинного обучения на Clojure с интеграцией Pytorch.
+- [[hxxps://blog.devgenius.io/databricks-are-you-babysitting-me-a141480ff534?source=rss-6e4a30cbb0e1------2][Databricks Are You Babysitting Me?]] (blog.devgenius.io) — Разбор ограничений памяти драйвера Spark в single-node режиме несмотря на свободные ресурсы контейнера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://blog.devgenius.io/databricks-are-you-babysitting-me-a141480ff534?source=rss-6e4a30cbb0e1------2][Databricks Are You Babysitting Me?]]
+:SCORE: 8/10
+:WHY: Важное предупреждение о скрытых лимитах платформы, влияющих на стабильность Spark-задач.
+**** [[hxxps://clojurecivitas.org/mlp/main.html][Machine learning using Clojure, libpython-clj2, and Pytorch]]
+:SCORE: 6/10
+:WHY: Интересный кейс интеграции JVM-языков с экосистемой Python ML для специфических задач.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического сообщества LDBC в Бостоне совместно с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность для нетворкинга и обсуждения стандартов графовых баз данных с разработчиками вендоров.

@@ -1,0 +1,67 @@
+#+TITLE: Daily Digest: 2026-07-10
+#+FROM: [2026-07-09 Thu]
+#+TO: [2026-07-10 Fri]
+#+DATE: [2026-07-10 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Вендоры активно внедряют агентный ИИ в инфраструктуру: AWS предлагает автоматизацию миграции схем баз данных через自然语言 в DMS. Инженерия данных фокусируется на наблюдаемости: новый инструмент DataFlint упрощает диагностику производительности Spark, а организационный хаос («налог анархии») съедает до 45% времени команд. Гонка кодирующих моделей ускоряет рефакторинг legacy-проектов, что подтверждается опытом миграции Bun на Rust за 11 дней. Microsoft открывает модель прогнозирования погоды Aurora 1.5, делая акцент на ансамблевом прогнозировании дляenterprise-задач.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://www.kdnuggets.com/running-openclaw-with-ollama][Running OpenClaw with Ollama]] (KDnuggets) — Инструкция по развертыванию приватного AI-ассистента в Telegram через Docker с правильной настройкой контекста.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/mcp-tool-design-practical-approaches-and-tradeoffs/][MCP tool design: Practical approaches and tradeoffs]] (AWS) — Разбор проблем «раздувания» контекста и путаницы при проектировании инструментов для агентных систем.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/][Enhancing enterprise inference on Amazon SageMaker HyperPod...]] (AWS) — Новые возможности HyperPod для захвата данных инференса и ускорения загрузки весов через NVMe.
+- [[hxxps://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/][Aurora 1.5: Extending open foundation models for weather...]] (Microsoft) — Обновление фундаментальной модели для прогноза погоды с поддержкой ансамблей и 22 новыми переменными.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/mcp-tool-design-practical-approaches-and-tradeoffs/][MCP tool design: Practical approaches and tradeoffs]]
+:SCORE: 9/10
+:WHY: Критически важно для разработчиков агентов: предотвращает деградацию производительности LLM из-за неправильного проектирования инструментов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/enhancing-enterprise-inference-on-amazon-sagemaker-hyperpod-with-data-capture-hugging-face-nvme-and-route-53-integration/][Enhancing enterprise inference on Amazon SageMaker HyperPod...]]
+:SCORE: 8/10
+:WHY: Практические улучшения инфраструктуры для продакшн-инференса, включая observability и безопасность.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/][Aurora 1.5: Extending open foundation models for weather...]]
+:SCORE: 7/10
+:WHY: Пример перехода научной модели в enterprise-решение с открытым исходным кодом для специфичных доменов.
+
+** Vendors
+- [[hxxps://aws.amazon.com/blogs/database/accelerate-database-modernization-with-agentic-ai-in-aws-dms-schema-conversion/][Accelerate database modernization with agentic AI in AWS DMS...]] (AWS) — Агенты ИИ теперь оркестрируют полный цикл конвертации схем в AWS DMS через естественный язык.
+- [[hxxps://aws.amazon.com/blogs/database/diagnose-and-resolve-replica-lag-in-amazon-rds-for-oracle-replicas-part-2/][Diagnose and resolve replica lag in Amazon RDS for Oracle...]] (AWS) — Вторая часть гайда: мониторинг лагов реплик через CloudWatch и анализ wait-событий.
+- [[hxxps://aws.amazon.com/blogs/database/optimize-replication-lag-for-amazon-rds-for-oracle-replicas-using-redo-compression-part-1/][Optimize replication lag for Amazon RDS for Oracle...]] (AWS) — Первая часть гайда: использование сжатия redo для оптимизации сетевой задержки в кросс-регион репликах.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического пользовательского сообщества GDC в Бостоне в рамках конференции VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/accelerate-database-modernization-with-agentic-ai-in-aws-dms-schema-conversion/][Accelerate database modernization with agentic AI in AWS DMS...]]
+:SCORE: 9/10
+:WHY: Существенное сокращение времени миграции (в 3 раза) за счет агентной автоматизации рутинных шагов.
+**** [[hxxps://aws.amazon.com/blogs/database/optimize-replication-lag-for-amazon-rds-for-oracle-replicas-using-redo-compression-part-1/][Optimize replication lag for Amazon RDS for Oracle...]]
+:SCORE: 8/10
+:WHY: Конкретная техника (redo compression) для снижения RPO в распределенных Oracle-базах.
+**** [[hxxps://aws.amazon.com/blogs/database/diagnose-and-resolve-replica-lag-in-amazon-rds-for-oracle-replicas-part-2/][Diagnose and resolve replica lag in Amazon RDS for Oracle...]]
+:SCORE: 7/10
+:WHY: Системный подход к диагностике проблем производительности реплик для обеспечения DR-готовности.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from][The Pulse: What can we learn from Bun's rapid Rust rewrite with AI?]] (Pragmatic Engineer) — Анализ ускорения миграции Bun на Rust с помощью ИИ и обзор гонки кодирующих моделей.
+- [[hxxps://joereis.substack.com/p/the-data-anarchy-tax-why-your-team][The Data Anarchy Tax: Why your team is firefighting 45% of the time.]] (Joe Reis) — Исследование организационной дисфункции: отсутствие владельцев данных ведет к потере почти половины рабочего времени.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/the-data-anarchy-tax-why-your-team][The Data Anarchy Tax: Why your team is firefighting 45% of the time.]]
+:SCORE: 9/10
+:WHY: Важное предупреждение о том, что организационный хаос стоит дороже legacy-систем.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from][The Pulse: What can we learn from Bun's rapid Rust rewrite with AI?]]
+:SCORE: 8/10
+:WHY: Реальный кейс использования ИИ для рефакторинга ядра продукта и тренды на рынке AI-кодинга.
+
+** Data Engineering
+- [[hxxps://www.kdnuggets.com/7-steps-to-automating-descriptive-statistics-with-python][7 Steps to Automating Descriptive Statistics with Python]] (KDnuggets) — Автоматизация генерации сводных таблиц статистики в Python для публикации результатов.
+- [[hxxps://medium.com/towards-data-engineering/from-zero-to-dataflint-the-spark-superhero-guide-to-slaying-performance-monsters-89fe2d716f47?source=rss-6e4a30cbb0e1------2][From Zero to DataFlint: The Spark Superhero Guide...]] (Medium) — Обзор инструмента DataFlint для визуальной диагностики перекосов и узких мест в Apache Spark.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/from-zero-to-dataflint-the-spark-superhero-guide-to-slaying-performance-monsters-89fe2d716f47?source=rss-6e4a30cbb0e1------2][From Zero to DataFlint: The Spark Superhero Guide...]]
+:SCORE: 8/10
+:WHY: Утилитарный инструмент для ускорения отладки производительности Spark-джобов без замены архитектуры.
+**** [[hxxps://www.kdnuggets.com/7-steps-to-automating-descriptive-statistics-with-python][7 Steps to Automating Descriptive Statistics with Python]]
+:SCORE: 6/10
+:WHY: Базовая автоматизация рутинных задач анализа данных для повышения эффективности инженера.

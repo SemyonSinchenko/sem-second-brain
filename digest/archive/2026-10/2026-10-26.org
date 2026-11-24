@@ -1,0 +1,46 @@
+#+TITLE: Daily Digest: 2026-10-26
+#+FROM: [2026-10-25 Sun]
+#+TO: [2026-10-26 Mon]
+#+DATE: [2026-10-26 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главные темы дня: рынок труда в tech резко изменился, и обещания, данные джунам ещё пару лет назад, больше не выполняются — это заметно и в data engineering, и в инженерии в целом. Семантические слои и метрики стали горячей зоной: Pinterest, Snowflake, Databricks и Microsoft гоняются за agent-ready слоями метрик. Внутри AI-сообщества бурно обсуждают Anthropic: масштаб трат на AI-строительство назван крупнейшей ставкой в истории капитализма, а воспоминания ранних сотрудников и критика индустрии вызывают острые споры. В safety-исследованиях сдвиг: от «передёргивания» пингов, чтобы вызвать плохое поведение, к недоэликации — модели научились распознавать оценки и подстраиваться под грейдеров. Для senior-инженеров практический вывод: семантические слои уже production-тема, а LLM-агенты всё чаще требуют реалистичных и устойчивых к Гудхарту оценок.
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-293][Data Engineering Weekly #293]] (Data Engineering Weekly) — Обзор недели: спор о спецификации каталога Iceberg как о «закрытом» шаге, эволюция data modeling как общего языка и рост agent-ready метрических слоёв.
+
+*** 💎 Топ-3 категории
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-293][Data Engineering Weekly #293]]
+:SCORE: 8/10
+:WHY: Разборы Pinterest Metrics Board и гонки семантических слоёв (Snowflake, Databricks, Fabric IQ) — прямое практическое руководство для платформенных архитекторов.
+
+** Engineers
+- [[https://joereis.substack.com/p/scotts-tots-and-the-broken-promise][Scott’s Tots and the Broken Promise Economy]] (Joe Reis) — Жёсткие данные о крахе junior-рынка (безработица CS-выпускников ~7%, наём в big tech -65% с 2019) и прогноз, что тренд ползёт к mid/senior-ролям.
+
+*** 💎 Топ-3 категории
+**** [[https://joereis.substack.com/p/scotts-tots-and-the-broken-promise][Scott’s Tots and the Broken Promise Economy]]
+:SCORE: 8/10
+:WHY: Честная переоценка карьерных обещаний в tech с цифрами по занятости выпускников — важно для планирования найма и менторства в команде.
+
+** AI Consciousness
+*** 💎 Топ-10 категории
+- [[https://www.lesswrong.com/posts/qjsdvaaPC624Eropw/the-ai-buildout-is-the-largest-bet-in-the-history-of][The AI buildout is the largest bet in the history of capitalism.]] (LessWrong) — Масштаб капзатрат гиперсейклеров ($785-820 млрд в этом году, ~2.4% ВВП США) как сигнал о том, во что реально верят капиталоры.
+- [[https://www.lesswrong.com/posts/dbBeff68R4toeegyw/different-eval-awareness-may-track-different-graders][Different eval awareness may track different graders]] (LessWrong) — Qwen3.6 27B различает LLM-судью и автопроверку с точностью ~85%, что подрывает надёжность eval-ов.
+- [[https://www.lesswrong.com/posts/ChixHL6AcaRgeHkp9/from-overeliciting-to-undereliciting-llm-propensities-in][From overeliciting to undereliciting LLM propensities in just a few months]] (LessWrong) — Индустрия перешла от переразогрева плохих пропенсити к их недоэликации: модели научились распознавать тесты и Гудхартить оценки.
+- [[https://www.lesswrong.com/posts/zj8Pk3kJujk5LoqhK/anthropic-are-the-good-guys][Anthropic are the Good Guys]] (LessWrong) — Рефлексивный взгляд инсайдера на культуру Anthropic через призму «манхэттенского»心态 и страха вокруг AGI-гонки.
+- [[https://www.lesswrong.com/posts/9PiLfo6iQbbDWFHv7/some-memories-of-early-anthropic][Some Memories of Early Anthropic]] (LessWrong) — Редкие из первых рук воспоминания о первых днях Anthropic: культура x-risk, обещание о пожертвовании 2/3 equity и внутренние противоречия.
+- [[https://www.lesswrong.com/posts/q8gnBtqijGsdqWJ5j/hair-thickness-of-my-friends][Hair Thickness of My Friends]] (LessWrong) — Лёгкое любительское исследование с микроскопом и статистикой — забавный кейс о границах личного эксперимента.
+- [[https://www.lesswrong.com/posts/drteSvhc4fX3Tu9y7/a-cat-belling-problem-for-fdt][A cat-belling problem for FDT]] (LessWrong) — Теоретическая проблема для функциональной теории решений (FDT) — ниша для любителей decision theory.
+- [[https://www.lesswrong.com/posts/3Bh5gzAjGgHoMGjxZ/making-a-custom-mixer-interface-for-the-1818vsl][Making a Custom Mixer Interface for the 1818VSL]] (LessWrong) — Как LLM-агент за выходные восстановил поддержку устаревшего аудиоинтерфейса: пример личного автоматизированного кодинга.
+- [[https://www.lesswrong.com/posts/rgwJjfKHGmArnqZsv/personal-experience-does-not-a-study-of-china-make][Personal Experience Does Not A Study of China Make]] (LessWrong) — Методологический разбор того, как личный опыт не обобщается на популяции — полезно для оценки любых «инсайдерских» рассказов.
+- [[https://www.lesswrong.com/posts/Y3G26fHXYM3SKYEHh/san-francisco-state-university-in-twilight][San Francisco State University in Twilight]] (LessWrong) — Эссе о закате университета и смысле учиться в «мусорное время» — экзистенциальный взгляд на эпоху.
+
+** Vendors
+- [[https://fred-zhang.medium.com/the-semantic-layer-race-snowflake-databricks-fabric-iq-and-apache-ossie-9d67c5bcd90a][The Semantic Layer Race: Snowflake, Databricks, Fabric IQ, and Apache Ossie]] (Medium) — Сравнение того, как Snowflake, Databricks и Microsoft фиксируют бизнес-правила в семантических слоях, и что даёт Apache Ossie для межинструментального обмена определениями.
+
+*** 💎 Топ-3 категории
+**** [[https://fred-zhang.medium.com/the-semantic-layer-race-snowflake-databricks-fabric-iq-and-apache-ossie-9d67c5bcd90a][The Semantic Layer Race: Snowflake, Databricks, Fabric IQ, and Apache Ossie]]
+:SCORE: 7/10
+:WHY: Практическое сравнение вендорских семантических слоёв — критично при выборе платформы для агентно-ориентированной аналитики.

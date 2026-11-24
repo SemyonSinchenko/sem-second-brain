@@ -1,0 +1,152 @@
+#+TITLE: Arxiv Digest: 2026-04-22
+#+FROM: [2026-04-21 Tue]
+#+TO: [2026-04-22 Wed]
+#+DATE: [2026-04-22 Wed]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+За последние сутки наблюдается тренд на оптимизацию низкоуровневой обработки текстовых данных и усиление согласованности в распределенных микросервисах. Особое внимание уделяется ускорению валидации UTF-8 с помощью SIMD и новым моделям управления событиями для облачных приложений. Также представлены продвижения в точном поиске подграфов и выравнивании схем в децентрализованных графах знаний.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2010.03090][Validating UTF-8 In Less Than One Instruction Per Byte]]
+:WHAT: Алгоритм валидации UTF-8, использующий SIMD-инструкции для ускорения обработки.
+:IMPACT: Превышает производительность существующих библиотек более чем в 10 раз, критично для ingest-конвейеров.
+
+- [[hxxps://arxiv.org/abs/2504.19757][vMODB: Unifying Event and Data Management for Distributed Asynchronous Applications]]
+:WHAT: Распределенный фреймворк, объединяющий журналы событий и управление состоянием через абстракцию VMS.
+:IMPACT: Позволяет достигать ACID-гарантий в event-driven архитектуре без ручной координации, ускоряя работу до 3 раз.
+
+- [[hxxps://arxiv.org/abs/2604.19205][Demonstrating Online Schema Alignment in Decentralized Knowledge Graphs Querying]]
+:WHAT: Демонстрация системы онлайн-выравнивания схем для обработки запросов обходом ссылок (LTQP).
+:IMPACT: Обеспечивает полноту результатов запросов в децентрализованных средах с низким оверхедом.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.19116][LIVE: Learnable Monotonic Vertex Embedding for Efficient Exact Subgraph Matching]]
+:ALGO: Фреймворк обучаемых монотонных встраиваний вершин с легким индексом iLabel для отсечения.
+:IMPACT: Значительно превосходит современные методы в эффективности и масштабируемости для больших графов.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.18762][The Public Health and Environmental Surveillance Open Data Model (PHES-ODM) Version 3]] — Обновленная модель данных для стандартизации мониторинга сточных вод и поддержки принципов FAIR.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+В распределенных системах акцент смещается на верификацию корректности протоколов и оптимизацию коммуникаций для задач ИИ. Появляются инструменты для проверки вычислений в сети (in-network computing) и новые механизмы консенсуса для децентрализованного обслуживания агентов. Оптимизация коллективных коммуникаций становится ключевой для масштабирования инференса трансформеров.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.10186][Verifying In-Network Computing Systems for Design Risks]]
+:WHAT: Инструмент INCGuard для верификации систем INC через модельную проверку и спецификацию свойств.
+:IMPACT: Позволяет выявлять риски дизайна (потеря пакетов, порядок) до развертывания, экономя 67% кода спецификаций.
+
+- [[hxxps://arxiv.org/abs/2604.13327][Event Tensor: A Unified Abstraction for Compiling Dynamic Megakernel]]
+:WHAT: Абстракция компилятора для динамических мега-ядер GPU, кодирующая зависимости между задачами.
+:IMPACT: Снижает задержки обслуживания LLM и оверхед прогрева системы за счет слияния операторов.
+
+- [[hxxps://arxiv.org/abs/2604.14561][CoCoDiff: Optimizing Collective Communications for Distributed Diffusion Transformer Inference]]
+:WHAT: Движок инференса DiT с оптимизацией коллективных коммуникаций (TAPA, V-First scheduling).
+:IMPACT: Достигает ускорения до 8.4x на суперкомпьютере Aurora за счет скрытия коммуникаций вычислениями.
+
+- [[hxxps://arxiv.org/abs/2604.18614][HadAgent: Harness-Aware Decentralized Agentic AI Serving with Proof-of-Inference]]
+:WHAT: Децентрализованная система обслуживания ИИ с консенсусом Proof-of-Inference вместо Proof-of-Work.
+:IMPACT: Обеспечивает верификацию вывода LLM со скоростью консенсуса и изолирует злонамеренные узлы.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2604.18615][Locality, Not Spectral Mixing, Governs Direct Propagation in Distributed Offline Dynamic Programming]]
+:ALGO: Анализ сложности коммуникаций распределенного динамического программирования, доказывающий первичность локальности.
+:IMPACT: Показывает, что gossip-алгоритмы неэффективны по сравнению с прямой пропагацией границ на графах зависимостей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.15919][Continuous benchmarking: Keeping pace with an evolving ecosystem of models and technologies]] — Концепция автоматизированного пайплайна бенчмаркинга для высокопроизводительных приложений.
+- [[hxxps://arxiv.org/abs/2503.16251][RESFL: An Uncertainty-Aware Framework for Responsible Federated Learning]] — Фреймворк для баланса приватности и справедливости в федеративном обучении.
+- [[hxxps://arxiv.org/abs/2512.23439][Bitcoin-IPC Whitepaper: Scaling Bitcoin with a Network of Proof-of-Stake Subnets]] — Протокол масштабирования Bitcoin через подсети Layer-2.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Наблюдается рост работ на стыке ИИ и систем: оптимизация GPU-ядер агентами, энергоэффективность FPGA и анализ поведения агентов в играх. Алгоритмы маршрутизации также классифицируются здесь, демонстрируя применение ИИ-подходов к классическим задачам. Важным трендом остается калибровка неопределенности и оценка влияния ИИ-фидбека на пользователей.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2604.18616][ARGUS: Agentic GPU Optimization Guided by Data-Flow Invariants]]
+:WHAT: Агентный фреймворк оптимизации GPU-ядер, использующий инварианты потока данных для обратной связи.
+:IMPACT: Генерирует ядра с производительностью 99-104% от ручных оптимизаций, превосходя другие агентные системы.
+
+- [[hxxps://arxiv.org/abs/2407.05102][Towards Auto-Building of Embedded FPGA-based Soft Sensors for Wastewater Flow Estimation]]
+:WHAT: Автоматизированное решение для оценки потока сточных вод на IoT-устройствах с FPGA.
+:IMPACT: Заполняет пробелы в датасетах и инструментации для энергоэффективных мягких сенсоров.
+
+- [[hxxps://arxiv.org/abs/2407.12027][Idle is the New Sleep: Configuration-Aware Alternative to Powering Off FPGA-Based DL Accelerators]]
+:WHAT: Стратегия ожидания в режиме idle для снижения энергозатрат на конфигурацию FPGA.
+:IMPACT: Увеличивает время жизни системы до 12.39x по сравнению со стратегией включения/выключения.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.11729][Adapting Dijkstra for Buffers and Unlimited Transfers]]
+:ALGO: Модификация Dijkstra (TAD) для маршрутизации в общественном транспорте с учетом буферных времен.
+:IMPACT: Превосходит MR в 2 раза, корректно обрабатывая пересадки и буферы без потери оптимальности.
+
+- [[hxxps://arxiv.org/abs/2603.12592][Early Pruning for Public Transport Routing]]
+:ALGO: Техника раннего отсечения соединений при релаксации пересадок в алгоритмах типа RAPTOR.
+:IMPACT: Сокращает время запроса до 57% без компромиссов в оптимальности маршрутов.
+
+- [[hxxps://arxiv.org/abs/2507.00451][Best Agent Identification for General Game Playing]]
+:ALGO: Процедура идентификации лучшего агента через оптимистичный выбор в задаче многоруких бандитов.
+:IMPACT: Улучшает оценку агентов в многозадачных доменах с ограниченным числом trials.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2409.18660][Who Benefits from AI? Self-Selection, Skill Gap, and the Hidden Costs of AI Feedback]] — Исследование показывает, что ИИ-фидбек увеличивает разрыв в навыках из-за самоотбора пользователей.
+- [[hxxps://arxiv.org/abs/2412.01782][Uncertainty Quantification in Detection Transformers]] — Введена метрика OCE для калибровки неопределенности на уровне объектов в DETR.
+- [[hxxps://arxiv.org/abs/2406.14294][DASB - Discrete Audio and Speech Benchmark]] — Бенчмарк для оценки дискретных аудиотокенов в задачах генерации и классификации.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+В области алгоритмов преобладают теоретические результаты о сложности задач на решетках и справедливом разделении. Представлены улучшенные алгоритмы для паросочетаний и планирования маршрутов с учетом задержек. Также исследуются пороги плотности для задач планирования и свойства сжатых деревьев.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2504.02695][Mind the Gap? Not for SVP Hardness under ETH!]]
+:ALGO: Доказательство ETH-твердости для задач CVP и SVP на решетках через редукцию от MAXLIN.
+:IMPACT: Устанавливает новые нижние границы сложности для фундаментальных задач криптографии и оптимизации.
+
+- [[hxxps://arxiv.org/abs/2510.20288][Smoothed Analysis of Online Metric Matching with a Single Sample]]
+:ALGO: O(1)-конкурентный алгоритм для онлайн-сопоставления в евклидовом пространстве с одним семплом.
+:IMPACT: Преодолевает логарифмический барьер для нетривиальных метрик вне i.i.d. настройки.
+
+- [[hxxps://arxiv.org/abs/2603.22909][Gabow's O(sqrt(n)m) Maximum Cardinality Matching Algorithm, Revisited]]
+:ALGO: Улучшенная итеративная реализация алгоритма максимального паросочетания Габова.
+:IMPACT: Предлагает более прямой подход к вычислению длины augmenting paths, упрощая обучение и реализацию.
+
+- [[hxxps://arxiv.org/abs/2604.16149][Fast and Memory Efficient Multimodal Journey Planning with Delays]]
+:ALGO: Расширение алгоритмов ULTRA/CSA/RAPTOR для учета задержек с оптимизацией памяти.
+:IMPACT: Ускорение в 1.9-4.2 раза при лучшем масштабировании с ростом количества задержек.
+
+- [[hxxps://arxiv.org/abs/2604.18216][A Counterexample to EFX; n >= 3 Agents, m >= n + 5 Items, Monotone Valuations]]
+:ALGO: Контрпример существования EFX-аллокаций для 3 агентов и 8 предметов, найденный через SAT-солвер.
+:IMPACT: Решает отрицательно центральный вопрос теории честного разделения неделимых благ.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.16030][Hardness, Tractability and Density Thresholds of finite Pinwheel Scheduling Variants]] — Анализ сложности и порогов плотности для конечных вариантов планирования Pinwheel.
+- [[hxxps://arxiv.org/abs/2604.18617][The decompressed tree size of k-ary chains]] — Асимптотический анализ размера деревьев для сжатых DAG-цепочек.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования сосредоточены на устойчивости сетей, энергетических следах и динамике сотрудничества. Предложены новые инструменты для оценки углеродного и водного следа электроэнергии. Теоретические работы уточняют парадокс дружбы и влияние динамической неоднородности на кооперацию в сложных системах.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.11623][Wattnet: matching electricity consumption with low-carbon, low-water footprint energy supply]]
+:WHAT: Инструмент для совместной оценки углеродного и водного следа электроэнергии с высоким временным разрешением.
+:IMPACT: Позволяет принимать энерго-осознанные решения, выявляя_trade-offs_ между декарбонизацией и использованием воды.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2511.06176][Two variants of the friendship paradox: The condition for inequality between them]]
+:ALGO: Аналитическая связь между узловыми и моментными формулировками парадокса дружбы через ковариацию степеней.
+:IMPACT: Унифицирует перспективы анализа сетевых парадоксов и связывает их с ассортативностью смешивания.
+
+- [[hxxps://arxiv.org/abs/2604.19436][Dynamical heterogeneity reverses structural suppression of cooperation]]
+:ALGO: Механизм обновления стратегий, учитывающий динамическую неоднородность информации агентов.
+:IMPACT: Показывает, что опора на личную информацию хорошо связанными узлами усиливает кооперацию, вопреки структурным ограничениям.
+
+- [[hxxps://arxiv.org/abs/2604.19302][Node-weighted recurrence analysis for path dynamics on networks]]
+:ALGO: Применение анализа рецидентов (RQA) для траекторий на сетях для выявления паттернов возврата.
+:IMPACT: Помогает понять взаимодействие динамики путей и структуры сети в физических и социальных системах.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2604.18755][Opinion polarization from compression-based decision making where agents optimize local complexity and global simplicity]] — Модель поляризации мнений на основе баланса уникальности и когнитивного сжатия.
+- [[hxxps://arxiv.org/abs/2604.18596][Large language models converge on competitive rationality but diverge on cooperation across providers]] — Анализ стратегического поведения LLM в играх показывает расхождение в кооперации между провайдерами.
+- [[hxxps://arxiv.org/abs/2604.18983][From centrality to productivity: How firms reconfigure technological search in innovation networks?]] — Центральность в сетях инноваций способствует исследовательскому поиску и росту производительности фирм.

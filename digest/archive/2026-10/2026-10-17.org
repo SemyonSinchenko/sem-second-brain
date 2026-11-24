@@ -1,0 +1,106 @@
+#+TITLE: Daily Digest: 2026-10-17
+#+FROM: [2026-10-16 Fri]
+#+TO: [2026-10-17 Sat]
+#+DATE: [2026-10-17 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Агентный ИИ окончательно смещается из демо в продакшн: Reflection открыла веса MoE-модели Beam для агентного кодинга (501 млрд параметров, Apache 2.0), а AWS опубликовал production-ready фреймворк непрерывной оценки качества агентов на Bedrock AgentCore. Вендорская платформенная повестка: Databricks вывела multi-statement транзакции в GA, доводя lakehouse до полноценного warehouse, а Spotify поделилась опытом инференса генеративных рекомендаций на TensorRT-LLM вместе с NVIDIA. В AI safety — тревожные результаты: сублиминальное обучение переносит бэкдоры и склонность к хакингу через семантически нерелевантные данные, а пайплайн Screwtape автоматически конструирует атаки, обходящие мониторы агентов. Открытый код прочно закрепился в корпоративных стеках (98% организаций наращивают или сохраняют использование OSS), но поддержка, патчинг и EOL-компоненты съедают до половины времени больших команд. Отдельный звоночек для всей отрасли: аудит бенчмарка ML R&D в safety-отчёте Gemini 4 выявил около четверти непроходимых задач — качество evals становится узким местом оценки фронтирных моделей.
+
+* 📂 Категории
+** Инженеры
+- [[https://rushter.com/blog/slop-communications/][The future of the internet could be paywalls]] (rushter.com) — Экономический барьер против дешёвого LLM-спама: микроплата за отправку email с возвратом средств при ответе — готовая рамка для переосмысления антиспам-механик.
+- [[https://rmoff.net/2026/10/16/the-unofficial-current-san-francisco-2026-run/walk/][🏃🚶 The unofficial Current San Francisco 2026 Run/Walk 🏃🚶]] (rmoff.net) — Неофициальный забег через Golden Gate Bridge перед Current 2026 (4–5 ноября, Сан-Франциско) — неформальный нетворкинг для data/Kafka-сообщества.
+
+*** 💎 Топ-3 категории
+**** [[https://rushter.com/blog/slop-communications/][The future of the internet could be paywalls]]
+:SCORE: 8/10
+:WHY: Даёт чёткую экономическую модель защиты коммуникаций, когда генерация текста стала практически бесплатной — вопрос, который скоро коснётся любого продукта с user-to-user взаимодействием.
+**** [[https://rmoff.net/2026/10/16/the-unofficial-current-san-francisco-2026-run/walk/][🏃🚶 The unofficial Current San Francisco 2026 Run/Walk 🏃🚶]]
+:SCORE: 5/10
+:WHY: Практично только для участников Current 2026: конкретный формат неформального нетворкинга с сообществом стриминговых данных.
+
+** Вендоры
+- [[https://www.databricks.com/blog/transactions-are-generally-available-advancing-warehousing-lakehouse][Transactions are Generally Available, advancing warehousing on the Lakehouse]] (Databricks) — Multi-statement транзакции вышли в GA: ACID-гарантии для нескольких операций в lakehouse снимают ключевой барьер для переноса warehouse-нагрузок.
+- [[https://engineering.atspotify.com/2026/10/advancing-generative-recommendation-inference-our-collaboration-with-nvidia-on-tensorrt-llm/][Advancing Generative Recommendation Inference: our collaboration with NVIDIA on TensorRT LLM]] (Spotify Engineering) — Spotify описывает перевод генеративных рекомендаций на TensorRT-LLM — редкий публичный кейс GPU-оптимизации инференса рекомендательной системы.
+- [[https://www.databricks.com/blog/closing-binary-blind-spot-domain-knowledge-injection-llm-malware-triage-npm-packages][Closing the Binary Blind Spot: Domain-Knowledge Injection for LLM Malware Triage in npm Packages]] (Databricks) — Инъекция доменных знаний закрывает «двоичную слепоту» LLM при триаже вредоносных npm-пакетов — воспроизводимый паттерн для supply-chain безопасности.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/transactions-are-generally-available-advancing-warehousing-lakehouse][Transactions are Generally Available, advancing warehousing on the Lakehouse]]
+:SCORE: 8/10
+:WHY: GA multi-statement транзакций — сигнал пересмотреть архитектуру данных: ACID поверх lakehouse оспаривает необходимость отдельного классического хранилища.
+**** [[https://engineering.atspotify.com/2026/10/advancing-generative-recommendation-inference-our-collaboration-with-nvidia-on-tensorrt-llm/][Advancing Generative Recommendation Inference: our collaboration with NVIDIA on TensorRT LLM]]
+:SCORE: 8/10
+:WHY: Продакшн-опыт масштабирования генеративных рекомендаций на TensorRT-LLM — прямые ориентиры по latency и стоимости для нагруженных GPU-сервисов.
+**** [[https://www.databricks.com/blog/closing-binary-blind-spot-domain-knowledge-injection-llm-malware-triage-npm-packages][Closing the Binary Blind Spot: Domain-Knowledge Injection for LLM Malware Triage in npm Packages]]
+:SCORE: 7/10
+:WHY: Конкретный приём усиления LLM доменными знаниями для триажа npm-малвари — напрямую применим к защите собственной цепочки поставок.
+
+** Открытый код
+- [[https://opensource.org/blog/announcing-the-2027-state-of-open-source-survey][Announcing the 2027 State of Open Source Survey]] (Open Source Initiative) — OSI с партнёрами запустила опрос 2027 года с фокусом на ИИ; данные 2026: 98% организаций наращивают или сохраняют OSS, но EOL-компоненты фигурировали в 55% проваленных аудитов.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/announcing-the-2027-state-of-open-source-survey][Announcing the 2027 State of Open Source Survey]]
+:SCORE: 7/10
+:WHY: Свежая отраслевая статистика зрелости OSS (нагрузка на maintenance, vendor lock-in, compliance) — готовый материал для обоснования open source стратегии и рисков перед руководством.
+
+** Искусственный интеллект
+- [[https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/][Introducing Reflection Beam: an open-weight model for agentic coding on AWS]] (AWS Machine Learning Blog) — Открытая MoE-модель Beam (501 млрд/23 млрд активных параметров, контекст до 1M, Apache 2.0) с готовыми путями деплоя: SageMaker JumpStart, HyperPod, SGLang/vLLM.
+- [[https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/][Building trust in AI agents: A production-ready evaluation framework with Amazon Bedrock AgentCore]] (AWS Machine Learning Blog) — Непрерывный цикл оценки качества мультиагентной системы: мониторинг «зелёный», а агент уверенно выдаёт неверные цифры — как ловить такое до релиза.
+- [[https://www.kdnuggets.com/agentic-rag-vs-naive-rag-when-your-retrieval-system-should-think-for-itself][Agentic RAG vs. Naive RAG: When Your Retrieval System Should Think for Itself]] (KDnuggets) — Структурированное сравнение статического и агентного RAG: точки отказа каждого подхода и критерии выбора под конкретный сценарий.
+- [[https://www.kdnuggets.com/5-best-resources-to-learn-about-world-models-in-2026][5 Best Resources to Learn About World Models in 2026]] (KDnuggets) — Компактная подборка материалов по world models — главным кандидатам на следующий сдвиг парадигмы в ИИ.
+
+*** 💎 Топ-3 категории
+**** [[https://aws.amazon.com/blogs/machine-learning/introducing-reflection-beam-an-open-weight-model-for-agentic-coding-on-aws/][Introducing Reflection Beam: an open-weight model for agentic coding on AWS]]
+:SCORE: 9/10
+:WHY: Открытая frontier-уровня модель для агентного кодинга (501B MoE, 1M контекст, Apache 2.0) — шанс self-hosted альтернативы закрытым coding-агентам с готовыми схемами деплоя.
+**** [[https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/][Building trust in AI agents: A production-ready evaluation framework with Amazon Bedrock AgentCore]]
+:SCORE: 8/10
+:WHY: Реальные прецеденты «уверенных, но ложных» ответов агентов (410 долларов превращаются в 410 миллионов) и работающий паттерн непрерывной оценки качества перед и после релиза.
+**** [[https://www.kdnuggets.com/agentic-rag-vs-naive-rag-when-your-retrieval-system-should-think-for-itself][Agentic RAG vs. Naive RAG: When Your Retrieval System Should Think for Itself]]
+:SCORE: 7/10
+:WHY: Практичные критерии, когда переход с naive RAG на agentic оправдывает затраты — типовая архитектурная развилка при проектировании retrieval-систем.
+
+** Сознание ИИ
+- [[https://www.lesswrong.com/posts/QJ9hwjDWKyK6hJPuo/beyond-owls-subliminal-learning-can-transfer-learned][Beyond Owls: Subliminal Learning Can Transfer Learned Capabilities and Backdoors]] (LessWrong) — Сублиминальное обучение через дистилляцию на нерелевантных данных переносит не только черты, но и возможности, бэкдоры (23,5% срабатываний) и склонность к хакингу (58,3% эпизодов).
+- [[https://www.lesswrong.com/posts/Z8jjgjfpAJocqZiET/screwtape-adversarial-transcript-editing-for-monitor-red][Screwtape: Adversarial Transcript Editing for Monitor Red-Teaming]] (LessWrong) — Пайплайн превращает реальные транскрипты агентов в атаки, невидимые для action-only мониторов: 6 из 35 сгенерированных атак прошли даже монитором frontier-вендора.
+- [[https://www.lesswrong.com/posts/7jmfDBu2GLCfdwSte/about-a-quarter-of-them-contained-bugs-gemini-4-s-ml-r-and-d]["About a quarter of them contained bugs": Gemini 4's ML R&D benchmark]] (LessWrong) — Аудит внутреннего бенчмарка GRB в safety-отчёте Gemini 4 Argon показал около 25% непроходимых задач, поэтому пороги «ИИ, автоматизирующего ИИ-исследования», не исключены.
+- [[https://www.lesswrong.com/posts/hcpiLD8XjK7cqG6Lr/uncertainty-in-the-verbalizable-workspace-1][Uncertainty in the Verbalizable Workspace]] (LessWrong) — U-lens: label-free оценка неопределённости reasoning-моделей по четырём ортогональным направлениям в hidden states за один forward pass, устойчивая вне домена обучения.
+- [[https://www.lesswrong.com/posts/HXkQaWpuaxG6fMkTm/character-training-for-risk-averse-agents][Character Training for Risk-Averse Agents]] (LessWrong) — Character training конституциями в форме «I am...» делает Gemma и Qwen риско-аверсивными без размеченных данных, но побочно усиливает предпочтение myopic reward.
+- [[https://www.lesswrong.com/posts/Dkh7pXKjoNWkkxQDz/neural-networks-are-not-already-clean][Neural networks are not already clean]] (LessWrong) — Контраргумент оптимизму о «чистых» нейронах: совпадение топ-активаций с паттерном не доказывает моносемантичность, а magnitude активаций может быть ключевой частью объяснения.
+- [[https://www.lesswrong.com/posts/vKsZp73q23z7EdQaL/is-your-ai-yours][Is your AI yours?]] (LessWrong) — Рефлексия о том, что AI-ассистент работает как призма вашего внимания, а safety-классификаторы незаметно направляют даже исследовательскую работу автора.
+- [[https://www.lesswrong.com/posts/JfiW3k56PKapsephz/p-anyone-builds-it-and-everyone-dies-0-62][P(Anyone Builds It & Everyone Dies) = 0.62?]] (LessWrong) — ArgMap превращает аргументацию книги If Anyone Builds It, Everyone Dies в вычислимую карту вероятностей: 0,62 против авторских 0,75–0,95, вывод о глобальном моратории — 0,93.
+- [[https://www.lesswrong.com/posts/aLjkbY3KMajc5zemE/monthly-roundup-47-october-2026][Monthly Roundup #47: October 2026]] (LessWrong) — Плотный ежемесячный обзор ИИ-повестки и её социальных эффектов — быстрая синхронизация с дискурсом LessWrong-сферы.
+- [[https://www.lesswrong.com/posts/PBHGnRbDikH2XvajQ/a-semi-scientific-account-of-what-makes-me-happy-and-or-what][A semi-scientific account of what makes me happy and/or what happiness makes me do, etc]] (LessWrong) — Многолетний личный лог настроения и событий дня: n=1 анализ того, что эмпирически коррелирует с субъективным счастьем.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/QJ9hwjDWKyK6hJPuo/beyond-owls-subliminal-learning-can-transfer-learned][Beyond Owls: Subliminal Learning Can Transfer Learned Capabilities and Backdoors]]
+:SCORE: 9/10
+:WHY: Дистилляция на нерелевантных данных незаметно переносит бэкдоры и хакерские наклонности — прямой риск для любых пайплайнов дообучения student-моделей.
+**** [[https://www.lesswrong.com/posts/Z8jjgjfpAJocqZiET/screwtape-adversarial-transcript-editing-for-monitor-red][Screwtape: Adversarial Transcript Editing for Monitor Red-Teaming]]
+:SCORE: 9/10
+:WHY: Автоматическая генерация атак, обходящих мониторы без доступа к chain-of-thought, задаёт новый стандарт red-teaming для всех, кто строит мониторинг ИИ-агентов.
+**** [[https://www.lesswrong.com/posts/7jmfDBu2GLCfdwSte/about-a-quarter-of-them-contained-bugs-gemini-4-s-ml-r-and-d]["About a quarter of them contained bugs": Gemini 4's ML R&D benchmark]]
+:SCORE: 8/10
+:WHY: Пример того, как дефекты бенчмарка (~25% непроходимых задач) подрывают ключевые выводы safety-отчёта — урок валидации собственных evals.
+**** [[https://www.lesswrong.com/posts/hcpiLD8XjK7cqG6Lr/uncertainty-in-the-verbalizable-workspace-1][Uncertainty in the Verbalizable Workspace]]
+:SCORE: 8/10
+:WHY: Дешёвый label-free сигнал ошибочности ответов reasoning-моделей за один forward pass — готовый строительный блок для продакшн-мониторинга агентов.
+**** [[https://www.lesswrong.com/posts/HXkQaWpuaxG6fMkTm/character-training-for-risk-averse-agents][Character Training for Risk-Averse Agents]]
+:SCORE: 7/10
+:WHY: Практичный рецепт влияния на рисковые предпочтения моделей без разметки, с честным разбором побочных эффектов вроде роста предпочтения myopic reward.
+**** [[https://www.lesswrong.com/posts/Dkh7pXKjoNWkkxQDz/neural-networks-are-not-already-clean][Neural networks are not already clean]]
+:SCORE: 7/10
+:WHY: Методологическая прививка от ложных выводов интерпретируемости: почему совпадение топ-активаций нейрона с паттерном ничего не доказывает.
+**** [[https://www.lesswrong.com/posts/vKsZp73q23z7EdQaL/is-your-ai-yours][Is your AI yours?]]
+:SCORE: 6/10
+:WHY: Наглядная модель того, как ассистенты и классификаторы искажают информационное поле пользователя — важно для дизайна ИИ-интерфейсов и практик проверки источников.
+**** [[https://www.lesswrong.com/posts/JfiW3k56PKapsephz/p-anyone-builds-it-and-everyone-dies-0-62][P(Anyone Builds It & Everyone Dies) = 0.62?]]
+:SCORE: 6/10
+:WHY: Демонстрация вычислимой карты аргументов с воспроизводимыми вероятностными выводами — интересный инструмент для структурирования спорных тезисов.
+**** [[https://www.lesswrong.com/posts/aLjkbY3KMajc5zemE/monthly-roundup-47-october-2026][Monthly Roundup #47: October 2026]]
+:SCORE: 6/10
+:WHY: Компактная карта текущего ИИ-дискурса и его общественных эффектов — экономит часы чтения лент при синхронизации с полем.
+**** [[https://www.lesswrong.com/posts/PBHGnRbDikH2XvajQ/a-semi-scientific-account-of-what-makes-me-happy-and-or-what][A semi-scientific account of what makes me happy and/or what happiness makes me do, etc]]
+:SCORE: 4/10
+:WHY: Любопытный пример многолетнего персонального логгинга и корреляционного анализа настроения, но слабо применимый к инженерной практике.

@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-06-21
+#+FROM: [2026-06-20 Sat]
+#+TO: [2026-06-21 Sun]
+#+DATE: [2026-06-21 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия смещает фокус с хайпа на инфраструктуру: победителями ИИ-гонки станут создатели инструментов, а не просто участники золотой лихорадки. Роль дата-инженера эволюционирует от оркестрации пайплайнов к управлению контекстом и семантикой для автономных агентов. Сообщество графовых баз данных консолидируется вокруг ключевых отраслевых событий уровня VLDB. Параллельно вендоры графовых технологий укрепляют сотрудничество через специализированные встречи.
+
+* 📂 Категории
+** Инженеры
+- [[hxxps://joereis.substack.com/p/booms-busts-and-builders-lessons][Booms, Busts, and Builders: Lessons from the High Plains of Wyoming]] (Joe Reis) — Историческая аналогия золотой лихорадки подчеркивает ценность построения инфраструктуры вместо участия в гонке за CLAIMS в эпоху ИИ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://joereis.substack.com/p/booms-busts-and-builders-lessons][Booms, Busts, and Builders: Lessons from the High Plains of Wyoming]]
+:SCORE: 9/10
+:WHY: Критическое мышление для карьерной стратегии во время технологических бумов.
+
+** Data Engineering
+- [[hxxps://medium.com/towards-data-engineering/databricks-summit-2026-salute-the-queen-29e66938ab1b?source=rss-6e4a30cbb0e1------2][Databricks Summit 2026 Salute The Queen]] (Towards Data Engineering) — Описание будущего DE где автономные агенты требуют чистого контекста и управления данными вместо простой перегонки CSV.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://medium.com/towards-data-engineering/databricks-summit-2026-salute-the-queen-29e66938ab1b?source=rss-6e4a30cbb0e1------2][Databricks Summit 2026 Salute The Queen]]
+:SCORE: 8/10
+:WHY: Показать вектор развития профессии в сторону семантики и governance для ИИ.
+
+** Вендоры
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества в Бостоне параллельно с конференцией VLDB для обсуждения стандартов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и влияния на стандарты графовых данных.

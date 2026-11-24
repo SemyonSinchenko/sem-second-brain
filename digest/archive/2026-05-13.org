@@ -1,0 +1,93 @@
+#+TITLE: Daily Digest: 2026-05-13
+#+FROM: [2026-05-12 Tue]
+#+TO: [2026-05-13 Wed]
+#+DATE: [2026-05-13 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Фокус индустрии смещается на практическое применение ИИ в инженерии данных и соблюдение регуляторных требований, таких как EU AI Act. Инфраструктурные гиганты вроде Meta делятся опытом миграции систем ingestion в петабайтном масштабе с гарантией целостности. Экосистема Lakehouse развивается через поддержку наносекундных временных меток и автоматизацию схем через ИИ-агентов. Одновременно переосмысливается концепция «серебряной пули» в разработке ПО в контексте современной продуктивности и генеративного ИИ.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/][Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models]] (Microsoft) — Экспериментальное подтверждение предсказаний ИИ-модели MatterSim для синтеза материалов с высокой теплопроводностью.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-amazon-finance-streamlines-regulatory-inquiries-by-using-generative-ai-on-aws/][How Amazon Finance streamlines regulatory inquiries by using generative AI on AWS]] (AWS) — Пример внедрения RAG на AWS Bedrock для автоматизации обработки регуляторных запросов в финансовом подразделении.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/navigating-eu-ai-act-requirements-for-llm-fine-tuning-on-amazon-sagemaker-ai/][Navigating EU AI Act requirements for LLM fine-tuning on Amazon SageMaker AI]] (AWS) — Руководство по отслеживанию FLOPs при fine-tuning LLM на SageMaker для соответствия требованиям EU AI Act.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/automate-schema-generation-for-intelligent-document-processing/][Automate schema generation for intelligent document processing]] (AWS) — Автоматизация создания схем для обработки документов с помощью визуальных эмбеддингов и агентом на базе LLM.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/advancing-ai-for-materials-with-mattersim-experimental-synthesis-faster-simulation-and-multi-task-models/][Advancing AI for materials with MatterSim: experimental synthesis, faster simulation, and multi-task models]]
+:SCORE: 9/10
+:WHY: Демонстрирует редкий случай валидации AI-предсказаний реальным физическим экспериментом, что важно для оценки зрелости научных ИИ-моделей.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/navigating-eu-ai-act-requirements-for-llm-fine-tuning-on-amazon-sagemaker-ai/][Navigating EU AI Act requirements for LLM fine-tuning on Amazon SageMaker AI]]
+:SCORE: 8/10
+:WHY: Критически важно для инженеров, работающих с LLM в Европе, из-за новых юридических обязательств по отслеживанию вычислительных ресурсов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-amazon-finance-streamlines-regulatory-inquiries-by-using-generative-ai-on-aws/][How Amazon Finance streamlines regulatory inquiries by using generative AI on AWS]]
+:SCORE: 7/10
+:WHY: Практический кейс внедрения GenAI в регуляторный комплаенс с акцентом на аудит и предотвращение галлюцинаций модели.
+
+** Data Engineering
+- [[hxxps://engineering.fb.com/2026/05/12/data-infrastructure/migrating-data-ingestion-systems-at-meta-scale/][Migrating Data Ingestion Systems at Meta Scale]] (Meta) — Опыт миграции системы ingestion на петабайтном масштабе с гарантией целостности данных и отсутствием регрессии latency.
+- [[hxxps://www.kdnuggets.com/using-polars-instead-of-pandas-performance-deep-dive/][Using Polars Instead of Pandas: Performance Deep Dive]] (KDnuggets) — Сравнение производительности Polars и Pandas на реальных задачах демонстрирует преимущество первого в скорости и использовании памяти.
+- [[hxxps://www.dremio.com/blog/using-claude-code-to-build-an-iceberg-lakehouse/][Using Claude Code to Build an Iceberg Lakehouse]] (Dremio) — Использование Claude Code для автоматизации построения Lakehouse архитектуры на базе Apache Iceberg без глубоких знаний SQL.
+- [[hxxps://www.dremio.com/blog/dremio-nanosecond-timestamp-precision/][Sub-Microsecond Timestamps: Dremio's Iceberg v3 Precision Support]] (Dremio) — Поддержка наносекундных временных меток в Iceberg v3 важна для высокочастотных данных и точного секвенирования событий.
+- [[hxxps://aws.amazon.com/blogs/database/filter-transform-and-load-your-dynamodb-table-exports-using-aws-glue/][Filter, transform, and load your DynamoDB table exports using AWS Glue]] (AWS) — Инструменты для контролируемой загрузки и трансформации экспортов DynamoDB через AWS Glue.
+- [[hxxps://aws.amazon.com/blogs/database/migrating-amazon-rds-for-postgresql-to-aurora-using-seeded-logical-replication/][Migrating Amazon RDS for PostgreSQL to Amazon Aurora using seeded logical replication]] (AWS) — Решение проблемы расхождения LSN при логической репликации между RDS и Aurora для тестирования нагрузок.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/05/12/data-infrastructure/migrating-data-ingestion-systems-at-meta-scale/][Migrating Data Ingestion Systems at Meta Scale]]
+:SCORE: 9/10
+:WHY: Уникальный инсайд о миграции данных петабайтного масштаба с акцентом на стратегии rollback и проверку целостности.
+**** [[hxxps://www.kdnuggets.com/using-polars-instead-of-pandas-performance-deep-dive/][Using Polars Instead of Pandas: Performance Deep Dive]]
+:SCORE: 8/10
+:WHY: Конкретные бенчмарки для принятия решения о переходе на Polars в продакшене, что актуально для оптимизации pipelines.
+**** [[hxxps://www.dremio.com/blog/using-claude-code-to-build-an-iceberg-lakehouse/][Using Claude Code to Build an Iceberg Lakehouse]]
+:SCORE: 7/10
+:WHY: Показывает потенциал ИИ-агентов в снижении порога входа для создания сложной инфраструктуры данных.
+
+** Engineers
+- [[hxxps://newsletter.pragmaticengineer.com/p/revisiting-no-silver-bullets-in-the][Revisiting "No Silver Bullets" in the age of AI]] (Pragmatic Engineer) — Анализ актуальности эссе Фредерика Брукса в контексте современной продуктивности разработчиков и влияния ИИ-агентов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/revisiting-no-silver-bullets-in-the][Revisiting "No Silver Bullets" in the age of AI]]
+:SCORE: 9/10
+:WHY: Глубокое философское и практическое осмысление роли ИИ в инженерии, важное для формирования стратегии развития команды.
+
+** Open Source
+- [[hxxps://www.databricks.com/blog/convergence-open-table-formats-and-open-catalogs-catalog-commits-generally-available/][The Convergence of Open Table Formats and Open Catalogs: Catalog Commits is Generally Available]] (Databricks) — Доступность Catalog Commits для унификации открытых табличных форматов и каталогов в экосистеме Lakehouse.
+- [[hxxps://www.databricks.com/blog/faster-queries-and-new-capabilities-open-source-databricks-jdbc-driver/][Faster Queries and New Capabilities with the Open-Source Databricks JDBC Driver]] (Databricks) — Обновление открытого JDBC драйвера Databricks с улучшенной производительностью запросов и новыми возможностями.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/convergence-open-table-formats-and-open-catalogs-catalog-commits-generally-available/][The Convergence of Open Table Formats and Open Catalogs: Catalog Commits is Generally Available]]
+:SCORE: 8/10
+:WHY: Важный шаг к интероперабельности в экосистеме Data Lakehouse, влияющий на выбор инструментов хранения метаданных.
+**** [[hxxps://www.databricks.com/blog/faster-queries-and-new-capabilities-open-source-databricks-jdbc-driver/][Faster Queries and New Capabilities with the Open-Source Databricks JDBC Driver]]
+:SCORE: 7/10
+:WHY: Обновление драйвера может существенно повлиять на производительность BI-инструментов и внутренних дашбордов.
+
+** Vendors
+- [[hxxps://www.databricks.com/blog/announcing-native-lakehouse-sync/][Announcing Native Lakehouse Sync from Lakebase]] (Databricks) — Анонс Native Lakehouse Sync от Lakebase для упрощения синхронизации данных в архитектуре Lakehouse.
+- [[hxxps://www.databricks.com/blog/rise-sports-intelligence-how-lakehouse-turns-tracking-data-competitive-advantage/][The Rise of Sports Intelligence: How the Lakehouse Turns Tracking Data into Competitive Advantage]] (Databricks) — Использование данных трекинга и Lakehouse для получения конкурентного преимущества в спортивной аналитике.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/announcing-native-lakehouse-sync/][Announcing Native Lakehouse Sync from Lakebase]]
+:SCORE: 6/10
+:WHY: Может упростить архитектуру синхронизации для пользователей экосистемы Databricks, снижая операционные издержки.
+**** [[hxxps://www.databricks.com/blog/rise-sports-intelligence-how-lakehouse-turns-tracking-data-competitive-advantage/][The Rise of Sports Intelligence: How the Lakehouse Turns Tracking Data into Competitive Advantage]]
+:SCORE: 5/10
+:WHY: Интересный use-case обработки потоковых данных в реальном времени, применимый в других доменах IoT.
+
+** Non Engineering
+- [[hxxps://www.databricks.com/blog/how-cfos-consulting-can-recover-margin-databricks/][How CFOs in consulting can recover margin with Databricks]] (Databricks) — Как CFO консалтинговых фирм могут восстановить маржинальность с помощью аналитики на Databricks.
+- [[hxxps://www.databricks.com/blog/announcing-databricks-student-fellows/][Announcing Databricks Student Fellows]] (Databricks) — Программа поддержки студентов для развития лидерских качеств в области данных и ИИ.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества LDBC в Бостоне, посвященной графовым базам данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/how-cfos-consulting-can-recover-margin-databricks/][How CFOs in consulting can recover margin with Databricks]]
+:SCORE: 6/10
+:WHY: Полезно для инженеров, взаимодействующих с бизнесом, чтобы понимать драйверы стоимости дата-платформ.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность нетворкинга и обмена опытом для специалистов по графовым технологиям.
+**** [[hxxps://www.databricks.com/blog/announcing-databricks-student-fellows/][Announcing Databricks Student Fellows]]
+:SCORE: 4/10
+:WHY: Информация о развитии сообщества и возможностях для менторства新一代 инженеров.

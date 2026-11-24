@@ -1,0 +1,34 @@
+#+TITLE: Daily Digest: 2026-06-22
+#+FROM: [2026-06-21 Sun]
+#+TO: [2026-06-22 Mon]
+#+DATE: [2026-06-22 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+Семантический слой становится ключевым архитектурным паттерном для управления контекстом GenAI и согласованности метрик, о чем говорят кейсы MIT и Lyft. Инженеры данных возвращаются к фундаментальным принципам идемпотентности для обеспечения надежности пайплайнов при повторных запусках. Сообщество LDBC планирует встречу для обсуждения бенчмарков графовых баз данных, что важно для вендоров и пользователей graph-tech.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-275][Data Engineering Weekly #275]] (Data Engineering Weekly) — Сборник материалов о внедрении семантических слоев для AI и практике идемпотентности в нагрузках данных.
+- [[hxxps://cisr.mit.edu/publication/2026_0501_SemanticLayer_LefebvreWixomLegnerVandermeulenBeath][MIT CISR: The Case for a Semantic Layer]] (MIT CISR) — Исследование показывает, как семантический слой предотвращает галлюцинации GenAI через бизнес-правила.
+- [[hxxps://eng.lyft.com/metric-semantic-layer-how-lyft-governs-and-scales-key-data-definitions-56bee3643c29][Lyft: Metric Semantic Layer: How Lyft Governs and Scales Key Data Definitions]] (Lyft Engineering) — Описание подхода Lyft к управлению метриками через YAML и Jinja SQL для единой версии правды.
+- [[hxxps://medium.com/@halanmyanime/idempotency-in-data-engineering-the-quiet-property-that-saves-your-pipelines-22ee357f37b2][Mohammed Benaissa: Idempotency in Data Engineering - The Quiet Property That Saves Your Pipelines]] (Medium) — Практическое руководство по обеспечению идемпотентности задач обработки данных через deterministic key.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://eng.lyft.com/metric-semantic-layer-how-lyft-governs-and-scales-key-data-definitions-56bee3643c29][Lyft: Metric Semantic Layer: How Lyft Governs and Scales Key Data Definitions]]
+:SCORE: 9/10
+:WHY: Конкретная реализация семантического слоя на Python/YAML решает проблему разрозненности метрик в масштабных командах.
+**** [[hxxps://medium.com/@halanmyanime/idempotency-in-data-engineering-the-quiet-property-that-saves-your-pipelines-22ee357f37b2][Mohammed Benaissa: Idempotency in Data Engineering - The Quiet Property That Saves Your Pipelines]]
+:SCORE: 8/10
+:WHY: Напоминание о критической важности идемпотентности для отказоустойчивости пайплайнов при retry-логике.
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-275][Data Engineering Weekly #275]]
+:SCORE: 8/10
+:WHY: Центральная подборка недели, связывающая теорию семантических слоев с практикой платформы данных.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества GDC в Бостоне для обсуждения стандартов бенчмаркинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность влияния на стандарты бенчмарков графовых баз данных и нетворкинг с вендорами индустрии.

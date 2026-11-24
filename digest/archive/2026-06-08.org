@@ -1,0 +1,45 @@
+#+TITLE: Daily Digest: 2026-06-08
+#+FROM: [2026-06-07 Sun]
+#+TO: [2026-06-08 Mon]
+#+DATE: [2026-06-08 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 день
+В архитектуре Lake House наблюдается сдвиг в сторону безопасной конкурентной записи через DuckDB и Unity Catalog без тяжелых кластеров Spark. Инженеры сталкиваются со скрытыми узкими местами в ClickHouse и проблемами синхронизации времени событий в Apache Flink при биллинге. Сообщество AI делится опытом неудачных хаакатон-проектов, а макроэкономические тренды продолжают оказывать влияние на технологический сектор.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/delta-lake-duckdb-catalog-commits][Delta Lake + DuckDB. Catalog Commits with Unity Catalog. Unlocking Concurrent Ingestion.]] (Data Engineering Central) — Разбор безопасной конкурентной записи в Delta Lake через DuckDB, позволяющей избежать开销 кластеров Spark в продакшене.
+- [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-273][Data Engineering Weekly #273]] (Data Engineering Weekly) — Подборка кейсов: устранение contention в ClickHouse и корректная обработка event time в Apache Flink для биллинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/delta-lake-duckdb-catalog-commits][Delta Lake + DuckDB. Catalog Commits with Unity Catalog. Unlocking Concurrent Ingestion.]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов данных, стремящихся упростить стек и снизить затраты на compute без потери транзакционной целостности.
+**** [[hxxps://www.dataengineeringweekly.com/p/data-engineering-weekly-273][Data Engineering Weekly #273]]
+:SCORE: 8/10
+:WHY: Содержит конкретные инженерные решения по оптимизации ClickHouse и Flink, применимые в высоконагруженных системах.
+
+** Artificial Intelligence
+- [[hxxps://huggingface.co/blog/build-small-hackathon/amazingdigitaldentures][Amazing Digital Dentures (a failed project)]] (Hugging Face) — Пост-мортем неудачного проекта цифровых зубных протезов, демонстрирующий риски быстрого прототипирования в AI.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/build-small-hackathon/amazingdigitaldentures][Amazing Digital Dentures (a failed project)]]
+:SCORE: 6/10
+:WHY: Полезный пример анализа неудачи для понимания ограничений текущих моделей генерации в специфичных доменах.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/the-structural-demographic-state-1d9][The Structural-Demographic State of America VI]] (Peter Turchin) — Обновление структурно-демографических данных США до 2025 года, показывающее сохранение негативных трендов в благополучии.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/the-structural-demographic-state-1d9][The Structural-Demographic State of America VI]]
+:SCORE: 5/10
+:WHY: Дает контекст макроэкономической стабильности, который косвенно влияет на долгосрочное планирование в технологической индустрии.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического пользовательского сообщества LDBC в Бостоне, совмещенной с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность нетворкинга и обмена опытом с разработчиками графовых баз данных и аналитических систем.

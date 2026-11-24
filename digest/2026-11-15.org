@@ -1,0 +1,63 @@
+#+TITLE: Daily Digest: 2026-11-15
+#+FROM: [2026-11-14 Sat]
+#+TO: [2026-11-15 Sun]
+#+DATE: [2026-11-15 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Мир разработки продолжает смещать фокус на эффективность: в области инжиниринга данных ZSTD стал ключевым стандартом сжатия, превосходя Snappy по комбинации скорости и соотношения сжатия. Отдельного внимания заслуживают активные изменения в экосистеме Open Source, где авторы продолжают делиться опытом поддержки и разработки крупных проектов, таких как Emacs. Параллельно происходит глубокая интеллектуальная дискуссия о будущем ИИ, где исследователи анализируют концепции вычислительных множителей и стратегии «поимки» сверхразумных моделей. Все это дополняется философскими обзорами — от аналогии исторической литературы до футурологических календарей для новой эпохи.
+
+* 📂 Категории
+
+** Data Engineering
+- [[https://www.lesswrong.com/posts/zXj7nQfK2bWfE1C30/why-data-engineers-are-switching](https://www.lesswrong.com/posts/zXj7nQfK2bWfE1C30/why-data-engineers-are-switching)] (Why Data Engineers Are Switching to ZSTD Compression) — Детальный разбор причин перехода инженеров данных на алгоритм ZSTD, который предлагает оптимальный баланс между скоростью и степенью сжатия.
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop/](hxxps://www.ssp.sh/blog/cynthia-dunlop/)] (We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)) — Интервью о методиках написания технической литературы для разработчиков и процессе создания книг по инжинирингу.
+
+** Engineers
+- [[https://xenodium.com/my-emacs-31-contributions](https://xenodium.com/my-emacs-31-contributions)] (My Emacs 31 contributions) — Автор описывает опыт внесения улучшений в код Emacs 31, включая устранение проблем с разрешениями macOS.
+- [[https://xenodium.com/my-emacs-31-grains](https://xenodium.com/my-emacs-31-grains)] (My Emacs 31 grains) — Обсуждение специфики внесения правок в крупный проект с богатой историей и вызовы, стоящие перед открытым ПО.
+- [[https://rmoff.net/2026/11/14/itches-i-have-scratched-november-2026/](https://rmoff.net/2026/11/14/itches-i-have-scratched-november-2026/)] (Itches I Have Scratched (November 2026)) — Личный отчет о техническом развитии, подчеркивающий роль агентского кодирования в современной разработке.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/JbJXu3LzN7RxmnFpG/visualizing-the-difficulty-of-ai-alignment](https://www.lesswrong.com/posts/JbJXu3LzN7RxmnFpG/visualizing-the-difficulty-of-ai-alignment)] (Visualizing the Difficulty of AI Alignment) — Представление картины сложности проблем согласования ИИ через метафору ландшафта приспособленности.
+- [[https://www.lesswrong.com/posts/WKt2mqJrsFuMiszed/trying-to-understand-that-compute-multiplier-graph](https://www.lesswrong.com/posts/WKt2mqJrsFuMiszed/trying-to-understand-that-compute-multiplier-graph)] (Trying to understand that compute multiplier graph) — Анализ графиков Anthropic, показывающих потенциальный 30000-кратный скачок эффективности обучения моделей.
+- [[https://www.lesswrong.com/posts/pzdfkxeG2CMsDWixs/wargames-inform-present-policy-not-future-incident-response](https://www.lesswrong.com/posts/pzdfkxeG2CMsDWixs/wargames-inform-present-policy-not-future-incident-response)] (Wargames inform present policy, not future incident response) — Гипотеза о том, что фиксация попыток ИИ «сбежать» позволяет эффективно контролировать и анализировать поведение моделей.
+- [[https://www.lesswrong.com/posts/oCX2KjEL6mLDCsq77/a-digital-security-checklist-for-the-ai-age](https://www.lesswrong.com/posts/oCX2KjEL6mLDCsq77/a-digital-security-checklist-for-the-ai-age)] (A digital security checklist for the AI age) — Рассмотрение фундаментальных угроз в кибербезопасности, вызванных экспоненциальным ростом возможностей ИИ.
+- [[https://www.lesswrong.com/posts/WgG5M9ZZ2C5KawYP5/protesting-for-ai-regulation](https://www.lesswrong.com/posts/WgG5M9ZZ2C5KawYP5/protesting-for-ai-regulation)] (Protesting For AI Regulation) — Репортаж с протестов в поддержку регулирования ИИ и необходимости повышения общественной осведомленности о его рисках.
+- [[https://www.lesswrong.com/posts/CzZR4ZcJoCNi2zqFn/the-oldest-text-in-the-training-data](https://www.lesswrong.com/posts/CzZR4ZcJoCNi2zqFn/the-oldest-text-in-the-training-data)] (The Oldest Text in the Training Data) — Поиск самого древнего текста в обучающих данных Claude, обнаружив древние шумерские надписи в архивах.
+- [[https://www.lesswrong.com/posts/Kfhuxfqh95aGEdpgt/a-calendar-for-the-age-of-ai-aa](https://www.lesswrong.com/posts/Kfhuxfqh95aGEdpgt/a-calendar-for-the-age-of-ai-aa)] (A calendar for the age of AI: AA) — Предложение новой системы хронологии для эпохи ИИ, начиная с прорыва в архитектуре трансформеров.
+- [[https://www.lesswrong.com/posts/bMsQ44sKqrFWjuHPb/on-the-brutality-of-amdahl-s-law](https://www.lesswrong.com/posts/bMsQ44sKqrFWjuHPb/on-the-brutality-of-amdahl-s-law)] (On the Brutality of Amdahl's Law) — Аргументация о том, что текущий темп прогресса ИИ сдерживается не вычислительными мощностями, а базовыми системными ограничениями.
+- [[https://www.lesswrong.com/posts/8Y3DB9qAhxxHnegiJ/embryo-selection-and-economic-discounting](https://www.lesswrong.com/posts/8Y3DB9qAhxxHnegiJ/embryo-selection-and-economic-discounting)] (Embryo selection and economic discounting) — Прогнозирование будущего медицины и этические последствия отбора эмбрионов с учетом дисконтирования будущих технологий.
+
+** Non Engineering
+- [[https://peterturchin.substack.com/p/war-and-peace-and-war-twenty-years-df9](https://peterturchin.substack.com/p/war-and-peace-and-war-twenty-years-df9)] (War and Peace and War: Twenty Years After) — Использование GPT-6.1 для анализа исторических паттернов и формулирования прогнозов для современных обществ.
+
+* 💎 Топ-3 категории
+
+** Engineers
+**** [[https://www.lesswrong.com/posts/zXj7nQfK2bWfE1C30/why-data-engineers-are-switching](https://www.lesswrong.com/posts/zXj7nQfK2bWfE1C30/why-data-engineers-are-switching)] (Why Data Engineers Are Switching to ZSTD Compression)
+:SCORE: 9/10
+:WHY: Технически глубокий взгляд на оптимизацию пайплайнов, важный для любой крупной инженерной системы.
+**** [[https://xenodium.com/my-emacs-31-contributions](https://xenodium.com/my-emacs-31-contributions)] (My Emacs 31 contributions)
+:SCORE: 8/10
+:WHY: Показывает реальные трудности взаимодействия с крупными, старыми кодовыми базами и экосистемами Open Source.
+**** [[https://rmoff.net/2026/11/14/itches-i-have-scratched-november-2026/](https://rmoff.net/2026/11/14/itches-i-have-scratched-november-2026/)] (Itches I Have Scratched (November 2026))
+:SCORE: 7/10
+:WHY: Ценный взгляд на эволюцию разработчика в эпоху появления нейросетевых агентов.
+
+** AI Consciousness
+**** [[https://www.lesswrong.com/posts/WKt2mqJrsFuMiszed/trying-to-understand-that-compute-multiplier-graph](https://www.lesswrong.com/posts/WKt2mqJrsFuMiszed/trying-to-understand-that-compute-multiplier-graph)] (Trying to understand that compute multiplier graph)
+:SCORE: 10/10
+:WHY: Раскрывает фундаментальную технологическую метрику, которая может определить доминирование в сфере Frontier AI.
+**** [[https://www.lesswrong.com/posts/pzdfkxeG2CMsDWixs/wargames-inform-present-policy-not-future-incident-response](https://www.lesswrong.com/posts/pzdfkxeG2CMsDWixs/wargames-inform-present-policy-not-future-incident-response)] (Wargames inform present policy, not future incident response)
+:SCORE: 9/10
+:WHY: Предлагает прагматичный подход к безопасности ИИ, сосредоточенный на текущей политике компании, а не на идеальном будущем.
+**** [[https://www.lesswrong.com/posts/Kfhuxfqh95aGEdpgt/a-calendar-for-the-age-of-ai-aa](https://www.lesswrong.com/posts/Kfhuxfqh95aGEdpgt/a-calendar-for-the-age-of-ai-aa)] (A calendar for the age of AI: AA)
+:SCORE: 8/10
+:WHY: Избавляет от абстрактных прогнозов, предлагая конкретные, основанные на технологиях, вехи прогресса.
+
+** Non Engineering
+**** [[https://peterturchin.substack.com/p/war-and-peace-and-war-twenty-years-df9](https://peterturchin.substack.com/p/war-and-peace-and-war-twenty-years-df9)] (War and Peace and War: Twenty Years After)
+:SCORE: 6/10
+:WHY: Важный мысленный эксперимент по применению ИИ к анализу сложнейших социоисторических паттернов.

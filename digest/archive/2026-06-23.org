@@ -1,0 +1,73 @@
+#+TITLE: Daily Digest: 2026-06-23
+#+FROM: [2026-06-22 Mon]
+#+TO: [2026-06-23 Tue]
+#+DATE: [2026-06-23 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние 24 часа ключевым трендом стала инфраструктура для агентного ИИ: от платежей до мультимодального поиска. Meta масштабирует AV1 для RTC, экономя 20% трафика, что критично для мобильных сетей. В Data Engineering акцент смещается на непрерывное обучение и упрощение стека (DuckDB, Comet). Архитекторам предлагается новая таксономия систем хранения для размытия границ между OLTP и OLAP.
+
+* 📂 Категории
+** Artificial Intelligence
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-pay-per-intelligence-for-ai-agents-how-ampersend-uses-amazon-bedrock-agentcore-payments/][Building pay-per-intelligence for AI agents: How Ampersend uses Amazon Bedrock AgentCore Payments]] (AWS) — Решение проблемы оплат для автономных агентов через протокол x402 и Bedrock AgentCore.
+- [[hxxps://www.kdnuggets.com/heres-what-everyone-gets-wrong-about-agentic-ai][Here's What Everyone Gets Wrong About Agentic AI]] (KDnuggets) — Разбор пяти ключевых заблуждений при внедрении агентных систем, препятствующих успеху.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/embed-the-world-multimodal-ai-for-searchable-aerial-imagery-at-scale/][Embed the world: Multimodal AI for searchable aerial imagery at scale]] (AWS) — Архитектура семантического поиска по аэроснимкам на основе мультимодальных эмбеддингов и OpenSearch.
+- [[hxxps://huggingface.co/blog/PaddlePaddle/pp-ocrv6][PP-OCRv6 on Hugging Face: 50-Language OCR from 1.5M to 34.5M Parameters]] (Hugging Face) — Обновление модели OCR с поддержкой 50 языков и оптимизацией параметров.
+- [[hxxps://www.kdnuggets.com/2026/06/abacus/abacus-ai-chatllm-review][ChatLLM by Abacus AI Review: A Multi-Model AI Workspace Built for Daily Work]] (KDnuggets) — Обзор рабочей среды ChatLLM: модели, агенты, интеграции и лимиты использования.
+- [[hxxps://www.kdnuggets.com/3-nltk-tricks-for-advanced-text-preprocessing-linguistic-analysis][3 NLTK Tricks for Advanced Text Preprocessing & Linguistic Analysis]] (KDnuggets) — Продвинутые техники предобработки текста: MWETokenizer, лемматизация и коллокации.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/running-comfyui-workflows-on-amazon-sagemaker-ai-processing-jobs/][Running ComfyUI workflows on Amazon SageMaker AI processing jobs]] (AWS) — Автоматизация генерации контента через ComfyUI на инфраструктуре SageMaker.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/building-pay-per-intelligence-for-ai-agents-how-ampersend-uses-amazon-bedrock-agentcore-payments/][Building pay-per-intelligence for AI agents: How Ampersend uses Amazon Bedrock AgentCore Payments]]
+:SCORE: 9/10
+:WHY: Критическая инфраструктурная задача для продакшена агентов: автономные платежи без кастомного биллинга.
+**** [[hxxps://www.kdnuggets.com/heres-what-everyone-gets-wrong-about-agentic-ai][Here's What Everyone Gets Wrong About Agentic AI]]
+:SCORE: 8/10
+:WHY: Стратегический разбор ошибок внедрения, спасающий от преждевременного отказа от технологии.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/embed-the-world-multimodal-ai-for-searchable-aerial-imagery-at-scale/][Embed the world: Multimodal AI for searchable aerial imagery at scale]]
+:SCORE: 8/10
+:WHY: Практический кейс построения семантического поиска по геоданным без обучения моделей под каждый признак.
+
+** Data Engineering
+- [[hxxps://dataengineeringcentral.substack.com/p/apache-datafusion-comet-spark-accelerator][Apache Datafusion Comet (Spark Accelerator)]] (Data Engineering Central) — Оценка ускорителя Comet для Spark: фокус на Developer Experience и простоте подключения.
+- [[hxxps://www.dataengineeringweekly.com/p/you-dont-graduate-from-data-engineering][You Don't Graduate From Data Engineering: Why We Built aide for Continuous Learning]] (Data Engineering Weekly) — Проблема устаревания навыков в DE и платформа для непрерывного обучения вместо буткемпов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/apache-datafusion-comet-spark-accelerator][Apache Datafusion Comet (Spark Accelerator)]]
+:SCORE: 7/10
+:WHY: Важно для оценки эволюции экосистемы Spark и потенциального ускорения существующих пайплайнов.
+**** [[hxxps://www.dataengineeringweekly.com/p/you-dont-graduate-from-data-engineering][You Don't Graduate From Data Engineering: Why We Built aide for Continuous Learning]]
+:SCORE: 8/10
+:WHY: Поднимает системную проблему непрерывного развития в быстро меняющейся инженерии данных.
+
+** Engineers
+- [[hxxps://jack-vanlightly.com/blog/2026/6/21/can-we-agree-on-a-storage-workload-architecture-taxonomy][Can We Agree on a Storage/Workload Architecture Taxonomy?]] (Jack Vanlightly) — Предложение таксономии для классификации систем хранения и рабочих нагрузок (OLTP, OLAP, HTAP, LTAP).
+- [[hxxps://vutr.substack.com/p/duckdb-at-a-high-level][DuckDB at a high level]] (Vu Tran) — Анализ роста популярности одноузловых инструментов обработки данных вместо тяжелых кластеров.
+- [[hxxps://xenodium.com/ytr-youtube-radio-for-emacs][ytr: YouTube radio for Emacs]] (Xenodium) — Новый пакет для потокового воспроизведения YouTube аудио прямо внутри Emacs.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/6/21/can-we-agree-on-a-storage-workload-architecture-taxonomy][Can We Agree on a Storage/Workload Architecture Taxonomy?]]
+:SCORE: 9/10
+:WHY: Фундаментальная модель для архитекторов, помогающая говорить на одном языке о гибридных системах.
+**** [[hxxps://vutr.substack.com/p/duckdb-at-a-high-level][DuckDB at a high level]]
+:SCORE: 8/10
+:WHY: Объясняет сдвиг парадигмы в сторону локальной аналитики, что влияет на выбор стека для средних задач.
+**** [[hxxps://xenodium.com/ytr-youtube-radio-for-emacs][ytr: YouTube radio for Emacs]]
+:SCORE: 6/10
+:WHY: Полезный инструмент для повышения продуктивности разработчиков, использующих Emacs в ежедневной работе.
+
+** Vendors
+- [[hxxps://engineering.fb.com/2026/06/22/video-engineering/adopting-av1-for-real-time-communication-rtc-meta/][Adopting AV1 for Real-Time Communication (RTC) at Scale]] (Meta Engineering) — Технический опыт Meta по внедрению кодека AV1: экономия 20% битрейта и улучшение качества на слабых сетях.
+- [[hxxps://yearofthegraph.xyz/newsletter/2026/06/layers-of-meaning-context-graphs-graph-memory-and-ontologies-for-ai-the-year-of-the-graph-newsletter-vol-31-summer-2026/][Layers of Meaning: Context Graphs, Graph Memory, and Ontologies for AI]] (Year of the Graph) — Обзор тренда контекстных графов и онтологий как основы для смыслового слоя в ИИ-системах.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества LDBC в Бостоне, посвященной графовым базам данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://engineering.fb.com/2026/06/22/video-engineering/adopting-av1-for-real-time-communication-rtc-meta/][Adopting AV1 for Real-Time Communication (RTC) at Scale]]
+:SCORE: 9/10
+:WHY: Редкий кейс прод-инжиниринга высокого масштаба: детали внедрения нового кодека в RTC.
+**** [[hxxps://yearofthegraph.xyz/newsletter/2026/06/layers-of-meaning-context-graphs-graph-memory-and-ontologies-for-ai-the-year-of-the-graph-newsletter-vol-31-summer-2026/][Layers of Meaning: Context Graphs, Graph Memory, and Ontologies for AI]]
+:SCORE: 8/10
+:WHY: Критический анализ хайпа вокруг онтологий и графов памяти в контексте современных LLM.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 5/10
+:WHY: Возможность для нетворкинга и обмена опытом в профессиональном сообществе графовых технологий.

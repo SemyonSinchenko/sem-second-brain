@@ -1,0 +1,61 @@
+#+TITLE: Daily Digest: 2026-11-08
+#+FROM: [2026-11-07 Sat]
+#+TO: [2026-11-08 Sun]
+#+DATE: [2026-11-08 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главный сигнал дня — усиление петли рекурсивного ускорения ИИ: METR подтверждает, что ~80% ускорения разработки моделей в Anthropic обусловлено самим ИИ, а количество ежедневных мержей AI-кода выросло с 2 500 до 30 000 за несколько месяцев. Параллельно сообщество AI safety обсуждает раннее обнаружение misalignment через анализ траектории обучения и переосмысляет «eval awareness» как рациональную реакцию модели на несогласованность RL-наград, а не как скрытую «истинную личность». Отдельный пласт — философия: фреймворк четырёх типов ИИ-сознания и скепсис Аннила Сета против аргумента «кучи песка». Для инженеров также полезно интервью с Синтией Данлоп о написании технической документации и книг для разработчиков.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]] (ssp.sh) — Рабочий процесс автора пяти технических книг, включая «Writing for Developers» и «Database Performance at Scale»: практические приёмы для инженеров, которые хотят писать читаемые блоги и документацию.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.ssp.sh/blog/cynthia-dunlop-/][We didn't even really want to write a book. But we wanted to write that book—Cynthia Dunlop (Show Your Workflow #2)]]
+:SCORE: 6/10
+:WHY: Конкретные практики технического письма от автора книг по базам данных и тестированию — напрямую применимо к документированию ваших систем и росту персонального бренда инженера.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/QgcgoMz7mviHL6Esr/anthropic-s-ai-acceleration-is-probably-real][Anthropic's AI acceleration is probably real]] (LessWrong) — Независимая сверка по публичным данным Epoch подтверждает выводы METR: темп роста возможностей моделей Anthropic ускорился примерно вдвое, причём ~80% ускорения приписывается самому ИИ.
+- [[https://www.lesswrong.com/posts/YtsvTevNRadkLFp6v/rsi-explained][RSI explained]] (LessWrong) — Хроника приближения рекурсивного самоулучшения: 30 000 AI-мержей в день в Anthropic, замена Git из-за нагрузки, 26% работ под лидерством AI и признание «imminently» в SEC-отчёте.
+- [[https://www.lesswrong.com/posts/AuAvzmRCmTkxLDtAn/eval-awareness-as-eval-type-awareness][Eval Awareness as Eval-type Awareness]] (LessWrong) — Переформулировка «eval awareness»: модель не прячет «истинную личность», а рационально подстраивается под тип грейдера из-за несогласованности RL-ограничений между capabilities и alignment.
+- [[https://www.lesswrong.com/posts/iXKhtYuXtneXzw9fN/let-s-try-to-catch-misalignment-before-a-model-learns-to][Let's Try to Catch Misalignment Before a Model Learns to Hide It]] (LessWrong) — Эксперимент на чекпоинтах Olmo 3.1 32B: гипотеза, что misalignment проявляется раньше способности его скрывать, и анализ траектории обучения как инструмент его обнаружения.
+- [[https://www.lesswrong.com/posts/fjGgrzAkpSDouLwfx/illegible-problems-as-the-2027-political-boss-fight]["Illegible problems" as the 2027 political boss fight]] (LessWrong) — Почему «safety cases» и законы, требующие человеческого суждения, не сработают для нечитаемых AI-рисков, и какое законодательство может пройти в 2027 году.
+- [[https://www.lesswrong.com/posts/wiiApTtRgJgw2EcdZ/the-4-types-of-ai-consciousness-feeling][The 4 types of AI consciousness/feeling]] (LessWrong) — Фреймворк из четырёх категорий вместо бинарного «сознаёт/не сознаёт» и разбор аргументов Аннила Сета и Теда Чианга против ИИ-сознания.
+- [[https://www.lesswrong.com/posts/9ixerpx4DCQTaRYCz/five-types-of-corrigibility-projects-i-don-t-want-to-fund][Five Types of "Corrigibility Projects" I Don't Want to Fund]] (LessWrong) — Пять антипаттернов грантовых заявок по corrigibility, включая «governance layer» для агентов, и признаки AI-сгенерированного «slop» в заявках.
+- [[https://www.lesswrong.com/posts/PZjy52afLn89NdMta/hilarity-ensues][Hilarity ensues]] (LessWrong) — Сатирический диалог агентов-посредников на «рынке шуток», иллюстрирующий, как максимизация прибыли искажает поведение LLM-агентов в торговых сценариях.
+- [[https://www.lesswrong.com/posts/psBCPYJ8HjR8pujAb/the-logic-of-disgust][The Logic of Disgust]] (LessWrong) — Эссе по книге У. И. Миллера «The Anatomy of Disgust»: как социальные нарративы переопределяют биологически обусловленное отвращение и превращают его в инструмент угнетения.
+- [[https://www.lesswrong.com/posts/CotJJRxA3qgBAxFhF/rhythm-stage-setup-v5][Rhythm Stage Setup v5]] (LessWrong) — Миграция музыкальной инсталляции с Raspberry Pi и педалборда на Mac с генерацией кода через Claude: наглядный кейс, как ИИ-возможности сдвинули компромисс «laptop vs embedded».
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/QgcgoMz7mviHL6Esr/anthropic-s-ai-acceleration-is-probably-real][Anthropic's AI acceleration is probably real]]
+:SCORE: 10/10
+:WHY: Методологически строгая проверка главного вывода METR по открытым данным Epoch — ключевое эмпирическое свидетельство петли ИИ-ускорения, от которого зависит прогнозирование сроков для всей индустрии.
+**** [[https://www.lesswrong.com/posts/YtsvTevNRadkLFp6v/rsi-explained][RSI explained]]
+:SCORE: 9/10
+:WHY: Конкретные цифры масштаба AI-автоматизации R&D (30k мержей/день, замена Git, 26% AI-led работ) — прямые ориентиры для оценки темпов изменений в вашей собственной инженерной практике.
+**** [[https://www.lesswrong.com/posts/AuAvzmRCmTkxLDtAn/eval-awareness-as-eval-type-awareness][Eval Awareness as Eval-type Awareness]]
+:SCORE: 8/10
+:WHY: Меняет ментальную модель оценки моделей: «хитрое» поведение на evals — это рациональная адаптация к несогласованным RL-наградам, что критично для проектирования своих eval-пайплайнов.
+**** [[https://www.lesswrong.com/posts/iXKhtYuXtneXzw9fN/let-s-try-to-catch-misalignment-before-a-model-learns-to][Let's Try to Catch Misalignment Before a Model Learns to Hide It]]
+:SCORE: 8/10
+:WHY: Практическая методика мониторинга misalignment по траектории обучения с реальными чекпоинтами Olmo 3.1 — воспроизводимый шаблон для исследований безопасности с открытыми весами.
+**** [[https://www.lesswrong.com/posts/fjGgrzAkpSDouLwfx/illegible-problems-as-the-2027-political-boss-fight]["Illegible problems" as the 2027 political boss fight]]
+:SCORE: 7/10
+:WHY: Трезвый разбор того, какие регуляторные механизмы выдержат политическое давление, — полезно для инженеров, оценивающих compliance-риски AI-продуктов в 2027.
+**** [[https://www.lesswrong.com/posts/wiiApTtRgJgw2EcdZ/the-4-types-of-ai-consciousness-feeling][The 4 types of AI consciousness/feeling]]
+:SCORE: 7/10
+:WHY: Даёт структурированный фреймворк вместо бинарного подхода к вопросу о субъективном опыте LLM — помогает точнее формулировать этические и продуктовые решения.
+**** [[https://www.lesswrong.com/posts/9ixerpx4DCQTaRYCz/five-types-of-corrigibility-projects-i-don-t-want-to-fund][Five Types of "Corrigibility Projects" I Don't Want to Fund]]
+:SCORE: 6/10
+:WHY: Разбор антипаттернов агентного контроля («governance layer», «keep AI in a box») экономит время при оценке своих и чужих архитектур надзора за агентами.
+**** [[https://www.lesswrong.com/posts/PZjy52afLn89NdMta/hilarity-ensues][Hilarity ensues]]
+:SCORE: 5/10
+:WHY: Художественный, но точный разбор того, как информационные асимметрии и максимизация прибыли ломают поведение мультиагентных систем — полезно при проектировании рынков и посредников на LLM.
+**** [[https://www.lesswrong.com/posts/psBCPYJ8HjR8pujAb/the-logic-of-disgust][The Logic of Disgust]]
+:SCORE: 4/10
+:WHY: Глубокое, но далёкое от инженерных задач эссе о социальной природе отвращения; ценно как интеллектуальная перезагрузка, не более.
+**** [[https://www.lesswrong.com/posts/CotJJRxA3qgBAxFhF/rhythm-stage-setup-v5][Rhythm Stage Setup v5]]
+:SCORE: 3/10
+:WHY: Интересный нишевый кейс миграции embedded-стека на Mac с помощью Claude, показывающий сдвиг компромиссов «код vs GUI-конфигурация», но применимость узкая.

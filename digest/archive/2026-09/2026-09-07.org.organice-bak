@@ -1,0 +1,72 @@
+#+TITLE: Daily Digest: 2026-09-07
+#+FROM: [2026-09-06 Sun]
+#+TO: [2026-09-07 Mon]
+#+DATE: [2026-09-07 Mon]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+
+Основной сигнал дня — практические инженерные паттерны для работы с ИИ: жизненный цикл LLM-as-a-Judge, agentic ML и компонуемые data-платформы становятся не абстрактными, а рабочими архитектурными темами. Параллельно растёт интерес к интерпретируемости и оценке моделей: кластеризация активаций, многоосевые индексы возможностей и чувствительность probe-метрик к формату ответа.
+
+Для senior-инженера важны два сюжета: во-первых, базовые алгоритмические и SQL-навыки остаются защитой от деградации критического мышления; во-вторых, экспериментальная методология в AI-исследованиях всё чаще упирается в инженерные детали — пулинг токенов, якоря метрик, неопределённость оценок и скрытые incentives в планах.
+
+* 📂 Категории
+
+** Data Engineering
+
+- [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-286][Data Engineering Weekly #286]] (Data Engineering Weekly) — Обзор архитектурных и процессных практик для data-команд: компонуемые платформы, качество данных, наблюдаемость, agentic ML в Instacart, жизненный цикл LLM-as-a-Judge в Netflix, дилемма семантического слоя и масштабирование Apache Pinot.
+- [[https://dataengineeringcentral.substack.com/p/back-to-the-basics-recursion][Back to the Basics. Recursion.]] (Data Engineering Central) — Практическое напоминание о рекурсии через классическую задачу Bill-of-Materials и её SQL-решения, полезное для инженеров, которые хотят понимать иерархические данные самостоятельно.
+
+*** 💎 Топ-3 категории
+
+**** [[https://www.dataengineeringweekly.com/p/data-engineering-weekly-286][Data Engineering Weekly #286]]
+:SCORE: 9/10
+:WHY: Дает сразу несколько инженерных практик для зрелых data-систем: наблюдаемость, качество данных, семантический слой и оценку генеративных систем в production.
+
+**** [[https://dataengineeringcentral.substack.com/p/back-to-the-basics-recursion][Back to the Basics. Recursion.]]
+:SCORE: 8/10
+:WHY: Полезен как честная проверка базовых навыков: рекурсия, графовые размышления и SQL-деревья нужны не для интервью, а для поддержки реальных иерархических данных.
+
+** Сознание ИИ
+
+*** 💎 Топ-10 категории
+
+**** [[https://www.lesswrong.com/posts/ZSEcc8Lo2MZP4fkiJ/a-deception-probe-result-changed-when-i-averaged-different][A Deception Probe Result Changed When I Averaged Different Response Tokens]]
+:SCORE: 8/10
+:WHY: Показывает, как формат ответа и выбор токенов для усреднения могут изменить AUROC-вывод в probe-экспериментах по интерпретируемости.
+
+**** [[https://www.lesswrong.com/posts/Dy6D4fFrRuhMG5eJ5/unsupervised-feature-discovery-via-simple-clustering][Unsupervised Feature Discovery via Simple Clustering]]
+:SCORE: 8/10
+:WHY: Демонстрирует практичный путь к интерпретируемым направлениям активаций через рекурсивную кластеризацию и открытую инфраструктуру для анализа.
+
+**** [[https://www.lesswrong.com/posts/gbJYR8TMaQKsvjrkh/a-four-axis-bayesian-epoch-capabilities-index-with-human][A Four-Axis Bayesian Epoch Capabilities Index with Human Baselines]]
+:SCORE: 8/10
+:WHY: Полезен для инженерной оценки моделей: одна метрика скрывает расхождения между человеческими и модельными профилями, а многоосевая bayesian-оценка добавляет неопределённость.
+
+**** [[https://www.lesswrong.com/posts/hMTMXdEecPGPKDTqx/who-else-is-steering][Who else is steering?]]
+:SCORE: 8/10
+:WHY: Критично для методологии activation steering и introspection: важно различать, что вызывает эффект — концепт, экспериментатор, конструкция вектора или сам интерфейс теста.
+
+**** [[https://www.lesswrong.com/posts/M9EuHPg8vBapFEDe9/the-wormtongue-test][The Wormtongue Test]]
+:SCORE: 7/10
+:WHY: Практичный способ проверить технический или карьерный план на самообслуживание и влияние локальных стимулов, сравнив его с заведомо уклончивой версией.
+
+**** [[https://www.lesswrong.com/posts/ymm2p4PY5XqbxDpaw/preliminary-thoughts-on-arrogance-of-the-humbled][Preliminary thoughts on Arrogance of the Humbled]]
+:SCORE: 7/10
+:WHY: Напоминает не переоценивать личную неудачу как доказательство объективной невозможности задачи — важно для планирования сложных инженерных инициатив.
+
+**** [[https://www.lesswrong.com/posts/4fbr3DtEjuhQhj47J/where-do-you-point-newcomers-who-want-to-get-involved-in-ai][Where do you point newcomers who want to get involved in AI safety?]]
+:SCORE: 5/10
+:WHY: Помогает инженеру и ментору структурировать точки входа в AI safety и обучение новых участников.
+
+**** [[https://www.lesswrong.com/posts/ptirZBteKd3o4FAFe/most-anthropic-equity-that-will-ever-be-used-for-longtermist][Most Anthropic equity that will ever be used for longtermist philanthropy should be sold ASAP and reinvested]]
+:SCORE: 5/10
+:WHY: Показывает важность корреляций, концентрации риска и предельной полезности капитала в стратегических решениях, но для ежедневной инженерной практики это второстепенно.
+
+**** [[https://www.lesswrong.com/posts/eyjLWMhAx57KaEeiH/tips-for-less-dysfunctional-churches][Tips for less dysfunctional churches]]
+:SCORE: 4/10
+:WHY: Контекст специфичен, но паттерны токсичной власти — лидер на пьедестале, отсутствие прозрачности, сокрытие сигналов — прямо переносимы на инженерные команды и governance.
+
+**** [[https://www.lesswrong.com/posts/YhZ4Cter35gCifdLP/the-grim-roper-the-miracle-man][The Grim Roper: The Miracle Man]]
+:SCORE: 3/10
+:WHY: Скорее культурно-нарративный разбор, чем инженерный сигнал; полезен тем, что показывает, как истории о контроле и служении влияют на восприятие AGI-рисков.

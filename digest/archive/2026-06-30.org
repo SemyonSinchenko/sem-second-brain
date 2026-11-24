@@ -1,0 +1,75 @@
+#+TITLE: Daily Digest: 2026-06-30
+#+FROM: [2026-06-29 Mon]
+#+TO: [2026-06-30 Tue]
+#+DATE: [2026-06-30 Tue]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия фокусируется на переходе от экспериментов с ИИ-агентами к надежной эксплуатации в продакшене, уделяя внимание наблюдаемости, безопасности и управлению памятью. Вендоры оптимизируют инфраструктуру: Valkey 9.1 предлагает значительный прирост производительности кэширования, а графовые базы данных укрепляют позиции в финансовых иерархиях. Инженерам данных стоит обратить внимание на архитектуру Polars как альтернативу классическим инструментам для одноузловой обработки.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/debugging-production-agents-with-amazon-bedrock-agentcore-observability/][Debugging production agents with Amazon Bedrock AgentCore Observability]] (aws.amazon.com) — Руководство по отладке агентов в продакшене через метрики, трассировку и логи, критично для стабильности систем.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/multi-tenant-llm-analytics-with-row-level-security-how-we-built-a-secure-agent-on-aws/][Multi-tenant LLM analytics with row-level security: How we built a secure agent on AWS]] (aws.amazon.com) — Архитектурный паттерн обеспечения безопасности данных (RLS) в многопользовательских LLM-системах.
+- [[hxxps://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/][Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity]] (microsoft.com) — Новая система памяти для агентов, решающая проблему контекста в длинных сценариях использования.
+- [[hxxps://www.kdnuggets.com/your-rag-pipeline-is-probably-useless-heres-a-better-alternative][Your RAG Pipeline Is Probably Useless. Here's a Better Alternative]] (kdnuggets.com) — Критический взгляд на ограничения RAG и предложение альтернативных архитектур для продакшена.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/pair-nova-2-lite-with-claude-for-cost-optimized-document-processing/][Pair Nova 2 Lite with Claude for cost-optimized document processing]] (aws.amazon.com) — Паттерн каскадной модели для снижения затрат на обработку документов без потери точности.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/build-an-agentic-ai-healthcare-claims-pipeline-with-amazon-bedrock-and-aws-healthlake/][Build an agentic AI healthcare claims pipeline with Amazon Bedrock and AWS HealthLake]] (aws.amazon.com) — Пример автоматизации обработки медицинских претензий с валидацией через агентов.
+- [[hxxps://www.kdnuggets.com/5-ai-coding-subscription-plans-that-give-developers-the-best-value][5 AI Coding Subscription Plans That Give Developers the Best Value]] (kdnuggets.com) — Сравнительный анализ подписок на ИИ-инструменты для разработчиков с точки зрения стоимости.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/debugging-production-agents-with-amazon-bedrock-agentcore-observability/][Debugging production agents with Amazon Bedrock AgentCore Observability]]
+:SCORE: 9/10
+:WHY: Наблюдаемость — ключевое препятствие для внедрения агентов; статья дает конкретные инструменты диагностики скрытых сбоев.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/multi-tenant-llm-analytics-with-row-level-security-how-we-built-a-secure-agent-on-aws/][Multi-tenant LLM analytics with row-level security: How we built a secure agent on AWS]]
+:SCORE: 9/10
+:WHY: Реализация изоляции данных на уровне строк в LLM-агентах критична дляenterprise-безопасности и часто упускается.
+**** [[hxxps://www.microsoft.com/en-us/research/blog/memora-a-harmonic-memory-representation-balancing-abstraction-and-specificity/][Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity]]
+:SCORE: 8/10
+:WHY: Решение проблемы долгосрочной памяти агентов необходимо для сложных автономных задач, выходящих за рамки одного сеанса.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/announcing-valkey-9-1-for-amazon-elasticache/][Announcing Valkey 9.1 for Amazon ElastiCache]] (aws.amazon.com) — Обновление движка кэширования с улучшенной многопоточностью и эффективностью памяти для высоких нагрузок.
+- [[hxxps://aws.amazon.com/blogs/database/how-securonix-reduced-cache-costs-by-20-with-amazon-elasticache-for-valkey/][How Securonix reduced cache costs by 20% with Amazon ElastiCache for Valkey]] (aws.amazon.com) — Кейс миграции с Redis на Valkey с измеримым снижением затрат и ростом производительности.
+- [[hxxps://aws.amazon.com/blogs/database/building-financial-hierarchies-with-amazon-neptune-for-treasury-operations/][Building Financial Hierarchies with Amazon Neptune for Treasury Operations]] (aws.amazon.com) — Практика моделирования сложных финансовых иерархий и маршрутизации платежей через графовую базу.
+- [[hxxps://gdotv.com/blog/aws-neptune-graph-explorer-vs-gdotv/][Pitting gdotv Against AWS Graph-Explorer (LPG)]] (gdotv.com) — Сравнение инструментов визуализации графовых данных для выбора подходящего IDE.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (ldbcouncil.org) — Анонс встречи технического сообщества LDBC, важной для специалистов по графовым технологиям.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/announcing-valkey-9-1-for-amazon-elasticache/][Announcing Valkey 9.1 for Amazon ElastiCache]]
+:SCORE: 9/10
+:WHY: Обновление Valkey 9.1 приносит критические улучшения производительности и многопоточности для инфраструктурных команд.
+**** [[hxxps://aws.amazon.com/blogs/database/how-securonix-reduced-cache-costs-by-20-with-amazon-elasticache-for-valkey/][How Securonix reduced cache costs by 20% with Amazon ElastiCache for Valkey]]
+:SCORE: 8/10
+:WHY: Реальный кейс экономии 20% затрат на кэширование подтверждает экономическую эффективность миграции на Valkey.
+**** [[hxxps://aws.amazon.com/blogs/database/building-financial-hierarchies-with-amazon-neptune-for-treasury-operations/][Building Financial Hierarchies with Amazon Neptune for Treasury Operations]]
+:SCORE: 8/10
+:WHY: Демонстрирует нетривиальное применение графовых БД для решения задач казначейства и маршрутизации платежей.
+
+** Инженерия данных
+- [[hxxps://vutr.substack.com/p/polars-at-a-high-level][Polars at a high level]] (vutr.substack.com) — Обзор архитектуры Polars, мотивации создания и преимуществ перед Pandas для одноузловой обработки.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/implement-a-backup-strategy-for-amazon-quick-sight-bi-assets/][Implement a backup strategy for Amazon Quick Sight BI assets]] (aws.amazon.com) — Стратегия резервного копирования BI-активов для обеспечения непрерывности бизнеса и соответствия требованиям.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://vutr.substack.com/p/polars-at-a-high-level][Polars at a high level]]
+:SCORE: 9/10
+:WHY: Глубокое понимание архитектуры Polars необходимо для выбора правильного инструмента обработки данных вместо устаревающих решений.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/implement-a-backup-strategy-for-amazon-quick-sight-bi-assets/][Implement a backup strategy for Amazon Quick Sight BI assets]]
+:SCORE: 7/10
+:WHY: Надежное резервное копирование BI-активов часто игнорируется, пока не произойдет инцидент; статья закрывает этот пробел.
+
+** Инженеры
+- [[hxxps://rmoff.net/2026/06/29/interesting-links-june-2026/][Interesting links - June 2026]] (rmoff.net) — Подборка из 113 ссылок за месяц, включая инструменты и ресурсы для поддержания продуктивности.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rmoff.net/2026/06/29/interesting-links-june-2026/][Interesting links - June 2026]]
+:SCORE: 7/10
+:WHY: Кураторские подборки экономят время на поиск качественных ресурсов и помогают оставаться в контексте индустрии.
+
+** Открытое ПО
+- [[hxxps://huggingface.co/blog/allenai/discoformer][DiScoFormer: One transformer for density and score, across distributions]] (huggingface.co) — Исследование новой архитектуры трансформера для работы с плотностью и оценками across распределений.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://huggingface.co/blog/allenai/discoformer][DiScoFormer: One transformer for density and score, across distributions]]
+:SCORE: 8/10
+:WHY: Новая архитектура трансформера может повлиять на будущие подходы к обработке данных в задачах машинного обучения.

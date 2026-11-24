@@ -1,0 +1,78 @@
+#+TITLE: Daily Digest: 2026-07-09
+#+FROM: [2026-07-08 Wed]
+#+TO: [2026-07-09 Thu]
+#+DATE: [2026-07-09 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Индустрия фокусируется на надежности AI-агентов: паттерн Write-Audit-Publish адаптируется для аналитики, а AWS выпускает шлюз управления для Claude. Wes McKinney подчеркивает, что ИИ не заменит инженерию, но усилит роль архитектуры и вкуса. Вендоры активно интегрируют графовый поиск и RAG, упрощая работу с контекстом в производственных системах. Открытое сообщество обсуждает регулирование ИИ на уровне ООН и стандартизацию Open Source AI.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://juhache.substack.com/p/write-audit-publish-for-analytics][Write-Audit-Publish for Analytics Agents]] (JUHACHE) — Адаптация паттерна WAP для валидации выводов аналитических агентов снижает риски ненадежных LLM.
+- [[hxxps://vutr.substack.com/p/free-how-does-figma-improve-insight][[FREE] How does Figma improve insight freshness by 10x?]] (VUTR) — Кейс перехода на CDC позволил сократить задержку данных с 6 часов до почти реального времени.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://juhache.substack.com/p/write-audit-publish-for-analytics][Write-Audit-Publish for Analytics Agents]]
+:SCORE: 9/10
+:WHY: Критично для безопасного внедрения агентов в прод без риска порчи данных.
+**** [[hxxps://vutr.substack.com/p/free-how-does-figma-improve-insight][[FREE] How does Figma improve insight freshness by 10x?]]
+:SCORE: 8/10
+:WHY: Практический пример реализации CDC для аналитики в высоконагруженной системе.
+
+** Инженеры
+- [[hxxps://dataengineeringcentral.substack.com/p/the-creator-of-pandas-on-ai-apache][The Creator of Pandas on AI, Apache Arrow, and the Future of Software Engineering]] (DATA ENGINEERING CENTRAL) — Wes McKinney объясняет, почему архитектура важнее написания кода в эпоху ИИ.
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-ama][The Pragmatic Engineer AMA]] (PRAGMATIC ENGINEER) — Разбор трендов найма, карьерного роста и влияния ИИ на организацию инженерных команд.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://dataengineeringcentral.substack.com/p/the-creator-of-pandas-on-ai-apache][The Creator of Pandas on AI, Apache Arrow, and the Future of Software Engineering]]
+:SCORE: 9/10
+:WHY: Взгляд создателя ключевых инструментов на будущее профессии и роль архитектуры.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-ama][The Pragmatic Engineer AMA]]
+:SCORE: 8/10
+:WHY: Актуальные ответы по рынку труда и организации процессов от инсайдера.
+
+** Вендоры
+- [[hxxps://neo4j.com/blog/developer/hybrid-search-in-neo4j-full-text-vectors-and-graph-topology-with-cypher/][Hybrid Search in Neo4j: Full-Text, Vectors, and Graph Topology with Cypher]] (NEO4J) — Комбинирование полнотекстового, векторного и графового поиска в одном Cypher-запросе для улучшения релевантности.
+- [[hxxps://www.warpstream.com/blog/the-road-to-100pibs-and-hundreds-of-thousands-of-partitions-goldsky-case-study][The Road to 100PiBs and Hundreds of Thousands of Partitions: Goldsky Case Study - WarpStream]] (WARPSTREAM) — Масштабирование блокчейн-данных до 100 ПиБ на WarpStream с экономией затрат в 10 раз.
+- [[hxxps://www.databricks.com/blog/navigating-synapse-migration-databricks][Navigating a Synapse Migration to Databricks]] (DATABRICKS) — Руководство по миграции аналитических workload с Azure Synapse на платформу Databricks.
+- [[hxxps://aws.amazon.com/blogs/database/fail-back-from-amazon-rds-for-db2-to-on-premises-aix-db2-using-dms/][Fail back from Amazon RDS for Db2 to on-premises AIX Db2 using DMS]] (AWS) — Организация CDC-репликации назад на on-premises для безопасного отката после миграции.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/developer/hybrid-search-in-neo4j-full-text-vectors-and-graph-topology-with-cypher/][Hybrid Search in Neo4j: Full-Text, Vectors, and Graph Topology with Cypher]]
+:SCORE: 9/10
+:WHY: Готовый паттерн для улучшения поиска в графовых БД с использованием WRRF.
+**** [[hxxps://www.warpstream.com/blog/the-road-to-100pibs-and-hundreds-of-thousands-of-partitions-goldsky-case-study][The Road to 100PiBs and Hundreds of Thousands of Partitions: Goldsky Case Study - WarpStream]]
+:SCORE: 8/10
+:WHY: Реальные метрики масштабирования потоковых данных и работы с партициями.
+**** [[hxxps://aws.amazon.com/blogs/database/fail-back-from-amazon-rds-for-db2-to-on-premises-aix-db2-using-dms/][Fail back from Amazon RDS for Db2 to on-premises AIX Db2 using DMS]]
+:SCORE: 7/10
+:WHY: Важная стратегия безопасности при миграции legacy БД в облако.
+
+** Открытое ПО
+- [[hxxps://opensource.org/blog/un-open-source-week-ai-fellowship-and-2025-annual-report][UN Open Source Week, AI Fellowship, and 2025 Annual Report]] (OPEN SOURCE ORG) — Отчет о встрече ООН и запуск стипендиальной программы для стандартизации Open Source AI.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/un-open-source-week-ai-fellowship-and-2025-annual-report][UN Open Source Week, AI Fellowship, and 2025 Annual Report]]
+:SCORE: 8/10
+:WHY: Влияет на будущие стандарты лицензирования ИИ и глобальную политику.
+
+** Искусственный интеллект
+- [[hxxps://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/][Flint: A visualization language for the AI era]] (MICROSOFT) — Промежуточный язык визуализации для надежной генерации графиков агентами без verbose-спецификаций.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-apps-gateway-for-aws/][Introducing Claude apps gateway for AWS]] (AWS) — Self-hosted шлюз для централизованного управления доступом и policy для Claude Code в enterprise.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/powering-scientific-discovery-byokg-and-graphrag-for-intelligent-pharmaceutical-research/][Powering scientific discovery: BYOKG and GraphRAG for intelligent pharmaceutical research]] (AWS) — Использование графов знаний и RAG на Amazon Neptune для ускорения фармацевтических исследований.
+- [[hxxps://www.databricks.com/blog/benchmarking-coding-agents-databricks-multi-million-line-codebase][Benchmarking Coding Agents on Databricks' Multi-Million Line Codebase]] (DATABRICKS) — Опыт оценки эффективности coding agents на крупной производственной кодовой базе.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/securing-amazon-bedrock-agentcore-runtime-with-aws-waf/][Securing Amazon Bedrock AgentCore Runtime with AWS WAF]] (AWS) — Архитектурные паттерны защиты AgentCore через ALB и WAF с обходом проблем health checks.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/manage-ai-applications-on-mac-with-jamf-ai-governance-and-amazon-bedrock/][Manage AI applications on Mac with Jamf's AI Governance and Amazon Bedrock]] (AWS) — Централизованное управление конфигами AI-приложений (Claude, Codex) на macOS через Jamf.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/building-and-connecting-a-production-ready-ecommerce-mcp-server-using-amazon-bedrock-agentcore-and-mistral-ai-studio/][Building and connecting a production-ready ecommerce MCP server using Amazon Bedrock AgentCore and Mistral AI Studio]] (AWS) — Пример реализации MCP-сервера для ecommerce на Bedrock AgentCore с аутентификацией.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/][Flint: A visualization language for the AI era]]
+:SCORE: 9/10
+:WHY: Решает проблему надежности генерации визуализаций агентами через компактные спецификации.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-claude-apps-gateway-for-aws/][Introducing Claude apps gateway for AWS]]
+:SCORE: 9/10
+:WHY: Must-have для безопасного внедрения Claude Code в enterprise с контролем затрат.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/securing-amazon-bedrock-agentcore-runtime-with-aws-waf/][Securing Amazon Bedrock AgentCore Runtime with AWS WAF]]
+:SCORE: 8/10
+:WHY: Технические детали защиты агентных рантаймов и обхода ограничений health checks.

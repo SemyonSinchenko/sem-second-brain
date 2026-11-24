@@ -1,0 +1,77 @@
+#+TITLE: Daily Digest: 2026-05-23
+#+FROM: [2026-05-22 Fri]
+#+TO: [2026-05-23 Sat]
+#+DATE: [2026-05-23 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За последние 24 часа ключевым трендом стал переход к агентным архитектурам (Agentic Lakehouse) и стандартизация форматов данных через Apache Iceberg. Инженеры фокусируются на снижении оверхеда в Kafka и версионировании данных для обеспечения воспроизводимости ML-моделей. Вендоры активно продвигают семантические слои как необходимую основу для безопасного внедрения ИИ в регулируемых отраслях. Наблюдается стратегический сдвиг от простого масштабирования моделей к их специализации и оптимизации инференса.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://dataengineeringcentral.substack.com/p/why-i-do-declare][Why, I do declare!]] (Data Engineering Central) — Анализ преимуществ декларативного кода и ленивых вычислений на примере Spark и SQL для упрощения поддержки больших систем.
+- [[hxxps://www.dremio.com/blog/migrate-delta-lake-to-apache-iceberg-step-by-step-guide][Migrate Delta Lake to Apache Iceberg: Step-by-Step Guide]] (Dremio) — Практическое руководство по миграции с Delta Lake на Iceberg для обеспечения независимости от вендора и поддержки множественных движков.
+- [[hxxps://www.dremio.com/blog/apache-iceberg-machine-learning-solving-data-versioning-for-ai][Apache Iceberg Machine Learning: Solving Data Versioning for AI]] (Dremio) — Решение проблемы версионирования данных для ML через снепшоты Iceberg для гарантированной воспроизводимости экспериментов.
+- [[hxxps://www.databricks.com/blog/scaling-mhhs-how-octopus-energy-achieved-50x-cost-reduction-margin-data-engineering][Scaling for MHHS: how Octopus Energy achieved a 50x cost reduction in margin data engineering]] (Databricks) — Кейс снижения затрат на инженерию данных в 50 раз при масштабировании обработки маржинальных данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/migrate-delta-lake-to-apache-iceberg-step-by-step-guide][Migrate Delta Lake to Apache Iceberg: Step-by-Step Guide]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов, планирующих уход от вендор-лока Databricks к открытым стандартам.
+**** [[hxxps://dataengineeringcentral.substack.com/p/why-i-do-declare][Why, I do declare!]]
+:SCORE: 8/10
+:WHY: Глубокое концептуальное понимание декларативных паттернов необходимо для проектирования масштабируемых пайплайнов.
+**** [[hxxps://www.dremio.com/blog/apache-iceberg-machine-learning-solving-data-versioning-for-ai][Apache Iceberg Machine Learning: Solving Data Versioning for AI]]
+:SCORE: 8/10
+:WHY: Решает конкретную проблему воспроизводимости ML-моделей на уровне данных без копирования датасетов.
+
+** Инженерная практика
+- [[hxxps://jack-vanlightly.com/blog/2026/5/22/benchmarking-apache-kafka-consumer-groups-vs-share-groups-overhead-test][Benchmarking Apache Kafka Consumer Groups vs Share Groups (overhead test)]] (Jack Vanlightly) — Бенчмарк оверхеда Share Groups в Kafka с использованием инструмента Dimster для понимания затрат новой семантики параллелизма.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://jack-vanlightly.com/blog/2026/5/22/benchmarking-apache-kafka-consumer-groups-vs-share-groups-overhead-test][Benchmarking Apache Kafka Consumer Groups vs Share Groups (overhead test)]]
+:SCORE: 9/10
+:WHY: Единственный доступный независимый бенчмарк производительности Share Groups, важный для принятия решений по архитектуре стриминга.
+
+** Вендоры и платформы
+- [[hxxps://gdotv.com/blog/graph-on-relational-engines-landscape/][A Landscape of the Emerging Graph on Relational Category]] (gdotv) — Обзор рынка движков graph-on-relational, включая поддержку SQL:2023 и ISO GQL в 2026 году.
+- [[hxxps://www.dremio.com/blog/build-an-agentic-lakehouse-on-dremio-getting-started][Build an Agentic Lakehouse on Dremio: Getting Started]] (Dremio) — Пошаговая инструкция по развертыванию агентного озерного хранилища с семантическим слоем и поддержкой MCP за 2 часа.
+- [[hxxps://www.dremio.com/blog/dremio-semantic-layer-a-practical-step-by-step-guide][Dremio Semantic Layer: A Practical Step-by-Step Guide]] (Dremio) — Руководство по построению трехуровневого семантического слоя (Bronze/Silver/Gold) для устранения разночтений в метриках.
+- [[hxxps://www.databricks.com/blog/how-databricks-genie-democratizes-data-access-financial-services][How Databricks Genie democratizes data access in financial services]] (Databricks) — Пример внедрения ИИ-агентов Genie для демократизации доступа к данным в финансовом секторе.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://gdotv.com/blog/graph-on-relational-engines-landscape/][A Landscape of the Emerging Graph on Relational Category]]
+:SCORE: 9/10
+:WHY: Provides стратегический обзор新兴 категории графовых движков, влияющий на выбор СУБД на ближайший год.
+**** [[hxxps://www.dremio.com/blog/build-an-agentic-lakehouse-on-dremio-getting-started][Build an Agentic Lakehouse on Dremio: Getting Started]]
+:SCORE: 8/10
+:WHY: Конкретный туториал по реализации модной архитектуры Agentic Lakehouse с измеримым временем внедрения.
+**** [[hxxps://www.dremio.com/blog/dremio-semantic-layer-a-practical-step-by-step-guide][Dremio Semantic Layer: A Practical Step-by-Step Guide]]
+:SCORE: 8/10
+:WHY: Демонстрирует практический подход к gouvernance данных через семантический слой, что критично для BI и AI.
+
+** Open Source
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Анонс встречи технического сообщества LDBC в Бостоне, обсуждающей стандарты графовых баз данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Возможность узнать о развитии стандартов графовых БД напрямую от сообщества LDBC.
+
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/easy-agentic-tool-calling-with-gemma-4][Easy Agentic Tool Calling with Gemma 4]] (KDnuggets) — Туториал по настройке вызова инструментов для модели Gemma 4 для автономного принятия решений.
+- [[hxxps://huggingface.co/blog/Dharma-AI/specialization-beats-scale][Specialization Beats Scale: A Strategic Variable Most AI Procurement Decisions Overlook]] (Hugging Face) — Стратегический анализ преимуществ специализации моделей над их масштабированием при закупках ИИ.
+- [[hxxps://www.dremio.com/blog/agentic-analytics-in-financial-services-how-ai-agents-query-regulated-data-safely][Agentic Analytics in Financial Services: How AI Agents Query Regulated Data Safely]] (Dremio) — Архитектурные принципы безопасного использования ИИ-агентов для запросов к регулируемым финансовым данным.
+- [[hxxps://huggingface.co/blog/nvidia/nemotron-labs-diffusion][Towards Speed-of-Light Text Generation with Nemotron-Labs Diffusion Language Models]] (Hugging Face) — Исследование диффузионных языковых моделей NVIDIA для ускорения генерации текста.
+- [[hxxps://www.databricks.com/blog/accelerating-llm-inference-prompt-caching-open-source-models-databricks][Accelerating LLM Inference with Prompt Caching for Open‑Source Models on Databricks]] (Databricks) — Техника кэширования промптов для ускорения инференса открытых LLM-моделей.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/agentic-analytics-in-financial-services-how-ai-agents-query-regulated-data-safely][Agentic Analytics in Financial Services: How AI Agents Query Regulated Data Safely]]
+:SCORE: 9/10
+:WHY: Разбирает критические вопросы безопасности и комплаенса при внедрении агентов, что обязательно для Enterprise-сегмента.
+**** [[hxxps://huggingface.co/blog/Dharma-AI/specialization-beats-scale][Specialization Beats Scale: A Strategic Variable Most AI Procurement Decisions Overlook]]
+:SCORE: 9/10
+:WHY: Меняет парадигму выбора моделей с "больше параметров" на "лучше специализация", экономя бюджет компании.
+**** [[hxxps://www.kdnuggets.com/easy-agentic-tool-calling-with-gemma-4][Easy Agentic Tool Calling with Gemma 4]]
+:SCORE: 8/10
+:WHY: Практический пример реализации автономности агентов, который можно адаптировать для внутренних инструментов.

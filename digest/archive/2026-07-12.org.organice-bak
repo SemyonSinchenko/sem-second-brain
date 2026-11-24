@@ -1,0 +1,33 @@
+#+TITLE: Daily Digest: 2026-07-12
+#+FROM: [2026-07-11 Sat]
+#+TO: [2026-07-12 Sun]
+#+DATE: [2026-07-12 Sun]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Reddit раскрыл архитектуру обработки петабайт данных: 500+ брокеров Kafka и переход на Kubernetes. LDBC анонсировала встречу технического сообщества в Бостоне рядом с конференцией VLDB. Опубликован анализ социально-демографического состояния Японии с фокусом на неравенство. Ключевые темы выпуска: масштабирование инфраструктуры, отраслевые мероприятия и макроэкономика.
+
+* 📂 Категории
+** Data Engineering
+- [[hxxps://www.junaideffendi.com/p/reddit-data-tech-stack][Reddit Data Tech Stack]] (Junaid Effendi) — Описание архитектуры обработки петабайт данных через Kafka, Flink и Spark для поддержки 120 млн DAU.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.junaideffendi.com/p/reddit-data-tech-stack][Reddit Data Tech Stack]]
+:SCORE: 9/10
+:WHY: Редкий взгляд на архитектуру высокой нагрузки с конкретными метриками и инструментами.
+
+** Vendors
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC Council) — Приглашение на встречу технического сообщества в Бостоне, совмещенную с конференцией VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Прямой доступ к разработчикам стандартов и вендорам графовых СУБД.
+
+** Non Engineering
+- [[hxxps://peterturchin.substack.com/p/the-structural-demographic-state-70f][The Structural-Demographic State of Japan III]] (Peter Turchin) — Третий часть анализа элит и населения Японии через призму структурно-демографической теории.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/the-structural-demographic-state-70f][The Structural-Demographic State of Japan III]]
+:SCORE: 6/10
+:WHY: Понимание внешних факторов, влияющих на глобальные рынки труда и потребления.

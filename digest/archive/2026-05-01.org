@@ -1,0 +1,67 @@
+#+TITLE: Daily Digest: 2026-05-01
+#+FROM: [2026-04-30 Thu]
+#+TO: [2026-05-01 Fri]
+#+DATE: [2026-05-01 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Надежность GitHub критически снизилась из-за нагрузки от AI-инструментов, что вызывает вопросы к инфраструктуре платформ для разработки. Вендоры и облачные провайдеры фокусируются на агентных системах, безопасности сетей агентов и оптимизации LLM через подкрепление. Практические кейсы показывают значительное снижение затрат при внедрении GenAI в процессы верификации и аналитики.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/][Red-teaming a network of agents: Understanding what breaks when AI agents interact at scale]] (Microsoft Research) — Выявлены новые риски безопасности на уровне сети агентов, включая каскадное распространение атак.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/reinforcement-fine-tuning-with-llm-as-a-judge/][Reinforcement fine-tuning with LLM-as-a-judge]] (AWS Machine Learning) — Техническое руководство по использованию LLM-судьи для выравнивания моделей без дорогой ручной разметки.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/sun-finance-automates-id-extraction-and-fraud-detection-with-generative-ai-on-aws/][Sun Finance automates ID extraction and fraud detection with generative AI on AWS]] (AWS Machine Learning) — Реальный кейс сокращения затрат на обработку документов на 91% с помощью GenAI.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/configuring-amazon-bedrock-agentcore-gateway-for-secure-access-to-private-resources/][Configuring Amazon Bedrock AgentCore Gateway for secure access to private resources]] (AWS Machine Learning) — Инструкция по безопасному подключению AI-агентов к приватным ресурсам внутри VPC.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/unleashing-agentic-ai-analytics-on-amazon-sagemaker-with-amazon-athena-and-amazon-quick/][Unleashing Agentic AI Analytics on Amazon SageMaker with Amazon Athena and Amazon Quick]] (AWS Machine Learning) — Архитектура самообслуживаемой аналитики на естественном языке поверх数据湖.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.microsoft.com/en-us/research/blog/red-teaming-a-network-of-agents-understanding-what-breaks-when-ai-agents-interact-at-scale/][Red-teaming a network of agents: Understanding what breaks when AI agents interact at scale]]
+:SCORE: 9/10
+:WHY: Критически важно для архитекторов AI-систем: показывает уязвимости, не видимые при тестировании одиночных агентов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/reinforcement-fine-tuning-with-llm-as-a-judge/][Reinforcement fine-tuning with LLM-as-a-judge]]
+:SCORE: 8/10
+:WHY: Глубокий разбор метода RLAIF, позволяющего улучшить качество моделей без расширения датасетов с человеческой разметкой.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/sun-finance-automates-id-extraction-and-fraud-detection-with-generative-ai-on-aws/][Sun Finance automates ID extraction and fraud detection with generative AI on AWS]]
+:SCORE: 8/10
+:WHY: Конкретные метрики ROI и архитектура пайплайна для внедрения GenAI в финтех-процессы.
+
+** Инженерия данных
+- [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-github-breaks][The Pulse: AI load breaks GitHub – why not other vendors?]] (Pragmatic Engineer) — Анализ падения надежности GitHub до 86% из-за роста нагрузки от AI-сервисов и кодегенерации.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/the-pulse-github-breaks][The Pulse: AI load breaks GitHub – why not other vendors?]]
+:SCORE: 9/10
+:WHY: Важный сигнал о рисках масштабируемости инфраструктуры при интеграции тяжелых AI-воркфлоу в CI/CD.
+
+** Вендоры
+- [[hxxps://www.databricks.com/blog/backstage-lakebase][Backstage with Lakebase]] (Databricks) — Конвергенция операционных и аналитических СУБД для устранения задержек между транзакциями и инсайтами.
+- [[hxxps://www.databricks.com/blog/alert-fatigue-business-risk][Alert Fatigue Is a Business Risk]] (Databricks) — Подход к управлению инцидентами безопасности через приоритецию угроз на уровне бизнеса.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Анонс встречи технического сообщества по графовым базам данных в рамках VLDB.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.databricks.com/blog/backstage-lakebase][Backstage with Lakebase]]
+:SCORE: 7/10
+:WHY: Обзор тренда на унификацию хранения данных, актуального для проектирования современных платформ.
+**** [[hxxps://www.databricks.com/blog/alert-fatigue-business-risk][Alert Fatigue Is a Business Risk]]
+:SCORE: 7/10
+:WHY: Практические стратегии снижения шума в мониторинге для команд безопасности и DevOps.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обмена опытом для инженеров, работающих с графовыми технологиями.
+
+** Инженеры
+- [[hxxps://rmoff.net/2026/04/30/interesting-links-april-2026/][Interesting links - April 2026]] (Robin Moffatt) — Обзор индустриальных ссылок и изменение подхода к категоризации AI-материалов как части стандартного стека.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rmoff.net/2026/04/30/interesting-links-april-2026/][Interesting links - April 2026]]
+:SCORE: 7/10
+:WHY: Полезная курация ссылок и рефлексия о зрелости AI-инструментов в ежедневной работе инженера.
+
+** Неинженерное
+- [[hxxps://peterturchin.substack.com/p/cliodynamica-substack-a-year-in-review][Cliodynamica Substack: A Year in Review]] (Peter Turchin) — Итоги года ведения блога: статистика вовлеченности и отказ от использования AI для написания текстов.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://peterturchin.substack.com/p/cliodynamica-substack-a-year-in-review][Cliodynamica Substack: A Year in Review]]
+:SCORE: 5/10
+:WHY: Пример осознанного подхода к контенту и сохранения авторского стиля в эпоху генеративных текстов.

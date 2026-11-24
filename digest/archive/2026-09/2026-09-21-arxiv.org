@@ -1,0 +1,161 @@
+#+TITLE: Arxiv Digest: 2026-09-21
+#+FROM: [2026-09-20 Sun]
+#+TO: [2026-09-21 Mon]
+#+DATE: [2026-09-21 Mon]
+#+STARTUP: showall
+
+* cs.DB — Базы данных
+** 🧐 Обзор
+Главный тренд дня — конвергенция векторного поиска и классических СУБД: Compass показывает, что произвольную фильтрацию поверх HNSW/IVF/B+-деревьев можно исполнять кооперативно, без новых индексов, обгоняя NaviX. Параллельно оформляется стек для stateful LLM-агентов: Chronos добавляет атомарное ветвление состояния поверх гетерогенных хранилищ, а масштабное полевое исследование вскрывает, что малые модели чаще всего ломаются на «транспорте» вызовов инструментов, а не на рассуждениях. In-database ML движется к автономности: NeurIDA динамически донастраивает композируемую базовую модель под каждую аналитическую задачу. Практический сигнал: гибридные запросы и агентные workflows становятся инженерно решаемыми на зрелых компонентах.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2510.27141][Compass: General Filtered Search across Vector and Structured Data]]
+:WHAT: Единый фреймворк general filtered search для гибридных векторно-реляционных запросов поверх существующих индексов (HNSW, IVF, B+-деревья) через кооперативное выполнение — произвольные конъюнкции, дизъюнкции и range-предикаты без новых индексов.
+:IMPACT: Стабильно обгоняет NaviX и матчит специализированные индексы в их «любимых» сценариях; практичный путь добавить универсальную фильтрацию в векторные СУБД без ломки движка.
+
+- [[https://arxiv.org/abs/2609.14889][Chronos: Efficient Bolt-on Branching Across Data Stores for Stateful Agentic Applications]]
+:WHAT: Bolt-on система ветвления состояния поверх гетерогенных хранилищ (PostgreSQL, SQLite, DuckDB, Qdrant, файловая система): компактное интервальное версионирование через query rewrite плюс архитектура, разделяющая управление ветками и путь данных.
+:IMPACT: Атомарная кросс-сторовая видимость слияний без модификации движков; MCTS-подобная агентная разведка до 16.7× быстрее ручных подходов — ключевой примитив для speculative-агентов.
+
+- [[https://arxiv.org/abs/2609.20972][SKYE: Write-Optimized Key-Value Store with Fine-Grained Control over Persistent Memory Accesses]]
+:WHAT: Write-optimized PM KV-хранилище с непрямым доступом: выделенные потоки сами обращаются к PM, размещение данных по NVDIMM и лимитирование remote-NUMA контролируются системой.
+:IMPACT: 2.5–5× к state-of-the-art на YCSB, ~86% полосы записи PM и 3.9× масштабирование на четырёх NVDIMM — сильный аргумент против «прямого доступа как дефолта» для persistent memory.
+
+- [[https://arxiv.org/abs/2512.08483][NeurIDA: Dynamic Modeling for Effective In-Database Analytics]]
+:WHAT: Автономная end-to-end система in-database аналитики: композируемая базовая модель динамически выбирается и конфигурируется под задачу, поверх — NL-запросы и LLM-агенты для отчётов.
+:IMPACT: До +12% AUC-ROC и −25% MAE на десяти задачах без построения пайплайна с нуля; снижает порог входа предиктивной аналитики прямо в РСУБД.
+
+- [[https://arxiv.org/abs/2609.21564][kgsteward: a tool for building, reproducing and maintaining distributed knowledge graphs]]
+:WHAT: CLI-инструмент, ведущий RDF-граф знаний из единого версионируемого конфига: синхронизация с внешними источниками (с on-the-fly трансформацией в RDF), правки через SPARQL 1.1 UPDATE и валидация SPARQL-запросами.
+:IMPACT: Обкатан в SIB на двух международных проектах; отвечает на вечную боль долговременного сопровождения приватных KG в условиях постоянно «плывущих» публичных ресурсов.
+
+- [[https://arxiv.org/abs/2609.20842][COAL-SQL: Coverage-Guided Augmentation and Failure-Driven Learning for Text-to-SQL Post-Training]]
+:WHAT: Пост-тренировка Text-to-SQL: greedy-отбор недостающих SQL-структур дополняет датасет (CGA), а Failure-Driven Learning добавляет SFT по верифицированным трейсам поверх GRPO.
+:IMPACT: 64.9% execution accuracy на BIRD-dev при всего 12.6k примеров — воспроизводимый рецепт доводки открытых LLM до продового SQL.
+
+- [[https://arxiv.org/abs/2609.21341][What Stops a Small Language Model From Driving a Database Agent]]
+:WHAT: Полевое исследование (8199 запусков, 39 локальных моделей, 11 дней) сбоев агентного режима SQL-клиента: 75.7% модельных потерь связаны с вызовами инструментов, крупнейший класс «transport» распадается на несколько механических шаблонов аргументов.
+:IMPACT: Пять серверных правок без изменения моделей подняли 6 моделей на 6–21 клетку из 30 — узкое место локальных DB-агентов в инженерии tool-плоскости, а не в «мышлении»; плюс вскрытый конфаунд с контекстными окнами в локальных бенчмарках.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.21840][FPT=PTIME for Homomorphism Problems on Sparse-Incidence and Bounded-Independence Patterns]]
+:ALGO: При ETH совпадение FPT и PTIME для гомоморфизма на гиперграфах с ограниченной incidence degeneracy / primal independence number; ядро — near-linear оценка fractional hypertree width через adaptive width.
+:IMPACT: Проводит точную границу трактабельности задач, сводимых к гомоморфизму (query containment, CSP), при неограниченной арности — ориентир для оптимизаторов запросов на разреженных паттернах.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2606.21198][FireDataForge: A Unified Framework for Multi-Source Wildfire Data Retrieval and Integration]] — open-source Python-фреймворк, сводящий 11 геопространственных источников по MTBS Event ID к analysis-ready массивам NumPy с метаданными.
+
+* cs.AI — Искусственный интеллект
+** 🧐 Обзор
+Прикладной ML для систем сегодня держится на двух опорах: устойчивость распределённого обучения (dSTAR против стрэгглеров и византийских сбоев) и обучаемые решатели — CDQAC учит планированию Job Shop из случайных субоптимальных датасетов, а Collab-Solver совместно обучает модули MILP-солвера как игру Штакельберга. На графовом фронте COS-GNN сшивает непрерывные GNN со спайковыми сетями ради энергоэффективного инференса на edge. Остальное — нишевое: интерпретируемость in-context learning, язык спецификаций, бенчмарки планировщиков автономного вождения.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2412.07151][dSTAR: Straggler Tolerant and Byzantine Resilient Distributed SGD]]
+:WHAT: Лёгкая схема агрегации: градиенты собираются от первых k откликнувшихся воркеров и фильтруются по отклонениям через ансамблевую медиану.
+:IMPACT: (α, f)-византийская устойчивость с линейной сходимостью; сохраняет точность там, где аналоги теряют 40–50% под атакой — практично для ненадёжных кластеров.
+
+- [[https://arxiv.org/abs/2509.10303][Generalizing Beyond Suboptimality: Offline Reinforcement Learning Learns Effective Scheduling through Random Solutions]]
+:WHAT: CDQAC — offline-RL алгоритм для JSP/FJSP: квантильный критик по парам «машина-операция» плюс отложенные обновления политики.
+:IMPACT: Матчит или превосходит эвристики-генераторы, учась всего на 1–5% датасета; вывод о важности покрытия state-action над качеством траекторий упрощает сбор данных для обучаемых планировщиков.
+
+- [[https://arxiv.org/abs/2508.03030][Collab-Solver: Collaborative Solving Policy Learning for Mixed-Integer Linear Programming]]
+:WHAT: Мультиагентное обучение политик для MILP: совместная оптимизация выбора отсечений и ветвления как игра Штакельберга, двухфазная парадигма (pretraining с обменом данными → оркестрация модулей).
+:IMPACT: Заметный прирост качества и скорости решения на реальных MILP-датасетах с обобщением между инстанс-сетами — шаг к обучаемым компонентам боевых солверов.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2404.01897][Continuous Spiking Graph Neural Networks]]
+:ALGO: COS-GNN: спайковые представления узлов на каждом шаге, интегрированные в ODE-динамику непрерывных GNN; второй порядок ODE подавляет взрыв/затухание градиентов и захватывает дальние зависимости.
+:IMPACT: Графовое обучение с энергоэффективностью SNN — кандидат для инференса непрерывных GNN на батарейных edge-устройствах.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2305.16056][Reinforcement Learning under External Influence: Guarantees, Algorithms, and Sample Complexity]] — теория RL для MDP с немарковскими внешними возмущениями (включая процессы Хоукса): условия трактабельности и sample complexity.
+- [[https://arxiv.org/abs/2310.01961][Soda: An Object-Oriented Functional Language for Specifying Human-Centered Problems]] — декларативный язык для формализации требований к системам с упрощённой проверкой корректности.
+- [[https://arxiv.org/abs/2312.01020][ResNLS: An Improved Model for Stock Price Forecasting]] — гибрид ResNet+LSTM, дающий минимум +20% к SOTA-бейзлайнам на прогнозе цен.
+- [[https://arxiv.org/abs/2505.05145][Understanding In-context Learning of Addition via Activation Subspaces]] — механизм few-shot арифметики в Llama-3-8B локализован до трёх attention-голов с шестимерными подпространствами.
+- [[https://arxiv.org/abs/2506.12374][AntiGrounding: Executable Robot Trajectories as Visual Prompts for VLM-Guided Manipulation]] — выбор траекторий манипуляции как визуальных промптов для VLM-оценки с валидацией в digital twin.
+- [[https://arxiv.org/abs/2509.22754][Benchmarking Autonomous Driving Planners Across Leaderboards: A Unified CARLA-Based Evaluation]] — единая CARLA-оценка восьми планировщиков из экосистем CARLA, nuPlan и Waymo Open Dataset.
+
+* physics.soc-ph — Социальная физика и сети
+** 🧐 Обзор
+День прошёл под знаком «инфраструктурной» сетевой науки: Wattnet превращает flow-tracing электроэнергии в готовый инструмент совместной оценки углеродного и водного следа — прямая стыковка с устойчивым размещением нагрузок ЦОД. Методически зреет многослойный анализ: временная многослойная модель мировой торговли с новой random-walk-метрикой сходства слоёв выявляет структуры, скрытые на агрегатном уровне. Дополняет картину дисциплинирующий результат о пределе различимости степенных законов: многие датапанели в принципе не позволяют выбрать между конкурирующими scaling-теориями.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2601.11623][Wattnet: matching electricity consumption with low-carbon, low-water footprint energy supply]]
+:WHAT: Open-source инструмент трассировки потоков электроэнергии по Европе с 15-минутным разрешением: совместная оценка углеродного и водного следа потребления (операционного и жизненного цикла), учёт трансграничных обменов и 72-часовой прогноз.
+:IMPACT: Игнорирование потоков и временной изменчивости заметно искажает оба следа (торговля электричеством, гидрозависимость); готовая основа для энерго- и водоосознанных решений операторов ЦОД и регуляторов.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.21614][Multilayer Analysis of the Global Trade Network]]
+:ALGO: Мировая торговля 1995–2024 (BACI) как временная многослойная сеть плюс единая random-walk-метрика сходства для взвешенных ориентированных слоёв; анализ сообществ продуктов, темпоральных структурных сдвигов и ролей экономик.
+:IMPACT: Продуктовые сообщества не совпадают с официальными таксономиями, а структурное влияние страны не сводится к объёму торговли — переносимая методология для любых многослойных графов потоков.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.21638][Detectability limits of scaling laws]] — выведен предел разрешения степенных экспонент: Hurst-экспоненты определяют, какой длины панель нужна, чтобы различить конкурирующие scaling-теории.
+
+* cs.DS — Структуры данных и алгоритмы
+** 🧐 Обзор
+Теоретическое ядро дня — закрытие открытых вопросов об оптимальности классических конструкций: доказаны точные нижние границы для дифференциально-приватного непрерывного счёта (бинарное древо оптимально при pure и approximate DP) и уточнена константа в теореме о последовательном доступе splay-деревьев. Практически заметнее всего первый серьёзный прогресс в online-планировании busy time на гетерогенных машинах — ближайшей к облачному биллингу постановке. Отдельно — эффективный алгоритм нечёткой направленной симуляции графов, готовый примитив для сопоставления данных с неточными весами.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2402.11109][Online Flexible Busy Time Scheduling on Heterogeneous Machines]]
+:ALGO: Детерминированный online-алгоритм с competitive ratio 8(2p−1)/p < 16 для задач единой длительности p на машинах с разными ценами и ёмкостями; для unit-задач нижние границы 4 (детерминированно) и e (рандомизированно), 2-competitive алгоритм для agreeable deadlines.
+:IMPACT: Busy time — прямая модель облачного биллинга за «включённые» машины; первые содержательные гарантии именно для гетерогенного случая, ближайшего к практике cloud-клиентов.
+
+- [[https://arxiv.org/abs/2607.00876][The Binary Tree Mechanism is Optimal for Differentially Private Continual Counting]]
+:ALGO: Нижние границы Ω(log^{3/2} n) при approximate DP и Ω(log² n) при pure DP на ℓ∞-ошибку приватного непрерывного счёта, совпадающие с бинарным древовидным механизмом.
+:IMPACT: Многолетний открытый вопрос закрыт: принципиально лучших механизмов для приватных потоковых счётчиков нет — можно confidently строить приватную стриминговую аналитику на дереве.
+
+- [[https://arxiv.org/abs/2607.15494][Computing markings for fuzzy minimax nets over the Gödel structure]]
+:ALGO: Алгоритм O(m+n+l log l) для наибольшей корректной разметки fuzzy minimax net и первый алгоритм O((m+n)n) для наибольшей fuzzy directed simulation между нечёткими графами.
+:IMPACT: Эффективный примитив нечёткой (би)симуляции — переиспользуем для сопоставления и сверки графоподобных структур с неточными весами.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.17650][Tight Lower Bounds for Differentially Private Continual Counting]] — компаньон нижних границ: одна hard-конструкция даёт совпадающие границы сразу для трёх мер ошибки.
+- [[https://arxiv.org/abs/2609.19746][A Refined Analysis of the Sequential Access Theorem for Splay Trees]] — новая потенциальная функция опускает верхнюю константу до 5.5 при нижней почти 4.
+- [[https://arxiv.org/abs/2602.18610][The Semi-Oblivious Cup Game: an Imperfect Information Setting]] — при неточном знании уровней жадный алгоритм даёт backlog Θ(n^{(c−1)/c}), но в аддитивной модели сохраняет оптимальные Θ(log n).
+- [[https://arxiv.org/abs/2602.21964][Optimal Trajectories in Discrete Space with Acceleration Constraints]] — оптимальные «racetrack»-траектории в Z^d за константное время при фиксированной d; оптимальный маршрут через n точек — за линейное время.
+- [[https://arxiv.org/abs/2609.11982][Directed Hamiltonian-Cycle Parity in O^*((3/2)^n) Deterministic Time and Polynomial Space]] — детерминированное улучшение φ^n → (3/2)^n для чётности числа гамильтоновых циклов в орграфах.
+- [[https://arxiv.org/abs/2609.20539][Parallelism, critical windows, and separations among diffusion language models]] — первые доказанные разделения по числу forward-passes между masked/uniform/Gaussian диффузионными LLM.
+- [[https://arxiv.org/abs/2609.20866][Critical and near-critical influence bounds for ferromagnetic Ising models]] — оценка √n на строки матрицы влияния у порога дерева влечёт полиномиальное смешение Glauber-динамики в суперкритическом окне.
+
+* cs.DC — Распределённые вычисления
+** 🧐 Обзор
+Доминанта дня — LLM-сервинг как самостоятельная подобласть распределённых систем: DLB (22 месяца продакшена в Google) закрывает балансировку гетерогенного инференса, Fathom сжимает трафик декодирования при офлоаде KV-кэша, а декомпозиция предиктивного автоскейлинга точно отвечает, какие компоненты реально нужны при двух-десятиминутном старте реплик. Второй кластер — устойчивость и sustainability: Multimmit ускоряет финализацию блоков, Hopper защищает peer sampling от византийских частотных атак, GreenDirector встраивает углеродно-водный след в размещение нагрузок. Общий вектор — переход от реактивных механизмов к предиктивным с учётом внешних факторов: энергии, воды, отказов.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2609.21079][DLB: Distributed Load Balancing at Scale for Generative AI Inference]]
+:WHAT: Распределённый балансировщик с peer-to-peer пробингом ёмкостей и непрерывным обучением latency-моделей для решений о маршрутизации; теоретический анализ стабильности и глобальных гарантий.
+:IMPACT: 22 месяца в Google на тысячах моделей и миллионах rps: −17% медианной и −13% p95 латентности против legacy — редкий по откровенности разбор промышленной системы балансировки.
+
+- [[https://arxiv.org/abs/2609.17652][Fathom: Per-Query Read Depth for Sparse Decoding over Offloaded KV Caches]]
+:WHAT: Скан ключей KV-кэша, где каждый запрос сам распределяет битовый бюджет по каналам: 4-битный K-кэш хранится как channel-major bit planes, распределение — reverse water-filling по дисперсии важности.
+:IMPACT: На 1M токенов у Qwen3-8B шаг декодирования в 1.67× быстрее 136-битных сканов Double Sparsity/Loki/SparQ; использует уже существующий 4-битный K-кэш квантованного сервинга — дёшево для агентных сессий на миллион токенов.
+
+- [[https://arxiv.org/abs/2607.21021][Multimmit: Extending Blocks for Faster Finality]]
+:WHAT: SMR-протокол для n ≥ 5f+1: консенсус в один раунд голосования на view плюс многоцепочечная рассылка, где голоса аттестуют свежие блоки поверх предложения лидера по каждой цепочке.
+:IMPACT: Блок, разосланный в момент t, упорядочивается к t+3δ в ожидании; сбой одного продюсера задерживает только его цепочку — грациозная деградация вместо заморозки оптимистичного пути в духе Raptr.
+
+- [[https://arxiv.org/abs/2609.12602][GreenDirector: carbon- and water-aware workload placement for sustainable computing]]
+:WHAT: Environmental Score 0–100 (углерод + дефицитно-взвешенный водный след через трассировку потоков электричества и факторы AWARE2.0) и Green Score на единицу полезной работы, встроенные как green-affinity в планировщики AI4EOSC и DIRAC.
+:IMPACT: ~40% улучшения углеродной эффективности на трейсах DIRAC без деградации латентности; впервые гидрологический стресс динамически взвешивается в живых multi-tenant системах.
+
+- [[https://arxiv.org/abs/2609.06694][ForgeStencil: Automating Per-Case Stencil Specialization from Kernels to 100+ Real Applications]]
+:WHAT: Агенты синтеза кода вместо универсальных DSL/автотюнеров: Kernel Agent куёт карту специализированных CUDA-операторов под каждую конфигурацию, App Agent локализует хотспоты и перестраивает приложения.
+:IMPACT: Геометрическое среднее 2.35× над сильнейшими f32-бейзлайнами (37/37 кейсов на A100) и медианные 1.41× end-to-end на 100 реальных кодах — практическая ликвидация «налога на универсальность».
+
+- [[https://arxiv.org/abs/2609.20874][Decomposing Predictive Kubernetes Autoscaling for Large Language Model Serving Under Long Startup Delays]]
+:WHAT: Декомпозиция предиктивного автоскейлинга на четыре фактора (token-aware трекинг, lookahead задержки старта, UCB-маржа неопределённости, наблюдение состояния) с изолированным измерением вклада каждого.
+:IMPACT: Простой EWMA + delay-aware lookahead + UCB снижает TTFT-SLO нарушения с 53% до 0.5% (и с 63.5% до 3.7% на реальном кластере vLLM/A100) — готовый инженерный рецепт против структурно позднего реактивного скейлинга.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2609.19893][Hopper: Bounded-Memory Collaborative Debiasing for Byzantine-Tolerant Peer Sampling]]
+:ALGO: Дебиасинг частот с ограниченной памятью: потоковый оценщик BitMatcher плюс BMDecay — механизм decay/реконструкции по насыщению, сохраняющий сигнал против delayed balanced attacks.
+:IMPACT: Показывает, что «свежесть» вхождений важнее точного подсчёта; готовый протокол защиты gossip/peer-sampling слоёв P2P- и блокчейн-сетей с опцией доверенной коллаборации.
+
+- [[https://arxiv.org/abs/2609.00561][Comparison of Algebraic Block Multi-Coloring and Leiden Methods for Parallel Preconditioning in the ICCG Method]]
+:ALGO: Leiden-разбиение матрицы смежности (modularity и constant Potts model) как автоматическая блочная раскраска для параллелизации подстановок в ICCG — без априорного задания числа блоков.
+:IMPACT: Сопоставимо с ABMC с оптимизированным параметром — алгоритмы поиска сообществ как готовый инструмент локальности и параллелизма в разреженных численных методах.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2609.21057][FedeRage: Provably Convergent Agnostic Federated Learning under General Client Drift]] — FedAvg с CVaR в локальной цели: апвейтинг высоколоссовых и редких клиентов одним скаляром при полностью неизвестном участии.
+- [[https://arxiv.org/abs/2609.21110][SensorWF: A FAIR Generalizable Workflow Framework for Scientific Time-Series Analysis]] — workflow-фреймворк с пятью типизированными модулями и PROV-O-проvenance, развёрнутый в трёх научных доменах через адаптеры в 170–500 строк.

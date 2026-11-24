@@ -1,0 +1,77 @@
+#+TITLE: Daily Digest: 2026-06-04
+#+FROM: [2026-06-03 Wed]
+#+TO: [2026-06-04 Thu]
+#+DATE: [2026-06-04 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+За прошедший период ключевой темой стала зрелость инфраструктуры: от оптимизации мелких файлов в Iceberg до управления операционными рисками в Bedrock. Инженеры смещают фокус с инструментов на фундаментальные принципы работы с данными и производительностью. Внедрение ИИ переходит от экспериментов к production-ready решениям с акцентом на контекст, надежность агентов и специализированные модели для табличных данных. Вендоры активно предлагают пути миграции legacy-систем и специализированные индексы для сложных запросов.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dremio.com/blog/apache-iceberg-small-files-problem-causes-fixes-and-prevention/][Apache Iceberg Small Files Problem: Causes, Fixes, and Prevention]] (Dremio) — разбор причин деградации производительности из-за мелких файлов и стратегии компрессии.
+- [[hxxps://dataengineeringcentral.substack.com/p/how-real-data-engineers-think-beyond][How Real Data Engineers Think (Beyond Tools and Hype)]] (Data Engineering Central) — подкаст о возврате к простоте и приоритете бизнес-ценности над сложностью стека.
+- [[hxxps://aws.amazon.com/blogs/database/implementing-real-time-change-data-capture-with-debezium-for-amazon-aurora-postgresql-and-amazon-rds-for-postgresql/][Implementing real-time change data capture with Debezium for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL]] (AWS) — архитектура CDC в реальном времени через WAL и Kafka.
+- [[hxxps://www.databricks.com/blog/apache-spark-real-time-mode-gaming-better-way-do-real-time-sessionization][Apache Spark Real-Time Mode for Gaming: A Better Way to Do Real-Time Sessionization]] (Databricks) — использование Spark для сессионизации в геймдеве с низкой задержкой.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/apache-iceberg-small-files-problem-causes-fixes-and-prevention/][Apache Iceberg Small Files Problem: Causes, Fixes, and Prevention]]
+:SCORE: 9/10
+:WHY: Критично для продакшена: объясняет метаданные Iceberg и предотвращает падение query performance.
+**** [[hxxps://dataengineeringcentral.substack.com/p/how-real-data-engineers-think-beyond][How Real Data Engineers Think (Beyond Tools and Hype)]]
+:SCORE: 8/10
+:WHY: Меняет майндсет с tooling на delivery value, важно для лидов и сеньоров.
+**** [[hxxps://aws.amazon.com/blogs/database/implementing-real-time-change-data-capture-with-debezium-for-amazon-aurora-postgresql-and-amazon-rds-for-postgresql/][Implementing real-time change data capture with Debezium for Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL]]
+:SCORE: 8/10
+:WHY: Готовый паттерн для event-driven архитектуры с гарантированной доставкой изменений.
+
+** Инженеры
+- [[hxxps://rushter.com/blog/clickhouse-nulls/][NULLs in ClickHouse can hurt performance]] (Rushter) — скрытая проблема производительности при использовании NULL в колоночных СУБД.
+- [[hxxps://engineering.atspotify.com/2026/6/code-with-claude-coding-is-no-longer-the-constraint/][Coding Is No Longer the Constraint: Scaling Developer Experience to Teams and Agents at Spotify]] (Spotify Engineering) — опыт масштабирования DevEx с внедрением AI-агентов.
+- [[hxxps://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top][Kubernetes and retiring at the top with Kelsey Hightower]] (Pragmatic Engineer) — интервью о карьере, инфраструктуре и приоритете людей над технологиями.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rushter.com/blog/clickhouse-nulls/][NULLs in ClickHouse can hurt performance]]
+:SCORE: 9/10
+:WHY: Редкий кейс оптимизации ClickHouse, который может дать бесплатный прирост скорости.
+**** [[hxxps://engineering.atspotify.com/2026/6/code-with-claude-coding-is-no-longer-the-constraint/][Coding Is No Longer the Constraint: Scaling Developer Experience to Teams and Agents at Spotify]]
+:SCORE: 8/10
+:WHY: Практический взгляд на интеграцию AI в workflow разработки крупного масштаба.
+**** [[hxxps://newsletter.pragmaticengineer.com/p/kubernetes-and-retiring-at-the-top][Kubernetes and retiring at the top with Kelsey Hightower]]
+:SCORE: 8/10
+:WHY: Инсайты от легенды инфраструктуры о балансе карьеры и технологий.
+
+** Вендоры
+- [[hxxps://neo4j.com/blog/graph-database/1-of-3-the-difference-between-a-graph-a-knowledge-graph-and-a-context-graph/][1 of 3: The Difference Between a Graph, a Knowledge Graph, and a Context Graph]] (Neo4j) — эволюция графов для обеспечения контекста в Enterprise AI.
+- [[hxxps://aws.amazon.com/blogs/database/index-types-supported-in-amazon-aurora-postgresql-and-amazon-rds-for-postgresql-using-extensions-bloom-pg_trgm-and-pg_bigm/][Index types supported in Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL using extensions (Bloom, pg_trgm, and pg_bigm)]] (AWS) — обзор расширений для нечеткого поиска и мультиколоночных индексов.
+- [[hxxps://aws.amazon.com/blogs/database/migrating-data-from-oracle-to-amazon-aurora-dsql/][Migrating data from Oracle to Amazon Aurora DSQL]] (AWS) — пайплайн миграции legacy БД в распределенный SQL.
+- [[hxxps://www.databricks.com/blog/cross-industry-technology-and-functional-genie-partner-solutions][Scaling Enterprise Conversational Intelligence: Cross-industry Technology and Functional Solutions Powered by Databricks Genie]] (Databricks) — внедрение conversational AI через Databricks Genie.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://neo4j.com/blog/graph-database/1-of-3-the-difference-between-a-graph-a-knowledge-graph-and-a-context-graph/][1 of 3: The Difference Between a Graph, a Knowledge Graph, and a Context Graph]]
+:SCORE: 8/10
+:WHY: Проясняет терминологию Graph RAG и контекста, критично для архитектуры AI-систем.
+**** [[hxxps://aws.amazon.com/blogs/database/index-types-supported-in-amazon-aurora-postgresql-and-amazon-rds-for-postgresql-using-extensions-bloom-pg_trgm-and-pg_bigm/][Index types supported in Amazon Aurora PostgreSQL and Amazon RDS for PostgreSQL using extensions (Bloom, pg_trgm, and pg_bigm)]]
+:SCORE: 7/10
+:WHY: Конкретные инструкции по оптимизации запросов в Aurora через расширения.
+**** [[hxxps://aws.amazon.com/blogs/database/migrating-data-from-oracle-to-amazon-aurora-dsql/][Migrating data from Oracle to Amazon Aurora DSQL]]
+:SCORE: 7/10
+:WHY: Актуально для команд, планирующих модернизацию legacy Oracle инфраструктуры.
+
+** Искусственный интеллект
+- [[hxxps://aws.amazon.com/blogs/machine-learning/improve-your-agents-tool-calling-accuracy-with-sft-and-dpo-on-amazon-sagemaker-ai/][Improve your agent's tool-calling accuracy with SFT and DPO on Amazon SageMaker AI]] (AWS) — fine-tuning агентов для точного вызова инструментов через SFT и DPO.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-to-build-self-driving-ai-operations-on-amazon-bedrock-at-scale/][How to build self-driving AI operations on Amazon Bedrock at scale]] (AWS) — автоматизация мониторинга и алертинга для генеративных workload.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/fundamentals-large-tabular-model-nexus-is-now-available-on-amazon-sagemaker-jumpstart/][Fundamental's Large Tabular Model NEXUS is now available on Amazon SageMaker JumpStart]] (AWS) — foundation model для табличных данных вместо LLM.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/reducing-container-cold-start-times-using-soci-index-on-dlami-and-dlc/][Reducing container cold start times using SOCI index on DLAMI and DLC]] (AWS) — оптимизация запуска контейнеров для ML workload через SOCI.
+- [[hxxps://www.kdnuggets.com/5-fun-papers-that-explain-llms-clearly][5 Fun Papers That Explain LLMs Clearly]] (KDnuggets) — подборка фундаментальных статей для понимания архитектуры LLM.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/improve-your-agents-tool-calling-accuracy-with-sft-and-dpo-on-amazon-sagemaker-ai/][Improve your agent's tool-calling accuracy with SFT and DPO on Amazon SageMaker AI]]
+:SCORE: 9/10
+:WHY: Решает главную проблему продакшен-агентов — надежность вызова инструментов.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-to-build-self-driving-ai-operations-on-amazon-bedrock-at-scale/][How to build self-driving AI operations on Amazon Bedrock at scale]]
+:SCORE: 8/10
+:WHY: Необходимый слой observability для масштабирования AI в enterprise.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/fundamentals-large-tabular-model-nexus-is-now-available-on-amazon-sagemaker-jumpstart/][Fundamental's Large Tabular Model NEXUS is now available on Amazon SageMaker JumpStart]]
+:SCORE: 8/10
+:WHY: Альтернатива LLM для структурированных данных с детерминированным результатом.

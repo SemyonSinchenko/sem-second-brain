@@ -1,0 +1,74 @@
+#+TITLE: Daily Digest: 2026-08-06
+#+FROM: [2026-08-05 Wed]
+#+TO: [2026-08-06 Thu]
+#+DATE: [2026-08-06 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+ИИ-агенты переходят в продакшн: новые паттерны оркестрации через MCP и Amazon Bedrock AgentCore становятся стандартом. Инженеры данных фокусируются на надежности: детекция CDC сбоев и семантический поиск в DynamoDB упрощают архитектуру. Бенчмаркинг требует четких контрактов, а не просто цифр, для принятия.valid архитектурных решений. Open Source сообщество планирует переход от диагностики к действиям на симпозиуме 2026 года.
+
+* 📂 Категории
+** Искусственный интеллект
+- [[hxxps://www.kdnuggets.com/getting-started-with-github-agentic-workflows][Getting Started with GitHub Agentic Workflows]] (KDnuggets) — обзор публичного превью агентских workflow в GitHub для автоматизации задач.
+- [[hxxps://www.kdnuggets.com/turn-any-csv-into-an-executive-report-with-python-and-ai][Turn Any CSV into an Executive Report with Python and AI]] (KDnuggets) — рецепт пайплайна для генерации отчетов на основе данных CSV с помощью AI.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-lendingtree-built-a-multi-agent-mortgage-assistant-on-amazon-bedrock/][How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock]] (AWS) — кейс внедрения мульти-агентной системы с_guardrails_ для финтеха.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-mobileye-transformed-support-operations-using-amazon-bedrock-agentcore/][How Mobileye transformed support operations using Amazon Bedrock AgentCore]] (AWS) — опыт сокращения времени ответа поддержки на 90% через AI-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/how-we-built-an-mcp-bridge-to-give-our-agentcore-hosted-ai-agent-access-to-local-mcp-tools/][How we built an MCP bridge to give our AgentCore-hosted AI agent access to local MCP tools]] (AWS) — архитектура моста для доступа облачного агента к локальным инструментам через MCP.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/run-production-ai-agents-in-n8n-with-amazon-bedrock-agentcore-harness/][Run production AI agents in n8n with Amazon Bedrock AgentCore harness]] (AWS) — интеграция управляемых агентов в no-code workflow через n8n.
+- [[hxxps://engineering.fb.com/2026/08/05/ml-applications/from-user-sequences-to-scaling-laws-a-multi-stage-architecture-for-metas-ads-ranking/][From User Sequences to Scaling Laws: A Multi-Stage Architecture for Meta's Ads Ranking]] (Meta) — масштабирование последовательного обучения в продакшн с предсказуемыми законами скейлинга.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-we-built-an-mcp-bridge-to-give-our-agentcore-hosted-ai-agent-access-to-local-mcp-tools/][How we built an MCP bridge to give our AgentCore-hosted AI agent access to local MCP tools]]
+:SCORE: 9/10
+:WHY: Критически важная архитектура для гибридных сценариев, где облачный агент должен работать с локальными файлами.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/how-lendingtree-built-a-multi-agent-mortgage-assistant-on-amazon-bedrock/][How LendingTree built a multi-agent mortgage assistant on Amazon Bedrock]]
+:SCORE: 9/10
+:WHY: Пример production-grade реализации мульти-агентной системы с жесткими требованиями к комплаенсу.
+**** [[hxxps://engineering.fb.com/2026/08/05/ml-applications/from-user-sequences-to-scaling-laws-a-multi-stage-architecture-for-metas-ads-ranking/][From User Sequences to Scaling Laws: A Multi-Stage Architecture for Meta's Ads Ranking]]
+:SCORE: 8/10
+:WHY: Глубокий разбор архитектурных breakthroughs для масштабирования ML-моделей на уровне Meta.
+
+** Инженерия данных
+- [[hxxps://aws.amazon.com/blogs/database/detect-cdc-failures-faster-with-aws-dms/][Detect CDC failures faster with AWS DMS]] (AWS) — настройка retry-политик для быстрой детекции сбоев CDC во время миграции.
+- [[hxxps://aws.amazon.com/blogs/database/build-semantic-search-with-native-vector-support-in-amazon-dynamodb/][Build semantic search with native vector support in Amazon DynamoDB]] (AWS) — использование нативного векторного поиска в DynamoDB для упрощения архитектуры.
+- [[hxxps://www.dataengineeringweekly.com/p/on-benchmarking][On Benchmarking]] (Data Engineering Weekly) — почему бенчмарки без контрактов на нагрузку вводят в заблуждение при выборе архитектуры.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) —agenda встречи сообщества по графовым базам данных в рамках VLDB 2026.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dataengineeringweekly.com/p/on-benchmarking][On Benchmarking]]
+:SCORE: 10/10
+:WHY: Фундаментальный гайд по активному бенчмаркингу, необходимый для принятия архитектурных решений.
+**** [[hxxps://aws.amazon.com/blogs/database/detect-cdc-failures-faster-with-aws-dms/][Detect CDC failures faster with AWS DMS]]
+:SCORE: 9/10
+:WHY: Практическая настройка надежности пайплайнов данных, предотвращающая тихие сбои миграции.
+**** [[hxxps://aws.amazon.com/blogs/database/build-semantic-search-with-native-vector-support-in-amazon-dynamodb/][Build semantic search with native vector support in Amazon DynamoDB]]
+:SCORE: 8/10
+:WHY: Устранение необходимости в отдельном векторном хранилище для операционных данных на DynamoDB.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/oracle-machine-learning-for-sql-on-amazon-rds-build-machine-learning-models-entirely-in-sql/][Oracle Machine Learning for SQL on Amazon RDS: Build machine learning models entirely in SQL]] (AWS) — обучение ML-моделей внутри Oracle DB на RDS без перемещения данных.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — обсуждение стандартов GQL и графовых акселераторов с участниками индустрии.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/oracle-machine-learning-for-sql-on-amazon-rds-build-machine-learning-models-entirely-in-sql/][Oracle Machine Learning for SQL on Amazon RDS: Build machine learning models entirely in SQL]]
+:SCORE: 8/10
+:WHY: Уникальная возможность запуска ML внутри БД для команд, связанных экосистемой Oracle на AWS.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 7/10
+:WHY: Инсайт о развитии стандартов GQL и графовых технологий от лидеров рынка.
+
+** Open Source
+- [[hxxps://opensource.org/blog/preliminary-agenda-announced-for-the-open-technology-research-symposium-2026][Preliminary agenda announced for the Open Technology Research Symposium 2026]] (OpenSource.org) — анонс симпозиума по переходу от исследования открытых технологий к внедрению.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://opensource.org/blog/preliminary-agenda-announced-for-the-open-technology-research-symposium-2026][Preliminary agenda announced for the Open Technology Research Symposium 2026]]
+:SCORE: 7/10
+:WHY: Обзор глобальных трендов управления и устойчивости open source инфраструктур на 2026 год.
+
+** Инженеры
+- [[hxxps://rossabaker.com/blog/when-the-beard-comes-off/][When the beard comes off]] (Ross Baker) — эссе о личной идентичности, традициях и профессиональной культуре инженера.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://rossabaker.com/blog/when-the-beard-comes-off/][When the beard comes off]]
+:SCORE: 6/10
+:WHY: Личный взгляд на баланс между индивидуальностью и профессиональными ожиданиями в индустрии.

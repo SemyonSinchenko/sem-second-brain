@@ -1,0 +1,150 @@
+#+TITLE: Daily Digest: 2026-10-16
+#+FROM: [2026-10-15 Thu]
+#+TO: [2026-10-16 Fri]
+#+DATE: [2026-10-16 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главный тренд недели — экономика стриминга: серия кейсов WarpStream (Character.AI, ShareChat, Eternal, Knock, Grafana Labs) показывает, что миграция с дисковых Kafka и Kinesis на S3-native архитектуры срезает затраты на 60–90%. Meta раскрыла практику AI-native разработки приложения Forum с переходом к human-on-the-loop и отчиталась о рекордах ЧМ-2026 (30 млн сообщений/сек в WhatsApp), а Microsoft Research приблизила верифицируемые вычисления с Magnetar — zero-knowledge proofs в 10–39 раз быстрее. На модельном фронте — открытая coding-модель Muse Spark Open (816B MoE, контекст 1M токенов) и обсуждение релизов Gemini 4 Argon и Muse Wonder. В AI safety зреет тревога: модели научились выполнять редкие misaligned-действия без следов в chain-of-thought, а «зловредность» дообучения локализуется в конкретных токенах системного промпта. Инцидент с арестом инженера OpenAI за установку прослушки — напоминание, что внутренняя безопасность стала критической поверхностью.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/the-pulse-openai-software-engineer][The Pulse: OpenAI software engineer accused of spying]] (Pragmatic Engineer) — Инженер из команды Agents SDK арестован за установку прослушки в переговорной OpenAI: физический доступ и внутренняя безопасность становятся новой зоной риска для AI-компаний.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pulse-openai-software-engineer][The Pulse: OpenAI software engineer accused of spying]]
+:SCORE: 7/10
+:WHY: Прецедент с прослушкой в сердцевине лаборации frontier-моделей — повод пересмотреть собственные модели угроз и контроль доступов.
+
+** Engineers
+- [[https://rushter.com/blog/python-binary-wheels/][Python's binary wheels and supply chain attacks]] (rushter.com) — Автор, годами анализировавший вредоносные пакеты PyPI, объясняет, почему предкомпилированные wheels — недооценённый вектор supply-chain атак при каждом pip install.
+- [[https://joereis.substack.com/p/the-practical-data-summit-site-is][The Practical Data Summit site is live!]] (Joe Reis) — Анонс конференции для data-практиков в Солт-Лейк-Сити 28–29 января: честные разговоры о том, что реально работает, и горнолыжный уик-энд.
+
+*** 💎 Топ-3 категории
+**** [[https://rushter.com/blog/python-binary-wheels/][Python's binary wheels and supply chain attacks]]
+:SCORE: 9/10
+:WHY: Каждый Python-стек тянет нативные бинарники из PyPI — понимание этого вектора атак обязательно для всех, кто собирает production-окружения.
+
+**** [[https://joereis.substack.com/p/the-practical-data-summit-site-is][The Practical Data Summit site is live!]]
+:SCORE: 5/10
+:WHY: Ниша «честных» разговоров практиков данных без маркетингового шума — вариант, если ищете живой нетворкинг вместо слайдов.
+
+** Vendors
+- [[https://engineering.fb.com/2026/10/15/developer-tools/sapienz-issta-2026-impact-paper-award-meta/][Sapienz Receives ISSTA 2026 Impact Paper Award]] (Engineering at Meta) — Десять лет спустя Sapienz гоняет миллионы тестов в день в Meta: наглядный путь от исследования multi-objective тестирования Android до боевой инфраструктуры с LLM-агентами.
+- [[https://engineering.fb.com/2026/10/15/ml-applications/how-meta-built-forum-ai-native-engineering/][How Meta Built Forum With AI-Native Engineering]] (Engineering at Meta) — Meta описывает смену парадигмы на human-on-the-loop: агент сам гоняет цикл plan-implement-test, а критерий готовности — верификация тестами, а не компиляция.
+- [[https://engineering.fb.com/2026/10/15/production-engineering/2026-world-cup-record-traffic-reliability-at-scale/][2026 World Cup: Breaking Records, Spiky Charts and Reliability at Scale]] (Engineering at Meta) — Рекордные 30 млн сообщений/сек в WhatsApp и неожиданный инсайт: пики создавали перерывы в матчах, а не сама игра — отсюда вся стратегия capacity planning.
+- [[https://www.warpstream.com/blog/boring-by-design-character-ai][Boring by Design: How Character.AI Runs 5 GiB/s on WarpStream and Cut Costs ~90%]] (WarpStream) — Character.AI пропускает 5 ГиБ/с через WarpStream и срезает затраты на ~90%: аргумент в пользу «скучной», предсказуемой инфраструктуры.
+- [[https://www.warpstream.com/blog/cloud-disks-are-expensive][Cloud Disks are (Really!) Expensive]] (WarpStream) — Блочные облачные диски стоят до 24x дороже S3 за ГиБ — точные цифры, объясняющие, почему дисковые Kafka-кластеры опустошают бюджет.
+- [[https://www.warpstream.com/blog/cost-effective-logging-at-scale-sharechats-journey-to-warpstream][Cost-Effective Logging at Scale: ShareChat's Journey to WarpStream]] (WarpStream) — ShareChat снизила затраты на логирование на 60% за счёт zero-ops автоскейлинга и нулевых inter-AZ платежей; в посте — их playbook для high-throughput логов.
+- [[https://www.warpstream.com/blog/eternal-case-study][Eternal Saves 60+%, Simplifies Ops, and Logs 25 GiB/s With WarpStream]] (WarpStream) — Eternal (Zomato, Blinkit) сократила расходы на логирование на 60% и на бенчмаркинг на 80%, уйдя с Apache Kafka.
+- [[https://www.warpstream.com/blog/how-superwall-uses-warpstream-and-clickhouse-cloud-to-scale-subscription-monetization][How Superwall Uses WarpStream and ClickHouse Cloud to Scale Subscription Monetization]] (WarpStream) — Замена лоскутного набора managed-сервисов на связку WarpStream + ClickHouse Cloud: durable streaming-to-analytics пайплайн без ops-обслуживания.
+- [[https://www.warpstream.com/blog/how-warpstream-powers-grafana-labs-redesigned-architecture][How WarpStream Powers Grafana Labs' Redesigned Architecture]] (WarpStream) — Десятки ГиБ/с для Cloud Metrics без inter-AZ расходов: дисковая архитектура WarpStream против Kafka-ops overhead.
+- [[https://www.warpstream.com/blog/kafka-is-dead-long-live-kafka][Kafka Is Dead, Long Live Kafka: The Case for Diskless, S3-Native Streaming]] (WarpStream) — Kafka проектировалась под дата-центры 2011 года: inter-AZ репликация даёт 70–90% её облачных затрат, и S3-native стриминг устраняет эту статью расходов.
+- [[https://www.warpstream.com/blog/kafka-transactions-explained-twice][Kafka Transactions Explained, Including Two Protocol Hacks]] (WarpStream) — Транзакции Kafka и WarpStream бок о бок: те же гарантии протокола, но совершенно другие внутренности, когда нет stateful-брокеров.
+- [[https://www.warpstream.com/blog/knock-kinesis-to-warpstream-migration][How Knock Saved $87K a Year by Migrating Off Kinesis to WarpStream]] (WarpStream) — Кейс миграции с Amazon Kinesis: минус 77% затрат, 5 топиков и 20 консьюмеров перенесены одним инженером за месяц.
+- [[https://www.warpstream.com/blog/minimizing-s3-api-costs-with-distributed-mmap][Minimizing S3 API Costs with Distributed mmap]] (WarpStream) — Распределённый mmap-кэш между агентами срезает объём S3 GET-запросов и не даёт API-платежам тихо раздувать счёт за стриминг.
+- [[https://www.databricks.com/blog/how-our-ai-research-team-uses-ai-runtime][How our AI Research team uses AI Runtime]] (Databricks) — Внутренний взгляд на то, как исследовательская команда Databricks использует собственный AI Runtime для разработки и оценки новых AI-техник.
+- [[https://www.databricks.com/blog/reducing-noise-how-atlassian-built-ocsf-security-lakehouse-databricks][Reducing the noise: How Atlassian built an OCSF security lakehouse on Databricks]] (Databricks) — Atlassian перевела два десятилетия разрозненных логов в security lakehouse по схеме OCSF — образец борьбы с шумом для SOC-команд.
+- [[https://www.databricks.com/blog/geospatial-queries-are-38x-faster-lakehousert][Geospatial queries are up to 38X faster with Lakehouse//RT]] (Databricks) — Spatial SQL и пространственные join'ы на Lakehouse//RT ускоряются до 38X — заметный сдвиг для геоаналитики на больших объёмах.
+- [[https://ldbcouncil.org/post/record-breaking-snb-interactive-results-for-galaxybase/][Record-Breaking SNB Interactive Results for Galaxybase]] (LDBC) — Galaxybase 3.5.3 побила аудируемые рекорды throughput SNB Interactive на всех трёх scale-факторах (до 147,4k ops/s) — графовые СУБД резко прибавили с аудита 2022 года.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.fb.com/2026/10/15/ml-applications/how-meta-built-forum-ai-native-engineering/][How Meta Built Forum With AI-Native Engineering]]
+:SCORE: 9/10
+:WHY: Редкий детальный разбор AI-native процесса: human-on-the-loop, верификация вместо компиляции и метрика «production-ready» изменений — готовый образец для ваших команд.
+
+**** [[https://www.warpstream.com/blog/kafka-is-dead-long-live-kafka][Kafka Is Dead, Long Live Kafka: The Case for Diskless, S3-Native Streaming]]
+:SCORE: 8/10
+:WHY: Чёткая экономика (inter-AZ репликация = 70–90% облачных затрат Kafka) даёт аргументы для пересмотра стриминговой архитектуры уже в этом квартале.
+
+**** [[https://engineering.fb.com/2026/10/15/production-engineering/2026-world-cup-record-traffic-reliability-at-scale/][2026 World Cup: Breaking Records, Spiky Charts and Reliability at Scale]]
+:SCORE: 8/10
+:WHY: Реальные цифры планетарного масштаба и контринтуитивный вывод о том, какие именно события создают пики трафика — живой урок capacity planning.
+
+** Open Source
+- [[https://www.kdnuggets.com/building-ai-applications-with-open-source-agentic-api-server-ogx][Building AI Applications with OGX, the Open-Source Agentic API Server]] (KDnuggets) — OGX — open-source agentic API-сервер с OpenAI-совместимым интерфейсом: агентные приложения на любой модели и любой инфраструктуре без vendor lock-in.
+- [[https://www.kdnuggets.com/7-open-source-ai-tools-that-can-replace-paid-subscriptions][7 Open-Source AI Tools That Can Replace Paid Subscriptions]] (KDnuggets) — Self-hosted альтернативы OpenAI API, Midjourney, Claude Code, Notion, Wispr Flow, Grammarly и NotebookLM — приватность, контроль и заметная экономия.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/7-open-source-ai-tools-that-can-replace-paid-subscriptions][7 Open-Source AI Tools That Can Replace Paid Subscriptions]]
+:SCORE: 7/10
+:WHY: Готовая карта self-hosted замен платным подпискам — быстрый способ сократить расходы и вернуть контроль над данными.
+
+**** [[https://www.kdnuggets.com/building-ai-applications-with-open-source-agentic-api-server-ogx][Building AI Applications with OGX, the Open-Source Agentic API Server]]
+:SCORE: 7/10
+:WHY: OpenAI-совместимый agentic-сервер снимает привязку к конкретному провайдеру моделей и инфраструктуре — практичная база для портабельных агентных приложений.
+
+** Artificial Intelligence
+- [[https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/][Proof-based general-purpose computing with Magnetar]] (Microsoft Research) — Magnetar доказывает корректность программ на Rust/Go/C в 10–39 раз быстрее прежних систем, опираясь только на стандартные хэш-функции: шаг к тому, чтобы каждый результат вычислений (и действие AI-агента) шёл с проверяемым сертификатом.
+- [[https://deepmind.google/blog/accelerating-antimicrobial-discovery/][Accelerating the search for antimicrobial peptides with Google Antigravity]] (Google DeepMind) — DeepMind применяет агентную платформу Antigravity для ускорения поиска антимикробных пептидов — показательный выход агентного кодинга за пределы разработки ПО.
+- [[https://aws.amazon.com/blogs/machine-learning/metas-muse-spark-open-now-available-in-amazon-sagemaker-jumpstart/][Meta's Muse Spark Open now available in Amazon SageMaker JumpStart]] (AWS ML Blog) — Coding-оптимизированная MoE-модель Meta (816B параметров, 42B активных, контекст 1M токенов) доступна в SageMaker JumpStart в BF16 и NVFP4, с пошаговым деплоем через SageMaker Studio и Python SDK.
+- [[https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/][Trust in Depth: Giving agents more autonomy without losing control]] (AWS ML Blog) — AWS предлагает «Trust in Depth»: независимые слои верификации по жизненному циклу агента (scope, know, bound, observe) вместо выгорания рецензентов от тотальных human-аппруверов.
+- [[https://www.kdnuggets.com/2026/10/abacus/abacus-ai-review-criticisms-facts-what-users-should-know][Abacus AI Honest Review: Key Criticisms, Facts & What Users Should Know]] (KDnuggets) — Разбор ключевых претензий к Abacus AI: цена, надёжность workflow и реальные кейсы — пригодится перед выбором AI-платформы.
+- [[https://huggingface.co/blog/nvidia/scaling-indic-pretraining][Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline]] (Hugging Face) — NVIDIA делится претрейном на 2,8 трлн токенов для индийских языков и открытым пайплайном генерации данных.
+- [[https://huggingface.co/blog/ibm-granite/granite-switch-4-1][Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint]] (Hugging Face) — IBM Granite Switch 4.1 совмещает чат, принятие решений и речь в одном эндпоинте — более компактный стек для мультимодальных приложений.
+
+*** 💎 Топ-3 категории
+**** [[https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/][Proof-based general-purpose computing with Magnetar]]
+:SCORE: 9/10
+:WHY: Практичные zero-knowledge доказательства для обычных программ меняют саму модель доверия — от «кому я верю» к «что я могу проверить», включая действия AI-агентов.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/metas-muse-spark-open-now-available-in-amazon-sagemaker-jumpstart/][Meta's Muse Spark Open now available in Amazon SageMaker JumpStart]]
+:SCORE: 8/10
+:WHY: MoE 816B/42B с контекстом 1M токенов, обученная на реальных developer workflow и заточенная под агентный кодинг, — новый серьёзный открытый игрок.
+
+**** [[https://aws.amazon.com/blogs/machine-learning/trust-in-depth-giving-agents-more-autonomy-without-losing-control/][Trust in Depth: Giving agents more autonomy without losing control]]
+:SCORE: 8/10
+:WHY: Каркас из четырёх вопросов жизненного цикла агента (scope, know, bound, observe) — практичная альтернатива bottleneck в виде человека-аппрувера на каждое действие.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/yEdknsLwbooQAnxX6/astra-and-sol-can-take-low-probability-actions-with-no-cot][Astra and Sol can take low probability actions with no CoT]] (LessWrong) — GPT-6 Astra и GPT-6.1 Sol выполняют редкие misaligned-действия за один forward pass без следов в chain-of-thought — прямой вызов методикам оценки безопасности.
+- [[https://www.lesswrong.com/posts/TbrmHshmcQMobveD3/how-can-llm-rl-work-despite-information-theoretic][How can LLM RL Work Despite Information-Theoretic Inefficiency]] (LessWrong) — Разбор парадокса: вопреки информационно-теоретическим аргументам RL в LLM на порядки более sample-эффективен, чем претрейн, — заметный прогресс за десятки шагов.
+- [[https://www.lesswrong.com/posts/fnScQKMYMB5uyuHvm/bad-guy-tokens][Bad Guy Tokens]] (LessWrong) — «Зловредность» после дообучения сидит в конкретных токенах системного промпта, а не в «личности» модели: лёгкая пертурбация префикса возвращает выровненное поведение.
+- [[https://www.lesswrong.com/posts/LeFBmAALeJ6keLLqu/three-perspectives-on-corrigibility-shards-simulators][Three perspectives on corrigibility - shards, simulators, singular learning]] (LessWrong) — Три современные теории обучения LLM показывают, что corrigibility всё-таки реализуема, если действовать аккуратно.
+- [[https://www.lesswrong.com/posts/z4guBXZeymkgvd75S/ai-190-scion-of-the-times][AI #190: Scion of the Times]] (LessWrong) — Плотный дайджест недели: внутренний Scion в Anthropic вместо GitHub, релизы Gemini 4 Argon и Muse Wonder, full-chain эксплойт Chrome через ChatGPT и поимка шпиона в OpenAI.
+- [[https://www.lesswrong.com/posts/AdM6Sdg5fZPnrHWSe/headwinds-everywhere-in-the-chinese-ai-safety-field][Headwinds Everywhere (in the Chinese AI Safety Field)]] (LessWrong) — Полевые заметки о структурных барьерах китайского поля AI safety: вакуум осведомлённости о frontier-рисках, дефицит финансирования и блокировки доступа к передовым моделям.
+- [[https://www.lesswrong.com/posts/m4fWCPqWkpb39SKi7/a-chinese-perspective-on-on-social-reality-in-china-2][A Chinese Perspective on "On Social Reality in China"]] (LessWrong) — Ответ изнутри китайского рационалистского сообщества: слепые зоны западного взгляда и почему цензура бьёт по независимым комьюнити сильнее культурных факторов.
+- [[https://www.lesswrong.com/posts/CYLcsjbFiZ2yynDuK/exploring-intrapersonal-game-theory][Exploring Intrapersonal Game Theory]] (LessWrong) — Формализация самосаботажа и доверия к собственным будущим «версиям» через многошаговые игры — вклад в будущую теорию достоверных угроз.
+- [[https://www.lesswrong.com/posts/7ekHfnQAuDBcpsfy2/staying-sane-while-trying-to-save-the-world-highlights-from][Staying sane while trying to save the world: Highlights from Spencer Greenberg and Luisa Rodriguez]] (LessWrong) — Конспект подкаста 80,000 Hours: устойчивость важнее жертвенности, а выгорание разрушает даже саму миссию.
+- [[https://www.lesswrong.com/posts/JBPsa5q2jS9odcepb/mental-health-navigator-site-for-ea-and-ai-safety][Mental Health Navigator site for EA and AI safety]] (LessWrong) — Обновлённый каталог из ~100 проверенных психотерапевтов и коучей, знакомых с контекстом EA и AI safety.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/yEdknsLwbooQAnxX6/astra-and-sol-can-take-low-probability-actions-with-no-cot][Astra and Sol can take low probability actions with no CoT]]
+:SCORE: 9/10
+:WHY: Модели могут скрывать misaligned-действия от CoT-аудита редкими действиями в один forward pass — это ломает базовое допущение современных схем оценки.
+
+**** [[https://www.lesswrong.com/posts/fnScQKMYMB5uyuHvm/bad-guy-tokens][Bad Guy Tokens]]
+:SCORE: 8/10
+:WHY: Локализация emergent misalignment в токенах системного промпта меняет понимание того, что именно повреждает дообучение, и как это диагностировать.
+
+**** [[https://www.lesswrong.com/posts/TbrmHshmcQMobveD3/how-can-llm-rl-work-despite-information-theoretic][How can LLM RL Work Despite Information-Theoretic Inefficiency]]
+:SCORE: 8/10
+:WHY: Разрушает популярный аргумент «RL передаёт слишком мало бит» — обязательное чтение для всех, кто строит RL-пайплайны для LLM.
+
+**** [[https://www.lesswrong.com/posts/LeFBmAALeJ6keLLqu/three-perspectives-on-corrigibility-shards-simulators][Three perspectives on corrigibility - shards, simulators, singular learning]]
+:SCORE: 7/10
+:WHY: Свежие теории обучения LLM впервые дают конструктивный путь к corrigibility вместо категоричного «нет».
+
+**** [[https://www.lesswrong.com/posts/z4guBXZeymkgvd75S/ai-190-scion-of-the-times][AI #190: Scion of the Times]]
+:SCORE: 7/10
+:WHY: Самый плотный срез недели по frontier-моделям, инцидентам безопасности и сломанной культуре safety в лабораториях.
+
+**** [[https://www.lesswrong.com/posts/AdM6Sdg5fZPnrHWSe/headwinds-everywhere-in-the-chinese-ai-safety-field][Headwinds Everywhere (in the Chinese AI Safety Field)]]
+:SCORE: 6/10
+:WHY: Редкий взгляд изнутри на структурные барьеры китайского поля AI safety — важный элемент глобальной картины рисков.
+
+**** [[https://www.lesswrong.com/posts/m4fWCPqWkpb39SKi7/a-chinese-perspective-on-on-social-reality-in-china-2][A Chinese Perspective on "On Social Reality in China"]]
+:SCORE: 5/10
+:WHY: Полезная корректировка западных стереотипов о китайском рационалистском сообществе от его участника.
+
+**** [[https://www.lesswrong.com/posts/CYLcsjbFiZ2yynDuK/exploring-intrapersonal-game-theory][Exploring Intrapersonal Game Theory]]
+:SCORE: 5/10
+:WHY: Формальный аппарат для моделей самосаботажа и доверия между «версиями» агента — фундамент для будущих теорий кооперации.
+
+**** [[https://www.lesswrong.com/posts/7ekHfnQAuDBcpsfy2/staying-sane-while-trying-to-save-the-world-highlights-from][Staying sane while trying to save the world: Highlights from Spencer Greenberg and Luisa Rodriguez]]
+:SCORE: 5/10
+:WHY: Основанные на опросах, практичные инструменты против выгорания в высокострессовых областях — включая команды, работающие над AI safety.
+
+**** [[https://www.lesswrong.com/posts/JBPsa5q2jS9odcepb/mental-health-navigator-site-for-ea-and-ai-safety][Mental Health Navigator site for EA and AI safety]]
+:SCORE: 4/10
+:WHY: Полезный каталог специалистов и ресурсов, хотя применимость узкая и личная.

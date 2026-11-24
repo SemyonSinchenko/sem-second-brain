@@ -1,0 +1,159 @@
+#+TITLE: Arxiv Digest: 2026-07-03
+#+FROM: [2026-07-02 Thu]
+#+TO: [2026-07-03 Fri]
+#+DATE: [2026-07-03 Fri]
+#+STARTUP: showall
+
+* cs.DB (Databases)
+** 🧐 Обзор
+В последние сутки наблюдается рост интереса к гибридным системам обработки запросов, объединяющим реляционные данные и семантический поиск через LLM. Одновременно развиваются протоколы управления конкуренцией для смешанных рабочих нагрузок и методы миграции данных в графовые форматы. Практическая значимость смещается в сторону поддержки многомодальных данных и обеспечения приватности внутри СУБД.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2303.18142][Shirakami: A Hybrid Concurrency Control Protocol for Tsurugi Relational Database System]]
+:WHAT: Гибридный протокол управления конкуренцией, объединяющий MVVS для длинных транзакций и Silo для коротких.
+:IMPACT: Обеспечивает стабильную производительность для смешанных рабочих нагрузок без динамического переключения протоколов, ускоряя Tsurugi DB в 7.9 раз по сравнению с PostgreSQL.
+- [[hxxps://arxiv.org/abs/2604.02444][From Textual Columns to Query Plans: A Unified Relational-Semantic Execution Framework for Hybrid Query Processing]]
+:WHAT: Фреймворк OmniTQA для компиляции вопросов на естественном языке в графы реляционных и семантических операторов.
+:IMPACT: Позволяет эффективно обрабатывать гибридные схемы данных, где часть информации структурирована, а часть содержится в тексте, повышая точность на 14 пунктов.
+- [[hxxps://arxiv.org/abs/2607.01468][CADENZA in Action: Breaking the Monolith with Intent-Dependent Plan Spaces for Semantic Queries]]
+:WHAT: Оптимизатор семантических операторов, декомпозирующий намерения пользователя на шаги с выбором физической реализации.
+:IMPACT: Позволяет балансировать между качеством, задержкой и стоимостью при выполнении семантических запросов к многомодальным базам данных.
+- [[hxxps://arxiv.org/abs/2607.01605][pykci: A Compact Urban Knowledge Graph for Semantic and Spatial Queries using LLMs]]
+:WHAT: Система трансформации CityGML в компактный граф знаний Neo4j с поддержкой текстовых запросов через LLM.
+:IMPACT: Делает сложные семантические 3D-модели городов доступными для запросов на естественном языке без экспертизы в схемах БД.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2403.01630][Relational to RDF Data Migration by Query Co-Evaluation]]
+:ALGO: Алгоритм конвертации реляционных данных в RDF триплы с использованием ко-вычисления запросов и формальных методов.
+:IMPACT: Гарантирует уникальность миграции данных с сохранением структуры, что критично для интеграции финансовых онтологий.
+- [[hxxps://arxiv.org/abs/2606.00342][PE-means: Improved Differentially Private $k$-means Clustering through Private Evolution]]
+:ALGO: Адаптация алгоритма частной эволюции для кластеризации k-средних с постоянной чувствительностью гистограммы.
+:IMPACT: Улучшает потери кластеризации на 26% по сравнению с современными аналогами при соблюдении дифференциальной приватности.
+- [[hxxps://arxiv.org/abs/2607.01546][The General Stability of Ranking]]
+:ALGO: Метрика общей стабильности ранжирования на основе расстояния, обобщающая объемную стабильность.
+:IMPACT: Позволяет оценивать устойчивость рейтингов к изменениям весовых коэффициентов, что важно для аудита алгоритмических решений.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2607.01286][IonSense-QKG: A Quantum-Readiness Metadata Framework for Lithium-Ion Battery Dataset Discovery]] — Фреймворк метаданных для оценки пригодности датасетов батарей к квантовым вычислениям.
+- [[hxxps://arxiv.org/abs/2504.20369][Perception-aware Sampling for Scatterplot Visualizations]] — Метод выборки данных для.scatterplot с учетом человеческого восприятия и карт значимости.
+- [[hxxps://arxiv.org/abs/2606.17793][Evaluating Social Engineering Risks in AI-based Interaction using Biometrics and a Gaming Setup]] — Платформа и датасет для оценки рисков социальной инженерии в взаимодействии с LLM.
+
+* cs.DC (Distributed Computing)
+** 🧐 Обзор
+Основные тренды сосредоточены на оптимизации обслуживания больших языковых и диффузионных моделей в распределенной среде. Значительное внимание уделяется снижению задержек в BFT-консенсусе и адаптивному управлению ресурсами на границе сети. Также проявился интерес к распределенным симуляторам квантовых алгоритмов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2411.13121][ReinFog: A Deep Reinforcement Learning Empowered Framework for Resource Management in Edge and Cloud Computing Environments]]
+:WHAT: Модульная распределенная система с глубоким обучением с подкреплением для управления ресурсами в Edge/Cloud.
+:IMPACT: Снижает время отклика на 45% и энергопотребление на 39% за счет адаптивного планирования задач IoT.
+- [[hxxps://arxiv.org/abs/2601.03390][Practical One-Round-Trip BFT Replication]]
+:WHAT: Протокол Aspen для бессвинцового спекулятивного BFT-консенсуса с задержкой близкой к 2Δ.
+:IMPACT: Уменьшает медианную задержку в 1.1–3.8 раза по сравнению с современными аналогами в гео-распределенных сетях.
+- [[hxxps://arxiv.org/abs/2606.13501][GF-DiT: Scheduling Parallelism for Diffusion Transformer Serving]]
+:WHAT: Рантайм для эластичного обслуживания диффузионных трансформеров с динамическим изменением параллелизма.
+:IMPACT: Увеличивает пропускную способность до 6 раз и снижает нарушение SLO на 90% за счет групповых коллективных операций.
+- [[hxxps://arxiv.org/abs/2607.00466][ELDR: Expert-Locality-Aware Decode Routing for PD-Disaggregated MoE Serving]]
+:WHAT: Маршрутизатор декодирования для MoE-моделей, учитывающий локальность экспертов при префилле.
+:IMPACT: Снижает медианную задержку генерации токенов на 5.9–13.9% в распределенных развертываниях до 40 GPU.
+- [[hxxps://arxiv.org/abs/2607.01299][HYPIC: Accelerating Hybrid-Attention LLM Serving with Position-Independent Caching]]
+:WHAT: Система обслуживания гибридных LLM с кэшированием, независимым от позиции сегментов контекста.
+:IMPACT: Ускоряет время до первого токена в 2.45 раза для длинных контекстов в RAG-сценариях.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2502.05591][Round and Resilience-Optimal Approximate Agreement on Trees and Block Graphs]]
+:ALGO: Синхронный протокол приближенного согласия на деревьях с оптимальной устойчивостью к византийским сбоям.
+:IMPACT: Закрывает вопрос о сложности раундов для согласования на графовых структурах ввода.
+- [[hxxps://arxiv.org/abs/2607.01342][Design rules for fault-tolerant multi-gate teleportation]]
+:ALGO: Правила проектирования для отказоустойчивой пакетной телепортации квантовых гейтов.
+:IMPACT: Позволяет компиляторам распределенных квантовых цепей упаковывать гейты без потери отказоустойчивости.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2606.26297][A Distributed Quantum Approximate Optimization Algorithm Simulator for Engineering Design Optimization]] — Распределенный симулятор DQAOA для задач оптимизации инженерного дизайна.
+- [[hxxps://arxiv.org/abs/2607.01304][The Three Dimensions of ROS 2 Middleware]] — Систематический обзор архитектуры middleware ROS 2 через призму пространства, времени и состояния.
+- [[hxxps://arxiv.org/abs/2607.01120][Next-Generation Agentic Reinforcement Learning Systems Enable Self-Evolving Agents]] — Архитектурное видение систем онлайн-RL для саморазвивающихся агентом.
+
+* physics.soc-ph (Social Physics & Networks)
+** 🧐 Обзор
+Исследования фокусируются на динамике сетей мнений и нейронных популяций с использованием квантовых моделей и визуальной информатики. Актуальны темы устойчивости инфраструктур к климатическим событиям и социологический анализ научного сообщества. Также рассматриваются игровые модели на гиперграфах.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2607.01719][Hypergraph Minority Game with Local Hyperedge Payoffs]]
+:ALGO: Теоретический вывод игры меньшинства на гиперграфах с локальными выплатами.
+:IMPACT: Обобщает стандартную модель меньшинства на структуры с пересекающимися группами агентов.
+- [[hxxps://arxiv.org/abs/2607.01452][A quantum model of opinion dynamics on networks]]
+:ALGO: Квантовая модель динамики мнений, использующая матрицы плотности для кодирования когнитивной амбивалентности.
+:IMPACT: Объясняет эффекты порядка в опросах и сходимость мнений независимо от структуры сети.
+- [[hxxps://arxiv.org/abs/2607.01967][The ring wants to be broken]]
+:ALGO: Аналитический вычисление числа Рамси для сообществ в кольцевых решетках.
+:IMPACT: Демонстрирует возникновение сообществ в однородных сетях при минимальной локальной связности.
+- [[hxxps://arxiv.org/abs/2511.12685][Extracting resilience events from utility outage data based on overlapping times and locations]]
+:ALGO: Алгоритм группировки отключений электроэнергии в события устойчивости на основе пересечения цилиндров в пространстве-времени.
+:IMPACT: Позволяет автоматически выделять климатические события из данных утилит для анализа устойчивости сетей.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2502.20862][Analysis of Evolving Cortical Neuronal Networks Using Visual Informatics]] — Фреймворк визуальной информатики для анализа динамики нейронных сетей.
+- [[hxxps://arxiv.org/abs/2601.14297][Meeting the Needs of the Global Quantum Science Community: A Call to Action]] — Отчет о разнообразии и проблемах маргинализированных групп в квантовом сообществе.
+- [[hxxps://arxiv.org/abs/2607.01471][Near-Term Emission Targets Need Immediate Attention in the USA]] — Анализ драйверов выбросов и затрат энергии в США с учетом политики.
+- [[hxxps://arxiv.org/abs/2607.01521][Selling the Stock, Not the Cream: The Soviet \'Emigr\'e Career Premium of the 1990s]] — Социологический анализ карьерных траекторий ученых-эмигрантов из СССР.
+- [[hxxps://arxiv.org/abs/2607.01835][Subsoil acidity causes long delays in inorganic carbon sequestration by Enhanced Weathering]] — Исследование задержек секвестрации углерода из-за кислотности подпочвы.
+
+* cs.DS (Data Structures & Algorithms)
+** 🧐 Обзор
+Наблюдается прогресс в динамических алгоритмах кластеризации графов и тестировании свойств распределений. Важные результаты получены в области дифференциально-приватного непрерывного подсчета и робастности разреженного умножения матриц. Также решаются задачи вложимости и планарности.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2602.08542][Incremental (k, z)-Clustering on Graphs]]
+:ALGO: Инкрементальный алгоритм кластеризации (k, z) на графах с обновлением при вставке ребер.
+:IMPACT: Поддерживает константную аппроксимацию за почти линейное время от числа ребер в динамическом режиме.
+- [[hxxps://arxiv.org/abs/2604.24134][Near-Optimal Working-Set Heaps and Dijkstra on Pointer Machines]]
+:ALGO: Реализация кучи со свойством рабочего множества для pointer machines.
+:IMPACT: Позволяет выполнять алгоритм Дейкстры с почти универсальной оптимальностью на слабых моделях вычислений.
+- [[hxxps://arxiv.org/abs/2607.01427][Robustifying Sparse Matrix Multiplication]]
+:ALGO: Черный ящик для превращения алгоритмов разреженного умножения матриц в робастные версии.
+:IMPACT: Достигает почти оптимального времени выполнения для поиска наибольших элементов результата.
+- [[hxxps://arxiv.org/abs/2607.00118][Temporal Path Covers: Dilworth Properties and Parameterized Complexity]]
+:ALGO: Анализ задачи покрытия путями во временных графах через свойства Дилворта.
+:IMPACT: Доказывает полиномиальную разрешимость при выполнении условия Дилворта и FPT-алгоритмы по параметрам.
+- [[hxxps://arxiv.org/abs/2607.00876][The Binary Tree Mechanism is Optimal for Approximate Differentially Private Continual Counting]]
+:ALGO: Доказательство оптимальности механизма бинарного дерева для приватного непрерывного подсчета.
+:IMPACT: Закрывает открытый вопрос о зависимости ошибки от длины потока в приближенном DP.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2306.08546][Recoverable Robust Optimization with Commitment]] — Модель робастной оптимизации с обязательством сохранения части решения.
+- [[hxxps://arxiv.org/abs/2408.02347][Improved Bounds for High-Dimensional Equivalence and Product Testing using Subcube Queries]] — Улучшенные границы для тестирования эквивалентности распределений.
+- [[hxxps://arxiv.org/abs/2605.14834][Min-1-Planarity is NP-Hard]] — Доказательство NP-полноты задачи определения min-1-планарности графа.
+- [[hxxps://arxiv.org/abs/2606.02263][Exact Sampling of Permutations with a Fixed Longest Increasing Subsequence]] — Точный сэмплер перестановок с фиксированной длиной возрастающей подпоследовательности.
+- [[hxxps://arxiv.org/abs/2606.31192][Planar Embedding of Okamura-Seymour Quasimetrics in Polynomial Time with an Application to Distributed SSSP]] — Алгоритм планарного вложения квазиметрик для распределенного поиска кратчайших путей.
+
+* cs.AI (Artificial Intelligence)
+** 🧐 Обзор
+Развитие автономных агентов смещается в сторону саморазвития и работы без внешних данных через метапамять. В компьютерном зрении акцент делается на интерпретируемость устойчивости моделей и симуляцию физики из видео. Эффективная дообучка трансформеров через тензорные разложения также набирает популярность.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2501.07892][Leveraging Metamemory Agent for Enhanced Data-Free Code Generation in Large Language Models]]
+:WHAT: Агент метапамяти для оценки уверенности и использования recalled знаний при генерации кода.
+:IMPACT: Позволяет генерировать код без внешних примеров (data-free), повышая надежность вспоминания знаний.
+- [[hxxps://arxiv.org/abs/2503.24009][Learning 3D-Gaussian Simulators from RGB Videos]]
+:WHAT: Фреймворк 3DGSim для обучения физических симуляторов напрямую из многовидовых RGB видео.
+:IMPACT: Объединяет реконструкцию сцены и динамику частиц в end-to-end модели без глубинных датчиков.
+- [[hxxps://arxiv.org/abs/2411.08875][Causal Explanations for Image Classifiers]]
+:WHAT: Инструмент ReX для вычисления объяснений на основе теории актуальной причинности.
+:IMPACT: Создает минимальные и эффективные объяснения решений классификаторов изображений в black-box настройке.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2506.01623][MAGIK: Mapping to Analogous Goals via Imagination-enabled Knowledge Transfer]]
+:ALGO: Фреймворк трансфера знаний через воображаемое маппирование сущностей между задачами.
+:IMPACT: Enables zero-shot transfer в RL без взаимодействия с целевой средой.
+- [[hxxps://arxiv.org/abs/2506.09105][MetaTT: A Global Tensor-Train Adapter for Parameter-Efficient Fine-Tuning]]
+:ALGO: Адаптер на основе тензорного разложения Tensor Train для дообучки трансформеров.
+:IMPACT: Снижает число параметров адаптера за счет факторизации структурных измерений модели.
+- [[hxxps://arxiv.org/abs/2605.09415][Strategic commitments shape collective cybersecurity under AI inequality]]
+:ALGO: Эволюционная game-theoretic модель влияния неравенства в доступе к AI на кибербезопасность.
+:IMPACT: Показывает, что субсидии дляcommitted защитников эффективнее изолированных обязательств для устойчивости системы.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/1808.07645][Playing 20 Question Game with Policy-Based Reinforcement Learning]] — RL-агент для игры в 20 вопросов с политикой выбора вопросов.
+- [[hxxps://arxiv.org/abs/2311.17633][Introduction to Transformers: an NLP Perspective]] — Обзор архитектуры трансформеров и ключевых техник для NLP.
+- [[hxxps://arxiv.org/abs/2408.01139][Interpreting Global Perturbation Robustness of Image Models using Axiomatic Spectral Importance Decomposition]] — Метод интерпретации устойчивости моделей через спектральную декомпозицию.
+- [[hxxps://arxiv.org/abs/2411.16956][Contrastive Deep Learning Reveals Age Biomarkers in Histopathological Skin Biopsies]] — Использование контрастного обучения для выявления биомаркеров старения на биопсиях.
+- [[hxxps://arxiv.org/abs/2505.03303][Comparative Analysis of Lightweight CNNs for Resource-Constrained Devices: Predictive Performance, Efficiency Trade-offs, and Initialization Effects]] — Бенчмарк легковесных CNN для устройств с ограниченными ресурсами.

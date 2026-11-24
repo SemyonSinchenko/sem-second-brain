@@ -1,0 +1,130 @@
+#+TITLE: Arxiv Digest: 2026-05-20
+#+FROM: [2026-05-19 Tue]
+#+TO: [2026-05-20 Wed]
+#+DATE: [2026-05-20 Wed]
+#+STARTUP: showall
+
+* Базы данных (cs.DB)
+** 🧐 Обзор
+В последние сутки наблюдается сдвиг в сторону GPU-центричной обработки запросов и интеграции пространственных данных. Системы активно оптимизируют использование пауз I/O для повышения throughput, а также развивают unified платформы для транспорта и здоровья. Особый интерес представляет применение ML для сжатия статических структур и обработки нечетких NL-запросов.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2512.02862][PystachIO: Efficient Distributed GPU Query Processing with PyTorch over Fast Networks & Fast Storage]]
+:WHAT: Прототип распределенного OLAP-движка на базе PyTorch, использующий RDMA и NVMe для максимизации утилизации GPU.
+:IMPACT: Позволяет масштабировать анализаторские workload на GPU-кластерах, обеспечивая до 3x ускорения относительно существующих методов.
+- [[hxxps://arxiv.org/abs/2605.19335][Leveraging I/O Stalls for Efficient Scheduling in ANNS]]
+:WHAT: Framework LIOS,执行 индексные обновления внутри окон ожидания I/O во время поиска ближайших соседей.
+:IMPACT: Увеличивает скорость插入 и удаления до 2.68x без деградации latency поиска, эффективно используя idle CPU cycles.
+- [[hxxps://arxiv.org/abs/2604.10959][Ozone: A Unified Platform for Transportation Research]]
+:WHAT: Unified платформа с стандаризированными схемами данных для轨迹, LiDAR и сенсоров транспорта.
+:IMPACT: Сокращает время настройки экспериментов на 85% и обеспечивает воспроизводимость исследований между разными датасетами и городами.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.23105][Spatial Analysis on Value-Based Quadtrees of Rasterized Vector Data]]
+:ALGO: Value-based quadtree индекс, объединяющий векторные и растровые данные через autocorrelation свойства.
+:IMPACT: Снижает latency Point-in-Polygon запросов на 90% при сохранении точности, упрощая совместный анализ mobility и weather data.
+- [[hxxps://arxiv.org/abs/2510.27588][Learned Static Function Data Structures]]
+:ALGO: Learned static functions, использующие ML для предсказания distribution значений и кодирования через prefix codes.
+:IMPACT: Позволяет突破 zero-order entropy barrier, обеспечивая значительную экономию памяти при хранении static key-value sets.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2605.19197][Feasible Plan Generation with Ambiguity-Boundedness in Cross-Model Query Processing]] — Packed Plan Forest для компактного encoding feasible logical plans в NL-to-DB задачах.
+- [[hxxps://arxiv.org/abs/2605.19922][OpenHealth Lake: Designing and testing a data lakehouse platform for health applications]] — Prototype data lakehouse для безопасного обмена heterogeneous health data по принципам FAIR.
+
+* Распределенные системы (cs.DC)
+** 🧐 Обзор
+Основные тренды сосредоточены на эффективности inference MoE- моделей и causal consistency в распределенных кэшах. Появляются новые методы distributed training для ultra-long contexts и pipeline parallelism для научных simulations. Также заметно внимание к security в Federated Learning и анализу атак в pooled mining.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2411.08982][Lynx: Enabling Efficient MoE Inference through Dynamic Batch-Aware Expert Selection]]
+:WHAT: Система LYNX, использующая AffinityBinning для remapping token-to-expert assignments внутри batch.
+:IMPACT: Увеличивает throughput до 1.30x для MoE моделей без потери accuracy, решая проблему активации всех экспертов при batching.
+- [[hxxps://arxiv.org/abs/2508.15647][CausalMesh: A Formally Verified Causally Consistent Distributed Cache with Support for Client Migration]]
+:WHAT: Distributed cache с coordination-free операциями и поддержкой migration клиентов между nodes.
+:IMPACT: Guarantees causal consistency при миграции workflows в serverless environments, снижая latency и повышая throughput.
+- [[hxxps://arxiv.org/abs/2510.18830][MTraining: Distributed Dynamic Sparse Attention for Efficient Ultra-Long Context Training]]
+:WHAT: Distributed methodology с dynamic sparse training pattern и balanced sparse ring attention.
+:IMPACT: Позволяет тренировать LLM с контекстом 512K tokens на 32 GPU, увеличивая throughput training до 6x.
+- [[hxxps://arxiv.org/abs/2605.18404][JanusPipe: Efficient Pipeline Parallel Training for Machine Learning Interatomic Potentials]]
+:WHAT: 3D-parallel training system (PP/DP/GP) с SymFold для memory-efficient pipeline parallelism в conservative MLIPs.
+:IMPACT: Улучшает throughput на 1.51x относительно 1F1B, enabling scalable training для molecular dynamics simulations.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2603.13671][Grassroots Bonds as a Foundation for Market Liquidity]]
+:ALGO: Extension grassroots coins через maturity dates и digital social contracts в concurrent logic programming.
+:IMPACT: Позволяет формировать liquidity в local digital economies без initial capital, используя mutual trust как основу для financial instruments.
+- [[hxxps://arxiv.org/abs/2604.14135][Temporary Power Adjusting Withholding Attack]]
+:ALGO: Generalization PAW attack (T-PAW) с withholding fPoW до T-time в pool mining.
+:IMPACT: Reveals structural weakness в pooled mining, showing that honest mining is sub-optimal и small miners могут стать adversaries.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2506.05640][FedShield-LLM: A Secure and Scalable Federated Fine-Tuned Large Language Model]] — Integrates pruning и FHE для secure federated fine-tuning LLM с reduced attack surface.
+- [[hxxps://arxiv.org/abs/2605.11333][MLCommons Chakra: Advancing Performance Benchmarking and Co-design using Standardized Execution Traces]] — Ecosystem для benchmarking distributed ML workloads через standardized graph-based execution traces.
+
+* Искусственный интеллект (cs.AI)
+** 🧐 Обзор
+Наблюдается рост системной оптимизации для LLM inference (KV-cache, scheduling) и развитие spatial intelligence в multimodal models. Важным方向 является explainability в biomedical GNN и safety alignment. Также появляются инструменты для monitoring AI-generated content и защиты от jailbreak attacks.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2601.20309][SuperInfer: SLO-Aware Rotary Scheduling and Memory Management for LLM Inference on Superchips]]
+:WHAT: High-performance inference system с RotaSched и DuplexKV для Superchips (GPU-CPU via NVLink-C2C).
+:IMPACT: Improves TTFT SLO attainment rates by 74.7%, unlocking full potential of Superchips для responsive LLM serving.
+- [[hxxps://arxiv.org/abs/2508.06526][PiKV: KV Cache Management System for Mixture of Experts]]
+:WHAT: Parallel и distributed KV cache serving framework с expert-sharded storage и compression.
+:IMPACT: Reduces memory и communication overhead для MoE architectures, addressing bottleneck в multi-GPU inference.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2504.05454][GraphPINE: Graph Importance Propagation for Interpretable Drug Response Prediction]]
+:ALGO: GNN architecture с importance propagation layer, использующая domain-specific prior knowledge для initialization node importance.
+:IMPACT: Improves drug response prediction (PR-AUC 0.894) и обеспечивает interpretability через integration gene-gene и drug-target graphs.
+- [[hxxps://arxiv.org/abs/2505.23747][Spatial-MLLM: Boosting MLLM Capabilities in Visual-based Spatial Intelligence]]
+:ALGO: Dual-encoder architecture (2D semantic + 3D spatial) и space-aware frame sampling для reasoning from 2D observations.
+:IMPACT: Achieves state-of-the-art performance в visual-based spatial understanding tasks без requirement для additional 3D data.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2410.15362][Faster-GCG: Efficient Discrete Optimization Jailbreak Attacks against Aligned Large Language Models]] — Streamlined variant GCG attack с 8x improvement в sampling efficiency для jailbreak aligned LLMs.
+- [[hxxps://arxiv.org/abs/2403.07183][Monitoring AI-Modified Content at Scale: A Case Study on the Impact of ChatGPT on AI Conference Peer Reviews]] — Approach для estimating fraction of LLM-modified text в peer reviews, revealing trends в user behavior.
+
+* Структуры данных и алгоритмы (cs.DS)
+** 🧐 Обзор
+Теоретические работы фокусируются на bounds для privacy, clustering и routing в hypergraphs. Значительный вклад в quantum architectures через analysis permutation routing и compilation thresholds. Алгоритмы для distribution recovery и kernelization показывают практическую эффективность на real-world datasets.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2404.16676][Multilayer Correlation Clustering]]
+:ALGO: Generalization Correlation Clustering для multilayer setting с minimization l_p-norm disagreements vector.
+:IMPACT: Provides O(L log n)-approximation algorithm и 4-approximation для probability-constraint case, demonstrating practical effectiveness.
+- [[hxxps://arxiv.org/abs/2605.02498][Permutation Routing on Ramanujan Hypergraphs with Applications to Neutral Atom Quantum Architectures]]
+:ALGO: Routing number analysis для Ramanujan hypergraphs via matchings в clique expansion graph.
+:IMPACT: Establishes capacity-depth tradeoff для 3D acousto-optic lens architectures, achieving O(log N) routing depth.
+- [[hxxps://arxiv.org/abs/2605.05036][Block Permutation Routing on Ramanujan Hypergraphs for Fault-Tolerant Quantum Computing]]
+:ALGO: Analysis permutation routing rigid blocks (surface code patches) на reconfigurable lattice с hypergraph transformations.
+:IMPACT: Shows block routing number Theta(d_C log N_L), integrating error model analysis и syndrome extraction protocols для quantum computing.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2408.12385][Sharper Bounds for Chebyshev Moment Matching, with Applications]] — Sharper bounds для distribution recovery из noisy moments, applications в differential privacy и spectral density estimation.
+- [[hxxps://arxiv.org/abs/2409.14209][A Polynomial Kernel for Deletion to the Scattered Class of Cliques and Trees]] — First non-trivial polynomial kernel (O(k^5)) для graph deletion problem где components должны быть cliques или trees.
+
+* Социальная физика и сети (physics.soc-ph)
+** 🧐 Обзор
+Активно развиваются модели urban traffic networks и climate fluctuations scaling. Physics-informed neural networks применяются для epidemic forecasting. Анализ geometry road graphs позволяет measure rurality, а transit accessibility изучается как фактор social mixing.
+
+** 🛠 Практика и Системы
+- [[hxxps://arxiv.org/abs/2401.04436][A Payne-Whitham model of urban traffic networks in the presence of traffic lights and its application to traffic optimisation]]
+:WHAT: Extension Payne-Whitham model для arbitrary road network graphs и intersections с traffic signals.
+:IMPACT: Facilitates smoother traffic flow通过 optimizing signal settings, enhancing average speed и decreasing queue lengths.
+- [[hxxps://arxiv.org/abs/2605.18782][A City-Scale Dataset of Traffic Flows, Travel Times, and Urban Context]]
+:WHAT: Multi-source traffic dataset (AVI recordings) с spatio-temporal graph representation и urban contextual data.
+:IMPACT: Captures expected traffic patterns (rush hours, weekdays vs weekends), supporting urban planning и traffic analysis.
+
+** 🕸 Графы и Алгоритмы
+- [[hxxps://arxiv.org/abs/2601.12006][Observing rurality of a geographical area from road graph geometry -- a qualitative study]]
+:ALGO: Analysis Finnish road network as graph, measuring hyperbolicity measures для correlation с rurality/urbanity.
+:IMPACT: Demonstrates that rural road systems resemble hyperbolic graphs, while cities resemble Cayley graph of Z^2.
+- [[hxxps://arxiv.org/abs/2604.14348][Where diverse populations gather: Transit accessibility and the spatial structure of social mixing]]
+:ALGO: Examination transit accessibility association с visitor diversity (social mixing potential) в POIs.
+:IMPACT: Shows transit infrastructure plays bridging role, linking diverse populations to venues где alternative pathways limited.
+
+** 📄 Остальное
+- [[hxxps://arxiv.org/abs/2505.19998][Scaling intra-urban climate fluctuations]] — Shows intra-urban climate variability follows general scaling functions, enabling integration в reduced-complexity urban models.
+- [[hxxps://arxiv.org/abs/2506.03897][Forecasting Seasonal Influenza Epidemics with Physics-Informed Neural Networks]] — SIR-INN framework integrates SIR model в neural network для real-time epidemic forecasting с uncertainty quantification.
+- [[hxxps://arxiv.org/abs/2605.18785][A Novel Urban Flood Dynamical System Model and a Corresponding Nonstandard Finite Difference Method]] — Urban Flood Dynamical System Model (UFDSM)基于 Cellular Automata с conservation nonstandard finite difference algorithm.

@@ -1,0 +1,103 @@
+#+TITLE: Daily Digest: 2026-06-17
+#+FROM: [2026-06-16 Tue]
+#+TO: [2026-06-17 Wed]
+#+DATE: [2026-06-17 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дня
+Индустрия движется к архитектуре Agentic Lakehouse, где ИИ-агенты становятся основными потребителями данных, требуя новой семантики и безопасности. В инженерии данных фокус смещается на оптимизацию транзакций в объектных хранилищах (Iceberg) и миграцию с legacy-решений на managed-сервисы (DynamoDB, Aurora). Одновременно сообщество обсуждает кризис инженерной культуры в Big Tech (кейс Meta) и внедрение инструментов AI-продуктивности (Cursor, Vibe Coding) с необходимым контролем.
+
+* 📂 Категории
+** Инженерия данных
+- [[hxxps://www.dremio.com/blog/writing-to-an-apache-iceberg-table-how-commits-and-acid-actually-work/][Writing to an Apache Iceberg Table: How Commits and ACID Actually Work]] (Dremio) — Детальный разбор 6 шагов коммита в Iceberg, объясняющий гарантию ACID через метаданные на объектном хранилище.
+- [[hxxps://aws.amazon.com/blogs/database/similarwebs-migration-from-hbase-to-amazon-dynamodb/][Similarweb's migration from HBase to Amazon DynamoDB]] (AWS) — Кейс миграции высоконагруженного KV-хранилища: моделирование данных, оптимизация затрат и отказ от операционного управления HBase.
+- [[hxxps://aws.amazon.com/blogs/database/improve-query-performance-with-explain-plans-in-amazon-aurora-dsql/][Improve query performance with EXPLAIN plans in Amazon Aurora DSQL]] (AWS) — Особенности плана выполнения в серверless PostgreSQL: разделение вычислений и хранения, отсутствие heap-таблиц.
+- [[hxxps://www.databricks.com/blog/what-is-data-pipeline-architecture][What is data pipeline architecture?]] (Databricks) — Базовый обзор端到端 дизайна сбора и обработки данных для современных платформ.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/writing-to-an-apache-iceberg-table-how-commits-and-acid-actually-work/][Writing to an Apache Iceberg Table: How Commits and ACID Actually Work]]
+:SCORE: 9/10
+:WHY: Критически важно для понимания надежности Data Lakehouse и отладки проблем конкурентной записи.
+**** [[hxxps://aws.amazon.com/blogs/database/similarwebs-migration-from-hbase-to-amazon-dynamodb/][Similarweb's migration from HBase to Amazon DynamoDB]]
+:SCORE: 8/10
+:WHY: Реальный опыт миграции с self-hosted HBase на managed KV, полезный для оценки TCO и операционных рисков.
+**** [[hxxps://aws.amazon.com/blogs/database/improve-query-performance-with-explain-plans-in-amazon-aurora-dsql/][Improve query performance with EXPLAIN plans in Amazon Aurora DSQL]]
+:SCORE: 8/10
+:WHY: Объясняет архитектурные отличия распределенного SQL, влияющие на оптимизацию запросов и индексы.
+
+** Инженеры и Организации
+- [[hxxps://newsletter.pragmaticengineer.com/p/why-is-meta-destroying-its-engineering][Why is Meta destroying its engineering organization?]] (Pragmatic Engineer) — Анализ разрушения инженерной культуры Meta: переход от продукту к AI-центричности и последствия для команд.
+- [[hxxps://www.warpstream.com/blog/the-future-of-coding-how-cursor-and-warpstream-power-ai-productivity][The Future of Coding: How Cursor and WarpStream Power AI Productivity]] (WarpStream) — Пример использования AI IDE и diskless Kafka для ускорения разработки и телеметрии.
+- [[hxxps://www.databricks.com/blog/enabling-governed-vibe-coding-enterprise-apps-databricks][Enabling Governed Vibe Coding for Enterprise Apps on Databricks]] (Databricks) — Подход к безопасному использованию AI-агентов для написания кода в энтерпрайзе с контролем контекста.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://newsletter.pragmaticengineer.com/p/why-is-meta-destroying-its-engineering][Why is Meta destroying its engineering organization?]]
+:SCORE: 10/10
+:WHY: Must-read для Engineering Managers: предупреждение о рисках смены приоритетов в пользу AI в ущерб инфраструктуре.
+**** [[hxxps://www.warpstream.com/blog/the-future-of-coding-how-cursor-and-warpstream-power-ai-productivity][The Future of Coding: How Cursor and WarpStream Power AI Productivity]]
+:SCORE: 7/10
+:WHY: Практический взгляд на стек инструментов для максимальной продуктивности разработчика в 2026 году.
+**** [[hxxps://www.databricks.com/blog/enabling-governed-vibe-coding-enterprise-apps-databricks][Enabling Governed Vibe Coding for Enterprise Apps on Databricks]]
+:SCORE: 8/10
+:WHY: Решает проблему безопасности при внедрении AI-кодинга, актуально для лидов внедряющих Copilot-подобные инструменты.
+
+** Вендоры
+- [[hxxps://aws.amazon.com/blogs/database/converting-an-rds-for-sql-server-instance-from-license-included-to-bring-your-own-media-byom/][Converting an RDS for SQL Server instance from license included to Bring Your Own Media (BYOM)]] (AWS) — Инструкция по конвертации лицензий SQL Server в RDS для оптимизации расходов через BYOM.
+- [[hxxps://www.databricks.com/blog/what-is-an-agentic-cdp][Introducing the Agentic CDP: A New Species of CDP for a New Era of Agents]] (Databricks) — Концепция CDP, адаптированной для работы с AI-агентами, а не только маркетологами.
+- [[hxxps://www.databricks.com/blog/announcing-apps-databricks-marketplace][Announcing Apps on Databricks Marketplace]] (Databricks) — Запуск магазина приложений для обмена данными и AI-решениями внутри экосистемы Databricks.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://aws.amazon.com/blogs/database/converting-an-rds-for-sql-server-instance-from-license-included-to-bring-your-own-media-byom/][Converting an RDS for SQL Server instance from license included to Bring Your Own Media (BYOM)]]
+:SCORE: 9/10
+:WHY: Прямая экономия бюджета на лицензиях SQL Server в AWS, технически реализуемая без миграции данных.
+**** [[hxxps://www.databricks.com/blog/what-is-an-agentic-cdp][Introducing the Agentic CDP: A New Species of CDP for a New Era of Agents]]
+:SCORE: 7/10
+:WHY: Сигнал о смене парадигмы в маркетинговых платформах под запросы автономных агентов.
+**** [[hxxps://www.databricks.com/blog/announcing-apps-databricks-marketplace][Announcing Apps on Databricks Marketplace]]
+:SCORE: 6/10
+:WHY: Расширение экосистемы Databricks, важное для стратегий покупки готовых данных и решений.
+
+** Open Source
+- [[hxxps://www.dremio.com/blog/writing-to-an-apache-iceberg-table-how-commits-and-acid-actually-work/][Writing to an Apache Iceberg Table: How Commits and ACID Actually Work]] (Dremio) — Глубокое погружение в работу открытого табличного формата Apache Iceberg.
+- [[hxxps://www.databricks.com/blog/introducing-opensharing-next-evolution-delta-sharing-agentic-era][Introducing OpenSharing: the Next Evolution of Delta Sharing for the Agentic Era]] (Databricks) — Эволюция открытого протокола обмена данными Delta Sharing для поддержки AI-агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/parallelize-speculative-decoding-with-p-eagle-on-amazon-sagemaker-ai/][Parallelize speculative decoding with P-EAGLE on Amazon SageMaker AI]] (AWS) — AWS внесла метод P-EAGLE в open source для ускорения инференса LLM.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/writing-to-an-apache-iceberg-table-how-commits-and-acid-actually-work/][Writing to an Apache Iceberg Table: How Commits and ACID Actually Work]]
+:SCORE: 9/10
+:WHY: Iceberg становится стандартом де-факто, понимание internals необходимо для архитектуры данных.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/parallelize-speculative-decoding-with-p-eagle-on-amazon-sagemaker-ai/][Parallelize speculative decoding with P-EAGLE on Amazon SageMaker AI]]
+:SCORE: 8/10
+:WHY: Открытый алгоритм ускорения LLM, который можно интегрировать в свои сервисы инференса.
+**** [[hxxps://www.databricks.com/blog/introducing-opensharing-next-evolution-delta-sharing-agentic-era][Introducing OpenSharing: the Next Evolution of Delta Sharing for the Agentic Era]]
+:SCORE: 7/10
+:WHY: Открытый стандарт обмена данными критичен для межорганизационного сотрудничества в эру агентов.
+
+** Искусственный Интеллект
+- [[hxxps://www.dremio.com/blog/agentic-lakehouse-the-architecture-built-for-ai-native-analytics/][Agentic Lakehouse: The Architecture Built for AI-Native Analytics]] (Dremio) — Архитектурный паттерн Lakehouse, оптимизированный под непредсказуемые запросы AI-агентов.
+- [[hxxps://www.kdnuggets.com/the-roadmap-to-becoming-an-llm-engineer-in-2026][The Roadmap to Becoming an LLM Engineer in 2026]] (KDnuggets) — Пошаговый план навыков для перехода из ML инженера в LLM инженера.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/][Safeguard your agentic AI applications with the Amazon Bedrock Guardrails InvokeGuardrailChecks API]] (AWS) — Новый API для точечной безопасности в многошаговых сценариях агентов.
+- [[hxxps://aws.amazon.com/blogs/machine-learning/introducing-container-caching-in-amazon-sagemaker-ai-for-faster-model-scaling/][Introducing container caching in Amazon SageMaker AI for faster model scaling]] (AWS) — Оптимизация холодного старта инференса через кэширование контейнеров.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://www.dremio.com/blog/agentic-lakehouse-the-architecture-built-for-ai-native-analytics/][Agentic Lakehouse: The Architecture Built for AI-Native Analytics]]
+:SCORE: 9/10
+:WHY: Определяет новую архитектурную категорию, необходимую для поддержки AI-агентов в продакшене.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/safeguard-your-agentic-ai-applications-with-the-amazon-bedrock-guardrails-invokeguardrailchecks-api/][Safeguard your agentic AI applications with the Amazon Bedrock Guardrails InvokeGuardrailChecks API]]
+:SCORE: 8/10
+:WHY: Решает проблему безопасности в многошаговых агентах, где стандартные гардрейлы недостаточны.
+**** [[hxxps://aws.amazon.com/blogs/machine-learning/parallelize-speculative-decoding-with-p-eagle-on-amazon-sagemaker-ai/][Parallelize speculative decoding with P-EAGLE on Amazon SageMaker AI]]
+:SCORE: 8/10
+:WHY: Значительное ускорение инференса (до 1.69x), критичное для экономии затрат на GPU.
+
+** Неинженерное
+- [[hxxps://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/][Unlocking UK house-building with AI-accelerated planning]] (Google DeepMind) — Пилотный проект правительства UK по использованию ИИ для ускорения градостроительных решений.
+- [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]] (LDBC) — Встреча технического сообщества LDBC в Бостоне, посвященная графовым базам данных.
+
+*** 💎 Топ-3 категории
+**** [[hxxps://deepmind.google/blog/unlocking-uk-house-building-with-ai-accelerated-planning/][Unlocking UK house-building with AI-accelerated planning]]
+:SCORE: 7/10
+:WHY: Пример социального воздействия ИИ за пределами IT, важно для понимания регуляторных трендов.
+**** [[hxxps://ldbcouncil.org/event/twenty-first-tuc-meeting/][Twenty-First TUC Meeting]]
+:SCORE: 6/10
+:WHY: Возможность нетворкинга и обмена опытом в нише графовых технологий для архитекторов.

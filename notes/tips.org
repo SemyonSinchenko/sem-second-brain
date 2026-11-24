@@ -1,0 +1,15 @@
+* DuckDB
+Extend the file from here.
+** parquet row groups amount
+#+begin_src sql
+COPY
+    (FROM generate_series(100_000))
+    TO 'output-directory'
+    (FORMAT parquet, ROW_GROUP_SIZE 20_000, ROW_GROUPS_PER_FILE 2);
+#+end_src
+** memory management
+#+begin_src sql
+SET memory_limit = '4GB';
+SET temp_directory = '/tmp/duckdb_swap';
+SET max_temp_directory_size = '100GB';
+#+end_src
