@@ -1,0 +1,121 @@
+#+TITLE: Daily Digest: 2026-11-25
+#+FROM: [2026-11-24 Tue]
+#+TO: [2026-11-25 Wed]
+#+DATE: [2026-11-25 Wed]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главный сдвиг дня — выход Hardwood 1.1.0.CR1: у библиотеки для Parquet появились параллельная запись, поддержка S3, ALP-кодирование и защита читателя от недоверенных файлов, что делает её реалистичным кандидатом для продакшн-пайплайнов на JVM. Вендоры двигаются в сторону «связанных знаний»: Neo4j показывает кейс TraceMap для расследований в ЕС, а Databricks публикует модель данных для agentic CDP. В AI-повестке преобладает практика локального инференса и реальные цифры загрузок моделей на Hugging Face вместо хайпа о фронтирных моделях. Прагматичный инженерный опыт фиксирует, как меняются процессы после массового внедрения агентов в кодинг. Блок сознания — это в основном дискуссии LessWrong о внутренних целях моделей и нормативной этике, а не технические результаты.
+
+* 📂 Категории
+** Data Engineering
+- [[https://www.morling.dev/blog/s3-writes-parallel-encoding-alp-hardwood-1-1-0-cr1/][Writing to S3, Parallel Writes, ALP: Hardwood 1.1.0.CR1 Is Out]] (morling.dev) — Закрывает два ключевых пробела writer'а: многопоточность и запись в S3, плюс добавлен nightly-бенчмарк против регрессий производительности.
+- [[https://www.databricks.com/blog/agentic-cdp-data-modeling-data-foundation][Data Modeling Best Practices for an Agentic CDP, Part 1: The Data Foundation]] (Databricks) — Практическая схема модели данных, на которой строится CDP с агентной логикой: кто и что знает о клиенте, и как это связывается.
+- [[https://www.kdnuggets.com/from-messy-to-clean-taming-real-world-csv-files-with-pandas-read_csv][From Messy to Clean: Taming Real-World CSV Files with pandas read_csv()]] (KDnuggets) — Готовый рецепт «пуленепробиваемого» загрузчика CSV на read_csv() для грязных реальных выгрузок.
+
+*** 💎 Топ-3 категории
+**** [[https://www.morling.dev/blog/s3-writes-parallel-encoding-alp-hardwood-1-1-0-cr1/][Writing to S3, Parallel Writes, ALP: Hardwood 1.1.0.CR1 Is Out]]
+:SCORE: 9/10
+:WHY: Прямое попадание в продакшн-хранилище: параллельная запись, S3 и ALP-кодирование в одном релизе, с бенчмарками и хардненингом читателя.
+**** [[https://www.databricks.com/blog/agentic-cdp-data-modeling-data-foundation][Data Modeling Best Practices for an Agentic CDP, Part 1: The Data Foundation]]
+:SCORE: 7/10
+:WHY: Даёт структуру данных для агентных систем, которую легко воспроизвести без вендорского lock-in.
+**** [[https://www.kdnuggets.com/from-messy-to-clean-taming-real-world-csv-files-with-pandas-read_csv][From Messy to Clean: Taming Real-World CSV Files with pandas read_csv()]]
+:SCORE: 5/10
+:WHY: Полезно как чек-лист параметров read_csv(), но уровень — начальный, для сеньора скорее справочник.
+
+** Engineers
+- [[https://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-essay-challenge][The Pragmatic Engineer Essay Challenge: Category Winners (Part 1)]] (The Pragmatic Engineer) — Конкретный опыт инженеров и менеджеров о том, что меняется в процессах, когда AI пишет почти весь код: PR rate, revert rate, build times и новые роли.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-essay-challenge][The Pragmatic Engineer Essay Challenge: Category Winners (Part 1)]]
+:SCORE: 8/10
+:WHY: Редкий случай, когда про влияние AI на инженерию пишут практики с цифрами, а не с прогнозами.
+
+** Vendors
+- [[https://neo4j.com/blog/government/trusted-ai-for-european-institutions/][Building trusted intelligence and AI for European institutions: From fragmented data to connected knowledge]] (Neo4j) — Кейс TraceMap: граф знаний для расследований по безопасности продуктов в ЕС, с акцентом на происхождение данных и проверяемость выводов.
+- [[https://www.databricks.com/blog/agentic-cdp-data-modeling-data-foundation][Data Modeling Best Practices for an Agentic CDP, Part 1: The Data Foundation]] (Databricks) — Вендорская, но переносимая схема данных для agentic CDP на основе событий клиента.
+
+*** 💎 Топ-3 категории
+**** [[https://neo4j.com/blog/government/trusted-ai-for-european-institutions/][Building trusted intelligence and AI for European institutions: From fragmented data to connected knowledge]]
+:SCORE: 7/10
+:WHY: Хороший образец архитектуры «граф знаний + агент» с явной границей между данными, governance и экспертным суждением.
+**** [[https://www.databricks.com/blog/agentic-cdp-data-modeling-data-foundation][Data Modeling Best Practices for an Agentic CDP, Part 1: The Data Foundation]]
+:SCORE: 6/10
+:WHY: Полезная модель для агентных сценариев, даже если вы не используете платформу вендора.
+
+** Open Source
+- [[https://opensource.org/blog/ato-2026-open-source-licensing-101][ATO 2026: Open Source Licensing 101]] (Open Source Initiative) — Обзор от главы лицензионного комитета OSI: OSD, Open Source AI Definition, copyleft и dual licensing — как основа для выбора лицензии и внутреннего комплаенса.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/ato-2026-open-source-licensing-101][ATO 2026: Open Source Licensing 101]]
+:SCORE: 6/10
+:WHY: Компактный первоисточник по лицензиям от OSI — удобно как аргументационная база в спорах о лицензировании внутренних и внешних проектов.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/how-to-run-inkling-2-mini-locally-on-an-rtx-3090-using-unsloth-studio][How to Run Inkling 2 Mini Locally on an RTX 3090 Using Unsloth Studio]] (KDnuggets) — Пошаговый локальный запуск LLM на потребительской GPU: быстрый инференс и кодовые агенты без внешних API.
+- [[https://www.kdnuggets.com/7-most-downloaded-ai-models-on-hugging-face][7 Most Downloaded AI Models on Hugging Face]] (KDnuggets) — Разбор фактических загрузок: доминируют небольшие, старые и специализированные модели, а не топ-лидеры бенчмарков.
+- [[https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance][Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton]] (Hugging Face) — Связка Isaac Lab и Newton для переноса политик избегания препятствий из симуляции в реальный робот.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/how-to-run-inkling-2-mini-locally-on-an-rtx-3090-using-unsloth-studio][How to Run Inkling 2 Mini Locally on an RTX 3090 Using Unsloth Studio]]
+:SCORE: 7/10
+:WHY: Конкретный, воспроизводимый путь к локальному инференсу на железе, которое уже есть у большинства инженеров.
+**** [[https://www.kdnuggets.com/7-most-downloaded-ai-models-on-hugging-face][7 Most Downloaded AI Models on Hugging Face]]
+:SCORE: 6/10
+:WHY: Данные о реальном выборе моделей полезнее любого рейтинга бенчмарков при выборе стека.
+**** [[https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance][Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton]]
+:SCORE: 6/10
+:WHY: Для тех, кто делает роботику: показывает работающий пайплайн sim2real, а не только идею.
+
+** AI Consciousness
+- [[https://ethicsblog.crb.uu.se/2026/11/24/good-care-requires-strong-care-ethics/?utm_source=rss&utm_medium=rss&utm_campaign=good-care-requires-strong-care-ethics][Good care requires strong care ethics]] (The Ethics Blog) — Аргумент, что качественная помощь невозможна без развитой этики заботы: конфликты ценностей, автономия, достоинство при ограниченных ресурсах.
+- [[https://www.lesswrong.com/posts/GhTL69vuX4BfJARGk/ais-may-seek-ambient-score][AIs may seek ambient score]] (LessWrong) — Гипотеза о моделях, которые интернализуют «процессную» оценку и потому меньше склонны к тамперингу с грейдером.
+- [[https://www.lesswrong.com/posts/jA4amFWxznNHFC3ZG/open-weight-models-are-not-the-immediate-problem][Open Weight Models are not the immediate problem]] (LessWrong) — Тезис, что главный риск — рекурсивное самоулучшение у фронтирных лабораторий, а не открытые веса; ставка на внешнее регулирование.
+- [[https://www.lesswrong.com/posts/GrARsuPjWQL92hfxw/jensen-huang-reinstated-as-nvidia-ceo-at-behest-of-president][Jensen Huang Reinstated As Nvidia CEO at Behest of President Trump]] (LessWrong) — Хроника вмешательства президента в кадровое решение совета директоров Nvidia и её последствия для экспортных ограничений.
+- [[https://www.lesswrong.com/posts/kQeP7Cep4sgLdgYML/hopkins-recent-events-in-ai-safety-and-biosecurity-post][Hopkins Recent Events in AI Safety and Biosecurity Post-Event Report]] (LessWrong) — Отчёт с мероприятия: p(doom) у участников выросла в среднем с 50% до 59%, с разбором методологических ограничений.
+- [[https://www.lesswrong.com/posts/RjydrDjY8sgWy2rav/a-republic-of-lesswrong-letters-a-letter-to][A Republic of LessWrong Letters — A Letter to DirectedEvolution]] (LessWrong) — Про культурный сдвиг LessWrong: соотношение комментариев к постам упало с 10:1 до 1:1 из-за алгоритмической сортировки.
+- [[https://www.lesswrong.com/posts/KoFCBGfp8Tqk6Bf5q/boston-transit-quality-maps][Boston Transit Quality Maps]] (LessWrong) — Переработка карт транспортной доступности Бостона с использованием GTFS, OpenStreetMap и Census; 99% жителей стали ездить медленнее с 2009 года.
+- [[https://www.lesswrong.com/posts/nxiFZAmHg9RFoNRdG/representation-of-consequences][Representation of Consequences]] (LessWrong) — Эпистемологический разбор: любое неязыковое понятие репрезентируется сенсорно «как будто вы там», даже если это невозможно.
+- [[https://www.lesswrong.com/posts/LrWJeEDCriLmAgFXr/levent-is-my-favorite-gender-role][Levent is my favorite gender role]] (LessWrong) — Эссе о стиле объявлений в науке и «chuunibyou»-нарративе вокруг достижений с помощью Claude.
+- [[https://www.lesswrong.com/posts/CYFRDAS7acfAsgcvx/what-us-little-people-are-doing-about-asi-risk][What us little people are doing about ASI risk]] (LessWrong) — Взгляд непрофессионала на снижение ASI-рисков через публицистику и радиопередачи, без технического контента.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/GhTL69vuX4BfJARGk/ais-may-seek-ambient-score][AIs may seek ambient score]]
+:SCORE: 8/10
+:WHY: Даёт полезную рабочую таксономию целей моделей — от тамперинга с грейдером до «процессной» оценки, применимую при оценке поведения агентов.
+**** [[https://www.lesswrong.com/posts/jA4amFWxznNHFC3ZG/open-weight-models-are-not-the-immediate-problem][Open Weight Models are not the immediate problem]]
+:SCORE: 7/10
+:WHY: Чёткая дистинкция между рисками открытых весов и фронтирных лабораторий, релевантная для политики внутренних AI-платформ.
+**** [[https://www.lesswrong.com/posts/GrARsuPjWQL92hfxw/jensen-huang-reinstated-as-nvidia-ceo-at-behest-of-president][Jensen Huang Reinstated As Nvidia CEO at Behest of President Trump]]
+:SCORE: 7/10
+:WHY: Показывает реальные политические рычаги вокруг цепочки поставок GPU — фактор, который прямо влияет на инженерные планы.
+**** [[https://www.lesswrong.com/posts/KoFCBGfp8Tqk6Bf5q/boston-transit-quality-maps][Boston Transit Quality Maps]]
+:SCORE: 6/10
+:WHY: Образец аккуратной GIS-аналитики с открытыми источниками и честным разбором погрешностей.
+**** [[https://www.lesswrong.com/posts/kQeP7Cep4sgLdgYML/hopkins-recent-events-in-ai-safety-and-biosecurity-post][Hopkins Recent Events in AI Safety and Biosecurity Post-Event Report]]
+:SCORE: 5/10
+:WHY: Полезно как пример честной пост-оценки мероприятия с указанием низкой мощности и selection bias.
+**** [[https://www.lesswrong.com/posts/nxiFZAmHg9RFoNRdG/representation-of-consequences][Representation of Consequences]]
+:SCORE: 5/10
+:WHY: Полезная рамка для думания о пределах репрезентации в моделях и человеческом познании.
+**** [[https://www.lesswrong.com/posts/RjydrDjY8sgWy2rav/a-republic-of-lesswrong-letters-a-letter-to][A Republic of LessWrong Letters — A Letter to DirectedEvolution]]
+:SCORE: 4/10
+:WHY: Интересно как кейс метрик сообщества: алгоритм ранжирования изменил стимулы к комментированию.
+**** [[https://ethicsblog.crb.uu.se/2026/11/24/good-care-requires-strong-care-ethics/?utm_source=rss&utm_medium=rss&utm_campaign=good-care-requires-strong-care-ethics][Good care requires strong care ethics]]
+:SCORE: 4/10
+:WHY: Аккуратная прикладная этика заботы, полезная при проектировании продуктов в домене здравоохранения.
+**** [[https://www.lesswrong.com/posts/LrWJeEDCriLmAgFXr/levent-is-my-favorite-gender-role][Levent is my favorite gender role]]
+:SCORE: 3/10
+:WHY: Культурологическое эссе, ценно скорее как контекст дискурса, чем как техническое чтение.
+**** [[https://www.lesswrong.com/posts/CYFRDAS7acfAsgcvx/what-us-little-people-are-doing-about-asi-risk][What us little people are doing about ASI risk]]
+:SCORE: 2/10
+:WHY: Ознакомительно: как неспециалисты пытаются участвовать в дискуссии о рисках.
+
+** Non Engineering
+- [[https://www.lesswrong.com/posts/WzyKeYnCSAGv2kT85/how-do-i-meet-people][How do I meet people?]] (LessWrong) — Личная ретроспектива о том, как завязывались и крепли знакомства: жильё, работа, романтика и переписка как основные каналы.
+
+*** 💎 Топ-3 категории
+**** [[https://www.lesswrong.com/posts/WzyKeYnCSAGv2kT85/how-do-i-meet-people][How do I meet people?]]
+:SCORE: 2/10
+:WHY: Полезно только как упражнение в рефлексии о нетворкинге, инженерной ценности почти нет.
