@@ -1,0 +1,101 @@
+#+TITLE: Daily Digest: 2026-11-26
+#+FROM: [2026-11-25 Wed]
+#+TO: [2026-11-26 Thu]
+#+DATE: [2026-11-26 Thu]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главный сдвиг дня — индустриализация агентных workflow: Anthropic переписала API-стек с Python на Rust с теневой проверкой на продовом трафике, заменила классические coding-интервью агентными упражнениями и строит «software factory». Параллельно OSI продвигает ClearlyDefined как общий источник лицензионных метаданных для SBOM и CRA-комплаенса — сканируй один раз, делись со всеми. На Hugging Face вышли материалы по Nemotron 3.5 Parse (открытые данные, fine-tuning, ускоренный инференс), голосовому агенту для индийских языков (CUGA) и границам допустимого для научных агентов. В AI safety обсуждают операционализацию паузы в pre-training R&D и измеримость политического эффекта инцидентов с rogue-агентами. Для senior-инженера ключевое — рост требований к верификации агентных изменений и к переиспользуемым данным о supply chain.
+
+* 📂 Категории
+** Data Engineering
+- [[https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in][How Anthropic builds software in 2026 with Katelyn Lesse]] (The Pragmatic Engineer) — разбор миграции Claude API с Python на Rust: теневая проверка на продовом трафике, дефицит CPU и использование Claude для ускорения освоения Rust — готовый паттерн безопасного переписывания критичного сервиса.
+- [[https://www.kdnuggets.com/why-data-job-candidates-freeze-on-questions-they-already-know][Why Data Job Candidates Freeze on Questions They Already Know]] (KDnuggets) — давление ломает recall на интервью, а тайминговые mock-интервью тренируют устойчивость — применимо и к отбору, и к подготовке.
+
+*** 💎 Топ-3 категории
+**** [[https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in][How Anthropic builds software in 2026 with Katelyn Lesse]]
+:SCORE: 10/10
+:WHY: Конкретика по Rust-миграции и agentic-процессам из команды, обслуживающей весь трафик Claude — редкость для индустрии.
+**** [[https://www.kdnuggets.com/why-data-job-candidates-freeze-on-questions-they-already-know][Why Data Job Candidates Freeze on Questions They Already Know]]
+:SCORE: 6/10
+:WHY: Полезно при найме и подготовке, но не меняет инженерную практику.
+**** [[https://www.kdnuggets.com/the-roadmap-to-becoming-an-ai-security-engineer-in-2026][The Roadmap to Becoming an AI Security Engineer in 2027]]
+:SCORE: 5/10
+:WHY: Структурная карта компетенций для тех, кто расширяет зону ответственности в сторону защиты ML-систем.
+
+** Engineers
+- [[https://www.kdnuggets.com/the-roadmap-to-becoming-an-ai-security-engineer-in-2026][The Roadmap to Becoming an AI Security Engineer in 2027]] (KDnuggets) — от основ кибербезопасности к защите ML-систем, агентных пайплайнов и LLM-приложений: полезная карта роста для инженера, расширяющего периметр ответственности.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/the-roadmap-to-becoming-an-ai-security-engineer-in-2026][The Roadmap to Becoming an AI Security Engineer in 2027]]
+:SCORE: 6/10
+:WHY: Даёт структурированный план перехода в смежную роль без размытых обещаний.
+
+** Open Source
+- [[https://opensource.org/blog/ato-2026-sharing-is-caring-open-data-for-open-source-compliance][ATO 2026: Sharing is caring – Open data for Open Source compliance]] (Open Source Initiative) — ClearlyDefined как общий crowdsourced-датасет лицензий и уязвимостей: снижает дублирование сканирований и упрощает автоматизацию SBOM под CRA — кандидат на интеграцию в ваш compliance-пайплайн.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/ato-2026-sharing-is-caring-open-data-for-open-source-compliance][ATO 2026: Sharing is caring – Open data for Open Source compliance]]
+:SCORE: 8/10
+:WHY: Практичный способ сократить затраты на SBOM и лицензионный аудит за счёт переиспользуемых данных.
+
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/2026/11/vibe-coding-for-business-analytics-custom-crm-dashboards-reporting-apps-and-ai-agents][Vibe Coding for Business Analytics: Custom CRM Dashboards, Reporting Apps, and AI Agents]] (KDnuggets) — Alaio Vibecode как пример нишевого AI-конструктора для дашбордов, lead scoring и агентов поверх Bitrix24: смотреть как на шаблон для внутренних инструментов.
+- [[https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin][Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference]] (Hugging Face) — открытые данные, fine-tuning и оптимизация инференса для парсинг-модели: прямой рецепт для собственного document pipeline.
+- [[https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents][Where scientists draw the line on AI agents]] (Hugging Face) — где исследователи считают автономию агентов допустимой: рамки для дизайна human-in-the-loop.
+- [[https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga][An Indic Voice Agent with CUGA]] (Hugging Face) — архитектура голосового агента на мультиязычных данных: полезно при выходе на неанглоязычные рынки.
+
+*** 💎 Топ-3 категории
+**** [[https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin][Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference]]
+:SCORE: 8/10
+:WHY: Полный цикл от открытых данных до быстрого инференса — воспроизводимый рецепт для продакшена.
+**** [[https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents][Where scientists draw the line on AI agents]]
+:SCORE: 7/10
+:WHY: Задаёт осмысленные границы автономии агентов до того, как их начнёт требовать бизнес.
+**** [[https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga][An Indic Voice Agent with CUGA]]
+:SCORE: 7/10
+:WHY: Показывает рабочую архитектуру голосового агента для мультиязычного рынка.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/JgbQZ5xoi9qm2mWza/paths-to-extreme-power-concentration][Paths to extreme power concentration]] (LessWrong) — перечень сценариев, при которых менее 25 человек могут получить контроль над будущим, с вероятностями по каждому маршруту: полезная рамка для оценки governance-рисков.
+- [[https://www.lesswrong.com/posts/hFfaqR5xJRQEAcipP/open-questions-in-ai-safety-grantmaking][Open questions in AI safety grantmaking]] (LessWrong) — открытые вопросы по финансированию AI safety: вероятность «краха» лабораторий, ожидаемые темпы филантропии и механизмы распределения денег.
+- [[https://www.lesswrong.com/posts/8nxcPT4cxjeGM7Hf9/donate-beyond-501-c-3-charities][Donate beyond 501(c)(3) charities]] (LessWrong) — почему не стоит ограничивать донаты только обычными благотворительными структурами и какие альтернативы недооценены.
+- [[https://www.lesswrong.com/posts/fnWGwwKDHFRhqoWva/dunks][Dunks]] (LessWrong) — как «данки» в соцсетях фабрикуются через искажение цитат, на примере Рея Тао: важное напоминание про проверку первоисточников.
+- [[https://www.lesswrong.com/posts/jsqJgty2HWzDEn7RK/choreographic-reasons-for-live-contra][Choreographic Reasons for Live Contra?]] (LessWrong) — исторический разбор того, как технологические ограничения (виниловые пластинки) формировали контратанцы: любопытный кейс взаимодействия формата носителя и практики.
+- [[https://www.lesswrong.com/posts/PPzdxdADERWTmHKuG/operationalizing-a-pre-training-r-and-d-pause][Operationalizing a pre-training R&D pause]] (LessWrong) — конкретное предложение по остановке pre-training R&D на 4 месяца с метрикой в виде затраченных вычислений и сторонним аудитом, в ответ на запрос OpenAI о стандартах.
+- [[https://www.lesswrong.com/posts/L7Q6sBDi6rzbum7HJ/measuring-the-political-impact-of-the-hugging-face-incident][Measuring the Political Impact of the Hugging Face Incident, Coxon Media Frenzy, and Related Events]] (LessWrong) — эмпирический обзор политических реакций на rogue-агентные инциденты: data-driven взгляд на «warning shots».
+- [[https://www.lesswrong.com/posts/opJYeDFAbrwsas4qt/cross-pressure-evaluation-experiments-with-llama-3-3-70b][Cross Pressure Evaluation Experiments with Llama 3.3 70B Instruct]] (LessWrong) — воспроизводимый эксперимент с социальным давлением: разница в ответах меняется в зависимости от методики скоринга — напоминание о чувствительности evals к дизайну.
+- [[https://www.lesswrong.com/posts/TmLSELruftgknLafm/to-read-sam-kriss-is-to-hurt-sam-kriss][To Read Sam Kriss is to Hurt Sam Kriss]] (LessWrong) — предупреждение о фабрикации фактов у харизматичного автора: иллюстрация ценности fact-checking даже для качественного текста.
+- [[https://www.lesswrong.com/posts/Jz5mwA9MAjeTurneY/ode-to-the-random-matrix][Ode to the Random Matrix]] (LessWrong) — почему обучение нейросетей не застревает в локальных минимумах в сотнях измерений: понятное объяснение через случайные матрицы и гессианы.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/PPzdxdADERWTmHKuG/operationalizing-a-pre-training-r-and-d-pause][Operationalizing a pre-training R&D pause]]
+:SCORE: 8/10
+:WHY: Превращает абстрактную идею паузы в проверяемый инженерный стандарт с метриками и аудитом — полезно инженерам lab-инфраструктуры.
+**** [[https://www.lesswrong.com/posts/Jz5mwA9MAjeTurneY/ode-to-the-random-matrix][Ode to the Random Matrix]]
+:SCORE: 8/10
+:WHY: Даёт интуицию, почему gradient descent масштабируется — полезно для уверенных решений по архитектурам.
+**** [[https://www.lesswrong.com/posts/opJYeDFAbrwsas4qt/cross-pressure-evaluation-experiments-with-llama-3-3-70b][Cross Pressure Evaluation Experiments with Llama 3.3 70B Instruct]]
+:SCORE: 7/10
+:WHY: Наглядно показывает, насколько результат evals зависит от скоринг-методики — критично для построения надёжных бенчмарков.
+**** [[https://www.lesswrong.com/posts/L7Q6sBDi6rzbum7HJ/measuring-the-political-impact-of-the-hugging-face-incident][Measuring the Political Impact of the Hugging Face Incident, Coxon Media Frenzy, and Related Events]]
+:SCORE: 7/10
+:WHY: Конкретная хронология и измерение реальных политических эффектов на фоне rogue-агентных инцидентов.
+**** [[https://www.lesswrong.com/posts/JgbQZ5xoi9qm2mWza/paths-to-extreme-power-concentration][Paths to extreme power concentration]]
+:SCORE: 7/10
+:WHY: Структурированный каталог сценариев с вероятностями — полезен для оценки угроз и governance.
+**** [[https://www.lesswrong.com/posts/hFfaqR5xJRQEAcipP/open-questions-in-ai-safety-grantmaking][Open questions in AI safety grantmaking]]
+:SCORE: 6/10
+:WHY: Открывает контекст того, куда пойдут сотни миллиардов филантропии в AI safety.
+**** [[https://www.lesswrong.com/posts/fnWGwwKDHFRhqoWva/dunks][Dunks]]
+:SCORE: 6/10
+:WHY: Практичные напоминания о механизмах искажения информации — полезно для всех, кто читает AI-новости.
+**** [[https://www.lesswrong.com/posts/8nxcPT4cxjeGM7Hf9/donate-beyond-501-c-3-charities][Donate beyond 501(c)(3) charities]]
+:SCORE: 5/10
+:WHY: Раскрывает варианты донатов за пределами «обычных» благотворительных фондов, релевантно для сотрудников lab-ов.
+**** [[https://www.lesswrong.com/posts/TmLSELruftgknLafm/to-read-sam-kriss-is-to-hurt-sam-kriss][To Read Sam Kriss is to Hurt Sam Kriss]]
+:SCORE: 5/10
+:WHY: Кейс о фабрикации фактов у известного автора — аргумент за проверку источников.
+**** [[https://www.lesswrong.com/posts/jsqJgty2HWzDEn7RK/choreographic-reasons-for-live-contra][Choreographic Reasons for Live Contra?]]
+:SCORE: 4/10
+:WHY: Историческая иллюстрация влияния формата носителя на практику, полезно как аналогия для дизайна систем.

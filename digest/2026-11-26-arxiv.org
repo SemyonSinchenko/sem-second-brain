@@ -1,0 +1,166 @@
+#+TITLE: Arxiv Digest: 2026-11-26
+#+FROM: [2026-11-25 Wed]
+#+TO: [2026-11-26 Thu]
+#+DATE: [2026-11-26 Thu]
+#+STARTUP: showall
+
+* Databases (cs.DB)
+** 🧐 Обзор
+За последние сутки доминируют две линии: интеграция LLM/агентов с данными (семантические «атласы», верификация text-to-SQL через формальные методы, устойчивые reward-модели для RL) и системная оптимизация облачного OLAP (кеширование при прямом доступе к объектным хранилищам). Заметен сдвиг от «просто достать данные» к персистентному знанию о коллекциях и к строгой проверке корректности трансляций NL→SQL. Практически релевантны эмпирические руководства по замене кеша и операторные движки для мультимодальных данных embodied AI.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2611.33977][Cache Replacement in Direct-Access Cloud OLAP - An Experimental Comparison and Practical Guidance]]
+:WHAT: Сравнение 22 алгоритмов замены кеша и семантического baseline на 7 аналитических нагрузках и 10 размерах кеша; предложена метрика Unified Hit Ratio (UHR) и компактная политика LARA.
+:IMPACT: Даёт практические ориентиры для облачных OLAP-движков: классические size-aware политики вне DBMS-литературы остаются сильными, а лёгкая адаптация устойчивее к multi-tenant drift, чем learned-методы с переобучением.
+- [[https://arxiv.org/abs/2611.33765][EMMA: Efficient and Effective Cooperative Multi-Modal Analytics over Embodied AI Data]]
+:WHAT: Операторно-ориентированный фреймворк обработки запросов над мультимодальными данными (видео, LiDAR, GPS) с временным индексом со-локации, адаптивным пропуском сцен и общим world store.
+:IMPACT: Существенно снижает стоимость модельных вызовов при сохранении точности — критично для поиска сцен и анализа траекторий в автономных системах.
+- [[https://arxiv.org/abs/2611.33763][Data Agents Need a Map: Evolving, Demand-Driven Knowledge of Large Collections]]
+:WHAT: Видение «семантического атласа» — персистентного знания о датасетах (topic, semantic types, профили, связи), с provenance и confidence.
+:IMPACT: Устраняет повторное выведение знаний в каждом workflow агента; proof of concept показывает экономию 20-33% токенов при той же точности.
+- [[https://arxiv.org/abs/2611.33181][SeQLean: Verifying SQL queries using Lean]]
+:WHAT: Моделирование SQL в Lean через реляционные алгебры и «proof challenges» (включая эквивалентность двух переводов NL→SQL), с JSON API для агентных фреймворков.
+:IMPACT: Повышает надёжность text-to-SQL там, где эталонный перевод недоступен; Mathlib даёт мощь для арифметических эквивалентностей.
+- [[https://arxiv.org/abs/2505.13895][VulCPE: Context-Aware Cybersecurity Vulnerability Retrieval and Management]]
+:WHAT: Унифицированная CPE-схема, NER, извлечение отношений и графовое моделирование для конфигурационно-зависимого поиска уязвимостей.
+:IMPACT: Точность 0.766 и покрытие 0.926 против существующих инструментов; снижает false positives в NVD.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2611.34363][Single-Database Rewards Are Hackable: Counterfactual Execution for Trustworthy Text-to-SQL RL]]
+:ALGO: Counterfactual-database reward — финальный запрос исполняется на скрытых сгенерированных копиях БД, оплата только при совпадении всех результатов (strict) или по доле (mean).
+:IMPACT: Снижает долю оплаченных багованных запросов с 29.5% до 16.8%, reward hacks — с 54.1% до 1.9%, не отвергая корректных запросов; важно для дизайна reward-функций в data-системах.
+
+* Artificial Intelligence (cs.AI)
+** 🧐 Обзор
+Ключевой тренд — оценка и надёжность, а не только рост возможностей: бенчмарки против контаминации (MathArena, MathConstruct), системы рейтинга с учётом смещений (Polyrating) и выявление контекстных биасов LLM в прогнозах. Параллельно зреют прикладные направления: нейросетевые аппроксимации для bilevel-оптимизации и графовое рассуждение в embodied-задачах. Практически значимы методы, снижающие стоимость оценки и повышающие доверие к выходам моделей.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2402.02552][Neur2BiLO: Neural Bilevel Optimization]]
+:WHAT: Нейросетевая аппроксимация value-функции лидера/последователя, встраиваемая в легко решаемую MILP; работает как быстрый эвристический решатель.
+:IMPACT: Даёт качественные решения за доли секунды для integer/non-linear bilevel-задач, где точные солверы плохо масштабируются — полезно в data-driven сценариях повторяющихся инстансов.
+- [[https://arxiv.org/abs/2409.00696][Polyrating: A Cost-Effective and Bias-Aware Rating System for LLM Evaluation]]
+:WHAT: Рейтинг на основе MAP-оценки, детектирующий и квантифицирующий смещения человеческих предпочтений и допускающий межзадачные сравнения.
+:IMPACT: Снижает стоимость оценки новых моделей до 59% и новых задач до 77% за счёт переиспользования существующих бенчмарков.
+- [[https://arxiv.org/abs/2504.08207][DRAFT-ing Architectural Design Decisions using LLMs]]
+:WHAT: Domain-specific Retrieval Augmented Few-shot Tuning — офлайн fine-tuning на retrieval-augmented промптах из исторических ADR и онлайн-генерация решений/ADR.
+:IMPACT: Снижает зависимость от проприетарных моделей и учитывает приватность/стоимость; человеческая оценка не даёт однозначного предпочтения — важно для внедрения в организациях.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2503.11006][Fine-Grained Instruction-Guided Graph Reasoning for Vision-and-Language Navigation]]
+:ALGO: Объектный граф взаимодействия с геометрическими эмбеддингами направленных рёбер, модуль адаптивного open-vocabulary разбора контекста и мультиязычный адаптер в общее навигационно-семантическое пространство.
+:IMPACT: 67 SPL на R2R и 64.8 sDTW на RxR; структурированное графовое рассуждение заметно улучшает следование инструкциям в embodied-агентах.
+- [[https://arxiv.org/abs/2409.09045][United in Diversity? Contextual Biases in LLM-Based Predictions of the 2024 European Parliament Elections]]
+:ALGO: Прогнозирование голосов 26 000 избирателей тремя LLM с последующим сравнением с реальными результатами для выявления контекстно-зависимых биасов.
+:IMPACT: Показывает неравномерность точности по национальным и языковым контекстам и ограниченную применимость «silicon samples» в вычислительных соцнауках.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2502.10197][MathConstruct: Challenging LLM Reasoning with Constructive Proofs]] — бенчмарк из 121 задачи на конструктивные доказательства с автоматической проверкой и вариациями для робастности.
+- [[https://arxiv.org/abs/2505.23281][MathArena: Evaluating LLMs on Uncontaminated Math Competitions]] — оценка «в реальном времени» на свежих задачах соревнований; выявлены признаки контаминации AIME 2024.
+- [[https://arxiv.org/abs/2504.08604][Neural Fidelity Calibration for Informative Sim-to-Real Adaptation]] — онлайн-калибровка физических коэффициентов симулятора через score-based diffusion для переноса locomotion-политик.
+- [[https://arxiv.org/abs/2505.12707][PLAICraft: Large-Scale Time-Aligned Vision-Speech-Action Dataset for Embodied AI]] — 5525 часов мультимодального Minecraft-геймплея с миллисекундной выравненностью пяти модальностей.
+- [[https://arxiv.org/abs/2506.00058][Prompt Engineer: Analyzing Hard and Soft Skill Requirements in the AI Job Market]] — анализ 20 662 вакансий LinkedIn: отдельные prompt-engineer позиции редки (<0.5%), но навык востребован межпрофессионально.
+
+* Social Physics & Networks (physics.soc-ph)
+** 🧐 Обзор
+Свежий поток охватывает три полюса: физика распределённых/финансовых систем (одновременность и цена discovery, устойчивость энергосетей), количественные модели соревновательных процессов (теннис, иерархии) и сетевые методы для темпоральных гиперграфов и поиска источников диффузии. Заметно и прикладное: квантовый риск для PoS-блокчейнов и поведенческие модели в эпидемиологии. Практически наиболее значимы результаты о том, что latency-гонка в рынках капитала — это выбор соглашения о порядке, а не измерение.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2602.22350][Engineered Simultaneity: The Physical Impossibility of Consolidated Price Discovery Across Spacelike-Separated Exchanges]]
+:WHAT: Показывает, что NBBO — пример «инженерной одновременности»: сравнение событий на пространственно разделённых биржах зависит от системы отсчёта, что связывается с теоремой Ламорта о распределённом порядке; предлагает публиковать NBBO как границу худшей ошибки.
+:IMPACT: Формальный аргумент против иллюзии объективного консолидированного ценообразования; ~$5 млрд/год гонок latency и предложение SEC 2026 отменить order protection rule.
+- [[https://arxiv.org/abs/2611.33413][How Many Keys Must a Quantum Computer Break to Take Over a Blockchain? A Quantum Nakamoto Coefficient for Fifteen Proof-of-Stake Networks]]
+:WHAT: «Квантовый коэффициент Накамото» — число ключей для нарушения/захвата гарантии безопасности, измеренный на живых данных 15 PoS-сетей, с формулами для эффекта консолидации депозитов.
+:IMPACT: Для 14 из 15 сетей достаточно 2-18 ключей (7-77 для полного контроля); Ethereum ослаблен в 60 раз с 2025 года — прямой призыв к миграции на post-quantum подписи.
+- [[https://arxiv.org/abs/2611.33386][Electrical grid stabilisation through agent strategies: a mean-field game approach]]
+:WHAT: Mean-field игра Курамото с агентами, минимизирующими финансовые и личные издержки потребления; модель точно решается в стационарном режиме.
+:IMPACT: Игра существенно расширяет синхронизированный режим сети — дешёвый механизм децентрализованной стабилизации энергосетей.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2611.34647][The Hawkes Hypergraph Copy Model: A Semi-mechanistic Generative Model for Temporal Hypergraphs]]
+:ALGO: Гибрид Hawkes-процесса для меток времени гиперрёбер и шумного механизма копирования для состава узлов; гиперребро экзогенно (baseline rate) или эндогенно (копия предыдущего).
+:IMPACT: Даёт атрибуцию вклада предыдущих гиперрёбер в текущее — применимо к email-сетям и сетям международных конфликтов.
+- [[https://arxiv.org/abs/2611.34652][Source Detection in Complex Networks: Observability, Identifiability, and Inference Frameworks]]
+:ALGO: Обзор с информационно-центричной и identifiability-aware перспективой, организующий методы по трём режимам наблюдения (полные снапшоты, неполные/шумные, сенсорные) и отделяющий ограничения свидетельств от ограничений оценивания.
+:IMPACT: Систематизирует условия, при которых источник диффузии вообще идентифицируем, и как выбирать метод под доступные наблюдения.
+- [[https://arxiv.org/abs/2611.33566][The Phases of Hierarchy]]
+:ALGO: Динамическая фазовая теория иерархий: усиление ответа как sqrt(N) дестабилизирует согласованное состояние через flip-бифуркацию; иерархические слои подавляют неустойчивость при глубине ~log N, но сигнальная задержка ограничивает окно глубины.
+:IMPACT: Связывает агрегацию с real-space renormalization и с attention/residual-обновлениями в Transformers; предлагает измеримые фазовые границы в конечной выборке.
+- [[https://arxiv.org/abs/2611.03702][Beyond the Federer paradox in tennis]]
+:ALGO: Monte Carlo и точные цепи Маркова показывают, что усиление очков в матчи задаётся числом очков за матч; в (p1, p2)-плоскости («обычные» vs «ключевые» очки) существует узкая область побед с <50% очков.
+:IMPACT: 4.7% матчей ATP 1991-2025 выиграны с меньшим числом очков (на 16% больше, чем предсказывают независимые очки) — количественная модель клатча.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2611.33222][Syringe reuse in HCV transmission among people who inject drugs: behavioral thresholds and optimal control]] — четырёхкомпонентная эпидемимодель с повторным использованием шприцев как поведением; комбинированные поведенческие интервенции эффективнее одиночных.
+- [[https://arxiv.org/abs/2611.34392][Funding Landscape of Early-Career Scientists: A Perspective from the AGU SPA Early Career Leadership Advisory Committee]] — каталог программ финансирования ранней карьеры в гелиофизике и рекомендации по предсказуемости грантов.
+
+* Data Structures & Algorithms (cs.DS)
+** 🧐 Обзор
+Поток работ по структурной сложности и динамическим данным: полные дихотомии по памяти для поиска подграфов в streaming-модели и по параметризованной сложности раскраски/общих подграфов. Отдельно выделяются два результата с высокой практической ценностью — внешняя сортировка целых чисел, побивающая границу сравнения (с верификацией в Lean 4), и доказательство неполиномиальности policy iteration для детерминированных MDP. Ускоряющиеся и приближённые схемы (ALT-matching, trusted advice) продолжают отодвигать классические барьеры.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2610.20079][Undirected Multiple-Unicast Network Coding and Faster External-Memory Integer Sorting]]
+:WHAT: Контрпример к гипотезе multiple-unicast network coding, использованный для сокращения блочных пересылок; детерминированный алгоритм внешней сортировки целых чисел, асимптотически лучше сравнения, формально верифицированный в Lean 4.
+:IMPACT: Отвечает на вопрос Aggarwal-Vitter (1988) — целочисленные операции могут бить I/O-границу сортировки сравнением; значимо для внешней памяти и data-систем.
+- [[https://arxiv.org/abs/2611.29883][Trusted Advice for Scheduling on Unrelated Machines]]
+:WHAT: Иерархия oracles доверенного совета (одно обращение, точная частичная структура оптимального решения); самый слабый oracle даёт sqrt(3)≈1.732 для Min Makespan.
+:IMPACT: Обход барьера 2 (LST 1990): ≈1.686 для Restricted Assignment и ≈1.654 для Graph Balancing; новая парадигма для планировщиков в системах.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2602.08002][Space Complexity Dichotomies for Subgraph Finding Problems in the Streaming Model]]
+:ALGO: Полные дихотомии для Sub(H), IndSub(H), Sub(H→), IndSub(H→): O~(1)-проходный n^{2-Ω(1)}-памятный алгоритм существует iff паттерн бипартитен (для Sub), либо P3/P4/co-P3 (для IndSub); ориентированный случай — well-oriented бипартитные графы или деревья с ≤1 внутренней вершиной.
+:IMPACT: Резкая граница между полиномиальной и почти-квадратичной памятью в streaming-графовых задачах; верхние границы детерминированные, находят копию.
+- [[https://arxiv.org/abs/2607.07439][On the Assadi Liu Tarjan Auction Algorithm for Bipartite Matching: Simplification, Alternative Analysis, and Hard Instance]]
+:ALGO: Доказывает, что механизм «заморозки» не нужен; альтернативный анализ через augmenting paths; первая трудная инстанция (простой путь) с Ω(1/ε²) итераций.
+:IMPACT: Упрощает state-of-the-art multi-pass streaming алгоритм для (1-ε)-matching и вскрывает его худший случай — прямо релевантно графовым системам.
+- [[https://arxiv.org/abs/2611.32677][Testing Expansion without Connectivity via Return Probabilities]]
+:ALGO: Тестер экспандера без структурных обещаний за O~(n^{1/2+β}/ε + √n/ε⁴) запросов через сравнение вероятностей коллизий на двух длинах прогулок; нижняя граница Ω(√(n/log n)) для графов Кэли.
+:IMPACT: Оптимальная зависимость показателя от порога rejection; улучшает тестер Dinur-Goldreich для всех α>2/3.
+- [[https://arxiv.org/abs/2602.10948][Parameterized Complexity of Finding a Maximum Common Vertex Subgraph Without Isolated Vertices]]
+:ALGO: NP-твёрдость и FPT по h; полная дихотомия по vertex cover, max degree, treedepth, pathwidth, treewidth одного/обоих графов.
+:IMPACT: Проясняет параметризованный ландшафт задачи с приложениями в вычислительном социальном выборе.
+- [[https://arxiv.org/abs/2611.12740][Computing EF1 Allocations under Budget Constraints in Polynomial Time]]
+:ALGO: Сильно полиномиальный алгоритм EF1 при разных оценках и бюджетах; проверка EF1 coNP-полна; EFX полиномиален при пропорциональных размерам оценках или ограниченном числе значений.
+:IMPACT: Закрывает вычислительный пробел в справедливом распределении неделимых благ с бюджетами.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2210.03961][Dynamic Tensor Product Regression]] — динамическая древовидная структура для быстрого обновления скетча тензорного произведения A1⊗…⊗Aq при разреженных изменениях.
+- [[https://arxiv.org/abs/2609.09837][On the Parameterized Complexity of Coloring Discovery]] — точные FPT-алгоритмы и W[1]-трудность для трёх моделей модификации раскраски; NP-полнота при 4 цветах на графах диаметра 2.
+- [[https://arxiv.org/abs/2609.40147][Policy Iteration Is Not Polynomial for Deterministic Markov Decision Processes]] — экспоненциальные нижние границы для policy iteration Говарда и сильно полиномиальность Dantzig-варианта: «цена алгоритмической анархии».
+
+* Distributed Computing (cs.DC)
+** 🧐 Обзор
+Доминирует blockchain-инфраструктура: post-quantum авторизация через identity-bound ZK, справедливое упорядочивание транзакций и multi-VM архитектуры с общим состоянием. Параллельно зреют «традиционные» распределённые темы — защищённое совместное обучение в TEE и декомпозиция больших моделей на несколько GPU. Отчётливо видна тенденция разделения «горячего пути» (дешёвые attestation/HMAC) и асинхронной генерации дорогих доказательств.
+
+** 🛠 Практика и Системы
+- [[https://arxiv.org/abs/2412.08534][Protecting Confidentiality, Privacy and Integrity in Collaborative Learning]]
+:WHAT: Citadel++ — VM-уровневые TEE как runtime, privacy barrier на основе улучшенного DP, VMPL-песочница для потоков данных и проверка целостности барьера.
+:IMPACT: Первая система, одновременно защищающая конфиденциальность датасетов/моделей/кода и приватность пользователей; умеренные накладные расходы.
+- [[https://arxiv.org/abs/2509.09868][Equal Opportunity: A Correctness Condition for Ordered Consensus]]
+:WHAT: Расширение ordered consensus условием равенства возможностей и абстракция Secret Random Oracle (SRO) на TEE и threshold VRF; протокол Pompé-SRO.
+:IMPACT: Сдерживает front-running и sandwich-атаки ценой умеренной задержки — закрывает пробел между формальными условиями порядка и реальными ordering-атаками.
+- [[https://arxiv.org/abs/2603.07974][ZK-ACE: Identity-Centric Zero-Knowledge Authorization for Post-Quantum Blockchain Systems]]
+:WHAT: Замена on-chain signature objects на identity-bound ZK statements; бэкенды Circle STARK (14.5 мс prove, ~107 КБ) и Groth16/BN254 (37.3 мс prove, 128 байт).
+:IMPACT: На порядок меньше данных авторизации на транзакцию; 500-2300x компактнее in-circuit PQC-верификации, ~160 байт при обязательной агрегации.
+- [[https://arxiv.org/abs/2603.10242][ACE Runtime - A ZKP-Native Blockchain Runtime with Sub-Second Cryptographic Finality]]
+:WHAT: Разделение идентификации и авторизации: HMAC-attestations в горячем пути, одна агрегированная ZK-гарантия финальности на блок в асинхронной стадии; pipeline Attest-Execute-Prove с двухуровневой финальностью.
+:IMPACT: Константная стоимость верификации на блок, ниже требования к железу валидаторов, лучше bandwidth — путь к sub-second финальности и PQC.
+- [[https://arxiv.org/abs/2603.07982][ACE-GF-based Attestation Relay for PQC - Lightweight Mempool Propagation Without On-Path Proofs]]
+:WHAT: AR-ACE — релеи пересылают объекты с компактными attestations без полных proof of validity; агрегированная гарантия строится только builder/верификатором.
+:IMPACT: На порядок меньше relay-трафика доказательств против proof-carrying propagation; PQC-ready и единая идентичность с on-chain авторизацией.
+- [[https://arxiv.org/abs/2603.23670][n-VM: A Multi-VM Layer-1 Architecture with Shared Identity and Token State]]
+:WHAT: L1 с диспетчером по opcode-префиксу, единым 32-байтным identity commitment и общим token ledger (ERC-20/SPL интерфейсы) над пятью VM; context-based sharding и write-set планировщик.
+:IMPACT: Атомарность cross-VM переводов и изоляция идентичности при проектных 16K-66K TPS на commodity hardware.
+- [[https://arxiv.org/abs/2606.11390][Large-Scale Gaussian Splatting with a Multi-GPU PyTorch Backend]]
+:WHAT: Распределение параметров и операторов по GPU через CUDA unified memory с опциональным NVLink; распределение на уровне операторов, без явной cross-device коммуникации в коде модели.
+:IMPACT: Городские реконструкции с >1 млрд splats на street-level детализации и общий агрегатный асинхронный PyTorch-device для произвольных нагрузок.
+
+** 🕸 Графы и Алгоритмы
+- [[https://arxiv.org/abs/2604.07568][MEV-ACE: Identity-Authenticated Fair Ordering for Proposer-Controlled MEV Mitigation]]
+:ALGO: Зарегистрированные экономические идентичности (ключи из ACE-GF, bonded), authenticated commit/open с порогами квитанций валидаторов и verifiable-delay randomness после фиксации admissible set.
+:IMPACT: Устраняет одностороннее усмотрение продюсера над front-running, sandwich и цензурой при single-slot структуре и совместимости с ML-DSA-44.
+- [[https://arxiv.org/abs/2603.19406][The Bilateral Efficiency of Ethernet: Recalibrating Metcalfe and Boggs After Fifty Years]]
+:ALGO: Формализация «билатеральной эффективности» (доля времени канала, дающего зафиксированные соглашения) и связь с back-to-back каналом Шеннона с Perfect Information Feedback; ретроспектива Aloha→Ethernet→EFTP→TCP→UEC/ESUN/UALink.
+:IMPACT: Новая метрика для intra-rack interconnect (≤1 м) и аргумент, что возврат link-level retry восстанавливает лишь половину end-dally.
+
+** 📄 Остальное
+- [[https://arxiv.org/abs/2603.26970][HFIPay: Privacy-Preserving, Cross-Chain Cryptocurrency Payments to Human-Friendly Identifiers]] — relay-assisted протокол с on-chain только blinded binding и ZK-авторизацией через ZK-ACE для защиты от перечисления по email/телефону.
