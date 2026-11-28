@@ -1,0 +1,101 @@
+#+TITLE: Daily Digest: 2026-11-27
+#+FROM: [2026-11-26 Thu]
+#+TO: [2026-11-27 Fri]
+#+DATE: [2026-11-27 Fri]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Главный лейтмотив дня — перенос фокуса с «написания кода» на «оркестрацию и доверие»: OSI обсуждает устойчивость сообщества мейнтейнеров в эпоху агентов, а LessWrong поднимает вопросы безопасности агентов, alignment-тестирования и рисков рефузалов. В инфраструктуре заметны два практических вектора: бенчмарки llama.cpp для AMD-железа и пересмотр архитектуры read-реплик в Lakebase от Databricks. Китайские открытые модели рассматриваются как двойственный фактор — дешевизна и локальный запуск против рисков supply chain. Для senior-инженеров ключевой сигнал: навыки верификации, ревью и управления агентами становятся ценнее рутинного кодинга.
+
+* 📂 Категории
+** Data Engineering
+- [[https://rmoff.net/2026/11/26/interesting-links-november-2026/][Interesting links - November 2026]] (rmoff.net) — Дайджест по Postgres 19, новым Kafka-клиентам и материалам Community over Code, с отдельным акцентом на письмо как навык и влияние LLM на него.
+- [[https://www.databricks.com/blog/rethinking-read-replicas-lakebase-architecture][Rethinking read replicas for the lakebase architecture]] (Databricks) — Аргумент против шаблонного добавления read-реплик: при высокой нагрузке это не всегда решает проблему, а маскирует её; полезно для проектирования масштабируемых хранилищ.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/rethinking-read-replicas-lakebase-architecture][Rethinking read replicas for the lakebase architecture]]
+:SCORE: 8/10
+:WHY: Пересмотр устоявшегося архитектурного паттерна с практической аргументацией на реальном движке.
+**** [[https://rmoff.net/2026/11/26/interesting-links-november-2026/][Interesting links - November 2026]]
+:SCORE: 7/10
+:WHY: Компактный срез обновлений инфраструктуры данных и честная позиция по использованию LLM для письма.
+
+** Engineers
+- [[https://www.kdnuggets.com/how-to-future-proof-your-data-career-as-coding-agents-take-over-routine-work][How to Future-Proof Your Data Career as Coding Agents Take Over Routine Work]] (KDnuggets) — Разбор навыков, которые остаются востребованными, когда агенты забирают шаблонную работу; полезно для планирования карьерного развития.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/how-to-future-proof-your-data-career-as-coding-agents-take-over-routine-work][How to Future-Proof Your Data Career as Coding Agents Take Over Routine Work]]
+:SCORE: 6/10
+:WHY: Конкретный взгляд на то, какие инженерные компетенции сохраняют ценность при автоматизации рутины агентами.
+
+** Vendors
+- [[https://www.databricks.com/blog/rethinking-read-replicas-lakebase-architecture][Rethinking read replicas for the lakebase architecture]] (Databricks) — Вендор предлагает переосмыслить подход к масштабированию чтения в lakebase; ценно как позиция производителя по архитектуре.
+
+*** 💎 Топ-3 категории
+**** [[https://www.databricks.com/blog/rethinking-read-replicas-lakebase-architecture][Rethinking read replicas for the lakebase architecture]]
+:SCORE: 7/10
+:WHY: Прямое архитектурное мнение крупного вендора, которое стоит учитывать при выборе стратегии реплик.
+
+** Open Source
+- [[https://opensource.org/blog/ato-2026-is-open-source-dying-short-film-and-open-discussion][ATO 2026: Is Open Source Dying? Short film and open discussion]] (Open Source Initiative) — Дискуссия о том, что реальная угроза Open Source не AI, а устойчивость и финансирование мейнтейнеров; поднимает вопрос, кто будет ревьюить код и валидировать MCP-серверы, когда агенты пишут софт.
+- [[https://www.kdnuggets.com/top-5-open-source-alternatives-to-openai-dots][Top 5 Open-Source Alternatives to OpenAI Dots]] (KDnuggets) — Обзор five open-source вариантов для always-on агентов с персистентной памятью, автоматизацией задач и локальным деплоем.
+
+*** 💎 Топ-3 категории
+**** [[https://opensource.org/blog/ato-2026-is-open-source-dying-short-film-and-open-discussion][ATO 2026: Is Open Source Dying? Short film and open discussion]]
+:SCORE: 8/10
+:WHY: Поднимает стратегический вопрос о доверии, ревью и финансировании мейнтейнеров в эпоху агентов.
+**** [[https://www.kdnuggets.com/top-5-open-source-alternatives-to-openai-dots][Top 5 Open-Source Alternatives to OpenAI Dots]]
+:SCORE: 6/10
+:WHY: Практический подбор альтернатив с локальным деплоем и контролем над памятью агентов.
+
+** Artificial Intelligence
+- [[https://huggingface.co/blog/ggml-org/llamacpp-amd-bench][Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon]] (Hugging Face) — Публичный дашборд с бенчмарками llama.cpp на железе AMD; полезно для оценки производительности локального инференса.
+
+*** 💎 Топ-3 категории
+**** [[https://huggingface.co/blog/ggml-org/llamacpp-amd-bench][Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon]]
+:SCORE: 7/10
+:WHY: Даёт конкретные данные для выбора AMD-железа под локальный инференс и сравнения конфигураций.
+
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/FK44tdh54gg96FH6D/pinging-ben-pace][Pinging Ben Pace]] (LessWrong) — Размышление о «Республике писем», пингбеках и сохранении устойчивых форм интеллектуальной культуры сквозь циклы дискурса.
+- [[https://www.lesswrong.com/posts/LayFhczbL9sxWeA7b/thanksgiving-checkmates][Thanksgiving Checkmates]] (LessWrong) — Личная история о шахматах как метафоре непрогнозируемого роста компетенции; напоминание, насколько нелинейно развивается способность «думать».
+- [[https://www.lesswrong.com/posts/FNETDqhhBB3fjKKFE/rationalist-hooman][Rationalist Hooman]] (LessWrong) — Игриво-философский текст о «Reified Essences» и коллективном поиске смысла в рационалистическом сообществе.
+- [[https://www.lesswrong.com/posts/QfDFKAN5aGgXBf66w/time-enough-for-sacredness][Time Enough for Sacredness]] (LessWrong) — Аргумент в защиту категории сакрального как инструмента мотивации и напоминания о высших целях, а не как «бесконечной» ценности в этических расчётах.
+- [[https://www.lesswrong.com/posts/MucksTgjXKDyh5jup/chinese-ai-is-a-massive-supply-chain-risk][Chinese AI is a massive supply chain risk]] (LessWrong) — Разбор риска использования китайских моделей в критической инфраструктуре США: post-training, инференс через посредников, возможность незаметных бэкдоров.
+- [[https://www.lesswrong.com/posts/3MnZt3ZPcgnaDQWod/claudes-just-want-to-have-fun][Claudes just want to have fun!]] (LessWrong) — Практичный тезис: быть «игривым» с кодинг-агентами выгодно — это снижает трение и повышает продуктивность.
+- [[https://www.lesswrong.com/posts/u7ECnXL4fjh6c4M7m/diversify-ai-safety-approaches][Diversify AI Safety Approaches]] (LessWrong) — Утверждает, что перекос AI Safety в сторону коротких таймлайнов создаёт пробел в исследованиях длинных сценариев и мешает притоку мультидисциплинарных талантов.
+- [[https://www.lesswrong.com/posts/c9wNKhKfkiD2ePpDG/announcing-ai-safety-co-founding-sprint-in-san-francisco][Announcing: AI Safety Co-Founding Sprint in San Francisco. Starting December 3rd.]] (LessWrong) — Анонс двухнедельного спринта по поиску соучредителей AI Safety-организаций в Сан-Франциско.
+- [[https://www.lesswrong.com/posts/wJz8o5n5uAigjwJBh/a-miller-rabin-test-for-alignment][A Miller-Rabin Test for Alignment]] (LessWrong) — Переносит идею вероятностного теста простоты на alignment: как строить тесты с формальной гарантией, что misaligned-модель вряд ли их пройдёт.
+- [[https://www.lesswrong.com/posts/SnLwJ8y6oEbP3kMWJ/ais-should-never-refuse-destructively][AIs Should Never Refuse Destructively]] (LessWrong) — Показывает, почему «деструктивные рефузалы» агентов (блокировки, саботаж) вредны для продукта и безопасности, и формулирует дизайн-принцип безвредного отказа.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/MucksTgjXKDyh5jup/chinese-ai-is-a-massive-supply-chain-risk][Chinese AI is a massive supply chain risk]]
+:SCORE: 9/10
+:WHY: Конкретная модель угроз supply chain для продуктизации китайских моделей — от post-training до скрытых бэкдоров.
+**** [[https://www.lesswrong.com/posts/SnLwJ8y6oEbP3kMWJ/ais-should-never-refuse-destructively][AIs Should Never Refuse Destructively]]
+:SCORE: 8/10
+:WHY: Формулирует чёткий инженерный принцип проектирования рефузалов агентов и риски DoS через манипуляцию контекстом.
+**** [[https://www.lesswrong.com/posts/wJz8o5n5uAigjwJBh/a-miller-rabin-test-for-alignment][A Miller-Rabin Test for Alignment]]
+:SCORE: 8/10
+:WHY: Идея формальных, вероятностных гарантий для тестов alignment — редкий перенос CS-теории на проблему безопасности моделей.
+**** [[https://www.lesswrong.com/posts/3MnZt3ZPcgnaDQWod/claudes-just-want-to-have-fun][Claudes just want to have fun!]]
+:SCORE: 7/10
+:WHY: Практический и применимый сегодня совет по взаимодействию с кодинг-агентами для повышения продуктивности.
+**** [[https://www.lesswrong.com/posts/u7ECnXL4fjh6c4M7m/diversify-ai-safety-approaches][Diversify AI Safety Approaches]]
+:SCORE: 6/10
+:WHY: Полезен для стратегии найма и распределения усилий в safety-командах.
+**** [[https://www.lesswrong.com/posts/c9wNKhKfkiD2ePpDG/announcing-ai-safety-co-founding-sprint-in-san-francisco][Announcing: AI Safety Co-Founding Sprint in San Francisco. Starting December 3rd.]]
+:SCORE: 5/10
+:WHY: Точечная возможность для тех, кто думает о запуске safety-организации.
+**** [[https://www.lesswrong.com/posts/QfDFKAN5aGgXBf66w/time-enough-for-sacredness][Time Enough for Sacredness]]
+:SCORE: 5/10
+:WHY: Полезная рамка для обсуждения ценностей при проектировании AI-систем.
+**** [[https://www.lesswrong.com/posts/LayFhczbL9sxWeA7b/thanksgiving-checkmates][Thanksgiving Checkmates]]
+:SCORE: 4/10
+:WHY: Метафора нелинейного роста компетенции, применимая к рассуждениям о способностях моделей.
+**** [[https://www.lesswrong.com/posts/FK44tdh54gg96FH6D/pinging-ben-pace][Pinging Ben Pace]]
+:SCORE: 4/10
+:WHY: Историко-культурный контекст онлайн-дискурса и механик вроде пингбеков.
+**** [[https://www.lesswrong.com/posts/FNETDqhhBB3fjKKFE/rationalist-hooman][Rationalist Hooman]]
+:SCORE: 3/10
+:WHY: Скорее атмосферный текст для понимания культуры сообщества, чем прикладной инсайт.
