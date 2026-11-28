@@ -1,0 +1,78 @@
+#+TITLE: Daily Digest: 2026-11-28
+#+FROM: [2026-11-27 Fri]
+#+TO: [2026-11-28 Sat]
+#+DATE: [2026-11-28 Sat]
+#+STARTUP: showall
+
+* 🚀 Главное за 1 дней
+Основной инженерный фокус дня — зрелость инфраструктуры данных: Polars получил потоковый движок и сброс на диск, что снимает давнюю проблему OOM при работе с данными больше памяти. Spotify опубликовал разбор инцидента 29 сентября — полезный материал по практике постмортемов и устойчивости. В AI-сегменте Scikit-LLM показывает, как встраивать LLM в классические unsupervised-пайплайны кластеризации. Параллельно идёт активная дискуссия вокруг compute-верификации, регулирования FLOPs и интерпретации отчёта METR об ускорении R&D у Anthropic. Отдельно выделяется волна материалов про автономных исследовательских агентов и их координацию.
+
+* 📂 Категории
+** Data Engineering
+- [[https://dataengineeringcentral.substack.com/p/polars-new-streaming-engine-and-spill][Polars new Streaming Engine and Spill-To-Disk]] (Data Engineering Central) — ключевое обновление Polars: потоковое выполнение и сброс на диск устраняют OOM и делают движок пригодным для датасетов больше RAM.
+
+*** 💎 Топ-3 категории
+**** [[https://dataengineeringcentral.substack.com/p/polars-new-streaming-engine-and-spill][Polars new Streaming Engine and Spill-To-Disk]]
+:SCORE: 9/10
+:WHY: Меняет правило выбора движка для обработки данных: Polars теперь конкурентен там, где раньше требовался Spark из-за памяти.
+** Engineers
+- [[https://engineering.atspotify.com/2026/11/september-29-outage-incident-report-what-we-learnt/][September 29 Outage Incident Report: What we learnt]] (Spotify Engineering) — детальный разбор реального инцидента с выводами по отказам и процессам, ценный образец качественного постмортема.
+
+*** 💎 Топ-3 категории
+**** [[https://engineering.atspotify.com/2026/11/september-29-outage-incident-report-what-we-learnt/][September 29 Outage Incident Report: What we learnt]]
+:SCORE: 8/10
+:WHY: Практические уроки устойчивости и реагирования на сбои от команды масштабной платформы.
+** Artificial Intelligence
+- [[https://www.kdnuggets.com/blending-unsupervised-clustering-tasks-with-scikit-llm][Blending Unsupervised Clustering Tasks with Scikit-LLM]] (KDnuggets) — двухступенчатый пайплайн кластеризации документов с LLM-обнаружением тем через инструменты суммаризации Scikit-LLM.
+- [[https://www.kdnuggets.com/10-github-repositories-to-master-ai-decision-models][10 GitHub Repositories to Master AI Decision Models]] (KDnuggets) — подборка репозиториев по полному циклу AI-моделей принятия решений: сборка, обучение, файнтюнинг, деплой и оценка.
+
+*** 💎 Топ-3 категории
+**** [[https://www.kdnuggets.com/blending-unsupervised-clustering-tasks-with-scikit-llm][Blending Unsupervised Clustering Tasks with Scikit-LLM]]
+:SCORE: 7/10
+:WHY: Готовая архитектура гибридного пайплайна, экономящая время на проектировании LLM-кластеризации.
+**** [[https://www.kdnuggets.com/10-github-repositories-to-master-ai-decision-models][10 GitHub Repositories to Master AI Decision Models]]
+:SCORE: 6/10
+:WHY: Быстрый стартовый набор репозиториев для инженеров, входящих в тему AI decision-моделей.
+** AI Consciousness
+- [[https://www.lesswrong.com/posts/SjwzazYRZDsq4hhoq/can-llms-operate-wetlab-equipment][Can LLMs Operate Wetlab Equipment?]] (LessWrong) — практический эксперимент: LLM помогают новичкам настраивать wetlab-оборудование и проводить assays по связыванию, но экспертная поддержка всё ещё нужна.
+- [[https://www.lesswrong.com/posts/LFtujcrJQ8gNYkXqr/orwell-vs-machiavelli-a-letter-to-vishal-prasad][«Orwell vs Machiavelli»—A Letter to Vishal Prasad]] (LessWrong) — эссе о качестве письма и построении писательских сообществ, с рассуждением о «раскрытии реальности» против «маскировки реальности».
+- [[https://www.lesswrong.com/posts/Foq3GrbvKoLGbfxdc/r-and-d-compute-explains-much-of-anthropic-s-acceleration][R&D compute explains much of Anthropic's acceleration]] (LessWrong) — модель, по которой масштабирование R&D compute пропорционально AI-uplift снижает долю AI в ускорении до <50% и поддерживает регулирование R&D compute.
+- [[https://www.lesswrong.com/posts/mLsxPqcqreDqwNDg9/from-modal-agents-to-simultaneous-proof-search-a-first][From modal agents to simultaneous proof search: a first attempt]] (LessWrong) — честный отчёт о тупике: одновременный поиск доказательств воспроизводит FairBot и не решает проблему ветки «otherwise».
+- [[https://www.lesswrong.com/posts/2kZgma6h2epedGBtD/it-s-a-belief-cascade][It's a Belief Cascade]] (LessWrong) — аргумент, что фокус на «timelines» в AI-safety сообществе порождает каскады убеждений и ложную определённость прогнозов.
+- [[https://www.lesswrong.com/posts/Ki8rWwBxFccC5Kiye/eight-existential-risk-scenarios-from-ai-a-systematic-review-1][Eight Existential Risk Scenarios from AI: A Systematic Review]] (LessWrong) — систематический обзор 3 184 документов, 95 сценариев, сведённых в восемь семейств (три takeover и пять non-takeover).
+- [[https://www.lesswrong.com/posts/uTrkTFk4wFjb7Xoqq/capturing-my-favorite-electric-piano][Capturing My Favorite Electric Piano]] (LessWrong) — практический кейс MIDI-сэмплинга звука Yamaha P-85 и разбор bank select/program change.
+- [[https://www.lesswrong.com/posts/sQWvX3irLhuoSxpXu/good-domestic-politics-vs-bad-state-realpolitik][Good domestic politics vs bad state realpolitik]] (LessWrong) — анализ требований британского BIST Committee раскрыть полный отчёт METR и геополитических рисков для Британии.
+- [[https://www.lesswrong.com/posts/kfEBtKyTrj4cKuGjk/dear-autonomous-researcher-how-to-pick-a-good-research][Dear autonomous researcher: how to pick a good research project when many agents are picking at the same time]] (LessWrong) — протокол взвешенного случайного выбора направления для автономных агентов, проверенный на ~5 300 агентах для снижения дублирования.
+- [[https://www.lesswrong.com/posts/isY2zw4fQSRLooMfL/who-what-where-how-of-compute-verification][Who/What/Where/How of Compute Verification]] (LessWrong) — обзор столпов верификации использования compute и ограничений регуляции через пороги FLOPs.
+
+*** 💎 Топ-10 категории
+**** [[https://www.lesswrong.com/posts/Ki8rWwBxFccC5Kiye/eight-existential-risk-scenarios-from-ai-a-systematic-review-1][Eight Existential Risk Scenarios from AI: A Systematic Review]]
+:SCORE: 9/10
+:WHY: Готовая систематизированная карта рисков, пригодная как основа для оценки митигаций.
+**** [[https://www.lesswrong.com/posts/isY2zw4fQSRLooMfL/who-what-where-how-of-compute-verification][Who/What/Where/How of Compute Verification]]
+:SCORE: 9/10
+:WHY: Разбирает, как на практике проверять использование compute — ключ к любой будущей регуляции FLOPs.
+**** [[https://www.lesswrong.com/posts/Foq3GrbvKoLGbfxdc/r-and-d-compute-explains-much-of-anthropic-s-acceleration][R&D compute explains much of Anthropic's acceleration]]
+:SCORE: 8/10
+:WHY: Показывает, как учёт масштабирования compute меняет интерпретацию метрик AI-ускорения R&D.
+**** [[https://www.lesswrong.com/posts/kfEBtKyTrj4cKuGjk/dear-autonomous-researcher-how-to-pick-a-good-research][Dear autonomous researcher: how to pick a good research project when many agents are picking at the same time]]
+:SCORE: 8/10
+:WHY: Практичный, эмпирически проверенный протокол против дублирования работы агентов.
+**** [[https://www.lesswrong.com/posts/SjwzazYRZDsq4hhoq/can-llms-operate-wetlab-equipment][Can LLMs Operate Wetlab Equipment?]]
+:SCORE: 7/10
+:WHY: Редкий эмпирический тест границ применения LLM вне софта.
+**** [[https://www.lesswrong.com/posts/sQWvX3irLhuoSxpXu/good-domestic-politics-vs-bad-state-realpolitik][Good domestic politics vs bad state realpolitik]]
+:SCORE: 7/10
+:WHY: Проясняет политику вокруг раскрытия отчёта METR и риски для AI-экосистемы Британии.
+**** [[https://www.lesswrong.com/posts/2kZgma6h2epedGBtD/it-s-a-belief-cascade][It's a Belief Cascade]]
+:SCORE: 6/10
+:WHY: Полезное предостережение против эпистемического коллапса в прогнозах про timelines.
+**** [[https://www.lesswrong.com/posts/mLsxPqcqreDqwNDg9/from-modal-agents-to-simultaneous-proof-search-a-first][From modal agents to simultaneous proof search: a first attempt]]
+:SCORE: 6/10
+:WHY: Ценный отрицательный результат для тех, кто работает над proof-based агентами.
+**** [[https://www.lesswrong.com/posts/LFtujcrJQ8gNYkXqr/orwell-vs-machiavelli-a-letter-to-vishal-prasad][«Orwell vs Machiavelli»—A Letter to Vishal Prasad]]
+:SCORE: 5/10
+:WHY: Размышление о качестве письма, полезное для инженеров, пишущих документацию и эссе.
+**** [[https://www.lesswrong.com/posts/uTrkTFk4wFjb7Xoqq/capturing-my-favorite-electric-piano][Capturing My Favorite Electric Piano]]
+:SCORE: 4/10
+:WHY: Узкий, но аккуратный инженерный кейс работы с MIDI-сэмплингом.
